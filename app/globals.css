@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: var(--font-body), 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* Ensure proper text rendering on mobile */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Improve touch target sizes */
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}

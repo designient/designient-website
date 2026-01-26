@@ -1,0 +1,101 @@
+'use client'
+
+import React from 'react';
+import { StructuredData } from '../StructuredData';
+import { useCurrency } from '../../contexts/CurrencyContext';
+import { getCoursePrice } from '../../data/coursePricing';
+import type { CoursePricingData } from '../../data/coursePricing';
+
+interface CourseStructuredDataProps {
+  courseSlug: keyof CoursePricingData;
+  courseName: string;
+  description: string;
+  courseCode: string;
+  educationalLevel: string;
+  timeRequired: string;
+  coursePrerequisites: string;
+  teaches: string[];
+  ratingValue: string;
+  reviewCount: string;
+  duration: string;
+  totalTime: string;
+  url: string;
+}
+
+export function CourseStructuredData({
+  courseSlug,
+  courseName,
+  description,
+  courseCode,
+  educationalLevel,
+  timeRequired,
+  coursePrerequisites,
+  teaches,
+  ratingValue,
+  reviewCount,
+  duration,
+  totalTime,
+  url
+}: CourseStructuredDataProps) {
+  const { currency, isLoading } = useCurrency();
+  
+  // Get pricing for both currencies for SEO
+  const inrPricing = getCoursePrice(courseSlug, 'INR');
+  const usdPricing = getCoursePrice(courseSlug, 'USD');
+  
+  // Extract numeric values for structured data
+  const extractPrice = (priceStr: string): string => {
+    return priceStr.replace(/[₹$,]/g, '').trim();
+  };
+
+  const courseSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Course',
+    name: courseName,
+    description: description,
+    provider: {
+      '@type': 'EducationalOrganization',
+      name: 'Designient Technologies Private Limited',
+      url: 'https://designient.com'
+    },
+    courseCode: courseCode,
+    educationalLevel: educationalLevel,
+    timeRequired: timeRequired,
+    coursePrerequisites: coursePrerequisites,
+    teaches: teaches,
+    // Include offers for both currencies for SEO
+    offers: [
+      {
+        '@type': 'Offer',
+        price: extractPrice(inrPricing.price),
+        priceCurrency: 'INR',
+        availability: 'https://schema.org/InStock',
+        url: url,
+        validFrom: '2026-01-01'
+      },
+      {
+        '@type': 'Offer',
+        price: extractPrice(usdPricing.price),
+        priceCurrency: 'USD',
+        availability: 'https://schema.org/InStock',
+        url: url,
+        validFrom: '2026-01-01'
+      }
+    ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: ratingValue,
+      reviewCount: reviewCount,
+      bestRating: '5',
+      worstRating: '1'
+    },
+    duration: duration,
+    totalTime: totalTime
+  };
+
+  if (isLoading) {
+    return null; // Don't render until currency is loaded
+  }
+
+  return <StructuredData data={courseSchema} />;
+}
