@@ -6,7 +6,7 @@ import { CheckCircle, ArrowRight } from 'react-feather';
 const curriculumItems = [
 'UI/UX Fundamentals & Research',
 'Design Thinking with AI Integration',
-'Figma, Adobe XD, Advanced Tools',
+'Figma, Adobe Illustrator, Advanced Tools',
 'Real-World Portfolio Projects',
 'Career Prep & Placement Support'];
 
@@ -38,7 +38,7 @@ export function WhatYouLearnSection() {
         01
       </motion.div>
 
-      <div className="max-w-container mx-auto px-3 md:px-4 relative z-10">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         {/* First block - Asymmetric layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-32">
           <motion.div

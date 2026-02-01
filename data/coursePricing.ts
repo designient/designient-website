@@ -38,17 +38,17 @@ export interface CoursePricingData {
 export const coursePricing: CoursePricingData = {
   'ui-ux-design-bootcamp': {
     inr: {
-      price: '₹45,000',
+      price: '₹34,999',
       originalPrice: '₹60,000'
     },
     usd: {
-      price: '$599',
+      price: '$466',
       originalPrice: '$799'
     }
   },
   'ui-ux-design-pro': {
     inr: {
-      price: '₹75,000',
+      price: '₹74,999',
       originalPrice: '₹95,000'
     },
     usd: {
@@ -58,7 +58,7 @@ export const coursePricing: CoursePricingData = {
   },
   'ui-ux-design-master': {
     inr: {
-      price: '₹1,25,000',
+      price: '₹1,24,999',
       originalPrice: '₹1,50,000'
     },
     usd: {
@@ -68,11 +68,11 @@ export const coursePricing: CoursePricingData = {
   },
   'prompt-engineering-mastery': {
     inr: {
-      price: '₹35,000',
+      price: '₹29,999',
       originalPrice: '₹45,000'
     },
     usd: {
-      price: '$499',
+      price: '$428',
       originalPrice: '$649'
     }
   }

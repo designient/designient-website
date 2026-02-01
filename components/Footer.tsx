@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, Send } from 'react-feather';
+import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, Send, Youtube } from 'react-feather';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
@@ -10,38 +10,89 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleNewsletterSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // TODO: Implement newsletter subscription
-    console.log('Newsletter subscription:', email);
-    setTimeout(() => {
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      let data;
+      const responseText = await response.text();
+      
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+      } catch (jsonError) {
+        console.error('Failed to parse response as JSON:', {
+          error: jsonError,
+          status: response.status,
+          statusText: response.statusText,
+          responseText: responseText
+        });
+        setSubmitStatus('error');
+        setErrorMessage('Something went wrong. Please try again.');
+        return;
+      }
+
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setEmail('');
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        console.error('API error response:', {
+          status: response.status,
+          statusText: response.statusText,
+          data: data,
+          responseText: responseText
+        });
+        setSubmitStatus('error');
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error subscribing to newsletter:', error);
+      setSubmitStatus('error');
+      setErrorMessage('Something went wrong. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setEmail('');
-      alert('Thank you for subscribing!');
-    }, 1000);
+    }
   };
 
   const courses = [
     { name: 'UI/UX Design Bootcamp', path: '/ui-ux-design-bootcamp' },
     { name: 'UI/UX Design Pro', path: '/ui-ux-design-pro' },
     { name: 'UI/UX Design Master', path: '/ui-ux-design-master' },
-    { name: 'Prompt Engineering Mastery', path: '/prompt-engineering-mastery' }
+    { name: 'Prompt Engineering Mastery', path: '/prompt-engineering-mastery' },
+    { name: 'UI/UX Course in Bangalore', path: '/ui-ux-design-course-in-bangalore' },
+    { name: 'UI/UX Course in Hyderabad', path: '/ui-ux-design-course-in-hyderabad' },
+    { name: 'UI/UX Course in Pune', path: '/ui-ux-design-course-in-pune' }
   ];
 
   const whyDesignientLinks = [
-    { name: 'About Us', path: '/about' },
+    { name: 'About Us', path: '/about-us' },
     { name: 'Placements', path: '/placements' },
-    { name: 'We Are Hiring', path: '/careers' },
-    { name: 'Success Stories', path: '/success-stories' }
+    { name: 'Success Stories', path: '/success-stories' },
+    { name: 'We Are Hiring', path: '/careers' }
   ];
 
   const forCorporatesLinks = [
-    { name: 'Training Programs', path: '/corporate/training' },
-    { name: 'AI Enablement + Workshops', path: '/corporate/ai-enablement' },
-    { name: 'Hiring + Consulting', path: '/corporate/hiring' },
-    { name: 'Case Studies + CTA', path: '/corporate/case-studies' }
+    { name: 'Training Programs', path: '/corporates/training-programs' },
+    { name: 'AI Enablement + Workshops', path: '/corporates/ai-enablement-workshops' },
+    { name: 'Hiring + Consulting', path: '/corporates/hiring-consulting' },
+    { name: 'Case Studies + CTA', path: '/corporates/case-studies' }
   ];
 
   const portalsLinks = [
@@ -70,30 +121,38 @@ export function Footer() {
 
   const legalLinks = [
     { name: 'Privacy Policy', path: '/privacy-policy' },
-    { name: 'Terms of Service', path: '/terms-of-service' },
-    { name: 'Refund Policy', path: '/refund-policy' }
+    { name: 'Terms and Conditions', path: '/terms-and-conditions' },
+    { name: 'Cancellation & Refund Policy', path: '/cancellation-refund-policy' },
+    { name: 'Disclaimer', path: '/disclaimer' },
+    { name: 'Code of Conduct', path: '/code-of-conduct' },
+    { name: 'Accessibility Statement', path: '/accessibility' }
   ];
 
   const socialLinks = [
     {
-      icon: Facebook,
-      href: 'https://www.facebook.com/designient',
-      label: 'Follow us on Facebook'
-    },
-    {
       icon: Instagram,
-      href: 'https://www.instagram.com/designient',
+      href: 'https://www.instagram.com/designientschool/',
       label: 'Follow us on Instagram'
     },
     {
-      icon: Twitter,
-      href: 'https://www.twitter.com/designient',
-      label: 'Follow us on Twitter'
+      icon: Facebook,
+      href: 'https://www.facebook.com/designientschool',
+      label: 'Follow us on Facebook'
     },
     {
       icon: Linkedin,
-      href: 'https://www.linkedin.com/company/designient',
+      href: 'https://in.linkedin.com/company/designient-school',
       label: 'Follow us on LinkedIn'
+    },
+    {
+      icon: Twitter,
+      href: 'https://x.com/designient',
+      label: 'Follow us on X (Twitter)'
+    },
+    {
+      icon: Youtube,
+      href: 'https://www.youtube.com/@designientschool',
+      label: 'Subscribe to our YouTube channel'
     }
   ];
 
@@ -107,7 +166,7 @@ export function Footer() {
       itemScope
       itemType="https://schema.org/EducationalOrganization">
       
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         {/* Newsletter Section */}
         <div className="mb-12 pb-12 border-b" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
           <div className="max-w-2xl mx-auto text-center">
@@ -128,40 +187,72 @@ export function Footer() {
               }}>
               Get the latest updates on courses, career tips, and industry insights delivered to your inbox.
             </p>
-            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                className="flex-1 px-4 py-3 rounded-lg font-body font-normal min-h-[44px]"
-                style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  color: 'white',
-                  outline: 'none',
-                  fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
-                }}
-              />
-              <motion.button
-                type="submit"
-                disabled={isSubmitting}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 whitespace-nowrap min-h-[44px]"
-                style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white',
-                  fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
-                }}>
-                {isSubmitting ? 'Subscribing...' : (
-                  <>
-                    Subscribe
-                    <Send className="w-4 h-4" />
-                  </>
-                )}
-              </motion.button>
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col gap-3 max-w-md mx-auto">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    if (submitStatus === 'error') {
+                      setSubmitStatus('idle');
+                      setErrorMessage('');
+                    }
+                  }}
+                  placeholder="Enter your email"
+                  required
+                  disabled={isSubmitting}
+                  className="flex-1 px-4 py-3 rounded-lg font-body font-normal min-h-[44px]"
+                  style={{
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    color: 'white',
+                    outline: 'none',
+                    fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
+                    opacity: isSubmitting ? 0.6 : 1
+                  }}
+                />
+                <motion.button
+                  type="submit"
+                  disabled={isSubmitting}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
+                  className="px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 whitespace-nowrap min-h-[44px]"
+                  style={{
+                    backgroundColor: '#8458B3',
+                    color: 'white',
+                    fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
+                    opacity: isSubmitting ? 0.7 : 1,
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                  }}>
+                  {isSubmitting ? 'Subscribing...' : (
+                    <>
+                      Subscribe
+                      <Send className="w-4 h-4" />
+                    </>
+                  )}
+                </motion.button>
+              </div>
+              {submitStatus === 'success' && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center text-sm font-body"
+                  style={{ color: '#10b981' }}
+                >
+                  ✓ Thank you for subscribing! Check your email for confirmation.
+                </motion.p>
+              )}
+              {submitStatus === 'error' && errorMessage && (
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-center text-sm font-body"
+                  style={{ color: '#ef4444' }}
+                >
+                  {errorMessage}
+                </motion.p>
+              )}
             </form>
           </div>
         </div>
@@ -173,7 +264,7 @@ export function Footer() {
             <Link href="/" className="inline-block mb-4">
               <Image
                 src="/designient-logo.svg"
-                alt="Designient - UI/UX Design Training Institute"
+                alt="Designient School of Masterminds UI UX design training institute logo"
                 width={180}
                 height={60}
                 className="h-12 md:h-14 w-auto"
@@ -411,7 +502,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/contact-us"
                   className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
                   style={{
                     color: 'rgba(255, 255, 255, 0.7)'
@@ -473,36 +564,34 @@ export function Footer() {
           style={{
             borderColor: 'rgba(255, 255, 255, 0.1)'
           }}>
-          <div className="flex flex-col md:flex-row items-center gap-3 md:gap-6">
-            <p
-              className="font-body text-xs font-normal text-center md:text-left"
-              style={{
-                color: 'rgba(255, 255, 255, 0.5)'
-              }}>
-              © 2026 Designient Technologies Private Limited. All rights reserved.
-            </p>
-            <nav aria-label="Legal" className="flex flex-wrap items-center gap-3 justify-center md:justify-start">
-              {legalLinks.map((link) => (
-                <Link
-                  key={link.path}
-                  href={link.path}
-                  className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
-                  style={{
-                    color: 'rgba(255, 255, 255, 0.5)'
-                  }}>
-                  {link.name}
-                </Link>
-              ))}
+          <p
+            className="font-body text-xs font-normal text-center md:text-left"
+            style={{
+              color: 'rgba(255, 255, 255, 0.5)'
+            }}>
+            © 2026 Designient Technologies Private Limited. All rights reserved.
+          </p>
+          <nav aria-label="Legal" className="flex flex-wrap items-center gap-3 justify-center md:justify-end">
+            {legalLinks.map((link) => (
               <Link
-                href="/sitemap.xml"
+                key={link.path}
+                href={link.path}
                 className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
                 style={{
                   color: 'rgba(255, 255, 255, 0.5)'
                 }}>
-                Sitemap
+                {link.name}
               </Link>
-            </nav>
-          </div>
+            ))}
+            <Link
+              href="/sitemap.xml"
+              className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+              style={{
+                color: 'rgba(255, 255, 255, 0.5)'
+              }}>
+              Sitemap
+            </Link>
+          </nav>
         </div>
       </div>
     </footer>

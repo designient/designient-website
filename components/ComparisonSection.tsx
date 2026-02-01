@@ -56,7 +56,7 @@ const comparisons = [
 export function ComparisonSection() {
   return (
     <section id="comparison" className="py-24 md:py-32" style={{ backgroundColor: '#ffffff' }}>
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
@@ -119,11 +119,11 @@ export function ComparisonSection() {
                     <div className="flex items-center justify-center">
                       <img
                         src="/designient-logo.svg"
-                        alt="Designient Logo"
+                        alt="Designient School of Masterminds UI UX design training logo"
                         className="h-8 sm:h-10 md:h-12 w-auto object-contain"
                         style={{ filter: 'brightness(0) invert(1)' }}
-                        width="140"
-                        height="48"
+                        width="160"
+                        height="56"
                       />
                     </div>
                   </th>

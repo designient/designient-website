@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Clock, Users } from 'react-feather';
+import { ArrowRight, Clock, Users, Calendar } from 'react-feather';
 import Link from 'next/link';
 import { StructuredData } from './StructuredData';
+import { proCourseBatchSchedule } from '../data/batchSchedule';
 
 const courses = [
 {
@@ -20,12 +21,12 @@ const courses = [
   },
   batchDates: {
     offline: {
-      bengaluru: 'Feb 15, 2026',
-      hyderabad: 'Feb 20, 2026',
-      pune: 'Feb 25, 2026'
+      bengaluru: 'Mar 7, 2026',
+      hyderabad: null,
+      pune: null
     },
     online: {
-      global: 'Feb 10, 2026'
+      global: 'Mar 7, 2026'
     }
   },
   path: '/ui-ux-design-pro'
@@ -41,16 +42,8 @@ const courses = [
     students: '100+',
     placement: '85%'
   },
-  batchDates: {
-    offline: {
-      bengaluru: 'Mar 1, 2026',
-      hyderabad: 'Mar 5, 2026',
-      pune: 'Mar 10, 2026'
-    },
-    online: {
-      global: 'Feb 28, 2026'
-    }
-  },
+  batchDates: null,
+  batchFull: true,
   path: '/ui-ux-design-bootcamp'
 },
 {
@@ -64,16 +57,8 @@ const courses = [
     students: '150+',
     placement: '92%'
   },
-  batchDates: {
-    offline: {
-      bengaluru: 'Apr 1, 2026',
-      hyderabad: 'Apr 5, 2026',
-      pune: 'Apr 10, 2026'
-    },
-    online: {
-      global: 'Mar 25, 2026'
-    }
-  },
+  batchDates: null,
+  batchFull: true,
   comingSoon: false,
   path: '/ui-ux-design-master'
 },
@@ -89,13 +74,14 @@ const courses = [
     placement: '88%'
   },
   batchDates: {
-    offline: {
-      bengaluru: 'Mar 15, 2026',
-      hyderabad: 'Mar 20, 2026',
-      pune: 'Mar 25, 2026'
-    },
+    offline: null,
     online: {
-      global: 'Mar 12, 2026'
+      global: 'Mar 12, 2026',
+      schedule: {
+        days: 'Monday - Friday',
+        time: '8:00 PM - 10:00 PM',
+        type: 'Evening'
+      }
     }
   },
   comingSoon: false,
@@ -155,7 +141,7 @@ export function CoursesSection() {
       }}>
       <StructuredData data={courseSchemas} />
 
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
@@ -211,7 +197,7 @@ export function CoursesSection() {
                   opacity: course.comingSoon ? 0.6 : 1
                 }}>
 
-              <div className="relative p-6 sm:p-8 h-full flex flex-col rounded-2xl transition-all duration-300 hover:shadow-xl" style={{ backgroundColor: hoveredIndex === index ? '#f2d53c' : '#fceed1', border: '2px solid transparent' }}>
+              <div className="relative p-6 sm:p-8 h-full flex flex-col rounded-2xl transition-all duration-300 hover:shadow-xl" style={{ backgroundColor: '#fceed1', border: hoveredIndex === index ? '2px solid #f2d53c' : '2px solid transparent' }}>
                 <motion.span
                 className="font-body inline-block px-3 py-1.5 rounded-full text-xs font-bold mb-4 self-start"
                 style={{
@@ -282,26 +268,134 @@ export function CoursesSection() {
                       </div>
                     </div>
                     
-                    {/* Batch Dates - Always Visible, Only Bengaluru and Global Online */}
-                    <div className="space-y-2">
-                      <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
-                        Upcoming Batches
-                      </div>
+                    {/* Batch Dates and Timings - Show detailed info for Pro course */}
+                    {course.path === '/ui-ux-design-pro' ? (
                       <div className="space-y-2">
-                        <div>
-                          <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Bengaluru:</div>
-                          <div className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
-                            {course.batchDates.offline.bengaluru}
-                          </div>
+                        <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                          Upcoming Batches
                         </div>
-                        <div>
-                          <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Online:</div>
-                          <div className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
-                            Global: {course.batchDates.online.global}
+                        <div className="space-y-2">
+                          {/* Bangalore - Weekday Morning */}
+                          {proCourseBatchSchedule.bangalore.weekday?.morning?.available && (
+                            <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
+                              <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                                Bangalore - Weekday Morning
+                              </div>
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
+                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                  {proCourseBatchSchedule.bangalore.weekday.morning.startDate}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
+                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                  {proCourseBatchSchedule.bangalore.weekday.morning.days}, {proCourseBatchSchedule.bangalore.weekday.morning.time}
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                          {/* Bangalore - Weekend Morning */}
+                          {proCourseBatchSchedule.bangalore.weekend?.morning?.available && (
+                            <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
+                              <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                                Bangalore - Weekend Morning
+                              </div>
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
+                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                  {proCourseBatchSchedule.bangalore.weekend.morning.startDate}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
+                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                  {proCourseBatchSchedule.bangalore.weekend.morning.days}, {proCourseBatchSchedule.bangalore.weekend.morning.time}
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                          {/* Online - Same as Weekend Morning */}
+                          {course.batchDates.online?.global && proCourseBatchSchedule.bangalore.weekend?.morning?.available && (
+                            <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
+                              <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                                Online (Global) - Morning
+                              </div>
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
+                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                  {course.batchDates.online.global}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
+                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                  {proCourseBatchSchedule.bangalore.weekend.morning.days}, {proCourseBatchSchedule.bangalore.weekend.morning.time}
+                                </span>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ) : course.batchFull ? (
+                      <div className="space-y-2">
+                        <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#dc2626', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                          Batch Status
+                        </div>
+                        <div className="p-2 rounded" style={{ backgroundColor: 'rgba(220, 38, 38, 0.1)' }}>
+                          <p className="font-body text-xs font-semibold" style={{ color: '#dc2626', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                            Current batch is full
+                          </p>
+                        </div>
+                      </div>
+                    ) : course.path === '/prompt-engineering-mastery' && course.batchDates?.online?.schedule ? (
+                      <div className="space-y-2">
+                        <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                          Upcoming Batches
+                        </div>
+                        <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
+                          <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                            Online - Weekday Evening
+                          </div>
+                          <div className="flex items-center gap-1.5 mb-0.5">
+                            <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
+                            <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                              {course.batchDates.online.global}
+                            </span>
+                          </div>
+                          <div className="flex items-center gap-1.5">
+                            <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
+                            <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                              {course.batchDates.online.schedule.days}, {course.batchDates.online.schedule.time}
+                            </span>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    ) : course.batchDates ? (
+                      <div className="space-y-2">
+                        <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                          Upcoming Batches
+                        </div>
+                        <div className="space-y-2">
+                          {course.batchDates.offline?.bengaluru && (
+                            <div>
+                              <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Bengaluru:</div>
+                              <div className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
+                                {course.batchDates.offline.bengaluru}
+                              </div>
+                            </div>
+                          )}
+                          {course.batchDates.online?.global && (
+                            <div>
+                              <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Online:</div>
+                              <div className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
+                                Global: {course.batchDates.online.global}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                 )}
 

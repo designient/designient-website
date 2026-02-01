@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'react-feather';
+import Link from 'next/link';
 const faqs = [
 {
   question: 'How do I choose between Pro and Bootcamp?',
@@ -44,7 +45,7 @@ export function CoursesFAQ() {
         backgroundColor: '#fceed1'
       }}>
 
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
@@ -165,8 +166,10 @@ export function CoursesFAQ() {
                     style={{
                       color: '#4B5563'
                     }}>
-
                         {faq.answer}
+                        {faq.question.includes("not sure") && (
+                          <> For teams or enterprise training needs, explore our <Link href="/corporates/training-programs" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>corporate training programs</Link>.</>
+                        )}
                       </p>
                     </div>
                   </motion.div>

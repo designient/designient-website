@@ -6,6 +6,8 @@ import { LearningPathVisualization } from '../../components/LearningPathVisualiz
 import { CoursesFAQ } from '../../components/CoursesFAQ'
 import { CoursesCTA } from '../../components/CoursesCTA'
 import { Footer } from '../../components/Footer'
+import { StructuredData } from '../../components/StructuredData'
+import type { Metadata } from 'next'
 
 const proCourse = {
   name: 'UI/UX Design Pro',
@@ -217,14 +219,114 @@ const promptEngineeringCourse = {
   coursePath: '/prompt-engineering-mastery'
 }
 
-export const metadata = {
-  title: 'Courses',
+export const metadata: Metadata = {
+  title: 'Courses - UI/UX Design Training | Designient',
   description: 'Choose from our comprehensive courses: UI/UX Design Bootcamp (30 days), UI/UX Design Pro (3 months), UI/UX Design Master (6 months), or Prompt Engineering Mastery (30 days). All courses include hands-on projects and placement support.',
+  keywords: ['UI/UX design courses', 'design training courses', 'Figma course', 'UX bootcamp', 'design master program', 'prompt engineering course', 'design education'],
+  openGraph: {
+    title: 'Courses - UI/UX Design Training | Designient',
+    description: 'Choose from our comprehensive courses: UI/UX Design Bootcamp, Pro, Master, or Prompt Engineering Mastery. All courses include hands-on projects and placement support.',
+    url: 'https://designient.com/courses',
+    images: [
+      {
+        url: '/og-image.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Designient Courses - UI/UX Design Training',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Courses - UI/UX Design Training | Designient',
+    description: 'Choose from our comprehensive courses: UI/UX Design Bootcamp, Pro, Master, or Prompt Engineering Mastery.',
+    images: ['/og-image.webp'],
+  },
+  alternates: {
+    canonical: 'https://designient.com/courses',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function CoursesPage() {
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://designient.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Courses',
+        item: 'https://designient.com/courses'
+      }
+    ]
+  }
+
+  // CollectionPage schema
+  const collectionSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'UI/UX Design Courses - Designient',
+    description: 'Comprehensive UI/UX design courses including Bootcamp, Pro, Master, and Prompt Engineering programs. All courses include hands-on projects and placement support.',
+    url: 'https://designient.com/courses',
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: 4,
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          item: {
+            '@type': 'Course',
+            name: 'UI/UX Design Bootcamp',
+            url: 'https://designient.com/ui-ux-design-bootcamp'
+          }
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          item: {
+            '@type': 'Course',
+            name: 'UI/UX Design Pro',
+            url: 'https://designient.com/ui-ux-design-pro'
+          }
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          item: {
+            '@type': 'Course',
+            name: 'UI/UX Design Master',
+            url: 'https://designient.com/ui-ux-design-master'
+          }
+        },
+        {
+          '@type': 'ListItem',
+          position: 4,
+          item: {
+            '@type': 'Course',
+            name: 'Prompt Engineering Mastery',
+            url: 'https://designient.com/prompt-engineering-mastery'
+          }
+        }
+      ]
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
+      <StructuredData data={[breadcrumbSchema, collectionSchema]} />
       <Header />
       <CoursesHero />
       <CourseComparisonTable />

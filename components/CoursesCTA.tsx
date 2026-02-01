@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar } from 'react-feather';
+import Link from 'next/link';
 export function CoursesCTA() {
   return (
     <section
@@ -18,7 +19,7 @@ export function CoursesCTA() {
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl bg-white" />
       </div>
 
-      <div className="max-w-2xl mx-auto px-3 md:px-4 relative z-10 text-center">
+      <div className="max-w-2xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center">
         <motion.h2
           initial={{
             opacity: 0,
@@ -44,7 +45,7 @@ export function CoursesCTA() {
           Still Not Sure Which Course is Right?
         </motion.h2>
 
-        <motion.p
+          <motion.p
           initial={{
             opacity: 0,
             y: 30
@@ -61,12 +62,36 @@ export function CoursesCTA() {
             duration: 0.6,
             ease: [0.4, 0, 0.2, 1]
           }}
-          className="font-body text-white/95 mb-8 md:mb-10 leading-[1.6]"
+          className="font-body text-white/95 mb-4 leading-[1.6]"
           style={{
             fontSize: 'clamp(1rem, 1.8vw, 1.25rem)'
           }}>
 
           Talk to our course advisors for free
+        </motion.p>
+        
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 30
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0
+          }}
+          viewport={{
+            once: true
+          }}
+          transition={{
+            delay: 0.15,
+            duration: 0.6,
+            ease: [0.4, 0, 0.2, 1]
+          }}
+          className="font-body text-white/80 mb-8 md:mb-10 leading-[1.6] text-sm"
+          style={{
+            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
+          }}>
+          Need <Link href="/corporates" className="underline hover:no-underline font-semibold text-white">enterprise training</Link> or <Link href="/corporates/ai-enablement-workshops" className="underline hover:no-underline font-semibold text-white">AI enablement</Link> for your team? <Link href="/corporates" className="underline hover:no-underline font-semibold text-white">Explore our corporate solutions</Link>.
         </motion.p>
 
         <motion.div

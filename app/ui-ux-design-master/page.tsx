@@ -1,6 +1,8 @@
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
+import { QuickApplyProvider } from '../../components/course/QuickApplyContext'
 import { CourseHero } from '../../components/course/CourseHero'
+import { FloatingApplyButton } from '../../components/course/FloatingApplyButton'
 import { CourseOverview } from '../../components/course/CourseOverview'
 import { CourseCurriculum } from '../../components/course/CourseCurriculum'
 import { CourseWhoShouldTake } from '../../components/course/CourseWhoShouldTake'
@@ -8,6 +10,15 @@ import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
+import { OutcomeTransformationSection } from '../../components/course/OutcomeTransformationSection'
+import { ExperienceAuthoritySection } from '../../components/course/ExperienceAuthoritySection'
+import { AIInsideUIUXSection } from '../../components/course/AIInsideUIUXSection'
+import { MidPageCTA } from '../../components/course/MidPageCTA'
+import { PaymentOptions } from '../../components/course/PaymentOptions'
+import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
+import { TrustBadges } from '../../components/course/TrustBadges'
+import { ToolsCoveredSection } from '../../components/course/ToolsCoveredSection'
+import { StructuredData } from '../../components/StructuredData'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -18,7 +29,28 @@ export const metadata: Metadata = {
     title: 'UI/UX Design Master Course - 6 Months Advanced | Designient',
     description: 'Advanced specialization in UI/UX design. Design systems, leadership, advanced techniques. Diploma certification.',
     url: 'https://designient.com/ui-ux-design-master',
-    images: ['/og-image.jpg'],
+    images: [
+      {
+        url: '/og-image.webp',
+        width: 1200,
+        height: 630,
+        alt: 'UI/UX Design Master Course - Designient',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UI/UX Design Master Course - 6 Months Advanced | Designient',
+    description: 'Advanced specialization in UI/UX design. Design systems, leadership, advanced techniques. Diploma certification.',
+    images: ['/og-image.webp'],
+  },
+  alternates: {
+    canonical: 'https://designient.com/ui-ux-design-master',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -125,16 +157,366 @@ const courseData = {
     'Designers not interested in leadership',
     'People seeking basic design skills'
   ],
-  batchDates: {
-    offline: {
-      bengaluru: 'Apr 1, 2026',
-      hyderabad: 'Apr 5, 2026',
-      pune: 'Apr 10, 2026'
+  batchDates: null,
+  upcomingBatch: null,
+  batchFull: true,
+  tools: [
+    {
+      name: 'Figma Advanced',
+      description: 'Master advanced Figma features including complex design systems, component libraries, and team collaboration workflows.',
+      category: 'Design',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg'
     },
-    online: {
-      global: 'Mar 25, 2026'
+    {
+      name: 'Framer',
+      description: 'Advanced prototyping tool for creating high-fidelity, interactive prototypes with complex animations and interactions.',
+      category: 'Prototyping',
+      logo: 'https://cdn.worldvectorlogo.com/logos/framer-1.svg'
+    },
+    {
+      name: 'Principle',
+      description: 'Motion design tool for creating sophisticated animations and micro-interactions that bring designs to life.',
+      category: 'Animation',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg'
+    },
+    {
+      name: 'Design System Tools',
+      description: 'Learn to build and maintain scalable design systems using industry-standard tools and methodologies.',
+      category: 'Design Systems',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg'
+    },
+    {
+      name: 'Advanced Research Tools',
+      description: 'Master enterprise-level user research tools and methodologies for large-scale product design.',
+      category: 'Research',
+      logo: 'https://cdn.worldvectorlogo.com/logos/miro-3.svg'
+    },
+    {
+      name: 'Leadership & Collaboration Tools',
+      description: 'Tools for leading design teams, managing design processes, and collaborating across departments.',
+      category: 'Leadership',
+      logo: 'https://cdn.worldvectorlogo.com/logos/notion-logo-1.svg'
+    },
+    {
+      name: 'AI-Powered Design Tools',
+      description: 'Advanced AI tools for design automation, pattern recognition, and intelligent design assistance.',
+      category: 'AI',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg'
+    },
+    {
+      name: 'Enterprise Design Platforms',
+      description: 'Work with enterprise design platforms used by Fortune 500 companies for large-scale design operations.',
+      category: 'Enterprise',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg'
     }
-  },
+  ],
+  outcomeTransformation: [
+    'Lead design teams and mentor junior designers effectively',
+    'Architect and implement scalable design systems for large organizations',
+    'Create advanced micro-interactions and motion design systems',
+    'Develop strategic design thinking and measure business impact',
+    'Build a senior-level portfolio that showcases leadership capabilities',
+    'Feel confident applying for senior, lead, and director-level design roles',
+    'Master stakeholder communication and design advocacy at executive levels'
+  ],
+  weekWiseCurriculum: [
+    {
+      month: 1,
+      title: 'Month 1-2: Advanced Design Systems',
+      totalHours: 68,
+      weeks: [
+        {
+          week: 1,
+          title: 'Design System Architecture & Foundation',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Design system architecture and planning', hours: 2 },
+            { topic: 'Token management and theming systems', hours: 2 },
+            { topic: 'Component API design principles', hours: 2 },
+            { topic: 'Documentation strategies and best practices', hours: 1.5 },
+            { topic: 'Design system project kickoff', hours: 1 }
+          ]
+        },
+        {
+          week: 2,
+          title: 'Token Management & Theming',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Advanced token management', hours: 2.5 },
+            { topic: 'Theming systems and multi-brand support', hours: 2.5 },
+            { topic: 'Design tokens in practice', hours: 2 },
+            { topic: 'Project work and review', hours: 1.5 }
+          ]
+        },
+        {
+          week: 3,
+          title: 'Scalability & Cross-Platform Design',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Scalability patterns and methodologies', hours: 2 },
+            { topic: 'Cross-platform consistency strategies', hours: 2 },
+            { topic: 'Design system governance models', hours: 1.5 },
+            { topic: 'Version control for design systems', hours: 1.5 },
+            { topic: 'Advanced component development', hours: 1.5 }
+          ]
+        },
+        {
+          week: 4,
+          title: 'Advanced Component Design',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Complex component patterns', hours: 2 },
+            { topic: 'Accessibility in design systems', hours: 2 },
+            { topic: 'Performance optimization', hours: 1.5 },
+            { topic: 'Design system testing strategies', hours: 1.5 },
+            { topic: 'Project work and review', hours: 1.5 }
+          ]
+        },
+        {
+          week: 5,
+          title: 'Component API & Documentation',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Component API design advanced', hours: 2.5 },
+            { topic: 'Documentation best practices', hours: 2 },
+            { topic: 'Storybook and component libraries', hours: 2 },
+            { topic: 'Project refinement', hours: 2 }
+          ]
+        },
+        {
+          week: 6,
+          title: 'Design System Implementation',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Implementation strategies and handoff', hours: 2 },
+            { topic: 'Developer collaboration workflows', hours: 2 },
+            { topic: 'Design system maintenance', hours: 1.5 },
+            { topic: 'Case study development', hours: 1.5 },
+            { topic: 'Portfolio presentation', hours: 1.5 }
+          ]
+        },
+        {
+          week: 7,
+          title: 'Advanced Design System Patterns',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Advanced scalability patterns', hours: 2.5 },
+            { topic: 'Multi-product design systems', hours: 2 },
+            { topic: 'Design system evolution', hours: 2 },
+            { topic: 'Project work', hours: 2 }
+          ]
+        },
+        {
+          week: 8,
+          title: 'Design System Portfolio & Review',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Final design system project', hours: 3 },
+            { topic: 'Portfolio case study completion', hours: 2.5 },
+            { topic: 'Peer review and feedback', hours: 2 },
+            { topic: 'Module assessment', hours: 1 }
+          ]
+        }
+      ]
+    },
+    {
+      month: 2,
+      title: 'Month 3-4: Micro-interactions & Motion',
+      totalHours: 51,
+      weeks: [
+        {
+          week: 9,
+          title: 'Animation Principles & Theory',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Animation principles and theory', hours: 2 },
+            { topic: 'Motion design fundamentals', hours: 2 },
+            { topic: 'Prototyping advanced interactions', hours: 2 },
+            { topic: 'Motion design tools (Principle, Framer)', hours: 1.5 },
+            { topic: 'Project work', hours: 1 }
+          ]
+        },
+        {
+          week: 10,
+          title: 'Advanced Interaction Prototyping',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Complex interaction patterns', hours: 2.5 },
+            { topic: 'Advanced prototyping techniques', hours: 2 },
+            { topic: 'Motion design project kickoff', hours: 2 },
+            { topic: 'Project work and review', hours: 2 }
+          ]
+        },
+        {
+          week: 11,
+          title: 'Performance & Accessibility in Motion',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Performance optimization for animations', hours: 2 },
+            { topic: 'Accessibility in motion design', hours: 2 },
+            { topic: 'Emotional design through animation', hours: 2 },
+            { topic: 'Micro-interaction patterns library', hours: 1.5 },
+            { topic: 'Advanced project work', hours: 1 }
+          ]
+        },
+        {
+          week: 12,
+          title: 'Motion Design Systems',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Motion design systems architecture', hours: 2 },
+            { topic: 'Advanced interaction patterns', hours: 2 },
+            { topic: 'Complex animation workflows', hours: 2 },
+            { topic: 'Project refinement and iteration', hours: 1.5 },
+            { topic: 'Portfolio case study development', hours: 1 }
+          ]
+        },
+        {
+          week: 13,
+          title: 'Micro-interaction Patterns',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Advanced micro-interaction design', hours: 2.5 },
+            { topic: 'Pattern library development', hours: 2 },
+            { topic: 'Motion design best practices', hours: 2 },
+            { topic: 'Project work', hours: 2 }
+          ]
+        },
+        {
+          week: 14,
+          title: 'Advanced Motion Projects',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Advanced motion project completion', hours: 3 },
+            { topic: 'Portfolio presentation and feedback', hours: 2 },
+            { topic: 'Industry best practices review', hours: 2 },
+            { topic: 'Final project showcase', hours: 1.5 }
+          ]
+        }
+      ]
+    },
+    {
+      month: 3,
+      title: 'Month 5-6: Leadership & Strategy',
+      totalHours: 85,
+      weeks: [
+        {
+          week: 15,
+          title: 'Design Leadership Fundamentals',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Design leadership fundamentals', hours: 2 },
+            { topic: 'Team management and hiring strategies', hours: 2 },
+            { topic: 'Stakeholder communication and influence', hours: 2 },
+            { topic: 'Leadership project kickoff', hours: 1.5 },
+            { topic: 'Case study development', hours: 1 }
+          ]
+        },
+        {
+          week: 16,
+          title: 'Team Management & Hiring',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Building and scaling design teams', hours: 2.5 },
+            { topic: 'Hiring and recruitment strategies', hours: 2 },
+            { topic: 'Team culture and collaboration', hours: 2 },
+            { topic: 'Project work', hours: 2 }
+          ]
+        },
+        {
+          week: 17,
+          title: 'Stakeholder Communication',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Advanced stakeholder management', hours: 2.5 },
+            { topic: 'Influencing without authority', hours: 2 },
+            { topic: 'Executive communication', hours: 2 },
+            { topic: 'Project work and review', hours: 2 }
+          ]
+        },
+        {
+          week: 18,
+          title: 'Design Strategy Development',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Design strategy development frameworks', hours: 2 },
+            { topic: 'Business impact measurement', hours: 2 },
+            { topic: 'Design operations and processes', hours: 2 },
+            { topic: 'Strategic project work', hours: 1.5 },
+            { topic: 'Portfolio development', hours: 1 }
+          ]
+        },
+        {
+          week: 19,
+          title: 'Business Impact & Measurement',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Measuring design ROI', hours: 2.5 },
+            { topic: 'Design metrics and KPIs', hours: 2 },
+            { topic: 'Strategic alignment with business', hours: 2 },
+            { topic: 'Project work', hours: 2 }
+          ]
+        },
+        {
+          week: 20,
+          title: 'Design Operations',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Design ops fundamentals', hours: 2.5 },
+            { topic: 'Process optimization', hours: 2 },
+            { topic: 'Tooling and workflow management', hours: 2 },
+            { topic: 'Project work', hours: 2 }
+          ]
+        },
+        {
+          week: 21,
+          title: 'Mentoring & Advanced Portfolio',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Mentoring junior designers', hours: 2 },
+            { topic: 'Portfolio for senior roles', hours: 2 },
+            { topic: 'Advanced portfolio case studies', hours: 2 },
+            { topic: 'Interview preparation for leadership roles', hours: 1.5 },
+            { topic: 'Mock interviews and feedback', hours: 1 }
+          ]
+        },
+        {
+          week: 22,
+          title: 'Advanced Portfolio Development',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Senior-level portfolio strategies', hours: 2.5 },
+            { topic: 'Leadership case studies', hours: 2.5 },
+            { topic: 'Portfolio refinement', hours: 2 },
+            { topic: 'Peer review', hours: 1.5 }
+          ]
+        },
+        {
+          week: 23,
+          title: 'Strategic Design Thinking',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Advanced strategic thinking', hours: 2.5 },
+            { topic: 'Design vision and roadmap', hours: 2 },
+            { topic: 'Long-term design planning', hours: 2 },
+            { topic: 'Final project work', hours: 2 }
+          ]
+        },
+        {
+          week: 24,
+          title: 'Final Leadership Assessment',
+          totalHours: 8.5,
+          topics: [
+            { topic: 'Final leadership project presentation', hours: 3 },
+            { topic: 'Diploma exam preparation and assessment', hours: 2.5 },
+            { topic: 'Career roadmap for senior roles', hours: 1.5 },
+            { topic: 'Portfolio final review', hours: 1 },
+            { topic: 'Graduation and next steps', hours: 0.5 }
+          ]
+        }
+      ]
+    }
+  ],
   pricingFeatures: [
     'Complete 6-month advanced curriculum',
     '200+ hours of intensive training',
@@ -182,8 +564,35 @@ const courseData = {
 }
 
 export default function UIUXDesignMasterPage() {
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://designient.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Courses',
+        item: 'https://designient.com/courses'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'UI/UX Design Master',
+        item: 'https://designient.com/ui-ux-design-master'
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
+      <StructuredData data={breadcrumbSchema} />
       <CourseStructuredData
         courseSlug="ui-ux-design-master"
         courseName={courseData.title}
@@ -208,7 +617,8 @@ export default function UIUXDesignMasterPage() {
         url="https://designient.com/ui-ux-design-master"
       />
       <Header />
-      <main>
+      <QuickApplyProvider>
+      <main id="main-content" role="main">
         <CourseHero
           title={courseData.title}
           subtitle={courseData.subtitle}
@@ -219,6 +629,16 @@ export default function UIUXDesignMasterPage() {
           rating={courseData.rating}
           students={courseData.students}
           badge={courseData.badge}
+          upcomingBatch={courseData.upcomingBatch}
+          batchFull={courseData.batchFull}
+          courseSlug="ui-ux-design-master"
+          courseName={courseData.title}
+        />
+        <FloatingApplyButton courseSlug="ui-ux-design-master" courseName={courseData.title} />
+        <OutcomeTransformationSection 
+          outcomes={courseData.outcomeTransformation}
+          duration="6 months"
+          description="From intermediate to senior designer—here's your transformation journey."
         />
         <CourseOverview
           description={courseData.description}
@@ -227,27 +647,48 @@ export default function UIUXDesignMasterPage() {
           careerPaths={courseData.careerPaths}
         />
         <CourseCurriculum
-          modules={courseData.modules}
+          weekWiseCurriculum={courseData.weekWiseCurriculum}
           totalHours={courseData.hours}
         />
+        <ToolsCoveredSection
+          tools={courseData.tools}
+          title="Advanced Tools You'll Master"
+          description="Enterprise-level tools and platforms used by senior designers and design leaders in top companies."
+        />
+        <ExperienceAuthoritySection />
         <CourseWhoShouldTake
           description={courseData.whoShouldTake}
           idealFor={courseData.idealFor}
           notFor={courseData.notFor}
         />
+        <AIInsideUIUXSection />
         <CoursePricing
           courseSlug="ui-ux-design-master"
           features={courseData.pricingFeatures}
+          duration={courseData.duration}
           batchDates={courseData.batchDates}
+          batchFull={courseData.batchFull}
         />
+        <PaymentOptions
+          courseSlug="ui-ux-design-master"
+          advanceAmount={{
+            inr: '₹20,000',
+            usd: '$250'
+          }}
+        />
+        <TrustBadges />
+        <MidPageCTA courseSlug="ui-ux-design-master" courseName={courseData.title} />
+        <CourseApplicationForm courseSlug="ui-ux-design-master" courseName={courseData.title} />
         <CourseFAQ faqs={courseData.faqs} />
         <CourseCTA
           courseName={courseData.title}
+          courseSlug="ui-ux-design-master"
           ctaText="Ready to Become a Design Leader?"
           secondaryText="Join 150+ designers who have advanced their careers with our Master program."
         />
       </main>
       <Footer />
+      </QuickApplyProvider>
     </div>
   )
 }

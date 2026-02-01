@@ -16,13 +16,53 @@ import { BrandClaritySection } from '../components/BrandClaritySection'
 import { InquiryForm } from '../components/InquiryForm'
 import { Footer } from '../components/Footer'
 import { StructuredData } from '../components/StructuredData'
+import blogsData from '../data/blogs.json'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
   description: 'Beginner-friendly UI/UX design courses integrated with AI tools. Learn modern design workflows with personalized mentorship, small batches, and real-world projects. 95% placement rate. Adobe certified courses in Bangalore, Hyderabad, and Pune.',
+  keywords: ['UI/UX design course', 'UX design training', 'design bootcamp', 'Figma course', 'UI design course Bangalore', 'UX course Hyderabad', 'design school India', 'Adobe certified design course'],
+  openGraph: {
+    title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
+    description: 'Beginner-friendly UI/UX design courses integrated with AI tools. Learn modern design workflows with personalized mentorship, small batches, and real-world projects. 95% placement rate.',
+    url: 'https://designient.com',
+    images: [
+      {
+        url: '/og-image.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Designient - UI/UX Design Training',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
+    description: 'Beginner-friendly UI/UX design courses integrated with AI tools. 95% placement rate. Adobe certified courses.',
+    images: ['/og-image.webp'],
+  },
+  alternates: {
+    canonical: 'https://designient.com',
+  },
 }
 
 export default function HomePage() {
+  // Get latest blog posts for homepage preview
+  const latestBlogPosts = blogsData
+    .sort((a, b) => new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime())
+    .slice(0, 3)
+    .map((post) => ({
+      slug: post.slug,
+      title: post.title,
+      excerpt: post.excerpt,
+      coverImage: post.coverImage,
+      category: post.category,
+      publishedDate: post.publishedDate,
+      readingTime: post.readingTime
+    }))
+
   // Organization Schema
   const organizationSchema = {
     '@context': 'https://schema.org',
@@ -77,7 +117,7 @@ export default function HomePage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      reviewCount: '350',
+      reviewCount: '150',
       bestRating: '5',
       worstRating: '1'
     },
@@ -92,7 +132,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <StructuredData data={organizationSchema} />
       <Header />
-      <main>
+      <main id="main-content" role="main">
         {/* SECTION 1: Hero */}
         <Hero />
         {/* SECTION 2: Quick Trust Strip */}
@@ -116,7 +156,7 @@ export default function HomePage() {
         {/* SECTION 11: Visit Our Campuses */}
         <LocationsSection />
         {/* SECTION 12: Latest Insights (Optional) */}
-        <BlogPreviewSection />
+        <BlogPreviewSection posts={latestBlogPosts} />
         {/* SECTION D: Homepage FAQ */}
         <HomepageFAQSection />
         {/* SECTION B: Brand & Entity Clarity */}

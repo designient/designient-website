@@ -2,7 +2,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, MessageCircle } from 'react-feather';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Star, MessageCircle, ArrowRight } from 'react-feather';
 const testimonials = [
 {
   name: 'Arpita Dhir',
@@ -65,7 +67,7 @@ export function TestimonialsSection() {
         backgroundColor: '#fceed1'
       }}>
 
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
@@ -170,8 +172,9 @@ export function TestimonialsSection() {
                 <img
                 src={testimonial.image}
                 alt={`${testimonial.name}, ${testimonial.role} at ${testimonial.company} - Designient student testimonial`}
-                width="64"
-                height="64"
+                width="400"
+                height="400"
+                loading="lazy"
                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 flex-shrink-0"
                 style={{
                   borderColor: '#f2d53c'
@@ -282,8 +285,9 @@ export function TestimonialsSection() {
                 <img
                 src={testimonial.image}
                 alt={`${testimonial.name}, ${testimonial.role} at ${testimonial.company} - Designient student testimonial`}
-                width="64"
-                height="64"
+                width="400"
+                height="400"
+                loading="lazy"
                 className="w-14 h-14 sm:w-16 sm:h-16 rounded-full object-cover border-2 flex-shrink-0"
                 style={{
                   borderColor: '#f2d53c'
@@ -330,6 +334,26 @@ export function TestimonialsSection() {
           </motion.div>
           )}
         </div>
+
+        {/* CTA to Success Stories Page */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-center mt-12">
+          <Link
+            href="/success-stories"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-semibold transition-all hover:scale-105 border-2"
+            style={{
+              backgroundColor: 'white',
+              color: '#8458B3',
+              borderColor: '#8458B3'
+            }}>
+            View All Success Stories
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </motion.div>
       </div>
     </section>);
 

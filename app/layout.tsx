@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import React from 'react'
 import { Bebas_Neue, Inter } from 'next/font/google'
 import { CurrencyProvider } from '../contexts/CurrencyContext'
+import { WhatsAppButton } from '../components/WhatsAppButton'
+import { SkipLink } from '../components/SkipLink'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({
@@ -41,7 +43,7 @@ export const metadata: Metadata = {
     description: 'India\'s leading UI/UX design training institute with 95% placement rate. Adobe certified courses in Bangalore and Hyderabad.',
     images: [
       {
-        url: '/og-image.jpg',
+        url: '/og-image.webp',
         width: 1200,
         height: 630,
         alt: 'Designient - UI/UX Design Training',
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Designient - UI/UX Design Training Institute',
     description: 'India\'s leading UI/UX design training institute with 95% placement rate.',
-    images: ['/og-image.jpg'],
+    images: ['/og-image.webp'],
   },
   robots: {
     index: true,
@@ -83,9 +85,24 @@ export default function RootLayout({
 }): React.ReactElement {
   return (
     <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
+      <head>
+        <link rel="preload" href="/og-image.webp" as="image" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preload critical fonts for better performance */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap"
+          as="style"
+        />
+      </head>
       <body className="font-sans antialiased">
+        <SkipLink />
         <CurrencyProvider>
           {children}
+          <WhatsAppButton />
         </CurrencyProvider>
       </body>
     </html>

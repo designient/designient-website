@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Search } from 'react-feather';
+import Link from 'next/link';
 
 const stats = [
   {
@@ -78,6 +79,8 @@ export function InquiryForm() {
   const [whatsappDropdownOpen, setWhatsappDropdownOpen] = useState(false);
   const phoneDropdownRef = useRef<HTMLDivElement>(null);
   const whatsappDropdownRef = useRef<HTMLDivElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   // Comprehensive list of country codes with flags (India first, then sorted alphabetically)
   const countryCodes = [
@@ -184,14 +187,72 @@ export function InquiryForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      let data;
+      const responseText = await response.text();
+      
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+      } catch (jsonError) {
+        console.error('Failed to parse response as JSON:', {
+          error: jsonError,
+          status: response.status,
+          statusText: response.statusText,
+          responseText: responseText
+        });
+        setSubmitStatus('error');
+        return;
+      }
+
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phoneCountryCode: '+91',
+          phone: '',
+          whatsappCountryCode: '+91',
+          whatsapp: '',
+          courseInterest: ''
+        });
+        // Reset status after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        console.error('API error response:', {
+          status: response.status,
+          statusText: response.statusText,
+          data: data,
+          responseText: responseText
+        });
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="start-your-journey" className="py-24 md:py-32" style={{ backgroundColor: '#fceed1' }}>
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
@@ -587,13 +648,42 @@ export function InquiryForm() {
 
               <button
                 type="submit"
-                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px]"
+                disabled={isSubmitting}
+                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
                   backgroundColor: '#8458B3',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
-                Get Free Consultation →
+                {isSubmitting ? 'Submitting...' : 'Get Free Consultation →'}
               </button>
+
+              {submitStatus === 'success' && (
+                <div
+                  className="mt-4 p-4 rounded-lg text-center"
+                  style={{
+                    backgroundColor: '#d1fae5',
+                    border: '1px solid #10b981',
+                    color: '#065f46'
+                  }}>
+                  <p className="font-body font-semibold text-sm">
+                    Thank you! We've received your inquiry and will get back to you within 24 hours.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div
+                  className="mt-4 p-4 rounded-lg text-center"
+                  style={{
+                    backgroundColor: '#fee2e2',
+                    border: '1px solid #ef4444',
+                    color: '#991b1b'
+                  }}>
+                  <p className="font-body font-semibold text-sm">
+                    Something went wrong. Please try again or email us directly at admissions@designient.com
+                  </p>
+                </div>
+              )}
 
               <p
                 className="text-center text-xs mt-3 flex items-center justify-center gap-1"
@@ -619,7 +709,15 @@ export function InquiryForm() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your privacy. No spam.
+                We respect your privacy. No spam. By submitting, you agree to our{' '}
+                <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+                  Privacy Policy
+                </Link>
+                {' '}and{' '}
+                <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+                  Terms and Conditions
+                </Link>
+                .
               </p>
             </form>
           </motion.div>

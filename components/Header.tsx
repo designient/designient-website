@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, ChevronDown } from 'react-feather';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCurrency } from '../contexts/CurrencyContext';
 import type { CoursePricingData } from '../data/coursePricing';
@@ -58,8 +59,13 @@ const courses: Array<{
 const whyDesignientLinks = [
   {
     name: 'About Us',
-    path: '/about',
+    path: '/about-us',
     description: 'Learn about our mission, vision, and values'
+  },
+  {
+    name: 'Success Stories',
+    path: '/success-stories',
+    description: 'Real stories from students who transformed their careers'
   },
   {
     name: 'Placements',
@@ -70,33 +76,28 @@ const whyDesignientLinks = [
     name: 'We Are Hiring',
     path: '/careers',
     description: 'Join our team and help shape the future of design education'
-  },
-  {
-    name: 'Success Stories',
-    path: '/success-stories',
-    description: 'Read inspiring stories from our alumni'
   }
 ];
 
 const forCorporatesLinks = [
   {
     name: 'Training Programs',
-    path: '/corporate/training',
+    path: '/corporates/training-programs',
     description: 'Customized training programs for your team'
   },
   {
     name: 'AI Enablement + Workshops',
-    path: '/corporate/ai-enablement',
+    path: '/corporates/ai-enablement-workshops',
     description: 'Empower your team with AI tools and workshops'
   },
   {
     name: 'Hiring + Consulting',
-    path: '/corporate/hiring',
+    path: '/corporates/hiring-consulting',
     description: 'Access our talent pool and design consulting services'
   },
   {
     name: 'Case Studies + CTA',
-    path: '/corporate/case-studies',
+    path: '/corporates/case-studies',
     description: 'Explore our corporate partnerships and results'
   }
 ];
@@ -167,7 +168,7 @@ export function Header() {
     },
     {
       name: 'Contact Us',
-      path: '/contact',
+      path: '/contact-us',
       hasDropdown: false
     }
   ];
@@ -199,7 +200,7 @@ export function Header() {
       }}
       role="banner">
 
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 md:h-24">
           <button
             className="md:hidden p-2 -ml-2"
@@ -229,12 +230,13 @@ export function Header() {
             href="/"
             className="absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0 flex items-center"
             aria-label="Designient School - Home">
-            <img
+            <Image
               src="/designient-logo.svg"
-              alt="Designient Logo"
-              className="h-12 md:h-14 w-auto object-contain"
-              width="160"
-              height="56"
+              alt="Designient School of Masterminds UI UX design training logo"
+              width={180}
+              height={60}
+              priority
+              className="h-auto w-auto"
             />
           </Link>
 
@@ -311,17 +313,17 @@ export function Header() {
                                       <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[#8458B3] transition-colors" style={{ color: '#1a1a1a', lineHeight: '1.4' }}>
                                         {course.title}
                                       </h4>
-                                      <p className="font-body text-sm mb-3" style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                                      <p className="font-body text-sm mb-3" style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
                                         {course.description}
                                       </p>
                                     </div>
                                     <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: '#e5e7eb' }}>
                                       <div className="flex items-center gap-3">
-                                        <span className="font-body text-xs font-medium" style={{ color: '#6b7280' }}>
+                                        <span className="font-body text-xs font-medium" style={{ color: '#4a4a4a' }}>
                                           {course.duration}
                                         </span>
                                         <span className="text-xs" style={{ color: '#d1d5db' }}>•</span>
-                                        <span className="font-body text-xs" style={{ color: '#6b7280' }}>
+                                        <span className="font-body text-xs" style={{ color: '#4a4a4a' }}>
                                           {course.hours}
                                         </span>
                                       </div>
@@ -358,7 +360,7 @@ export function Header() {
                                     <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[#8458B3] transition-colors" style={{ color: '#1a1a1a', lineHeight: '1.4' }}>
                                       {item.name}
                                     </h4>
-                                    <p className="font-body text-sm" style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                                    <p className="font-body text-sm" style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
                                       {item.description}
                                     </p>
                                   </Link>
@@ -390,7 +392,7 @@ export function Header() {
                                     <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[#8458B3] transition-colors" style={{ color: '#1a1a1a', lineHeight: '1.4' }}>
                                       {item.name}
                                     </h4>
-                                    <p className="font-body text-sm" style={{ color: '#6b7280', lineHeight: '1.6' }}>
+                                    <p className="font-body text-sm" style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
                                       {item.description}
                                     </p>
                                   </Link>
@@ -429,67 +431,58 @@ export function Header() {
           </nav>
 
           <div className="hidden md:flex items-center gap-4">
-            <motion.button
-              onClick={() => {
-                if (pathname === '/') {
-                  const element = document.getElementById('start-your-journey');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                } else {
-                  window.location.href = '/#start-your-journey';
-                }
-              }}
-              whileHover={{
-                scale: 1.05
-              }}
-              whileTap={{
-                scale: 0.95
-              }}
-              className="font-body text-white font-bold inline-block shadow-md min-h-[44px] min-w-[120px] flex items-center justify-center"
-              style={{
-                backgroundColor: '#8458B3',
-                padding: '10px 20px',
-                borderRadius: '100px',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-              }}
-              aria-label="Apply now for UI/UX design courses">
+            <Link href="/apply-now">
+              <motion.button
+                whileHover={{
+                  scale: 1.05
+                }}
+                whileTap={{
+                  scale: 0.95
+                }}
+                className="font-body text-white font-bold inline-block shadow-md min-h-[44px] min-w-[120px] flex items-center justify-center"
+                style={{
+                  backgroundColor: '#8458B3',
+                  padding: '10px 20px',
+                  borderRadius: '100px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
+                }}
+                aria-label="Apply now for UI/UX design courses">
 
-              Apply Now
-            </motion.button>
+                Apply Now
+              </motion.button>
+            </Link>
 
-            <motion.button
-              onClick={() => {
-                // Add verify functionality here if needed
-              }}
-              whileHover={{
-                scale: 1.05
-              }}
-              whileTap={{
-                scale: 0.95
-              }}
-              className="font-body font-semibold flex items-center gap-1.5 transition-colors min-h-[44px] px-2"
-              style={{
-                color: '#4a4a4a',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '10px 8px',
-                fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#8458B3';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#4a4a4a';
-              }}
-              aria-label="Verify">
+            <Link href="/verify">
+              <motion.button
+                whileHover={{
+                  scale: 1.05
+                }}
+                whileTap={{
+                  scale: 0.95
+                }}
+                className="font-body font-semibold flex items-center gap-1.5 transition-colors min-h-[44px] px-2"
+                style={{
+                  color: '#4a4a4a',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '10px 8px',
+                  fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#8458B3';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#4a4a4a';
+                }}
+                aria-label="Verify">
 
-              Verify
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
+                Verify
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+            </Link>
           </div>
         </div>
 
@@ -637,72 +630,61 @@ export function Header() {
           })}
 
           <div className="flex flex-col gap-3 pt-4 border-t" style={{ borderColor: 'rgba(26, 26, 26, 0.1)' }}>
-            <motion.button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                if (pathname === '/') {
-                  const element = document.getElementById('start-your-journey');
-                  if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }
-                } else {
-                  window.location.href = '/#start-your-journey';
-                }
-              }}
-              initial={{
-                opacity: 0,
-                x: -20
-              }}
-              animate={{
-                opacity: 1,
-                x: 0
-              }}
-              transition={{
-                delay: navLinks.length * 0.1
-              }}
-              className="font-body text-white font-bold text-center shadow-md min-h-[48px] flex items-center justify-center"
-              style={{
-                backgroundColor: '#8458B3',
-                padding: '12px 24px',
-                borderRadius: '100px',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: 'clamp(0.875rem, 1.8vw, 1rem)'
-              }}
-              aria-label="Apply now for UI/UX design courses">
+            <Link href="/apply-now" onClick={() => setMobileMenuOpen(false)}>
+              <motion.button
+                initial={{
+                  opacity: 0,
+                  x: -20
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0
+                }}
+                transition={{
+                  delay: navLinks.length * 0.1
+                }}
+                className="font-body text-white font-bold text-center shadow-md min-h-[48px] flex items-center justify-center"
+                style={{
+                  backgroundColor: '#8458B3',
+                  padding: '12px 24px',
+                  borderRadius: '100px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: 'clamp(0.875rem, 1.8vw, 1rem)'
+                }}
+                aria-label="Apply now for UI/UX design courses">
 
-              Apply Now
-            </motion.button>
+                Apply Now
+              </motion.button>
+            </Link>
 
-            <motion.button
-              onClick={() => {
-                // Add verify functionality here if needed
-                setMobileMenuOpen(false);
-              }}
-              initial={{
-                opacity: 0,
-                x: -20
-              }}
-              animate={{
-                opacity: 1,
-                x: 0
-              }}
-              transition={{
-                delay: navLinks.length * 0.1 + 0.1
-              }}
-              className="font-body text-base font-semibold flex items-center gap-2 justify-start"
-              style={{
-                color: '#4a4a4a',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '12px 0'
-              }}
-              aria-label="Verify">
+            <Link href="/verify" onClick={() => setMobileMenuOpen(false)}>
+              <motion.button
+                initial={{
+                  opacity: 0,
+                  x: -20
+                }}
+                animate={{
+                  opacity: 1,
+                  x: 0
+                }}
+                transition={{
+                  delay: navLinks.length * 0.1 + 0.1
+                }}
+                className="font-body text-base font-semibold flex items-center gap-2 justify-start"
+                style={{
+                  color: '#4a4a4a',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  padding: '12px 0'
+                }}
+                aria-label="Verify">
 
-              Verify
-              <ArrowRight className="w-4 h-4" />
-            </motion.button>
+                Verify
+                <ArrowRight className="w-4 h-4" />
+              </motion.button>
+            </Link>
           </div>
         </motion.nav>
         }

@@ -49,6 +49,10 @@ lerna-debug.log*
 # vercel
 .vercel
 
+# cloudflare / opennext
+.open-next
+.dev.vars
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   CheckCircle,
@@ -9,9 +9,97 @@ import {
   PlayCircle,
   BookOpen,
   ChevronDown,
-  Search } from
+  Search,
+  X } from
 'react-feather';
 import Link from 'next/link';
+
+function WatchDemoButton() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  // Replace with actual YouTube video ID
+  const youtubeVideoId = 'YOUR_YOUTUBE_VIDEO_ID_HERE';
+
+  const openVideo = () => {
+    setIsVideoOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeVideo = () => {
+    setIsVideoOpen(false);
+    document.body.style.overflow = 'unset';
+  };
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeVideo();
+      }
+    };
+    if (isVideoOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+    };
+  }, [isVideoOpen]);
+
+  return (
+    <>
+      <button
+        onClick={openVideo}
+        className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[44px]"
+        style={{
+          backgroundColor: '#8458B3',
+          color: 'white',
+          fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
+        }}>
+        <PlayCircle className="w-4 h-4 flex-shrink-0" />
+        <span>Watch Demo</span>
+      </button>
+
+      <AnimatePresence>
+        {isVideoOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeVideo}
+              className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
+              aria-label="Close video modal">
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative w-full max-w-4xl bg-black rounded-lg overflow-hidden"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="video-modal-title">
+                <button
+                  onClick={closeVideo}
+                  className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
+                  aria-label="Close video">
+                  <X className="w-6 h-6" style={{ color: '#1a1a1a' }} />
+                </button>
+                <div className="aspect-video">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                    title="Designient Course Demo"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                </div>
+              </motion.div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
 export function Hero() {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
@@ -28,6 +116,8 @@ export function Hero() {
   const [whatsappSearch, setWhatsappSearch] = useState('');
   const [phoneDropdownOpen, setPhoneDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setWhatsappDropdownOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   // Comprehensive list of country codes with flags (India first, then sorted alphabetically)
   const countryCodes = [
@@ -179,10 +269,67 @@ export function Hero() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('/api/inquiry', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      let data;
+      const responseText = await response.text();
+      
+      try {
+        data = responseText ? JSON.parse(responseText) : {};
+      } catch (jsonError) {
+        console.error('Failed to parse response as JSON:', {
+          error: jsonError,
+          status: response.status,
+          statusText: response.statusText,
+          responseText: responseText
+        });
+        setSubmitStatus('error');
+        return;
+      }
+
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phoneCountryCode: '+91',
+          phone: '',
+          whatsappCountryCode: '+91',
+          whatsapp: '',
+          courseInterest: ''
+        });
+        // Reset status after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        console.error('API error response:', {
+          status: response.status,
+          statusText: response.statusText,
+          data: data,
+          responseText: responseText
+        });
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
   const companies = [
   {
@@ -190,10 +337,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" 
-        alt="Amazon company logo - Designient students work at Amazon" 
+        alt="Amazon logo - UI UX design students from Designient work at Amazon" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -203,10 +352,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" 
-        alt="Accenture company logo - Designient students work at Accenture" 
+        alt="Accenture logo - UI UX design students from Designient work at Accenture" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -216,10 +367,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" 
-        alt="Cisco company logo - Designient students work at Cisco" 
+        alt="Cisco logo - UI UX design students from Designient work at Cisco" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -229,10 +382,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
-        alt="Google company logo - Designient students work at Google" 
+        alt="Google logo - UI UX design students from Designient work at Google" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -242,10 +397,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-        alt="PayPal company logo - Designient students work at PayPal" 
+        alt="PayPal logo - UI UX design students from Designient work at PayPal" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -255,10 +412,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" 
-        alt="Salesforce company logo - Designient students work at Salesforce" 
+        alt="Salesforce logo - UI UX design students from Designient work at Salesforce" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -268,10 +427,12 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mercedes-Benz_logo.svg" 
-        alt="Mercedes Benz company logo - Designient students work at Mercedes Benz" 
+        alt="Mercedes Benz logo - UI UX design students from Designient work at Mercedes Benz" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -281,10 +442,76 @@ export function Hero() {
     logo: (
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg" 
-        alt="Adobe company logo - Designient students work at Adobe" 
+        alt="Adobe logo - UI UX design students from Designient work at Adobe" 
         className="h-8 w-auto object-contain"
         width="120"
         height="32"
+        loading="lazy"
+        fetchPriority="low"
+        style={{ opacity: 1 }}
+      />
+    )
+  },
+  {
+    name: 'Deloitte',
+    logo: (
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/8/82/DeloitteNewLogo.png" 
+        alt="Deloitte logo - UI UX design students from Designient work at Deloitte" 
+        className="h-8 w-auto object-contain"
+        width="120"
+        height="32"
+        loading="lazy"
+        fetchPriority="low"
+        style={{ opacity: 1 }}
+      />
+    )
+  },
+  {
+    name: 'ADPlist',
+    logo: (
+      <img 
+        src="https://adplist.org/favicon.ico" 
+        alt="ADPlist logo - UI UX design students from Designient work at ADPlist" 
+        className="h-8 w-auto object-contain"
+        width="120"
+        height="32"
+        loading="lazy"
+        fetchPriority="low"
+        style={{ opacity: 1 }}
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"%3E%3Ctext x="10" y="30" font-family="Arial" font-size="20" fill="%231a1a1a"%3EADPlist%3C/text%3E%3C/svg%3E';
+        }}
+      />
+    )
+  },
+  {
+    name: 'Lenovo',
+    logo: (
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" 
+        alt="Lenovo logo - UI UX design students from Designient work at Lenovo" 
+        className="h-8 w-auto object-contain"
+        width="120"
+        height="32"
+        loading="lazy"
+        fetchPriority="low"
+        style={{ opacity: 1 }}
+      />
+    )
+  },
+  {
+    name: 'Meta',
+    logo: (
+      <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" 
+        alt="Meta logo - UI UX design students from Designient work at Meta" 
+        className="h-8 w-auto object-contain"
+        width="120"
+        height="32"
+        loading="lazy"
+        fetchPriority="low"
         style={{ opacity: 1 }}
       />
     )
@@ -319,7 +546,7 @@ export function Hero() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      reviewCount: '350'
+      reviewCount: '150'
     }
   };
   return (
@@ -332,7 +559,7 @@ export function Hero() {
       itemScope
       itemType="https://schema.org/EducationalOrganization">
 
-      <div className="max-w-container mx-auto px-3 md:px-4 relative z-10 w-full flex-1">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full flex-1">
         <div className="grid lg:grid-cols-[60%_40%] gap-6 sm:gap-8 lg:gap-12 items-start">
           {/* Left Column: Content */}
           <motion.div
@@ -374,7 +601,7 @@ export function Hero() {
                   fontSize: 'clamp(0.6875rem, 1.5vw, 0.875rem)'
                 }}>
 
-                Personalised mentorship. Small batches. Real careers.
+                Mentor-Led. Career-Focused.
               </span>
             </motion.div>
 
@@ -451,17 +678,7 @@ export function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-3 mb-6">
-              <button
-                className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[44px]"
-                style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white',
-                  fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-                }}>
-
-                <PlayCircle className="w-4 h-4 flex-shrink-0" />
-                <span>Watch Demo</span>
-              </button>
+              <WatchDemoButton />
               <Link
                 href="/courses"
                 className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[44px]"
@@ -485,15 +702,17 @@ export function Hero() {
 
                     <img
                     src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                    alt={`Designient student testimonial profile ${i + 1}`}
-                    width="32"
+                    alt={`Designient UI UX design student profile ${i + 1}`}
+                    width="400"
+                    height="400"
+                    loading="lazy"
                     height="32"
                     className="w-full h-full object-cover" />
 
                   </div>
                 )}
               </div>
-              <div>
+              <Link href="/success-stories" className="group">
                 <div className="flex items-center gap-1 mb-0.5">
                   {[1, 2, 3, 4, 5].map((i) =>
                   <Star
@@ -506,14 +725,14 @@ export function Hero() {
                   )}
                 </div>
                 <p
-                  className="font-body text-xs font-medium"
+                  className="font-body text-xs font-medium group-hover:underline transition-all"
                   style={{
                     color: '#4a4a4a'
                   }}>
 
-                  4.8/5 from 350+ reviews
+                  4.8/5 from 150+ students — Read their stories
                 </p>
-              </div>
+              </Link>
             </div>
           </motion.div>
 
@@ -762,14 +981,43 @@ export function Hero() {
 
               <button
                 type="submit"
-                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px]"
+                disabled={isSubmitting}
+                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
                   backgroundColor: '#8458B3',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
 
-                Get Free Consultation →
+                {isSubmitting ? 'Submitting...' : 'Get Free Consultation →'}
               </button>
+
+              {submitStatus === 'success' && (
+                <div
+                  className="mt-4 p-3 rounded-lg text-center"
+                  style={{
+                    backgroundColor: '#d1fae5',
+                    border: '1px solid #10b981',
+                    color: '#065f46'
+                  }}>
+                  <p className="font-body font-semibold text-sm">
+                    Thank you! We've received your inquiry and will get back to you within 24 hours.
+                  </p>
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div
+                  className="mt-4 p-3 rounded-lg text-center"
+                  style={{
+                    backgroundColor: '#fee2e2',
+                    border: '1px solid #ef4444',
+                    color: '#991b1b'
+                  }}>
+                  <p className="font-body font-semibold text-sm">
+                    Something went wrong. Please try again or email us directly at admissions@designient.com
+                  </p>
+                </div>
+              )}
 
               <p
                 className="text-center text-xs mt-3 flex items-center justify-center gap-1"
@@ -818,7 +1066,7 @@ export function Hero() {
           delay: 0.6,
           duration: 0.8
         }}
-        className="max-w-container mx-auto px-3 md:px-4 w-full mt-8 md:mt-12">
+        className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full mt-8 md:mt-12">
 
         <p
           className="text-center font-body text-xs uppercase tracking-wider mb-4 font-semibold"
@@ -828,11 +1076,22 @@ export function Hero() {
 
           Our Students Work At
         </p>
-        <div className="py-6">
-          <div className="flex items-center justify-center flex-wrap gap-6 sm:gap-8 md:gap-12">
+        <div className="py-6 overflow-hidden company-logos-container">
+          <div className="flex items-center gap-6 sm:gap-8 md:gap-12 animate-scroll" style={{ width: 'max-content' }}>
+            {/* First set of logos */}
             {companies.map((company, index) =>
             <div
               key={`${company.name}-${index}`}
+              className="flex-shrink-0 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+              style={{ minHeight: '3rem' }}>
+
+                {company.logo}
+              </div>
+            )}
+            {/* Duplicate set for seamless loop */}
+            {companies.map((company, index) =>
+            <div
+              key={`${company.name}-duplicate-${index}`}
               className="flex-shrink-0 transition-all duration-300 hover:scale-110 flex items-center justify-center"
               style={{ minHeight: '3rem' }}>
 

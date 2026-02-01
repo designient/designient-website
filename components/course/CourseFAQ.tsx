@@ -13,13 +13,14 @@ interface FAQ {
 interface CourseFAQProps {
   faqs: FAQ[];
   title?: string;
+  disableSchema?: boolean;
 }
 
-export function CourseFAQ({ faqs, title = 'Frequently Asked Questions' }: CourseFAQProps) {
+export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableSchema = false }: CourseFAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  // FAQ Schema for SEO
-  const faqSchema = {
+  // FAQ Schema for SEO (only if not disabled)
+  const faqSchema = !disableSchema ? {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: faqs.map((faq) => ({
@@ -30,12 +31,12 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions' }: Course
         text: faq.answer
       }
     }))
-  };
+  } : null;
 
   return (
     <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
-      <StructuredData data={faqSchema} />
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      {faqSchema && <StructuredData data={faqSchema} />}
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

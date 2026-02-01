@@ -54,15 +54,25 @@ export function CourseStructuredData({
     name: courseName,
     description: description,
     provider: {
-      '@type': 'EducationalOrganization',
-      name: 'Designient Technologies Private Limited',
-      url: 'https://designient.com'
+      '@type': 'Organization',
+      name: 'Designient School of Masterminds',
+      url: 'https://designient.com',
+      logo: 'https://designient.com/wp-content/uploads/2023/01/designient-logo.png'
     },
+    educationalCredentialAwarded: courseSlug === 'ui-ux-design-pro' ? 'UI/UX Design Pro Certificate' : undefined,
+    timeRequired: timeRequired,
+    courseMode: courseSlug === 'ui-ux-design-pro' ? ['Online', 'Offline', 'Hybrid'] : undefined,
+    occupationalCredentialAwarded: courseSlug === 'ui-ux-design-pro' ? 'UI/UX Designer' : undefined,
+    audience: courseSlug === 'ui-ux-design-pro' ? {
+      '@type': 'Audience',
+      audienceType: ['Beginners', 'Career Switchers', 'Working Professionals']
+    } : undefined,
+    teaches: teaches,
+    inLanguage: 'English',
+    url: url,
     courseCode: courseCode,
     educationalLevel: educationalLevel,
-    timeRequired: timeRequired,
     coursePrerequisites: coursePrerequisites,
-    teaches: teaches,
     // Include offers for both currencies for SEO
     offers: [
       {

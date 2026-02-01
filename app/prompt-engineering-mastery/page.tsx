@@ -1,6 +1,8 @@
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
+import { QuickApplyProvider } from '../../components/course/QuickApplyContext'
 import { CourseHero } from '../../components/course/CourseHero'
+import { FloatingApplyButton } from '../../components/course/FloatingApplyButton'
 import { CourseOverview } from '../../components/course/CourseOverview'
 import { CourseCurriculum } from '../../components/course/CourseCurriculum'
 import { CourseWhoShouldTake } from '../../components/course/CourseWhoShouldTake'
@@ -8,6 +10,15 @@ import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
+import { OutcomeTransformationSection } from '../../components/course/OutcomeTransformationSection'
+import { ExperienceAuthoritySection } from '../../components/course/ExperienceAuthoritySection'
+import { AIInProfessionalWorkflowSection } from '../../components/course/AIInProfessionalWorkflowSection'
+import { MidPageCTA } from '../../components/course/MidPageCTA'
+import { PaymentOptions } from '../../components/course/PaymentOptions'
+import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
+import { TrustBadges } from '../../components/course/TrustBadges'
+import { ToolsCoveredSection } from '../../components/course/ToolsCoveredSection'
+import { StructuredData } from '../../components/StructuredData'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -18,7 +29,28 @@ export const metadata: Metadata = {
     title: 'Prompt Engineering Mastery Course - AI Tools Training | Designient',
     description: 'Master AI tools and prompt engineering. ChatGPT, Midjourney, DALL-E training. 30 days, 40 hours.',
     url: 'https://designient.com/prompt-engineering-mastery',
-    images: ['/og-image.jpg'],
+    images: [
+      {
+        url: '/og-image.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Prompt Engineering Mastery Course - Designient',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Prompt Engineering Mastery Course - AI Tools Training | Designient',
+    description: 'Master AI tools and prompt engineering. ChatGPT, Midjourney, DALL-E training. 30 days, 40 hours.',
+    images: ['/og-image.webp'],
+  },
+  alternates: {
+    canonical: 'https://designient.com/prompt-engineering-mastery',
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 }
 
@@ -131,15 +163,139 @@ const courseData = {
     'Those expecting to become AI researchers'
   ],
   batchDates: {
-    offline: {
-      bengaluru: 'Mar 15, 2026',
-      hyderabad: 'Mar 20, 2026',
-      pune: 'Mar 25, 2026'
-    },
+    offline: null,
     online: {
-      global: 'Mar 12, 2026'
+      global: 'Mar 12, 2026',
+      schedule: {
+        days: 'Monday - Friday',
+        time: '8:00 PM - 10:00 PM',
+        type: 'Evening'
+      }
     }
   },
+  upcomingBatch: {
+    startDate: 'Mar 12, 2026'
+  },
+  tools: [
+    {
+      name: 'ChatGPT',
+      description: 'Master prompt engineering for OpenAI\'s ChatGPT. Learn to create effective prompts for content creation, coding assistance, and problem-solving.',
+      category: 'AI Text',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg'
+    },
+    {
+      name: 'Midjourney',
+      description: 'Learn advanced prompt techniques for generating stunning images and artwork. Master style, composition, and creative control.',
+      category: 'AI Image',
+      logo: 'https://www.midjourney.com/apple-touch-icon.png'
+    },
+    {
+      name: 'DALL-E',
+      description: 'OpenAI\'s image generation tool. Learn to create precise, detailed images through effective prompt engineering.',
+      category: 'AI Image',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg'
+    },
+    {
+      name: 'Claude',
+      description: 'Anthropic\'s AI assistant. Master prompt engineering for research, analysis, and complex reasoning tasks.',
+      category: 'AI Text',
+      logo: 'https://www.anthropic.com/images/claude-logo.svg'
+    },
+    {
+      name: 'Perplexity AI',
+      description: 'AI-powered research assistant. Learn to use advanced search and research prompts for deep information gathering.',
+      category: 'AI Research',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Perplexity_AI_logo.svg'
+    },
+    {
+      name: 'Gemini',
+      description: 'Google\'s AI assistant. Master prompts for creative tasks, coding, and multimodal interactions.',
+      category: 'AI Text',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg'
+    },
+    {
+      name: 'Stable Diffusion',
+      description: 'Open-source image generation. Learn prompt engineering for fine-tuned control over image generation.',
+      category: 'AI Image',
+      logo: 'https://stability.ai/favicon-32x32.png'
+    },
+    {
+      name: 'AI Integration Tools',
+      description: 'Tools and platforms for integrating AI into workflows, including APIs, automation, and custom AI solutions.',
+      category: 'Integration',
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg'
+    }
+  ],
+  outcomeTransformation: [
+    'Master prompt engineering for ChatGPT, Midjourney, DALL-E, and other AI platforms',
+    'Create effective prompts that generate high-quality results consistently',
+    'Build a comprehensive prompt library and template collection',
+    'Apply AI tools to real-world projects across multiple domains',
+    'Develop AI-assisted workflows that enhance productivity',
+    'Feel confident using AI as a powerful tool in your professional toolkit',
+    'Optimize prompts for efficiency and cost-effectiveness in production environments'
+  ],
+  weekWiseCurriculum: [
+    {
+      month: 1,
+      title: '30-Day Prompt Engineering Mastery',
+      totalHours: 40,
+      weeks: [
+        {
+          week: 1,
+          title: 'Foundations of Prompt Engineering',
+          totalHours: 10,
+          topics: [
+            { topic: 'Introduction to AI and prompt engineering', hours: 2 },
+            { topic: 'Understanding ChatGPT, Midjourney, and other AI tools', hours: 2.5 },
+            { topic: 'Basic prompt structures and patterns', hours: 2 },
+            { topic: 'Best practices for effective prompts', hours: 2 },
+            { topic: 'Common prompt mistakes to avoid', hours: 1 },
+            { topic: 'AI tool comparison and selection', hours: 0.5 }
+          ]
+        },
+        {
+          week: 2,
+          title: 'Advanced Prompting Techniques',
+          totalHours: 10,
+          topics: [
+            { topic: 'Chain-of-thought prompting', hours: 2 },
+            { topic: 'Few-shot learning prompts', hours: 2 },
+            { topic: 'Role-based prompting', hours: 1.5 },
+            { topic: 'Context and persona development', hours: 2 },
+            { topic: 'Prompt optimization strategies', hours: 1.5 },
+            { topic: 'Iterative prompt refinement', hours: 1 }
+          ]
+        },
+        {
+          week: 3,
+          title: 'Specialized Applications',
+          totalHours: 10,
+          topics: [
+            { topic: 'Creative writing prompts', hours: 1.5 },
+            { topic: 'Code generation prompts', hours: 2 },
+            { topic: 'Image generation prompts (Midjourney, DALL-E)', hours: 2.5 },
+            { topic: 'Data analysis prompts', hours: 1.5 },
+            { topic: 'Business and marketing prompts', hours: 1.5 },
+            { topic: 'Design and UX prompts', hours: 1 }
+          ]
+        },
+        {
+          week: 4,
+          title: 'Mastery & Portfolio',
+          totalHours: 10,
+          topics: [
+            { topic: 'Complex multi-step prompts', hours: 2.5 },
+            { topic: 'Prompt libraries and templates', hours: 2 },
+            { topic: 'Building your prompt portfolio', hours: 2 },
+            { topic: 'Real-world project applications', hours: 2 },
+            { topic: 'Career opportunities in AI', hours: 1 },
+            { topic: 'Staying updated with AI trends', hours: 0.5 }
+          ]
+        }
+      ]
+    }
+  ],
   pricingFeatures: [
     'Complete 30-day curriculum',
     '40 hours of live training',
@@ -187,8 +343,35 @@ const courseData = {
 }
 
 export default function PromptEngineeringMasteryPage() {
+  // Breadcrumb schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://designient.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Courses',
+        item: 'https://designient.com/courses'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Prompt Engineering Mastery',
+        item: 'https://designient.com/prompt-engineering-mastery'
+      }
+    ]
+  }
+
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
+      <StructuredData data={breadcrumbSchema} />
       <CourseStructuredData
         courseSlug="prompt-engineering-mastery"
         courseName={courseData.title}
@@ -213,7 +396,8 @@ export default function PromptEngineeringMasteryPage() {
         url="https://designient.com/prompt-engineering-mastery"
       />
       <Header />
-      <main>
+      <QuickApplyProvider>
+      <main id="main-content" role="main">
         <CourseHero
           title={courseData.title}
           subtitle={courseData.subtitle}
@@ -224,6 +408,16 @@ export default function PromptEngineeringMasteryPage() {
           rating={courseData.rating}
           students={courseData.students}
           badge={courseData.badge}
+          upcomingBatch={courseData.upcomingBatch}
+          batchFull={false}
+          courseSlug="prompt-engineering-mastery"
+          courseName={courseData.title}
+        />
+        <FloatingApplyButton courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
+        <OutcomeTransformationSection 
+          outcomes={courseData.outcomeTransformation}
+          duration="30 days"
+          description="Master AI tools and transform how you work—here's what you'll achieve in 30 days."
         />
         <CourseOverview
           description={courseData.description}
@@ -232,27 +426,48 @@ export default function PromptEngineeringMasteryPage() {
           careerPaths={courseData.careerPaths}
         />
         <CourseCurriculum
-          modules={courseData.modules}
+          weekWiseCurriculum={courseData.weekWiseCurriculum}
           totalHours={courseData.hours}
         />
+        <ToolsCoveredSection
+          tools={courseData.tools}
+          title="AI Tools You'll Master"
+          description="Master prompt engineering for the most popular AI platforms used by professionals worldwide."
+        />
+        <ExperienceAuthoritySection />
         <CourseWhoShouldTake
           description={courseData.whoShouldTake}
           idealFor={courseData.idealFor}
           notFor={courseData.notFor}
         />
+        <AIInProfessionalWorkflowSection />
         <CoursePricing
           courseSlug="prompt-engineering-mastery"
           features={courseData.pricingFeatures}
+          duration={courseData.duration}
           batchDates={courseData.batchDates}
+          batchFull={false}
         />
+        <PaymentOptions
+          courseSlug="prompt-engineering-mastery"
+          advanceAmount={{
+            inr: '₹7,000',
+            usd: '$100'
+          }}
+        />
+        <TrustBadges />
+        <MidPageCTA courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
+        <CourseApplicationForm courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
         <CourseFAQ faqs={courseData.faqs} />
         <CourseCTA
           courseName={courseData.title}
+          courseSlug="prompt-engineering-mastery"
           ctaText="Ready to Master AI Tools?"
           secondaryText="Join 80+ professionals who have enhanced their productivity with AI prompt engineering."
         />
       </main>
       <Footer />
+      </QuickApplyProvider>
     </div>
   )
 }

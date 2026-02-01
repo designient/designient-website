@@ -13,7 +13,7 @@ interface CourseWhoShouldTakeProps {
 export function CourseWhoShouldTake({ description, idealFor, notFor }: CourseWhoShouldTakeProps) {
   return (
     <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           
           <motion.div
@@ -81,9 +81,9 @@ export function CourseWhoShouldTake({ description, idealFor, notFor }: CourseWho
                   className="font-display font-semibold mb-6 flex items-center gap-2"
                   style={{ color: '#dc2626', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
                   <X className="w-6 h-6" style={{ color: '#dc2626' }} />
-                  Not For
+                  This Course Is NOT For You If…
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-3 mb-6">
                   {notFor.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <X className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#dc2626' }} />
@@ -93,6 +93,16 @@ export function CourseWhoShouldTake({ description, idealFor, notFor }: CourseWho
                     </li>
                   ))}
                 </ul>
+                <p
+                  className="font-body text-sm leading-relaxed"
+                  style={{
+                    color: '#6b7280',
+                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+                    lineHeight: '1.7',
+                    fontStyle: 'italic'
+                  }}>
+                  This program is for people who are serious about building a design career, not just collecting course badges.
+                </p>
               </motion.div>
             )}
           </div>

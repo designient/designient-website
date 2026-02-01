@@ -16,7 +16,7 @@ const placementStats = [
 },
 {
   icon: Users,
-  value: '350+',
+  value: '150+',
   label: 'Students Placed'
 }];
 
@@ -55,7 +55,7 @@ export function PlacementPartnersSection() {
         backgroundColor: '#FFF6E2'
       }}>
 
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,

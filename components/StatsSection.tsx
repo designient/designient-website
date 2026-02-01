@@ -94,7 +94,7 @@ export function StatsSection() {
         backgroundColor: '#8458B3'
       }}>
 
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {stats.map((stat, index) =>
           <motion.div

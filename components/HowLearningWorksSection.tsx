@@ -1,8 +1,9 @@
 'use client'
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { BookOpen, MessageCircle, Briefcase, FileText, Users, Award } from 'react-feather';
+import { BookOpen, MessageCircle, Briefcase, FileText, Users } from 'react-feather';
 
 const steps = [
   {
@@ -35,7 +36,7 @@ const steps = [
 export function HowLearningWorksSection() {
   return (
     <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
-      <div className="max-w-container mx-auto px-3 md:px-4">
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
             opacity: 0,
@@ -150,22 +151,22 @@ export function HowLearningWorksSection() {
             border: '2px solid #f4e4c1'
           }}>
           <div className="flex flex-col items-center gap-4 mb-4">
-            <div className="flex items-center justify-center gap-4">
-              <Award
-                className="w-12 h-12"
-                style={{
-                  color: '#8458B3'
-                }} />
-              <h3
-                className="font-display font-bold text-2xl"
-                style={{
-                  color: '#8458B3'
-                }}>
-                Adobe Certified
-              </h3>
-            </div>
-            <div className="w-48 h-32 bg-gray-100 rounded-lg flex items-center justify-center border-2" style={{ borderColor: '#f4e4c1' }}>
-              <span className="font-body text-xs text-gray-400">Certificate Image</span>
+            <h3
+              className="font-display font-bold text-2xl text-center"
+              style={{
+                color: '#8458B3'
+              }}>
+              Stand Out to Employers
+            </h3>
+            <div className="rounded-xl overflow-hidden border-2 bg-gray-50 flex items-center justify-center w-[80%] max-w-4xl mx-auto" style={{ borderColor: '#f4e4c1' }}>
+              <Image
+                src="/adobe-certified-certificate.webp"
+                alt="Adobe Certified Professional certificate badge - Designient UI/UX design course"
+                width={1720}
+                height={1228}
+                className="w-full h-auto object-contain"
+                sizes="80vw"
+              />
             </div>
           </div>
           <p
@@ -175,7 +176,7 @@ export function HowLearningWorksSection() {
               fontSize: 'clamp(1rem, 1.5vw, 1.0625rem)',
               lineHeight: '1.7'
             }}>
-            Earn industry-recognized Adobe certification that validates your professional skills and enhances your portfolio credibility.
+            Get a certification that backs your skills and makes your portfolio stand out to recruiters and employers.
           </p>
         </motion.div>
       </div>
