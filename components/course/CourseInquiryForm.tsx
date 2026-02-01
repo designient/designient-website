@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import { Send, CheckCircle, AlertCircle, ChevronDown, Search } from 'react-feather'
+import { Send, CheckCircle, AlertCircle } from 'react-feather'
 
 interface CourseInquiryFormProps {
   courseSlug?: string
@@ -24,62 +24,20 @@ const cities = [
   'Other'
 ]
 
-const countryCodes = [
-  { code: '+91', country: 'India', flag: '🇮🇳' },
-  { code: '+1', country: 'United States', flag: '🇺🇸' },
-  { code: '+1', country: 'Canada', flag: '🇨🇦' },
-  { code: '+44', country: 'United Kingdom', flag: '🇬🇧' },
-  { code: '+61', country: 'Australia', flag: '🇦🇺' },
-  { code: '+64', country: 'New Zealand', flag: '🇳🇿' },
-  { code: '+971', country: 'UAE', flag: '🇦🇪' },
-  { code: '+966', country: 'Saudi Arabia', flag: '🇸🇦' },
-  { code: '+65', country: 'Singapore', flag: '🇸🇬' },
-  { code: '+60', country: 'Malaysia', flag: '🇲🇾' },
-  { code: '+62', country: 'Indonesia', flag: '🇮🇩' },
-  { code: '+66', country: 'Thailand', flag: '🇹🇭' },
-  { code: '+84', country: 'Vietnam', flag: '🇻🇳' },
-  { code: '+63', country: 'Philippines', flag: '🇵🇭' },
-  { code: '+86', country: 'China', flag: '🇨🇳' },
-  { code: '+81', country: 'Japan', flag: '🇯🇵' },
-  { code: '+82', country: 'South Korea', flag: '🇰🇷' },
-  { code: '+33', country: 'France', flag: '🇫🇷' },
-  { code: '+49', country: 'Germany', flag: '🇩🇪' },
-  { code: '+39', country: 'Italy', flag: '🇮🇹' },
-  { code: '+34', country: 'Spain', flag: '🇪🇸' },
-  { code: '+31', country: 'Netherlands', flag: '🇳🇱' },
-  { code: '+32', country: 'Belgium', flag: '🇧🇪' },
-  { code: '+41', country: 'Switzerland', flag: '🇨🇭' },
-  { code: '+46', country: 'Sweden', flag: '🇸🇪' },
-  { code: '+47', country: 'Norway', flag: '🇳🇴' },
-  { code: '+45', country: 'Denmark', flag: '🇩🇰' },
-  { code: '+358', country: 'Finland', flag: '🇫🇮' },
-  { code: '+7', country: 'Russia', flag: '🇷🇺' },
-  { code: '+90', country: 'Turkey', flag: '🇹🇷' },
-  { code: '+20', country: 'Egypt', flag: '🇪🇬' },
-  { code: '+234', country: 'Nigeria', flag: '🇳🇬' },
-  { code: '+254', country: 'Kenya', flag: '🇰🇪' },
-  { code: '+55', country: 'Brazil', flag: '🇧🇷' },
-  { code: '+52', country: 'Mexico', flag: '🇲🇽' },
-  { code: '+54', country: 'Argentina', flag: '🇦🇷' },
-  { code: '+57', country: 'Colombia', flag: '🇨🇴' },
-  { code: '+51', country: 'Peru', flag: '🇵🇪' },
-  { code: '+56', country: 'Chile', flag: '🇨🇱' }
-]
+import { CountryCodeSelect, validatePhoneNumber } from '../shared/CountryCodeSelect'
 
 export function CourseInquiryForm({ courseSlug, courseName, compact = false }: CourseInquiryFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    phoneCountryCode: '+91',
     whatsappCountryCode: '+91',
     whatsapp: '',
     availability: '',
     city: '',
     courseInterest: courseSlug || ''
   })
-  const [whatsappSearch, setWhatsappSearch] = useState('')
-  const [whatsappDropdownOpen, setWhatsappDropdownOpen] = useState(false)
-  const whatsappDropdownRef = useRef<HTMLDivElement>(null)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -92,21 +50,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
     'prompt-engineering-mastery': 'prompt'
   }
 
-  const selectedWhatsappCountry = countryCodes.find(c => c.code === formData.whatsappCountryCode) || countryCodes[0]
-  const filteredWhatsappCountries = countryCodes.filter(country =>
-    country.country.toLowerCase().includes(whatsappSearch.toLowerCase()) ||
-    country.code.includes(whatsappSearch)
-  )
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (whatsappDropdownRef.current && !whatsappDropdownRef.current.contains(event.target as Node)) {
-        setWhatsappDropdownOpen(false)
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => document.removeEventListener('mousedown', handleClickOutside)
-  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -134,10 +78,22 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
     if (!formData.phone.trim()) {
       setErrorMessage('Phone number is required')
       return false
+    } else {
+      const phoneValidation = validatePhoneNumber(formData.phone, formData.phoneCountryCode)
+      if (!phoneValidation.valid) {
+        setErrorMessage(phoneValidation.error || 'Please enter a valid phone number')
+        return false
+      }
     }
     if (!formData.whatsapp.trim()) {
       setErrorMessage('WhatsApp number is required')
       return false
+    } else {
+      const whatsappValidation = validatePhoneNumber(formData.whatsapp, formData.whatsappCountryCode)
+      if (!whatsappValidation.valid) {
+        setErrorMessage(whatsappValidation.error ? `WhatsApp: ${whatsappValidation.error}` : 'Please enter a valid WhatsApp number')
+        return false
+      }
     }
     if (!formData.availability) {
       setErrorMessage('Please select your availability')
@@ -171,7 +127,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phoneCountryCode: '+91',
+          phoneCountryCode: formData.phoneCountryCode,
           phone: formData.phone,
           whatsappCountryCode: formData.whatsappCountryCode,
           whatsapp: formData.whatsapp,
@@ -181,7 +137,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
 
       let data
       const responseText = await response.text()
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {}
       } catch (jsonError) {
@@ -204,6 +160,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             name: '',
             email: '',
             phone: '',
+            phoneCountryCode: '+91',
             whatsappCountryCode: '+91',
             whatsapp: '',
             availability: '',
@@ -287,81 +244,39 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
 
         {/* Phone */}
         <div>
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            placeholder="Phone Number"
-            required
-            className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
-            style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: '#1a1a1a',
-            }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
-          />
+          <div className="flex gap-2">
+            <CountryCodeSelect
+              value={formData.phoneCountryCode}
+              onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
+              id="phoneCountryCode"
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleInputChange}
+              placeholder="Phone Number"
+              required
+              className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
+              style={{
+                borderColor: '#e5e7eb',
+                backgroundColor: 'white',
+                color: '#1a1a1a',
+              }}
+              onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+              onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            />
+          </div>
         </div>
 
         {/* WhatsApp */}
         <div>
           <div className="flex gap-2">
-            <div className="relative flex-shrink-0" style={{ width: '110px' }} ref={whatsappDropdownRef}>
-              <button
-                type="button"
-                onClick={() => {
-                  setWhatsappDropdownOpen(!whatsappDropdownOpen)
-                }}
-                className="w-full h-[44px] px-2 py-0 text-sm rounded-lg border-2 transition-colors flex items-center justify-center gap-1"
-                style={{
-                  borderColor: '#e5e7eb',
-                  backgroundColor: 'white',
-                  color: '#1a1a1a'
-                }}
-                onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-                onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
-              >
-                <span className="text-sm">{selectedWhatsappCountry?.flag}</span>
-                <span className="text-xs font-medium">{selectedWhatsappCountry?.code}</span>
-                <ChevronDown className="w-3 h-3 flex-shrink-0" />
-              </button>
-              {whatsappDropdownOpen && (
-                <div className="absolute z-50 w-full mt-1 bg-white border-2 rounded-lg shadow-lg max-h-60 overflow-auto"
-                  style={{ borderColor: '#e5e7eb' }}>
-                  <div className="relative px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
-                    <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#9ca3af' }} />
-                    <input
-                      type="text"
-                      placeholder="Search country..."
-                      value={whatsappSearch}
-                      onChange={(e) => setWhatsappSearch(e.target.value)}
-                      className="w-full pl-8 pr-3 py-1 text-sm focus:outline-none"
-                      autoFocus
-                    />
-                  </div>
-                  <div className="max-h-48 overflow-y-auto">
-                    {filteredWhatsappCountries.map((country) => (
-                      <button
-                        key={country.code + country.country}
-                        type="button"
-                        onClick={() => {
-                          setFormData({ ...formData, whatsappCountryCode: country.code })
-                          setWhatsappDropdownOpen(false)
-                          setWhatsappSearch('')
-                        }}
-                        className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2"
-                        style={{ color: '#1a1a1a' }}>
-                        <span>{country.flag}</span>
-                        <span className="font-medium">{country.code}</span>
-                        <span className="text-xs text-gray-600">{country.country}</span>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <CountryCodeSelect
+              value={formData.whatsappCountryCode}
+              onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
+              id="whatsappCountryCode"
+            />
             <input
               type="tel"
               name="whatsapp"

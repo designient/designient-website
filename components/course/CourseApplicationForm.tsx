@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle, AlertCircle } from 'react-feather'
 import Link from 'next/link'
+import { CountryCodeSelect, validatePhoneNumber } from '../shared/CountryCodeSelect'
 
 interface CourseApplicationFormProps {
   courseSlug: string
@@ -28,7 +29,10 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    phoneCountryCode: '+91',
     phone: '',
+    whatsappCountryCode: '+91',
+    whatsapp: '',
     currentBackground: '',
     experienceLevel: '',
     careerGoal: '',
@@ -51,7 +55,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
 
   const validateField = (name: string, value: string) => {
     const newErrors: Record<string, string> = { ...errors }
-    
+
     switch (name) {
       case 'fullName':
         if (!value.trim()) {
@@ -73,7 +77,24 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
         if (!value.trim()) {
           newErrors.phone = 'Phone number is required'
         } else {
-          delete newErrors.phone
+          const phoneValidation = validatePhoneNumber(value, formData.phoneCountryCode)
+          if (!phoneValidation.valid) {
+            newErrors.phone = phoneValidation.error || 'Please enter a valid phone number'
+          } else {
+            delete newErrors.phone
+          }
+        }
+        break
+      case 'whatsapp':
+        if (value.trim()) {
+          const whatsappValidation = validatePhoneNumber(value, formData.whatsappCountryCode)
+          if (!whatsappValidation.valid) {
+            newErrors.whatsapp = whatsappValidation.error || 'Please enter a valid WhatsApp number'
+          } else {
+            delete newErrors.whatsapp
+          }
+        } else {
+          delete newErrors.whatsapp
         }
         break
       case 'currentBackground':
@@ -121,19 +142,19 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
         }
         break
     }
-    
+
     setErrors(newErrors)
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    
+
     // Real-time validation on blur
     if (e.type === 'blur' || (e.type === 'change' && value.length > 0)) {
       validateField(name, value)
     }
-    
+
     if (submitStatus === 'error') {
       setSubmitStatus('idle')
       setErrorMessage('')
@@ -153,6 +174,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
     }
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required'
+    } else {
+      const phoneValidation = validatePhoneNumber(formData.phone, formData.phoneCountryCode)
+      if (!phoneValidation.valid) {
+        newErrors.phone = phoneValidation.error || 'Please enter a valid phone number'
+      }
     }
     if (!formData.currentBackground.trim()) {
       newErrors.currentBackground = 'Please describe your current background'
@@ -211,7 +237,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
         body: JSON.stringify({
           fullName: formData.fullName,
           email: formData.email,
-          phone: formData.phone,
+          phone: `${formData.phoneCountryCode} ${formData.phone}`,
+          whatsapp: formData.whatsapp ? `${formData.whatsappCountryCode} ${formData.whatsapp}` : '',
           program,
           applicantType: formData.experienceLevel,
           currentBackground: formData.currentBackground,
@@ -225,7 +252,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
 
       let data
       const responseText = await response.text()
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {}
       } catch (jsonError) {
@@ -247,7 +274,10 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
           setFormData({
             fullName: '',
             email: '',
+            phoneCountryCode: '+91',
             phone: '',
+            whatsappCountryCode: '+91',
+            whatsapp: '',
             currentBackground: '',
             experienceLevel: '',
             careerGoal: '',
@@ -285,9 +315,9 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto">
-          
+
           {/* Header */}
-          <div className="text-center mb-8">
+          <div className="mb-8">
             <h2
               className="font-display font-bold mb-4"
               style={{
@@ -317,8 +347,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
           {/* Form */}
           <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-5">
-              {/* Name, Email, Phone */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Name, Email, Phone, WhatsApp */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
                     Full Name <span className="text-red-500">*</span>
@@ -333,9 +363,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.fullName}
                     aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${
-                      errors.fullName ? 'border-red-500' : formData.fullName ? 'border-green-500' : ''
-                    }`}
+                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.fullName ? 'border-red-500' : formData.fullName ? 'border-green-500' : ''
+                      }`}
                     style={{
                       borderColor: errors.fullName ? '#ef4444' : formData.fullName ? '#10b981' : '#e5e7eb',
                       backgroundColor: 'white',
@@ -361,9 +390,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? 'email-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${
-                      errors.email ? 'border-red-500' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 'border-green-500' : ''
-                    }`}
+                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.email ? 'border-red-500' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 'border-green-500' : ''
+                      }`}
                     style={{
                       borderColor: errors.email ? '#ef4444' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? '#10b981' : '#e5e7eb',
                       backgroundColor: 'white',
@@ -379,28 +407,66 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
                     Phone Number <span className="text-red-500">*</span>
                   </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    onBlur={handleInputChange}
-                    required
-                    aria-required="true"
-                    aria-invalid={!!errors.phone}
-                    aria-describedby={errors.phone ? 'phone-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${
-                      errors.phone ? 'border-red-500' : formData.phone ? 'border-green-500' : ''
-                    }`}
-                    style={{
-                      borderColor: errors.phone ? '#ef4444' : formData.phone ? '#10b981' : '#e5e7eb',
-                      backgroundColor: 'white',
-                      color: '#1a1a1a',
-                    }}
-                    onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-                  />
+                  <div className="flex gap-2">
+                    <CountryCodeSelect
+                      value={formData.phoneCountryCode}
+                      onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
+                      id="phoneCountryCode"
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      onBlur={handleInputChange}
+                      required
+                      aria-required="true"
+                      aria-invalid={!!errors.phone}
+                      aria-describedby={errors.phone ? 'phone-error' : undefined}
+                      className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.phone ? 'border-red-500' : formData.phone ? 'border-green-500' : ''
+                        }`}
+                      style={{
+                        borderColor: errors.phone ? '#ef4444' : formData.phone ? '#10b981' : '#e5e7eb',
+                        backgroundColor: 'white',
+                        color: '#1a1a1a',
+                      }}
+                      onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                    />
+                  </div>
                   {errors.phone && <p id="phone-error" className="mt-1 text-xs text-red-500" role="alert">{errors.phone}</p>}
                   {formData.phone && !errors.phone && <p className="mt-1 text-xs text-green-600">✓</p>}
+                </div>
+
+                <div>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                    WhatsApp Number <span className="text-gray-400 font-normal">(Optional)</span>
+                  </label>
+                  <div className="flex gap-2">
+                    <CountryCodeSelect
+                      value={formData.whatsappCountryCode}
+                      onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
+                      id="whatsappCountryCode"
+                    />
+                    <input
+                      type="tel"
+                      name="whatsapp"
+                      value={formData.whatsapp}
+                      onChange={handleInputChange}
+                      onBlur={handleInputChange}
+                      aria-invalid={!!errors.whatsapp}
+                      aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
+                      className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.whatsapp ? 'border-red-500' : formData.whatsapp ? 'border-green-500' : ''
+                        }`}
+                      style={{
+                        borderColor: errors.whatsapp ? '#ef4444' : formData.whatsapp ? '#10b981' : '#e5e7eb',
+                        backgroundColor: 'white',
+                        color: '#1a1a1a',
+                      }}
+                      onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                    />
+                  </div>
+                  {errors.whatsapp && <p id="whatsapp-error" className="mt-1 text-xs text-red-500" role="alert">{errors.whatsapp}</p>}
+                  {formData.whatsapp && !errors.whatsapp && <p className="mt-1 text-xs text-green-600">✓</p>}
                 </div>
               </div>
 
@@ -420,9 +486,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.currentBackground}
                   aria-describedby={errors.currentBackground ? 'currentBackground-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${
-                    errors.currentBackground ? 'border-red-500' : formData.currentBackground ? 'border-green-500' : ''
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.currentBackground ? 'border-red-500' : formData.currentBackground ? 'border-green-500' : ''
+                    }`}
                   style={{
                     borderColor: errors.currentBackground ? '#ef4444' : formData.currentBackground ? '#10b981' : '#e5e7eb',
                     backgroundColor: 'white',
@@ -448,9 +513,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.experienceLevel}
                   aria-describedby={errors.experienceLevel ? 'experienceLevel-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${
-                    errors.experienceLevel ? 'border-red-500' : formData.experienceLevel ? 'border-green-500' : ''
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.experienceLevel ? 'border-red-500' : formData.experienceLevel ? 'border-green-500' : ''
+                    }`}
                   style={{
                     borderColor: errors.experienceLevel ? '#ef4444' : formData.experienceLevel ? '#10b981' : '#e5e7eb',
                     backgroundColor: 'white',
@@ -483,9 +547,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.careerGoal}
                   aria-describedby={errors.careerGoal ? 'careerGoal-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${
-                    errors.careerGoal ? 'border-red-500' : formData.careerGoal ? 'border-green-500' : ''
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.careerGoal ? 'border-red-500' : formData.careerGoal ? 'border-green-500' : ''
+                    }`}
                   style={{
                     borderColor: errors.careerGoal ? '#ef4444' : formData.careerGoal ? '#10b981' : '#e5e7eb',
                     backgroundColor: 'white',
@@ -512,9 +575,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.availability}
                     aria-describedby={errors.availability ? 'availability-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${
-                      errors.availability ? 'border-red-500' : formData.availability ? 'border-green-500' : ''
-                    }`}
+                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.availability ? 'border-red-500' : formData.availability ? 'border-green-500' : ''
+                      }`}
                     style={{
                       borderColor: errors.availability ? '#ef4444' : formData.availability ? '#10b981' : '#e5e7eb',
                       backgroundColor: 'white',
@@ -544,9 +606,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.city}
                     aria-describedby={errors.city ? 'city-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${
-                      errors.city ? 'border-red-500' : formData.city ? 'border-green-500' : ''
-                    }`}
+                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.city ? 'border-red-500' : formData.city ? 'border-green-500' : ''
+                      }`}
                     style={{
                       borderColor: errors.city ? '#ef4444' : formData.city ? '#10b981' : '#e5e7eb',
                       backgroundColor: 'white',
@@ -569,7 +630,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                 <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
                   Why do you want to join Designient? <span className="text-red-500">*</span>
                 </label>
-                  <textarea
+                <textarea
                   name="motivation"
                   value={formData.motivation}
                   onChange={handleInputChange}
@@ -580,9 +641,8 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.motivation}
                   aria-describedby={errors.motivation ? 'motivation-error' : 'motivation-help'}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${
-                    errors.motivation ? 'border-red-500' : formData.motivation.length >= 50 ? 'border-green-500' : ''
-                  }`}
+                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.motivation ? 'border-red-500' : formData.motivation.length >= 50 ? 'border-green-500' : ''
+                    }`}
                   style={{
                     borderColor: errors.motivation ? '#ef4444' : formData.motivation.length >= 50 ? '#10b981' : '#e5e7eb',
                     backgroundColor: 'white',
@@ -590,10 +650,18 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   }}
                   onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
                 />
-                {errors.motivation && <p id="motivation-error" className="mt-1 text-xs text-red-500" role="alert">{errors.motivation}</p>}
-                <p id="motivation-help" className="mt-1 text-xs" style={{ color: formData.motivation.length >= 50 ? '#10b981' : '#6b7280' }}>
-                  {formData.motivation.length}/50 characters minimum {formData.motivation.length >= 50 && '✓'}
-                </p>
+                <div className="flex justify-between items-start mt-1">
+                  {errors.motivation ? (
+                    <p id="motivation-error" className="text-xs text-red-500" role="alert">{errors.motivation}</p>
+                  ) : (
+                    <p id="motivation-help" className="text-xs" style={{ color: formData.motivation.length >= 50 ? '#10b981' : '#6b7280' }}>
+                      {formData.motivation.length}/50 characters minimum {formData.motivation.length >= 50 && '✓'}
+                    </p>
+                  )}
+                  <span className="text-xs text-gray-400">
+                    {formData.motivation.length} / 2000
+                  </span>
+                </div>
               </div>
 
               {/* Error Message */}

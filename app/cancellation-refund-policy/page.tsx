@@ -118,6 +118,7 @@ export default function CancellationRefundPolicyPage() {
             <div className="space-y-4">
               <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
                 <strong>Refunds after course commencement are not guaranteed.</strong> Refunds, if any, are handled strictly on a case-by-case basis at Designient&apos;s sole discretion.
+                If you are paying via an installment plan, please note that <strong>installments once paid are non-refundable</strong>, even if you choose to discontinue the course before the next installment due date.
               </p>
               <div className="bg-red-50 border-l-4 border-red-400 p-4 my-4">
                 <p className="font-body font-semibold mb-3" style={{ color: '#1a1a1a' }}>No Refunds Will Be Provided For:</p>

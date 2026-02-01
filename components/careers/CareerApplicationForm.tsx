@@ -2,17 +2,21 @@
 
 import React, { useState, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  Mail, 
-  Phone, 
-  FileText, 
-  Link as LinkIcon, 
-  Upload, 
-  CheckCircle, 
+import {
+  Mail,
+  FileText,
+  Link as LinkIcon,
+  Upload,
+  CheckCircle,
   AlertCircle,
   X,
-  Send
+  Send,
+  Phone
 } from 'react-feather'
+import { CountryCodeSelect, validatePhoneNumber } from '../shared/CountryCodeSelect'
+
+const COVER_LETTER_MIN = 50
+const COVER_LETTER_MAX = 2000
 
 interface CareerApplicationFormProps {
   roleName: string
@@ -23,7 +27,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
+    phoneCountryCode: '+91',
     phone: '',
+    whatsappCountryCode: '+91',
+    whatsapp: '',
     portfolioUrl: '',
     linkedinUrl: '',
     coverLetter: '',
@@ -52,10 +59,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
     }
   }
 
-  const validatePhone = (phone: string) => {
-    const phoneRegex = /^[\d\s\-\+\(\)]+$/
-    return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10
-  }
+  // Using shared validatePhoneNumber from CountryCodeSelect
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -92,7 +96,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
-    
+
     // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors(prev => {
@@ -118,8 +122,18 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required'
-    } else if (!validatePhone(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number'
+    } else {
+      const phoneValidation = validatePhoneNumber(formData.phone, formData.phoneCountryCode)
+      if (!phoneValidation.valid) {
+        newErrors.phone = phoneValidation.error || 'Please enter a valid phone number'
+      }
+    }
+
+    if (formData.whatsapp) {
+      const whatsappValidation = validatePhoneNumber(formData.whatsapp, formData.whatsappCountryCode)
+      if (!whatsappValidation.valid) {
+        newErrors.whatsapp = whatsappValidation.error || 'Please enter a valid WhatsApp number'
+      }
     }
 
     if (!resumeFile) {
@@ -140,7 +154,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       return
     }
@@ -154,7 +168,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
       const formDataToSend = new FormData()
       formDataToSend.append('fullName', formData.fullName)
       formDataToSend.append('email', formData.email)
-      formDataToSend.append('phone', formData.phone)
+      formDataToSend.append('phone', `${formData.phoneCountryCode} ${formData.phone}`)
+      if (formData.whatsapp) {
+        formDataToSend.append('whatsapp', `${formData.whatsappCountryCode} ${formData.whatsapp}`)
+      }
       formDataToSend.append('portfolioUrl', formData.portfolioUrl)
       formDataToSend.append('linkedinUrl', formData.linkedinUrl)
       formDataToSend.append('coverLetter', formData.coverLetter)
@@ -173,7 +190,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
 
       let data;
       const responseText = await response.text();
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {};
       } catch (jsonError) {
@@ -195,7 +212,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
         setFormData({
           fullName: '',
           email: '',
+          phoneCountryCode: '+91',
           phone: '',
+          whatsappCountryCode: '+91',
+          whatsapp: '',
           portfolioUrl: '',
           linkedinUrl: '',
           coverLetter: '',
@@ -321,9 +341,8 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 aria-required="true"
                 aria-invalid={errors.fullName ? 'true' : 'false'}
                 aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-                className={`w-full px-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${
-                  errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                }`}
+                className={`w-full px-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  }`}
                 style={{
                   backgroundColor: 'white',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
@@ -364,9 +383,8 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   aria-required="true"
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${
-                    errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                  }`}
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    }`}
                   style={{
                     backgroundColor: 'white',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
@@ -396,26 +414,32 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 }}>
                 Phone Number <span style={{ color: '#dc2626' }}>*</span>
               </label>
-              <div className="relative">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                  aria-required="true"
-                  aria-invalid={errors.phone ? 'true' : 'false'}
-                  aria-describedby={errors.phone ? 'phone-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${
-                    errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                  }`}
-                  style={{
-                    backgroundColor: 'white',
-                    fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
-                  }}
+              <div className="flex gap-2">
+                <CountryCodeSelect
+                  value={formData.phoneCountryCode}
+                  onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
+                  id="phoneCountryCode"
                 />
+                <div className="relative flex-1">
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    required
+                    aria-required="true"
+                    aria-invalid={errors.phone ? 'true' : 'false'}
+                    aria-describedby={errors.phone ? 'phone-error' : undefined}
+                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                      }`}
+                    style={{
+                      backgroundColor: 'white',
+                      fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
+                    }}
+                  />
+                </div>
               </div>
               {errors.phone && (
                 <p
@@ -425,6 +449,54 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.phone}
+                </p>
+              )}
+            </div>
+
+            {/* WhatsApp */}
+            <div>
+              <label
+                htmlFor="whatsapp"
+                className="block font-body font-semibold mb-2"
+                style={{
+                  color: '#1a1a1a',
+                  fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
+                }}>
+                WhatsApp Number <span className="font-normal text-sm" style={{ color: '#6b7280' }}>(Optional)</span>
+              </label>
+              <div className="flex gap-2">
+                <CountryCodeSelect
+                  value={formData.whatsappCountryCode}
+                  onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
+                  id="whatsappCountryCode"
+                />
+                <div className="relative flex-1">
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                  <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    value={formData.whatsapp}
+                    onChange={handleInputChange}
+                    aria-invalid={errors.whatsapp ? 'true' : 'false'}
+                    aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
+                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                      }`}
+                    style={{
+                      backgroundColor: 'white',
+                      fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
+                    }}
+                  />
+                </div>
+              </div>
+              {errors.whatsapp && (
+                <p
+                  id="whatsapp-error"
+                  className="mt-2 flex items-center gap-2 font-body text-sm"
+                  style={{ color: '#dc2626' }}
+                  role="alert">
+                  <AlertCircle className="w-4 h-4" />
+                  {errors.whatsapp}
                 </p>
               )}
             </div>
@@ -455,13 +527,12 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                 />
                 <div
-                  className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-colors cursor-pointer min-h-[44px] ${
-                    errors.resume
-                      ? 'border-red-500 bg-red-50'
-                      : resumeFile
+                  className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-colors cursor-pointer min-h-[44px] ${errors.resume
+                    ? 'border-red-500 bg-red-50'
+                    : resumeFile
                       ? 'border-[#8458B3] bg-purple-50'
                       : 'border-gray-300 bg-gray-50 hover:border-[#8458B3]'
-                  }`}>
+                    }`}>
                   <Upload className="w-5 h-5 flex-shrink-0" style={{ color: errors.resume ? '#dc2626' : '#8458B3' }} />
                   <div className="flex-1">
                     {resumeFile ? (
@@ -519,9 +590,8 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   placeholder="https://yourportfolio.com"
                   aria-invalid={errors.portfolioUrl ? 'true' : 'false'}
                   aria-describedby={errors.portfolioUrl ? 'portfolioUrl-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${
-                    errors.portfolioUrl ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                  }`}
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.portfolioUrl ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    }`}
                   style={{
                     backgroundColor: 'white',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
@@ -562,9 +632,8 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   placeholder="https://linkedin.com/in/yourprofile"
                   aria-invalid={errors.linkedinUrl ? 'true' : 'false'}
                   aria-describedby={errors.linkedinUrl ? 'linkedinUrl-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${
-                    errors.linkedinUrl ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                  }`}
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.linkedinUrl ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    }`}
                   style={{
                     backgroundColor: 'white',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
@@ -608,6 +677,20 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   minHeight: '120px'
                 }}
               />
+              <div className="flex justify-between items-start mt-1">
+                <p id="coverLetter-hint" className="font-body text-xs" style={{ color: '#6b7280' }}>
+                  Minimum {COVER_LETTER_MIN} characters
+                </p>
+                <span
+                  className="font-body text-xs"
+                  style={{
+                    color: formData.coverLetter.length < COVER_LETTER_MIN ? '#ef4444' :
+                      formData.coverLetter.length > COVER_LETTER_MAX * 0.9 ? '#f59e0b' : '#6b7280'
+                  }}
+                >
+                  {formData.coverLetter.length} / {COVER_LETTER_MAX}
+                </span>
+              </div>
             </div>
 
             {/* Submit Button */}

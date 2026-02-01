@@ -2,8 +2,9 @@
 
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle, Briefcase, Users, Calendar, DollarSign, FileText } from 'react-feather'
+import { ArrowRight, CheckCircle, Briefcase, Users, Calendar, DollarSign, FileText, Phone } from 'react-feather'
 import { useRouter } from 'next/navigation'
+import { CountryCodeSelect, validatePhoneNumber } from '../shared/CountryCodeSelect'
 
 interface FormData {
   fullName: string
@@ -18,6 +19,10 @@ interface FormData {
   timeline: string
   budgetRange: string
   requirementDescription: string
+  phone: string
+  phoneCountryCode: string
+  whatsapp: string
+  whatsappCountryCode: string
 }
 
 const roles = [
@@ -104,13 +109,17 @@ export function CorporateProposalForm() {
     teamSize: '',
     timeline: '',
     budgetRange: '',
-    requirementDescription: ''
+    requirementDescription: '',
+    phone: '',
+    phoneCountryCode: '+91',
+    whatsapp: '',
+    whatsappCountryCode: '+91'
   })
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) return false
-    
+
     // Check for common business email domains (not exhaustive, but helps)
     const personalDomains = ['gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 'icloud.com', 'aol.com']
     const domain = email.split('@')[1]?.toLowerCase()
@@ -128,6 +137,20 @@ export function CorporateProposalForm() {
       newErrors.workEmail = 'Work email is required'
     } else if (!validateEmail(formData.workEmail)) {
       newErrors.workEmail = 'Please enter a valid business email address'
+    }
+
+    if (formData.phone) {
+      const phoneValidation = validatePhoneNumber(formData.phone, formData.phoneCountryCode)
+      if (!phoneValidation.valid) {
+        newErrors.phone = phoneValidation.error || 'Please enter a valid phone number'
+      }
+    }
+
+    if (formData.whatsapp) {
+      const whatsappValidation = validatePhoneNumber(formData.whatsapp, formData.whatsappCountryCode)
+      if (!whatsappValidation.valid) {
+        newErrors.whatsapp = whatsappValidation.error || 'Please enter a valid WhatsApp number'
+      }
     }
 
     if (!formData.companyName.trim()) {
@@ -190,7 +213,7 @@ export function CorporateProposalForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    
+
     if (!validateForm()) {
       return
     }
@@ -206,7 +229,8 @@ export function CorporateProposalForm() {
         body: JSON.stringify({
           name: formData.fullName,
           email: formData.workEmail,
-          phone: '', // Not required for corporate form
+          phone: formData.phone ? `${formData.phoneCountryCode} ${formData.phone}` : '',
+          whatsapp: formData.whatsapp ? `${formData.whatsappCountryCode} ${formData.whatsapp}` : '',
           reason: 'corporate-proposal',
           message: `
 Corporate Proposal Request
@@ -233,14 +257,16 @@ ${formData.requirementDescription}
             serviceType: formData.serviceType,
             teamSize: formData.teamSize,
             timeline: formData.timeline,
-            budgetRange: formData.budgetRange
+            budgetRange: formData.budgetRange,
+            phone: formData.phone,
+            whatsapp: formData.whatsapp
           }
         }),
       })
 
       let data;
       const responseText = await response.text();
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {};
       } catch (jsonError) {
@@ -320,9 +346,8 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, fullName: e.target.value }))
                 if (errors.fullName) setErrors(prev => ({ ...prev, fullName: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}
               placeholder="John Doe"
             />
             {errors.fullName && <p className="mt-1 text-xs text-red-500">{errors.fullName}</p>}
@@ -340,15 +365,72 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, workEmail: e.target.value }))
                 if (errors.workEmail) setErrors(prev => ({ ...prev, workEmail: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                errors.workEmail ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.workEmail ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}
               placeholder="john@company.com"
             />
             {errors.workEmail && <p className="mt-1 text-xs text-red-500">{errors.workEmail}</p>}
             <p className="mt-1 text-xs" style={{ color: '#6b7280' }}>
               Business email addresses only
             </p>
+          </div>
+
+          <div className="md:col-span-2">
+            <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+              Phone Number <span className="font-normal text-gray-500">(Optional)</span>
+            </label>
+            <div className="flex gap-2">
+              <CountryCodeSelect
+                value={formData.phoneCountryCode}
+                onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
+                id="phoneCountryCode"
+              />
+              <div className="relative flex-1">
+                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <input
+                  type="tel"
+                  id="phone"
+                  value={formData.phone}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, phone: e.target.value }))
+                    if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }))
+                  }}
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    }`}
+                  placeholder="Enter phone number"
+                />
+              </div>
+            </div>
+            {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+          </div>
+
+          <div className="md:col-span-2">
+            <label htmlFor="whatsapp" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+              WhatsApp Number <span className="font-normal text-gray-500">(Optional)</span>
+            </label>
+            <div className="flex gap-2">
+              <CountryCodeSelect
+                value={formData.whatsappCountryCode}
+                onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
+                id="whatsappCountryCode"
+              />
+              <div className="relative flex-1">
+                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={(e) => {
+                    setFormData(prev => ({ ...prev, whatsapp: e.target.value }))
+                    if (errors.whatsapp) setErrors(prev => ({ ...prev, whatsapp: undefined }))
+                  }}
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    }`}
+                  placeholder="Enter WhatsApp number"
+                />
+              </div>
+            </div>
+            {errors.whatsapp && <p className="mt-1 text-xs text-red-500">{errors.whatsapp}</p>}
           </div>
         </div>
       </motion.section>
@@ -378,9 +460,8 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, companyName: e.target.value }))
                 if (errors.companyName) setErrors(prev => ({ ...prev, companyName: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                errors.companyName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.companyName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}
               placeholder="Acme Inc."
             />
             {errors.companyName && <p className="mt-1 text-xs text-red-500">{errors.companyName}</p>}
@@ -397,9 +478,8 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, role: e.target.value }))
                 if (errors.role) setErrors(prev => ({ ...prev, role: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                errors.role ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}>
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.role ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}>
               <option value="">Select your role</option>
               {roles.map(role => (
                 <option key={role} value={role}>{role}</option>
@@ -419,9 +499,8 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, companySize: e.target.value }))
                 if (errors.companySize) setErrors(prev => ({ ...prev, companySize: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                errors.companySize ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}>
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.companySize ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}>
               <option value="">Select company size</option>
               {companySizes.map(size => (
                 <option key={size} value={size}>{size}</option>
@@ -441,9 +520,8 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, industry: e.target.value }))
                 if (errors.industry) setErrors(prev => ({ ...prev, industry: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                errors.industry ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}>
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.industry ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}>
               <option value="">Select industry</option>
               {industries.map(industry => (
                 <option key={industry} value={industry}>{industry}</option>
@@ -489,11 +567,10 @@ ${formData.requirementDescription}
               {serviceTypes.map(service => (
                 <label
                   key={service}
-                  className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-colors ${
-                    formData.serviceType.includes(service)
-                      ? 'border-[#8458B3] bg-purple-50'
-                      : 'border-gray-300 hover:border-gray-400'
-                  }`}>
+                  className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-colors ${formData.serviceType.includes(service)
+                    ? 'border-[#8458B3] bg-purple-50'
+                    : 'border-gray-300 hover:border-gray-400'
+                    }`}>
                   <input
                     type="checkbox"
                     checked={formData.serviceType.includes(service)}
@@ -519,9 +596,8 @@ ${formData.requirementDescription}
                   setFormData(prev => ({ ...prev, teamSize: e.target.value }))
                   if (errors.teamSize) setErrors(prev => ({ ...prev, teamSize: undefined }))
                 }}
-                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                  errors.teamSize ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                }`}>
+                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.teamSize ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  }`}>
                 <option value="">Select team size</option>
                 {teamSizes.map(size => (
                   <option key={size} value={size}>{size}</option>
@@ -541,9 +617,8 @@ ${formData.requirementDescription}
                   setFormData(prev => ({ ...prev, timeline: e.target.value }))
                   if (errors.timeline) setErrors(prev => ({ ...prev, timeline: undefined }))
                 }}
-                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                  errors.timeline ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                }`}>
+                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.timeline ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  }`}>
                 <option value="">Select timeline</option>
                 {timelines.map(timeline => (
                   <option key={timeline} value={timeline}>{timeline}</option>
@@ -563,9 +638,8 @@ ${formData.requirementDescription}
                   setFormData(prev => ({ ...prev, budgetRange: e.target.value }))
                   if (errors.budgetRange) setErrors(prev => ({ ...prev, budgetRange: undefined }))
                 }}
-                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                  errors.budgetRange ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-                }`}>
+                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.budgetRange ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  }`}>
                 <option value="">Select budget range</option>
                 {budgetRanges.map(range => (
                   <option key={range} value={range}>{range}</option>
@@ -587,15 +661,22 @@ ${formData.requirementDescription}
                 if (errors.requirementDescription) setErrors(prev => ({ ...prev, requirementDescription: undefined }))
               }}
               rows={6}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                errors.requirementDescription ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
-              }`}
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${errors.requirementDescription ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                }`}
               placeholder="Please describe your requirements, challenges, and goals in detail..."
             />
             {errors.requirementDescription && <p className="mt-1 text-xs text-red-500">{errors.requirementDescription}</p>}
-            <p className="mt-1 text-xs" style={{ color: '#6b7280' }}>
-              Minimum 50 characters. Please provide as much detail as possible.
-            </p>
+            <div className="flex justify-between items-start mt-1">
+              <p className="text-xs" style={{ color: '#6b7280' }}>
+                Minimum 50 characters. Please provide as much detail as possible.
+              </p>
+              <span className="text-xs" style={{
+                color: formData.requirementDescription.length < 50 ? '#ef4444' :
+                  formData.requirementDescription.length > 2000 * 0.9 ? '#f59e0b' : '#6b7280'
+              }}>
+                {formData.requirementDescription.length} / 2000
+              </span>
+            </div>
           </div>
         </div>
       </motion.section>

@@ -43,7 +43,7 @@ export function CoursePricing({
   ctaText = 'Apply Now',
   ctaLink = '/apply-now'
 }: CoursePricingProps) {
-  const { getCoursePrice, isLoading } = useCurrency();
+  const { getCoursePrice, isLoading, currency } = useCurrency();
   const pricing = getCoursePrice(courseSlug);
 
   if (isLoading) {
@@ -70,22 +70,22 @@ export function CoursePricing({
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="bg-gradient-to-br from-[#8458B3] to-[#6b46c1] rounded-3xl p-8 md:p-12 shadow-2xl text-white">
-            
+
             <div className="text-center mb-8">
               <h2
                 className="font-display font-bold mb-4"
                 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
                 Course Pricing
               </h2>
-              
+
               {/* Urgency Banner in Pricing */}
               {!batchFull && batchDates && (
                 <div className="mb-6">
-                  <UrgencyBanner 
+                  <UrgencyBanner
                     batchStartDate={
-                      batchDates.offline?.bengaluru || 
-                      batchDates.offline?.hyderabad || 
-                      batchDates.offline?.pune || 
+                      batchDates.offline?.bengaluru ||
+                      batchDates.offline?.hyderabad ||
+                      batchDates.offline?.pune ||
                       batchDates.online?.global
                     }
                     seatsRemaining={8}
@@ -94,7 +94,7 @@ export function CoursePricing({
                   />
                 </div>
               )}
-              
+
               {/* Currency Toggle */}
               <div className="flex justify-center mb-4">
                 <CurrencyToggle size="md" />
@@ -105,13 +105,13 @@ export function CoursePricing({
                   <span
                     className="font-body text-xl line-through opacity-70"
                     style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)' }}>
-                    {pricing.originalPrice}
+                    {currency} {pricing.originalPrice}
                   </span>
                 )}
                 <span
                   className="font-display font-bold"
                   style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-                  {pricing.price}
+                  {currency} {pricing.price}
                 </span>
               </div>
               <p className="font-body text-sm opacity-90 mb-2">

@@ -229,3 +229,8 @@ img {
 .prose h3[id] {
   scroll-margin-top: 2rem;
 }
+
+/* Global offset for sections with IDs */
+section[id] {
+  scroll-margin-top: 100px;
+}

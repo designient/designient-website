@@ -170,7 +170,14 @@ export default function TermsAndConditionsPage() {
                 <li className="font-body">Currency conversion charges (if applicable) are borne by the student</li>
               </ul>
               <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
-                All fees must be paid in full before course commencement unless otherwise agreed in writing. Designient reserves the right to refuse service if payment is not received as agreed.
+                <strong>Payment Schedule:</strong>
+              </p>
+              <ul className="list-disc pl-6 space-y-2" style={{ color: '#4a4a4a' }}>
+                <li className="font-body"><strong>One-Time Payment:</strong> Fees must be paid in full before course commencement.</li>
+                <li className="font-body"><strong>Installment Plans:</strong> If opting for an installment plan, the first installment is due before course commencement (or as specified), and subsequent installments are due by the dates specified in your enrollment agreement.</li>
+              </ul>
+              <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                Designient reserves the right to suspend or terminate access to course materials and sessions immediately if installment payments are not made by the due date. Both one-time and installment payments are subject to our refund policy.
               </p>
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-4">
                 <p className="font-body font-semibold mb-2" style={{ color: '#1a1a1a' }}>Payment Gateway Disclaimer:</p>
