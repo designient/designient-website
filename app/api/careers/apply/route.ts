@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+export const runtime = 'edge'
 import { Resend } from 'resend'
 import { careersLeadEmail, careersCustomerCopy } from '../../../../lib/email-templates'
 import { getResendFrom } from '../../../../lib/resend'
