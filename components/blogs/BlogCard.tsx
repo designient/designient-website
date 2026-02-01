@@ -49,7 +49,7 @@ export function BlogCard({
       transition={{ duration: 0.4 }}
       className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
       <Link href={`/blogs/${slug}`} className="block">
-        <div className="relative w-full" style={{ aspectRatio: '16/9', minHeight: '200px' }}>
+        <div className="relative w-full" style={{ aspectRatio: '1200/760', minHeight: '200px' }}>
           <Image
             src={coverImage}
             alt={`${title} - Cover image`}

@@ -45,7 +45,7 @@ export function FeaturedPost({
       className="bg-white rounded-xl overflow-hidden shadow-xl mb-12">
       <Link href={`/blogs/${slug}`} className="block">
         <div className="grid md:grid-cols-2 gap-0">
-          <div className="relative w-full" style={{ aspectRatio: '16/9', minHeight: '300px' }}>
+          <div className="relative w-full" style={{ aspectRatio: '1200/760', minHeight: '300px' }}>
             <Image
               src={coverImage}
               alt={`${title} - Featured post cover image`}

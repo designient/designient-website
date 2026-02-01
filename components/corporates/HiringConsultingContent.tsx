@@ -55,6 +55,11 @@ export function HiringConsultingContent() {
       description: 'Long-term design support and strategic design consulting',
       icon: Briefcase,
     },
+    {
+      title: 'Design System Development',
+      description: 'Build scalable design systems and component libraries for your products',
+      icon: Shield,
+    },
   ]
 
   const engagementModels = [

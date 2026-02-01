@@ -23,28 +23,28 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
   return (
     <>
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20" 
+      <section
+        className="relative min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20"
         style={{ backgroundColor: '#FFF6E2' }}
         aria-labelledby="about-hero-heading">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-5">
           <div
             className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl"
-            style={{ backgroundColor: '#8458B3' }} 
+            style={{ backgroundColor: '#8458B3' }}
             aria-hidden="true" />
           <div
             className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl"
-            style={{ backgroundColor: '#f2d53c' }} 
+            style={{ backgroundColor: '#f2d53c' }}
             aria-hidden="true" />
         </div>
-        
+
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center py-16 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}>
-            
+
             {/* Breadcrumb */}
             <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: '#6B7280' }}>
               <Link href="/" className="hover:underline font-body">Home</Link>
@@ -78,8 +78,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Our Story */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="our-story-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -113,8 +113,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Our Founder & Mentors */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#FFF6E2' }}
         aria-labelledby="founder-mentors-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -125,15 +125,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <User 
-                  className="w-8 h-8" 
-                  style={{ 
+                <User
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -185,8 +185,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Team Details */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="team-details-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -198,15 +198,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="mb-12 text-center">
               <div className="flex items-center justify-center gap-6 mb-8">
-                <div 
+                <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ 
+                  style={{
                     backgroundColor: '#f2d53c',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <UserCheck 
-                    className="w-8 h-8" 
-                    style={{ 
+                  <UserCheck
+                    className="w-8 h-8"
+                    style={{
                       color: '#8458B3',
                       strokeWidth: 2.5
                     }} />
@@ -223,28 +223,25 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 </h2>
               </div>
             </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {[
                 {
-                  name: 'Rajesh Kumar',
-                  title: 'Founder & Lead Mentor',
-                  role: 'UI/UX Design Expert',
-                  experience: '15+ years in product design',
-                  description: 'Passionate about teaching design thinking and helping students build real-world portfolios.'
+                  name: 'Sameer Ul Haque',
+                  title: 'Lead Mentor & Manager — UI / UX Design',
+                  bio: [
+                    'Sameer is a product and UX leader with 15+ years of industry experience designing and leading real-world digital products across startups and global organisations.',
+                    'At Designient, he focuses on mentoring designers for actual hiring expectations — strong thinking, clear process, and portfolio stories that reflect real product work, not academic exercises.',
+                    'He is known for helping designers move from tools to decision-making.'
+                  ]
                 },
                 {
-                  name: 'Priya Sharma',
-                  title: 'Senior Mentor',
-                  role: 'UX Research Specialist',
-                  experience: '12+ years in user research',
-                  description: 'Expert in user-centered design methodologies and design research practices.'
-                },
-                {
-                  name: 'Amit Patel',
-                  title: 'Mentor',
-                  role: 'Product Designer',
-                  experience: '10+ years in digital products',
-                  description: 'Specializes in design systems, prototyping, and bringing ideas to life.'
+                  name: 'Shabrin Sultana M F',
+                  title: 'Co-Founder — Marketing & Branding',
+                  bio: [
+                    'Shabrin is a branding and marketing leader with 12+ years of experience, including her time at Thoughtworks.',
+                    'She specialises in building user-driven brand strategy, positioning, and communication grounded in research and real customer behaviour.',
+                    'At Designient, she leads brand direction, growth strategy, and how Designient presents itself to learners, partners, and the industry.'
+                  ]
                 }
               ].map((member, index) => (
                 <motion.div
@@ -253,51 +250,37 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="bg-[#FFF6E2] rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="w-24 h-24 rounded-full bg-[#8458B3] mx-auto mb-4 flex items-center justify-center">
-                    <User className="w-12 h-12 text-white" />
-                  </div>
+                  className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
                   <h3
                     className="font-display font-bold mb-2"
                     style={{
                       color: '#1a1a1a',
-                      fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
+                      fontSize: 'clamp(1.25rem, 2vw, 1.5rem)'
                     }}>
                     {member.name}
                   </h3>
                   <p
-                    className="font-body font-semibold mb-1"
+                    className="font-body font-semibold mb-4"
                     style={{
                       color: '#8458B3',
                       fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
                     }}>
                     {member.title}
                   </p>
-                  <p
-                    className="font-body font-semibold mb-2"
-                    style={{
-                      color: '#6b7280',
-                      fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
-                    }}>
-                    {member.role}
-                  </p>
-                  <p
-                    className="font-body text-sm mb-3"
-                    style={{
-                      color: '#6b7280',
-                      fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-                    }}>
-                    {member.experience}
-                  </p>
-                  <p
-                    className="font-body leading-relaxed text-sm"
-                    style={{
-                      color: '#4a4a4a',
-                      fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)',
-                      lineHeight: '1.6'
-                    }}>
-                    {member.description}
-                  </p>
+                  <div className="space-y-3">
+                    {member.bio.map((paragraph, pIndex) => (
+                      <p
+                        key={pIndex}
+                        className="font-body leading-relaxed"
+                        style={{
+                          color: '#4a4a4a',
+                          fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
+                          lineHeight: '1.7'
+                        }}>
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </motion.div>
               ))}
             </div>
@@ -306,8 +289,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Mission */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#FFF6E2' }}
         aria-labelledby="mission-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -318,15 +301,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <Target 
-                  className="w-8 h-8" 
-                  style={{ 
+                <Target
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -358,8 +341,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Vision & Values */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="vision-values-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -370,15 +353,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-12">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <Heart 
-                  className="w-8 h-8" 
-                  style={{ 
+                <Heart
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -413,15 +396,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                       transition={{ delay: index * 0.1, duration: 0.4 }}
                       className="flex items-center gap-4 p-5 bg-[#FFF6E2] rounded-lg border-l-4"
                       style={{ borderLeftColor: '#8458B3' }}>
-                      <div 
+                      <div
                         className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                        style={{ 
+                        style={{
                           backgroundColor: '#f2d53c',
                           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                         }}>
-                        <Globe 
-                          className="w-6 h-6" 
-                          style={{ 
+                        <Globe
+                          className="w-6 h-6"
+                          style={{
                             color: '#8458B3',
                             strokeWidth: 2.5
                           }} />
@@ -444,8 +427,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Who We Exist For */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#fceed1' }}
         aria-labelledby="who-we-exist-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -519,8 +502,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Why Choose Us */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#fceed1' }}
         aria-labelledby="why-choose-us-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -551,15 +534,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                   className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div 
+                  <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                    style={{ 
+                    style={{
                       backgroundColor: '#f2d53c',
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                     }}>
-                    <CheckCircle 
-                      className="w-8 h-8" 
-                      style={{ 
+                    <CheckCircle
+                      className="w-8 h-8"
+                      style={{
                         color: '#8458B3',
                         strokeWidth: 2.5
                       }} />
@@ -581,8 +564,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* What Makes Designient Different */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="what-makes-different-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -593,15 +576,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <TrendingUp 
-                  className="w-8 h-8" 
-                  style={{ 
+                <TrendingUp
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -693,8 +676,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Our Approach */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="our-approach-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -705,15 +688,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <BookOpen 
-                  className="w-8 h-8" 
-                  style={{ 
+                <BookOpen
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -745,8 +728,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Our Teaching Philosophy */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#FFF6E2' }}
         aria-labelledby="teaching-philosophy-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -757,15 +740,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <Zap 
-                  className="w-8 h-8" 
-                  style={{ 
+                <Zap
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -844,8 +827,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Live Class Photos Gallery */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="gallery-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -857,15 +840,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-6xl mx-auto">
             <div className="mb-12 text-center">
               <div className="flex items-center justify-center gap-6 mb-8">
-                <div 
+                <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ 
+                  style={{
                     backgroundColor: '#f2d53c',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Camera 
-                    className="w-8 h-8" 
-                    style={{ 
+                  <Camera
+                    className="w-8 h-8"
+                    style={{
                       color: '#8458B3',
                       strokeWidth: 2.5
                     }} />
@@ -927,8 +910,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Designient by the Numbers */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#fceed1' }}
         aria-labelledby="by-numbers-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -964,15 +947,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
                   className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
-                  <div 
+                  <div
                     className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
-                    style={{ 
+                    style={{
                       backgroundColor: '#f2d53c',
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                     }}>
-                    <BarChart 
-                      className="w-6 h-6" 
-                      style={{ 
+                    <BarChart
+                      className="w-6 h-6"
+                      style={{
                         color: '#8458B3',
                         strokeWidth: 2.5
                       }} />
@@ -994,8 +977,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Career Support */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#FFF6E2' }}
         aria-labelledby="career-support-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -1006,15 +989,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
-              <div 
+              <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                style={{ 
+                style={{
                   backgroundColor: '#f2d53c',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
-                <Briefcase 
-                  className="w-8 h-8" 
-                  style={{ 
+                <Briefcase
+                  className="w-8 h-8"
+                  style={{
                     color: '#8458B3',
                     strokeWidth: 2.5
                   }} />
@@ -1046,8 +1029,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Our Journey */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="our-journey-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -1059,15 +1042,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-7xl mx-auto">
             <div className="mb-16 md:mb-20 text-center">
               <div className="flex items-center justify-center gap-6 mb-8">
-                <div 
+                <div
                   className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-                  style={{ 
+                  style={{
                     backgroundColor: '#f2d53c',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Calendar 
-                    className="w-8 h-8" 
-                    style={{ 
+                  <Calendar
+                    className="w-8 h-8"
+                    style={{
                       color: '#8458B3',
                       strokeWidth: 2.5
                     }} />
@@ -1109,15 +1092,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
                     className="relative flex flex-col items-center">
-                    
+
                     {/* Timeline Node with Year */}
                     <div className="relative z-10 mb-4">
-                      <div 
+                      <div
                         className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg mx-auto"
                         style={{ backgroundColor: '#8458B3' }}>
-                        <span 
+                        <span
                           className="font-display font-bold text-white text-center"
-                          style={{ 
+                          style={{
                             fontSize: 'clamp(0.875rem, 1.2vw, 1.125rem)',
                             lineHeight: '1'
                           }}>
@@ -1128,9 +1111,9 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
 
                     {/* Content Card */}
                     <div className="w-full mt-2">
-                      <div 
+                      <div
                         className="p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center h-full"
-                        style={{ 
+                        style={{
                           backgroundColor: '#FFF6E2',
                           borderTop: '4px solid #8458B3'
                         }}>
@@ -1167,8 +1150,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* Why UI/UX Design Matters Today */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: 'white' }}
         aria-labelledby="why-uiux-matters-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -1233,8 +1216,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       </section>
 
       {/* CTA Section */}
-      <section 
-        className="py-24 md:py-32" 
+      <section
+        className="py-24 md:py-32"
         style={{ backgroundColor: '#8458B3' }}
         aria-labelledby="cta-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -1343,15 +1326,15 @@ function AboutPageFAQ() {
           transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           className="mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-6 mb-8">
-            <div 
+            <div
               className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
-              style={{ 
+              style={{
                 backgroundColor: '#f2d53c',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
               }}>
-              <HelpCircle 
-                className="w-8 h-8" 
-                style={{ 
+              <HelpCircle
+                className="w-8 h-8"
+                style={{
                   color: '#8458B3',
                   strokeWidth: 2.5
                 }} />

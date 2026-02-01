@@ -104,7 +104,7 @@ export function BlogsPageContent({
     const newTags = selectedTags.includes(tag)
       ? selectedTags.filter((t) => t !== tag)
       : [...selectedTags, tag]
-    
+
     if (newTags.length > 0) {
       params.set('tags', newTags.join(','))
     } else {
@@ -123,7 +123,7 @@ export function BlogsPageContent({
     <>
       {/* Hero Section - Standardized */}
       <section
-        className="relative min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20"
+        className="relative min-h-[60vh] flex items-center pt-16 md:pt-20"
         style={{ backgroundColor: '#FFF6E2' }}
         aria-labelledby="blogs-hero-heading">
         {/* Background pattern */}

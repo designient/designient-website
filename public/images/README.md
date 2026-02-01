@@ -3,7 +3,7 @@
 This directory needs the following images to be added. All images should be in **WebP format** for optimal performance.
 
 ## /images/blog/ (8 images)
-Blog cover images - recommended size: **1200x630px** (same as OG image dimensions)
+Blog cover images - recommended size: **1200x760px** (same as OG image dimensions)
 
 | Filename | Blog Post |
 |----------|-----------|

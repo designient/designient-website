@@ -49,7 +49,7 @@ export function RelatedPosts({ posts, currentSlug }: RelatedPostsProps) {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
             <Link href={`/blogs/${post.slug}`} className="block">
-              <div className="relative w-full" style={{ aspectRatio: '16/9', minHeight: '180px' }}>
+              <div className="relative w-full" style={{ aspectRatio: '1200/760', minHeight: '180px' }}>
                 <Image
                   src={post.coverImage}
                   alt={`${post.title} - Cover image`}
