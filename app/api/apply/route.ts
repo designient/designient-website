@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
-import { applyLeadEmail, applyCustomerCopy } from '../../../lib/email-templates'
+import { applyLeadEmail, applyCustomerCopy, type ApplyFormData } from '../../../lib/email-templates'
 import { getResendFrom } from '../../../lib/resend'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -35,8 +35,9 @@ export async function POST(request: NextRequest) {
       return jsonError('Email not configured.', 500)
     }
 
-    const lead = applyLeadEmail(body)
-    const customer = applyCustomerCopy(body)
+    const formData: ApplyFormData = { fullName: fullName.trim(), email: email.trim(), ...body }
+    const lead = applyLeadEmail(formData)
+    const customer = applyCustomerCopy(formData)
 
     const { error: leadError } = await resend.emails.send({
       from,

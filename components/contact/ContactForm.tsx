@@ -154,15 +154,6 @@ export function ContactForm() {
 
   return (
     <div className="w-full">
-      <h2
-        className="font-display font-bold mb-8 text-center"
-        style={{
-          color: '#1a1a1a',
-          fontSize: 'clamp(1.75rem, 3vw, 2.5rem)'
-        }}>
-        Contact Form
-      </h2>
-
       {submitStatus === 'success' && (
         <div
           className="mb-6 p-4 rounded-lg"

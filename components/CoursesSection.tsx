@@ -316,7 +316,7 @@ export function CoursesSection() {
                             </div>
                           )}
                           {/* Online - Same as Weekend Morning */}
-                          {course.batchDates.online?.global && proCourseBatchSchedule.bangalore.weekend?.morning?.available && (
+                          {course.batchDates?.online?.global && proCourseBatchSchedule.bangalore.weekend?.morning?.available && (
                             <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
                               <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                                 Online (Global) - Morning
@@ -324,7 +324,7 @@ export function CoursesSection() {
                               <div className="flex items-center gap-1.5 mb-0.5">
                                 <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
                                 <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
-                                  {course.batchDates.online.global}
+                                  {course.batchDates?.online?.global}
                                 </span>
                               </div>
                               <div className="flex items-center gap-1.5">

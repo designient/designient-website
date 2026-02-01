@@ -22,7 +22,7 @@ import {
 } from 'react-feather'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { GeneralApplicationForm } from './GeneralApplicationForm'
+import { CareerApplicationForm } from './CareerApplicationForm'
 import { getWhatsAppUrl } from '../../utils/whatsapp'
 
 const whyWorkItems = [
@@ -978,7 +978,7 @@ export function CareersContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}>
               <div className="bg-white rounded-xl p-6 md:p-8 shadow-md">
-                <GeneralApplicationForm />
+                <CareerApplicationForm roleName="General Application" />
               </div>
             </motion.div>
           </div>

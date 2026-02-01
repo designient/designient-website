@@ -4,6 +4,7 @@ import { Bebas_Neue, Inter } from 'next/font/google'
 import { CurrencyProvider } from '../contexts/CurrencyContext'
 import { WhatsAppButton } from '../components/WhatsAppButton'
 import { SkipLink } from '../components/SkipLink'
+import { Analytics } from '../components/Analytics'
 import './globals.css'
 
 const bebasNeue = Bebas_Neue({
@@ -104,6 +105,7 @@ export default function RootLayout({
           {children}
           <WhatsAppButton />
         </CurrencyProvider>
+        <Analytics />
       </body>
     </html>
   )

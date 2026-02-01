@@ -12,33 +12,34 @@ interface Testimonial {
   rating: number
 }
 
+// Written stories — aligned with /success-stories page
 const testimonials: Testimonial[] = [
   {
-    quote: "This course transformed my career. From complete beginner to landing a UI/UX role at a top tech company in just 3 months. The mentorship and hands-on projects were game-changers.",
+    quote: "The course helped me understand design thinking and user research. The mentorship was personalized and the feedback was always constructive.",
     author: "Priya Sharma",
-    role: "UI/UX Designer",
-    company: "Google",
-    rating: 5
-  },
-  {
-    quote: "The small batch size meant I got personalized feedback on every project. The portfolio I built here got me multiple job offers. Best investment in my career!",
-    author: "Rahul Mehta",
     role: "Product Designer",
-    company: "Microsoft",
+    company: "Razorpay",
     rating: 5
   },
   {
-    quote: "Coming from a non-design background, I was nervous. But the structured curriculum and supportive mentors made the journey smooth. Now I'm designing products I'm proud of.",
+    quote: "I came with zero design background. The bootcamp structure and mentor support helped me ship real projects. I now have a portfolio I am proud to show in interviews.",
+    author: "Rahul Kumar",
+    role: "UX Designer",
+    company: "Freshworks",
+    rating: 5
+  },
+  {
+    quote: "The Master program pushed me to think at a systems level. Real client-style projects and critique sessions prepared me for how design actually works in teams.",
     author: "Anjali Patel",
     role: "UX Designer",
-    company: "Amazon",
+    company: "Lollypop Design",
     rating: 5
   },
   {
-    quote: "The AI-integrated workflow section was ahead of its time. I'm using those techniques daily at work. This course doesn't just teach design, it teaches you to think like a designer.",
-    author: "Vikram Singh",
-    role: "Senior UI Designer",
-    company: "Flipkart",
+    quote: "Having a dev background helped with implementation, but I lacked design fundamentals. This course filled that gap. I finally feel confident owning the full design-to-dev handoff.",
+    author: "Sneha Nair",
+    role: "Product Designer",
+    company: "Thoughtworks",
     rating: 5
   }
 ]

@@ -93,6 +93,27 @@ export function BangaloreCityPageContent() {
         </div>
       </section>
 
+      {/* Bengaluru – learners reach out */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#fceed1' }} aria-labelledby="bengaluru-intro-heading">
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2
+              id="bengaluru-intro-heading"
+              className="font-display font-bold mb-6"
+              style={{ color: '#8458B3', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+            >
+              Bengaluru
+            </h2>
+            <p className="font-body text-lg leading-relaxed mb-4" style={{ color: '#1a1a1a' }}>
+              Learners from Bengaluru often reach out to us for weekday and weekend UI/UX batches.
+            </p>
+            <p className="font-body text-lg leading-relaxed" style={{ color: '#4a4a4a' }}>
+              If you&apos;re a working professional or student based in Bengaluru, our team can guide you on the right batch and learning path.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Learn UI/UX Design in Bangalore */}
       <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">

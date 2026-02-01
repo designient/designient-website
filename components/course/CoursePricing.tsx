@@ -213,23 +213,6 @@ export function CoursePricing({
                         </div>
                       </div>
                     )}
-                    {/* Online - Prompt Engineering (Weekday Evening Batch) */}
-                    {batchDates.online?.global && courseSlug === 'prompt-engineering-mastery' && batchDates.online.schedule && (
-                      <div className="p-4 rounded-lg" style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
-                        <h4 className="font-body font-semibold mb-3 text-base">Global (Online)</h4>
-                        <div>
-                          <p className="font-body text-sm opacity-90 mb-2">Weekday Evening Batch</p>
-                          <div className="flex items-center gap-2 mb-1">
-                            <Calendar className="w-4 h-4" />
-                            <span className="font-body text-sm">{batchDates.online.global}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="w-4 h-4" />
-                            <span className="font-body text-sm">{batchDates.online.schedule.days}, {batchDates.online.schedule.time}</span>
-                          </div>
-                        </div>
-                      </div>
-                    )}
                   </div>
                 ) : (
                   <div className="grid md:grid-cols-2 gap-4">

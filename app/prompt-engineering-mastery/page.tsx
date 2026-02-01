@@ -163,7 +163,6 @@ const courseData = {
     'Those expecting to become AI researchers'
   ],
   batchDates: {
-    offline: null,
     online: {
       global: 'Mar 12, 2026',
       schedule: {

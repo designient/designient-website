@@ -1,104 +1,16 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   ArrowRight,
   CheckCircle,
   Star,
-  PlayCircle,
   BookOpen,
   ChevronDown,
   Search,
-  X } from
-'react-feather';
+} from 'react-feather';
 import Link from 'next/link';
-
-function WatchDemoButton() {
-  const [isVideoOpen, setIsVideoOpen] = useState(false);
-  // Replace with actual YouTube video ID
-  const youtubeVideoId = 'YOUR_YOUTUBE_VIDEO_ID_HERE';
-
-  const openVideo = () => {
-    setIsVideoOpen(true);
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeVideo = () => {
-    setIsVideoOpen(false);
-    document.body.style.overflow = 'unset';
-  };
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeVideo();
-      }
-    };
-    if (isVideoOpen) {
-      document.addEventListener('keydown', handleEscape);
-    }
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, [isVideoOpen]);
-
-  return (
-    <>
-      <button
-        onClick={openVideo}
-        className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[44px]"
-        style={{
-          backgroundColor: '#8458B3',
-          color: 'white',
-          fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-        }}>
-        <PlayCircle className="w-4 h-4 flex-shrink-0" />
-        <span>Watch Demo</span>
-      </button>
-
-      <AnimatePresence>
-        {isVideoOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={closeVideo}
-              className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
-              aria-label="Close video modal">
-              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.9, opacity: 0 }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-4xl bg-black rounded-lg overflow-hidden"
-                role="dialog"
-                aria-modal="true"
-                aria-labelledby="video-modal-title">
-                <button
-                  onClick={closeVideo}
-                  className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-white"
-                  aria-label="Close video">
-                  <X className="w-6 h-6" style={{ color: '#1a1a1a' }} />
-                </button>
-                <div className="aspect-video">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-                    title="Designient Course Demo"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -678,18 +590,27 @@ export function Hero() {
             </div>
 
             <div className="flex flex-wrap gap-3 mb-6">
-              <WatchDemoButton />
               <Link
                 href="/courses"
+                className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[44px]"
+                style={{
+                  backgroundColor: '#8458B3',
+                  color: 'white',
+                  fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
+                }}>
+                <BookOpen className="w-4 h-4 flex-shrink-0" />
+                <span>Explore Courses</span>
+              </Link>
+              <Link
+                href="/corporates/hiring-consulting"
                 className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[44px]"
                 style={{
                   borderColor: '#1a1a1a',
                   color: '#1a1a1a',
                   fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
                 }}>
-
-                <BookOpen className="w-4 h-4 flex-shrink-0" />
-                <span>Explore courses</span>
+                <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                <span>Hiring Support</span>
               </Link>
             </div>
 
@@ -703,10 +624,9 @@ export function Hero() {
                     <img
                     src={`https://i.pravatar.cc/100?img=${i + 10}`}
                     alt={`Designient UI UX design student profile ${i + 1}`}
-                    width="400"
-                    height="400"
-                    loading="lazy"
+                    width="32"
                     height="32"
+                    loading="lazy"
                     className="w-full h-full object-cover" />
 
                   </div>

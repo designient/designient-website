@@ -93,6 +93,27 @@ export function HyderabadCityPageContent() {
         </div>
       </section>
 
+      {/* Hyderabad – core mentoring team */}
+      <section className="py-16 md:py-20" style={{ backgroundColor: '#fceed1' }} aria-labelledby="hyderabad-intro-heading">
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2
+              id="hyderabad-intro-heading"
+              className="font-display font-bold mb-6"
+              style={{ color: '#8458B3', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+            >
+              Hyderabad
+            </h2>
+            <p className="font-body text-lg leading-relaxed mb-4" style={{ color: '#1a1a1a' }}>
+              Hyderabad is home to Designient&apos;s core mentoring team.
+            </p>
+            <p className="font-body text-lg leading-relaxed" style={{ color: '#4a4a4a' }}>
+              Learners here can connect with us for detailed counselling, batch schedules, and career guidance.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Why Learn UI/UX Design in Hyderabad */}
       <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">

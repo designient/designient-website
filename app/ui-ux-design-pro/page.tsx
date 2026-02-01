@@ -419,9 +419,7 @@ const courseData = {
   ],
   batchDates: {
     offline: {
-      bengaluru: 'Mar 7, 2026', // Weekend batch start date
-      hyderabad: null,
-      pune: null
+      bengaluru: 'Mar 7, 2026' // Weekend batch start date
     },
     online: {
       global: 'Mar 7, 2026' // Same as weekend batch
