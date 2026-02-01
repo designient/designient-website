@@ -534,123 +534,120 @@ export default function UIUXDesignProPage() {
       <div className="min-h-screen bg-white font-sans text-slate-900">
         <StructuredData data={breadcrumbSchema} />
         <CourseStructuredData
-        courseSlug="ui-ux-design-pro"
-        courseName={courseData.title}
-        description={courseData.description}
-        courseCode="UIUX-PRO-2026"
-        educationalLevel="Beginner to Professional"
-        timeRequired="P3M"
-        coursePrerequisites="No prior design experience required"
-        teaches={[
-          'UI/UX Design',
-          'Figma',
-          'Design Thinking',
-          'User Research',
-          'Prototyping',
-          'Design Systems',
-          'User Interface Design',
-          'User Experience Design'
-        ]}
-        ratingValue="4.8"
-        reviewCount="200"
-        duration="P3M"
-        totalTime="PT124H"
-        url="https://designient.com/ui-ux-design-pro"
-      />
-      <ProCourseFAQSchema />
-      <Header />
-      <main id="main-content" role="main">
-        <CourseHero
-          title={courseData.title}
-          subtitle={courseData.subtitle}
-          duration={courseData.duration}
-          hours={courseData.hours}
-          format={courseData.format}
-          level={courseData.level}
-          rating={courseData.rating}
-          students={courseData.students}
-          badge={courseData.badge}
-          upcomingBatch={courseData.upcomingBatch}
-          batchFull={false}
           courseSlug="ui-ux-design-pro"
           courseName={courseData.title}
-        />
-        <FloatingApplyButton courseSlug="ui-ux-design-pro" courseName={courseData.title} />
-        <OutcomeTransformationSection 
-          outcomes={courseData.outcomeTransformation}
-          duration="3 months"
-          description="From beginner to job-ready designer—here's your transformation journey."
-        />
-        <CareerOutcomesSection roles={courseData.careerRoles} />
-        <CourseOverview
           description={courseData.description}
-          keyFeatures={courseData.keyFeatures}
-          learningOutcomes={courseData.learningOutcomes}
-          careerPaths={courseData.careerPaths}
+          courseCode="UIUX-PRO-2026"
+          educationalLevel="Beginner to Professional"
+          timeRequired="P3M"
+          coursePrerequisites="No prior design experience required"
+          teaches={[
+            'UI/UX Design',
+            'Figma',
+            'Design Thinking',
+            'User Research',
+            'Prototyping',
+            'Design Systems',
+            'User Interface Design',
+            'User Experience Design'
+          ]}
+          ratingValue="4.8"
+          reviewCount="200"
+          duration="P3M"
+          totalTime="PT124H"
+          url="https://designient.com/ui-ux-design-pro"
         />
-        <p
-          className="font-body text-center max-w-3xl mx-auto px-4 md:px-6 lg:px-8 mb-8 leading-relaxed"
-          style={{
-            color: '#6b7280',
-            fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
-            lineHeight: '1.8'
-          }}>
-          This UI/UX Design Pro course is built for beginners, career switchers, and professionals who want to build strong foundations in user experience and interface design. The program focuses on practical skills, real-world projects, and portfolio building — so you're ready for UI/UX roles in today's job market.
-        </p>
-        <CourseCurriculum
-          weekWiseCurriculum={courseData.weekWiseCurriculum}
-          totalHours={courseData.hours}
-        />
-        <PortfolioDeliverablesSection />
-        <ToolsCoveredSection
-          tools={courseData.tools}
-          title="Tools You'll Master"
-          description="Industry-standard tools used by professional designers worldwide. Master the tools that get you hired."
-        />
-        <ExperienceAuthoritySection />
-        <CourseWhoShouldTake
-          description={courseData.whoShouldTake}
-          idealFor={courseData.idealFor}
-          notFor={courseData.notFor}
-        />
-        <MentorCredibilitySection />
-        <SocialProofSection />
-        <AIIntegratedWorkflowSection />
-        <CoursePricing
-          courseSlug="ui-ux-design-pro"
-          features={courseData.pricingFeatures}
-          duration={courseData.duration}
-          batchDates={courseData.batchDates}
-          batchFull={false}
-        />
-        <LaunchOfferSection
-          endDate={courseData.launchOffer.endDate}
-          bonuses={courseData.launchOffer.bonuses}
-          totalValueInr={courseData.launchOffer.totalValueInr}
-          totalValueUsd={courseData.launchOffer.totalValueUsd}
-        />
-        <PaymentOptions
-          courseSlug="ui-ux-design-pro"
-          advanceAmount={{
-            inr: '₹15,000',
-            usd: '$200'
-          }}
-        />
-        <TrustBadges />
-        <PlacementAssistanceSection />
-        <CityLocationsSection />
-        <MidPageCTA courseSlug="ui-ux-design-pro" courseName={courseData.title} />
-        <CourseApplicationForm courseSlug="ui-ux-design-pro" courseName={courseData.title} />
-        <LearningExperienceSection />
-        <CourseFAQ faqs={courseData.faqs} disableSchema={true} />
-        <CourseCTA
-          courseName={courseData.title}
-          courseSlug="ui-ux-design-pro"
-          ctaText="Ready to Start Your Design Career?"
-          secondaryText="Join 200+ students who have transformed their careers with our UI/UX Design Pro course."
-        />
-      </main>
-      <Footer />
+        <ProCourseFAQSchema />
+        <Header />
+        <main id="main-content" role="main">
+          <CourseHero
+            title={courseData.title}
+            subtitle={courseData.subtitle}
+            duration={courseData.duration}
+            hours={courseData.hours}
+            format={courseData.format}
+            level={courseData.level}
+            rating={courseData.rating}
+            students={courseData.students}
+            badge={courseData.badge}
+            upcomingBatch={courseData.upcomingBatch}
+            batchFull={false}
+            courseSlug="ui-ux-design-pro"
+            courseName={courseData.title}
+          />
+          <FloatingApplyButton courseSlug="ui-ux-design-pro" courseName={courseData.title} />
+          <OutcomeTransformationSection
+            outcomes={courseData.outcomeTransformation}
+            duration="3 months"
+            description="From beginner to job-ready designer—here's your transformation journey."
+          />
+          <CareerOutcomesSection roles={courseData.careerRoles} />
+          <CourseOverview
+            description={courseData.description}
+            keyFeatures={courseData.keyFeatures}
+            learningOutcomes={courseData.learningOutcomes}
+            careerPaths={courseData.careerPaths}
+          />
+          <p
+            className="font-body text-center max-w-3xl mx-auto px-4 md:px-6 lg:px-8 mb-8 leading-relaxed"
+            style={{
+              color: '#6b7280',
+              fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
+              lineHeight: '1.8'
+            }}>
+            This UI/UX Design Pro course is built for beginners, career switchers, and professionals who want to build strong foundations in user experience and interface design. The program focuses on practical skills, real-world projects, and portfolio building — so you're ready for UI/UX roles in today's job market.
+          </p>
+          <CourseCurriculum
+            weekWiseCurriculum={courseData.weekWiseCurriculum}
+            totalHours={courseData.hours}
+          />
+          <PortfolioDeliverablesSection />
+          <ToolsCoveredSection
+            tools={courseData.tools}
+            title="Tools You'll Master"
+            description="Industry-standard tools used by professional designers worldwide. Master the tools that get you hired."
+          />
+          <ExperienceAuthoritySection />
+          <CourseWhoShouldTake
+            description={courseData.whoShouldTake}
+            idealFor={courseData.idealFor}
+            notFor={courseData.notFor}
+          />
+          <MentorCredibilitySection />
+          <SocialProofSection />
+          <AIIntegratedWorkflowSection />
+          <CoursePricing
+            courseSlug="ui-ux-design-pro"
+            features={courseData.pricingFeatures}
+            duration={courseData.duration}
+            batchDates={courseData.batchDates}
+            batchFull={false}
+          />
+          <LaunchOfferSection
+            endDate={courseData.launchOffer.endDate}
+            bonuses={courseData.launchOffer.bonuses}
+            totalValueInr={courseData.launchOffer.totalValueInr}
+            totalValueUsd={courseData.launchOffer.totalValueUsd}
+          />
+          <PaymentOptions
+            courseSlug="ui-ux-design-pro"
+            courseType="long"
+          />
+          <TrustBadges />
+          <PlacementAssistanceSection />
+          <CityLocationsSection />
+          <MidPageCTA courseSlug="ui-ux-design-pro" courseName={courseData.title} />
+          <CourseApplicationForm courseSlug="ui-ux-design-pro" courseName={courseData.title} />
+          <LearningExperienceSection />
+          <CourseFAQ faqs={courseData.faqs} disableSchema={true} />
+          <CourseCTA
+            courseName={courseData.title}
+            courseSlug="ui-ux-design-pro"
+            ctaText="Ready to Start Your Design Career?"
+            secondaryText="Join 200+ students who have transformed their careers with our UI/UX Design Pro course."
+          />
+        </main>
+        <Footer />
       </div>
     </QuickApplyProvider>
   )

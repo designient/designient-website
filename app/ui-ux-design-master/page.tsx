@@ -618,76 +618,73 @@ export default function UIUXDesignMasterPage() {
       />
       <Header />
       <QuickApplyProvider>
-      <main id="main-content" role="main">
-        <CourseHero
-          title={courseData.title}
-          subtitle={courseData.subtitle}
-          duration={courseData.duration}
-          hours={courseData.hours}
-          format={courseData.format}
-          level={courseData.level}
-          rating={courseData.rating}
-          students={courseData.students}
-          badge={courseData.badge}
-          upcomingBatch={courseData.upcomingBatch}
-          batchFull={courseData.batchFull}
-          courseSlug="ui-ux-design-master"
-          courseName={courseData.title}
-        />
-        <FloatingApplyButton courseSlug="ui-ux-design-master" courseName={courseData.title} />
-        <OutcomeTransformationSection 
-          outcomes={courseData.outcomeTransformation}
-          duration="6 months"
-          description="From intermediate to senior designer—here's your transformation journey."
-        />
-        <CourseOverview
-          description={courseData.description}
-          keyFeatures={courseData.keyFeatures}
-          learningOutcomes={courseData.learningOutcomes}
-          careerPaths={courseData.careerPaths}
-        />
-        <CourseCurriculum
-          weekWiseCurriculum={courseData.weekWiseCurriculum}
-          totalHours={courseData.hours}
-        />
-        <ToolsCoveredSection
-          tools={courseData.tools}
-          title="Advanced Tools You'll Master"
-          description="Enterprise-level tools and platforms used by senior designers and design leaders in top companies."
-        />
-        <ExperienceAuthoritySection />
-        <CourseWhoShouldTake
-          description={courseData.whoShouldTake}
-          idealFor={courseData.idealFor}
-          notFor={courseData.notFor}
-        />
-        <AIInsideUIUXSection />
-        <CoursePricing
-          courseSlug="ui-ux-design-master"
-          features={courseData.pricingFeatures}
-          duration={courseData.duration}
-          batchDates={courseData.batchDates}
-          batchFull={courseData.batchFull}
-        />
-        <PaymentOptions
-          courseSlug="ui-ux-design-master"
-          advanceAmount={{
-            inr: '₹20,000',
-            usd: '$250'
-          }}
-        />
-        <TrustBadges />
-        <MidPageCTA courseSlug="ui-ux-design-master" courseName={courseData.title} />
-        <CourseApplicationForm courseSlug="ui-ux-design-master" courseName={courseData.title} />
-        <CourseFAQ faqs={courseData.faqs} />
-        <CourseCTA
-          courseName={courseData.title}
-          courseSlug="ui-ux-design-master"
-          ctaText="Ready to Become a Design Leader?"
-          secondaryText="Join 150+ designers who have advanced their careers with our Master program."
-        />
-      </main>
-      <Footer />
+        <main id="main-content" role="main">
+          <CourseHero
+            title={courseData.title}
+            subtitle={courseData.subtitle}
+            duration={courseData.duration}
+            hours={courseData.hours}
+            format={courseData.format}
+            level={courseData.level}
+            rating={courseData.rating}
+            students={courseData.students}
+            badge={courseData.badge}
+            upcomingBatch={courseData.upcomingBatch}
+            batchFull={courseData.batchFull}
+            courseSlug="ui-ux-design-master"
+            courseName={courseData.title}
+          />
+          <FloatingApplyButton courseSlug="ui-ux-design-master" courseName={courseData.title} />
+          <OutcomeTransformationSection
+            outcomes={courseData.outcomeTransformation}
+            duration="6 months"
+            description="From intermediate to senior designer—here's your transformation journey."
+          />
+          <CourseOverview
+            description={courseData.description}
+            keyFeatures={courseData.keyFeatures}
+            learningOutcomes={courseData.learningOutcomes}
+            careerPaths={courseData.careerPaths}
+          />
+          <CourseCurriculum
+            weekWiseCurriculum={courseData.weekWiseCurriculum}
+            totalHours={courseData.hours}
+          />
+          <ToolsCoveredSection
+            tools={courseData.tools}
+            title="Advanced Tools You'll Master"
+            description="Enterprise-level tools and platforms used by senior designers and design leaders in top companies."
+          />
+          <ExperienceAuthoritySection />
+          <CourseWhoShouldTake
+            description={courseData.whoShouldTake}
+            idealFor={courseData.idealFor}
+            notFor={courseData.notFor}
+          />
+          <AIInsideUIUXSection />
+          <CoursePricing
+            courseSlug="ui-ux-design-master"
+            features={courseData.pricingFeatures}
+            duration={courseData.duration}
+            batchDates={courseData.batchDates}
+            batchFull={courseData.batchFull}
+          />
+          <PaymentOptions
+            courseSlug="ui-ux-design-master"
+            courseType="long"
+          />
+          <TrustBadges />
+          <MidPageCTA courseSlug="ui-ux-design-master" courseName={courseData.title} />
+          <CourseApplicationForm courseSlug="ui-ux-design-master" courseName={courseData.title} />
+          <CourseFAQ faqs={courseData.faqs} />
+          <CourseCTA
+            courseName={courseData.title}
+            courseSlug="ui-ux-design-master"
+            ctaText="Ready to Become a Design Leader?"
+            secondaryText="Join 150+ designers who have advanced their careers with our Master program."
+          />
+        </main>
+        <Footer />
       </QuickApplyProvider>
     </div>
   )

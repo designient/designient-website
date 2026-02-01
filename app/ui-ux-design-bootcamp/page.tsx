@@ -343,76 +343,73 @@ export default function UIUXDesignBootcampPage() {
       />
       <Header />
       <QuickApplyProvider>
-      <main id="main-content" role="main">
-        <CourseHero
-          title={courseData.title}
-          subtitle={courseData.subtitle}
-          duration={courseData.duration}
-          hours={courseData.hours}
-          format={courseData.format}
-          level={courseData.level}
-          rating={courseData.rating}
-          students={courseData.students}
-          badge={courseData.badge}
-          upcomingBatch={courseData.upcomingBatch}
-          batchFull={courseData.batchFull}
-          courseSlug="ui-ux-design-bootcamp"
-          courseName={courseData.title}
-        />
-        <FloatingApplyButton courseSlug="ui-ux-design-bootcamp" courseName={courseData.title} />
-        <OutcomeTransformationSection 
-          outcomes={courseData.outcomeTransformation}
-          duration="30 days"
-          description="Fast-track your transformation—here's what you'll achieve in 30 days."
-        />
-        <CourseOverview
-          description={courseData.description}
-          keyFeatures={courseData.keyFeatures}
-          learningOutcomes={courseData.learningOutcomes}
-          careerPaths={courseData.careerPaths}
-        />
-        <CourseCurriculum
-          weekWiseCurriculum={courseData.weekWiseCurriculum}
-          totalHours={courseData.hours}
-        />
-        <ToolsCoveredSection
-          tools={courseData.tools}
-          title="Tools You'll Master"
-          description="Essential design tools to get you started quickly. Master the fundamentals in 30 days."
-        />
-        <ExperienceAuthoritySection />
-        <CourseWhoShouldTake
-          description={courseData.whoShouldTake}
-          idealFor={courseData.idealFor}
-          notFor={courseData.notFor}
-        />
-        <AIInsideUIUXSection />
-        <CoursePricing
-          courseSlug="ui-ux-design-bootcamp"
-          features={courseData.pricingFeatures}
-          duration={courseData.duration}
-          batchDates={courseData.batchDates}
-          batchFull={courseData.batchFull}
-        />
-        <PaymentOptions
-          courseSlug="ui-ux-design-bootcamp"
-          advanceAmount={{
-            inr: '₹8,000',
-            usd: '$100'
-          }}
-        />
-        <TrustBadges />
-        <MidPageCTA courseSlug="ui-ux-design-bootcamp" courseName={courseData.title} />
-        <CourseApplicationForm courseSlug="ui-ux-design-bootcamp" courseName={courseData.title} />
-        <CourseFAQ faqs={courseData.faqs} />
-        <CourseCTA
-          courseName={courseData.title}
-          courseSlug="ui-ux-design-bootcamp"
-          ctaText="Ready to Fast-Track Your Career?"
-          secondaryText="Join 100+ professionals who transformed their careers in just 30 days."
-        />
-      </main>
-      <Footer />
+        <main id="main-content" role="main">
+          <CourseHero
+            title={courseData.title}
+            subtitle={courseData.subtitle}
+            duration={courseData.duration}
+            hours={courseData.hours}
+            format={courseData.format}
+            level={courseData.level}
+            rating={courseData.rating}
+            students={courseData.students}
+            badge={courseData.badge}
+            upcomingBatch={courseData.upcomingBatch}
+            batchFull={courseData.batchFull}
+            courseSlug="ui-ux-design-bootcamp"
+            courseName={courseData.title}
+          />
+          <FloatingApplyButton courseSlug="ui-ux-design-bootcamp" courseName={courseData.title} />
+          <OutcomeTransformationSection
+            outcomes={courseData.outcomeTransformation}
+            duration="30 days"
+            description="Fast-track your transformation—here's what you'll achieve in 30 days."
+          />
+          <CourseOverview
+            description={courseData.description}
+            keyFeatures={courseData.keyFeatures}
+            learningOutcomes={courseData.learningOutcomes}
+            careerPaths={courseData.careerPaths}
+          />
+          <CourseCurriculum
+            weekWiseCurriculum={courseData.weekWiseCurriculum}
+            totalHours={courseData.hours}
+          />
+          <ToolsCoveredSection
+            tools={courseData.tools}
+            title="Tools You'll Master"
+            description="Essential design tools to get you started quickly. Master the fundamentals in 30 days."
+          />
+          <ExperienceAuthoritySection />
+          <CourseWhoShouldTake
+            description={courseData.whoShouldTake}
+            idealFor={courseData.idealFor}
+            notFor={courseData.notFor}
+          />
+          <AIInsideUIUXSection />
+          <CoursePricing
+            courseSlug="ui-ux-design-bootcamp"
+            features={courseData.pricingFeatures}
+            duration={courseData.duration}
+            batchDates={courseData.batchDates}
+            batchFull={courseData.batchFull}
+          />
+          <PaymentOptions
+            courseSlug="ui-ux-design-bootcamp"
+            courseType="short"
+          />
+          <TrustBadges />
+          <MidPageCTA courseSlug="ui-ux-design-bootcamp" courseName={courseData.title} />
+          <CourseApplicationForm courseSlug="ui-ux-design-bootcamp" courseName={courseData.title} />
+          <CourseFAQ faqs={courseData.faqs} />
+          <CourseCTA
+            courseName={courseData.title}
+            courseSlug="ui-ux-design-bootcamp"
+            ctaText="Ready to Fast-Track Your Career?"
+            secondaryText="Join 100+ professionals who transformed their careers in just 30 days."
+          />
+        </main>
+        <Footer />
       </QuickApplyProvider>
     </div>
   )

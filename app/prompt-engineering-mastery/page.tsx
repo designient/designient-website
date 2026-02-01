@@ -396,76 +396,73 @@ export default function PromptEngineeringMasteryPage() {
       />
       <Header />
       <QuickApplyProvider>
-      <main id="main-content" role="main">
-        <CourseHero
-          title={courseData.title}
-          subtitle={courseData.subtitle}
-          duration={courseData.duration}
-          hours={courseData.hours}
-          format={courseData.format}
-          level={courseData.level}
-          rating={courseData.rating}
-          students={courseData.students}
-          badge={courseData.badge}
-          upcomingBatch={courseData.upcomingBatch}
-          batchFull={false}
-          courseSlug="prompt-engineering-mastery"
-          courseName={courseData.title}
-        />
-        <FloatingApplyButton courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
-        <OutcomeTransformationSection 
-          outcomes={courseData.outcomeTransformation}
-          duration="30 days"
-          description="Master AI tools and transform how you work—here's what you'll achieve in 30 days."
-        />
-        <CourseOverview
-          description={courseData.description}
-          keyFeatures={courseData.keyFeatures}
-          learningOutcomes={courseData.learningOutcomes}
-          careerPaths={courseData.careerPaths}
-        />
-        <CourseCurriculum
-          weekWiseCurriculum={courseData.weekWiseCurriculum}
-          totalHours={courseData.hours}
-        />
-        <ToolsCoveredSection
-          tools={courseData.tools}
-          title="AI Tools You'll Master"
-          description="Master prompt engineering for the most popular AI platforms used by professionals worldwide."
-        />
-        <ExperienceAuthoritySection />
-        <CourseWhoShouldTake
-          description={courseData.whoShouldTake}
-          idealFor={courseData.idealFor}
-          notFor={courseData.notFor}
-        />
-        <AIInProfessionalWorkflowSection />
-        <CoursePricing
-          courseSlug="prompt-engineering-mastery"
-          features={courseData.pricingFeatures}
-          duration={courseData.duration}
-          batchDates={courseData.batchDates}
-          batchFull={false}
-        />
-        <PaymentOptions
-          courseSlug="prompt-engineering-mastery"
-          advanceAmount={{
-            inr: '₹7,000',
-            usd: '$100'
-          }}
-        />
-        <TrustBadges />
-        <MidPageCTA courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
-        <CourseApplicationForm courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
-        <CourseFAQ faqs={courseData.faqs} />
-        <CourseCTA
-          courseName={courseData.title}
-          courseSlug="prompt-engineering-mastery"
-          ctaText="Ready to Master AI Tools?"
-          secondaryText="Join 80+ professionals who have enhanced their productivity with AI prompt engineering."
-        />
-      </main>
-      <Footer />
+        <main id="main-content" role="main">
+          <CourseHero
+            title={courseData.title}
+            subtitle={courseData.subtitle}
+            duration={courseData.duration}
+            hours={courseData.hours}
+            format={courseData.format}
+            level={courseData.level}
+            rating={courseData.rating}
+            students={courseData.students}
+            badge={courseData.badge}
+            upcomingBatch={courseData.upcomingBatch}
+            batchFull={false}
+            courseSlug="prompt-engineering-mastery"
+            courseName={courseData.title}
+          />
+          <FloatingApplyButton courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
+          <OutcomeTransformationSection
+            outcomes={courseData.outcomeTransformation}
+            duration="30 days"
+            description="Master AI tools and transform how you work—here's what you'll achieve in 30 days."
+          />
+          <CourseOverview
+            description={courseData.description}
+            keyFeatures={courseData.keyFeatures}
+            learningOutcomes={courseData.learningOutcomes}
+            careerPaths={courseData.careerPaths}
+          />
+          <CourseCurriculum
+            weekWiseCurriculum={courseData.weekWiseCurriculum}
+            totalHours={courseData.hours}
+          />
+          <ToolsCoveredSection
+            tools={courseData.tools}
+            title="AI Tools You'll Master"
+            description="Master prompt engineering for the most popular AI platforms used by professionals worldwide."
+          />
+          <ExperienceAuthoritySection />
+          <CourseWhoShouldTake
+            description={courseData.whoShouldTake}
+            idealFor={courseData.idealFor}
+            notFor={courseData.notFor}
+          />
+          <AIInProfessionalWorkflowSection />
+          <CoursePricing
+            courseSlug="prompt-engineering-mastery"
+            features={courseData.pricingFeatures}
+            duration={courseData.duration}
+            batchDates={courseData.batchDates}
+            batchFull={false}
+          />
+          <PaymentOptions
+            courseSlug="prompt-engineering-mastery"
+            courseType="short"
+          />
+          <TrustBadges />
+          <MidPageCTA courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
+          <CourseApplicationForm courseSlug="prompt-engineering-mastery" courseName={courseData.title} />
+          <CourseFAQ faqs={courseData.faqs} />
+          <CourseCTA
+            courseName={courseData.title}
+            courseSlug="prompt-engineering-mastery"
+            ctaText="Ready to Master AI Tools?"
+            secondaryText="Join 80+ professionals who have enhanced their productivity with AI prompt engineering."
+          />
+        </main>
+        <Footer />
       </QuickApplyProvider>
     </div>
   )
