@@ -2,6 +2,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { CertificateDisplay } from '../../../../components/verify/CertificateDisplay'
 import type { Metadata } from 'next'
+export const runtime = 'edge'
 
 export async function generateMetadata({ params }: { params: Promise<{ hash: string }> }): Promise<Metadata> {
   const { hash } = await params

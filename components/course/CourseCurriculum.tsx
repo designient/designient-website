@@ -37,6 +37,7 @@ interface CourseCurriculumProps {
 export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: CourseCurriculumProps) {
   const [expandedMonths, setExpandedMonths] = useState<number[]>([]);
   const [expandedWeeks, setExpandedWeeks] = useState<string[]>([]);
+  const [expandedModules, setExpandedModules] = useState<number[]>([]);
 
   const toggleMonth = (monthIndex: number) => {
     setExpandedMonths((prev) =>
@@ -53,7 +54,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
   // If weekWiseCurriculum is provided, use that (new format)
   if (weekWiseCurriculum && weekWiseCurriculum.length > 0) {
     const totalCourseHours = weekWiseCurriculum.reduce((sum, month) => sum + month.totalHours, 0);
-    
+
     return (
       <section className="py-24 md:py-32" style={{ backgroundColor: '#fceed1' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -93,7 +94,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                   transition={{ delay: monthIndex * 0.1, duration: 0.4 }}
                   className="bg-white rounded-xl overflow-hidden shadow-lg border-2"
                   style={{ borderColor: '#8458B3' }}>
-                  
+
                   {/* Month Header */}
                   <button
                     onClick={() => toggleMonth(monthIndex)}
@@ -142,7 +143,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                               key={week.week}
                               className="border rounded-lg overflow-hidden"
                               style={{ borderColor: '#e5e7eb' }}>
-                              
+
                               {/* Week Header */}
                               <button
                                 onClick={() => toggleWeek(weekKey)}
@@ -233,7 +234,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                             </div>
                           );
                         })}
-                        
+
                         {/* Month Total */}
                         <div className="mt-4 p-4 rounded-lg border-2" style={{ borderColor: '#8458B3', backgroundColor: '#FFF6E2' }}>
                           <div className="flex items-center justify-between">
@@ -279,7 +280,8 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
   }
 
   // Fallback to original module-based format for backward compatibility
-  const [expandedModules, setExpandedModules] = useState<number[]>([]);
+  // Fallback state for original module-based format
+
 
   const toggleModule = (index: number) => {
     setExpandedModules((prev) =>
@@ -327,7 +329,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
               style={{
                 borderLeft: expandedModules.includes(index) ? '4px solid #8458B3' : '4px solid transparent'
               }}>
-              
+
               <button
                 onClick={() => toggleModule(index)}
                 className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">

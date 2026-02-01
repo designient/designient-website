@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+export const runtime = 'edge'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { BlogsPageClient } from './BlogsPageClient'

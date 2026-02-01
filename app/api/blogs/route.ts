@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+export const runtime = 'edge'
 import blogsData from '../../../data/blogs.json'
 import { getFilteredBlogs, type BlogPostItem } from '../../../utils/blogHelpers'
 

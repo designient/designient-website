@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 export const runtime = 'edge'
-import { Resend } from 'resend'
 import { careersLeadEmail, careersCustomerCopy } from '../../../../lib/email-templates'
 import { getResendFrom } from '../../../../lib/resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 function jsonError(message: string, status: number) {
   return NextResponse.json({ success: false, error: message }, { status })
@@ -29,45 +26,63 @@ export async function POST(request: NextRequest) {
       return jsonError('Email is required.', 400)
     }
 
-    const to = process.env.EMAIL_INTERNAL_HR
-    const from = getResendFrom(process.env.EMAIL_FROM_HR)
-
-    if (!process.env.RESEND_API_KEY || !to) {
-      return jsonError('Email not configured.', 500)
-    }
-
     const data = { fullName, email, phone, portfolioUrl, linkedinUrl, coverLetter, roleName }
-    const lead = careersLeadEmail(data)
-    const customer = careersCustomerCopy(data)
 
-    const emailPayload: Parameters<typeof resend.emails.send>[0] = {
-      from,
-      to: [to],
-      replyTo: email,
+    // 1. Prepare email payload for Lead
+    const lead = careersLeadEmail(data)
+    const emailPayload: any = {
+      from: getResendFrom(process.env.EMAIL_FROM_HR),
+      to: process.env.EMAIL_INTERNAL_HR,
+      reply_to: email, // Resend API uses snake_case for reply_to
       subject: lead.subject,
       text: lead.text,
       html: lead.html,
+      attachments: []
     }
+
     if (resume?.size && resume.size > 0) {
-      const buffer = Buffer.from(await resume.arrayBuffer())
-      emailPayload.attachments = [{ filename: resume.name || 'resume.pdf', content: buffer }]
+      const arrayBuffer = await resume.arrayBuffer()
+      const base64Content = Buffer.from(arrayBuffer).toString('base64')
+      emailPayload.attachments.push({
+        filename: resume.name || 'resume.pdf',
+        content: base64Content
+      })
     }
 
-    const { error: leadError } = await resend.emails.send(emailPayload)
-    if (leadError) {
-      console.error('Resend careers lead error:', leadError)
-      return jsonError(leadError.message || 'Failed to send email.', 500)
-    }
-
-    const { error: copyError } = await resend.emails.send({
-      from,
-      to: [email],
-      subject: customer.subject,
-      text: customer.text,
-      html: customer.html,
+    // Send Lead Email
+    const leadRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`
+      },
+      body: JSON.stringify(emailPayload)
     })
-    if (copyError) {
-      console.error('Resend careers customer copy error:', copyError)
+
+    if (!leadRes.ok) {
+      console.error('Failed to send careers lead email', await leadRes.text())
+      return jsonError('Failed to send email.', 500)
+    }
+
+    // 2. Send Customer Copy
+    const customer = careersCustomerCopy(data)
+    const customerRes = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.RESEND_API_KEY}`
+      },
+      body: JSON.stringify({
+        from: getResendFrom(process.env.EMAIL_FROM_HR),
+        to: email,
+        subject: customer.subject,
+        text: customer.text,
+        html: customer.html
+      })
+    })
+
+    if (!customerRes.ok) {
+      console.error('Failed to send careers customer copy', await customerRes.text())
     }
 
     return NextResponse.json({ success: true })
