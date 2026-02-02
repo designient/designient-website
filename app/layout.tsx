@@ -95,8 +95,7 @@ export default function RootLayout({
         {/* Analytics preconnects */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
-        {/* External images preconnect */}
-        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
+
         {/* Preload critical fonts for better performance */}
         <link
           rel="preload"

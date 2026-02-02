@@ -247,7 +247,7 @@ export function Hero() {
       name: 'Amazon',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+          src="/company-logos/amazon.svg"
           alt="Amazon logo - UI UX design students from Designient work at Amazon"
           className="h-8 w-auto object-contain"
           width="120"
@@ -262,7 +262,7 @@ export function Hero() {
       name: 'Accenture',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
+          src="/company-logos/accenture.svg"
           alt="Accenture logo - UI UX design students from Designient work at Accenture"
           className="h-8 w-auto object-contain"
           width="120"
@@ -277,7 +277,7 @@ export function Hero() {
       name: 'Cisco',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"
+          src="/company-logos/cisco.svg"
           alt="Cisco logo - UI UX design students from Designient work at Cisco"
           className="h-8 w-auto object-contain"
           width="120"
@@ -292,7 +292,7 @@ export function Hero() {
       name: 'Google',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+          src="/company-logos/google.svg"
           alt="Google logo - UI UX design students from Designient work at Google"
           className="h-8 w-auto object-contain"
           width="120"
@@ -307,7 +307,7 @@ export function Hero() {
       name: 'PayPal',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+          src="/company-logos/paypal.svg"
           alt="PayPal logo - UI UX design students from Designient work at PayPal"
           className="h-8 w-auto object-contain"
           width="120"
@@ -322,7 +322,7 @@ export function Hero() {
       name: 'Salesforce',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+          src="/company-logos/salesforce.svg"
           alt="Salesforce logo - UI UX design students from Designient work at Salesforce"
           className="h-8 w-auto object-contain"
           width="120"
@@ -337,7 +337,7 @@ export function Hero() {
       name: 'Mercedes Benz',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mercedes-Benz_logo.svg"
+          src="/company-logos/mercedes.svg"
           alt="Mercedes Benz logo - UI UX design students from Designient work at Mercedes Benz"
           className="h-8 w-auto object-contain"
           width="120"
@@ -352,7 +352,7 @@ export function Hero() {
       name: 'Adobe',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg"
+          src="/company-logos/adobe.svg"
           alt="Adobe logo - UI UX design students from Designient work at Adobe"
           className="h-8 w-auto object-contain"
           width="120"
@@ -367,7 +367,7 @@ export function Hero() {
       name: 'Deloitte',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/8/82/DeloitteNewLogo.png"
+          src="/company-logos/deloitte.png"
           alt="Deloitte logo - UI UX design students from Designient work at Deloitte"
           className="h-8 w-auto object-contain"
           width="120"
@@ -401,7 +401,7 @@ export function Hero() {
       name: 'Lenovo',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg"
+          src="/company-logos/lenovo.svg"
           alt="Lenovo logo - UI UX design students from Designient work at Lenovo"
           className="h-8 w-auto object-contain"
           width="120"
@@ -416,7 +416,7 @@ export function Hero() {
       name: 'Meta',
       logo: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+          src="/company-logos/meta.svg"
           alt="Meta logo - UI UX design students from Designient work at Meta"
           className="h-8 w-auto object-contain"
           width="120"
