@@ -98,18 +98,18 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                   {/* Month Header */}
                   <button
                     onClick={() => toggleMonth(monthIndex)}
-                    className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">
-                    <div className="flex items-center gap-4 flex-1">
-                      <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center font-display font-bold text-lg"
+                    className="w-full flex items-center justify-between p-4 md:p-6 text-left hover:bg-gray-50 transition-colors">
+                    <div className="flex items-center gap-3 md:gap-4 flex-1">
+                      <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center font-display font-bold text-base md:text-lg"
                         style={{ backgroundColor: '#8458B3', color: 'white' }}>
                         {month.month}
                       </div>
                       <div className="flex-1">
                         <h3
-                          className="font-display font-bold mb-1"
+                          className="font-display font-bold mb-1 leading-tight"
                           style={{
                             color: '#1a1a1a',
-                            fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)'
+                            fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)'
                           }}>
                           {month.title}
                         </h3>

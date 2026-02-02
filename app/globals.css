@@ -8,13 +8,18 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display), 'Bebas Neue', sans-serif;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
   }
 
-    /* Ensure proper text rendering on mobile */
+  /* Ensure proper text rendering on mobile */
   html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -22,7 +27,11 @@
   }
 
   /* Improve touch target sizes */
-  button, a, input, select, textarea {
+  button,
+  a,
+  input,
+  select,
+  textarea {
     touch-action: manipulation;
   }
 
@@ -84,6 +93,7 @@ img {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -182,7 +192,8 @@ img {
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
-  color: #4a4a4a; /* Improved contrast from #6b7280 */
+  color: #4a4a4a;
+  /* Improved contrast from #6b7280 */
 }
 
 .prose code {

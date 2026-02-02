@@ -245,12 +245,12 @@ export function CertificateDisplay({ hash }: { hash: string }) {
         aria-label="Certificate details"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-full max-w-[1100px] mx-auto"
-            >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="w-full max-w-[1100px] mx-auto"
+          >
             <div
               className="skip-print p-6 rounded-xl mb-6 flex items-start gap-4"
               style={{ backgroundColor: statusConfig.bgColor }}
@@ -338,13 +338,11 @@ export function CertificateDisplay({ hash }: { hash: string }) {
             <div
               id="certificate-to-print"
               ref={certRef}
-              className="bg-white rounded-2xl overflow-hidden border-2 relative w-full mx-auto flex flex-col h-full"
+              className="bg-white rounded-2xl overflow-hidden border-2 relative w-full mx-auto flex flex-col h-full md:aspect-[297/210] aspect-auto min-h-[500px] md:min-h-0"
               style={{
                 borderColor: '#f4e4c1',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-                aspectRatio: '297 / 210',
                 maxWidth: 'min(95vw, 1100px)',
-                minHeight: 0
               }}
             >
               {/* Decorative wave accents top and bottom */}
@@ -367,7 +365,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
 
               {/* Full-grid layout: header | body (flex) | footer | credential */}
               <div
-                className="relative h-full min-h-0 flex flex-col p-[4%] sm:p-[5%]"
+                className="relative h-full min-h-0 flex flex-col p-6 sm:p-[5%]"
                 style={{ backgroundColor: 'white' }}
               >
                 {/* Subtle watermark */}
@@ -376,13 +374,13 @@ export function CertificateDisplay({ hash }: { hash: string }) {
                 </div>
 
                 {/* Row 1: Header - logo centered, year award top-right */}
-                <div className="relative flex justify-center items-center flex-shrink-0 mb-[2%] min-h-0">
+                <div className="relative flex justify-center items-center flex-shrink-0 mb-6 md:mb-[2%] min-h-0 pt-4 md:pt-0">
                   <Image
                     src="/designient-logo.svg"
                     alt="Designient"
                     width={240}
                     height={56}
-                    className="object-contain w-[28%] min-w-[180px] max-w-[280px] h-auto"
+                    className="object-contain w-[160px] md:w-[28%] md:min-w-[180px] md:max-w-[280px] h-auto"
                   />
                   <div
                     className="absolute top-0 right-0 font-display font-bold px-2 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm rounded-lg border-2"
@@ -394,38 +392,38 @@ export function CertificateDisplay({ hash }: { hash: string }) {
                 </div>
 
                 {/* Row 2: Main body - hierarchy: name (largest) > Certificate > course > supporting text; balanced spacing; set moved slightly up */}
-                <div className="text-center flex-1 min-h-0 flex flex-col justify-center gap-[1.8%] py-[1.5%] -mt-[1.5%]">
+                <div className="text-center flex-1 min-h-0 flex flex-col justify-center gap-4 md:gap-[1.8%] py-4 md:py-[1.5%] md:-mt-[1.5%]">
                   <h2
                     className="font-display font-bold uppercase tracking-wide flex-shrink-0"
-                    style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)' }}
+                    style={{ color: '#1a1a1a', fontSize: 'clamp(1.25rem, 3.5vw, 2.5rem)' }}
                   >
                     Certificate
                   </h2>
-                  <p className="font-body flex-shrink-0" style={{ color: '#6b7280', fontSize: 'clamp(0.9rem, 1.6vw, 1.1rem)' }}>
+                  <p className="font-body flex-shrink-0" style={{ color: '#6b7280', fontSize: 'clamp(0.875rem, 1.6vw, 1.1rem)' }}>
                     — Proudly Presented to —
                   </p>
                   <h3
-                    className="font-display font-bold flex-shrink-0"
-                    style={{ color: '#8458B3', fontSize: 'clamp(2rem, 5.5vw, 3.75rem)', lineHeight: 1.15 }}
+                    className="font-display font-bold flex-shrink-0 py-2"
+                    style={{ color: '#8458B3', fontSize: 'clamp(1.75rem, 5.5vw, 3.75rem)', lineHeight: 1.15 }}
                   >
                     {certificate.studentName}
                   </h3>
-                  <p className="font-body flex-shrink-0" style={{ color: '#1a1a1a', lineHeight: 1.5, fontSize: 'clamp(1rem, 2vw, 1.4rem)' }}>
-                    For successfully completing the <strong>{certificate.courseName}</strong>.
+                  <p className="font-body flex-shrink-0 px-4" style={{ color: '#1a1a1a', lineHeight: 1.5, fontSize: 'clamp(0.9rem, 2vw, 1.4rem)' }}>
+                    For successfully completing the <br className="block md:hidden" /><strong>{certificate.courseName}</strong>.
                   </p>
                   <p
-                    className="font-body max-w-[92%] mx-auto flex-shrink-0"
-                    style={{ color: '#374151', fontSize: 'clamp(0.85rem, 1.5vw, 1.05rem)', lineHeight: 1.5 }}
+                    className="font-body max-w-full md:max-w-[92%] mx-auto flex-shrink-0 px-4"
+                    style={{ color: '#374151', fontSize: 'clamp(0.8rem, 1.5vw, 1.05rem)', lineHeight: 1.6 }}
                   >
-                    We wish you joy, growth and fulfilment in your career ahead. May your work <br />change lives for the better, now and forever!
+                    We wish you joy, growth and fulfilment in your career ahead. May your work <br className="hidden md:block" />change lives for the better, now and forever!
                   </p>
-                  <p className="font-body flex-shrink-0" style={{ color: '#374151', fontSize: 'clamp(0.9rem, 1.6vw, 1.1rem)' }}>
+                  <p className="font-body flex-shrink-0 mt-2" style={{ color: '#374151', fontSize: 'clamp(0.875rem, 1.6vw, 1.1rem)' }}>
                     Date: <span style={{ color: '#0d9488', fontWeight: 'bold' }}>{formatCertificateDate(certificate.issueDate)}</span>
                   </p>
                 </div>
 
                 {/* Row 3: Footer - 3 columns, equal spacing */}
-                <div className="grid grid-cols-3 gap-2 sm:gap-4 flex-shrink-0 pt-[2%] mt-[1%] border-t-2 items-end" style={{ borderColor: '#e5e7eb' }}>
+                <div className="grid grid-cols-3 gap-2 sm:gap-4 flex-shrink-0 pt-6 md:pt-[2%] mt-2 md:mt-[1%] border-t-2 items-end" style={{ borderColor: '#e5e7eb' }}>
                   <div className="text-center md:text-left">
                     <p className="font-body uppercase tracking-wider mb-0.5" style={{ color: '#6b7280', fontSize: 'clamp(0.5rem, 0.9vw, 0.65rem)' }}>
                       Certified Partner
@@ -439,7 +437,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
                     />
                   </div>
                   <div className="text-center">
-                    <p className="font-body font-bold mb-0.5" style={{ color: '#4b5563', fontSize: 'clamp(0.7rem, 1.2vw, 0.9rem)' }}>
+                    <p className="font-body font-bold mb-0.5" style={{ color: '#4b5563', fontSize: 'clamp(0.6rem, 1.2vw, 0.9rem)' }}>
                       {certificate.certificateId}
                     </p>
                     <p className="font-body uppercase tracking-wider" style={{ color: '#9ca3af', fontSize: 'clamp(0.5rem, 0.9vw, 0.65rem)' }}>
@@ -461,11 +459,11 @@ export function CertificateDisplay({ hash }: { hash: string }) {
                 </div>
 
                 {/* Row 4: Credential URL - compact */}
-                <div className="flex-shrink-0 pt-[1.5%] mt-[1%] border-t text-center" style={{ borderColor: '#f4e4c1' }}>
+                <div className="flex-shrink-0 pt-4 md:pt-[1.5%] mt-2 md:mt-[1%] border-t text-center" style={{ borderColor: '#f4e4c1' }}>
                   <p className="font-body uppercase tracking-wider mb-0.5" style={{ color: '#9ca3af', fontSize: 'clamp(0.45rem, 0.8vw, 0.6rem)' }}>
                     Credential URL
                   </p>
-                  <p className="font-body break-all leading-tight" style={{ color: '#6b7280', fontSize: 'clamp(0.45rem, 0.8vw, 0.6rem)' }}>
+                  <p className="font-body break-all leading-tight px-4" style={{ color: '#6b7280', fontSize: 'clamp(0.5rem, 0.8vw, 0.6rem)' }}>
                     {certificate.credentialUrl}
                   </p>
                 </div>
