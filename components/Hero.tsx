@@ -670,7 +670,7 @@ export function Hero() {
               duration: 0.8,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white p-4 sm:p-6 rounded-3xl shadow-xl relative z-20">
+            className="bg-white p-5 sm:p-6 rounded-3xl shadow-xl relative z-20">
 
             <div className="text-center mb-4">
               <h3

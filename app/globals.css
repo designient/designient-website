@@ -110,10 +110,17 @@ img {
   animation-play-state: paused;
 }
 
-/* Fade edges for smooth scrolling effect */
+/* Fade edges for smooth scrolling effect - less aggressive on mobile */
 .company-logos-container {
-  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+}
+
+@media (min-width: 768px) {
+  .company-logos-container {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  }
 }
 
 /* Blog content styling */
@@ -244,4 +251,64 @@ img {
 /* Global offset for sections with IDs */
 section[id] {
   scroll-margin-top: 100px;
+}
+
+/* ============================================
+   RESPONSIVE MOBILE OPTIMIZATIONS
+   ============================================ */
+
+/* Reduce excessive section padding on mobile */
+@media (max-width: 639px) {
+
+  /* Tighter section padding on mobile */
+  section {
+    padding-top: 2.5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Reduce hero section padding */
+  section[aria-labelledby="hero-heading"] {
+    padding-top: 5rem !important;
+    padding-bottom: 2.5rem !important;
+  }
+
+  /* Improve horizontal margins on mobile */
+  .max-w-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Reduce large heading sizes on mobile for better balance */
+  h1.font-display {
+    font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
+    line-height: 1.15 !important;
+  }
+
+  h2.font-display {
+    font-size: clamp(1.25rem, 6vw, 2rem) !important;
+  }
+
+  /* Ensure form elements are touch-friendly */
+  input,
+  select,
+  button[type="submit"] {
+    min-height: 48px;
+  }
+}
+
+/* Tablet-specific optimizations */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .max-w-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Ensure proper spacing for fixed elements on mobile */
+@media (max-width: 767px) {
+
+  /* Add bottom padding to account for sticky buttons */
+  main {
+    padding-bottom: 5rem;
+  }
 }
