@@ -462,7 +462,7 @@ export function Hero() {
   };
   return (
     <section
-      className="relative flex flex-col pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden"
+      className="relative flex flex-col pt-20 pb-8 md:pt-28 md:pb-16 lg:pt-32 lg:pb-24 overflow-hidden"
       style={{
         backgroundColor: '#FFF6E2'
       }}
@@ -470,8 +470,10 @@ export function Hero() {
       itemScope
       itemType="https://schema.org/EducationalOrganization">
 
+      {/* Main Container - 16px margin on mobile (px-4), 24px on md, 32px on lg */}
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full flex-1">
-        <div className="grid lg:grid-cols-[60%_40%] gap-6 sm:gap-8 lg:gap-12 items-start">
+        {/* Grid: Stack on mobile, 2-column on lg */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] xl:grid-cols-[1fr_480px] gap-8 lg:gap-8 items-start">
           {/* Left Column: Content */}
           <motion.div
             initial={{
@@ -486,140 +488,101 @@ export function Hero() {
               duration: 0.8,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="text-left">
+            className="text-left order-1">
 
+            {/* Badge */}
             <motion.div
-              initial={{
-                opacity: 1,
-                y: 0
-              }}
-              animate={{
-                opacity: 1,
-                y: 0
-              }}
-              transition={{
-                duration: 0.3
-              }}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full mb-4"
-              style={{
-                backgroundColor: '#f2d53c'
-              }}>
-
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 md:mb-4"
+              style={{ backgroundColor: '#f2d53c' }}>
               <span
-                className="font-body font-bold uppercase tracking-wide"
-                style={{
-                  color: '#1a1a1a',
-                  fontSize: 'clamp(0.6875rem, 1.5vw, 0.875rem)'
-                }}>
-
+                className="font-body font-bold uppercase tracking-wide text-xs md:text-sm"
+                style={{ color: '#1a1a1a' }}>
                 Mentor-Led. Career-Focused.
               </span>
             </motion.div>
 
+            {/* Main Heading - Optimized for mobile */}
             <h1
               id="hero-heading"
-              className="font-display tracking-wide leading-[1.1] mb-6 font-bold uppercase break-words"
-              style={{ fontWeight: 700, fontSize: 'clamp(1.75rem, 6vw, 4.5rem)', color: '#1a1a1a' }}
+              className="font-display tracking-wide leading-[1.05] mb-4 md:mb-6 font-bold uppercase"
+              style={{
+                fontWeight: 700,
+                fontSize: 'clamp(1.75rem, 5vw, 4rem)',
+                color: '#1a1a1a',
+                wordBreak: 'break-word'
+              }}
               itemProp="name">
-
               UI/UX Design Courses for Everyone
             </h1>
 
+            {/* Description - Better mobile sizing */}
             <p
-              className="font-body text-base md:text-lg mb-6 max-w-2xl font-normal leading-relaxed"
+              className="font-body text-base mb-4 md:mb-6 max-w-2xl font-normal leading-relaxed"
               style={{
                 color: '#4a4a4a',
-                fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+                fontSize: 'clamp(0.9375rem, 2vw, 1.25rem)',
                 lineHeight: '1.6'
               }}
               itemProp="description">
-
               Beginner-friendly UI/UX design courses integrated with AI tools. Learn modern design workflows that prepare you for real-world projects.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <div className="flex items-center gap-2">
-                <CheckCircle
-                  className="w-5 h-5"
-                  style={{
-                    color: '#8458B3'
-                  }} />
-
-                <span
-                  className="font-body font-medium text-sm"
-                  style={{
-                    color: '#1a1a1a'
-                  }}>
-
+            {/* Trust Badges - Always horizontal, wrap on tiny screens */}
+            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 md:mb-6">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#8458B3' }} />
+                <span className="font-body font-medium text-xs md:text-sm" style={{ color: '#1a1a1a' }}>
                   Adobe Certified
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle
-                  className="w-5 h-5"
-                  style={{
-                    color: '#8458B3'
-                  }} />
-
-                <span
-                  className="font-body font-medium text-sm"
-                  style={{
-                    color: '#1a1a1a'
-                  }}>
-
+              <div className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#8458B3' }} />
+                <span className="font-body font-medium text-xs md:text-sm" style={{ color: '#1a1a1a' }}>
                   Job Guarantee
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle
-                  className="w-5 h-5"
-                  style={{
-                    color: '#8458B3'
-                  }} />
-
-                <span
-                  className="font-body font-medium text-sm"
-                  style={{
-                    color: '#1a1a1a'
-                  }}>
-
+              <div className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#8458B3' }} />
+                <span className="font-body font-medium text-xs md:text-sm" style={{ color: '#1a1a1a' }}>
                   1-on-1 Mentorship
                 </span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-8 w-full sm:w-auto">
+            {/* CTA Buttons - Stack on mobile, side-by-side on sm+ */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
               <Link
                 href="/courses"
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[48px] w-full sm:w-auto shadow-lg shadow-purple-900/10"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[48px] w-full sm:w-auto shadow-lg shadow-purple-900/10 text-sm md:text-base"
                 style={{
                   backgroundColor: '#8458B3',
-                  color: 'white',
-                  fontSize: 'clamp(0.9rem, 1.5vw, 1rem)'
+                  color: 'white'
                 }}>
                 <BookOpen className="w-4 h-4 flex-shrink-0" />
                 <span>Explore Courses</span>
               </Link>
               <Link
                 href="/corporates/hiring-consulting"
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[48px] w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[48px] w-full sm:w-auto text-sm md:text-base"
                 style={{
                   borderColor: '#1a1a1a',
-                  color: '#1a1a1a',
-                  fontSize: 'clamp(0.9rem, 1.5vw, 1rem)'
+                  color: '#1a1a1a'
                 }}>
                 <ArrowRight className="w-4 h-4 flex-shrink-0" />
                 <span>Hiring Support</span>
               </Link>
             </div>
 
-            <div className="flex items-center gap-3">
+            {/* Social Proof - Compact on mobile */}
+            <div className="flex items-center gap-2 md:gap-3">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) =>
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
-
+                    className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
                     <img
                       src={`https://i.pravatar.cc/100?img=${i + 10}`}
                       alt={`Designient UI UX design student profile ${i + 1}`}
@@ -627,66 +590,47 @@ export function Hero() {
                       height="32"
                       loading="lazy"
                       className="w-full h-full object-cover" />
-
                   </div>
                 )}
               </div>
               <Link href="/success-stories" className="group">
-                <div className="flex items-center gap-1 mb-0.5">
+                <div className="flex items-center gap-0.5 mb-0.5">
                   {[1, 2, 3, 4, 5].map((i) =>
                     <Star
                       key={i}
                       className="w-3 h-3 fill-current"
-                      style={{
-                        color: '#f2d53c'
-                      }} />
-
+                      style={{ color: '#f2d53c' }} />
                   )}
                 </div>
                 <p
-                  className="font-body text-xs font-medium group-hover:underline transition-all"
-                  style={{
-                    color: '#4a4a4a'
-                  }}>
-
-                  4.8/5 from 150+ students — Read their stories
+                  className="font-body text-[11px] md:text-xs font-medium group-hover:underline transition-all"
+                  style={{ color: '#4a4a4a' }}>
+                  4.8/5 from 150+ students
                 </p>
               </Link>
             </div>
           </motion.div>
 
-          {/* Right Column: Form */}
+          {/* Right Column: Form - Constrained width on desktop */}
           <motion.div
-            initial={{
-              opacity: 0,
-              y: 30
-            }}
-            animate={{
-              opacity: 1,
-              y: 0
-            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.3,
               duration: 0.8,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white p-5 sm:p-6 rounded-3xl shadow-xl relative z-20">
+            className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 order-2 w-full">
 
-            <div className="text-center mb-4">
+            <div className="text-center mb-3 md:mb-4">
               <h3
-                className="font-display text-xl mb-1"
-                style={{
-                  color: '#1a1a1a'
-                }}>
-
+                className="font-display text-lg md:text-xl mb-1"
+                style={{ color: '#1a1a1a' }}>
                 Get Course Details
               </h3>
               <p
                 className="font-body text-xs"
-                style={{
-                  color: '#6a6a6a'
-                }}>
-
+                style={{ color: '#6a6a6a' }}>
                 Speak with our career counselors today
               </p>
             </div>
@@ -964,7 +908,7 @@ export function Hero() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your privacy. No spam.
+                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>privacy</Link>. No spam.
               </p>
             </form>
           </motion.div>
@@ -985,17 +929,14 @@ export function Hero() {
           delay: 0.6,
           duration: 0.8
         }}
-        className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full mt-8 md:mt-12">
+        className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full mt-6 md:mt-10">
 
         <p
-          className="text-center font-body text-xs uppercase tracking-wider mb-4 font-semibold"
-          style={{
-            color: '#6a6a6a'
-          }}>
-
+          className="text-center font-body text-[10px] md:text-xs uppercase tracking-wider mb-3 md:mb-4 font-semibold"
+          style={{ color: '#6a6a6a' }}>
           Our Students Work At
         </p>
-        <div className="py-6 overflow-hidden company-logos-container">
+        <div className="py-4 md:py-6 overflow-hidden company-logos-container">
           <div className="flex items-center gap-6 sm:gap-8 md:gap-12 animate-scroll" style={{ width: 'max-content' }}>
             {/* First set of logos */}
             {companies.map((company, index) =>

@@ -4,62 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Search } from 'react-feather';
 import Link from 'next/link';
+import Image from 'next/image';
 
-const stats = [
-  {
-    value: 95,
-    suffix: '%',
-    label: 'Completion / Satisfaction'
-  },
-  {
-    value: 500,
-    suffix: '+',
-    label: 'Students'
-  },
-  {
-    value: 8,
-    suffix: '+',
-    label: 'Years'
-  },
-  {
-    value: 150,
-    suffix: '+',
-    label: 'Internships'
-  }
-];
-
-function AnimatedNumber({ value, suffix, startAnimation }: { value: number; suffix: string; startAnimation: boolean }) {
-  const [displayValue, setDisplayValue] = useState(0);
-
-  useEffect(() => {
-    if (!startAnimation) return;
-
-    const duration = 2000;
-    const steps = 60;
-    const increment = value / steps;
-    let current = 0;
-    let step = 0;
-
-    const timer = setInterval(() => {
-      step++;
-      current = Math.min(value, increment * step);
-      setDisplayValue(Math.floor(current));
-
-      if (step >= steps) {
-        setDisplayValue(value);
-        clearInterval(timer);
-      }
-    }, duration / steps);
-
-    return () => clearInterval(timer);
-  }, [startAnimation, value]);
-
-  return (
-    <span>
-      {displayValue}{suffix}
-    </span>
-  );
-}
 
 export function InquiryForm() {
   const [isVisible, setIsVisible] = useState(false);
@@ -203,7 +149,7 @@ export function InquiryForm() {
 
       let data;
       const responseText = await response.text();
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {};
       } catch (jsonError) {
@@ -299,10 +245,10 @@ export function InquiryForm() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
-          {/* Left Column: Stats */}
+        {/* Grid: Balanced center-aligned layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center max-w-5xl mx-auto">
+          {/* Left Column: Certificate Image */}
           <motion.div
-            ref={sectionRef}
             initial={{
               opacity: 0,
               x: -40
@@ -319,84 +265,22 @@ export function InquiryForm() {
               duration: 0.6,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                  scale: 0.8
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                  scale: 1
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.5
-                }}
-                transition={{
-                  delay: index * 0.15,
-                  duration: 0.8,
-                  ease: [0.4, 0, 0.2, 1]
-                }}
-                className="text-center p-5 sm:p-6 rounded-2xl flex flex-col justify-center min-h-[120px] sm:min-h-[140px] md:min-h-[160px]"
-                style={{
-                  backgroundColor: '#8458B3'
-                }}>
-                <motion.div
-                  className="font-display tracking-wide mb-2"
-                  style={{
-                    color: '#f2d53c',
-                    fontSize: 'clamp(3rem, 7vw, 5.5rem)'
-                  }}
-                  initial={{
-                    scale: 0
-                  }}
-                  whileInView={{
-                    scale: 1
-                  }}
-                  viewport={{
-                    once: true
-                  }}
-                  transition={{
-                    delay: index * 0.15 + 0.3,
-                    duration: 0.6,
-                    type: 'spring',
-                    stiffness: 200,
-                    damping: 15
-                  }}>
-                  <AnimatedNumber value={stat.value} suffix={stat.suffix} startAnimation={isVisible} />
-                </motion.div>
-                <motion.div
-                  className="font-body uppercase tracking-wider font-bold"
-                  style={{
-                    color: 'rgba(255, 255, 255, 0.9)',
-                    fontSize: 'clamp(0.6875rem, 1.8vw, 0.875rem)'
-                  }}
-                  initial={{
-                    opacity: 0
-                  }}
-                  whileInView={{
-                    opacity: 1
-                  }}
-                  viewport={{
-                    once: true
-                  }}
-                  transition={{
-                    delay: index * 0.15 + 0.5,
-                    duration: 0.6
-                  }}>
-                  {stat.label}
-                </motion.div>
-              </motion.div>
-            ))}
+            className="flex flex-col items-center justify-center">
+            <div className="rounded-2xl overflow-hidden border bg-white shadow-lg w-full max-w-md" style={{ borderColor: '#e5e5e5' }}>
+              <Image
+                src="/adobe-certified-certificate.webp"
+                alt="Adobe Certified Professional certificate badge - Designient UI/UX design course"
+                width={1720}
+                height={1228}
+                className="w-full h-auto object-contain"
+                sizes="(max-width: 1024px) 100vw, 400px"
+              />
+            </div>
           </motion.div>
 
-          {/* Right Column: Form */}
+          {/* Right Column: Form - Exact same styling as Hero section */}
           <motion.div
+            ref={sectionRef}
             initial={{
               opacity: 0,
               x: 40
@@ -413,27 +297,16 @@ export function InquiryForm() {
               duration: 0.6,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white p-5 sm:p-6 md:p-8 rounded-3xl shadow-xl border"
-            style={{
-              borderColor: '#e5e7eb'
-            }}>
-            <div className="text-center mb-6">
+            className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 w-full max-w-md mx-auto lg:mx-0">
+            <div className="text-center mb-3 md:mb-4">
               <h3
-                className="font-display mb-2"
-                style={{
-                  color: '#1a1a1a',
-                  fontWeight: 600,
-                  fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)'
-                }}>
+                className="font-display text-lg md:text-xl mb-1"
+                style={{ color: '#1a1a1a' }}>
                 Get Course Details
               </h3>
               <p
-                className="font-body text-sm font-normal"
-                style={{
-                  color: '#6a6a6a',
-                  fontSize: 'clamp(0.875rem, 1.2vw, 0.9375rem)',
-                  lineHeight: '1.6'
-                }}>
+                className="font-body text-xs"
+                style={{ color: '#6a6a6a' }}>
                 Speak with our career counselors today
               </p>
             </div>
@@ -709,20 +582,12 @@ export function InquiryForm() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your privacy. No spam. By submitting, you agree to our{' '}
-                <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
-                  Privacy Policy
-                </Link>
-                {' '}and{' '}
-                <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
-                  Terms and Conditions
-                </Link>
-                .
+                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>privacy</Link>. No spam.
               </p>
             </form>
           </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

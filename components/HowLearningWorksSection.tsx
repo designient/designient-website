@@ -127,58 +127,6 @@ export function HowLearningWorksSection() {
             );
           })}
         </div>
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            scale: 0.9
-          }}
-          whileInView={{
-            opacity: 1,
-            scale: 1
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3
-          }}
-          transition={{
-            duration: 0.8,
-            ease: [0.4, 0, 0.2, 1]
-          }}
-          className="text-center p-8 rounded-2xl"
-          style={{
-            backgroundColor: 'white',
-            border: '2px solid #f4e4c1'
-          }}>
-          <div className="flex flex-col items-center gap-4 mb-4">
-            <h3
-              className="font-display font-bold text-2xl text-center"
-              style={{
-                color: '#8458B3'
-              }}>
-              Stand Out to Employers
-            </h3>
-            <div className="rounded-xl overflow-hidden border-2 bg-gray-50 flex items-center justify-center w-[80%] max-w-4xl mx-auto" style={{ borderColor: '#f4e4c1' }}>
-              <Image
-                src="/adobe-certified-certificate.webp"
-                alt="Adobe Certified Professional certificate badge - Designient UI/UX design course"
-                width={1720}
-                height={1228}
-                className="w-full h-auto object-contain"
-                sizes="80vw"
-              />
-            </div>
-          </div>
-          <p
-            className="font-body text-base font-normal max-w-2xl mx-auto text-center"
-            style={{
-              color: '#6b7280',
-              fontSize: 'clamp(1rem, 1.5vw, 1.0625rem)',
-              lineHeight: '1.7'
-            }}>
-            Get a certification that backs your skills and makes your portfolio stand out to recruiters and employers.
-          </p>
-        </motion.div>
       </div>
     </section>
   );

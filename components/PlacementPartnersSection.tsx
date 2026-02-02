@@ -4,47 +4,47 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TrendingUp, Users, DollarSign } from 'react-feather';
 const placementStats = [
-{
-  icon: TrendingUp,
-  value: '95%',
-  label: 'Placement Rate'
-},
-{
-  icon: DollarSign,
-  value: '₹8L',
-  label: 'Average Package'
-},
-{
-  icon: Users,
-  value: '150+',
-  label: 'Students Placed'
-}];
+  {
+    icon: TrendingUp,
+    value: '95%',
+    label: 'Placement Rate'
+  },
+  {
+    icon: DollarSign,
+    value: '₹8L',
+    label: 'Average Package'
+  },
+  {
+    icon: Users,
+    value: '150+',
+    label: 'Students Placed'
+  }];
 
 const recentPlacements = [
-{
-  name: 'Priya Sridaran',
-  role: 'UI Designer',
-  company: 'Google',
-  package: '₹15L'
-},
-{
-  name: 'Rahul Mehta',
-  role: 'UX Researcher',
-  company: 'Amazon',
-  package: '₹12L'
-},
-{
-  name: 'Sneha Kapoor',
-  role: 'Product Designer',
-  company: 'Microsoft',
-  package: '₹14L'
-},
-{
-  name: 'Arjun Singh',
-  role: 'Design Lead',
-  company: 'Flipkart',
-  package: '₹18L'
-}];
+  {
+    name: 'Priya Sridaran',
+    role: 'UI Designer',
+    company: 'Google',
+    package: '₹14-16L'
+  },
+  {
+    name: 'Rahul Mehta',
+    role: 'UX Researcher',
+    company: 'Amazon',
+    package: '₹10-12L'
+  },
+  {
+    name: 'Sneha Kapoor',
+    role: 'Product Designer',
+    company: 'Microsoft',
+    package: '₹12-15L'
+  },
+  {
+    name: 'Arjun Singh',
+    role: 'Design Lead',
+    company: 'Flipkart',
+    package: '₹16-20L'
+  }];
 
 export function PlacementPartnersSection() {
   return (
@@ -105,7 +105,7 @@ export function PlacementPartnersSection() {
               <div className="absolute top-10 left-10 w-64 h-64 rounded-full" style={{ background: 'radial-gradient(circle, #f2d53c 0%, transparent 70%)' }}></div>
               <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full" style={{ background: 'radial-gradient(circle, #f2d53c 0%, transparent 70%)' }}></div>
             </div>
-            
+
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
               {placementStats.map((stat, index) => (
                 <motion.div
@@ -197,33 +197,33 @@ export function PlacementPartnersSection() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {recentPlacements.map((placement, index) =>
-            <motion.div
-              key={index}
-              initial={{
-                opacity: 0,
-                y: 30
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0
-              }}
-              viewport={{
-                once: true
-              }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.6,
-                ease: [0.4, 0, 0.2, 1]
-              }}
-              className="group relative p-5 sm:p-6 rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:shadow-xl"
-              style={{
-                borderColor: '#f4e4c1',
-                backgroundColor: 'white'
-              }}>
+              <motion.div
+                key={index}
+                initial={{
+                  opacity: 0,
+                  y: 30
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0
+                }}
+                viewport={{
+                  once: true
+                }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                  ease: [0.4, 0, 0.2, 1]
+                }}
+                className="group relative p-5 sm:p-6 rounded-2xl border-2 overflow-hidden transition-all duration-300 hover:shadow-xl"
+                style={{
+                  borderColor: '#f4e4c1',
+                  backgroundColor: 'white'
+                }}>
 
                 {/* Decorative gradient background */}
                 <div className="absolute top-0 right-0 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity duration-300" style={{ background: 'radial-gradient(circle, #8458B3 0%, transparent 70%)' }}></div>
-                
+
                 <div className="relative z-10">
                   {/* Avatar placeholder */}
                   <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full mb-4 flex items-center justify-center font-display text-xl sm:text-2xl font-bold" style={{ backgroundColor: '#FFF6E2', color: '#8458B3' }}>
