@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   CheckCircle,
@@ -246,184 +247,144 @@ export function Hero() {
     {
       name: 'Amazon',
       logo: (
-        <img
+        <Image
           src="/company-logos/amazon.svg"
           alt="Amazon logo - UI UX design students from Designient work at Amazon"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Accenture',
       logo: (
-        <img
+        <Image
           src="/company-logos/accenture.svg"
           alt="Accenture logo - UI UX design students from Designient work at Accenture"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Cisco',
       logo: (
-        <img
+        <Image
           src="/company-logos/cisco.svg"
           alt="Cisco logo - UI UX design students from Designient work at Cisco"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Google',
       logo: (
-        <img
+        <Image
           src="/company-logos/google.svg"
           alt="Google logo - UI UX design students from Designient work at Google"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'PayPal',
       logo: (
-        <img
+        <Image
           src="/company-logos/paypal.svg"
           alt="PayPal logo - UI UX design students from Designient work at PayPal"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Salesforce',
       logo: (
-        <img
+        <Image
           src="/company-logos/salesforce.svg"
           alt="Salesforce logo - UI UX design students from Designient work at Salesforce"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Mercedes Benz',
       logo: (
-        <img
+        <Image
           src="/company-logos/mercedes.svg"
           alt="Mercedes Benz logo - UI UX design students from Designient work at Mercedes Benz"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Adobe',
       logo: (
-        <img
+        <Image
           src="/company-logos/adobe.svg"
           alt="Adobe logo - UI UX design students from Designient work at Adobe"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Deloitte',
       logo: (
-        <img
+        <Image
           src="/company-logos/deloitte.png"
           alt="Deloitte logo - UI UX design students from Designient work at Deloitte"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'ADPlist',
       logo: (
-        <img
-          src="https://adplist.org/favicon.ico"
+        <Image
+          src="/company-logos/adplist.ico"
           alt="ADPlist logo - UI UX design students from Designient work at ADPlist"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"%3E%3Ctext x="10" y="30" font-family="Arial" font-size="20" fill="%231a1a1a"%3EADPlist%3C/text%3E%3C/svg%3E';
-          }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Lenovo',
       logo: (
-        <img
+        <Image
           src="/company-logos/lenovo.svg"
           alt="Lenovo logo - UI UX design students from Designient work at Lenovo"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     },
     {
       name: 'Meta',
       logo: (
-        <img
+        <Image
           src="/company-logos/meta.svg"
           alt="Meta logo - UI UX design students from Designient work at Meta"
           className="h-8 w-auto object-contain"
-          width="120"
-          height="32"
-          loading="lazy"
-          fetchPriority="low"
-          style={{ opacity: 1 }}
+          width={120}
+          height={32}
         />
       )
     }];
