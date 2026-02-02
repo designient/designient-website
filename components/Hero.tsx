@@ -142,8 +142,7 @@ export function Hero() {
     { code: '+354', country: 'Iceland', flag: '🇮🇸' }
   ];
   const handleInputChange = (
-  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
-  {
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -162,7 +161,7 @@ export function Hero() {
 
   const selectedPhoneCountry = countryCodes.find(c => c.code === formData.phoneCountryCode);
   const selectedWhatsappCountry = countryCodes.find(c => c.code === formData.whatsappCountryCode);
-  
+
   const phoneDropdownRef = useRef<HTMLDivElement>(null);
   const whatsappDropdownRef = useRef<HTMLDivElement>(null);
 
@@ -197,7 +196,7 @@ export function Hero() {
 
       let data;
       const responseText = await response.text();
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {};
       } catch (jsonError) {
@@ -244,211 +243,211 @@ export function Hero() {
     }
   };
   const companies = [
-  {
-    name: 'Amazon',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" 
-        alt="Amazon logo - UI UX design students from Designient work at Amazon" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Accenture',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg" 
-        alt="Accenture logo - UI UX design students from Designient work at Accenture" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Cisco',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" 
-        alt="Cisco logo - UI UX design students from Designient work at Cisco" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Google',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
-        alt="Google logo - UI UX design students from Designient work at Google" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'PayPal',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" 
-        alt="PayPal logo - UI UX design students from Designient work at PayPal" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Salesforce',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" 
-        alt="Salesforce logo - UI UX design students from Designient work at Salesforce" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Mercedes Benz',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mercedes-Benz_logo.svg" 
-        alt="Mercedes Benz logo - UI UX design students from Designient work at Mercedes Benz" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Adobe',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg" 
-        alt="Adobe logo - UI UX design students from Designient work at Adobe" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Deloitte',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/8/82/DeloitteNewLogo.png" 
-        alt="Deloitte logo - UI UX design students from Designient work at Deloitte" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'ADPlist',
-    logo: (
-      <img 
-        src="https://adplist.org/favicon.ico" 
-        alt="ADPlist logo - UI UX design students from Designient work at ADPlist" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-        onError={(e) => {
-          const target = e.target as HTMLImageElement;
-          target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"%3E%3Ctext x="10" y="30" font-family="Arial" font-size="20" fill="%231a1a1a"%3EADPlist%3C/text%3E%3C/svg%3E';
-        }}
-      />
-    )
-  },
-  {
-    name: 'Lenovo',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg" 
-        alt="Lenovo logo - UI UX design students from Designient work at Lenovo" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  },
-  {
-    name: 'Meta',
-    logo: (
-      <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" 
-        alt="Meta logo - UI UX design students from Designient work at Meta" 
-        className="h-8 w-auto object-contain"
-        width="120"
-        height="32"
-        loading="lazy"
-        fetchPriority="low"
-        style={{ opacity: 1 }}
-      />
-    )
-  }];
+    {
+      name: 'Amazon',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+          alt="Amazon logo - UI UX design students from Designient work at Amazon"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Accenture',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg"
+          alt="Accenture logo - UI UX design students from Designient work at Accenture"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Cisco',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg"
+          alt="Cisco logo - UI UX design students from Designient work at Cisco"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Google',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+          alt="Google logo - UI UX design students from Designient work at Google"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'PayPal',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg"
+          alt="PayPal logo - UI UX design students from Designient work at PayPal"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Salesforce',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg"
+          alt="Salesforce logo - UI UX design students from Designient work at Salesforce"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Mercedes Benz',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/48/Mercedes-Benz_logo.svg"
+          alt="Mercedes Benz logo - UI UX design students from Designient work at Mercedes Benz"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Adobe',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Adobe_Corporate_logo.svg"
+          alt="Adobe logo - UI UX design students from Designient work at Adobe"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Deloitte',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/8/82/DeloitteNewLogo.png"
+          alt="Deloitte logo - UI UX design students from Designient work at Deloitte"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'ADPlist',
+      logo: (
+        <img
+          src="https://adplist.org/favicon.ico"
+          alt="ADPlist logo - UI UX design students from Designient work at ADPlist"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+          onError={(e) => {
+            const target = e.target as HTMLImageElement;
+            target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50"%3E%3Ctext x="10" y="30" font-family="Arial" font-size="20" fill="%231a1a1a"%3EADPlist%3C/text%3E%3C/svg%3E';
+          }}
+        />
+      )
+    },
+    {
+      name: 'Lenovo',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lenovo_logo_2015.svg"
+          alt="Lenovo logo - UI UX design students from Designient work at Lenovo"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    },
+    {
+      name: 'Meta',
+      logo: (
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg"
+          alt="Meta logo - UI UX design students from Designient work at Meta"
+          className="h-8 w-auto object-contain"
+          width="120"
+          height="32"
+          loading="lazy"
+          fetchPriority="low"
+          style={{ opacity: 1 }}
+        />
+      )
+    }];
 
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
     name: 'Designient School',
     description:
-    'UI/UX Design Training Institute in Bangalore and Hyderabad with 95% Job Placement',
+      'UI/UX Design Training Institute in Bangalore and Hyderabad with 95% Job Placement',
     url: 'https://designient.com',
     address: [
-    {
-      '@type': 'PostalAddress',
-      addressLocality: 'Bangalore',
-      addressRegion: 'Karnataka',
-      addressCountry: 'IN'
-    },
-    {
-      '@type': 'PostalAddress',
-      addressLocality: 'Hyderabad',
-      addressRegion: 'Telangana',
-      addressCountry: 'IN'
-    }],
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bangalore',
+        addressRegion: 'Karnataka',
+        addressCountry: 'IN'
+      },
+      {
+        '@type': 'PostalAddress',
+        addressLocality: 'Hyderabad',
+        addressRegion: 'Telangana',
+        addressCountry: 'IN'
+      }],
 
     offers: {
       '@type': 'Offer',
@@ -519,8 +518,8 @@ export function Hero() {
 
             <h1
               id="hero-heading"
-              className="font-display tracking-wide leading-[0.95] mb-4 font-bold"
-              style={{ fontWeight: 800, fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', color: '#1a1a1a' }}
+              className="font-display tracking-wide leading-[1.1] mb-6 font-bold"
+              style={{ fontWeight: 700, fontSize: 'clamp(2rem, 8vw, 4.5rem)', color: '#1a1a1a' }}
               itemProp="name">
 
               UI/UX Design Courses for Everyone
@@ -589,25 +588,25 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 mb-8 w-full sm:w-auto">
               <Link
                 href="/courses"
-                className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[44px]"
+                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[48px] w-full sm:w-auto shadow-lg shadow-purple-900/10"
                 style={{
                   backgroundColor: '#8458B3',
                   color: 'white',
-                  fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
+                  fontSize: 'clamp(0.9rem, 1.5vw, 1rem)'
                 }}>
                 <BookOpen className="w-4 h-4 flex-shrink-0" />
                 <span>Explore Courses</span>
               </Link>
               <Link
                 href="/corporates/hiring-consulting"
-                className="flex items-center gap-2 px-5 py-3 sm:py-2.5 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[44px]"
+                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[48px] w-full sm:w-auto"
                 style={{
                   borderColor: '#1a1a1a',
                   color: '#1a1a1a',
-                  fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
+                  fontSize: 'clamp(0.9rem, 1.5vw, 1rem)'
                 }}>
                 <ArrowRight className="w-4 h-4 flex-shrink-0" />
                 <span>Hiring Support</span>
@@ -617,17 +616,17 @@ export function Hero() {
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) =>
-                <div
-                  key={i}
-                  className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                  <div
+                    key={i}
+                    className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
 
                     <img
-                    src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                    alt={`Designient UI UX design student profile ${i + 1}`}
-                    width="32"
-                    height="32"
-                    loading="lazy"
-                    className="w-full h-full object-cover" />
+                      src={`https://i.pravatar.cc/100?img=${i + 10}`}
+                      alt={`Designient UI UX design student profile ${i + 1}`}
+                      width="32"
+                      height="32"
+                      loading="lazy"
+                      className="w-full h-full object-cover" />
 
                   </div>
                 )}
@@ -635,12 +634,12 @@ export function Hero() {
               <Link href="/success-stories" className="group">
                 <div className="flex items-center gap-1 mb-0.5">
                   {[1, 2, 3, 4, 5].map((i) =>
-                  <Star
-                    key={i}
-                    className="w-3 h-3 fill-current"
-                    style={{
-                      color: '#f2d53c'
-                    }} />
+                    <Star
+                      key={i}
+                      className="w-3 h-3 fill-current"
+                      style={{
+                        color: '#f2d53c'
+                      }} />
 
                   )}
                 </div>
@@ -1000,20 +999,20 @@ export function Hero() {
           <div className="flex items-center gap-6 sm:gap-8 md:gap-12 animate-scroll" style={{ width: 'max-content' }}>
             {/* First set of logos */}
             {companies.map((company, index) =>
-            <div
-              key={`${company.name}-${index}`}
-              className="flex-shrink-0 transition-all duration-300 hover:scale-110 flex items-center justify-center"
-              style={{ minHeight: '3rem' }}>
+              <div
+                key={`${company.name}-${index}`}
+                className="flex-shrink-0 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                style={{ minHeight: '3rem' }}>
 
                 {company.logo}
               </div>
             )}
             {/* Duplicate set for seamless loop */}
             {companies.map((company, index) =>
-            <div
-              key={`${company.name}-duplicate-${index}`}
-              className="flex-shrink-0 transition-all duration-300 hover:scale-110 flex items-center justify-center"
-              style={{ minHeight: '3rem' }}>
+              <div
+                key={`${company.name}-duplicate-${index}`}
+                className="flex-shrink-0 transition-all duration-300 hover:scale-110 flex items-center justify-center"
+                style={{ minHeight: '3rem' }}>
 
                 {company.logo}
               </div>

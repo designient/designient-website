@@ -18,43 +18,43 @@ const courses: Array<{
   path: string;
   courseSlug: keyof CoursePricingData;
 }> = [
-  {
-    title: 'UI/UX Design Bootcamp',
-    duration: '30 Days',
-    hours: '36 Hours',
-    level: 'Intensive',
-    description: 'Fast-track your learning with our intensive daily bootcamp designed for beginners and career switchers.',
-    path: '/ui-ux-design-bootcamp',
-    courseSlug: 'ui-ux-design-bootcamp'
-  },
-  {
-    title: 'UI/UX Design Pro',
-    duration: '3 Months',
-    hours: '124 Hours',
-    level: 'Beginner to Pro',
-    description: 'The complete foundation for your design career. Master Figma, design thinking, and prototyping with hands-on projects.',
-    path: '/ui-ux-design-pro',
-    courseSlug: 'ui-ux-design-pro'
-  },
-  {
-    title: 'UI/UX Design Master',
-    duration: '6 Months',
-    hours: '200+ Hours',
-    level: 'Pro to Master',
-    description: 'Advanced specialization with diploma certification. Design systems, leadership, and advanced techniques.',
-    path: '/ui-ux-design-master',
-    courseSlug: 'ui-ux-design-master'
-  },
-  {
-    title: 'Prompt Engineering Mastery',
-    duration: '30 Days',
-    hours: '40 Hours',
-    level: 'Fast Track',
-    description: 'Master the art of prompt engineering for AI tools. Learn to create effective prompts for ChatGPT, Midjourney, and other AI platforms.',
-    path: '/prompt-engineering-mastery',
-    courseSlug: 'prompt-engineering-mastery'
-  }
-];
+    {
+      title: 'UI/UX Design Bootcamp',
+      duration: '30 Days',
+      hours: '36 Hours',
+      level: 'Intensive',
+      description: 'Fast-track your learning with our intensive daily bootcamp designed for beginners and career switchers.',
+      path: '/ui-ux-design-bootcamp',
+      courseSlug: 'ui-ux-design-bootcamp'
+    },
+    {
+      title: 'UI/UX Design Pro',
+      duration: '3 Months',
+      hours: '124 Hours',
+      level: 'Beginner to Pro',
+      description: 'The complete foundation for your design career. Master Figma, design thinking, and prototyping with hands-on projects.',
+      path: '/ui-ux-design-pro',
+      courseSlug: 'ui-ux-design-pro'
+    },
+    {
+      title: 'UI/UX Design Master',
+      duration: '6 Months',
+      hours: '200+ Hours',
+      level: 'Pro to Master',
+      description: 'Advanced specialization with diploma certification. Design systems, leadership, and advanced techniques.',
+      path: '/ui-ux-design-master',
+      courseSlug: 'ui-ux-design-master'
+    },
+    {
+      title: 'Prompt Engineering Mastery',
+      duration: '30 Days',
+      hours: '40 Hours',
+      level: 'Fast Track',
+      description: 'Master the art of prompt engineering for AI tools. Learn to create effective prompts for ChatGPT, Midjourney, and other AI platforms.',
+      path: '/prompt-engineering-mastery',
+      courseSlug: 'prompt-engineering-mastery'
+    }
+  ];
 
 const whyDesignientLinks = [
   {
@@ -183,7 +183,7 @@ export function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-[60] transition-all duration-500"
       initial={{
         y: 0
       }}
@@ -192,8 +192,8 @@ export function Header() {
       }}
       style={{
         backgroundColor: isScrolled ?
-        'rgba(255, 246, 226, 0.95)' :
-        'rgba(255, 246, 226, 0.8)',
+          'rgba(255, 246, 226, 0.95)' :
+          'rgba(255, 246, 226, 0.8)',
         backdropFilter: 'blur(10px)',
         WebkitBackdropFilter: 'blur(10px)',
         borderBottom: `1px solid ${isScrolled ? 'rgba(26, 26, 26, 0.05)' : 'transparent'}`
@@ -209,19 +209,19 @@ export function Header() {
             aria-expanded={mobileMenuOpen}>
 
             {mobileMenuOpen ?
-            <X
-              className="w-6 h-6"
-              style={{
-                color: '#1a1a1a'
-              }}
-              aria-hidden="true" /> :
+              <X
+                className="w-6 h-6"
+                style={{
+                  color: '#1a1a1a'
+                }}
+                aria-hidden="true" /> :
 
-            <Menu
-              className="w-6 h-6"
-              style={{
-                color: '#1a1a1a'
-              }}
-              aria-hidden="true" />
+              <Menu
+                className="w-6 h-6"
+                style={{
+                  color: '#1a1a1a'
+                }}
+                aria-hidden="true" />
 
             }
           </button>
@@ -487,33 +487,123 @@ export function Header() {
         </div>
 
         {mobileMenuOpen &&
-        <motion.nav
-          initial={{
-            opacity: 0,
-            height: 0
-          }}
-          animate={{
-            opacity: 1,
-            height: 'auto'
-          }}
-          exit={{
-            opacity: 0,
-            height: 0
-          }}
-          transition={{
-            duration: 0.3,
-            ease: [0.4, 0, 0.2, 1]
-          }}
-          className="md:hidden py-4 border-t overflow-hidden"
-          style={{
-            borderColor: 'rgba(26, 26, 26, 0.1)'
-          }}
-          aria-label="Mobile navigation">
+          <motion.nav
+            initial={{
+              opacity: 0,
+              height: 0
+            }}
+            animate={{
+              opacity: 1,
+              height: 'auto'
+            }}
+            exit={{
+              opacity: 0,
+              height: 0
+            }}
+            transition={{
+              duration: 0.3,
+              ease: [0.4, 0, 0.2, 1]
+            }}
+            className="md:hidden py-4 border-t overflow-y-auto max-h-[calc(100vh-80px)] pb-32"
+            style={{
+              borderColor: 'rgba(26, 26, 26, 0.1)'
+            }}
+            aria-label="Mobile navigation">
 
-          {navLinks.map((link, index) => {
-            return link.hasDropdown ? (
-              <div key={link.name}>
-                <motion.button
+            {navLinks.map((link, index) => {
+              return link.hasDropdown ? (
+                <div key={link.name}>
+                  <motion.button
+                    initial={{
+                      opacity: 0,
+                      x: -20
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0
+                    }}
+                    transition={{
+                      delay: index * 0.1
+                    }}
+                    onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.dropdownType ? null : link.dropdownType!)}
+                    className="font-body w-full flex items-center justify-between py-3 text-base font-semibold min-h-[44px]"
+                    style={{
+                      color: '#4a4a4a',
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}>
+                    {link.name}
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdownOpen === link.dropdownType ? 'rotate-180' : ''}`} />
+                  </motion.button>
+
+                  {mobileDropdownOpen === link.dropdownType && (
+                    <div className="pl-4 pb-2">
+                      {link.dropdownType === 'courses' && (
+                        <div className="space-y-2">
+                          {courses.map((course, courseIndex) => (
+                            <Link
+                              key={courseIndex}
+                              href={course.path}
+                              className="block py-3 px-4 rounded-lg font-body min-h-[44px] flex items-center"
+                              style={{
+                                backgroundColor: '#FFF6E2',
+                                color: '#1a1a1a',
+                                fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
+                              }}
+                              onClick={() => setMobileMenuOpen(false)}>
+                              <div className="font-semibold mb-1">{course.title}</div>
+                              <div className="text-xs" style={{ color: '#6a6a6a' }}>
+                                {course.duration} • {course.hours}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+
+                      {link.dropdownType === 'why-designient' && (
+                        <div className="space-y-2">
+                          {whyDesignientLinks.map((item, itemIndex) => (
+                            <Link
+                              key={itemIndex}
+                              href={item.path}
+                              className="block py-3 px-4 rounded-lg font-body min-h-[44px] flex items-center"
+                              style={{
+                                backgroundColor: '#FFF6E2',
+                                color: '#1a1a1a',
+                                fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
+                              }}
+                              onClick={() => setMobileMenuOpen(false)}>
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+
+                      {link.dropdownType === 'for-corporates' && (
+                        <div className="space-y-2">
+                          {forCorporatesLinks.map((item, itemIndex) => (
+                            <Link
+                              key={itemIndex}
+                              href={item.path}
+                              className="block py-3 px-4 rounded-lg font-body min-h-[44px] flex items-center"
+                              style={{
+                                backgroundColor: '#FFF6E2',
+                                color: '#1a1a1a',
+                                fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
+                              }}
+                              onClick={() => setMobileMenuOpen(false)}>
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <motion.div
+                  key={link.name}
                   initial={{
                     opacity: 0,
                     x: -20
@@ -524,169 +614,79 @@ export function Header() {
                   }}
                   transition={{
                     delay: index * 0.1
+                  }}>
+                  <Link
+                    href={link.path!}
+                    className="font-body block py-3 text-base font-semibold min-h-[44px] flex items-center"
+                    style={{
+                      color: pathname === link.path ? '#8458B3' : '#4a4a4a',
+                      fontSize: 'clamp(0.9375rem, 1.8vw, 1rem)'
+                    }}
+                    onClick={() => setMobileMenuOpen(false)}>
+                    {link.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
+
+            <div className="flex flex-col gap-3 pt-4 border-t" style={{ borderColor: 'rgba(26, 26, 26, 0.1)' }}>
+              <Link href="/apply-now" onClick={() => setMobileMenuOpen(false)}>
+                <motion.button
+                  initial={{
+                    opacity: 0,
+                    x: -20
                   }}
-                  onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.dropdownType ? null : link.dropdownType!)}
-                  className="font-body w-full flex items-center justify-between py-3 text-base font-semibold min-h-[44px]"
+                  animate={{
+                    opacity: 1,
+                    x: 0
+                  }}
+                  transition={{
+                    delay: navLinks.length * 0.1
+                  }}
+                  className="font-body text-white font-bold text-center shadow-md min-h-[48px] flex items-center justify-center"
+                  style={{
+                    backgroundColor: '#8458B3',
+                    padding: '12px 24px',
+                    borderRadius: '100px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: 'clamp(0.875rem, 1.8vw, 1rem)'
+                  }}
+                  aria-label="Apply now for UI/UX design courses">
+
+                  Apply Now
+                </motion.button>
+              </Link>
+
+              <Link href="/verify" onClick={() => setMobileMenuOpen(false)}>
+                <motion.button
+                  initial={{
+                    opacity: 0,
+                    x: -20
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0
+                  }}
+                  transition={{
+                    delay: navLinks.length * 0.1 + 0.1
+                  }}
+                  className="font-body text-base font-semibold flex items-center gap-2 justify-start"
                   style={{
                     color: '#4a4a4a',
                     backgroundColor: 'transparent',
                     border: 'none',
-                    cursor: 'pointer'
-                  }}>
-                  {link.name}
-                  <ChevronDown className={`w-4 h-4 transition-transform ${mobileDropdownOpen === link.dropdownType ? 'rotate-180' : ''}`} />
-                </motion.button>
-
-                {mobileDropdownOpen === link.dropdownType && (
-                  <div className="pl-4 pb-2">
-                    {link.dropdownType === 'courses' && (
-                      <div className="space-y-2">
-                        {courses.map((course, courseIndex) => (
-                          <Link
-                            key={courseIndex}
-                            href={course.path}
-                            className="block py-3 px-4 rounded-lg font-body min-h-[44px] flex items-center"
-                            style={{
-                              backgroundColor: '#FFF6E2',
-                              color: '#1a1a1a',
-                              fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
-                            }}
-                            onClick={() => setMobileMenuOpen(false)}>
-                            <div className="font-semibold mb-1">{course.title}</div>
-                            <div className="text-xs" style={{ color: '#6a6a6a' }}>
-                              {course.duration} • {course.hours}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-
-                    {link.dropdownType === 'why-designient' && (
-                      <div className="space-y-2">
-                        {whyDesignientLinks.map((item, itemIndex) => (
-                          <Link
-                            key={itemIndex}
-                            href={item.path}
-                            className="block py-3 px-4 rounded-lg font-body min-h-[44px] flex items-center"
-                            style={{
-                              backgroundColor: '#FFF6E2',
-                              color: '#1a1a1a',
-                              fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
-                            }}
-                            onClick={() => setMobileMenuOpen(false)}>
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-
-                    {link.dropdownType === 'for-corporates' && (
-                      <div className="space-y-2">
-                        {forCorporatesLinks.map((item, itemIndex) => (
-                          <Link
-                            key={itemIndex}
-                            href={item.path}
-                            className="block py-3 px-4 rounded-lg font-body min-h-[44px] flex items-center"
-                            style={{
-                              backgroundColor: '#FFF6E2',
-                              color: '#1a1a1a',
-                              fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
-                            }}
-                            onClick={() => setMobileMenuOpen(false)}>
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <motion.div
-                key={link.name}
-                initial={{
-                  opacity: 0,
-                  x: -20
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0
-                }}
-                transition={{
-                  delay: index * 0.1
-                }}>
-                <Link
-                  href={link.path!}
-                  className="font-body block py-3 text-base font-semibold min-h-[44px] flex items-center"
-                  style={{
-                    color: pathname === link.path ? '#8458B3' : '#4a4a4a',
-                    fontSize: 'clamp(0.9375rem, 1.8vw, 1rem)'
+                    cursor: 'pointer',
+                    padding: '12px 0'
                   }}
-                  onClick={() => setMobileMenuOpen(false)}>
-                  {link.name}
-                </Link>
-              </motion.div>
-            );
-          })}
+                  aria-label="Verify">
 
-          <div className="flex flex-col gap-3 pt-4 border-t" style={{ borderColor: 'rgba(26, 26, 26, 0.1)' }}>
-            <Link href="/apply-now" onClick={() => setMobileMenuOpen(false)}>
-              <motion.button
-                initial={{
-                  opacity: 0,
-                  x: -20
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0
-                }}
-                transition={{
-                  delay: navLinks.length * 0.1
-                }}
-                className="font-body text-white font-bold text-center shadow-md min-h-[48px] flex items-center justify-center"
-                style={{
-                  backgroundColor: '#8458B3',
-                  padding: '12px 24px',
-                  borderRadius: '100px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: 'clamp(0.875rem, 1.8vw, 1rem)'
-                }}
-                aria-label="Apply now for UI/UX design courses">
-
-                Apply Now
-              </motion.button>
-            </Link>
-
-            <Link href="/verify" onClick={() => setMobileMenuOpen(false)}>
-              <motion.button
-                initial={{
-                  opacity: 0,
-                  x: -20
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0
-                }}
-                transition={{
-                  delay: navLinks.length * 0.1 + 0.1
-                }}
-                className="font-body text-base font-semibold flex items-center gap-2 justify-start"
-                style={{
-                  color: '#4a4a4a',
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '12px 0'
-                }}
-                aria-label="Verify">
-
-                Verify
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
-            </Link>
-          </div>
-        </motion.nav>
+                  Verify
+                  <ArrowRight className="w-4 h-4" />
+                </motion.button>
+              </Link>
+            </div>
+          </motion.nav>
         }
       </div>
     </motion.header>);
