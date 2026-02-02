@@ -518,8 +518,8 @@ export function Hero() {
 
             <h1
               id="hero-heading"
-              className="font-display tracking-wide leading-[1.1] mb-6 font-bold"
-              style={{ fontWeight: 700, fontSize: 'clamp(2rem, 8vw, 4.5rem)', color: '#1a1a1a' }}
+              className="font-display tracking-wide leading-[1.1] mb-6 font-bold uppercase break-words"
+              style={{ fontWeight: 700, fontSize: 'clamp(1.75rem, 6vw, 4.5rem)', color: '#1a1a1a' }}
               itemProp="name">
 
               UI/UX Design Courses for Everyone
@@ -670,7 +670,7 @@ export function Hero() {
               duration: 0.8,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white p-6 rounded-3xl shadow-xl relative z-20">
+            className="bg-white p-4 sm:p-6 rounded-3xl shadow-xl relative z-20">
 
             <div className="text-center mb-4">
               <h3
