@@ -734,7 +734,7 @@ export function Hero() {
                 <label htmlFor="phone" className="sr-only">
                   Phone Number
                 </label>
-                <div className="flex gap-2">
+                <div className="flex flex-col xs:flex-row gap-2">
                   <div className="relative" style={{ minWidth: '140px' }} ref={phoneDropdownRef}>
                     <button
                       type="button"
