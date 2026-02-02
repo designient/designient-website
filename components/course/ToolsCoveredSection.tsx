@@ -18,8 +18,8 @@ interface ToolsCoveredSectionProps {
   description?: string;
 }
 
-export function ToolsCoveredSection({ 
-  tools, 
+export function ToolsCoveredSection({
+  tools,
   title = 'Tools You\'ll Master',
   description = 'Industry-standard tools used by professional designers worldwide'
 }: ToolsCoveredSectionProps) {
@@ -29,10 +29,10 @@ export function ToolsCoveredSection({
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05, margin: "100px 0px" }}
           transition={{ duration: 0.6 }}
           className="max-w-5xl mx-auto">
-          
+
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center gap-2 mb-4">
@@ -76,7 +76,7 @@ export function ToolsCoveredSection({
                         alt={`${tool.name} design tool logo used in UI UX design course`}
                         fill
                         className="object-contain p-2"
-                        style={{ 
+                        style={{
                           filter: tool.logo.includes('bolt.new') ? 'brightness(0)' : 'none'
                         }}
                         sizes="96px"

@@ -33,7 +33,7 @@ export function MidPageCTA({ courseSlug, courseName }: MidPageCTAProps) {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.05, margin: "100px 0px" }}
           transition={{ duration: 0.6 }}
           className="max-w-3xl mx-auto text-center">
           
