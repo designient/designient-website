@@ -1,6 +1,7 @@
 'use client'
 
 import Script from 'next/script'
+import { useEffect, useState } from 'react'
 
 // Google Analytics 4
 const GA_MEASUREMENT_ID = 'G-VWWEQP3QKD'
@@ -9,6 +10,44 @@ const GA_MEASUREMENT_ID = 'G-VWWEQP3QKD'
 const META_PIXEL_ID = '986454198201554'
 
 export function Analytics() {
+    const [shouldLoad, setShouldLoad] = useState(false)
+
+    useEffect(() => {
+        // Delay loading scripts until user interacts or after 5 seconds
+        const events = ['scroll', 'click', 'touchstart', 'keydown']
+        let hasInteracted = false
+
+        const loadScripts = () => {
+            if (!hasInteracted) {
+                hasInteracted = true
+                setShouldLoad(true)
+                // Remove all event listeners
+                events.forEach(event => {
+                    window.removeEventListener(event, loadScripts, { passive: true } as EventListenerOptions)
+                })
+            }
+        }
+
+        // Add interaction listeners
+        events.forEach(event => {
+            window.addEventListener(event, loadScripts, { passive: true })
+        })
+
+        // Fallback: load after 5 seconds if no interaction
+        const timeout = setTimeout(loadScripts, 5000)
+
+        return () => {
+            clearTimeout(timeout)
+            events.forEach(event => {
+                window.removeEventListener(event, loadScripts, { passive: true } as EventListenerOptions)
+            })
+        }
+    }, [])
+
+    if (!shouldLoad) {
+        return null
+    }
+
     return (
         <>
             {/* Google Analytics 4 */}
