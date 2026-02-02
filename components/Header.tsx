@@ -201,9 +201,9 @@ export function Header() {
       role="banner">
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 md:h-24">
+        <div className="flex items-center justify-between h-20 lg:h-24">
           <button
-            className="md:hidden p-2 -ml-2"
+            className="lg:hidden p-2 -ml-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}>
@@ -228,7 +228,7 @@ export function Header() {
 
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 md:relative md:left-0 md:translate-x-0 flex items-center"
+            className="absolute left-1/2 -translate-x-1/2 lg:relative lg:left-0 lg:translate-x-0 flex items-center"
             aria-label="Designient School - Home">
             <Image
               src="/designient-logo.svg"
@@ -241,7 +241,7 @@ export function Header() {
           </Link>
 
           <nav
-            className="hidden md:flex items-center gap-6 flex-1 justify-center"
+            className="hidden lg:flex items-center gap-6 flex-1 justify-center"
             aria-label="Main navigation"
             ref={dropdownRef}>
 
@@ -430,7 +430,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Link href="/apply-now">
               <motion.button
                 whileHover={{
@@ -504,7 +504,7 @@ export function Header() {
               duration: 0.3,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="md:hidden py-4 border-t overflow-y-auto max-h-[calc(100vh-80px)] pb-32"
+            className="lg:hidden py-4 border-t overflow-y-auto max-h-[calc(100vh-80px)] pb-32"
             style={{
               borderColor: 'rgba(26, 26, 26, 0.1)'
             }}
