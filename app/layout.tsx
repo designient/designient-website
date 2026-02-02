@@ -87,11 +87,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
       <head>
-        <link rel="preload" href="/og-image.webp" as="image" />
+        {/* Font preconnects */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Analytics preconnects */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://connect.facebook.net" />
+        {/* External images preconnect */}
+        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
         {/* Preload critical fonts for better performance */}
         <link
           rel="preload"
