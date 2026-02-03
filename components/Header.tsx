@@ -112,6 +112,7 @@ export function Header() {
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { getCoursePrice, isLoading } = useCurrency();
 
@@ -134,6 +135,7 @@ export function Header() {
   }, [scrollY]);
 
   useEffect(() => {
+    setMounted(true);
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setActiveDropdown(null);
@@ -486,7 +488,7 @@ export function Header() {
         </div>
       </div>
 
-      {typeof document !== 'undefined' && createPortal(
+      {mounted && createPortal(
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
