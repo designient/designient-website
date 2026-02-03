@@ -30,7 +30,7 @@ export function Footer() {
 
       let data;
       const responseText = await response.text();
-      
+
       try {
         data = responseText ? JSON.parse(responseText) : {};
       } catch (jsonError) {
@@ -96,24 +96,24 @@ export function Footer() {
   ];
 
   const portalsLinks = [
-    { 
-      name: 'Student Hub', 
-      path: '#', 
+    {
+      name: 'Student Hub',
+      path: '#',
       comingSoon: true,
       description: 'Student management portal for course access and resources'
     }
   ];
 
   const brandsLinks = [
-    { 
-      name: 'Designient Tech', 
-      path: '#', 
+    {
+      name: 'Designient Tech',
+      path: '#',
       comingSoon: true,
       description: 'Full-service design agency for businesses'
     },
-    { 
-      name: 'Kraftswag', 
-      path: '#', 
+    {
+      name: 'Kraftswag',
+      path: '#',
       comingSoon: true,
       description: 'Premium design-inspired clothing and merchandise'
     }
@@ -165,7 +165,7 @@ export function Footer() {
       }}
       itemScope
       itemType="https://schema.org/EducationalOrganization">
-      
+
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         {/* Newsletter Section */}
         <div className="mb-12 pb-12 border-b" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
@@ -269,7 +269,7 @@ export function Footer() {
                 height={60}
                 className="h-12 md:h-14 w-auto"
                 style={{
-                  filter: 'brightness(0) saturate(100%) invert(98%) sepia(5%) saturate(1200%) hue-rotate(330deg) brightness(102%) contrast(96%)'
+                  filter: 'brightness(0) invert(1)'
                 }}
                 itemProp="logo"
               />
@@ -284,7 +284,7 @@ export function Footer() {
               itemProp="description">
               India&apos;s leading UI/UX design training institute. Transform your career with industry-recognized courses, expert mentorship, and guaranteed placement support.
             </p>
-            
+
             {/* Contact Information */}
             <address
               className="not-italic space-y-2 mb-6"

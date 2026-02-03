@@ -355,7 +355,7 @@ export function InquiryForm() {
                   Phone Number
                 </label>
                 <div className="flex gap-2">
-                  <div className="relative" style={{ minWidth: '140px' }} ref={phoneDropdownRef}>
+                  <div className="relative min-w-[100px] md:min-w-[140px]" ref={phoneDropdownRef}>
                     <button
                       type="button"
                       onClick={() => {
@@ -427,7 +427,7 @@ export function InquiryForm() {
                   WhatsApp Number
                 </label>
                 <div className="flex gap-2">
-                  <div className="relative" style={{ minWidth: '140px' }} ref={whatsappDropdownRef}>
+                  <div className="relative min-w-[100px] md:min-w-[140px]" ref={whatsappDropdownRef}>
                     <button
                       type="button"
                       onClick={() => {
