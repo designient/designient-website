@@ -110,7 +110,7 @@ export function Header() {
   const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const lastScrollY = useRef(0);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { getCoursePrice, isLoading } = useCurrency();
@@ -118,15 +118,20 @@ export function Header() {
   useEffect(() => {
     const unsubscribe = scrollY.on('change', (latest) => {
       setIsScrolled(latest > 50);
-      if (latest > lastScrollY && latest > 100) {
+
+      const currentScrollY = latest;
+      const previousScrollY = lastScrollY.current;
+
+      if (currentScrollY > previousScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
-      setLastScrollY(latest);
+
+      lastScrollY.current = currentScrollY;
     });
     return () => unsubscribe();
-  }, [scrollY, lastScrollY]);
+  }, [scrollY]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
