@@ -191,12 +191,12 @@ export function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-[60] transition-all duration-500"
+      className="fixed top-0 left-0 right-0 z-[60] transition-colors duration-500"
       initial={{
         y: 0
       }}
       animate={{
-        y: 0
+        y: isVisible ? 0 : '-100%'
       }}
       style={{
         backgroundColor: isScrolled ?
