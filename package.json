@@ -34,8 +34,10 @@
     "typescript": "^5.5.4"
   },
   "browserslist": [
-    "defaults",
-    "not IE 11",
-    "not dead"
+    "chrome >= 92",
+    "safari >= 15.4",
+    "ios >= 15.4",
+    "firefox >= 90",
+    "edge >= 92"
   ]
 }
