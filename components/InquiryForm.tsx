@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown, Search } from 'react-feather';
 import Link from 'next/link';
 import Image from 'next/image';
+import { CountryCodeSelect, validatePhoneNumber } from './shared/CountryCodeSelect';
 
 
 export function InquiryForm() {
@@ -19,72 +20,10 @@ export function InquiryForm() {
     whatsapp: '',
     courseInterest: ''
   });
-  const [phoneSearch, setPhoneSearch] = useState('');
-  const [whatsappSearch, setWhatsappSearch] = useState('');
-  const [phoneDropdownOpen, setPhoneDropdownOpen] = useState(false);
-  const [whatsappDropdownOpen, setWhatsappDropdownOpen] = useState(false);
-  const phoneDropdownRef = useRef<HTMLDivElement>(null);
-  const whatsappDropdownRef = useRef<HTMLDivElement>(null);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  // Comprehensive list of country codes with flags (India first, then sorted alphabetically)
-  const countryCodes = [
-    { code: '+91', country: 'India', flag: '🇮🇳' },
-    { code: '+1', country: 'United States', flag: '🇺🇸' },
-    { code: '+1', country: 'Canada', flag: '🇨🇦' },
-    { code: '+44', country: 'United Kingdom', flag: '🇬🇧' },
-    { code: '+61', country: 'Australia', flag: '🇦🇺' },
-    { code: '+64', country: 'New Zealand', flag: '🇳🇿' },
-    { code: '+27', country: 'South Africa', flag: '🇿🇦' },
-    { code: '+971', country: 'UAE', flag: '🇦🇪' },
-    { code: '+966', country: 'Saudi Arabia', flag: '🇸🇦' },
-    { code: '+65', country: 'Singapore', flag: '🇸🇬' },
-    { code: '+60', country: 'Malaysia', flag: '🇲🇾' },
-    { code: '+62', country: 'Indonesia', flag: '🇮🇩' },
-    { code: '+66', country: 'Thailand', flag: '🇹🇭' },
-    { code: '+84', country: 'Vietnam', flag: '🇻🇳' },
-    { code: '+63', country: 'Philippines', flag: '🇵🇭' },
-    { code: '+86', country: 'China', flag: '🇨🇳' },
-    { code: '+81', country: 'Japan', flag: '🇯🇵' },
-    { code: '+82', country: 'South Korea', flag: '🇰🇷' },
-    { code: '+33', country: 'France', flag: '🇫🇷' },
-    { code: '+49', country: 'Germany', flag: '🇩🇪' },
-    { code: '+39', country: 'Italy', flag: '🇮🇹' },
-    { code: '+34', country: 'Spain', flag: '🇪🇸' },
-    { code: '+31', country: 'Netherlands', flag: '🇳🇱' },
-    { code: '+32', country: 'Belgium', flag: '🇧🇪' },
-    { code: '+41', country: 'Switzerland', flag: '🇨🇭' },
-    { code: '+46', country: 'Sweden', flag: '🇸🇪' },
-    { code: '+47', country: 'Norway', flag: '🇳🇴' },
-    { code: '+45', country: 'Denmark', flag: '🇩🇰' },
-    { code: '+358', country: 'Finland', flag: '🇫🇮' },
-    { code: '+7', country: 'Russia', flag: '🇷🇺' },
-    { code: '+90', country: 'Turkey', flag: '🇹🇷' },
-    { code: '+20', country: 'Egypt', flag: '🇪🇬' },
-    { code: '+27', country: 'South Africa', flag: '🇿🇦' },
-    { code: '+234', country: 'Nigeria', flag: '🇳🇬' },
-    { code: '+254', country: 'Kenya', flag: '🇰🇪' },
-    { code: '+55', country: 'Brazil', flag: '🇧🇷' },
-    { code: '+52', country: 'Mexico', flag: '🇲🇽' },
-    { code: '+54', country: 'Argentina', flag: '🇦🇷' },
-    { code: '+57', country: 'Colombia', flag: '🇨🇴' },
-    { code: '+51', country: 'Peru', flag: '🇵🇪' },
-    { code: '+56', country: 'Chile', flag: '🇨🇱' }
-  ];
-
-  const selectedPhoneCountry = countryCodes.find(c => c.code === formData.phoneCountryCode) || countryCodes[0];
-  const selectedWhatsappCountry = countryCodes.find(c => c.code === formData.whatsappCountryCode) || countryCodes[0];
-
-  const filteredPhoneCountries = countryCodes.filter(country =>
-    country.country.toLowerCase().includes(phoneSearch.toLowerCase()) ||
-    country.code.includes(phoneSearch)
-  );
-
-  const filteredWhatsappCountries = countryCodes.filter(country =>
-    country.country.toLowerCase().includes(whatsappSearch.toLowerCase()) ||
-    country.code.includes(whatsappSearch)
-  );
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const currentRef = sectionRef.current;
@@ -110,33 +49,44 @@ export function InquiryForm() {
     };
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (phoneDropdownRef.current && !phoneDropdownRef.current.contains(event.target as Node)) {
-        setPhoneDropdownOpen(false);
-      }
-      if (whatsappDropdownRef.current && !whatsappDropdownRef.current.contains(event.target as Node)) {
-        setWhatsappDropdownOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+    if (error) setError('');
+  };
+
+  const validateForm = () => {
+    if (!formData.name.trim()) return 'Name is required';
+    if (!formData.email.trim()) return 'Email is required';
+    if (!formData.phone.trim()) return 'Phone number is required';
+
+    const phoneValid = validatePhoneNumber(formData.phone, formData.phoneCountryCode);
+    if (!phoneValid.valid) return phoneValid.error || 'Invalid phone number';
+
+    if (formData.whatsapp) {
+      const whatsappValid = validatePhoneNumber(formData.whatsapp, formData.whatsappCountryCode);
+      if (!whatsappValid.valid) return whatsappValid.error || 'Invalid WhatsApp number';
+    }
+
+    if (!formData.courseInterest) return 'Please select a course interest';
+
+    return null;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError as string);
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setError('');
 
     try {
       const response = await fetch('/api/inquiry', {
@@ -187,10 +137,12 @@ export function InquiryForm() {
           responseText: responseText
         });
         setSubmitStatus('error');
+        setError(data.error || 'Something went wrong. Please try again.');
       }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
+      setError('Network error. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -350,134 +302,18 @@ export function InquiryForm() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="phone" className="sr-only">
-                  Phone Number
-                </label>
-                <div className="flex gap-2">
-                  <div className="relative min-w-[100px] md:min-w-[140px]" ref={phoneDropdownRef}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setPhoneDropdownOpen(!phoneDropdownOpen);
-                        setWhatsappDropdownOpen(false);
-                      }}
-                      className="w-full px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center gap-2 min-h-[44px]"
-                      style={{
-                        borderColor: '#e5e7eb',
-                        color: '#1a1a1a'
-                      }}>
-                      <span>{selectedPhoneCountry?.flag}</span>
-                      <span>{selectedPhoneCountry?.code}</span>
-                      <ChevronDown className="w-4 h-4 ml-auto" />
-                    </button>
-                    {phoneDropdownOpen && (
-                      <div className="absolute z-50 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto"
-                        style={{ borderColor: '#e5e7eb' }}>
-                        <div className="relative px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
-                          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#9ca3af' }} />
-                          <input
-                            type="text"
-                            placeholder="Search country..."
-                            value={phoneSearch}
-                            onChange={(e) => setPhoneSearch(e.target.value)}
-                            className="w-full pl-8 pr-3 py-1 text-sm focus:outline-none"
-                            autoFocus
-                          />
-                        </div>
-                        <div className="max-h-48 overflow-y-auto">
-                          {filteredPhoneCountries.map((country) => (
-                            <button
-                              key={country.code + country.country}
-                              type="button"
-                              onClick={() => {
-                                setFormData({ ...formData, phoneCountryCode: country.code });
-                                setPhoneDropdownOpen(false);
-                                setPhoneSearch('');
-                              }}
-                              className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2"
-                              style={{ color: '#1a1a1a' }}>
-                              <span>{country.flag}</span>
-                              <span>{country.code}</span>
-                              <span>{country.country}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="Phone Number"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="flex-1 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
-                    style={{
-                      borderColor: '#e5e7eb'
-                    }}
-                  />
-                </div>
-              </div>
+
 
               <div>
                 <label htmlFor="whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
                 <div className="flex gap-2">
-                  <div className="relative min-w-[100px] md:min-w-[140px]" ref={whatsappDropdownRef}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setWhatsappDropdownOpen(!whatsappDropdownOpen);
-                        setPhoneDropdownOpen(false);
-                      }}
-                      className="w-full px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center gap-2 min-h-[44px]"
-                      style={{
-                        borderColor: '#e5e7eb',
-                        color: '#1a1a1a'
-                      }}>
-                      <span>{selectedWhatsappCountry?.flag}</span>
-                      <span>{selectedWhatsappCountry?.code}</span>
-                      <ChevronDown className="w-4 h-4 ml-auto" />
-                    </button>
-                    {whatsappDropdownOpen && (
-                      <div className="absolute z-50 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto"
-                        style={{ borderColor: '#e5e7eb' }}>
-                        <div className="relative px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
-                          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#9ca3af' }} />
-                          <input
-                            type="text"
-                            placeholder="Search country..."
-                            value={whatsappSearch}
-                            onChange={(e) => setWhatsappSearch(e.target.value)}
-                            className="w-full pl-8 pr-3 py-1 text-sm focus:outline-none"
-                            autoFocus
-                          />
-                        </div>
-                        <div className="max-h-48 overflow-y-auto">
-                          {filteredWhatsappCountries.map((country) => (
-                            <button
-                              key={`whatsapp-${country.code}-${country.country}`}
-                              type="button"
-                              onClick={() => {
-                                setFormData({ ...formData, whatsappCountryCode: country.code });
-                                setWhatsappDropdownOpen(false);
-                                setWhatsappSearch('');
-                              }}
-                              className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2"
-                              style={{ color: '#1a1a1a' }}>
-                              <span>{country.flag}</span>
-                              <span>{country.code}</span>
-                              <span>{country.country}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <CountryCodeSelect
+                    value={formData.whatsappCountryCode}
+                    onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
+                    id="whatsappCountryCode"
+                  />
                   <input
                     type="tel"
                     id="whatsapp"
@@ -519,6 +355,20 @@ export function InquiryForm() {
                 </select>
               </div>
 
+              {error && (
+                <div
+                  className="mt-4 p-3 rounded-lg text-center"
+                  style={{
+                    backgroundColor: '#fee2e2',
+                    border: '1px solid #ef4444',
+                    color: '#991b1b'
+                  }}>
+                  <p className="font-body font-semibold text-xs">
+                    {error}
+                  </p>
+                </div>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -540,20 +390,6 @@ export function InquiryForm() {
                   }}>
                   <p className="font-body font-semibold text-sm">
                     Thank you! We've received your inquiry and will get back to you within 24 hours.
-                  </p>
-                </div>
-              )}
-
-              {submitStatus === 'error' && (
-                <div
-                  className="mt-4 p-4 rounded-lg text-center"
-                  style={{
-                    backgroundColor: '#fee2e2',
-                    border: '1px solid #ef4444',
-                    color: '#991b1b'
-                  }}>
-                  <p className="font-body font-semibold text-sm">
-                    Something went wrong. Please try again or email us directly at admissions@designient.com
                   </p>
                 </div>
               )}

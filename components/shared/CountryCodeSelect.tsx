@@ -92,7 +92,7 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
     }, [])
 
     return (
-        <div className={`relative ${className}`} style={{ minWidth: '140px' }} ref={dropdownRef}>
+        <div className={`relative ${className} min-w-[100px] md:min-w-[140px]`} ref={dropdownRef}>
             <button
                 type="button"
                 id={id}

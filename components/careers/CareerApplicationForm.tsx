@@ -538,7 +538,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                     {resumeFile ? (
                       <div className="flex items-center gap-2">
                         <FileText className="w-4 h-4" style={{ color: '#8458B3' }} />
-                        <span className="font-body text-sm" style={{ color: '#1a1a1a' }}>
+                        <span className="font-body text-sm truncate max-w-[200px] md:max-w-none" style={{ color: '#1a1a1a' }}>
                           {resumeFile.name} ({(resumeFile.size / 1024 / 1024).toFixed(2)} MB)
                         </span>
                       </div>

@@ -326,7 +326,7 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="bg-white rounded-xl p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
+        className="bg-white rounded-xl p-4 md:p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
         <div className="flex items-center gap-3 mb-6">
           <Users className="w-6 h-6" style={{ color: '#8458B3' }} />
           <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>
@@ -440,7 +440,7 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="bg-white rounded-xl p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
+        className="bg-white rounded-xl p-4 md:p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
         <div className="flex items-center gap-3 mb-6">
           <Briefcase className="w-6 h-6" style={{ color: '#8458B3' }} />
           <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>
@@ -551,7 +551,7 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
-        className="bg-white rounded-xl p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
+        className="bg-white rounded-xl p-4 md:p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
         <div className="flex items-center gap-3 mb-6">
           <FileText className="w-6 h-6" style={{ color: '#8458B3' }} />
           <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>

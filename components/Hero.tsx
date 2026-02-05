@@ -12,6 +12,7 @@ import {
   Search,
 } from 'react-feather';
 import Link from 'next/link';
+import { CountryCodeSelect } from './shared/CountryCodeSelect';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -639,58 +640,12 @@ export function Hero() {
                 <label htmlFor="phone" className="sr-only">
                   Phone Number
                 </label>
-                <div className="flex flex-col xs:flex-row gap-2">
-                  <div className="relative" style={{ minWidth: '140px' }} ref={phoneDropdownRef}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setPhoneDropdownOpen(!phoneDropdownOpen);
-                        setWhatsappDropdownOpen(false);
-                      }}
-                      className="w-full px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center gap-2 min-h-[44px]"
-                      style={{
-                        borderColor: '#e5e7eb',
-                        color: '#1a1a1a'
-                      }}>
-                      <span>{selectedPhoneCountry?.flag}</span>
-                      <span>{selectedPhoneCountry?.code}</span>
-                      <ChevronDown className="w-4 h-4 ml-auto" />
-                    </button>
-                    {phoneDropdownOpen && (
-                      <div className="absolute z-50 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto"
-                        style={{ borderColor: '#e5e7eb' }}>
-                        <div className="relative px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
-                          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#9ca3af' }} />
-                          <input
-                            type="text"
-                            placeholder="Search country..."
-                            value={phoneSearch}
-                            onChange={(e) => setPhoneSearch(e.target.value)}
-                            className="w-full pl-8 pr-3 py-1 text-sm focus:outline-none"
-                            autoFocus
-                          />
-                        </div>
-                        <div className="max-h-48 overflow-y-auto">
-                          {filteredPhoneCountries.map((country) => (
-                            <button
-                              key={country.code + country.country}
-                              type="button"
-                              onClick={() => {
-                                setFormData({ ...formData, phoneCountryCode: country.code });
-                                setPhoneDropdownOpen(false);
-                                setPhoneSearch('');
-                              }}
-                              className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2"
-                              style={{ color: '#1a1a1a' }}>
-                              <span>{country.flag}</span>
-                              <span>{country.code}</span>
-                              <span>{country.country}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                <div className="flex gap-2">
+                  <CountryCodeSelect
+                    value={formData.phoneCountryCode}
+                    onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
+                    id="phoneCountryCode"
+                  />
                   <input
                     type="tel"
                     id="phone"
@@ -702,7 +657,8 @@ export function Hero() {
                     className="flex-1 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
                       borderColor: '#e5e7eb'
-                    }} />
+                    }}
+                  />
                 </div>
               </div>
 
@@ -711,57 +667,11 @@ export function Hero() {
                   WhatsApp Number
                 </label>
                 <div className="flex gap-2">
-                  <div className="relative" style={{ minWidth: '140px' }} ref={whatsappDropdownRef}>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setWhatsappDropdownOpen(!whatsappDropdownOpen);
-                        setPhoneDropdownOpen(false);
-                      }}
-                      className="w-full px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center gap-2 min-h-[44px]"
-                      style={{
-                        borderColor: '#e5e7eb',
-                        color: '#1a1a1a'
-                      }}>
-                      <span>{selectedWhatsappCountry?.flag}</span>
-                      <span>{selectedWhatsappCountry?.code}</span>
-                      <ChevronDown className="w-4 h-4 ml-auto" />
-                    </button>
-                    {whatsappDropdownOpen && (
-                      <div className="absolute z-50 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto"
-                        style={{ borderColor: '#e5e7eb' }}>
-                        <div className="relative px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
-                          <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#9ca3af' }} />
-                          <input
-                            type="text"
-                            placeholder="Search country..."
-                            value={whatsappSearch}
-                            onChange={(e) => setWhatsappSearch(e.target.value)}
-                            className="w-full pl-8 pr-3 py-1 text-sm focus:outline-none"
-                            autoFocus
-                          />
-                        </div>
-                        <div className="max-h-48 overflow-y-auto">
-                          {filteredWhatsappCountries.map((country) => (
-                            <button
-                              key={`whatsapp-${country.code}-${country.country}`}
-                              type="button"
-                              onClick={() => {
-                                setFormData({ ...formData, whatsappCountryCode: country.code });
-                                setWhatsappDropdownOpen(false);
-                                setWhatsappSearch('');
-                              }}
-                              className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2"
-                              style={{ color: '#1a1a1a' }}>
-                              <span>{country.flag}</span>
-                              <span>{country.code}</span>
-                              <span>{country.country}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <CountryCodeSelect
+                    value={formData.whatsappCountryCode}
+                    onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
+                    id="whatsappCountryCode"
+                  />
                   <input
                     type="tel"
                     id="whatsapp"
@@ -773,9 +683,13 @@ export function Hero() {
                     className="flex-1 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
                       borderColor: '#e5e7eb'
-                    }} />
+                    }}
+                  />
                 </div>
               </div>
+
+
+
 
               <div>
                 <label htmlFor="courseInterest" className="sr-only">
