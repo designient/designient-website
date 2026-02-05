@@ -92,37 +92,41 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
     }, [])
 
     return (
-        <div className={`relative ${className} min-w-[100px] md:min-w-[140px]`} ref={dropdownRef}>
+        <div className={`relative ${className} w-[100px] sm:w-[140px] flex-shrink-0`} ref={dropdownRef}>
             <button
                 type="button"
                 id={id}
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center gap-2 min-h-[44px]"
+                className="w-full px-2 sm:px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center justify-between gap-1 sm:gap-2 min-h-[44px]"
                 style={{
                     borderColor: '#e5e7eb',
                     color: '#1a1a1a'
                 }}
             >
-                <span>{selectedCountry?.flag}</span>
-                <span>{selectedCountry?.code}</span>
-                <ChevronDown className="w-4 h-4 ml-auto" />
+                <div className="flex items-center gap-1 sm:gap-2 overflow-hidden">
+                    <span className="text-lg sm:text-base flex-shrink-0">{selectedCountry?.flag}</span>
+                    <span className="text-xs sm:text-sm truncate">{selectedCountry?.code}</span>
+                </div>
+                <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500 flex-shrink-0" />
             </button>
 
             {isOpen && (
                 <div
-                    className="absolute z-50 w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto"
+                    className="absolute z-50 w-[280px] sm:w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto left-0"
                     style={{ borderColor: '#e5e7eb' }}
                 >
-                    <div className="relative px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
-                        <Search className="absolute left-5 top-1/2 transform -translate-y-1/2 w-4 h-4" style={{ color: '#9ca3af' }} />
-                        <input
-                            type="text"
-                            placeholder="Search country..."
-                            value={search}
-                            onChange={(e) => setSearch(e.target.value)}
-                            className="w-full pl-8 pr-3 py-1 text-sm focus:outline-none"
-                            autoFocus
-                        />
+                    <div className="sticky top-0 bg-white z-10 px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
+                        <div className="relative">
+                            <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
+                            <input
+                                type="text"
+                                placeholder="Search..."
+                                value={search}
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="w-full pl-7 pr-3 py-1.5 text-sm border rounded bg-gray-50 focus:outline-none focus:border-purple-500 transition-colors"
+                                autoFocus
+                            />
+                        </div>
                     </div>
                     <div className="max-h-48 overflow-y-auto">
                         {filteredCountries.map((country, index) => (
@@ -134,14 +138,19 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                                     setIsOpen(false)
                                     setSearch('')
                                 }}
-                                className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2"
+                                className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2 transition-colors border-b last:border-0 border-gray-50"
                                 style={{ color: '#1a1a1a' }}
                             >
-                                <span>{country.flag}</span>
-                                <span>{country.code}</span>
-                                <span className="text-gray-500">{country.country}</span>
+                                <span className="text-lg">{country.flag}</span>
+                                <span className="font-mono text-gray-500">{country.code}</span>
+                                <span className="truncate">{country.country}</span>
                             </button>
                         ))}
+                        {filteredCountries.length === 0 && (
+                            <div className="px-3 py-4 text-center text-gray-500 text-xs">
+                                No countries found
+                            </div>
+                        )}
                     </div>
                 </div>
             )}

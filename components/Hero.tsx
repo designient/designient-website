@@ -8,8 +8,6 @@ import {
   CheckCircle,
   Star,
   BookOpen,
-  ChevronDown,
-  Search,
 } from 'react-feather';
 import Link from 'next/link';
 import { CountryCodeSelect } from './shared/CountryCodeSelect';
@@ -640,11 +638,12 @@ export function Hero() {
                 <label htmlFor="phone" className="sr-only">
                   Phone Number
                 </label>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.phoneCountryCode}
                     onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
                     id="phoneCountryCode"
+                    className="flex-shrink-0"
                   />
                   <input
                     type="tel"
@@ -654,7 +653,7 @@ export function Hero() {
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="flex-1 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
                       borderColor: '#e5e7eb'
                     }}
@@ -666,11 +665,12 @@ export function Hero() {
                 <label htmlFor="whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.whatsappCountryCode}
                     onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
                     id="whatsappCountryCode"
+                    className="flex-shrink-0"
                   />
                   <input
                     type="tel"
@@ -680,7 +680,7 @@ export function Hero() {
                     required
                     value={formData.whatsapp}
                     onChange={handleInputChange}
-                    className="flex-1 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
                       borderColor: '#e5e7eb'
                     }}

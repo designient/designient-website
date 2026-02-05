@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronDown, Search } from 'react-feather';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CountryCodeSelect, validatePhoneNumber } from './shared/CountryCodeSelect';
@@ -305,14 +304,42 @@ export function InquiryForm() {
 
 
               <div>
+                <label htmlFor="phone" className="sr-only">
+                  Phone Number
+                </label>
+                <div className="flex gap-2 items-start w-full">
+                  <CountryCodeSelect
+                    value={formData.phoneCountryCode}
+                    onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
+                    id="phoneCountryCode"
+                    className="flex-shrink-0"
+                  />
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="Phone Number"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                    style={{
+                      borderColor: '#e5e7eb'
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div>
                 <label htmlFor="whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
-                <div className="flex gap-2">
+                <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.whatsappCountryCode}
                     onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
                     id="whatsappCountryCode"
+                    className="flex-shrink-0"
                   />
                   <input
                     type="tel"
@@ -322,7 +349,7 @@ export function InquiryForm() {
                     required
                     value={formData.whatsapp}
                     onChange={handleInputChange}
-                    className="flex-1 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
                       borderColor: '#e5e7eb'
                     }}
