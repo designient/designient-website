@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'About Us - Designient School of Masterminds | UI/UX Design Training',
     description: 'Redefining UI/UX education for creative minds ready to turn passion into profession. Hands-on training, industry mentors, and career support.',
     url: 'https://designient.com/about-us',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
     type: 'website',
   },
   alternates: {

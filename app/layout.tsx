@@ -44,18 +44,18 @@ export const metadata: Metadata = {
     description: 'India\'s leading UI/UX design training institute with 95% placement rate. Adobe certified courses in Bangalore and Hyderabad.',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Designient - UI/UX Design Training',
       },
     ],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'Designient - UI/UX Design Training Institute',
     description: 'India\'s leading UI/UX design training institute with 95% placement rate.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   robots: {
     index: true,

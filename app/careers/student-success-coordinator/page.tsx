@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Community & Student Success Coordinator Job – Careers at Designient',
     description: 'Support students throughout their learning journey and help build a strong design community.',
     url: 'https://designient.com/careers/student-success-coordinator',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
     type: 'website',
   },
   alternates: {

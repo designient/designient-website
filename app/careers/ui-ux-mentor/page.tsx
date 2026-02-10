@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'UI/UX Design Mentor Job – Careers at Designient',
     description: 'Mentor aspiring designers. Share real-world UX knowledge. Help shape meaningful careers.',
     url: 'https://designient.com/careers/ui-ux-mentor',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
     type: 'website',
   },
   alternates: {

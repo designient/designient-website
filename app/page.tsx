@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Designient - UI/UX Design Training',
       },
     ],
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
     description: 'Beginner-friendly UI/UX design courses integrated with AI tools. 95% placement rate. Adobe certified courses.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com',

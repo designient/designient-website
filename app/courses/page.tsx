@@ -229,9 +229,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com/courses',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Designient Courses - UI/UX Design Training',
       },
     ],
@@ -241,7 +241,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Courses - UI/UX Design Training | Designient',
     description: 'Choose from our comprehensive courses: UI/UX Design Bootcamp, Pro, Master, or Prompt Engineering Mastery.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com/courses',

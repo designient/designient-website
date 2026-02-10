@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com/placements',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Designient Placement Support - UI/UX Design Career Outcomes',
       },
     ],
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UI/UX Design Placement Support & Career Outcomes | Designient',
     description: 'Bring your UI/UX skills to the job market with structured career support, interview readiness, and recruiter guidance.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com/placements',

@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com/prompt-engineering-mastery',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Prompt Engineering Mastery Course - Designient',
       },
     ],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Prompt Engineering Mastery Course - AI Tools Training | Designient',
     description: 'Master AI tools and prompt engineering. ChatGPT, Midjourney, DALL-E training. 30 days, 40 hours.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com/prompt-engineering-mastery',

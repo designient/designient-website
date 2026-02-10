@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com/ui-ux-design-pro',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'UI/UX Design Pro Course - Designient',
       },
     ],
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UI/UX Design Pro Course - 3 Months | Designient',
     description: 'Master UI/UX design in 3 months. 124 hours of training, portfolio projects, 95% placement rate.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com/ui-ux-design-pro',

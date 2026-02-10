@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Designient Success Stories',
       },
     ],
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Success Stories - Real Student Journeys | Designient',
     description: 'Real success stories from Designient students. Career switchers, fresh graduates, and working professionals share their journeys.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
 }
 

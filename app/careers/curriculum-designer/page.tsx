@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Content & Curriculum Designer Job – Careers at Designient',
     description: 'Create, refine, and improve UI/UX learning content and curriculum structure.',
     url: 'https://designient.com/careers/curriculum-designer',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
     type: 'website',
   },
   alternates: {

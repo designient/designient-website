@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com/ui-ux-design-bootcamp',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'UI/UX Design Bootcamp - Designient',
       },
     ],
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UI/UX Design Bootcamp - 30 Days Intensive | Designient',
     description: 'Fast-track your design career in 30 days. Intensive training, real projects, 85% placement rate.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com/ui-ux-design-bootcamp',

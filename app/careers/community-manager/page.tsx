@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: 'Community Manager Job – Careers at Designient',
     description: 'Build and nurture a vibrant design community. Organize events and support student engagement.',
     url: 'https://designient.com/careers/community-manager',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
     type: 'website',
   },
   alternates: {

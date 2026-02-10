@@ -15,9 +15,9 @@ export const metadata: Metadata = {
     url: 'https://designient.com/careers',
     images: [
       {
-        url: '/og-image.webp',
-        width: 1200,
-        height: 630,
+        url: '/favicon-designient.png',
+        width: 192,
+        height: 192,
         alt: 'Careers at Designient - We Are Hiring',
       },
     ],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Careers at Designient – We Are Hiring | UI/UX Design Education',
     description: 'Join a team that\'s shaping the future of UI/UX education through mentorship, creativity, and real-world impact.',
-    images: ['/og-image.webp'],
+    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com/careers',
