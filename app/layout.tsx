@@ -23,10 +23,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Designient - UI/UX Design Training Institute | Bangalore & Hyderabad | 95% Placement Rate',
+    default: 'Designient - UI/UX Design Training | Bangalore & Hyderabad',
     template: '%s | Designient'
   },
-  description: 'Designient - India\'s leading UI/UX design training institute in Bangalore and Hyderabad. 95% placement rate, Adobe certified courses, personalized mentorship. Transform your design career with hands-on projects and real-world experience.',
+  description: 'Designient - India\'s leading UI/UX design institute in Bangalore & Hyderabad. 95% placement rate, Adobe certified courses, mentorship. Start your design career.',
   keywords: ['UI/UX design course', 'design training Bangalore', 'design institute Hyderabad', 'Adobe certified', 'design bootcamp', 'UX design course India'],
   authors: [{ name: 'Designient' }],
   creator: 'Designient',
@@ -92,7 +92,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased" suppressHydrationWarning>
         <SkipLink />
         <CurrencyProvider>
           {children}

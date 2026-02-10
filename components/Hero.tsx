@@ -597,12 +597,12 @@ export function Hero() {
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
-                <label htmlFor="name" className="sr-only">
+                <label htmlFor="hero-name" className="sr-only">
                   Full Name
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="hero-name"
                   name="name"
                   placeholder="Full Name"
                   required
@@ -616,12 +616,12 @@ export function Hero() {
               </div>
 
               <div>
-                <label htmlFor="email" className="sr-only">
+                <label htmlFor="hero-email" className="sr-only">
                   Email Address
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="hero-email"
                   name="email"
                   placeholder="Email Address"
                   required
@@ -635,19 +635,19 @@ export function Hero() {
               </div>
 
               <div>
-                <label htmlFor="phone" className="sr-only">
+                <label htmlFor="hero-phone" className="sr-only">
                   Phone Number
                 </label>
                 <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.phoneCountryCode}
                     onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
-                    id="phoneCountryCode"
+                    id="hero-phoneCountryCode"
                     className="flex-shrink-0"
                   />
                   <input
                     type="tel"
-                    id="phone"
+                    id="hero-phone"
                     name="phone"
                     placeholder="Phone Number"
                     required
@@ -662,19 +662,19 @@ export function Hero() {
               </div>
 
               <div>
-                <label htmlFor="whatsapp" className="sr-only">
+                <label htmlFor="hero-whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
                 <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.whatsappCountryCode}
                     onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
-                    id="whatsappCountryCode"
+                    id="hero-whatsappCountryCode"
                     className="flex-shrink-0"
                   />
                   <input
                     type="tel"
-                    id="whatsapp"
+                    id="hero-whatsapp"
                     name="whatsapp"
                     placeholder="WhatsApp Number"
                     required
@@ -692,11 +692,11 @@ export function Hero() {
 
 
               <div>
-                <label htmlFor="courseInterest" className="sr-only">
+                <label htmlFor="hero-courseInterest" className="sr-only">
                   Course Interest
                 </label>
                 <select
-                  id="courseInterest"
+                  id="hero-courseInterest"
                   name="courseInterest"
                   required
                   value={formData.courseInterest}

@@ -264,12 +264,12 @@ export function InquiryForm() {
 
             <form onSubmit={handleSubmit} className="space-y-3">
               <div>
-                <label htmlFor="name" className="sr-only">
+                <label htmlFor="inquiry-name" className="sr-only">
                   Full Name
                 </label>
                 <input
                   type="text"
-                  id="name"
+                  id="inquiry-name"
                   name="name"
                   placeholder="Full Name"
                   required
@@ -283,12 +283,12 @@ export function InquiryForm() {
               </div>
 
               <div>
-                <label htmlFor="email" className="sr-only">
+                <label htmlFor="inquiry-email" className="sr-only">
                   Email Address
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="inquiry-email"
                   name="email"
                   placeholder="Email Address"
                   required
@@ -304,19 +304,19 @@ export function InquiryForm() {
 
 
               <div>
-                <label htmlFor="phone" className="sr-only">
+                <label htmlFor="inquiry-phone" className="sr-only">
                   Phone Number
                 </label>
                 <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.phoneCountryCode}
                     onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
-                    id="phoneCountryCode"
+                    id="inquiry-phoneCountryCode"
                     className="flex-shrink-0"
                   />
                   <input
                     type="tel"
-                    id="phone"
+                    id="inquiry-phone"
                     name="phone"
                     placeholder="Phone Number"
                     required
@@ -331,19 +331,19 @@ export function InquiryForm() {
               </div>
 
               <div>
-                <label htmlFor="whatsapp" className="sr-only">
+                <label htmlFor="inquiry-whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
                 <div className="flex gap-2 items-start w-full">
                   <CountryCodeSelect
                     value={formData.whatsappCountryCode}
                     onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
-                    id="whatsappCountryCode"
+                    id="inquiry-whatsappCountryCode"
                     className="flex-shrink-0"
                   />
                   <input
                     type="tel"
-                    id="whatsapp"
+                    id="inquiry-whatsapp"
                     name="whatsapp"
                     placeholder="WhatsApp Number"
                     required
@@ -358,11 +358,11 @@ export function InquiryForm() {
               </div>
 
               <div>
-                <label htmlFor="courseInterest" className="sr-only">
+                <label htmlFor="inquiry-courseInterest" className="sr-only">
                   Course Interest
                 </label>
                 <select
-                  id="courseInterest"
+                  id="inquiry-courseInterest"
                   name="courseInterest"
                   required
                   value={formData.courseInterest}

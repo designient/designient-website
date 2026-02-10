@@ -21,11 +21,11 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
-  description: 'Beginner-friendly UI/UX design courses integrated with AI tools. Learn modern design workflows with personalized mentorship, small batches, and real-world projects. 95% placement rate. Adobe certified courses in Bangalore, Hyderabad, and Pune.',
+  description: 'Beginner-friendly UI/UX courses with AI tools. Mentorship, small batches, real projects. 95% placement. Adobe certified. Bangalore, Hyderabad, Pune.',
   keywords: ['UI/UX design course', 'UX design training', 'design bootcamp', 'Figma course', 'UI design course Bangalore', 'UX course Hyderabad', 'design school India', 'Adobe certified design course'],
   openGraph: {
     title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
-    description: 'Beginner-friendly UI/UX design courses integrated with AI tools. Learn modern design workflows with personalized mentorship, small batches, and real-world projects. 95% placement rate.',
+    description: 'Beginner-friendly UI/UX courses with AI tools. 95% placement. Adobe certified. Bangalore, Hyderabad, Pune.',
     url: 'https://designient.com',
     images: [
       {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
-    description: 'Beginner-friendly UI/UX design courses integrated with AI tools. 95% placement rate. Adobe certified courses.',
+    description: 'Beginner-friendly UI/UX courses with AI tools. 95% placement. Adobe certified. Bangalore, Hyderabad, Pune.',
     images: ['/favicon-designient.png'],
   },
   alternates: {
