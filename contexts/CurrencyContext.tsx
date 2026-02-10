@@ -26,20 +26,37 @@ function detectUserCountry(): 'IN' | 'OTHER' {
   try {
     // Method 1: Check timezone (most reliable for India)
     const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (timezone === 'Asia/Kolkata' || timezone.includes('Calcutta')) {
+    if (timezone === 'Asia/Kolkata' || timezone.includes('Calcutta') || timezone.includes('Kolkata')) {
       return 'IN';
     }
 
-    // Method 2: Check locale
-    const locale = navigator.language || (navigator as any).userLanguage;
-    if (locale.includes('IN') || locale.includes('hi-IN') || locale.includes('en-IN')) {
+    // Method 1b: Check timezone offset (India is UTC+5:30)
+    const now = new Date();
+    const utcOffset = -now.getTimezoneOffset(); // offset in minutes
+    const indiaOffset = 330; // UTC+5:30 = 330 minutes
+    // Allow ±30 minutes tolerance for DST or slight variations
+    if (Math.abs(utcOffset - indiaOffset) <= 30) {
       return 'IN';
     }
 
-    // Method 3: Check language preferences
-    if (navigator.languages) {
+    // Method 2: Check locale (case-insensitive)
+    const locale = (navigator.language || (navigator as any).userLanguage || '').toLowerCase();
+    if (locale.includes('in') && (locale.includes('hi') || locale.includes('en') || locale.includes('gu') || locale.includes('ta') || locale.includes('te') || locale.includes('kn') || locale.includes('ml') || locale.includes('mr') || locale.includes('pa') || locale.includes('or') || locale.includes('as') || locale.includes('bn'))) {
+      return 'IN';
+    }
+    // Also check for explicit en-IN, hi-IN, etc.
+    if (locale === 'en-in' || locale === 'hi-in' || locale.startsWith('en-in') || locale.startsWith('hi-in')) {
+      return 'IN';
+    }
+
+    // Method 3: Check language preferences array
+    if (navigator.languages && navigator.languages.length > 0) {
       for (const lang of navigator.languages) {
-        if (lang.includes('IN') || lang.includes('hi-IN') || lang.includes('en-IN')) {
+        const langLower = lang.toLowerCase();
+        if (langLower.includes('in') && (langLower.includes('hi') || langLower.includes('en') || langLower.includes('gu') || langLower.includes('ta') || langLower.includes('te') || langLower.includes('kn') || langLower.includes('ml') || langLower.includes('mr') || langLower.includes('pa') || langLower.includes('or') || langLower.includes('as') || langLower.includes('bn'))) {
+          return 'IN';
+        }
+        if (langLower === 'en-in' || langLower === 'hi-in' || langLower.startsWith('en-in') || langLower.startsWith('hi-in')) {
           return 'IN';
         }
       }
@@ -76,10 +93,15 @@ function getInitialCurrency(): Currency {
 }
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
-  const [currency, setCurrencyState] = useState<Currency>(DEFAULT_CURRENCY);
+  // Use lazy initializer to detect currency immediately on client-side
+  const [currency, setCurrencyState] = useState<Currency>(() => {
+    // On server-side, return default. On client-side, detect immediately.
+    if (typeof window === 'undefined') return DEFAULT_CURRENCY;
+    return getInitialCurrency();
+  });
   const [isLoading, setIsLoading] = useState(true);
 
-  // Initialize currency on mount
+  // Initialize currency on mount (for any edge cases or re-hydration)
   useEffect(() => {
     const initialCurrency = getInitialCurrency();
     setCurrencyState(initialCurrency);

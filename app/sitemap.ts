@@ -1,7 +1,9 @@
 import { MetadataRoute } from 'next'
 import blogsData from '../data/blogs.json'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export type SitemapEntry = MetadataRoute.Sitemap[number]
+
+export function getSitemapEntries(): SitemapEntry[] {
   const baseUrl = 'https://designient.com'
   const now = new Date()
   const lastmod = now.toISOString().split('T')[0] // YYYY-MM-DD for sitemap best practice
@@ -226,4 +228,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   return [...staticPages, ...blogPages, ...careerPages]
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  return getSitemapEntries()
 }
