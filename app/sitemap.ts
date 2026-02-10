@@ -4,180 +4,181 @@ import blogsData from '../data/blogs.json'
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://designient.com'
   const now = new Date()
-  
+  const lastmod = now.toISOString().split('T')[0] // YYYY-MM-DD for sitemap best practice
+
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
-      lastModified: now,
+      url: `${baseUrl}/`,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
-      priority: 1,
+      priority: 1.0,
     },
     {
       url: `${baseUrl}/courses`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/ui-ux-design-pro`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/ui-ux-design-bootcamp`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/ui-ux-design-master`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/prompt-engineering-mastery`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${baseUrl}/ui-ux-design-course-in-bangalore`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/ui-ux-design-course-in-hyderabad`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/ui-ux-design-course-in-pune`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/blogs`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/about-us`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/placements`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/careers`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/faqs`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/contact-us`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/terms-and-conditions`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/cancellation-refund-policy`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/privacy-policy`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/disclaimer`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/code-of-conduct`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/accessibility`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
     {
       url: `${baseUrl}/corporates`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/corporates/training-programs`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/corporates/ai-enablement-workshops`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/corporates/hiring-consulting`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/corporates/case-studies`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/apply-now`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/success-stories`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/verify`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,
     },
@@ -186,36 +187,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]
 
   // Blog posts
-  const blogPages: MetadataRoute.Sitemap = blogsData.map((post: { slug: string; updatedDate?: string; publishedDate: string }) => ({
-    url: `${baseUrl}/blogs/${post.slug}`,
-    lastModified: post.updatedDate ? new Date(post.updatedDate) : new Date(post.publishedDate),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  const blogPages: MetadataRoute.Sitemap = blogsData.map((post: { slug: string; updatedDate?: string; publishedDate: string }) => {
+    const d = post.updatedDate ? new Date(post.updatedDate) : new Date(post.publishedDate)
+    return {
+      url: `${baseUrl}/blogs/${post.slug}`,
+      lastModified: d.toISOString().split('T')[0],
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    }
+  })
 
   // Career pages
   const careerPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/careers/ui-ux-mentor`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/careers/community-manager`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/careers/curriculum-designer`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.6,
     },
     {
       url: `${baseUrl}/careers/student-success-coordinator`,
-      lastModified: now,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.6,
     },
