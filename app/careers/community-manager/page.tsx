@@ -64,7 +64,7 @@ export default function CommunityManagerPage() {
       '@type': 'Organization',
       name: 'Designient School of Masterminds',
       sameAs: 'https://designient.com',
-      logo: 'https://designient.com/wp-content/uploads/2023/01/designient-logo.png'
+      logo: 'https://designient.com/designient-logo.svg'
     },
     jobLocationType: 'REMOTE',
     jobLocation: [

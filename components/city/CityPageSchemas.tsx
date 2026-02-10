@@ -20,7 +20,7 @@ export function CityPageSchemas({ cityName, cityUrl, isPune = false }: CityPageS
       '@type': 'Organization',
       name: 'Designient School of Masterminds',
       url: 'https://designient.com',
-      logo: 'https://designient.com/wp-content/uploads/2023/01/designient-logo.png'
+      logo: 'https://designient.com/designient-logo.svg'
     },
     educationalCredentialAwarded: 'UI/UX Design Pro Certificate',
     timeRequired: 'P3M',
