@@ -77,6 +77,16 @@ const whyDesignientLinks = [
     name: 'We Are Hiring',
     path: '/careers',
     description: 'Join our team and help shape the future of design education'
+  },
+  {
+    name: 'Verify Certificate',
+    path: '/verify',
+    description: 'Verify your certificate authenticity'
+  },
+  {
+    name: 'FAQs',
+    path: '/faqs',
+    description: 'Find answers to common questions'
   }
 ];
 
@@ -167,11 +177,6 @@ export function Header() {
     {
       name: 'Blogs',
       path: '/blogs',
-      hasDropdown: false
-    },
-    {
-      name: 'FAQs',
-      path: '/faqs',
       hasDropdown: false
     },
     {
@@ -455,7 +460,7 @@ export function Header() {
               </motion.button>
             </Link>
 
-            <Link href="/verify">
+            <Link href="https://app.designient.com/login">
               <motion.button
                 whileHover={{
                   scale: 1.05
@@ -478,9 +483,9 @@ export function Header() {
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = '#4a4a4a';
                 }}
-                aria-label="Verify">
+                aria-label="Login">
 
-                Verify
+                Login
                 <ArrowRight className="w-4 h-4" />
               </motion.button>
             </Link>
@@ -610,11 +615,11 @@ export function Header() {
                       Apply Now
                     </button>
                   </Link>
-                  <Link href="/verify" onClick={() => setMobileMenuOpen(false)} className="block">
+                  <Link href="https://app.designient.com/login" onClick={() => setMobileMenuOpen(false)} className="block">
                     <button
                       className="w-full font-body font-semibold text-base py-4 rounded-full flex items-center justify-center gap-2 transition-colors"
                       style={{ color: '#4a4a4a', backgroundColor: 'rgba(26, 26, 26, 0.05)' }}>
-                      Verify Certificate
+                      Login
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </Link>
