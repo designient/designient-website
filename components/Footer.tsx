@@ -97,10 +97,10 @@ export function Footer() {
 
   const portalsLinks = [
     {
-      name: 'Student Hub',
-      path: '#',
-      comingSoon: true,
-      description: 'Student management portal for course access and resources'
+      name: 'Designient Workspace',
+      path: 'https://app.designient.com/login',
+      comingSoon: false,
+      description: 'Manage cohorts, assignments, mentorship programs, and operations.'
     }
   ];
 
@@ -525,24 +525,47 @@ export function Footer() {
               {portalsLinks.map((link) => (
                 <li key={link.name}>
                   <div className="flex flex-col gap-1.5">
-                    <span
-                      className="font-body text-xs font-normal inline-flex items-center gap-1.5"
-                      style={{
-                        color: 'rgba(255, 255, 255, 0.5)',
-                        cursor: 'not-allowed'
-                      }}>
-                      {link.name}
+                    {link.comingSoon ? (
                       <span
-                        className="text-[10px] px-1.5 py-0.5 rounded"
+                        className="font-body text-xs font-normal inline-flex items-center gap-1.5"
                         style={{
-                          backgroundColor: 'rgba(57, 255, 20, 0.15)',
-                          color: '#39FF14',
-                          fontWeight: 500,
-                          textShadow: '0 0 8px rgba(57, 255, 20, 0.5)'
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          cursor: 'not-allowed'
                         }}>
-                        Coming Soon
+                        {link.name}
+                        <span
+                          className="text-[10px] px-1.5 py-0.5 rounded"
+                          style={{
+                            backgroundColor: 'rgba(57, 255, 20, 0.15)',
+                            color: '#39FF14',
+                            fontWeight: 500,
+                            textShadow: '0 0 8px rgba(57, 255, 20, 0.5)'
+                          }}>
+                          Coming Soon
+                        </span>
                       </span>
-                    </span>
+                    ) : (
+                      <Link
+                        href={link.path}
+                        className="font-body text-xs font-normal inline-flex items-center gap-1.5 transition-colors"
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.7)'
+                        }}
+                        target="_blank"
+                        rel="noreferrer">
+                        {link.name}
+                        <span
+                          className="text-[10px] px-1.5 py-0.5 rounded"
+                          style={{
+                            backgroundColor: 'rgba(63, 189, 255, 0.18)',
+                            color: '#3fbdff',
+                            fontWeight: 600,
+                            textShadow: '0 0 8px rgba(63, 189, 255, 0.5)'
+                          }}>
+                          Live
+                        </span>
+                      </Link>
+                    )}
                     <p
                       className="font-body text-[10px] font-normal"
                       style={{
