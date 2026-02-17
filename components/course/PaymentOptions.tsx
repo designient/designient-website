@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, CreditCard, ArrowRight, CheckCircle, DollarSign, Percent, AlertCircle } from 'react-feather';
 import Link from 'next/link';
@@ -93,20 +93,45 @@ function calculateInstallments(totalPrice: number, currency: 'INR' | 'USD', cour
 }
 
 export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) {
-  const { currency } = useCurrency();
+  const { currency, isLoading } = useCurrency();
   const [selectedPlan, setSelectedPlan] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
 
-  // Get course pricing
+  // Prevent hydration mismatch by only rendering after mount
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  // Get course pricing - use default USD during SSR to match server render
   const pricing = coursePricing[courseSlug];
-  const priceStr = currency === 'INR' ? pricing.inr.price : pricing.usd.price;
+  const activeCurrency = isMounted && !isLoading ? currency : 'USD';
+  const priceStr = activeCurrency === 'INR' ? pricing.inr.price : pricing.usd.price;
   const totalPrice = parsePrice(priceStr);
 
   // Calculate installments
-  const installmentData = calculateInstallments(totalPrice, currency, courseType);
-  const advanceDisplay = formatCurrency(installmentData.advance, currency);
+  const installmentData = calculateInstallments(totalPrice, activeCurrency, courseType);
+  const advanceDisplay = formatCurrency(installmentData.advance, activeCurrency);
+
+  // Show loading state during hydration to prevent mismatch
+  if (!isMounted || isLoading) {
+    return (
+      <section className="py-20 md:py-28" style={{ backgroundColor: '#f9fafb' }}>
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center">
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded w-64 mx-auto mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-96 mx-auto"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: 'white' }}>
+    <section className="py-20 md:py-28" style={{ backgroundColor: '#f9fafb' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -250,7 +275,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   'Reserves your seat in the batch',
                   'Balance of 1st installment due 3 days before batch starts',
                   'Choose from flexible installment plans',
-                  currency === 'INR' ? 'Pay via UPI or Bank Transfer' : 'Secure payment via Skydo'
+                  activeCurrency === 'INR' ? 'Pay via UPI or Bank Transfer' : 'Secure payment via Skydo'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#f2d53c' }} />
@@ -335,7 +360,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                         <span className="block sm:hidden text-xs mt-1" style={{ color: '#6b7280' }}>{inst.when}</span>
                       </td>
                       <td className="py-3 px-4 font-body font-semibold text-sm text-right" style={{ color: '#1a1a1a' }}>
-                        {formatCurrency(inst.amount, currency)}
+                        {formatCurrency(inst.amount, activeCurrency)}
                       </td>
                       <td className="py-3 px-4 font-body text-sm text-right hidden sm:table-cell" style={{ color: '#6b7280' }}>
                         {inst.when}
@@ -344,7 +369,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   ))}
                   <tr style={{ backgroundColor: '#8458B3' }}>
                     <td className="py-3 px-4 font-body font-bold text-white text-sm">Total</td>
-                    <td className="py-3 px-4 font-body font-bold text-white text-sm text-right">{formatCurrency(totalPrice, currency)}</td>
+                    <td className="py-3 px-4 font-body font-bold text-white text-sm text-right">{formatCurrency(totalPrice, activeCurrency)}</td>
                     <td className="py-3 px-4 hidden sm:table-cell"></td>
                   </tr>
                 </tbody>
@@ -367,7 +392,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
           </motion.div>
 
           {/* Education Loan Section - INR Only */}
-          {currency === 'INR' && (
+          {activeCurrency === 'INR' && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

@@ -24,7 +24,7 @@ export function ToolsCoveredSection({
   description = 'Industry-standard tools used by professional designers worldwide'
 }: ToolsCoveredSectionProps) {
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: '#fceed1' }}>
+    <section id="tools" className="py-20 md:py-28" style={{ backgroundColor: '#f9fafb' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -63,18 +63,11 @@ export function CourseCTA({
           
           {secondaryText && (
             <p
-              className="font-body mb-4 text-lg opacity-90"
+              className="font-body mb-8 text-lg opacity-90 leading-relaxed"
               style={{ fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
               {secondaryText}
             </p>
           )}
-          
-          <p
-            className="font-body mb-8 text-sm opacity-80"
-            style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}>
-            Limited seats per batch. To maintain quality mentorship and personalised feedback, each batch is intentionally kept small.<br />
-            Admissions close once seats are filled.
-          </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             {/* Primary CTA: WhatsApp */}

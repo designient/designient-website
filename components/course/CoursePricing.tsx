@@ -61,7 +61,7 @@ export function CoursePricing({
   }
 
   return (
-    <section id="pricing" className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+    <section id="pricing" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -77,6 +77,9 @@ export function CoursePricing({
                 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}>
                 Course Pricing
               </h2>
+              <p className="font-body text-base md:text-lg opacity-90 mb-6 max-w-2xl mx-auto" style={{ fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}>
+                Transparent pricing with flexible payment options. All prices include full course access and support.
+              </p>
 
               {/* Urgency Banner in Pricing */}
               {!batchFull && batchDates && (

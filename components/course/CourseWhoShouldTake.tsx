@@ -8,11 +8,12 @@ interface CourseWhoShouldTakeProps {
   description: string;
   idealFor: string[];
   notFor?: string[];
+  locationRelevance?: string;
 }
 
-export function CourseWhoShouldTake({ description, idealFor, notFor }: CourseWhoShouldTakeProps) {
+export function CourseWhoShouldTake({ description, idealFor, notFor, locationRelevance }: CourseWhoShouldTakeProps) {
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+    <section id="who-should-take" className="py-20 md:py-28" style={{ backgroundColor: '#FFF6E2' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           
@@ -106,6 +107,20 @@ export function CourseWhoShouldTake({ description, idealFor, notFor }: CourseWho
               </motion.div>
             )}
           </div>
+
+          {/* Location/Market Relevance */}
+          {locationRelevance && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+              <p className="font-body text-sm md:text-base leading-relaxed text-center" style={{ color: '#4a4a4a' }}>
+                <strong style={{ color: '#8458B3' }}>Market Alignment:</strong> {locationRelevance}
+              </p>
+            </motion.div>
+          )}
         </div>
       </div>
     </section>

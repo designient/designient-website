@@ -20,6 +20,10 @@ interface CourseStructuredDataProps {
   duration: string;
   totalTime: string;
   url: string;
+  learningObjectives?: string[];
+  outcome?: string;
+  audience?: string | string[];
+  educationalCredentialAwarded?: string;
 }
 
 export function CourseStructuredData({
@@ -35,7 +39,11 @@ export function CourseStructuredData({
   reviewCount,
   duration,
   totalTime,
-  url
+  url,
+  learningObjectives,
+  outcome,
+  audience,
+  educationalCredentialAwarded: propEducationalCredentialAwarded
 }: CourseStructuredDataProps) {
   const { currency, isLoading } = useCurrency();
   
@@ -59,14 +67,19 @@ export function CourseStructuredData({
       url: 'https://designient.com',
       logo: 'https://designient.com/designient-logo.svg'
     },
-    educationalCredentialAwarded: courseSlug === 'ui-ux-design-pro' ? 'UI/UX Design Pro Certificate' : undefined,
+    educationalCredentialAwarded: propEducationalCredentialAwarded || (courseSlug === 'ui-ux-design-pro' ? 'UI/UX Design Pro Certificate' : undefined),
     timeRequired: timeRequired,
     courseMode: courseSlug === 'ui-ux-design-pro' ? ['Online', 'Offline', 'Hybrid'] : undefined,
     occupationalCredentialAwarded: courseSlug === 'ui-ux-design-pro' ? 'UI/UX Designer' : undefined,
-    audience: courseSlug === 'ui-ux-design-pro' ? {
+    audience: audience ? {
+      '@type': 'Audience',
+      audienceType: Array.isArray(audience) ? audience : [audience]
+    } : (courseSlug === 'ui-ux-design-pro' ? {
       '@type': 'Audience',
       audienceType: ['Beginners', 'Career Switchers', 'Working Professionals']
-    } : undefined,
+    } : undefined),
+    learningObjectives: learningObjectives,
+    outcome: outcome,
     teaches: teaches,
     inLanguage: 'English',
     url: url,

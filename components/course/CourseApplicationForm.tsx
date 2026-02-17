@@ -307,7 +307,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
   }
 
   return (
-    <section id="course-application-form" className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+    <section id="course-application-form" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -333,7 +333,9 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                 fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
                 lineHeight: '1.8'
               }}>
-              Applications reviewed within 24 hours. Limited seats per batch.
+              Application reviewed within 24 hours. Curated small cohort for personalized mentorship.
+              <br />
+              <span className="mt-1 block">Limited seats per batch. To maintain quality mentorship and personalised feedback, each batch is intentionally kept small. Admissions close once seats are filled.</span>
             </p>
             <p
               className="font-body text-sm"

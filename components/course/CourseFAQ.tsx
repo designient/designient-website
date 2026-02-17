@@ -34,7 +34,7 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
   } : null;
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+    <section id="faqs" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
       {faqSchema && <StructuredData data={faqSchema} />}
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
@@ -51,6 +51,9 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
             }}>
             {title}
           </h2>
+          <p className="font-body text-base md:text-lg max-w-2xl mx-auto leading-relaxed mt-4" style={{ color: '#6b7280' }}>
+            Common questions about the bootcamp, curriculum, and enrollment process.
+          </p>
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-4">

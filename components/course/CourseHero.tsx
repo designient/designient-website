@@ -157,9 +157,11 @@ export function CourseHero({
                     </div>
                   </div>
                   <p
-                    className="font-body text-xs"
+                    className="font-body text-xs leading-relaxed"
                     style={{ color: '#6b7280', fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)' }}>
-                    To maintain quality mentorship and personalised feedback, each batch is intentionally kept small. Admissions close once seats are filled.
+                    Application reviewed within 24 hours. Curated small cohort for personalized mentorship.
+                    <br />
+                    <span className="mt-1 block">Limited seats per batch. To maintain quality mentorship and personalised feedback, each batch is intentionally kept small. Admissions close once seats are filled.</span>
                   </p>
                 </div>
               </motion.div>

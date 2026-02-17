@@ -22,42 +22,43 @@ export function OutcomeTransformationSection({
     : 'From beginner to job-ready designer—here\'s your transformation journey.';
 
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: '#FFF6E2' }}>
+    <section id="outcomes" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.05, margin: "100px 0px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto">
+          className="max-w-5xl mx-auto">
           <h2
-            className="font-display text-center mb-8 font-bold"
+            className="font-display text-center mb-6 font-bold"
             style={{
               color: '#1a1a1a',
-              fontSize: 'clamp(1.75rem, 3vw, 2.25rem)'
+              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
+              lineHeight: '1.2'
             }}>
             What you'll become in {duration}
           </h2>
           <p
-            className="font-body text-center mb-10 leading-relaxed max-w-2xl mx-auto"
+            className="font-body text-center mb-12 leading-relaxed max-w-2xl mx-auto"
             style={{
               color: '#4a4a4a',
               fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
-              lineHeight: '1.8'
+              lineHeight: '1.7'
             }}>
             {description || defaultDescription}
           </p>
-          <div className="grid md:grid-cols-2 gap-5">
+          <div className="grid md:grid-cols-2 gap-6">
             {outcomes.map((outcome, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="flex items-start gap-3 p-5 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                transition={{ delay: index * 0.08, duration: 0.5 }}
+                className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                <span className="font-body leading-relaxed" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                   {outcome}
                 </span>
               </motion.div>

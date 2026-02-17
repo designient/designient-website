@@ -35,15 +35,18 @@ interface CourseCurriculumProps {
 }
 
 export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: CourseCurriculumProps) {
-  const [expandedMonths, setExpandedMonths] = useState<number[]>([]);
-  const [expandedWeeks, setExpandedWeeks] = useState<string[]>([]);
+  // Initialize with first week expanded by default
+  const [expandedWeeks, setExpandedWeeks] = useState<string[]>(() => {
+    if (weekWiseCurriculum && weekWiseCurriculum.length > 0) {
+      // First week of first month should be expanded
+      const firstMonth = weekWiseCurriculum[0];
+      if (firstMonth.weeks.length > 0) {
+        return [`month-0-week-${firstMonth.weeks[0].week}`];
+      }
+    }
+    return [];
+  });
   const [expandedModules, setExpandedModules] = useState<number[]>([]);
-
-  const toggleMonth = (monthIndex: number) => {
-    setExpandedMonths((prev) =>
-      prev.includes(monthIndex) ? prev.filter((i) => i !== monthIndex) : [...prev, monthIndex]
-    );
-  };
 
   const toggleWeek = (weekKey: string) => {
     setExpandedWeeks((prev) =>
@@ -56,7 +59,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
     const totalCourseHours = weekWiseCurriculum.reduce((sum, month) => sum + month.totalHours, 0);
 
     return (
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#fceed1' }}>
+      <section id="curriculum" className="py-20 md:py-28" style={{ backgroundColor: '#fceed1' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -74,17 +77,16 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
             </h2>
             {totalHours && (
               <p className="font-body text-lg mb-2" style={{ color: '#6b7280' }}>
-                {totalHours} of comprehensive learning
+                {totalHours} of comprehensive learning.
               </p>
             )}
             <p className="font-body text-sm" style={{ color: '#6b7280' }}>
-              Week-wise breakdown with detailed hour distribution
+              Week-wise breakdown with detailed hour distribution.
             </p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto space-y-4">
             {weekWiseCurriculum.map((month, monthIndex) => {
-              const isMonthExpanded = expandedMonths.includes(monthIndex);
               return (
                 <motion.div
                   key={monthIndex}
@@ -95,10 +97,8 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                   className="bg-white rounded-xl overflow-hidden shadow-lg border-2"
                   style={{ borderColor: '#8458B3' }}>
 
-                  {/* Month Header */}
-                  <button
-                    onClick={() => toggleMonth(monthIndex)}
-                    className="w-full flex items-center justify-between p-4 md:p-6 text-left hover:bg-gray-50 transition-colors">
+                  {/* Month Header - Always visible, no dropdown */}
+                  <div className="w-full flex items-center p-4 md:p-6">
                     <div className="flex items-center gap-3 md:gap-4 flex-1">
                       <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg flex items-center justify-center font-display font-bold text-base md:text-lg"
                         style={{ backgroundColor: '#8458B3', color: 'white' }}>
@@ -124,17 +124,11 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                         </div>
                       </div>
                     </div>
-                    <motion.div
-                      animate={{ rotate: isMonthExpanded ? 180 : 0 }}
-                      transition={{ duration: 0.3 }}>
-                      <ChevronDown className="w-6 h-6 flex-shrink-0" style={{ color: '#8458B3' }} />
-                    </motion.div>
-                  </button>
+                  </div>
 
-                  {/* Month Content - Week Details */}
-                  {isMonthExpanded && (
-                    <div className="border-t" style={{ borderColor: '#e5e7eb' }}>
-                      <div className="p-6 space-y-4">
+                  {/* Month Content - Week Details - Always visible */}
+                  <div className="border-t" style={{ borderColor: '#e5e7eb' }}>
+                    <div className="p-6 space-y-4">
                         {month.weeks.map((week) => {
                           const weekKey = `month-${monthIndex}-week-${week.week}`;
                           const isWeekExpanded = expandedWeeks.includes(weekKey);
@@ -248,7 +242,6 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                         </div>
                       </div>
                     </div>
-                  )}
                 </motion.div>
               );
             })}
@@ -270,7 +263,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
                 </span>
               </div>
               <p className="font-body text-sm mt-2" style={{ color: 'rgba(255, 255, 255, 0.9)' }}>
-                Distributed across 12 weeks of comprehensive UI/UX design training
+                Distributed across 4 weeks of intensive UI/UX design training
               </p>
             </motion.div>
           </div>
@@ -294,7 +287,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
   }
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#fceed1' }}>
+    <section id="curriculum" className="py-20 md:py-28" style={{ backgroundColor: '#fceed1' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

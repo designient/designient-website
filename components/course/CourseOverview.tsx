@@ -18,7 +18,7 @@ export function CourseOverview({
   careerPaths
 }: CourseOverviewProps) {
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+    <section className="py-20 md:py-28" style={{ backgroundColor: '#FFF6E2' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         
         {/* Description */}
