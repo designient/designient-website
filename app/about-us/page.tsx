@@ -1,150 +1,224 @@
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { StructuredData } from '../../components/StructuredData'
-import { AboutUsContent } from '../../components/about/AboutUsContent'
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { Check, X, MapPin } from 'lucide-react'
+import { Navbar } from '../../components/layout/Navbar'
+import { Footer } from '../../components/layout/Footer'
+import { Button } from '../../components/ui/Button'
+import { Overline } from '../../components/ui/Badge'
+import { Reveal } from '../../components/ui/Reveal'
+import { StructuredData } from '../../components/StructuredData'
+import { CTASection } from '../../components/sections/CTASection'
 
 export const metadata: Metadata = {
-  title: 'About Us - Designient School of Masterminds | UI/UX Design Training',
-  description: 'Learn about Designient School of Masterminds - India\'s leading UI/UX design training institute. Hands-on training, industry mentors, portfolio building, and 95% placement rate. Founded in 2016, serving students globally.',
-  keywords: ['about designient', 'UI/UX design school', 'design training institute', 'design education', 'designient school', 'UI/UX training Bangalore', 'design school India'],
+  title: 'About Designient — School of Masterminds | UI/UX Design',
+  description:
+    "Small batches. Real mentors. No shortcuts. Learn about Designient School of Masterminds — India's boutique UI/UX design school in Bangalore, Hyderabad & Pune.",
   openGraph: {
-    title: 'About Us - Designient School of Masterminds | UI/UX Design Training',
-    description: 'Redefining UI/UX education for creative minds ready to turn passion into profession. Hands-on training, industry mentors, and career support.',
+    title: 'About Designient — School of Masterminds',
+    description: 'Small batches. Real mentors. No shortcuts. The philosophy behind Designient.',
     url: 'https://designient.com/about-us',
-    images: ['/favicon-designient.png'],
-    type: 'website',
   },
-  alternates: {
-    canonical: 'https://designient.com/about-us',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  alternates: { canonical: 'https://designient.com/about-us' },
 }
 
-const aboutData = {
-  story: {
-    title: 'Our Story',
-    content: 'Designient School of Masterminds was created for learners who want more than cookie-cutter courses. We believe UI/UX is about solving real problems, crafting rich experiences, and building careers that matter. Our mission is to train designers who are confident, creative, and job-ready from day one.'
-  },
-  whyChooseUs: {
-    title: 'Why Choose Us',
-    items: [
-      'Hands-on UI/UX training with real projects',
-      'Mentors with industry experience and world-class design portfolios',
-      'Portfolio building that gets noticed by employers',
-      'Personalised mentorship and career guidance',
-      'Lifetime access to learning resources and community'
-    ]
-  },
-  approach: {
-    title: 'Our Approach',
-    content: 'At Designient, learning is practice-first. You\'ll master user research, wireframes, visual design, prototyping and user testing with hands-on projects and real feedback loops.'
-  },
-  careerSupport: {
-    title: 'Career Support & Job Placement',
-    content: 'We empower learners to land design jobs with confidence by providing job placement assistance, portfolio reviews, interview coaching and industry connections.'
-  },
-  mission: {
-    title: 'Mission',
-    content: 'To provide the best UI/UX education at affordable prices for passionate students aiming to elevate their careers.'
-  },
-  visionValues: {
-    title: 'Vision & Values',
-    vision: 'To build the most student-centric design learning experience that serves eager minds across the globe.',
-    values: [
-      'Ethical Design',
-      'Accessible Education',
-      'Domain Mastery',
-      'Empathy & Human-Centric Thinking',
-      'Global Community Impact'
-    ]
-  },
-  journey: {
-    title: 'Our Journey',
-    milestones: [
-      { year: '2016', event: 'A Vision Was Born' },
-      { year: '2018', event: 'Adobe Partnership Begins' },
-      { year: '2020', event: 'Online Learning Started' },
-      { year: '2021', event: '150+ Students Placed' },
-      { year: '2023', event: 'New Hyderabad Office' },
-      { year: '2024', event: 'Generative AI in Curriculum' },
-      { year: '2025', event: 'Launch of Pune Branch' }
-    ]
-  }
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'EducationalOrganization',
+  name: 'Designient School of Masterminds',
+  url: 'https://designient.com',
+  address: [
+    { '@type': 'PostalAddress', streetAddress: '148, Church St, Haridevpur, Ashok Nagar', addressLocality: 'Bengaluru', addressRegion: 'Karnataka', postalCode: '560001', addressCountry: 'IN' },
+    { '@type': 'PostalAddress', streetAddress: 'RENT A DESK, Road No. 36, Jubilee Hills', addressLocality: 'Hyderabad', addressRegion: 'Telangana', postalCode: '500034', addressCountry: 'IN' },
+    { '@type': 'PostalAddress', streetAddress: '5th floor, SAI RADHE COMPLEX, Sangamvadi', addressLocality: 'Pune', addressRegion: 'Maharashtra', postalCode: '411001', addressCountry: 'IN' },
+  ],
 }
 
-export default function AboutUsPage() {
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'EducationalOrganization',
-    name: 'Designient School of Masterminds',
-    alternateName: 'Designient',
-    description: 'Redefining UI/UX education for creative minds ready to turn passion into profession. Hands-on training, industry mentors, and career support.',
-    url: 'https://designient.com',
-    logo: 'https://designient.com/designient-logo.svg',
-    foundingDate: '2016',
-    address: [
-      {
-        '@type': 'PostalAddress',
-        addressLocality: 'Bangalore',
-        addressRegion: 'Karnataka',
-        addressCountry: 'IN'
-      },
-      {
-        '@type': 'PostalAddress',
-        addressLocality: 'Hyderabad',
-        addressRegion: 'Telangana',
-        addressCountry: 'IN'
-      }
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+91-9353000320',
-      contactType: 'Customer Service',
-      email: 'hello@designient.com'
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '500',
-      bestRating: '5',
-      worstRating: '1'
-    },
-    sameAs: [
-      'https://www.linkedin.com/company/designient',
-      'https://www.facebook.com/designient',
-      'https://www.instagram.com/designient'
-    ]
-  }
+const philosophy = [
+  { title: 'Mastery Over Speed', body: "We don't rush students through content. We build craftspeople — designers who understand the why, not just the how." },
+  { title: 'Mentors, Not Lecturers', body: 'Every instructor designs real products every day. Teaching is their craft too. They bring live industry context into every session.' },
+  { title: 'AI as a Collaborator', body: 'We teach AI tools as creative partners, not replacements for thinking. Our students leave with a genuine AI-native workflow.' },
+]
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://designient.com'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'About Us',
-        item: 'https://designient.com/about-us'
-      }
-    ]
-  }
+const forYou = [
+  'You are serious about building real, portfolio-grade skills',
+  'You want personalised mentorship — not pre-recorded videos',
+  'You are ready to practice, fail, iterate, and grow',
+  'You want a small cohort where everyone knows your name',
+  'You value quality over the cheapest available option',
+]
 
+const notForYou = [
+  'You prefer recorded-only, self-paced content',
+  'You are looking for a shortcut or overnight success',
+  'You are not ready to put in daily practice and feedback cycles',
+  'You want a 1000-person Zoom call you can lurk in anonymously',
+]
+
+const locations = [
+  {
+    city: 'Bangalore',
+    address: '148, Church St, Haridevpur, Ashok Nagar, Bengaluru 560001',
+    note: 'Our flagship campus. Design studio environment, dedicated critique rooms.',
+  },
+  {
+    city: 'Hyderabad',
+    address: 'RENT A DESK, Road No. 36, Jubilee Hills, Hyderabad 500034',
+    note: 'Co-working studio in the heart of Jubilee Hills tech hub.',
+  },
+  {
+    city: 'Pune',
+    address: '5th floor, SAI RADHE COMPLEX, Sangamwadi, Pune 411001',
+    note: 'Growing campus in Pune\'s creative and startup district.',
+  },
+  {
+    city: 'Online',
+    address: 'Live virtual cohorts — same mentors, same batch cap, same experience.',
+    note: 'Full HD video, collaborative FigJam sessions, and 1:1 mentor calls.',
+  },
+]
+
+export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
-      <StructuredData data={[organizationSchema, breadcrumbSchema]} />
-      <Header />
-      <main id="main-content" role="main">
-        <AboutUsContent aboutData={aboutData} />
+    <div className="min-h-screen bg-void">
+      <StructuredData data={organizationSchema} />
+      <Navbar />
+      <main id="main-content">
+        {/* HERO */}
+        <section
+          aria-labelledby="about-hero-heading"
+          className="relative isolate pt-20 pb-28 md:pt-28 md:pb-36 overflow-hidden section-glow"
+        >
+          <div className="absolute inset-0 bg-dots opacity-30 -z-10" aria-hidden="true" />
+          <div className="max-w-container mx-auto container-px text-center">
+            <Reveal>
+              <Overline>About Designient</Overline>
+              <h1
+                id="about-hero-heading"
+                className="mt-6 mx-auto max-w-3xl font-serif text-[clamp(2.5rem,6vw,4rem)] leading-[1.06] tracking-[-0.025em] text-ivory text-balance"
+              >
+                Small batches. Real mentors.{' '}
+                <span className="italic text-amber">No shortcuts.</span>
+              </h1>
+              <p className="mt-8 mx-auto max-w-2xl font-serif italic text-[clamp(1.125rem,2vw,1.375rem)] text-silver leading-[1.55]">
+                &ldquo;In my own journey I&rsquo;ve been the nervous student, the dedicated
+                apprentice, and the confident master. Designient exists to give every designer that
+                same journey — accelerated, mentored, and real.&rdquo;
+              </p>
+              <p className="mt-4 text-body-sm text-ash uppercase tracking-[0.12em]">
+                — The Founder
+              </p>
+            </Reveal>
+          </div>
+        </section>
+
+        {/* PHILOSOPHY */}
+        <section aria-labelledby="philosophy-heading" className="section bg-void">
+          <div className="max-w-container mx-auto container-px">
+            <Reveal>
+              <Overline>Our Philosophy</Overline>
+              <h2
+                id="philosophy-heading"
+                className="mt-5 font-serif text-display-sm md:text-display-md text-ivory text-balance max-w-2xl"
+              >
+                Three beliefs that shape everything we do.
+              </h2>
+            </Reveal>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12">
+              {philosophy.map((item, i) => (
+                <Reveal key={item.title} delay={i * 100}>
+                  <div className="border-t-2 border-amber pt-8">
+                    <h3 className="font-sans text-[18px] font-semibold text-ivory">{item.title}</h3>
+                    <p className="mt-3 text-silver text-[15.5px] leading-[1.65]">{item.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FOR / NOT FOR */}
+        <section
+          aria-labelledby="for-heading"
+          className="section"
+          style={{ background: 'var(--color-obsidian)' }}
+        >
+          <div className="max-w-container mx-auto container-px">
+            <Reveal>
+              <Overline>Who This Is For</Overline>
+              <h2
+                id="for-heading"
+                className="mt-5 font-serif text-display-sm md:text-display-md text-ivory text-balance max-w-2xl"
+              >
+                We&rsquo;re honest about who we&rsquo;re a good fit for.
+              </h2>
+            </Reveal>
+            <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-8">
+              <Reveal>
+                <div className="rounded-lg border border-success/20 bg-success/[0.04] p-8">
+                  <h3 className="font-sans text-[16px] font-semibold text-success uppercase tracking-[0.08em] mb-6">
+                    Designient is for you if…
+                  </h3>
+                  <ul className="space-y-4">
+                    {forYou.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <Check size={16} strokeWidth={2} className="text-success mt-0.5 flex-shrink-0" />
+                        <span className="text-cloud text-[15.5px]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+              <Reveal delay={100}>
+                <div className="rounded-lg border border-white/10 bg-white/[0.02] p-8">
+                  <h3 className="font-sans text-[16px] font-semibold text-ash uppercase tracking-[0.08em] mb-6">
+                    We&rsquo;re probably not the right fit if…
+                  </h3>
+                  <ul className="space-y-4">
+                    {notForYou.map((item) => (
+                      <li key={item} className="flex items-start gap-3">
+                        <X size={16} strokeWidth={2} className="text-ash mt-0.5 flex-shrink-0" />
+                        <span className="text-silver text-[15.5px]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        {/* LOCATIONS */}
+        <section aria-labelledby="locations-heading" className="section bg-void">
+          <div className="max-w-container mx-auto container-px">
+            <Reveal>
+              <Overline>Our Campuses</Overline>
+              <h2
+                id="locations-heading"
+                className="mt-5 font-serif text-display-sm md:text-display-md text-ivory text-balance max-w-2xl"
+              >
+                Where to find us.
+              </h2>
+            </Reveal>
+            <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {locations.map((loc, i) => (
+                <Reveal key={loc.city} delay={i * 80}>
+                  <div className="card p-6 h-full flex flex-col gap-3">
+                    <div className="inline-flex items-center gap-2 text-amber">
+                      <MapPin size={14} strokeWidth={1.5} />
+                      <span className="font-medium text-[14px] uppercase tracking-[0.1em]">
+                        {loc.city}
+                      </span>
+                    </div>
+                    <p className="text-cloud text-[14px] leading-relaxed">{loc.address}</p>
+                    <p className="text-ash text-[13px] leading-relaxed mt-auto">{loc.note}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CTASection />
       </main>
       <Footer />
     </div>
