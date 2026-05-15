@@ -1,103 +1,67 @@
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import type { Metadata } from 'next'
+import { Navbar } from '../../components/layout/Navbar'
+import { Footer } from '../../components/layout/Footer'
 import { StructuredData } from '../../components/StructuredData'
 import { VerifyCertificateForm } from '../../components/verify/VerifyCertificateForm'
-import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Verify Certificate – Designient School of Masterminds',
-  description: 'Instantly verify digital certificates issued by Designient School of Masterminds. Enter your certificate details to verify authenticity and view your credential.',
-  keywords: ['certificate verification', 'verify certificate', 'designient certificate', 'digital certificate', 'certificate validation', 'credential verification'],
+  title: 'Verify a Designient Certificate | Designient',
+  description:
+    'Verify the authenticity of any Designient certificate. Enter the certificate ID to confirm it was issued by Designient School of Masterminds.',
   openGraph: {
-    title: 'Verify Certificate – Designient School of Masterminds',
-    description: 'Instantly verify digital certificates issued by Designient School of Masterminds.',
+    title: 'Verify a Designient Certificate',
+    description: 'Confirm the authenticity of a Designient School of Masterminds certificate.',
     url: 'https://designient.com/verify',
-    images: [
-      {
-        url: '/favicon-designient.png',
-        width: 192,
-        height: 192,
-        alt: 'Designient Certificate Verification',
-      },
-    ],
-    type: 'website',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Verify Certificate – Designient School of Masterminds',
-    description: 'Instantly verify digital certificates issued by Designient School of Masterminds.',
-    images: ['/favicon-designient.png'],
-  },
-  alternates: {
-    canonical: 'https://designient.com/verify',
-  },
+  alternates: { canonical: 'https://designient.com/verify' },
 }
 
-export default function VerifyCertificatePage() {
-  const breadcrumbSchema = {
+const schemas = [
+  {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://designient.com',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Verify Certificate',
-        item: 'https://designient.com/verify',
-      },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://designient.com' },
+      { '@type': 'ListItem', position: 2, name: 'Verify Certificate', item: 'https://designient.com/verify' },
     ],
-  }
-
-  const faqSchema = {
+  },
+  {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'Can anyone verify a certificate?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, anyone can verify a certificate issued by Designient School of Masterminds. Simply enter the certificate details on our verification page to confirm its authenticity.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Are certificates valid on LinkedIn?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Yes, our certificates can be added to LinkedIn profiles. Active certificates include an "Add to LinkedIn" button that automatically populates the credential information.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What if my certificate is not found?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'If your certificate is not found, please double-check the certificate ID, course name, and year. If the issue persists, contact Designient support at hello@designient.com for assistance.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can certificates expire or be revoked?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Some certificates may have expiration dates for time-bound courses. Certificates can also be revoked in rare cases of misconduct. The certificate status will always be clearly displayed on the verification page.',
-        },
-      },
+      { '@type': 'Question', name: 'Can anyone verify a certificate?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. Simply enter the certificate ID on this page to confirm its authenticity. No account required.' } },
+      { '@type': 'Question', name: 'What if my certificate is not found?', acceptedAnswer: { '@type': 'Answer', text: 'Double-check the certificate ID exactly as printed. If the issue persists, email hello@designient.com.' } },
     ],
-  }
+  },
+]
 
+export default function VerifyPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
-      <StructuredData data={[breadcrumbSchema, faqSchema]} />
-      <Header />
-      <main id="main-content" role="main">
-        <VerifyCertificateForm />
+    <div className="min-h-screen bg-void">
+      <StructuredData data={schemas} />
+      <Navbar />
+      <main id="main-content" className="section-glow">
+        <section
+          aria-labelledby="verify-heading"
+          className="section flex flex-col items-center text-center"
+        >
+          <div className="max-w-container mx-auto container-px w-full flex flex-col items-center">
+            <span className="overline mb-6">Certificate Verification</span>
+            <h1
+              id="verify-heading"
+              className="font-serif text-[clamp(2rem,5vw,3rem)] leading-[1.1] tracking-[-0.02em] text-ivory text-balance max-w-xl"
+            >
+              Verify a Designient Certificate
+            </h1>
+            <p className="mt-5 text-body-md text-silver max-w-lg">
+              Enter the certificate ID printed on any Designient certificate to verify its
+              authenticity.
+            </p>
+            <div className="mt-12 w-full max-w-lg">
+              <VerifyCertificateForm />
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

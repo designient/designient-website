@@ -1,60 +1,55 @@
 import type { Metadata } from 'next'
 import React from 'react'
-import { Bebas_Neue, Inter } from 'next/font/google'
+import { instrumentSerif, outfit, jetbrainsMono } from '../styles/fonts'
 import { CurrencyProvider } from '../contexts/CurrencyContext'
 import { WhatsAppButton } from '../components/WhatsAppButton'
 import { SkipLink } from '../components/SkipLink'
 import { Analytics } from '../components/Analytics'
 import './globals.css'
 
-const bebasNeue = Bebas_Neue({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-display',
-  display: 'swap',
-})
-
-const inter = Inter({
-  weight: ['300', '400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
   title: {
-    default: 'Designient - UI/UX Design Training | Bangalore & Hyderabad',
-    template: '%s | Designient'
+    default: 'Designient — School of Masterminds | UI/UX Design Courses',
+    template: '%s | Designient',
   },
-  description: 'Designient - India\'s leading UI/UX design institute in Bangalore & Hyderabad. 95% placement rate, Adobe certified courses, mentorship. Start your design career.',
-  keywords: ['UI/UX design course', 'design training Bangalore', 'design institute Hyderabad', 'Adobe certified', 'design bootcamp', 'UX design course India'],
+  description:
+    "Design careers built by masters, not machines. Small-batch mentorship, AI-integrated curriculum, 95% placement rate. Adobe certified UI/UX courses in Bangalore, Hyderabad & Pune.",
+  keywords: [
+    'UI/UX design course',
+    'design training Bangalore',
+    'design institute Hyderabad',
+    'Adobe certified',
+    'design bootcamp',
+    'UX design course India',
+    'AI design course',
+  ],
   authors: [{ name: 'Designient' }],
   creator: 'Designient',
   publisher: 'Designient',
   metadataBase: new URL('https://designient.com'),
-  alternates: {
-    canonical: '/',
-  },
+  alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://designient.com',
-    siteName: 'Designient',
-    title: 'Designient - UI/UX Design Training Institute',
-    description: 'India\'s leading UI/UX design training institute with 95% placement rate. Adobe certified courses in Bangalore and Hyderabad.',
+    siteName: 'Designient — School of Masterminds',
+    title: 'Designient — Design careers built by masters, not machines.',
+    description:
+      "Small-batch mentorship. AI-integrated curriculum. 95% placement rate. Adobe certified.",
     images: [
       {
         url: '/favicon-designient.png',
-        width: 192,
-        height: 192,
-        alt: 'Designient - UI/UX Design Training',
+        width: 512,
+        height: 512,
+        alt: 'Designient — School of Masterminds',
       },
     ],
   },
   twitter: {
-    card: 'summary',
-    title: 'Designient - UI/UX Design Training Institute',
-    description: 'India\'s leading UI/UX design training institute with 95% placement rate.',
+    card: 'summary_large_image',
+    title: 'Designient — School of Masterminds',
+    description:
+      "Design careers built by masters, not machines. Small batches, real mentors, 95% placed.",
     images: ['/favicon-designient.png'],
   },
   robots: {
@@ -67,10 +62,6 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
-  verification: {
-    // Add your verification codes here when available
-    // google: 'your-google-verification-code',
   },
   icons: {
     icon: '/favicon-designient.png',
@@ -85,14 +76,15 @@ export default function RootLayout({
   children: React.ReactNode
 }): React.ReactElement {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${instrumentSerif.variable} ${outfit.variable} ${jetbrainsMono.variable}`}
+    >
       <head>
-        {/* Analytics preconnects */}
-        <link rel="preconnect" href="https://i.pravatar.cc" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
       </head>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+      <body className="font-sans antialiased bg-void text-cloud" suppressHydrationWarning>
         <SkipLink />
         <CurrencyProvider>
           {children}
