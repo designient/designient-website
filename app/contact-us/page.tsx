@@ -81,13 +81,13 @@ export default function ContactPage() {
                 <ul className="mt-10 space-y-5">
                   {contactMethods.map(({ Icon, label, value, href }) => (
                     <li key={label} className="flex items-center gap-4">
-                      <span className="w-10 h-10 rounded-md bg-amber-10 border border-amber/20 grid place-items-center text-amber flex-shrink-0">
+                      <span className="w-10 h-10 rounded-md bg-neon-10 border border-neon/20 grid place-items-center text-neon flex-shrink-0">
                         <Icon size={16} strokeWidth={1.5} />
                       </span>
                       <div>
                         <p className="text-ash text-[12px] uppercase tracking-[0.1em]">{label}</p>
                         {href ? (
-                          <a href={href} className="text-ivory text-[15px] hover:text-amber transition-colors mt-0.5 block">
+                          <a href={href} className="text-ivory text-[15px] hover:text-neon transition-colors mt-0.5 block">
                             {value}
                           </a>
                         ) : (
@@ -147,7 +147,7 @@ export default function ContactPage() {
                       </Button>
                       <p className="text-center text-body-sm text-ash">
                         Or{' '}
-                        <a href="tel:+919353000320" className="text-amber hover:text-amber-glow transition-colors">
+                        <a href="tel:+919353000320" className="text-neon hover:text-neon-glow transition-colors">
                           schedule a call with a mentor
                         </a>{' '}
                         directly.

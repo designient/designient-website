@@ -20,12 +20,12 @@ module.exports = {
         silver: '#9B9BAD',
         cloud: '#CDCDD9',
         ivory: '#F0F0F5',
-        amber: {
-          DEFAULT: '#E8A838',
-          glow: '#F5C45C',
-          muted: '#B8862C',
-          10: 'rgba(232, 168, 56, 0.10)',
-          20: 'rgba(232, 168, 56, 0.20)',
+        neon: {
+          DEFAULT: '#A855F7',
+          glow: '#C084FC',
+          muted: '#7C3AED',
+          10: 'rgba(168, 85, 247, 0.10)',
+          20: 'rgba(168, 85, 247, 0.20)',
         },
         success: {
           DEFAULT: '#3DD68C',
@@ -79,8 +79,8 @@ module.exports = {
         'sm-dark': '0 1px 3px rgba(0, 0, 0, 0.4)',
         'md-dark': '0 4px 16px rgba(0, 0, 0, 0.5)',
         'lg-dark': '0 8px 32px rgba(0, 0, 0, 0.6)',
-        glow: '0 0 40px rgba(232, 168, 56, 0.15)',
-        'glow-strong': '0 0 60px rgba(232, 168, 56, 0.25)',
+        glow: '0 0 40px rgba(168, 85, 247, 0.20)',
+        'glow-strong': '0 0 60px rgba(168, 85, 247, 0.35)',
       },
       transitionTimingFunction: {
         'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',

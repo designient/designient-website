@@ -65,14 +65,14 @@ export function Footer() {
             <div className="mt-6 flex flex-col gap-3 text-[14px] text-silver">
               <a
                 href="mailto:hello@designient.com"
-                className="inline-flex items-center gap-2 hover:text-amber transition-colors"
+                className="inline-flex items-center gap-2 hover:text-neon transition-colors"
               >
                 <Mail size={14} strokeWidth={1.5} />
                 hello@designient.com
               </a>
               <a
                 href="tel:+919353000320"
-                className="inline-flex items-center gap-2 hover:text-amber transition-colors"
+                className="inline-flex items-center gap-2 hover:text-neon transition-colors"
               >
                 <Phone size={14} strokeWidth={1.5} />
                 +91 9353 000 320
@@ -91,7 +91,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[15px] text-cloud hover:text-amber transition-colors"
+                    className="text-[15px] text-cloud hover:text-neon transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[15px] text-cloud hover:text-amber transition-colors"
+                    className="text-[15px] text-cloud hover:text-neon transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -123,7 +123,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[15px] text-cloud hover:text-amber transition-colors"
+                    className="text-[15px] text-cloud hover:text-neon transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -145,7 +145,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-[13px] text-ash hover:text-amber transition-colors"
+                    className="text-[13px] text-ash hover:text-neon transition-colors"
                   >
                     {l.label}
                   </Link>
@@ -164,7 +164,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-9 h-9 grid place-items-center rounded-full border border-white/10 text-[12px] font-medium text-silver hover:text-amber hover:border-amber/30 transition-colors uppercase"
+                  className="w-9 h-9 grid place-items-center rounded-full border border-white/10 text-[12px] font-medium text-silver hover:text-neon hover:border-neon/30 transition-colors uppercase"
                 >
                   {short}
                 </a>

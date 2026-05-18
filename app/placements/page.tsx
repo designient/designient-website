@@ -82,7 +82,7 @@ export default function PlacementsPage() {
               {stats.map((s, i) => (
                 <Reveal key={s.label} delay={i * 80}>
                   <div className="text-center">
-                    <div className="font-serif text-[clamp(2.5rem,5vw,3.5rem)] leading-none text-amber">
+                    <div className="font-serif text-[clamp(2.5rem,5vw,3.5rem)] leading-none text-neon">
                       {s.value}
                     </div>
                     <div className="mt-2 text-ivory text-[15px] font-medium">{s.label}</div>
@@ -113,11 +113,11 @@ export default function PlacementsPage() {
                     {i < steps.length - 1 ? (
                       <div
                         className="absolute left-6 top-14 bottom-0 w-px"
-                        style={{ background: 'linear-gradient(180deg, rgba(232,168,56,0.3) 0%, transparent 100%)' }}
+                        style={{ background: 'linear-gradient(180deg, rgba(168,85,247,0.3) 0%, transparent 100%)' }}
                         aria-hidden="true"
                       />
                     ) : null}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full border border-amber/30 bg-amber-10 grid place-items-center text-amber font-medium text-[13px] uppercase tracking-[0.06em]">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full border border-neon/30 bg-neon-10 grid place-items-center text-neon font-medium text-[13px] uppercase tracking-[0.06em]">
                       {step.num}
                     </div>
                     <div className="pt-2.5">
@@ -150,7 +150,7 @@ export default function PlacementsPage() {
             <div className="mt-12 flex flex-wrap justify-center gap-4">
               {companies.map((c, i) => (
                 <Reveal key={c} delay={i * 40}>
-                  <div className="px-5 py-2.5 rounded-full border border-white/10 text-silver text-[14px] hover:border-amber/30 hover:text-ivory transition-colors">
+                  <div className="px-5 py-2.5 rounded-full border border-white/10 text-silver text-[14px] hover:border-neon/30 hover:text-ivory transition-colors">
                     {c}
                   </div>
                 </Reveal>
@@ -175,13 +175,13 @@ export default function PlacementsPage() {
               {alumni.map((a, i) => (
                 <Reveal key={a.name} delay={i * 100}>
                   <article className="card p-7 h-full flex flex-col">
-                    <span className="font-serif text-display-sm text-amber leading-none">&ldquo;</span>
+                    <span className="font-serif text-display-sm text-neon leading-none">&ldquo;</span>
                     <p className="mt-2 font-serif italic text-[18px] leading-[1.5] text-cloud flex-1">
                       {a.quote}
                     </p>
-                    <div className="mt-6 w-8 h-px bg-amber" />
+                    <div className="mt-6 w-8 h-px bg-neon" />
                     <p className="mt-4 text-ivory font-medium text-[15px]">{a.name}</p>
-                    <p className="text-amber text-[13px] mt-0.5 uppercase tracking-[0.06em]">
+                    <p className="text-neon text-[13px] mt-0.5 uppercase tracking-[0.06em]">
                       {a.journey}
                     </p>
                     <span className="mt-3 inline-block text-[11px] text-ash uppercase tracking-[0.1em] border border-white/10 rounded-full px-3 py-1 w-fit">
@@ -192,7 +192,7 @@ export default function PlacementsPage() {
               ))}
             </div>
             <Reveal className="mt-10 text-center">
-              <Link href="/success-stories" className="text-amber hover:text-amber-glow transition-colors text-[15px] font-medium">
+              <Link href="/success-stories" className="text-neon hover:text-neon-glow transition-colors text-[15px] font-medium">
                 Read all success stories →
               </Link>
             </Reveal>
@@ -203,9 +203,9 @@ export default function PlacementsPage() {
         <section aria-label="Our honesty pledge" className="section" style={{ background: 'var(--color-obsidian)' }}>
           <div className="max-w-container mx-auto container-px">
             <Reveal>
-              <div className="max-w-3xl mx-auto rounded-lg border border-amber/20 bg-amber-10 p-8 md:p-12">
+              <div className="max-w-3xl mx-auto rounded-lg border border-neon/20 bg-neon-10 p-8 md:p-12">
                 <div className="flex items-start gap-4">
-                  <AlertCircle size={24} strokeWidth={1.5} className="text-amber flex-shrink-0 mt-1" />
+                  <AlertCircle size={24} strokeWidth={1.5} className="text-neon flex-shrink-0 mt-1" />
                   <div>
                     <h2 className="font-sans text-[18px] font-semibold text-ivory mb-4">
                       Placement assistance, not fake guarantees.

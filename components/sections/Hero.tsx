@@ -16,34 +16,54 @@ export function Hero() {
       aria-labelledby="hero-heading"
       className="relative isolate overflow-hidden min-h-[calc(100vh-72px)] flex items-center"
     >
-      {/* Background gradient */}
+      {/* Mesh gradient background */}
       <div
         aria-hidden="true"
         className="absolute inset-0 -z-10"
         style={{ background: 'var(--gradient-hero)' }}
       />
-      {/* Amber radial glow centered behind headline */}
+      {/* Primary neon glow — behind headline */}
       <div
         aria-hidden="true"
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] -z-10"
+        className="absolute top-[15%] left-[15%] w-[700px] h-[700px] rounded-full -z-10"
         style={{
-          background: 'radial-gradient(ellipse at center, rgba(232,168,56,0.10) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(168,85,247,0.18) 0%, transparent 65%)',
+          filter: 'blur(60px)',
+        }}
+      />
+      {/* Secondary glow — bottom right accent */}
+      <div
+        aria-hidden="true"
+        className="absolute bottom-[10%] right-[5%] w-[500px] h-[500px] rounded-full -z-10"
+        style={{
+          background: 'radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 65%)',
+          filter: 'blur(80px)',
         }}
       />
       {/* Dot grid (very subtle) */}
-      <div className="absolute inset-0 bg-dots opacity-40 -z-10" aria-hidden="true" />
+      <div className="absolute inset-0 bg-dots opacity-30 -z-10" aria-hidden="true" />
 
-      <div className="max-w-container mx-auto container-px py-20 lg:py-28 w-full">
+      <div className="max-w-container mx-auto container-px py-24 lg:py-40 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7">
             <Overline className="animate-fade-up">School of Masterminds</Overline>
             <h1
               id="hero-heading"
-              className="mt-5 font-serif text-[clamp(2.5rem,7vw,4.5rem)] leading-[1.05] tracking-[-0.03em] text-ivory text-balance animate-fade-up"
+              className="mt-5 font-serif text-[clamp(2.75rem,8vw,5.5rem)] leading-[1.03] tracking-[-0.035em] text-ivory text-balance animate-fade-up"
               style={{ animationDelay: '120ms' }}
             >
               Design careers built by{' '}
-              <span className="italic text-amber">masters</span>,
+              <span
+                className="italic"
+                style={{
+                  background: 'linear-gradient(135deg, #A855F7 0%, #C084FC 60%, #A855F7 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                masters
+              </span>,
               <br className="hidden sm:block" />
               not machines.
             </h1>
@@ -72,7 +92,7 @@ export function Hero() {
                   key={label}
                   className="inline-flex items-center gap-2 text-[13px] text-ash uppercase tracking-[0.08em]"
                 >
-                  <Icon size={14} strokeWidth={1.5} className="text-amber" />
+                  <Icon size={14} strokeWidth={1.5} className="text-neon" />
                   {label}
                 </li>
               ))}
@@ -88,13 +108,13 @@ export function Hero() {
               >
                 <div className="aspect-[4/3] rounded-md bg-gradient-to-br from-graphite to-obsidian border-subtle relative overflow-hidden">
                   <div className="absolute inset-0 grid grid-cols-3 gap-2 p-4">
-                    <div className="bg-amber-10 rounded-md" />
+                    <div className="bg-neon-10 rounded-md" />
                     <div className="col-span-2 bg-white/[0.04] rounded-md" />
                     <div className="col-span-2 bg-white/[0.06] rounded-md" />
-                    <div className="bg-amber/30 rounded-md" />
+                    <div className="bg-neon/30 rounded-md" />
                     <div className="bg-white/[0.04] rounded-md" />
                     <div className="bg-white/[0.06] rounded-md" />
-                    <div className="bg-amber/20 rounded-md" />
+                    <div className="bg-neon/20 rounded-md" />
                   </div>
                   <div className="absolute top-3 left-3 inline-flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-error" />
@@ -104,7 +124,7 @@ export function Hero() {
                 </div>
                 <div className="mt-4 flex items-center justify-between">
                   <span className="text-[12px] text-ash uppercase tracking-[0.12em]">Figma · Live</span>
-                  <span className="text-[12px] text-amber">Week 4</span>
+                  <span className="text-[12px] text-neon">Week 4</span>
                 </div>
               </FloatingCard>
 
@@ -121,7 +141,7 @@ export function Hero() {
                       key={i}
                       className="h-1.5 rounded-full"
                       style={{
-                        backgroundColor: i <= 4 ? 'var(--color-amber)' : 'rgba(255,255,255,0.08)',
+                        backgroundColor: i <= 4 ? 'var(--color-neon)' : 'rgba(255,255,255,0.08)',
                       }}
                     />
                   ))}
@@ -133,7 +153,7 @@ export function Hero() {
                 delay={700}
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amber-10 grid place-items-center text-amber font-medium">
+                  <div className="w-10 h-10 rounded-full bg-neon-10 grid place-items-center text-neon font-medium">
                     P
                   </div>
                   <div>
@@ -167,7 +187,7 @@ function FloatingCard({
 }) {
   return (
     <div
-      className={`p-5 rounded-lg bg-obsidian border-subtle shadow-lg-dark ${className}`}
+      className={`p-5 rounded-lg card-glass ${className}`}
       style={{ animationDelay: `${delay}ms` }}
     >
       {children}

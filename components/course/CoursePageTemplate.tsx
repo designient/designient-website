@@ -83,7 +83,7 @@ export function CoursePageTemplate({ course }: Props) {
             className="absolute inset-0 -z-10"
             style={{
               background:
-                'radial-gradient(ellipse 70% 60% at 30% 30%, rgba(232,168,56,0.07) 0%, transparent 65%)',
+                'radial-gradient(ellipse 70% 60% at 30% 30%, rgba(168,85,247,0.07) 0%, transparent 65%)',
             }}
           />
           <div className="absolute inset-0 bg-dots opacity-30 -z-10" aria-hidden="true" />
@@ -200,7 +200,7 @@ export function CoursePageTemplate({ course }: Props) {
                         <ul className="space-y-2">
                           {mod.topics.map((t) => (
                             <li key={t} className="flex items-start gap-3">
-                              <Check size={14} strokeWidth={2} className="text-amber mt-0.5 flex-shrink-0" />
+                              <Check size={14} strokeWidth={2} className="text-neon mt-0.5 flex-shrink-0" />
                               <span className="text-cloud text-[15px]">{t}</span>
                             </li>
                           ))}
@@ -240,7 +240,7 @@ export function CoursePageTemplate({ course }: Props) {
               {course.tools.map((tool, i) => (
                 <Reveal key={tool.name} delay={i * 70}>
                   <div className="card card-hover p-5 text-center h-full flex flex-col items-center gap-3">
-                    <div className="w-14 h-14 rounded-md bg-amber-10 border border-amber/20 grid place-items-center text-amber font-medium text-lg font-sans">
+                    <div className="w-14 h-14 rounded-md bg-neon-10 border border-neon/20 grid place-items-center text-neon font-medium text-lg font-sans">
                       {tool.initial}
                     </div>
                     <div>
@@ -276,7 +276,7 @@ export function CoursePageTemplate({ course }: Props) {
                 return (
                   <Reveal key={bonus.title} delay={i * 80}>
                     <div>
-                      <span className="inline-grid place-items-center w-11 h-11 rounded-md bg-amber-10 border border-amber/20 text-amber mb-5">
+                      <span className="inline-grid place-items-center w-11 h-11 rounded-md bg-neon-10 border border-neon/20 text-neon mb-5">
                         <Icon size={20} strokeWidth={1.5} />
                       </span>
                       <h3 className="font-sans text-[17px] font-semibold text-ivory">{bonus.title}</h3>
@@ -328,7 +328,7 @@ export function CoursePageTemplate({ course }: Props) {
             className="absolute inset-0 -z-10"
             style={{
               background:
-                'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(232,168,56,0.09) 0%, transparent 60%)',
+                'radial-gradient(ellipse 70% 80% at 50% 50%, rgba(168,85,247,0.09) 0%, transparent 60%)',
             }}
           />
           <div className="max-w-container mx-auto container-px">
@@ -364,7 +364,7 @@ export function CoursePageTemplate({ course }: Props) {
                     <React.Fragment key={c.href}>
                       <Link
                         href={c.href}
-                        className="text-amber hover:text-amber-glow transition-colors"
+                        className="text-neon hover:text-neon-glow transition-colors"
                       >
                         {c.title}
                       </Link>

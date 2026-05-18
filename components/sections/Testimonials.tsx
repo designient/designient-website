@@ -78,7 +78,7 @@ export function Testimonials() {
               type="button"
               onClick={() => scrollBy(-1)}
               aria-label="Previous testimonials"
-              className="w-11 h-11 grid place-items-center rounded-full border border-white/10 text-silver hover:text-amber hover:border-amber transition-colors"
+              className="w-11 h-11 grid place-items-center rounded-full border border-white/10 text-silver hover:text-neon hover:border-neon transition-colors"
             >
               <ChevronLeft size={18} strokeWidth={1.5} />
             </button>
@@ -86,7 +86,7 @@ export function Testimonials() {
               type="button"
               onClick={() => scrollBy(1)}
               aria-label="Next testimonials"
-              className="w-11 h-11 grid place-items-center rounded-full border border-white/10 text-silver hover:text-amber hover:border-amber transition-colors"
+              className="w-11 h-11 grid place-items-center rounded-full border border-white/10 text-silver hover:text-neon hover:border-neon transition-colors"
             >
               <ChevronRight size={18} strokeWidth={1.5} />
             </button>
@@ -102,15 +102,15 @@ export function Testimonials() {
               <article
                 key={t.id}
                 data-card
-                className="snap-start flex-shrink-0 w-[85%] sm:w-[420px] p-8 rounded-md bg-graphite border-subtle"
+                className="snap-start flex-shrink-0 w-[85%] sm:w-[420px] p-8 rounded-md card-glass"
               >
-                <span className="font-serif text-display-md leading-none text-amber" aria-hidden="true">
+                <span className="font-serif text-display-md leading-none text-neon" aria-hidden="true">
                   &ldquo;
                 </span>
                 <p className="mt-3 font-serif italic text-[20px] leading-[1.45] text-cloud">
                   {t.quote}
                 </p>
-                <div className="mt-6 w-10 h-px bg-amber" aria-hidden="true" />
+                <div className="mt-6 w-10 h-px bg-neon" aria-hidden="true" />
                 <p className="mt-4 text-ivory font-medium text-[15px]">{t.name}</p>
                 <p className="text-ash text-[13px] uppercase tracking-[0.06em] mt-1">{t.role}</p>
               </article>

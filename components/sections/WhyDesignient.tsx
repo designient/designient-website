@@ -57,7 +57,7 @@ export function WhyDesignient() {
           {differentiators.map(({ Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 100}>
               <div className="max-w-sm">
-                <span className="inline-grid place-items-center w-11 h-11 rounded-md border border-amber/30 bg-amber-10 text-amber mb-5">
+                <span className="inline-grid place-items-center w-11 h-11 rounded-md border border-neon/30 bg-neon-10 text-neon mb-5">
                   <Icon size={20} strokeWidth={1.5} />
                 </span>
                 <h3 className="font-sans text-[18px] font-semibold text-ivory">{title}</h3>

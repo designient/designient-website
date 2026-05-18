@@ -15,11 +15,11 @@ export function StatsBar() {
       className="relative py-20 md:py-24 section-glow"
     >
       <div className="max-w-container mx-auto container-px">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0 divide-x divide-amber/20">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12 md:gap-y-0 divide-x divide-neon/20">
           {stats.map((s, i) => (
             <Reveal key={s.label} delay={i * 80} className="px-6 first:pl-0 last:pr-0 text-center md:text-left">
               <div>
-                <div className="font-serif text-[clamp(2.5rem,5vw,3.5rem)] leading-none text-amber tracking-[-0.025em]">
+                <div className="font-serif text-[clamp(2.5rem,5vw,3.5rem)] leading-none text-neon tracking-[-0.025em]">
                   {s.value}
                 </div>
                 <div className="mt-3 overline text-ash">{s.label}</div>

@@ -87,8 +87,8 @@ function CourseCard({ course }: { course: Course }) {
       className="card card-hover block p-8 h-full group"
     >
       <div className="flex flex-wrap items-center gap-2 mb-7">
-        <Badge variant="amber">{course.duration}</Badge>
-        <Badge variant="amber">{course.hours}</Badge>
+        <Badge variant="neon">{course.duration}</Badge>
+        <Badge variant="neon">{course.hours}</Badge>
         {course.placement ? <Badge variant="success">{course.placement}</Badge> : null}
       </div>
 
@@ -110,7 +110,7 @@ function CourseCard({ course }: { course: Course }) {
 
       <div className="mt-10 flex items-center justify-between pt-5 border-t border-white/[0.06]">
         <span className="text-[13px] uppercase tracking-[0.12em] text-ash">Learn more</span>
-        <span className="inline-flex items-center gap-1 text-amber group-hover:text-amber-glow transition-colors">
+        <span className="inline-flex items-center gap-1 text-neon group-hover:text-neon-glow transition-colors">
           <span className="text-[14px] font-medium uppercase tracking-[0.08em]">View</span>
           <ArrowUpRight
             size={16}

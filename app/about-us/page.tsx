@@ -97,7 +97,7 @@ export default function AboutPage() {
                 className="mt-6 mx-auto max-w-3xl font-serif text-[clamp(2.5rem,6vw,4rem)] leading-[1.06] tracking-[-0.025em] text-ivory text-balance"
               >
                 Small batches. Real mentors.{' '}
-                <span className="italic text-amber">No shortcuts.</span>
+                <span className="italic text-neon">No shortcuts.</span>
               </h1>
               <p className="mt-8 mx-auto max-w-2xl font-serif italic text-[clamp(1.125rem,2vw,1.375rem)] text-silver leading-[1.55]">
                 &ldquo;In my own journey I&rsquo;ve been the nervous student, the dedicated
@@ -126,7 +126,7 @@ export default function AboutPage() {
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-x-16 gap-y-12">
               {philosophy.map((item, i) => (
                 <Reveal key={item.title} delay={i * 100}>
-                  <div className="border-t-2 border-amber pt-8">
+                  <div className="border-t-2 border-neon pt-8">
                     <h3 className="font-sans text-[18px] font-semibold text-ivory">{item.title}</h3>
                     <p className="mt-3 text-silver text-[15.5px] leading-[1.65]">{item.body}</p>
                   </div>
@@ -203,7 +203,7 @@ export default function AboutPage() {
               {locations.map((loc, i) => (
                 <Reveal key={loc.city} delay={i * 80}>
                   <div className="card p-6 h-full flex flex-col gap-3">
-                    <div className="inline-flex items-center gap-2 text-amber">
+                    <div className="inline-flex items-center gap-2 text-neon">
                       <MapPin size={14} strokeWidth={1.5} />
                       <span className="font-medium text-[14px] uppercase tracking-[0.1em]">
                         {loc.city}

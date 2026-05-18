@@ -124,7 +124,7 @@ export function Navbar() {
                             href={c.href}
                             className="block rounded-md px-4 py-3 transition-colors hover:bg-white/[0.04] group"
                           >
-                            <div className="text-ivory text-[15px] font-medium group-hover:text-amber transition-colors">
+                            <div className="text-ivory text-[15px] font-medium group-hover:text-neon transition-colors">
                               {c.label}
                             </div>
                             {c.meta ? (
@@ -184,7 +184,7 @@ export function Navbar() {
             <div key={item.href} className="py-2 border-b border-white/[0.06]">
               <Link
                 href={item.href}
-                className="block py-3 font-serif text-display-sm text-ivory hover:text-amber transition-colors"
+                className="block py-3 font-serif text-display-sm text-ivory hover:text-neon transition-colors"
               >
                 {item.label}
               </Link>
@@ -194,7 +194,7 @@ export function Navbar() {
                     <Link
                       key={c.href}
                       href={c.href}
-                      className="text-silver text-[15px] hover:text-amber transition-colors"
+                      className="text-silver text-[15px] hover:text-neon transition-colors"
                     >
                       {c.label}
                     </Link>

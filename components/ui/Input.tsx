@@ -3,7 +3,7 @@
 import React from 'react'
 
 const fieldBase =
-  'w-full bg-graphite text-ivory placeholder:text-ash border border-white/10 rounded-md px-4 py-3 text-[15px] transition-all duration-200 focus:border-amber focus:outline-none focus:ring-2 focus:ring-amber/30'
+  'w-full bg-graphite text-ivory placeholder:text-ash border border-white/10 rounded-md px-4 py-3 text-[15px] transition-all duration-200 focus:border-neon focus:outline-none focus:ring-2 focus:ring-neon/30'
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string

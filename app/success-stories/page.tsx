@@ -65,7 +65,7 @@ export default function SuccessStoriesPage() {
                 className="mt-6 mx-auto max-w-3xl font-serif text-[clamp(2.5rem,6vw,4rem)] leading-[1.06] tracking-[-0.025em] text-ivory text-balance"
               >
                 Real designers. Real careers.{' '}
-                <span className="italic text-amber">Real stories.</span>
+                <span className="italic text-neon">Real stories.</span>
               </h1>
               <p className="mt-7 mx-auto max-w-xl text-body-lg text-silver">
                 Every story here started with the same decision you&rsquo;re considering right now.
@@ -88,12 +88,12 @@ export default function SuccessStoriesPage() {
                     <div className={`md:col-span-5 ${i % 2 === 1 ? 'md:[direction:ltr]' : ''}`}>
                       <div className="card p-8 h-full flex flex-col">
                         <div className="flex items-center gap-4 mb-6">
-                          <div className="w-16 h-16 rounded-full border-2 border-amber/40 bg-amber-10 grid place-items-center text-amber font-serif text-display-sm">
+                          <div className="w-16 h-16 rounded-full border-2 border-neon/40 bg-neon-10 grid place-items-center text-neon font-serif text-display-sm">
                             {story.initial}
                           </div>
                           <div>
                             <p className="text-ivory font-medium text-[16px]">{story.name}</p>
-                            <p className="text-amber text-[12px] uppercase tracking-[0.08em] mt-0.5">
+                            <p className="text-neon text-[12px] uppercase tracking-[0.08em] mt-0.5">
                               {story.journey}
                             </p>
                           </div>
@@ -109,7 +109,7 @@ export default function SuccessStoriesPage() {
                       </div>
                     </div>
                     <div className={`md:col-span-7 ${i % 2 === 1 ? 'md:[direction:ltr]' : ''}`}>
-                      <span className="font-serif text-[3.5rem] text-amber leading-none block">&ldquo;</span>
+                      <span className="font-serif text-[3.5rem] text-neon leading-none block">&ldquo;</span>
                       <p className="mt-2 font-serif italic text-[clamp(1.125rem,2.5vw,1.375rem)] leading-[1.55] text-cloud">
                         {story.quote}
                       </p>

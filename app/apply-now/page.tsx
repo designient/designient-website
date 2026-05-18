@@ -112,11 +112,11 @@ export default function ApplyPage() {
                 </ul>
                 <div className="mt-10 flex gap-6 pt-8 border-t border-white/[0.06]">
                   <div className="text-center">
-                    <Award size={20} strokeWidth={1.5} className="text-amber mx-auto mb-2" />
+                    <Award size={20} strokeWidth={1.5} className="text-neon mx-auto mb-2" />
                     <p className="text-[11px] text-ash uppercase tracking-[0.1em]">Adobe Certified</p>
                   </div>
                   <div className="text-center">
-                    <Users size={20} strokeWidth={1.5} className="text-amber mx-auto mb-2" />
+                    <Users size={20} strokeWidth={1.5} className="text-neon mx-auto mb-2" />
                     <p className="text-[11px] text-ash uppercase tracking-[0.1em]">95% Placed</p>
                   </div>
                 </div>
@@ -148,7 +148,7 @@ export default function ApplyPage() {
                         </div>
                         <div className="h-1 bg-white/[0.08] rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-amber rounded-full transition-all duration-500 ease-out-expo"
+                            className="h-full bg-neon rounded-full transition-all duration-500 ease-out-expo"
                             style={{ width: `${(step / 3) * 100}%` }}
                           />
                         </div>

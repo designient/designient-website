@@ -80,7 +80,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
             {/* Category */}
             {post.category ? (
-              <span className="inline-block mb-5 px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.08em] uppercase text-amber bg-amber-10 border border-amber/20">
+              <span className="inline-block mb-5 px-3 py-1 rounded-full text-[11px] font-medium tracking-[0.08em] uppercase text-neon bg-neon-10 border border-neon/20">
                 {post.category}
               </span>
             ) : null}
@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="mt-16 pt-8 border-t border-white/[0.06]">
               <Link
                 href="/blogs"
-                className="inline-flex items-center gap-2 text-amber hover:text-amber-glow transition-colors text-[15px] font-medium"
+                className="inline-flex items-center gap-2 text-neon hover:text-neon-glow transition-colors text-[15px] font-medium"
               >
                 ← Back to all posts
               </Link>

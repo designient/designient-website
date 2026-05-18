@@ -12,7 +12,7 @@ export interface AccordionItem {
 
 interface AccordionProps {
   items: AccordionItem[]
-  /** Show small amber label above title (e.g., "Week 1-2") */
+  /** Show small neon label above title (e.g., "Week 1-2") */
   withLabel?: boolean
   /** Allow multiple open at once */
   multi?: boolean
@@ -49,7 +49,7 @@ export function Accordion({ items, withLabel = false, multi = false, className =
             >
               <div className="flex-1 min-w-0">
                 {withLabel && item.label ? (
-                  <span className="block text-[11px] font-medium tracking-[0.12em] uppercase text-amber mb-1.5">
+                  <span className="block text-[11px] font-medium tracking-[0.12em] uppercase text-neon mb-1.5">
                     {item.label}
                   </span>
                 ) : null}
@@ -59,7 +59,7 @@ export function Accordion({ items, withLabel = false, multi = false, className =
               </div>
               <span
                 className={`flex-shrink-0 mt-1 w-8 h-8 rounded-full border border-white/10 grid place-items-center text-silver transition-all duration-300 ${
-                  isOpen ? 'rotate-180 border-amber text-amber' : ''
+                  isOpen ? 'rotate-180 border-neon text-neon' : ''
                 }`}
                 aria-hidden="true"
               >

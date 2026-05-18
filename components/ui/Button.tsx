@@ -30,7 +30,7 @@ type ButtonProps =
     })
 
 const base =
-  'inline-flex items-center justify-center gap-2 font-sans font-medium uppercase tracking-[0.04em] rounded-full transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber focus-visible:ring-offset-2 focus-visible:ring-offset-void disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap cursor-pointer'
+  'inline-flex items-center justify-center gap-2 font-sans font-medium uppercase tracking-[0.04em] rounded-full transition-all duration-200 ease-out-expo focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-void disabled:opacity-50 disabled:pointer-events-none whitespace-nowrap cursor-pointer'
 
 const sizes: Record<Size, string> = {
   sm: 'text-[13px] px-5 py-2.5',
@@ -40,10 +40,10 @@ const sizes: Record<Size, string> = {
 
 const variants: Record<Variant, string> = {
   primary:
-    'bg-amber text-void hover:bg-amber-glow hover:scale-[1.02] active:bg-amber-muted active:scale-[0.98] shadow-glow',
+    'bg-neon text-void hover:bg-neon-glow hover:scale-[1.02] active:bg-neon-muted active:scale-[0.98] shadow-glow',
   secondary:
-    'bg-transparent text-ivory border border-white/10 hover:border-amber hover:text-amber active:bg-white/5',
-  ghost: 'bg-transparent text-amber hover:text-amber-glow underline-offset-4 hover:underline px-2 py-2',
+    'bg-transparent text-ivory border border-white/10 hover:border-neon hover:text-neon active:bg-white/5',
+  ghost: 'bg-transparent text-neon hover:text-neon-glow underline-offset-4 hover:underline px-2 py-2',
 }
 
 export function Button(props: ButtonProps) {
