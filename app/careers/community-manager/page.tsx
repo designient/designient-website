@@ -1,5 +1,5 @@
-import { Header } from '../../../components/Header'
-import { Footer } from '../../../components/Footer'
+import { Navbar } from '../../../components/layout/Navbar'
+import { Footer } from '../../../components/layout/Footer'
 import { StructuredData } from '../../../components/StructuredData'
 import { CommunityManagerContent } from '../../../components/careers/CommunityManagerContent'
 import type { Metadata } from 'next'
@@ -87,7 +87,7 @@ export default function CommunityManagerPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <StructuredData data={[breadcrumbSchema, jobPostingSchema]} />
-      <Header />
+      <Navbar />
       <main id="main-content" role="main">
         <CommunityManagerContent />
       </main>

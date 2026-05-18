@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import { Navbar } from '../../components/layout/Navbar'
+import { Footer } from '../../components/layout/Footer'
 import { StructuredData } from '../../components/StructuredData'
 import { CorporatesContent } from '../../components/corporates/CorporatesContent'
 
@@ -93,7 +93,7 @@ export default function CorporatesPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <StructuredData data={[breadcrumbSchema, faqSchema]} />
-      <Header />
+      <Navbar />
       <main id="main-content" role="main">
         <CorporatesContent />
       </main>

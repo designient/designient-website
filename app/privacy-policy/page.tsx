@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import { Navbar } from '../../components/layout/Navbar'
+import { Footer } from '../../components/layout/Footer'
 import { StructuredData } from '../../components/StructuredData'
 import Link from 'next/link'
 
@@ -45,7 +45,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <StructuredData data={breadcrumbSchema} />
-      <Header />
+      <Navbar />
       <main id="main-content" role="main">
         <div className="max-w-4xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16">
           {/* Header */}

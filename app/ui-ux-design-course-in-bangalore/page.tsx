@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import { Navbar } from '../../components/layout/Navbar'
+import { Footer } from '../../components/layout/Footer'
 import { QuickApplyProvider } from '../../components/course/QuickApplyContext'
 import { BangaloreCityPageContent } from '../../components/city/BangaloreCityPageContent'
 import { CityPageSchemas } from '../../components/city/CityPageSchemas'
@@ -32,7 +32,7 @@ export default function BangaloreCityPage() {
           cityName="Bangalore"
           cityUrl="https://designient.com/ui-ux-design-course-in-bangalore"
         />
-        <Header />
+        <Navbar />
         <main id="main-content" role="main" className="pt-24 md:pt-32">
           <BangaloreCityPageContent />
         </main>

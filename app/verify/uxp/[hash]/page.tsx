@@ -1,5 +1,5 @@
-import { Header } from '../../../../components/Header'
-import { Footer } from '../../../../components/Footer'
+import { Navbar } from '../../../../components/layout/Navbar'
+import { Footer } from '../../../../components/layout/Footer'
 import { CertificateDisplay } from '../../../../components/verify/CertificateDisplay'
 import type { Metadata } from 'next'
 export const runtime = 'edge'
@@ -29,7 +29,7 @@ export default async function CertificatePage({ params }: { params: Promise<{ ha
   const { hash } = await params
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-      <Header />
+      <Navbar />
       <main id="main-content" role="main">
         <CertificateDisplay hash={hash} />
       </main>

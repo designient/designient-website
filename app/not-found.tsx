@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
+import { Navbar } from '../components/layout/Navbar'
+import { Footer } from '../components/layout/Footer'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-      <Header />
+      <Navbar />
       <main id="main-content" role="main" className="pt-24 md:pt-32">
         <section className="py-16 md:py-24">
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">

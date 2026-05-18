@@ -1,5 +1,5 @@
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
+import { Navbar } from '../../components/layout/Navbar'
+import { Footer } from '../../components/layout/Footer'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
-      <Header />
+      <Navbar />
       <main id="main-content" role="main">
         {/* Hero Section */}
         <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: '#f9fafb' }}>
