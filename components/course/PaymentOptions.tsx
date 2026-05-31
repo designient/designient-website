@@ -18,6 +18,8 @@ const courseNames: Record<keyof CoursePricingData, string> = {
   'ui-ux-design-bootcamp': 'UI/UX Design Bootcamp',
   'ui-ux-design-pro': 'UI/UX Design Pro',
   'ui-ux-design-master': 'UI/UX Design Master',
+  'ai-automation-accelerator': 'AI Automation Accelerator',
+  'ai-product-design-course': 'AI Product Design Course',
   'prompt-engineering-mastery': 'Prompt Engineering Mastery'
 };
 

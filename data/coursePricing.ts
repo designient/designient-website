@@ -26,6 +26,8 @@ export interface CoursePricingData {
   'ui-ux-design-bootcamp': CoursePricing;
   'ui-ux-design-pro': CoursePricing;
   'ui-ux-design-master': CoursePricing;
+  'ai-automation-accelerator': CoursePricing;
+  'ai-product-design-course': CoursePricing;
   'prompt-engineering-mastery': CoursePricing;
 }
 
@@ -64,6 +66,26 @@ export const coursePricing: CoursePricingData = {
     usd: {
       price: '$1,699',
       originalPrice: '$1,999'
+    }
+  },
+  'ai-automation-accelerator': {
+    inr: {
+      price: '₹34,999',
+      originalPrice: '₹49,999'
+    },
+    usd: {
+      price: '$449',
+      originalPrice: '$649'
+    }
+  },
+  'ai-product-design-course': {
+    inr: {
+      price: '₹64,999',
+      originalPrice: '₹79,999'
+    },
+    usd: {
+      price: '$899',
+      originalPrice: '$1,099'
     }
   },
   'prompt-engineering-mastery': {

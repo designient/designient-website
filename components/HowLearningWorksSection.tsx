@@ -19,7 +19,7 @@ const steps = [
   {
     icon: Briefcase,
     title: 'Real Projects',
-    description: 'Work on actual client projects to build your portfolio with real-world experience.'
+    description: 'Design Track students work on actual client briefs from week 8 of Pro. AI Track students build three automations or two AI product case studies using their own real business problems — not made-up scenarios.'
   },
   {
     icon: FileText,
@@ -56,7 +56,7 @@ export function HowLearningWorksSection() {
           }}
           className="text-center mb-16 md:mb-24">
           <h2 className="font-display tracking-wide leading-tight mb-6 text-center" style={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
-            How Your Journey at Designient Works
+            How Learning Works at Designient
           </h2>
           <p
             className="font-body text-base md:text-lg max-w-3xl mx-auto font-normal text-center"

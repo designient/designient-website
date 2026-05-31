@@ -20,27 +20,27 @@ import blogsData from '../data/blogs.json'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
-  description: 'Beginner-friendly UI/UX courses with AI tools. Mentorship, small batches, real projects. 95% placement. Adobe certified. Bangalore, Hyderabad, Pune.',
-  keywords: ['UI/UX design course', 'UX design training', 'design bootcamp', 'Figma course', 'UI design course Bangalore', 'UX course Hyderabad', 'design school India', 'Adobe certified design course'],
+  title: 'UI UX Design & AI Courses | Designient School of Masterminds',
+  description: 'UI/UX design and AI courses. Small batches, live mentorship, real projects. 95% placement. Bangalore, Hyderabad, Pune.',
+  keywords: ['UI UX design courses India', 'UI UX design course online India', 'AI automation course India', 'AI product design course India', 'UI UX design institute India', 'best UI UX design courses India 2026', 'design and AI courses India', 'UI UX design with placement India', 'small batch UI UX design course', 'live mentorship design course India'],
   openGraph: {
-    title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
-    description: 'Beginner-friendly UI/UX courses with AI tools. 95% placement. Adobe certified. Bangalore, Hyderabad, Pune.',
+    title: 'UI UX Design & AI Courses | Designient School of Masterminds',
+    description: 'UI/UX design and AI courses. Small batches, live mentorship, real projects. 95% placement. Bangalore, Hyderabad, Pune.',
     url: 'https://designient.com',
     images: [
       {
         url: '/favicon-designient.png',
         width: 192,
         height: 192,
-        alt: 'Designient - UI/UX Design Training',
+        alt: 'Designient - UI/UX Design and AI Training',
       },
     ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UI/UX Design Courses for Everyone | Designient School of Masterminds',
-    description: 'Beginner-friendly UI/UX courses with AI tools. 95% placement. Adobe certified. Bangalore, Hyderabad, Pune.',
+    title: 'UI UX Design & AI Courses | Designient School of Masterminds',
+    description: 'UI/UX design and AI courses. Small batches, live mentorship, real projects. 95% placement. Bangalore, Hyderabad, Pune.',
     images: ['/favicon-designient.png'],
   },
   alternates: {
@@ -72,7 +72,7 @@ export default function HomePage() {
     alternateName: 'Designient School of Masterminds',
     url: 'https://designient.com',
     logo: 'https://designient.com/designient-logo.svg',
-    description: 'India\'s leading UI/UX design training institute with 95% placement rate. Adobe certified courses in Bangalore, Hyderabad, and Pune. Beginner-friendly UI/UX design courses integrated with AI tools.',
+    description: 'Designient School of Masterminds offers UI/UX design courses and AI automation training in India. Small batches, live mentorship, real projects, and 95% placement support across Bangalore, Hyderabad, and Pune.',
     foundingDate: '2018',
     address: [
       {
@@ -125,6 +125,17 @@ export default function HomePage() {
       '@type': 'Offer',
       category: 'Education',
       availability: 'https://schema.org/InStock'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Designient Courses',
+      itemListElement: [
+        { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'UI UX Design Bootcamp', url: 'https://designient.com/ui-ux-design-bootcamp' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'UI UX Design Pro', url: 'https://designient.com/ui-ux-design-pro' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'UI UX Design Master', url: 'https://designient.com/ui-ux-design-master' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'AI Automation Accelerator', url: 'https://designient.com/ai-automation-accelerator' } },
+        { '@type': 'Offer', itemOffered: { '@type': 'Course', name: 'AI Product Design Course', url: 'https://designient.com/ai-product-design-course' } },
+      ],
     }
   }
 

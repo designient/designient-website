@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { CountryCodeSelect, validatePhoneNumber } from './shared/CountryCodeSelect';
+import { courseInterestOptions } from '../data/homepageCatalog';
 
 
 export function InquiryForm() {
@@ -375,10 +376,11 @@ export function InquiryForm() {
                   <option value="" disabled>
                     Select Course Interest
                   </option>
-                  <option value="bootcamp">UI/UX Design Bootcamp (30 Days)</option>
-                  <option value="pro">UI/UX Design Pro (3 Months)</option>
-                  <option value="master">UI/UX Design Master (6 Months)</option>
-                  <option value="prompt">Prompt Engineering Mastery (30 Days)</option>
+                  {courseInterestOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -404,7 +406,7 @@ export function InquiryForm() {
                   backgroundColor: 'var(--color-cta)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
-                {isSubmitting ? 'Submitting...' : 'Get Free Consultation →'}
+                {isSubmitting ? 'Submitting...' : 'Book Free Consultation →'}
               </button>
 
               {submitStatus === 'success' && (

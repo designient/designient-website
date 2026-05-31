@@ -8,54 +8,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useCurrency } from '../contexts/CurrencyContext';
-import type { CoursePricingData } from '../data/coursePricing';
-
-const courses: Array<{
-  title: string;
-  duration: string;
-  hours: string;
-  level: string;
-  description: string;
-  path: string;
-  courseSlug: keyof CoursePricingData;
-}> = [
-    {
-      title: 'UI/UX Design Bootcamp',
-      duration: '30 Days',
-      hours: '36 Hours',
-      level: 'Intensive',
-      description: 'Fast-track your learning with our intensive daily bootcamp designed for beginners and career switchers.',
-      path: '/ui-ux-design-bootcamp',
-      courseSlug: 'ui-ux-design-bootcamp'
-    },
-    {
-      title: 'UI/UX Design Pro',
-      duration: '3 Months',
-      hours: '124 Hours',
-      level: 'Beginner to Pro',
-      description: 'The complete foundation for your design career. Master Figma, design thinking, and prototyping with hands-on projects.',
-      path: '/ui-ux-design-pro',
-      courseSlug: 'ui-ux-design-pro'
-    },
-    {
-      title: 'UI/UX Design Master',
-      duration: '6 Months',
-      hours: '200+ Hours',
-      level: 'Pro to Master',
-      description: 'Advanced specialization with diploma certification. Design systems, leadership, and advanced techniques.',
-      path: '/ui-ux-design-master',
-      courseSlug: 'ui-ux-design-master'
-    },
-    {
-      title: 'Prompt Engineering Mastery',
-      duration: '30 Days',
-      hours: '40 Hours',
-      level: 'Fast Track',
-      description: 'Master the art of prompt engineering for AI tools. Learn to create effective prompts for ChatGPT, Midjourney, and other AI platforms.',
-      path: '/prompt-engineering-mastery',
-      courseSlug: 'prompt-engineering-mastery'
-    }
-  ];
+import { designTrackNavCourses, aiTrackNavCourses } from '../data/homepageCatalog';
+import { CurrencyToggle } from './CurrencyToggle';
 
 const whyDesignientLinks = [
   {
@@ -87,29 +41,6 @@ const whyDesignientLinks = [
     name: 'FAQs',
     path: '/faqs',
     description: 'Find answers to common questions'
-  }
-];
-
-const forCorporatesLinks = [
-  {
-    name: 'Training Programs',
-    path: '/corporates/training-programs',
-    description: 'Customized training programs for your team'
-  },
-  {
-    name: 'AI Enablement + Workshops',
-    path: '/corporates/ai-enablement-workshops',
-    description: 'Empower your team with AI tools and workshops'
-  },
-  {
-    name: 'Hiring + Consulting',
-    path: '/corporates/hiring-consulting',
-    description: 'Access our talent pool and design consulting services'
-  },
-  {
-    name: 'Case Studies + CTA',
-    path: '/corporates/case-studies',
-    description: 'Explore our corporate partnerships and results'
   }
 ];
 
@@ -171,12 +102,17 @@ export function Header() {
     },
     {
       name: 'For Corporates',
-      hasDropdown: true,
-      dropdownType: 'for-corporates'
+      path: '/corporates',
+      hasDropdown: false
     },
     {
       name: 'Blogs',
       path: '/blogs',
+      hasDropdown: false
+    },
+    {
+      name: 'FAQs',
+      path: '/faqs',
       hasDropdown: false
     },
     {
@@ -289,48 +225,73 @@ export function Header() {
                           }}>
                           {link.dropdownType === 'courses' && (
                             <div className="p-8">
-                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
-                                All Courses
-                              </h3>
-                              <div className="grid grid-cols-2 gap-6">
-                                {courses.map((course, index) => (
-                                  <Link
-                                    key={index}
-                                    href={course.path}
-                                    className="group block p-5 rounded-lg transition-all"
-                                    style={{
-                                      backgroundColor: 'transparent'
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'transparent';
-                                    }}>
-                                    <div className="mb-3">
-                                      <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
-                                        {course.title}
-                                      </h4>
-                                      <p className="font-body text-sm mb-3" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                                        {course.description}
-                                      </p>
-                                    </div>
-                                    <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'var(--border-default)' }}>
-                                      <div className="flex items-center gap-3">
-                                        <span className="font-body text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>
-                                          {course.duration}
-                                        </span>
-                                        <span className="text-xs" style={{ color: 'var(--border-default)' }}>•</span>
-                                        <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>
-                                          {course.hours}
+                              <div className="mb-8">
+                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--color-primary)' }}>
+                                  Design Track
+                                </h3>
+                                <div className="grid grid-cols-1 gap-4">
+                                  {designTrackNavCourses.map((course, index) => (
+                                    <Link
+                                      key={index}
+                                      href={course.path}
+                                      className="group block p-4 rounded-lg transition-all"
+                                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-subtle)'; }}
+                                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+                                    >
+                                      <div className="flex items-start justify-between gap-3 mb-2">
+                                        <h4 className="font-display font-semibold text-base group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)' }}>
+                                          {course.title}
+                                        </h4>
+                                        {course.badge && (
+                                          <span className="font-body text-xs font-bold px-2 py-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
+                                            {course.badge}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{course.description}</p>
+                                      <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: 'var(--border-default)' }}>
+                                        <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>{course.duration} · {course.level}</span>
+                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
+                                          {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
                                         </span>
                                       </div>
-                                      <span className="font-display font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
-                                        {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
-                                      </span>
-                                    </div>
-                                  </Link>
-                                ))}
+                                    </Link>
+                                  ))}
+                                </div>
+                              </div>
+                              <div>
+                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--color-primary)' }}>
+                                  AI Track
+                                </h3>
+                                <div className="grid grid-cols-1 gap-4">
+                                  {aiTrackNavCourses.map((course, index) => (
+                                    <Link
+                                      key={index}
+                                      href={course.path}
+                                      className="group block p-4 rounded-lg transition-all"
+                                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-subtle)'; }}
+                                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+                                    >
+                                      <div className="flex items-start justify-between gap-3 mb-2">
+                                        <h4 className="font-display font-semibold text-base group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)' }}>
+                                          {course.title}
+                                        </h4>
+                                        {course.badge && (
+                                          <span className="font-body text-xs font-bold px-2 py-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
+                                            {course.badge}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{course.description}</p>
+                                      <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: 'var(--border-default)' }}>
+                                        <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>{course.duration} · {course.level}</span>
+                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
+                                          {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
+                                        </span>
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
                               </div>
                             </div>
                           )}
@@ -367,37 +328,6 @@ export function Header() {
                             </div>
                           )}
 
-                          {link.dropdownType === 'for-corporates' && (
-                            <div className="p-8">
-                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
-                                For Corporates
-                              </h3>
-                              <div className="grid grid-cols-2 gap-6">
-                                {forCorporatesLinks.map((item, index) => (
-                                  <Link
-                                    key={index}
-                                    href={item.path}
-                                    className="group block p-5 rounded-lg transition-all"
-                                    style={{
-                                      backgroundColor: 'transparent'
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'transparent';
-                                    }}>
-                                    <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
-                                      {item.name}
-                                    </h4>
-                                    <p className="font-body text-sm" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                                      {item.description}
-                                    </p>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          )}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -429,6 +359,7 @@ export function Header() {
           </nav>
 
           <div className="hidden nav:flex items-center gap-3">
+            <CurrencyToggle size="sm" />
             <Link href="/apply-now">
               <motion.button
                 whileHover={{
@@ -536,32 +467,43 @@ export function Header() {
                               transition={{ duration: 0.2 }}
                               className="overflow-hidden">
                               <div className="py-2 space-y-1">
-                                {link.dropdownType === 'courses' && courses.map((course, i) => (
-                                  <Link
-                                    key={i}
-                                    href={course.path}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block py-3 px-4 rounded-xl transition-colors"
-                                    style={{ backgroundColor: 'var(--color-accent-muted)' }}>
-                                    <div className="font-body font-semibold text-base mb-0.5" style={{ color: 'var(--text-primary)' }}>
-                                      {course.title}
-                                    </div>
-                                    <div className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
-                                      {course.duration} • {course.level}
-                                    </div>
-                                  </Link>
-                                ))}
+                                {link.dropdownType === 'courses' && (
+                                  <>
+                                    <p className="font-body text-xs font-bold uppercase tracking-wider px-4 py-2" style={{ color: 'var(--color-primary)' }}>Design Track</p>
+                                    {designTrackNavCourses.map((course, i) => (
+                                      <Link
+                                        key={i}
+                                        href={course.path}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="block py-3 px-4 rounded-xl transition-colors"
+                                        style={{ backgroundColor: 'var(--color-accent-muted)' }}>
+                                        <div className="font-body font-semibold text-base mb-0.5" style={{ color: 'var(--text-primary)' }}>
+                                          {course.title}
+                                        </div>
+                                        <div className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
+                                          {course.duration} · {course.level}{course.badge ? ` · ${course.badge}` : ''}
+                                        </div>
+                                      </Link>
+                                    ))}
+                                    <p className="font-body text-xs font-bold uppercase tracking-wider px-4 py-2 mt-4" style={{ color: 'var(--color-primary)' }}>AI Track</p>
+                                    {aiTrackNavCourses.map((course, i) => (
+                                      <Link
+                                        key={i}
+                                        href={course.path}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className="block py-3 px-4 rounded-xl transition-colors"
+                                        style={{ backgroundColor: 'var(--color-accent-muted)' }}>
+                                        <div className="font-body font-semibold text-base mb-0.5" style={{ color: 'var(--text-primary)' }}>
+                                          {course.title}
+                                        </div>
+                                        <div className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
+                                          {course.duration} · {course.level}{course.badge ? ` · ${course.badge}` : ''}
+                                        </div>
+                                      </Link>
+                                    ))}
+                                  </>
+                                )}
                                 {link.dropdownType === 'why-designient' && whyDesignientLinks.map((item, i) => (
-                                  <Link
-                                    key={i}
-                                    href={item.path}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block py-3 px-4 rounded-xl font-body font-medium text-base transition-colors"
-                                    style={{ backgroundColor: 'var(--color-accent-muted)', color: 'var(--text-primary)' }}>
-                                    {item.name}
-                                  </Link>
-                                ))}
-                                {link.dropdownType === 'for-corporates' && forCorporatesLinks.map((item, i) => (
                                   <Link
                                     key={i}
                                     href={item.path}

@@ -11,6 +11,7 @@ import {
 } from 'react-feather';
 import Link from 'next/link';
 import { CountryCodeSelect } from './shared/CountryCodeSelect';
+import { courseInterestOptions } from '../data/homepageCatalog';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -369,7 +370,7 @@ export function Hero() {
     '@type': 'EducationalOrganization',
     name: 'Designient School',
     description:
-      'UI/UX Design Training Institute in Bangalore and Hyderabad with 95% Job Placement',
+      'UI/UX design courses and AI automation training in India with 95% placement support, live mentorship, and real projects.',
     url: 'https://designient.com',
     address: [
       {
@@ -443,18 +444,17 @@ export function Hero() {
             {/* Main Heading - Optimized for mobile */}
             <h1
               id="hero-heading"
-              className="font-display tracking-wide leading-[1.05] mb-4 md:mb-6 font-bold uppercase"
+              className="font-display tracking-wide leading-[1.1] mb-4 md:mb-6 font-bold"
               style={{
                 fontWeight: 700,
-                fontSize: 'clamp(1.75rem, 5vw, 4rem)',
+                fontSize: 'clamp(1.75rem, 5vw, 3.25rem)',
                 color: 'var(--text-primary)',
                 wordBreak: 'break-word'
               }}
               itemProp="name">
-              UI/UX Design Courses for Everyone
+              UI UX Design Courses and AI Training Built Around Real Outcomes — Not Just Certificates
             </h1>
 
-            {/* Description - Better mobile sizing */}
             <p
               className="font-body text-base mb-4 md:mb-6 max-w-2xl font-normal leading-relaxed"
               style={{
@@ -463,29 +463,18 @@ export function Hero() {
                 lineHeight: '1.6'
               }}
               itemProp="description">
-              Beginner-friendly UI/UX design courses integrated with AI tools. Learn modern design workflows that prepare you for real-world projects.
+              We run small batches. We teach with live mentors. We use real briefs, not mock projects. We have placed 150+ students at companies like Google, Amazon, Microsoft, and Flipkart. And we do not believe in courses that keep you busy without making you better.
             </p>
 
-            {/* Trust Badges - Always horizontal, wrap on tiny screens */}
-            <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 md:mb-6">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
-                <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
-                  Adobe Certified
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
-                <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
-                  Job Guarantee
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
-                <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
-                  1-on-1 Mentorship
-                </span>
-              </div>
+            <div className="flex flex-wrap gap-x-3 gap-y-2 mb-4 md:mb-6">
+              {['95% Placement Rate', 'Small Batches', 'Live Mentorship', 'Real Projects', 'Adobe Certified', '5 Courses', '2 Tracks'].map((chip) => (
+                <div key={chip} className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
+                    {chip}
+                  </span>
+                </div>
+              ))}
             </div>
 
             {/* CTA Buttons - Stack on mobile, side-by-side on sm+ */}
@@ -686,10 +675,11 @@ export function Hero() {
                   <option value="" disabled>
                     Select Course Interest
                   </option>
-                  <option value="bootcamp">UI/UX Design Bootcamp (30 Days)</option>
-                  <option value="pro">UI/UX Design Pro (3 Months)</option>
-                  <option value="master">UI/UX Design Master (6 Months)</option>
-                  <option value="prompt">Prompt Engineering Mastery (30 Days)</option>
+                  {courseInterestOptions.map((option) => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
                 </select>
               </div>
 
@@ -702,7 +692,7 @@ export function Hero() {
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
 
-                {isSubmitting ? 'Submitting...' : 'Get Free Consultation →'}
+                {isSubmitting ? 'Submitting...' : 'Book Free Consultation →'}
               </button>
 
               {submitStatus === 'success' && (

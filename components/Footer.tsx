@@ -5,6 +5,7 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, Send, Youtube } fr
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { footerCourseGroups } from '../data/homepageCatalog';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -71,15 +72,7 @@ export function Footer() {
     }
   };
 
-  const courses = [
-    { name: 'UI/UX Design Bootcamp', path: '/ui-ux-design-bootcamp' },
-    { name: 'UI/UX Design Pro', path: '/ui-ux-design-pro' },
-    { name: 'UI/UX Design Master', path: '/ui-ux-design-master' },
-    { name: 'Prompt Engineering Mastery', path: '/prompt-engineering-mastery' },
-    { name: 'UI/UX Course in Bangalore', path: '/ui-ux-design-course-in-bangalore' },
-    { name: 'UI/UX Course in Hyderabad', path: '/ui-ux-design-course-in-hyderabad' },
-    { name: 'UI/UX Course in Pune', path: '/ui-ux-design-course-in-pune' }
-  ];
+  const courses = footerCourseGroups;
 
   const whyDesignientLinks = [
     { name: 'About Us', path: '/about-us' },
@@ -345,20 +338,31 @@ export function Footer() {
               }}>
               COURSES
             </h3>
-            <ul className="space-y-2.5">
-              {courses.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    href={link.path}
-                    className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
-                    style={{
-                      color: 'var(--text-secondary)'
-                    }}>
-                    {link.name}
-                  </Link>
-                </li>
+            <div className="space-y-6">
+              {courses.map((group) => (
+                <div key={group.label}>
+                  <p
+                    className="font-body text-xs font-bold uppercase tracking-wider mb-2"
+                    style={{ color: 'var(--text-muted)' }}
+                  >
+                    {group.label}
+                  </p>
+                  <ul className="space-y-2.5">
+                    {group.links.map((link) => (
+                      <li key={link.path}>
+                        <Link
+                          href={link.path}
+                          className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
+                          style={{ color: 'var(--text-secondary)' }}
+                        >
+                          {link.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </nav>
 
           {/* Why Designient & Our Brands */}
