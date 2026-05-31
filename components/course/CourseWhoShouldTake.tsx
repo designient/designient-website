@@ -13,7 +13,7 @@ interface CourseWhoShouldTakeProps {
 
 export function CourseWhoShouldTake({ description, idealFor, notFor, locationRelevance }: CourseWhoShouldTakeProps) {
   return (
-    <section id="who-should-take" className="py-20 md:py-28" style={{ backgroundColor: '#FFF6E2' }}>
+    <section id="who-should-take" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           
@@ -24,13 +24,13 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="p-3 rounded-lg" style={{ backgroundColor: '#8458B3' }}>
-                <User className="w-6 h-6" style={{ color: 'white' }} />
+              <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--color-accent-muted)' }}>
+                <User className="w-6 h-6" style={{ color: 'var(--text-on-dark)' }} />
               </div>
               <h2
                 className="font-display font-bold"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3rem)'
                 }}>
                 Who Should Take This Course?
@@ -38,7 +38,7 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
             </div>
             <p
               className="font-body text-lg max-w-2xl mx-auto"
-              style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+              style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
               {description}
             </p>
           </motion.div>
@@ -51,18 +51,18 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white p-8 rounded-2xl shadow-lg">
+              className="bg-card p-8 rounded-2xl shadow-lg">
               <h3
                 className="font-display font-semibold mb-6 flex items-center gap-2"
-                style={{ color: '#8458B3', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
-                <CheckCircle className="w-6 h-6" style={{ color: '#8458B3' }} />
+                style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+                <CheckCircle className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                 Ideal For
               </h3>
               <ul className="space-y-3">
                 {idealFor.map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                    <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                    <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                       {item}
                     </span>
                   </li>
@@ -77,18 +77,18 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-white p-8 rounded-2xl shadow-lg">
+                className="bg-card p-8 rounded-2xl shadow-lg">
                 <h3
                   className="font-display font-semibold mb-6 flex items-center gap-2"
-                  style={{ color: '#dc2626', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
-                  <X className="w-6 h-6" style={{ color: '#dc2626' }} />
+                  style={{ color: 'var(--color-error)', fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)' }}>
+                  <X className="w-6 h-6" style={{ color: 'var(--color-error)' }} />
                   This Course Is NOT For You If…
                 </h3>
                 <ul className="space-y-3 mb-6">
                   {notFor.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <X className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#dc2626' }} />
-                      <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                      <X className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-error)' }} />
+                      <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                         {item}
                       </span>
                     </li>
@@ -97,7 +97,7 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
                 <p
                   className="font-body text-sm leading-relaxed"
                   style={{
-                    color: '#6b7280',
+                    color: 'var(--text-muted)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                     lineHeight: '1.7',
                     fontStyle: 'italic'
@@ -115,9 +115,9 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-              <p className="font-body text-sm md:text-base leading-relaxed text-center" style={{ color: '#4a4a4a' }}>
-                <strong style={{ color: '#8458B3' }}>Market Alignment:</strong> {locationRelevance}
+              className="mt-8 bg-card p-6 rounded-xl shadow-sm border border-gray-100">
+              <p className="font-body text-sm md:text-base leading-relaxed text-center" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--color-primary)' }}>Market Alignment:</strong> {locationRelevance}
               </p>
             </motion.div>
           )}

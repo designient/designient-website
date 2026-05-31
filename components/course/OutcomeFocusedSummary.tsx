@@ -10,7 +10,7 @@ interface OutcomeFocusedSummaryProps {
 
 export function OutcomeFocusedSummary({ outcomes }: OutcomeFocusedSummaryProps) {
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -21,7 +21,7 @@ export function OutcomeFocusedSummary({ outcomes }: OutcomeFocusedSummaryProps) 
           <h2
             className="font-display text-center mb-8 font-bold"
             style={{
-              color: '#1a1a1a',
+              color: 'var(--text-primary)',
               fontSize: 'clamp(1.75rem, 3vw, 2.25rem)'
             }}>
             What you'll be able to do in 30 days
@@ -34,9 +34,9 @@ export function OutcomeFocusedSummary({ outcomes }: OutcomeFocusedSummaryProps) 
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                className="flex items-start gap-3 p-4 bg-card rounded-lg shadow-sm">
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                   {outcome}
                 </span>
               </motion.div>

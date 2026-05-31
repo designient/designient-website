@@ -59,7 +59,7 @@ export default function CareersPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={[breadcrumbSchema]} />
       <Header />
       <main id="main-content" role="main">

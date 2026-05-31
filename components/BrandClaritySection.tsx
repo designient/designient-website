@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export function BrandClaritySection() {
   return (
-    <section className="py-24 md:py-32 bg-white">
+    <section className="py-24 md:py-32 bg-card">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -28,7 +28,7 @@ export function BrandClaritySection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -38,7 +38,7 @@ export function BrandClaritySection() {
             <p
               className="font-body text-base md:text-lg font-normal"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                 lineHeight: '1.7'
               }}>
@@ -47,7 +47,7 @@ export function BrandClaritySection() {
             <p
               className="font-body text-base md:text-lg font-normal"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                 lineHeight: '1.7'
               }}>

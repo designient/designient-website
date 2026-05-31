@@ -196,20 +196,12 @@ export function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-[60] transition-colors duration-500"
+      className={`fixed top-0 left-0 right-0 z-[60] transition-colors duration-500 glass-nav ${isScrolled ? 'border-b border-[var(--glass-border-subtle)]' : ''}`}
       initial={{
         y: 0
       }}
       animate={{
         y: isVisible ? 0 : '-100%'
-      }}
-      style={{
-        backgroundColor: isScrolled ?
-          'rgba(255, 246, 226, 0.95)' :
-          'rgba(255, 246, 226, 0.8)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
-        borderBottom: `1px solid ${isScrolled ? 'rgba(26, 26, 26, 0.05)' : 'transparent'}`
       }}
       role="banner">
 
@@ -223,11 +215,11 @@ export function Header() {
             {mobileMenuOpen ?
               <X
                 className="w-6 h-6"
-                style={{ color: '#1a1a1a' }}
+                style={{ color: 'var(--text-primary)' }}
                 aria-hidden="true" /> :
               <Menu
                 className="w-6 h-6"
-                style={{ color: '#1a1a1a' }}
+                style={{ color: 'var(--text-primary)' }}
                 aria-hidden="true" />
             }
           </button>
@@ -262,20 +254,20 @@ export function Header() {
                     <button
                       className="font-body text-sm font-semibold transition-colors relative group flex items-center gap-1"
                       style={{
-                        color: activeDropdown === link.dropdownType ? '#8458B3' : '#4a4a4a'
+                        color: activeDropdown === link.dropdownType ? 'var(--color-primary)' : 'var(--text-secondary)'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = '#8458B3';
+                        e.currentTarget.style.color = 'var(--color-primary)';
                       }}
                       onMouseLeave={(e) => {
                         if (activeDropdown !== link.dropdownType) {
-                          e.currentTarget.style.color = '#4a4a4a';
+                          e.currentTarget.style.color = 'var(--text-secondary)';
                         }
                       }}>
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.dropdownType ? 'rotate-180' : ''}`} />
                       <span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-[#8458B3] transition-all duration-300"
+                        className="absolute -bottom-1 left-0 h-0.5 bg-[var(--color-primary)] transition-all duration-300"
                         style={{
                           width: activeDropdown === link.dropdownType ? '100%' : '0'
                         }}
@@ -291,13 +283,13 @@ export function Header() {
                           transition={{ duration: 0.2 }}
                           className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] rounded-lg shadow-lg border overflow-hidden"
                           style={{
-                            backgroundColor: '#ffffff',
-                            borderColor: 'rgba(0, 0, 0, 0.08)',
-                            boxShadow: '0 10px 40px rgba(0, 0, 0, 0.1)'
+                            backgroundColor: 'var(--bg-card)',
+                            borderColor: 'var(--border-default)',
+                            boxShadow: 'var(--shadow-lg)'
                           }}>
                           {link.dropdownType === 'courses' && (
                             <div className="p-8">
-                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: '#1a1a1a', letterSpacing: '-0.02em' }}>
+                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
                                 All Courses
                               </h3>
                               <div className="grid grid-cols-2 gap-6">
@@ -310,30 +302,30 @@ export function Header() {
                                       backgroundColor: 'transparent'
                                     }}
                                     onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = '#f9fafb';
+                                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.backgroundColor = 'transparent';
                                     }}>
                                     <div className="mb-3">
-                                      <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[#8458B3] transition-colors" style={{ color: '#1a1a1a', lineHeight: '1.4' }}>
+                                      <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
                                         {course.title}
                                       </h4>
-                                      <p className="font-body text-sm mb-3" style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
+                                      <p className="font-body text-sm mb-3" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                                         {course.description}
                                       </p>
                                     </div>
-                                    <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: '#e5e7eb' }}>
+                                    <div className="flex items-center justify-between pt-3 border-t" style={{ borderColor: 'var(--border-default)' }}>
                                       <div className="flex items-center gap-3">
-                                        <span className="font-body text-xs font-medium" style={{ color: '#4a4a4a' }}>
+                                        <span className="font-body text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>
                                           {course.duration}
                                         </span>
-                                        <span className="text-xs" style={{ color: '#d1d5db' }}>•</span>
-                                        <span className="font-body text-xs" style={{ color: '#4a4a4a' }}>
+                                        <span className="text-xs" style={{ color: 'var(--border-default)' }}>•</span>
+                                        <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>
                                           {course.hours}
                                         </span>
                                       </div>
-                                      <span className="font-display font-semibold text-sm" style={{ color: '#8458B3' }}>
+                                      <span className="font-display font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
                                         {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
                                       </span>
                                     </div>
@@ -345,7 +337,7 @@ export function Header() {
 
                           {link.dropdownType === 'why-designient' && (
                             <div className="p-8">
-                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: '#1a1a1a', letterSpacing: '-0.02em' }}>
+                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
                                 Why Designient
                               </h3>
                               <div className="grid grid-cols-2 gap-6">
@@ -358,15 +350,15 @@ export function Header() {
                                       backgroundColor: 'transparent'
                                     }}
                                     onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = '#f9fafb';
+                                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.backgroundColor = 'transparent';
                                     }}>
-                                    <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[#8458B3] transition-colors" style={{ color: '#1a1a1a', lineHeight: '1.4' }}>
+                                    <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
                                       {item.name}
                                     </h4>
-                                    <p className="font-body text-sm" style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
+                                    <p className="font-body text-sm" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                                       {item.description}
                                     </p>
                                   </Link>
@@ -377,7 +369,7 @@ export function Header() {
 
                           {link.dropdownType === 'for-corporates' && (
                             <div className="p-8">
-                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: '#1a1a1a', letterSpacing: '-0.02em' }}>
+                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
                                 For Corporates
                               </h3>
                               <div className="grid grid-cols-2 gap-6">
@@ -390,15 +382,15 @@ export function Header() {
                                       backgroundColor: 'transparent'
                                     }}
                                     onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = '#f9fafb';
+                                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
                                     }}
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.backgroundColor = 'transparent';
                                     }}>
-                                    <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[#8458B3] transition-colors" style={{ color: '#1a1a1a', lineHeight: '1.4' }}>
+                                    <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
                                       {item.name}
                                     </h4>
-                                    <p className="font-body text-sm" style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
+                                    <p className="font-body text-sm" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                                       {item.description}
                                     </p>
                                   </Link>
@@ -415,17 +407,17 @@ export function Header() {
                     href={link.path!}
                     className="font-body text-sm font-semibold transition-colors relative group"
                     style={{
-                      color: pathname === link.path ? '#8458B3' : '#4a4a4a'
+                      color: pathname === link.path ? 'var(--color-primary)' : 'var(--text-secondary)'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = '#8458B3';
+                      e.currentTarget.style.color = 'var(--color-primary)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = pathname === link.path ? '#8458B3' : '#4a4a4a';
+                      e.currentTarget.style.color = pathname === link.path ? 'var(--color-primary)' : 'var(--text-secondary)';
                     }}>
                     {link.name}
                     <span
-                      className="absolute -bottom-1 left-0 h-0.5 bg-[#8458B3] transition-all duration-300"
+                      className="absolute -bottom-1 left-0 h-0.5 bg-[var(--color-primary)] transition-all duration-300"
                       style={{
                         width: pathname === link.path ? '100%' : '0'
                       }}
@@ -436,7 +428,7 @@ export function Header() {
             ))}
           </nav>
 
-          <div className="hidden nav:flex items-center gap-4">
+          <div className="hidden nav:flex items-center gap-3">
             <Link href="/apply-now">
               <motion.button
                 whileHover={{
@@ -445,9 +437,10 @@ export function Header() {
                 whileTap={{
                   scale: 0.95
                 }}
-                className="font-body text-white font-bold inline-block shadow-md min-h-[44px] min-w-[120px] flex items-center justify-center"
+                className="font-body font-bold inline-block shadow-md min-h-[44px] min-w-[120px] flex items-center justify-center"
                 style={{
-                  backgroundColor: '#8458B3',
+                  backgroundColor: 'var(--color-cta)',
+                  color: 'var(--text-on-accent)',
                   padding: '10px 20px',
                   borderRadius: '100px',
                   border: 'none',
@@ -470,7 +463,7 @@ export function Header() {
                 }}
                 className="font-body font-semibold flex items-center gap-1.5 transition-colors min-h-[44px] px-2"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   backgroundColor: 'transparent',
                   border: 'none',
                   cursor: 'pointer',
@@ -478,10 +471,10 @@ export function Header() {
                   fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#8458B3';
+                  e.currentTarget.style.color = 'var(--color-primary)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#4a4a4a';
+                  e.currentTarget.style.color = 'var(--text-secondary)';
                 }}
                 aria-label="Login">
 
@@ -508,11 +501,11 @@ export function Header() {
                 right: 0,
                 bottom: 0,
                 zIndex: 99999,
-                backgroundColor: '#FFF6E2'
+                backgroundColor: 'var(--bg-warm)'
               }}>
               <nav
                 className="h-full overflow-y-auto max-w-container mx-auto px-6 md:px-8 py-8"
-                style={{ backgroundColor: '#FFF6E2' }}
+                style={{ backgroundColor: 'var(--bg-warm)' }}
                 aria-label="Mobile navigation">
 
                 {/* Main Navigation Links */}
@@ -526,11 +519,11 @@ export function Header() {
                           transition={{ delay: index * 0.05 }}
                           onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.dropdownType ? null : link.dropdownType!)}
                           className="font-display w-full flex items-center justify-between py-4 text-lg font-bold tracking-wide"
-                          style={{ color: mobileDropdownOpen === link.dropdownType ? '#8458B3' : '#1a1a1a' }}>
+                          style={{ color: mobileDropdownOpen === link.dropdownType ? 'var(--color-primary)' : 'var(--text-primary)' }}>
                           {link.name}
                           <ChevronDown
                             className={`w-5 h-5 transition-transform duration-200 ${mobileDropdownOpen === link.dropdownType ? 'rotate-180' : ''}`}
-                            style={{ color: mobileDropdownOpen === link.dropdownType ? '#8458B3' : '#6a6a6a' }}
+                            style={{ color: mobileDropdownOpen === link.dropdownType ? 'var(--color-primary)' : 'var(--text-muted)' }}
                           />
                         </motion.button>
 
@@ -549,11 +542,11 @@ export function Header() {
                                     href={course.path}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className="block py-3 px-4 rounded-xl transition-colors"
-                                    style={{ backgroundColor: 'rgba(132, 88, 179, 0.08)' }}>
-                                    <div className="font-body font-semibold text-base mb-0.5" style={{ color: '#1a1a1a' }}>
+                                    style={{ backgroundColor: 'var(--color-accent-muted)' }}>
+                                    <div className="font-body font-semibold text-base mb-0.5" style={{ color: 'var(--text-primary)' }}>
                                       {course.title}
                                     </div>
-                                    <div className="font-body text-sm" style={{ color: '#6a6a6a' }}>
+                                    <div className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                                       {course.duration} • {course.level}
                                     </div>
                                   </Link>
@@ -564,7 +557,7 @@ export function Header() {
                                     href={item.path}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className="block py-3 px-4 rounded-xl font-body font-medium text-base transition-colors"
-                                    style={{ backgroundColor: 'rgba(132, 88, 179, 0.08)', color: '#1a1a1a' }}>
+                                    style={{ backgroundColor: 'var(--color-accent-muted)', color: 'var(--text-primary)' }}>
                                     {item.name}
                                   </Link>
                                 ))}
@@ -574,7 +567,7 @@ export function Header() {
                                     href={item.path}
                                     onClick={() => setMobileMenuOpen(false)}
                                     className="block py-3 px-4 rounded-xl font-body font-medium text-base transition-colors"
-                                    style={{ backgroundColor: 'rgba(132, 88, 179, 0.08)', color: '#1a1a1a' }}>
+                                    style={{ backgroundColor: 'var(--color-accent-muted)', color: 'var(--text-primary)' }}>
                                     {item.name}
                                   </Link>
                                 ))}
@@ -593,7 +586,7 @@ export function Header() {
                           href={link.path!}
                           onClick={() => setMobileMenuOpen(false)}
                           className="font-display block py-4 text-lg font-bold tracking-wide"
-                          style={{ color: pathname === link.path ? '#8458B3' : '#1a1a1a' }}>
+                          style={{ color: pathname === link.path ? 'var(--color-primary)' : 'var(--text-primary)' }}>
                           {link.name}
                         </Link>
                       </motion.div>
@@ -607,18 +600,18 @@ export function Header() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 }}
                   className="mt-8 pt-6 space-y-4"
-                  style={{ borderTop: '1px solid rgba(26, 26, 26, 0.1)' }}>
+                  style={{ borderTop: '1px solid var(--border-default)' }}>
                   <Link href="/apply-now" onClick={() => setMobileMenuOpen(false)} className="block">
                     <button
-                      className="w-full font-body text-white font-bold text-base py-4 rounded-full shadow-lg transition-transform active:scale-[0.98]"
-                      style={{ backgroundColor: '#8458B3' }}>
+                      className="w-full font-body font-bold text-base py-4 rounded-full shadow-lg transition-transform active:scale-[0.98] surface-on-accent"
+                      style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)' }}>
                       Apply Now
                     </button>
                   </Link>
                   <Link href="https://app.designient.com/login" onClick={() => setMobileMenuOpen(false)} className="block">
                     <button
                       className="w-full font-body font-semibold text-base py-4 rounded-full flex items-center justify-center gap-2 transition-colors"
-                      style={{ color: '#4a4a4a', backgroundColor: 'rgba(26, 26, 26, 0.05)' }}>
+                      style={{ color: 'var(--text-secondary)', backgroundColor: 'var(--bg-muted)' }}>
                       Login
                       <ArrowRight className="w-4 h-4" />
                     </button>

@@ -59,16 +59,16 @@ export function QuickApplyModal({ isOpen, onClose, courseName, courseSlug }: Qui
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto"
+              className="bg-card rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto pointer-events-auto"
             >
               {/* Header */}
-              <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
+              <div className="sticky top-0 bg-card border-b border-gray-200 px-6 py-4 flex items-center justify-between z-10">
                 <div>
-                  <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>
+                  <h2 className="font-display font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
                     Quick Apply
                   </h2>
                   {courseName && (
-                    <p className="font-body text-sm mt-1" style={{ color: '#6b7280' }}>
+                    <p className="font-body text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
                       {courseName}
                     </p>
                   )}
@@ -78,7 +78,7 @@ export function QuickApplyModal({ isOpen, onClose, courseName, courseSlug }: Qui
                   className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
                   aria-label="Close modal"
                 >
-                  <X className="w-5 h-5" style={{ color: '#6b7280' }} />
+                  <X className="w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 </button>
               </div>
 

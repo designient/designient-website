@@ -89,10 +89,7 @@ export function StatsSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-12 md:py-16"
-      style={{
-        backgroundColor: '#8458B3'
-      }}>
+      className="py-12 md:py-16 section-band-accent">
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -121,9 +118,10 @@ export function StatsSection() {
             className="text-center flex flex-col justify-center min-h-[100px] sm:min-h-[120px] md:min-h-[140px]">
 
               <motion.div
-              className="font-display tracking-wide mb-2"
+              className="font-display tracking-wide mb-2 inline-block px-4 py-2 rounded-full"
               style={{
-                color: '#f2d53c',
+                color: 'var(--color-accent)',
+                border: '1.5px solid var(--color-accent)',
                 fontSize: 'clamp(3rem, 7vw, 5.5rem)'
               }}
               initial={{
@@ -148,7 +146,7 @@ export function StatsSection() {
               <motion.div
               className="font-body uppercase tracking-wider font-bold"
               style={{
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(0.6875rem, 1.8vw, 1rem)'
               }}
               initial={{

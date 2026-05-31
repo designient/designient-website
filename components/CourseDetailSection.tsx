@@ -43,7 +43,7 @@ export function CourseDetailSection({
   benefits,
   courseSlug,
   imagePosition,
-  backgroundColor = 'white',
+  backgroundColor = 'var(--bg-card)',
   coursePath
 }: CourseDetailProps) {
   
@@ -106,7 +106,7 @@ export function CourseDetailSection({
       <h3
       className="font-display tracking-wide mb-6"
       style={{
-        color: '#1a1a1a',
+        color: 'var(--text-primary)',
         fontWeight: 600,
         fontSize: 'clamp(1.5rem, 3vw, 2.25rem)'
       }}>
@@ -122,19 +122,19 @@ export function CourseDetailSection({
         className="flex items-center gap-3 p-3 rounded-lg"
         style={{
           backgroundColor:
-          backgroundColor === 'white' ? '#FFFBF9' : 'white'
+          backgroundColor === 'var(--bg-card)' ? 'var(--bg-peach)' : 'var(--bg-card)'
         }}>
 
             <fact.icon
           className="w-5 h-5"
           style={{
-            color: '#8458B3'
+            color: 'var(--color-primary)'
           }} />
 
             <span
             className="font-body text-sm font-medium"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
             }}>
 
@@ -149,7 +149,7 @@ export function CourseDetailSection({
         <h4
         className="font-display font-bold mb-4"
         style={{
-          color: '#8458B3',
+          color: 'var(--color-primary)',
           fontWeight: 600,
           fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)'
         }}>
@@ -163,9 +163,9 @@ export function CourseDetailSection({
           className="rounded-lg overflow-hidden transition-all duration-300"
           style={{
             backgroundColor:
-            backgroundColor === 'white' ? '#FFF6E2' : 'white',
+            backgroundColor === 'var(--bg-card)' ? 'var(--bg-warm)' : 'var(--bg-card)',
             borderLeft: expandedModules.includes(index) ?
-            '4px solid #8458B3' :
+            '4px solid var(--color-accent)' :
             '4px solid transparent',
             boxShadow: expandedModules.includes(index) ?
             '0 2px 8px rgba(0, 0, 0, 0.08)' :
@@ -179,7 +179,7 @@ export function CourseDetailSection({
                 <span
             className="font-body font-semibold text-sm md:text-base"
             style={{
-              color: '#1a1a1a',
+              color: 'var(--text-primary)',
               fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
             }}>
 
@@ -197,7 +197,7 @@ export function CourseDetailSection({
                   <ChevronDown
                 className="w-5 h-5"
                 style={{
-                  color: '#8458B3'
+                  color: 'var(--color-primary)'
                 }} />
 
                 </motion.div>
@@ -244,13 +244,13 @@ export function CourseDetailSection({
                     }}
                     className="flex items-start gap-2 text-sm"
                     style={{
-                      color: '#4B5563'
+                      color: 'var(--text-muted)'
                     }}>
 
                             <Check
                       className="w-4 h-4 mt-0.5 flex-shrink-0"
                       style={{
-                        color: '#8458B3'
+                        color: 'var(--color-primary)'
                       }} />
 
                             {topic}
@@ -271,7 +271,7 @@ export function CourseDetailSection({
         <h4
         className="font-display font-bold mb-3"
         style={{
-          color: '#1a1a1a',
+          color: 'var(--text-primary)',
           fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
         }}>
 
@@ -280,7 +280,7 @@ export function CourseDetailSection({
         <p
         className="font-body text-sm md:text-base leading-[1.7]"
         style={{
-          color: '#4a4a4a',
+          color: 'var(--text-secondary)',
           fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
         }}>
 
@@ -296,13 +296,13 @@ export function CourseDetailSection({
               <Check
             className="w-5 h-5 mt-0.5 flex-shrink-0"
             style={{
-              color: '#8458B3'
+              color: 'var(--color-primary)'
             }} />
 
               <span
             className="font-body text-sm md:text-base"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
             }}>
 
@@ -317,7 +317,7 @@ export function CourseDetailSection({
       <div
       className="p-6 rounded-xl"
       style={{
-        backgroundColor: backgroundColor === 'white' ? '#FFF6E2' : 'white'
+        backgroundColor: backgroundColor === 'var(--bg-card)' ? 'var(--bg-warm)' : 'var(--bg-card)'
       }}>
 
         <div className="flex items-baseline gap-2 mb-2 flex-wrap">
@@ -325,7 +325,7 @@ export function CourseDetailSection({
             <span
             className="text-xl md:text-2xl font-bold line-through opacity-70"
             style={{
-              color: '#6b7280'
+              color: 'var(--text-muted)'
             }}>
               {pricing.originalPrice}
             </span>
@@ -333,7 +333,7 @@ export function CourseDetailSection({
           <span
           className="text-3xl md:text-4xl font-bold"
           style={{
-            color: '#8458B3'
+            color: 'var(--color-primary)'
           }}>
             {pricing.price}
           </span>
@@ -341,7 +341,7 @@ export function CourseDetailSection({
         <p
         className="font-body text-xs mb-2 opacity-75"
         style={{
-          color: '#6b7280',
+          color: 'var(--text-muted)',
           fontSize: 'clamp(0.75rem, 1.3vw, 0.875rem)'
         }}>
           Fees are displayed in INR for learners in India and USD for international learners.
@@ -349,7 +349,7 @@ export function CourseDetailSection({
         <p
         className="font-body text-sm mb-4"
         style={{
-          color: '#6b7280',
+          color: 'var(--text-muted)',
           fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
         }}>
           EMI Available
@@ -358,16 +358,16 @@ export function CourseDetailSection({
           href={getCoursePath()}
           className="w-full text-white font-body font-semibold min-h-[44px] flex items-center justify-center gap-2 transition-transform hover:scale-105"
           style={{
-            backgroundColor: '#8458B3',
+            backgroundColor: 'var(--color-cta)',
             padding: '12px 28px',
             borderRadius: '100px',
             fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
           }}
           onMouseEnter={(e) =>
-          e.currentTarget.style.backgroundColor = '#6b46c1'
+          e.currentTarget.style.backgroundColor = 'var(--color-accent-hover)'
           }
           onMouseLeave={(e) =>
-          e.currentTarget.style.backgroundColor = '#8458B3'
+          e.currentTarget.style.backgroundColor = 'var(--color-accent)'
           }>
           View Course Details
           <ArrowRight className="w-4 h-4" />
@@ -395,8 +395,7 @@ export function CourseDetailSection({
     }}
     className="relative h-full min-h-[400px] rounded-2xl overflow-hidden"
     style={{
-      background:
-      'linear-gradient(135deg, rgba(132, 88, 179, 0.1) 0%, rgba(242, 213, 60, 0.1) 100%)'
+      background: 'var(--color-accent-subtle)'
     }}>
 
       <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -410,7 +409,7 @@ export function CourseDetailSection({
             repeat: Infinity,
             ease: 'easeInOut'
           }}
-          className="bg-white rounded-2xl p-6 mb-4"
+          className="bg-card rounded-2xl p-6 mb-4"
           style={{
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)'
           }}>
@@ -429,7 +428,7 @@ export function CourseDetailSection({
             ease: 'easeInOut',
             delay: 0.5
           }}
-          className="bg-white rounded-2xl p-6"
+          className="bg-card rounded-2xl p-6"
           style={{
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)'
           }}>
@@ -440,7 +439,7 @@ export function CourseDetailSection({
               key={i}
               className="aspect-square rounded-lg"
               style={{
-                backgroundColor: 'rgba(132, 88, 179, 0.1)'
+                backgroundColor: 'rgba(176, 228, 204, 0.1)'
               }} />
 
             )}

@@ -76,7 +76,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   const featured = featuredPost ? listShape(featuredPost) : undefined
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
       <main id="main-content" role="main" className="pt-24 md:pt-32">
         <BlogsPageClient

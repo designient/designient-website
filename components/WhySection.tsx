@@ -30,7 +30,7 @@ export function WhySection() {
     <section
       className="py-24 md:py-32"
       style={{
-        backgroundColor: '#FFF6E2'
+        backgroundColor: 'var(--bg-warm)'
       }}>
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -56,7 +56,7 @@ export function WhySection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6 text-center"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -68,7 +68,7 @@ export function WhySection() {
           <p
             className="font-body text-base md:text-lg max-w-3xl mx-auto font-normal text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -100,16 +100,16 @@ export function WhySection() {
             className="group relative">
 
               <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
+              className="accent-icon-box w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
               style={{
-                backgroundColor: '#f2d53c',
+                backgroundColor: 'var(--color-highlight)',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
               }}>
 
                 <value.icon
                 className="w-8 h-8"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--text-on-accent)',
                   strokeWidth: 2.5
                 }} />
 
@@ -118,7 +118,7 @@ export function WhySection() {
               <h3
               className="font-display tracking-wide mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontWeight: 600,
                 fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)'
               }}>
@@ -129,7 +129,7 @@ export function WhySection() {
               <p
               className="font-body text-base leading-relaxed font-normal"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.5vw, 1.0625rem)',
                 lineHeight: '1.7'
               }}>

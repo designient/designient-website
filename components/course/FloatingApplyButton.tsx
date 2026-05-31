@@ -46,8 +46,8 @@ export function FloatingApplyButton({ courseName, courseSlug }: FloatingApplyBut
             onClick={scrollToTop}
             className="w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110"
             style={{
-              backgroundColor: '#6b7280',
-              color: 'white',
+              backgroundColor: 'var(--text-muted)',
+              color: 'var(--text-on-dark)',
             }}
             aria-label="Scroll to top"
           >
@@ -62,8 +62,8 @@ export function FloatingApplyButton({ courseName, courseSlug }: FloatingApplyBut
             onClick={handleApplyClick}
             className="px-6 py-4 rounded-full shadow-2xl font-body font-bold flex items-center gap-2 transition-all hover:scale-105 hover:shadow-3xl"
             style={{
-              backgroundColor: '#8458B3',
-              color: 'white',
+              backgroundColor: 'var(--color-cta)',
+              color: 'var(--text-on-accent)',
               fontSize: 'clamp(0.875rem, 1.2vw, 1rem)',
             }}
           >

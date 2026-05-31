@@ -46,7 +46,7 @@ export function HomepageFAQSection() {
   };
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <StructuredData data={faqSchema} />
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
@@ -70,7 +70,7 @@ export function HomepageFAQSection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6 text-center"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -99,8 +99,8 @@ export function HomepageFAQSection() {
               }}
               className="border rounded-lg overflow-hidden"
               style={{
-                borderColor: '#e5e7eb',
-                backgroundColor: openIndex === index ? '#FFF6E2' : 'white'
+                borderColor: 'var(--border-default)',
+                backgroundColor: openIndex === index ? 'var(--bg-warm)' : 'var(--bg-card)'
               }}
               itemScope
               itemType="https://schema.org/Question">
@@ -115,7 +115,7 @@ export function HomepageFAQSection() {
                 <h3
                   className="font-display font-semibold pr-8"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(0.9375rem, 2vw, 1.125rem)'
                   }}
                   itemProp="name">
@@ -123,7 +123,7 @@ export function HomepageFAQSection() {
                 </h3>
                 <ChevronDown
                   className={`w-5 h-5 flex-shrink-0 transition-transform ${openIndex === index ? 'rotate-180' : ''}`}
-                  style={{ color: '#8458B3' }}
+                  style={{ color: 'var(--color-primary)' }}
                 />
               </button>
               <AnimatePresence>
@@ -152,7 +152,7 @@ export function HomepageFAQSection() {
                       <p
                         className="font-body font-normal"
                         style={{
-                          color: '#6b7280',
+                          color: 'var(--text-muted)',
                           fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                           lineHeight: '1.7'
                         }}

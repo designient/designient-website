@@ -204,22 +204,22 @@ export function ApplyNowContent() {
 
   if (currentStep === 'success') {
     return (
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
             className="max-w-2xl mx-auto text-center">
-            <div className="bg-white rounded-xl p-8 md:p-12 shadow-lg border-2" style={{ borderColor: '#10b981' }}>
-              <CheckCircle className="w-16 h-16 mx-auto mb-6" style={{ color: '#10b981' }} />
-              <h2 className="font-display font-bold mb-4 text-2xl md:text-3xl" style={{ color: '#1a1a1a' }}>
+            <div className="bg-card rounded-xl p-8 md:p-12 shadow-lg border-2" style={{ borderColor: 'var(--color-success)' }}>
+              <CheckCircle className="w-16 h-16 mx-auto mb-6" style={{ color: 'var(--color-success)' }} />
+              <h2 className="font-display font-bold mb-4 text-2xl md:text-3xl" style={{ color: 'var(--text-primary)' }}>
                 Application Submitted Successfully!
               </h2>
-              <p className="font-body text-lg mb-6 leading-relaxed" style={{ color: '#4a4a4a' }}>
+              <p className="font-body text-lg mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 Thank you for your interest in Designient. We&apos;ve received your application and will review it within 24 hours.
               </p>
-              <p className="font-body mb-8 leading-relaxed" style={{ color: '#4a4a4a' }}>
+              <p className="font-body mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 You&apos;ll receive a confirmation email shortly with next steps, including how to book your counselling call.
               </p>
               
@@ -227,19 +227,19 @@ export function ApplyNowContent() {
                 <Link
                   href="/contact-us?reason=counselling-call"
                   className="inline-flex items-center justify-center w-full px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
-                  style={{ backgroundColor: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--color-cta)' }}>
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Counselling Call
                 </Link>
                 
-                <p className="font-body text-sm" style={{ color: '#6b7280' }}>
+                <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                   Or connect with us on{' '}
                   <a
                     href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi Designient team, I just applied for ${formData.program}. I'd like to fast-track my application.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="underline hover:no-underline font-semibold"
-                    style={{ color: '#8458B3' }}>
+                    style={{ color: 'var(--color-primary)' }}>
                     WhatsApp
                   </a>
                   {' '}for faster response
@@ -255,7 +255,7 @@ export function ApplyNowContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1
@@ -265,7 +265,7 @@ export function ApplyNowContent() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.2'
               }}>
               Apply to Designient
@@ -276,7 +276,7 @@ export function ApplyNowContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-8 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -287,7 +287,7 @@ export function ApplyNowContent() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -295,7 +295,7 @@ export function ApplyNowContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               How It Works
             </h2>
           </motion.div>
@@ -312,24 +312,24 @@ export function ApplyNowContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white border-2 rounded-xl p-6 text-center"
-                  style={{ borderColor: '#e5e7eb' }}>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white mx-auto mb-4" style={{ backgroundColor: '#8458B3', fontSize: '1.25rem' }}>
+                  className="bg-card border-2 rounded-xl p-6 text-center"
+                  style={{ borderColor: 'var(--border-default)' }}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white mx-auto mb-4 accent-icon-box" style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)', fontSize: '1.25rem' }}>
                     {item.step}
                   </div>
-                  <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                  <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                     {item.title}
                   </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {item.description}
                   </p>
                 </motion.div>
               ))}
             </div>
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50" style={{ backgroundColor: '#eff6ff' }}>
-                <Clock className="w-5 h-5" style={{ color: '#8458B3' }} />
-                <p className="font-body text-sm font-semibold" style={{ color: '#1a1a1a' }}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50" style={{ backgroundColor: 'var(--color-info-bg)' }}>
+                <Clock className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
+                <p className="font-body text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
                   We respond within 24 hours
                 </p>
               </div>
@@ -340,20 +340,20 @@ export function ApplyNowContent() {
 
       {/* Smart Router */}
       {currentStep === 'router' && (
-        <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="max-w-2xl mx-auto">
-              <div className="bg-white rounded-xl p-8 shadow-lg">
-                <h2 className="font-display font-bold mb-6 text-center" style={{ fontSize: '1.75rem', color: '#1a1a1a' }}>
+              <div className="bg-card rounded-xl p-8 shadow-lg">
+                <h2 className="font-display font-bold mb-6 text-center" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
                   Let&apos;s Get Started
                 </h2>
                 <form onSubmit={handleRouterSubmit} className="space-y-6">
                   <div>
-                    <label className="block font-body font-semibold mb-3 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
                       1. Which program are you applying for? <span className="text-red-500">*</span>
                     </label>
                     <div className="space-y-2">
@@ -362,7 +362,7 @@ export function ApplyNowContent() {
                           key={program}
                           className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                             formData.program === program
-                              ? 'border-[#8458B3] bg-purple-50'
+                              ? 'border-[var(--color-primary)] bg-purple-50'
                               : 'border-gray-300 hover:border-gray-400'
                           }`}>
                           <input
@@ -374,9 +374,9 @@ export function ApplyNowContent() {
                               setFormData(prev => ({ ...prev, program: e.target.value }))
                               if (errors.program) setErrors(prev => ({ ...prev, program: undefined }))
                             }}
-                            className="w-4 h-4 text-[#8458B3] focus:ring-[#8458B3]"
+                            className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                           />
-                          <span className="font-body" style={{ color: '#1a1a1a' }}>{program}</span>
+                          <span className="font-body" style={{ color: 'var(--text-primary)' }}>{program}</span>
                         </label>
                       ))}
                     </div>
@@ -384,7 +384,7 @@ export function ApplyNowContent() {
                   </div>
 
                   <div>
-                    <label className="block font-body font-semibold mb-3 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
                       2. What best describes you? <span className="text-red-500">*</span>
                     </label>
                     <div className="space-y-2">
@@ -393,7 +393,7 @@ export function ApplyNowContent() {
                           key={type}
                           className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                             formData.applicantType === type
-                              ? 'border-[#8458B3] bg-purple-50'
+                              ? 'border-[var(--color-primary)] bg-purple-50'
                               : 'border-gray-300 hover:border-gray-400'
                           }`}>
                           <input
@@ -405,9 +405,9 @@ export function ApplyNowContent() {
                               setFormData(prev => ({ ...prev, applicantType: e.target.value }))
                               if (errors.applicantType) setErrors(prev => ({ ...prev, applicantType: undefined }))
                             }}
-                            className="w-4 h-4 text-[#8458B3] focus:ring-[#8458B3]"
+                            className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                           />
-                          <span className="font-body" style={{ color: '#1a1a1a' }}>{type}</span>
+                          <span className="font-body" style={{ color: 'var(--text-primary)' }}>{type}</span>
                         </label>
                       ))}
                     </div>
@@ -416,8 +416,8 @@ export function ApplyNowContent() {
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
-                    style={{ backgroundColor: '#8458B3' }}>
+                    className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 surface-on-accent"
+                    style={{ backgroundColor: 'var(--color-cta)' }}>
                     Continue to Application
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </button>
@@ -430,25 +430,25 @@ export function ApplyNowContent() {
 
       {/* Application Form */}
       {currentStep === 'form' && (
-        <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="max-w-3xl mx-auto">
-              <div className="bg-white rounded-xl p-8 shadow-lg border-2" style={{ borderColor: '#e5e7eb' }}>
+              <div className="bg-card rounded-xl p-8 shadow-lg border-2" style={{ borderColor: 'var(--border-default)' }}>
                 <div className="mb-6">
                   <button
                     onClick={() => setCurrentStep('router')}
                     className="inline-flex items-center text-sm font-body mb-4 hover:underline"
-                    style={{ color: '#8458B3' }}>
+                    style={{ color: 'var(--color-primary)' }}>
                     ← Back
                   </button>
-                  <h2 className="font-display font-bold mb-2" style={{ fontSize: '1.75rem', color: '#1a1a1a' }}>
+                  <h2 className="font-display font-bold mb-2" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
                     Application Form
                   </h2>
-                  <p className="font-body text-sm" style={{ color: '#6b7280' }}>
+                  <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                     Applying for: <strong>{formData.program}</strong> as a <strong>{formData.applicantType}</strong>
                   </p>
                 </div>
@@ -456,7 +456,7 @@ export function ApplyNowContent() {
                 <form onSubmit={handleFormSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                      <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -468,7 +468,7 @@ export function ApplyNowContent() {
                           if (errors.fullName) setErrors(prev => ({ ...prev, fullName: undefined }))
                         }}
                         className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                          errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                         }`}
                         placeholder="John Doe"
                       />
@@ -476,7 +476,7 @@ export function ApplyNowContent() {
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                      <label htmlFor="email" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                         Email <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -488,7 +488,7 @@ export function ApplyNowContent() {
                           if (errors.email) setErrors(prev => ({ ...prev, email: undefined }))
                         }}
                         className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                          errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                         }`}
                         placeholder="john@example.com"
                       />
@@ -497,7 +497,7 @@ export function ApplyNowContent() {
                   </div>
 
                   <div>
-                    <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -509,7 +509,7 @@ export function ApplyNowContent() {
                         if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }))
                       }}
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                        errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}
                       placeholder="+91 98765 43210"
                     />
@@ -517,7 +517,7 @@ export function ApplyNowContent() {
                   </div>
 
                   <div>
-                    <label htmlFor="currentBackground" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label htmlFor="currentBackground" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                       Current Background <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -529,7 +529,7 @@ export function ApplyNowContent() {
                       }}
                       rows={3}
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                        errors.currentBackground ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                        errors.currentBackground ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}
                       placeholder="Tell us about your current role, education, or background..."
                     />
@@ -537,7 +537,7 @@ export function ApplyNowContent() {
                   </div>
 
                   <div>
-                    <label htmlFor="experienceLevel" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label htmlFor="experienceLevel" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                       Experience Level <span className="text-red-500">*</span>
                     </label>
                     <select
@@ -548,7 +548,7 @@ export function ApplyNowContent() {
                         if (errors.experienceLevel) setErrors(prev => ({ ...prev, experienceLevel: undefined }))
                       }}
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                        errors.experienceLevel ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                        errors.experienceLevel ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}>
                       <option value="">Select your experience level</option>
                       {experienceLevels.map(level => (
@@ -559,7 +559,7 @@ export function ApplyNowContent() {
                   </div>
 
                   <div>
-                    <label htmlFor="careerGoal" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label htmlFor="careerGoal" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                       Career Goal <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -571,7 +571,7 @@ export function ApplyNowContent() {
                       }}
                       rows={3}
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                        errors.careerGoal ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                        errors.careerGoal ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}
                       placeholder="What do you hope to achieve with this course? What are your career aspirations?"
                     />
@@ -580,7 +580,7 @@ export function ApplyNowContent() {
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="availability" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                      <label htmlFor="availability" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                         Availability <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -591,7 +591,7 @@ export function ApplyNowContent() {
                           if (errors.availability) setErrors(prev => ({ ...prev, availability: undefined }))
                         }}
                         className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.availability ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                          errors.availability ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                         }`}>
                         <option value="">Select availability</option>
                         {availabilityOptions.map(option => (
@@ -602,7 +602,7 @@ export function ApplyNowContent() {
                     </div>
 
                     <div>
-                      <label htmlFor="city" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                      <label htmlFor="city" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                         City <span className="text-red-500">*</span>
                       </label>
                       <select
@@ -613,7 +613,7 @@ export function ApplyNowContent() {
                           if (errors.city) setErrors(prev => ({ ...prev, city: undefined }))
                         }}
                         className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.city ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                          errors.city ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                         }`}>
                         <option value="">Select your city</option>
                         {cities.map(city => (
@@ -625,7 +625,7 @@ export function ApplyNowContent() {
                   </div>
 
                   <div>
-                    <label htmlFor="motivation" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                    <label htmlFor="motivation" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                       Why do you want to join Designient? <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -637,12 +637,12 @@ export function ApplyNowContent() {
                       }}
                       rows={5}
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                        errors.motivation ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                        errors.motivation ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}
                       placeholder="Share your motivation, what excites you about design, and why you chose Designient..."
                     />
                     {errors.motivation && <p className="mt-1 text-xs text-red-500">{errors.motivation}</p>}
-                    <p className="mt-1 text-xs" style={{ color: '#6b7280' }}>
+                    <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
                       Minimum 50 characters. Please be specific and genuine.
                     </p>
                   </div>
@@ -656,19 +656,19 @@ export function ApplyNowContent() {
                           setFormData(prev => ({ ...prev, consent: e.target.checked }))
                           if (errors.consent) setErrors(prev => ({ ...prev, consent: undefined }))
                         }}
-                        className="w-5 h-5 mt-0.5 rounded border-gray-300 text-[#8458B3] focus:ring-[#8458B3]"
+                        className="w-5 h-5 mt-0.5 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--bg-purple-band)]"
                       />
-                      <span className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                      <span className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         I agree to the{' '}
-                        <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+                        <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                           Terms and Conditions
                         </Link>
                         {', '}
-                        <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+                        <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                           Privacy Policy
                         </Link>
                         {', and '}
-                        <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+                        <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                           Cancellation & Refund Policy
                         </Link>
                         . I consent to receive communications via email, phone, and WhatsApp regarding my application.
@@ -681,12 +681,12 @@ export function ApplyNowContent() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                      style={{ backgroundColor: '#8458B3' }}>
+                      className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
+                      style={{ backgroundColor: 'var(--color-cta)' }}>
                       {isSubmitting ? 'Submitting...' : 'Submit Application'}
                       {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
                     </button>
-                    <p className="mt-4 font-body text-xs text-center" style={{ color: '#6b7280' }}>
+                    <p className="mt-4 font-body text-xs text-center" style={{ color: 'var(--text-muted)' }}>
                       By submitting, you acknowledge that applications are reviewed and seats are limited. No placement or outcome guarantees.
                     </p>
                   </div>

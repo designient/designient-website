@@ -73,21 +73,21 @@ export default async function BlogPostPage({ params }: PageProps) {
   }))
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
       <main id="main-content" role="main" className="pt-24 md:pt-32 pb-16 md:pb-24">
         <article className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-6 text-sm" style={{ color: '#6b7280' }}>
+            <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="font-body hover:underline">
                 Home
               </Link>
               <ChevronRight className="w-4 h-4 flex-shrink-0" />
-              <Link href="/blogs" className="font-body hover:underline" style={{ color: '#8458B3' }}>
+              <Link href="/blogs" className="font-body hover:underline" style={{ color: 'var(--color-primary)' }}>
                 Blogs
               </Link>
               <ChevronRight className="w-4 h-4 flex-shrink-0" />
-              <span className="font-body line-clamp-1" style={{ color: '#1a1a1a' }}>
+              <span className="font-body line-clamp-1" style={{ color: 'var(--text-primary)' }}>
                 {post.title}
               </span>
             </nav>
@@ -95,7 +95,7 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h1
               className="font-display font-bold mb-6 leading-tight"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.75rem, 4vw, 2.75rem)',
               }}
             >
@@ -105,27 +105,27 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <span
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-body font-medium"
-                style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}
+                style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}
               >
                 {post.category}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-body text-sm" style={{ color: '#6b7280' }}>
+              <span className="inline-flex items-center gap-1.5 font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                 <Calendar className="w-4 h-4" />
                 {formatDate(post.publishedDate)}
               </span>
-              <span className="inline-flex items-center gap-1.5 font-body text-sm" style={{ color: '#6b7280' }}>
+              <span className="inline-flex items-center gap-1.5 font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                 <Clock className="w-4 h-4" />
                 {post.readingTime}
               </span>
               {post.author && (
-                <span className="font-body text-sm" style={{ color: '#4a4a4a' }}>
+                <span className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>
                   {post.author.name}
                 </span>
               )}
             </div>
 
             {post.coverImage && (
-              <div className="relative w-full rounded-xl overflow-hidden mb-10" style={{ aspectRatio: '16/9', backgroundColor: '#f3f4f6' }}>
+              <div className="relative w-full rounded-xl overflow-hidden mb-10" style={{ aspectRatio: '16/9', backgroundColor: 'var(--bg-muted)' }}>
                 <Image
                   src={post.coverImage}
                   alt=""
@@ -140,21 +140,21 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div
               className="font-body prose prose-lg max-w-none"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.75',
               }}
             >
               <div
                 dangerouslySetInnerHTML={{ __html: post.content ?? '' }}
-                className="blog-post-content [&_a]:underline [&_a]:text-[#8458B3] [&_a:hover]:opacity-80 [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:font-display [&_h2]:font-bold [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:mb-3 [&_h3]:font-display [&_h3]:font-semibold [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4"
+                className="blog-post-content [&_a]:underline [&_a]:text-[var(--color-primary)] [&_a:hover]:opacity-80 [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:font-display [&_h2]:font-bold [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:mb-3 [&_h3]:font-display [&_h3]:font-semibold [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4"
               />
             </div>
 
-            <div className="mt-12 pt-8 border-t" style={{ borderColor: '#e5e7eb' }}>
+            <div className="mt-12 pt-8 border-t" style={{ borderColor: 'var(--border-default)' }}>
               <Link
                 href="/blogs"
                 className="inline-flex items-center gap-2 font-body font-semibold hover:underline"
-                style={{ color: '#8458B3' }}
+                style={{ color: 'var(--color-primary)' }}
               >
                 ← Back to all posts
               </Link>

@@ -42,7 +42,7 @@ export function CoursesFAQ() {
     <section
       className="py-24 md:py-32"
       style={{
-        backgroundColor: '#fceed1'
+        backgroundColor: 'var(--bg-peach)'
       }}>
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -68,7 +68,7 @@ export function CoursesFAQ() {
           <h2
             className="font-display tracking-wide leading-tight mb-4"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -97,12 +97,12 @@ export function CoursesFAQ() {
               duration: 0.6,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white rounded-xl overflow-hidden"
+            className="bg-card rounded-xl overflow-hidden"
             style={{
               boxShadow: '0 2px 8px rgba(0, 0, 0, 0.08)',
               borderLeft:
               openIndex === index ?
-              '4px solid #8458B3' :
+              '4px solid var(--color-primary)' :
               '4px solid transparent'
             }}>
 
@@ -110,13 +110,13 @@ export function CoursesFAQ() {
               onClick={() => setOpenIndex(openIndex === index ? null : index)}
               className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors"
               style={{
-                backgroundColor: openIndex === index ? '#FFF6E2' : 'white'
+                backgroundColor: openIndex === index ? 'var(--bg-warm)' : 'var(--bg-card)'
               }}>
 
                 <span
                 className="text-base md:text-lg font-semibold pr-4"
                 style={{
-                  color: '#1F2937'
+                  color: 'var(--text-primary)'
                 }}>
 
                   {faq.question}
@@ -133,7 +133,7 @@ export function CoursesFAQ() {
                   <ChevronDown
                   className="w-5 h-5 flex-shrink-0"
                   style={{
-                    color: '#8458B3'
+                    color: 'var(--color-primary)'
                   }} />
 
                 </motion.div>
@@ -164,11 +164,11 @@ export function CoursesFAQ() {
                       <p
                     className="text-sm md:text-base leading-[1.7]"
                     style={{
-                      color: '#4B5563'
+                      color: 'var(--text-muted)'
                     }}>
                         {faq.answer}
                         {faq.question.includes("not sure") && (
-                          <> For teams or enterprise training needs, explore our <Link href="/corporates/training-programs" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>corporate training programs</Link>.</>
+                          <> For teams or enterprise training needs, explore our <Link href="/corporates/training-programs" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>corporate training programs</Link>.</>
                         )}
                       </p>
                     </div>

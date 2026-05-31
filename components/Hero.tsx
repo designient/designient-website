@@ -249,7 +249,7 @@ export function Hero() {
         <Image
           src="/company-logos/amazon.svg"
           alt="Amazon logo - UI UX design students from Designient work at Amazon"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -261,7 +261,7 @@ export function Hero() {
         <Image
           src="/company-logos/accenture.svg"
           alt="Accenture logo - UI UX design students from Designient work at Accenture"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -273,7 +273,7 @@ export function Hero() {
         <Image
           src="/company-logos/cisco.svg"
           alt="Cisco logo - UI UX design students from Designient work at Cisco"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -285,7 +285,7 @@ export function Hero() {
         <Image
           src="/company-logos/google.svg"
           alt="Google logo - UI UX design students from Designient work at Google"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -297,19 +297,7 @@ export function Hero() {
         <Image
           src="/company-logos/paypal.svg"
           alt="PayPal logo - UI UX design students from Designient work at PayPal"
-          className="h-8 w-auto object-contain"
-          width={120}
-          height={32}
-        />
-      )
-    },
-    {
-      name: 'Salesforce',
-      logo: (
-        <Image
-          src="/company-logos/salesforce.svg"
-          alt="Salesforce logo - UI UX design students from Designient work at Salesforce"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -321,7 +309,7 @@ export function Hero() {
         <Image
           src="/company-logos/mercedes.svg"
           alt="Mercedes Benz logo - UI UX design students from Designient work at Mercedes Benz"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -333,7 +321,7 @@ export function Hero() {
         <Image
           src="/company-logos/adobe.svg"
           alt="Adobe logo - UI UX design students from Designient work at Adobe"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -345,19 +333,7 @@ export function Hero() {
         <Image
           src="/company-logos/deloitte.png"
           alt="Deloitte logo - UI UX design students from Designient work at Deloitte"
-          className="h-8 w-auto object-contain"
-          width={120}
-          height={32}
-        />
-      )
-    },
-    {
-      name: 'ADPlist',
-      logo: (
-        <Image
-          src="/company-logos/adplist.ico"
-          alt="ADPlist logo - UI UX design students from Designient work at ADPlist"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -369,7 +345,7 @@ export function Hero() {
         <Image
           src="/company-logos/lenovo.svg"
           alt="Lenovo logo - UI UX design students from Designient work at Lenovo"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -381,7 +357,7 @@ export function Hero() {
         <Image
           src="/company-logos/meta.svg"
           alt="Meta logo - UI UX design students from Designient work at Meta"
-          className="h-8 w-auto object-contain"
+          className="h-8 w-auto object-contain company-logo-mono"
           width={120}
           height={32}
         />
@@ -422,9 +398,9 @@ export function Hero() {
   };
   return (
     <section
-      className="relative flex flex-col pt-20 pb-8 md:pt-28 md:pb-16 lg:pt-32 lg:pb-24 overflow-hidden"
+      className="hero-glow relative flex flex-col pt-20 pb-8 md:pt-28 md:pb-16 lg:pt-32 lg:pb-24 overflow-hidden"
       style={{
-        backgroundColor: '#FFF6E2'
+        backgroundColor: 'var(--bg-warm)'
       }}
       aria-labelledby="hero-heading"
       itemScope
@@ -456,10 +432,10 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 md:mb-4"
-              style={{ backgroundColor: '#f2d53c' }}>
+              style={{ backgroundColor: 'var(--color-highlight)' }}>
               <span
                 className="font-body font-bold uppercase tracking-wide text-xs md:text-sm"
-                style={{ color: '#1a1a1a' }}>
+                style={{ color: 'var(--text-on-accent)' }}>
                 Mentor-Led. Career-Focused.
               </span>
             </motion.div>
@@ -471,7 +447,7 @@ export function Hero() {
               style={{
                 fontWeight: 700,
                 fontSize: 'clamp(1.75rem, 5vw, 4rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 wordBreak: 'break-word'
               }}
               itemProp="name">
@@ -482,7 +458,7 @@ export function Hero() {
             <p
               className="font-body text-base mb-4 md:mb-6 max-w-2xl font-normal leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(0.9375rem, 2vw, 1.25rem)',
                 lineHeight: '1.6'
               }}
@@ -493,20 +469,20 @@ export function Hero() {
             {/* Trust Badges - Always horizontal, wrap on tiny screens */}
             <div className="flex flex-wrap gap-x-4 gap-y-2 mb-4 md:mb-6">
               <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#8458B3' }} />
-                <span className="font-body font-medium text-xs md:text-sm" style={{ color: '#1a1a1a' }}>
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
                   Adobe Certified
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#8458B3' }} />
-                <span className="font-body font-medium text-xs md:text-sm" style={{ color: '#1a1a1a' }}>
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
                   Job Guarantee
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: '#8458B3' }} />
-                <span className="font-body font-medium text-xs md:text-sm" style={{ color: '#1a1a1a' }}>
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
                   1-on-1 Mentorship
                 </span>
               </div>
@@ -518,18 +494,18 @@ export function Hero() {
                 href="/courses"
                 className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[48px] w-full sm:w-auto shadow-lg shadow-purple-900/10 text-sm md:text-base"
                 style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white'
+                  backgroundColor: 'var(--color-cta)',
+                  color: 'var(--text-on-accent)'
                 }}>
                 <BookOpen className="w-4 h-4 flex-shrink-0" />
                 <span>Explore Courses</span>
               </Link>
               <Link
                 href="/corporates/hiring-consulting"
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold border-2 transition-colors hover:bg-white/50 min-h-[48px] w-full sm:w-auto text-sm md:text-base"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[48px] w-full sm:w-auto text-sm md:text-base"
                 style={{
-                  borderColor: '#1a1a1a',
-                  color: '#1a1a1a'
+                  borderColor: 'var(--text-primary)',
+                  color: 'var(--text-primary)'
                 }}>
                 <ArrowRight className="w-4 h-4 flex-shrink-0" />
                 <span>Hiring Support</span>
@@ -559,12 +535,12 @@ export function Hero() {
                     <Star
                       key={i}
                       className="w-3 h-3 fill-current"
-                      style={{ color: '#f2d53c' }} />
+                      style={{ color: 'var(--color-highlight)' }} />
                   )}
                 </div>
                 <p
                   className="font-body text-[11px] md:text-xs font-medium group-hover:underline transition-all"
-                  style={{ color: '#4a4a4a' }}>
+                  style={{ color: 'var(--text-secondary)' }}>
                   4.8/5 from 150+ students
                 </p>
               </Link>
@@ -580,17 +556,17 @@ export function Hero() {
               duration: 0.8,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 order-2 w-full">
+          className="form-panel bg-card p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 order-2 w-full">
 
             <div className="text-center mb-3 md:mb-4">
               <h3
                 className="font-display text-lg md:text-xl mb-1"
-                style={{ color: '#1a1a1a' }}>
+                style={{ color: 'var(--text-primary)' }}>
                 Get Course Details
               </h3>
               <p
                 className="font-body text-xs"
-                style={{ color: '#6a6a6a' }}>
+                style={{ color: 'var(--text-muted)' }}>
                 Speak with our career counselors today
               </p>
             </div>
@@ -610,7 +586,7 @@ export function Hero() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                   style={{
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }} />
 
               </div>
@@ -629,7 +605,7 @@ export function Hero() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                   style={{
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }} />
 
               </div>
@@ -655,7 +631,7 @@ export function Hero() {
                     onChange={handleInputChange}
                     className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
-                      borderColor: '#e5e7eb'
+                      borderColor: 'var(--border-default)'
                     }}
                   />
                 </div>
@@ -682,7 +658,7 @@ export function Hero() {
                     onChange={handleInputChange}
                     className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
-                      borderColor: '#e5e7eb'
+                      borderColor: 'var(--border-default)'
                     }}
                   />
                 </div>
@@ -703,8 +679,8 @@ export function Hero() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all appearance-none min-h-[44px]"
                   style={{
-                    borderColor: '#e5e7eb',
-                    color: formData.courseInterest ? '#1a1a1a' : '#9ca3af'
+                    borderColor: 'var(--border-default)',
+                    color: formData.courseInterest ? 'var(--text-primary)' : 'var(--text-muted)'
                   }}>
 
                   <option value="" disabled>
@@ -720,9 +696,9 @@ export function Hero() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
                 style={{
-                  backgroundColor: '#8458B3',
+                  backgroundColor: 'var(--color-cta)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
 
@@ -733,9 +709,9 @@ export function Hero() {
                 <div
                   className="mt-4 p-3 rounded-lg text-center"
                   style={{
-                    backgroundColor: '#d1fae5',
-                    border: '1px solid #10b981',
-                    color: '#065f46'
+                    backgroundColor: 'var(--color-success-bg)',
+                    border: '1px solid var(--color-success)',
+                    color: 'var(--color-success)'
                   }}>
                   <p className="font-body font-semibold text-sm">
                     Thank you! We've received your inquiry and will get back to you within 24 hours.
@@ -747,9 +723,9 @@ export function Hero() {
                 <div
                   className="mt-4 p-3 rounded-lg text-center"
                   style={{
-                    backgroundColor: '#fee2e2',
-                    border: '1px solid #ef4444',
-                    color: '#991b1b'
+                    backgroundColor: 'var(--color-error-bg)',
+                    border: '1px solid var(--color-error)',
+                    color: 'var(--color-error)'
                   }}>
                   <p className="font-body font-semibold text-sm">
                     Something went wrong. Please try again or email us directly at admissions@designient.com
@@ -760,7 +736,7 @@ export function Hero() {
               <p
                 className="text-center text-xs mt-3 flex items-center justify-center gap-1"
                 style={{
-                  color: '#6a6a6a'
+                  color: 'var(--text-muted)'
                 }}>
 
                 <svg
@@ -783,7 +759,7 @@ export function Hero() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>privacy</Link>. No spam.
+                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>privacy</Link>. No spam.
               </p>
             </form>
           </motion.div>
@@ -808,7 +784,7 @@ export function Hero() {
 
         <p
           className="text-center font-body text-[10px] md:text-xs uppercase tracking-wider mb-3 md:mb-4 font-semibold"
-          style={{ color: '#6a6a6a' }}>
+          style={{ color: 'var(--text-muted)' }}>
           Our Students Work At
         </p>
         <div className="py-4 md:py-6 overflow-hidden company-logos-container">

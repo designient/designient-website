@@ -95,14 +95,14 @@ export function WhatYouLearnSection() {
                     <CheckCircle
                     className="w-5 h-5"
                     style={{
-                      color: '#FF5841'
+                      color: 'var(--color-cta)'
                     }} />
 
                   </div>
                   <span
                   className="text-xl md:text-2xl leading-relaxed"
                   style={{
-                    color: '#9CA3AF'
+                    color: 'var(--text-muted)'
                   }}>
 
                     {item}
@@ -155,14 +155,14 @@ export function WhatYouLearnSection() {
                 }}
                 className="absolute top-0 right-0 p-8 rounded-2xl"
                 style={{
-                  backgroundColor: '#1F2937',
+                  backgroundColor: 'var(--text-primary)',
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
                 }}>
 
                 <div
                   className="text-5xl font-bold mb-2"
                   style={{
-                    color: '#FF5841'
+                    color: 'var(--color-cta)'
                   }}>
 
                   124
@@ -170,7 +170,7 @@ export function WhatYouLearnSection() {
                 <div
                   className="text-sm uppercase tracking-wider"
                   style={{
-                    color: '#6B7280'
+                    color: 'var(--text-muted)'
                   }}>
 
                   Hours of Learning
@@ -189,7 +189,7 @@ export function WhatYouLearnSection() {
                 }}
                 className="absolute bottom-0 left-0 p-8 rounded-2xl"
                 style={{
-                  backgroundColor: '#1F2937',
+                  backgroundColor: 'var(--text-primary)',
                   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
                 }}>
 
@@ -197,7 +197,7 @@ export function WhatYouLearnSection() {
                 <div
                   className="text-sm uppercase tracking-wider"
                   style={{
-                    color: '#6B7280'
+                    color: 'var(--text-muted)'
                   }}>
 
                   Real Projects
@@ -231,7 +231,7 @@ export function WhatYouLearnSection() {
             <div
               className="relative h-full min-h-[500px] rounded-3xl overflow-hidden"
               style={{
-                backgroundColor: '#1F2937'
+                backgroundColor: 'var(--text-primary)'
               }}>
 
               <div className="absolute inset-0 flex items-center justify-center p-8">
@@ -320,7 +320,7 @@ export function WhatYouLearnSection() {
             <p
               className="text-xl md:text-2xl leading-relaxed mb-12"
               style={{
-                color: '#9CA3AF'
+                color: 'var(--text-muted)'
               }}>
 
               Learn by doing with real-world projects, personalized mentorship,
@@ -360,7 +360,7 @@ export function WhatYouLearnSection() {
                   <span
                   className="text-xl md:text-2xl leading-relaxed"
                   style={{
-                    color: '#9CA3AF'
+                    color: 'var(--text-muted)'
                   }}>
 
                     {item}

@@ -25,7 +25,7 @@ const pathNodes = [
 
 export function LearningPathVisualization() {
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -49,7 +49,7 @@ export function LearningPathVisualization() {
           <h2
             className="font-display tracking-wide leading-tight mb-4"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -78,7 +78,7 @@ export function LearningPathVisualization() {
               }}
               className="absolute top-16 left-0 right-0 h-1 origin-left"
               style={{
-                backgroundColor: '#E5E7EB'
+                backgroundColor: 'var(--border-default)'
               }} />
 
 
@@ -106,9 +106,9 @@ export function LearningPathVisualization() {
 
                   {/* Node circle */}
                   <div
-                  className="relative z-10 mx-auto w-32 h-32 rounded-full flex items-center justify-center mb-6"
+                  className="relative z-10 mx-auto w-32 h-32 rounded-full flex items-center justify-center mb-6 accent-icon-box"
                   style={{
-                    backgroundColor: '#8458B3'
+                    backgroundColor: 'var(--color-cta)'
                   }}>
 
                     <node.icon className="w-12 h-12 text-white" />
@@ -118,7 +118,7 @@ export function LearningPathVisualization() {
                   <h3
                   className="font-display font-bold mb-2"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                   }}>
 
@@ -127,7 +127,7 @@ export function LearningPathVisualization() {
                   <p
                   className="text-base font-semibold mb-2"
                   style={{
-                    color: '#8458B3'
+                    color: 'var(--color-primary)'
                   }}>
 
                     {node.course}
@@ -135,7 +135,7 @@ export function LearningPathVisualization() {
                   <p
                   className="font-body text-sm leading-[1.6]"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
 
@@ -172,9 +172,9 @@ export function LearningPathVisualization() {
 
               {/* Node circle */}
               <div
-              className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center"
+              className="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center accent-icon-box"
               style={{
-                backgroundColor: '#FF5841'
+                backgroundColor: 'var(--color-cta)'
               }}>
 
                 <node.icon className="w-8 h-8 text-white" />
@@ -185,7 +185,7 @@ export function LearningPathVisualization() {
                 <h3
                 className="text-lg font-bold mb-1"
                 style={{
-                  color: '#1F2937'
+                  color: 'var(--text-primary)'
                 }}>
 
                   {node.label}
@@ -193,7 +193,7 @@ export function LearningPathVisualization() {
                 <p
                 className="text-sm font-semibold mb-1"
                 style={{
-                  color: '#FF5841'
+                  color: 'var(--color-cta)'
                 }}>
 
                   {node.course}
@@ -201,7 +201,7 @@ export function LearningPathVisualization() {
                 <p
                 className="text-sm leading-[1.6]"
                 style={{
-                  color: '#6B7280'
+                  color: 'var(--text-muted)'
                 }}>
 
                   {node.description}

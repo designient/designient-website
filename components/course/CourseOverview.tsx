@@ -18,7 +18,7 @@ export function CourseOverview({
   careerPaths
 }: CourseOverviewProps) {
   return (
-    <section className="py-20 md:py-28" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         
         {/* Description */}
@@ -31,7 +31,7 @@ export function CourseOverview({
           <p
             className="font-body text-center leading-relaxed"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
               lineHeight: '1.8'
             }}>
@@ -47,15 +47,15 @@ export function CourseOverview({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white p-8 rounded-2xl shadow-lg">
+            className="bg-card p-8 rounded-2xl shadow-lg">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-lg" style={{ backgroundColor: '#f2d53c' }}>
-                <Target className="w-6 h-6" style={{ color: '#1a1a1a' }} />
+              <div className="p-3 rounded-lg accent-icon-box" style={{ backgroundColor: 'var(--color-highlight)' }}>
+                <Target className="w-6 h-6" style={{ color: 'var(--text-on-accent)' }} />
               </div>
               <h2
                 className="font-display font-bold"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1.5rem, 3vw, 2rem)'
                 }}>
                 Key Features
@@ -64,8 +64,8 @@ export function CourseOverview({
             <ul className="space-y-4">
               {keyFeatures.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                  <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                     {feature}
                   </span>
                 </li>
@@ -79,15 +79,15 @@ export function CourseOverview({
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-white p-8 rounded-2xl shadow-lg">
+            className="bg-card p-8 rounded-2xl shadow-lg">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-lg" style={{ backgroundColor: '#f2d53c' }}>
-                <Users className="w-6 h-6" style={{ color: '#1a1a1a' }} />
+              <div className="p-3 rounded-lg accent-icon-box" style={{ backgroundColor: 'var(--color-highlight)' }}>
+                <Users className="w-6 h-6" style={{ color: 'var(--text-on-accent)' }} />
               </div>
               <h2
                 className="font-display font-bold"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1.5rem, 3vw, 2rem)'
                 }}>
                 What You'll Achieve
@@ -96,8 +96,8 @@ export function CourseOverview({
             <ul className="space-y-4">
               {learningOutcomes.map((outcome, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                  <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                     {outcome}
                   </span>
                 </li>
@@ -113,15 +113,15 @@ export function CourseOverview({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-12 bg-white p-8 rounded-2xl shadow-lg">
+            className="mt-12 bg-card p-8 rounded-2xl shadow-lg">
             <div className="flex items-center gap-3 mb-6">
-              <div className="p-3 rounded-lg" style={{ backgroundColor: '#f2d53c' }}>
-                <Briefcase className="w-6 h-6" style={{ color: '#1a1a1a' }} />
+              <div className="p-3 rounded-lg accent-icon-box" style={{ backgroundColor: 'var(--color-highlight)' }}>
+                <Briefcase className="w-6 h-6" style={{ color: 'var(--text-on-accent)' }} />
               </div>
               <h2
                 className="font-display font-bold"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1.5rem, 3vw, 2rem)'
                 }}>
                 Career Opportunities
@@ -129,9 +129,9 @@ export function CourseOverview({
             </div>
             <div className="grid md:grid-cols-2 gap-4">
               {careerPaths.map((path, index) => (
-                <div key={index} className="flex items-center gap-3 p-4 rounded-lg" style={{ backgroundColor: '#FFF6E2' }}>
-                  <Briefcase className="w-5 h-5 flex-shrink-0" style={{ color: '#8458B3' }} />
-                  <span className="font-body font-medium" style={{ color: '#1a1a1a' }}>
+                <div key={index} className="flex items-center gap-3 p-4 rounded-lg" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                  <Briefcase className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body font-medium" style={{ color: 'var(--color-primary)' }}>
                     {path}
                   </span>
                 </div>

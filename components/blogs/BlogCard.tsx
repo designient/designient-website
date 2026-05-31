@@ -47,7 +47,7 @@ export function BlogCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4 }}
-      className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
       <Link href={`/blogs/${slug}`} className="block">
         <div className="relative w-full" style={{ aspectRatio: '1200/760', minHeight: '200px' }}>
           <Image
@@ -62,8 +62,8 @@ export function BlogCard({
           {featured && (
             <div className="absolute top-4 left-4">
               <span
-                className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide"
-                style={{ backgroundColor: '#f2d53c', color: '#1a1a1a' }}>
+                className="px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide accent-icon-box"
+                style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
                 Featured
               </span>
             </div>
@@ -72,15 +72,15 @@ export function BlogCard({
         <div className="p-6">
           <div className="flex items-center gap-3 mb-3 flex-wrap">
             <span
-              className="px-3 py-1 rounded-full text-xs font-semibold"
-              style={{ backgroundColor: '#8458B3', color: 'white' }}>
+              className="px-3 py-1 rounded-full text-xs font-semibold accent-icon-box"
+              style={{ backgroundColor: 'var(--color-primary)', color: 'var(--text-on-accent)' }}>
               {category}
             </span>
-            <div className="flex items-center gap-1 text-sm" style={{ color: '#6b7280' }}>
+            <div className="flex items-center gap-1 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Calendar className="w-4 h-4" />
               <span>{formatDate(publishedDate)}</span>
             </div>
-            <div className="flex items-center gap-1 text-sm" style={{ color: '#6b7280' }}>
+            <div className="flex items-center gap-1 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Clock className="w-4 h-4" />
               <span>{readingTime}</span>
             </div>
@@ -88,7 +88,7 @@ export function BlogCard({
           <h2
             className="font-display font-bold mb-3 line-clamp-2"
             style={{
-              color: '#1a1a1a',
+              color: 'var(--text-primary)',
               fontSize: 'clamp(1.25rem, 2vw, 1.5rem)'
             }}>
             {title}
@@ -96,7 +96,7 @@ export function BlogCard({
           <p
             className="font-body mb-4 line-clamp-3"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
               lineHeight: '1.6'
             }}>
@@ -104,12 +104,12 @@ export function BlogCard({
           </p>
           {tags.length > 0 && (
             <div className="flex items-center gap-2 flex-wrap">
-              <Tag className="w-4 h-4" style={{ color: '#6b7280' }} />
+              <Tag className="w-4 h-4" style={{ color: 'var(--text-muted)' }} />
               {tags.slice(0, 3).map((tag) => (
                 <span
                   key={tag}
                   className="px-2 py-1 rounded text-xs"
-                  style={{ backgroundColor: '#f3f4f6', color: '#4a4a4a' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--text-secondary)' }}>
                   {tag}
                 </span>
               ))}

@@ -308,11 +308,11 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="bg-green-50 border-2 border-green-200 rounded-xl p-8 text-center">
-        <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: '#10b981' }} />
-        <h3 className="font-display font-bold mb-2 text-lg" style={{ color: '#1a1a1a' }}>
+        <CheckCircle className="w-16 h-16 mx-auto mb-4" style={{ color: 'var(--color-success)' }} />
+        <h3 className="font-display font-bold mb-2 text-lg" style={{ color: 'var(--text-primary)' }}>
           Proposal Request Submitted Successfully!
         </h3>
-        <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>
+        <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>
           We&apos;ll review your requirements and get back to you within 24 business hours.
         </p>
       </motion.div>
@@ -326,16 +326,16 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
-        className="bg-white rounded-xl p-4 md:p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
+        className="bg-card rounded-xl p-4 md:p-6 border-2" style={{ borderColor: 'var(--border-default)' }}>
         <div className="flex items-center gap-3 mb-6">
-          <Users className="w-6 h-6" style={{ color: '#8458B3' }} />
-          <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>
+          <Users className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
+          <h2 className="font-display font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
             Contact Information
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Full Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -346,7 +346,7 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, fullName: e.target.value }))
                 if (errors.fullName) setErrors(prev => ({ ...prev, fullName: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}
               placeholder="John Doe"
             />
@@ -354,7 +354,7 @@ ${formData.requirementDescription}
           </div>
 
           <div>
-            <label htmlFor="workEmail" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="workEmail" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Work Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -365,18 +365,18 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, workEmail: e.target.value }))
                 if (errors.workEmail) setErrors(prev => ({ ...prev, workEmail: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.workEmail ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.workEmail ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}
               placeholder="john@company.com"
             />
             {errors.workEmail && <p className="mt-1 text-xs text-red-500">{errors.workEmail}</p>}
-            <p className="mt-1 text-xs" style={{ color: '#6b7280' }}>
+            <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
               Business email addresses only
             </p>
           </div>
 
           <div className="md:col-span-2">
-            <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Phone Number <span className="font-normal text-gray-500">(Optional)</span>
             </label>
             <div className="flex gap-2">
@@ -386,7 +386,7 @@ ${formData.requirementDescription}
                 id="phoneCountryCode"
               />
               <div className="relative flex-1">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 <input
                   type="tel"
                   id="phone"
@@ -395,7 +395,7 @@ ${formData.requirementDescription}
                     setFormData(prev => ({ ...prev, phone: e.target.value }))
                     if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }))
                   }}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                     }`}
                   placeholder="Enter phone number"
                 />
@@ -405,7 +405,7 @@ ${formData.requirementDescription}
           </div>
 
           <div className="md:col-span-2">
-            <label htmlFor="whatsapp" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="whatsapp" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               WhatsApp Number <span className="font-normal text-gray-500">(Optional)</span>
             </label>
             <div className="flex gap-2">
@@ -415,7 +415,7 @@ ${formData.requirementDescription}
                 id="whatsappCountryCode"
               />
               <div className="relative flex-1">
-                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 <input
                   type="tel"
                   id="whatsapp"
@@ -424,7 +424,7 @@ ${formData.requirementDescription}
                     setFormData(prev => ({ ...prev, whatsapp: e.target.value }))
                     if (errors.whatsapp) setErrors(prev => ({ ...prev, whatsapp: undefined }))
                   }}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                     }`}
                   placeholder="Enter WhatsApp number"
                 />
@@ -440,16 +440,16 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="bg-white rounded-xl p-4 md:p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
+        className="bg-card rounded-xl p-4 md:p-6 border-2" style={{ borderColor: 'var(--border-default)' }}>
         <div className="flex items-center gap-3 mb-6">
-          <Briefcase className="w-6 h-6" style={{ color: '#8458B3' }} />
-          <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>
+          <Briefcase className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
+          <h2 className="font-display font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
             Company Information
           </h2>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="companyName" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="companyName" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Company Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -460,7 +460,7 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, companyName: e.target.value }))
                 if (errors.companyName) setErrors(prev => ({ ...prev, companyName: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.companyName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.companyName ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}
               placeholder="Acme Inc."
             />
@@ -468,7 +468,7 @@ ${formData.requirementDescription}
           </div>
 
           <div>
-            <label htmlFor="role" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="role" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Role / Designation <span className="text-red-500">*</span>
             </label>
             <select
@@ -478,7 +478,7 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, role: e.target.value }))
                 if (errors.role) setErrors(prev => ({ ...prev, role: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.role ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.role ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}>
               <option value="">Select your role</option>
               {roles.map(role => (
@@ -489,7 +489,7 @@ ${formData.requirementDescription}
           </div>
 
           <div>
-            <label htmlFor="companySize" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="companySize" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Company Size <span className="text-red-500">*</span>
             </label>
             <select
@@ -499,7 +499,7 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, companySize: e.target.value }))
                 if (errors.companySize) setErrors(prev => ({ ...prev, companySize: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.companySize ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.companySize ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}>
               <option value="">Select company size</option>
               {companySizes.map(size => (
@@ -510,7 +510,7 @@ ${formData.requirementDescription}
           </div>
 
           <div>
-            <label htmlFor="industry" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="industry" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Industry <span className="text-red-500">*</span>
             </label>
             <select
@@ -520,7 +520,7 @@ ${formData.requirementDescription}
                 setFormData(prev => ({ ...prev, industry: e.target.value }))
                 if (errors.industry) setErrors(prev => ({ ...prev, industry: undefined }))
               }}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.industry ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.industry ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}>
               <option value="">Select industry</option>
               {industries.map(industry => (
@@ -531,7 +531,7 @@ ${formData.requirementDescription}
           </div>
 
           <div className="md:col-span-2">
-            <label htmlFor="location" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="location" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Location
             </label>
             <input
@@ -539,7 +539,7 @@ ${formData.requirementDescription}
               id="location"
               value={formData.location}
               onChange={(e) => setFormData(prev => ({ ...prev, location: e.target.value }))}
-              className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 font-body transition-colors focus:border-[#8458B3]"
+              className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 font-body transition-colors focus:border-[var(--color-primary)]"
               placeholder="City, Country"
             />
           </div>
@@ -551,16 +551,16 @@ ${formData.requirementDescription}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.2 }}
-        className="bg-white rounded-xl p-4 md:p-6 border-2" style={{ borderColor: '#e5e7eb' }}>
+        className="bg-card rounded-xl p-4 md:p-6 border-2" style={{ borderColor: 'var(--border-default)' }}>
         <div className="flex items-center gap-3 mb-6">
-          <FileText className="w-6 h-6" style={{ color: '#8458B3' }} />
-          <h2 className="font-display font-bold text-xl" style={{ color: '#1a1a1a' }}>
+          <FileText className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
+          <h2 className="font-display font-bold text-xl" style={{ color: 'var(--text-primary)' }}>
             Project Details
           </h2>
         </div>
         <div className="space-y-6">
           <div>
-            <label className="block font-body font-semibold mb-3 text-sm" style={{ color: '#1a1a1a' }}>
+            <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
               Service Type <span className="text-red-500">*</span>
             </label>
             <div className="grid md:grid-cols-2 gap-3">
@@ -568,16 +568,16 @@ ${formData.requirementDescription}
                 <label
                   key={service}
                   className={`flex items-center gap-3 p-3 rounded-lg border-2 cursor-pointer transition-colors ${formData.serviceType.includes(service)
-                    ? 'border-[#8458B3] bg-purple-50'
+                    ? 'border-[var(--color-primary)] bg-purple-50'
                     : 'border-gray-300 hover:border-gray-400'
                     }`}>
                   <input
                     type="checkbox"
                     checked={formData.serviceType.includes(service)}
                     onChange={() => handleServiceTypeChange(service)}
-                    className="w-4 h-4 rounded border-gray-300 text-[#8458B3] focus:ring-[#8458B3]"
+                    className="w-4 h-4 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
                   />
-                  <span className="font-body text-sm" style={{ color: '#1a1a1a' }}>{service}</span>
+                  <span className="font-body text-sm" style={{ color: 'var(--text-primary)' }}>{service}</span>
                 </label>
               ))}
             </div>
@@ -586,7 +586,7 @@ ${formData.requirementDescription}
 
           <div className="grid md:grid-cols-3 gap-6">
             <div>
-              <label htmlFor="teamSize" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+              <label htmlFor="teamSize" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                 Team Size Involved <span className="text-red-500">*</span>
               </label>
               <select
@@ -596,7 +596,7 @@ ${formData.requirementDescription}
                   setFormData(prev => ({ ...prev, teamSize: e.target.value }))
                   if (errors.teamSize) setErrors(prev => ({ ...prev, teamSize: undefined }))
                 }}
-                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.teamSize ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.teamSize ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                   }`}>
                 <option value="">Select team size</option>
                 {teamSizes.map(size => (
@@ -607,7 +607,7 @@ ${formData.requirementDescription}
             </div>
 
             <div>
-              <label htmlFor="timeline" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+              <label htmlFor="timeline" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                 Timeline <span className="text-red-500">*</span>
               </label>
               <select
@@ -617,7 +617,7 @@ ${formData.requirementDescription}
                   setFormData(prev => ({ ...prev, timeline: e.target.value }))
                   if (errors.timeline) setErrors(prev => ({ ...prev, timeline: undefined }))
                 }}
-                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.timeline ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.timeline ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                   }`}>
                 <option value="">Select timeline</option>
                 {timelines.map(timeline => (
@@ -628,7 +628,7 @@ ${formData.requirementDescription}
             </div>
 
             <div>
-              <label htmlFor="budgetRange" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+              <label htmlFor="budgetRange" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                 Budget Range <span className="text-red-500">*</span>
               </label>
               <select
@@ -638,7 +638,7 @@ ${formData.requirementDescription}
                   setFormData(prev => ({ ...prev, budgetRange: e.target.value }))
                   if (errors.budgetRange) setErrors(prev => ({ ...prev, budgetRange: undefined }))
                 }}
-                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.budgetRange ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${errors.budgetRange ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                   }`}>
                 <option value="">Select budget range</option>
                 {budgetRanges.map(range => (
@@ -650,7 +650,7 @@ ${formData.requirementDescription}
           </div>
 
           <div>
-            <label htmlFor="requirementDescription" className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+            <label htmlFor="requirementDescription" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Requirement Description <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -661,18 +661,18 @@ ${formData.requirementDescription}
                 if (errors.requirementDescription) setErrors(prev => ({ ...prev, requirementDescription: undefined }))
               }}
               rows={6}
-              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${errors.requirementDescription ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+              className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${errors.requirementDescription ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                 }`}
               placeholder="Please describe your requirements, challenges, and goals in detail..."
             />
             {errors.requirementDescription && <p className="mt-1 text-xs text-red-500">{errors.requirementDescription}</p>}
             <div className="flex justify-between items-start mt-1">
-              <p className="text-xs" style={{ color: '#6b7280' }}>
+              <p className="text-xs" style={{ color: 'var(--text-muted)' }}>
                 Minimum 50 characters. Please provide as much detail as possible.
               </p>
               <span className="text-xs" style={{
-                color: formData.requirementDescription.length < 50 ? '#ef4444' :
-                  formData.requirementDescription.length > 2000 * 0.9 ? '#f59e0b' : '#6b7280'
+                color: formData.requirementDescription.length < 50 ? 'var(--color-error)' :
+                  formData.requirementDescription.length > 2000 * 0.9 ? '#f59e0b' : 'var(--text-muted)'
               }}>
                 {formData.requirementDescription.length} / 2000
               </span>
@@ -690,18 +690,18 @@ ${formData.requirementDescription}
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-          style={{ backgroundColor: '#8458B3' }}>
+          className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
+          style={{ backgroundColor: 'var(--color-cta)' }}>
           {isSubmitting ? 'Submitting...' : 'Request a Proposal'}
           {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
         </button>
-        <p className="font-body text-xs text-center" style={{ color: '#6b7280' }}>
+        <p className="font-body text-xs text-center" style={{ color: 'var(--text-muted)' }}>
           By submitting, you agree to our{' '}
-          <a href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+          <a href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
             Privacy Policy
           </a>
           {' '}and{' '}
-          <a href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+          <a href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
             Terms and Conditions
           </a>
           .

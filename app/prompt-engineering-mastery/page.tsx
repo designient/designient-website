@@ -369,7 +369,7 @@ export default function PromptEngineeringMasteryPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={breadcrumbSchema} />
       <CourseStructuredData
         courseSlug="prompt-engineering-mastery"

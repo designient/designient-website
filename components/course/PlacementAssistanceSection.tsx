@@ -13,7 +13,7 @@ export function PlacementAssistanceSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: '#fceed1' }}>
+    <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-peach)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -26,7 +26,7 @@ export function PlacementAssistanceSection() {
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.25rem)'
               }}>
               Placement support that actually prepares you
@@ -34,7 +34,7 @@ export function PlacementAssistanceSection() {
             <p
               className="font-body text-lg mb-6 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
                 lineHeight: '1.8'
               }}>
@@ -51,12 +51,12 @@ export function PlacementAssistanceSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="flex items-start gap-3 p-4 bg-white rounded-lg shadow-sm">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                className="flex items-start gap-3 p-4 bg-card rounded-lg shadow-sm">
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                 <p
                   className="font-body leading-relaxed"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                     lineHeight: '1.7'
                   }}>
@@ -69,7 +69,7 @@ export function PlacementAssistanceSection() {
           <p
             className="font-body text-center leading-relaxed"
             style={{
-              color: '#6b7280',
+              color: 'var(--text-muted)',
               fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
               lineHeight: '1.8',
               fontStyle: 'italic'

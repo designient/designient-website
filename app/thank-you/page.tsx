@@ -28,17 +28,17 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
       <main id="main-content" role="main">
         {/* Hero Section */}
-        <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: '#f9fafb' }}>
+        <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'var(--bg-subtle)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h1
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(2rem, 5vw, 3.5rem)',
                   lineHeight: '1.2'
                 }}>
@@ -49,7 +49,7 @@ export default function ThankYouPage() {
         </section>
 
         {/* Confirmation Content */}
-        <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto">
               {/* Confirmation Message */}
@@ -57,19 +57,19 @@ export default function ThankYouPage() {
                 <div
                   className="mb-6 p-6 rounded-xl text-center"
                   style={{
-                    backgroundColor: '#d1fae5',
-                    border: '2px solid #10b981'
+                    backgroundColor: 'var(--color-success-bg)',
+                    border: '2px solid var(--color-success)'
                   }}>
                   <p
                     className="font-body text-lg font-semibold"
-                    style={{ color: '#065f46' }}>
+                    style={{ color: 'var(--color-success)' }}>
                     ✓ Your message has been received successfully!
                   </p>
                 </div>
                 <p
                   className="font-body text-lg leading-relaxed mb-6"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     lineHeight: '1.7'
                   }}>
                   We appreciate you taking the time to reach out to us. Your enquiry is important to us, and we're excited to help you on your UI/UX design journey.
@@ -77,11 +77,11 @@ export default function ThankYouPage() {
               </div>
 
               {/* Response Time Reassurance */}
-              <div className="mb-8 p-6 rounded-xl" style={{ backgroundColor: '#f9fafb' }}>
+              <div className="mb-8 p-6 rounded-xl" style={{ backgroundColor: 'var(--bg-subtle)' }}>
                 <h2
                   className="font-display font-semibold mb-4"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: '1.5rem'
                   }}>
                   What Happens Next?
@@ -89,7 +89,7 @@ export default function ThankYouPage() {
                 <p
                   className="font-body leading-relaxed mb-4"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     lineHeight: '1.7'
                   }}>
                   <strong>We usually respond within 24 business hours.</strong> Our team will review your enquiry and get back to you via email or phone with the information you need.
@@ -97,32 +97,32 @@ export default function ThankYouPage() {
                 <p
                   className="font-body leading-relaxed"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     lineHeight: '1.7'
                   }}>
                   If your enquiry is urgent, feel free to call us directly at{' '}
                   <a
                     href="tel:+919353000320"
                     className="font-semibold hover:underline"
-                    style={{ color: '#8458B3' }}>
+                    style={{ color: 'var(--color-primary)' }}>
                     +91 9353 000 320
                   </a>
                   {' '}or email us at{' '}
                   <a
                     href="mailto:hello@designient.com"
                     className="font-semibold hover:underline"
-                    style={{ color: '#8458B3' }}>
+                    style={{ color: 'var(--color-primary)' }}>
                     hello@designient.com
                   </a>.
                 </p>
               </div>
 
               {/* Next Steps Explanation */}
-              <div className="mb-8 p-6 rounded-xl" style={{ backgroundColor: '#f9fafb' }}>
+              <div className="mb-8 p-6 rounded-xl" style={{ backgroundColor: 'var(--bg-subtle)' }}>
                 <h2
                   className="font-display font-semibold mb-4"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: '1.5rem'
                   }}>
                   While You Wait
@@ -130,7 +130,7 @@ export default function ThankYouPage() {
                 <p
                   className="font-body leading-relaxed mb-4"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     lineHeight: '1.7'
                   }}>
                   While we prepare a response, you might find these resources helpful:
@@ -138,7 +138,7 @@ export default function ThankYouPage() {
                 <ul
                   className="font-body space-y-2 ml-6"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     lineHeight: '1.7',
                     listStyleType: 'disc'
                   }}>
@@ -154,7 +154,7 @@ export default function ThankYouPage() {
                 <h2
                   className="font-display font-semibold mb-6 text-center"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: '1.5rem'
                   }}>
                   Explore More
@@ -164,20 +164,20 @@ export default function ThankYouPage() {
                     href="/ui-ux-design-pro"
                     className="block p-6 rounded-xl border-2 hover:border-purple-500 transition-colors text-center"
                     style={{
-                      backgroundColor: '#f9fafb',
-                      borderColor: '#e5e7eb'
+                      backgroundColor: 'var(--bg-subtle)',
+                      borderColor: 'var(--border-default)'
                     }}>
                     <h3
                       className="font-display font-semibold mb-2"
                       style={{
-                        color: '#8458B3',
+                        color: 'var(--color-primary)',
                         fontSize: '1.25rem'
                       }}>
                       UI/UX Design Pro Course
                     </h3>
                     <p
                       className="font-body text-sm"
-                      style={{ color: '#4a4a4a' }}>
+                      style={{ color: 'var(--text-secondary)' }}>
                       Learn about our comprehensive UI/UX design course
                     </p>
                   </Link>
@@ -185,20 +185,20 @@ export default function ThankYouPage() {
                     href="/placements"
                     className="block p-6 rounded-xl border-2 hover:border-purple-500 transition-colors text-center"
                     style={{
-                      backgroundColor: '#f9fafb',
-                      borderColor: '#e5e7eb'
+                      backgroundColor: 'var(--bg-subtle)',
+                      borderColor: 'var(--border-default)'
                     }}>
                     <h3
                       className="font-display font-semibold mb-2"
                       style={{
-                        color: '#8458B3',
+                        color: 'var(--color-primary)',
                         fontSize: '1.25rem'
                       }}>
                       Placements
                     </h3>
                     <p
                       className="font-body text-sm"
-                      style={{ color: '#4a4a4a' }}>
+                      style={{ color: 'var(--text-secondary)' }}>
                       Explore our placement assistance and career support
                     </p>
                   </Link>
@@ -206,20 +206,20 @@ export default function ThankYouPage() {
                     href="/faqs"
                     className="block p-6 rounded-xl border-2 hover:border-purple-500 transition-colors text-center"
                     style={{
-                      backgroundColor: '#f9fafb',
-                      borderColor: '#e5e7eb'
+                      backgroundColor: 'var(--bg-subtle)',
+                      borderColor: 'var(--border-default)'
                     }}>
                     <h3
                       className="font-display font-semibold mb-2"
                       style={{
-                        color: '#8458B3',
+                        color: 'var(--color-primary)',
                         fontSize: '1.25rem'
                       }}>
                       FAQs
                     </h3>
                     <p
                       className="font-body text-sm"
-                      style={{ color: '#4a4a4a' }}>
+                      style={{ color: 'var(--text-secondary)' }}>
                       Find answers to frequently asked questions
                     </p>
                   </Link>
@@ -227,20 +227,20 @@ export default function ThankYouPage() {
                     href="/verify"
                     className="block p-6 rounded-xl border-2 hover:border-purple-500 transition-colors text-center"
                     style={{
-                      backgroundColor: '#f9fafb',
-                      borderColor: '#e5e7eb'
+                      backgroundColor: 'var(--bg-subtle)',
+                      borderColor: 'var(--border-default)'
                     }}>
                     <h3
                       className="font-display font-semibold mb-2"
                       style={{
-                        color: '#8458B3',
+                        color: 'var(--color-primary)',
                         fontSize: '1.25rem'
                       }}>
                       Certificate Verification
                     </h3>
                     <p
                       className="font-body text-sm"
-                      style={{ color: '#4a4a4a' }}>
+                      style={{ color: 'var(--text-secondary)' }}>
                       Verify a Designient certificate
                     </p>
                   </Link>
@@ -253,7 +253,7 @@ export default function ThankYouPage() {
                   href="/"
                   className="inline-block px-6 py-3 rounded-lg font-body font-semibold text-white transition-colors hover:opacity-90"
                   style={{
-                    backgroundColor: '#8458B3'
+                    backgroundColor: 'var(--color-cta)'
                   }}>
                   Back to Home
                 </Link>

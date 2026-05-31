@@ -56,7 +56,7 @@ const proCourse = {
   ],
   courseSlug: 'ui-ux-design-pro' as const,
   imagePosition: 'left' as const,
-  backgroundColor: '#fceed1',
+  backgroundColor: 'var(--bg-peach)',
   coursePath: '/ui-ux-design-pro'
 }
 
@@ -101,7 +101,7 @@ const bootcampCourse = {
   ],
   courseSlug: 'ui-ux-design-bootcamp' as const,
   imagePosition: 'right' as const,
-  backgroundColor: '#FFF6E2',
+  backgroundColor: 'var(--bg-warm)',
   coursePath: '/ui-ux-design-bootcamp'
 }
 
@@ -155,7 +155,7 @@ const masterCourse = {
   ],
   courseSlug: 'ui-ux-design-master' as const,
   imagePosition: 'right' as const,
-  backgroundColor: '#fceed1',
+  backgroundColor: 'var(--bg-peach)',
   coursePath: '/ui-ux-design-master'
 }
 
@@ -215,7 +215,7 @@ const promptEngineeringCourse = {
   ],
   courseSlug: 'prompt-engineering-mastery' as const,
   imagePosition: 'left' as const,
-  backgroundColor: '#fceed1',
+  backgroundColor: 'var(--bg-peach)',
   coursePath: '/prompt-engineering-mastery'
 }
 
@@ -325,7 +325,7 @@ export default function CoursesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={[breadcrumbSchema, collectionSchema]} />
       <Header />
       <CoursesHero />

@@ -531,7 +531,7 @@ export default function UIUXDesignProPage() {
 
   return (
     <QuickApplyProvider>
-      <div className="min-h-screen bg-white font-sans text-slate-900">
+      <div className="min-h-screen bg-base font-sans text-primary">
         <StructuredData data={breadcrumbSchema} />
         <CourseStructuredData
           courseSlug="ui-ux-design-pro"
@@ -591,7 +591,7 @@ export default function UIUXDesignProPage() {
           <p
             className="font-body text-center max-w-3xl mx-auto px-4 md:px-6 lg:px-8 mb-8 leading-relaxed"
             style={{
-              color: '#6b7280',
+              color: 'var(--text-muted)',
               fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
               lineHeight: '1.8'
             }}>

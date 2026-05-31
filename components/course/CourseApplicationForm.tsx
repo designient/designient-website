@@ -307,7 +307,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
   }
 
   return (
-    <section id="course-application-form" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
+    <section id="course-application-form" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-card)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -321,7 +321,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.25rem)'
               }}>
               Apply for {courseName}
@@ -329,7 +329,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
             <p
               className="font-body mb-2 leading-relaxed"
               style={{
-                color: '#6b7280',
+                color: 'var(--text-muted)',
                 fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
                 lineHeight: '1.8'
               }}>
@@ -340,19 +340,19 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
             <p
               className="font-body text-sm"
               style={{
-                color: '#9ca3af',
+                color: 'var(--text-muted)',
               }}>
               Fill out the form below to submit your application for review.
             </p>
           </div>
 
           {/* Form */}
-          <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
+          <div className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name, Email, Phone, WhatsApp */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -368,18 +368,18 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.fullName ? 'border-red-500' : formData.fullName ? 'border-green-500' : ''
                       }`}
                     style={{
-                      borderColor: errors.fullName ? '#ef4444' : formData.fullName ? '#10b981' : '#e5e7eb',
-                      backgroundColor: 'white',
-                      color: '#1a1a1a',
+                      borderColor: errors.fullName ? 'var(--color-error)' : formData.fullName ? 'var(--color-success)' : 'var(--border-default)',
+                      backgroundColor: 'var(--bg-card)',
+                      color: 'var(--text-primary)',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                    onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                   />
                   {errors.fullName && <p id="fullName-error" className="mt-1 text-xs text-red-500" role="alert">{errors.fullName}</p>}
                   {formData.fullName && !errors.fullName && <p className="mt-1 text-xs text-green-600">✓</p>}
                 </div>
 
                 <div>
-                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                     Email Address <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -395,18 +395,18 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.email ? 'border-red-500' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 'border-green-500' : ''
                       }`}
                     style={{
-                      borderColor: errors.email ? '#ef4444' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? '#10b981' : '#e5e7eb',
-                      backgroundColor: 'white',
-                      color: '#1a1a1a',
+                      borderColor: errors.email ? 'var(--color-error)' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 'var(--color-success)' : 'var(--border-default)',
+                      backgroundColor: 'var(--bg-card)',
+                      color: 'var(--text-primary)',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                    onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                   />
                   {errors.email && <p id="email-error" className="mt-1 text-xs text-red-500" role="alert">{errors.email}</p>}
                   {formData.email && !errors.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && <p className="mt-1 text-xs text-green-600">✓</p>}
                 </div>
 
                 <div>
-                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                     Phone Number <span className="text-red-500">*</span>
                   </label>
                   <div className="flex gap-2">
@@ -428,11 +428,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.phone ? 'border-red-500' : formData.phone ? 'border-green-500' : ''
                         }`}
                       style={{
-                        borderColor: errors.phone ? '#ef4444' : formData.phone ? '#10b981' : '#e5e7eb',
-                        backgroundColor: 'white',
-                        color: '#1a1a1a',
+                        borderColor: errors.phone ? 'var(--color-error)' : formData.phone ? 'var(--color-success)' : 'var(--border-default)',
+                        backgroundColor: 'var(--bg-card)',
+                        color: 'var(--text-primary)',
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                      onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                     />
                   </div>
                   {errors.phone && <p id="phone-error" className="mt-1 text-xs text-red-500" role="alert">{errors.phone}</p>}
@@ -440,7 +440,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                 </div>
 
                 <div>
-                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                     WhatsApp Number <span className="text-gray-400 font-normal">(Optional)</span>
                   </label>
                   <div className="flex gap-2">
@@ -460,11 +460,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.whatsapp ? 'border-red-500' : formData.whatsapp ? 'border-green-500' : ''
                         }`}
                       style={{
-                        borderColor: errors.whatsapp ? '#ef4444' : formData.whatsapp ? '#10b981' : '#e5e7eb',
-                        backgroundColor: 'white',
-                        color: '#1a1a1a',
+                        borderColor: errors.whatsapp ? 'var(--color-error)' : formData.whatsapp ? 'var(--color-success)' : 'var(--border-default)',
+                        backgroundColor: 'var(--bg-card)',
+                        color: 'var(--text-primary)',
                       }}
-                      onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                      onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                     />
                   </div>
                   {errors.whatsapp && <p id="whatsapp-error" className="mt-1 text-xs text-red-500" role="alert">{errors.whatsapp}</p>}
@@ -474,7 +474,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
 
               {/* Current Background */}
               <div>
-                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                   Current Background <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -491,11 +491,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.currentBackground ? 'border-red-500' : formData.currentBackground ? 'border-green-500' : ''
                     }`}
                   style={{
-                    borderColor: errors.currentBackground ? '#ef4444' : formData.currentBackground ? '#10b981' : '#e5e7eb',
-                    backgroundColor: 'white',
-                    color: '#1a1a1a',
+                    borderColor: errors.currentBackground ? 'var(--color-error)' : formData.currentBackground ? 'var(--color-success)' : 'var(--border-default)',
+                    backgroundColor: 'var(--bg-card)',
+                    color: 'var(--text-primary)',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                 />
                 {errors.currentBackground && <p id="currentBackground-error" className="mt-1 text-xs text-red-500" role="alert">{errors.currentBackground}</p>}
                 {formData.currentBackground && !errors.currentBackground && <p className="mt-1 text-xs text-green-600">✓</p>}
@@ -503,7 +503,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
 
               {/* Experience Level */}
               <div>
-                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                   Experience Level <span className="text-red-500">*</span>
                 </label>
                 <select
@@ -518,11 +518,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.experienceLevel ? 'border-red-500' : formData.experienceLevel ? 'border-green-500' : ''
                     }`}
                   style={{
-                    borderColor: errors.experienceLevel ? '#ef4444' : formData.experienceLevel ? '#10b981' : '#e5e7eb',
-                    backgroundColor: 'white',
-                    color: formData.experienceLevel ? '#1a1a1a' : '#9ca3af',
+                    borderColor: errors.experienceLevel ? 'var(--color-error)' : formData.experienceLevel ? 'var(--color-success)' : 'var(--border-default)',
+                    backgroundColor: 'var(--bg-card)',
+                    color: formData.experienceLevel ? 'var(--text-primary)' : 'var(--text-muted)',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                 >
                   <option value="">Select your experience level</option>
                   {experienceLevels.map(level => (
@@ -535,7 +535,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
 
               {/* Career Goal */}
               <div>
-                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                   Career Goal <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -552,11 +552,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.careerGoal ? 'border-red-500' : formData.careerGoal ? 'border-green-500' : ''
                     }`}
                   style={{
-                    borderColor: errors.careerGoal ? '#ef4444' : formData.careerGoal ? '#10b981' : '#e5e7eb',
-                    backgroundColor: 'white',
-                    color: '#1a1a1a',
+                    borderColor: errors.careerGoal ? 'var(--color-error)' : formData.careerGoal ? 'var(--color-success)' : 'var(--border-default)',
+                    backgroundColor: 'var(--bg-card)',
+                    color: 'var(--text-primary)',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                 />
                 {errors.careerGoal && <p id="careerGoal-error" className="mt-1 text-xs text-red-500" role="alert">{errors.careerGoal}</p>}
                 {formData.careerGoal && !errors.careerGoal && <p className="mt-1 text-xs text-green-600">✓</p>}
@@ -565,7 +565,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
               {/* Availability and City */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                     Availability <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -580,11 +580,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.availability ? 'border-red-500' : formData.availability ? 'border-green-500' : ''
                       }`}
                     style={{
-                      borderColor: errors.availability ? '#ef4444' : formData.availability ? '#10b981' : '#e5e7eb',
-                      backgroundColor: 'white',
-                      color: formData.availability ? '#1a1a1a' : '#9ca3af',
+                      borderColor: errors.availability ? 'var(--color-error)' : formData.availability ? 'var(--color-success)' : 'var(--border-default)',
+                      backgroundColor: 'var(--bg-card)',
+                      color: formData.availability ? 'var(--text-primary)' : 'var(--text-muted)',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                    onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                   >
                     <option value="">Select Availability</option>
                     {availabilityOptions.map(option => (
@@ -596,7 +596,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                 </div>
 
                 <div>
-                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                  <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                     City <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -611,11 +611,11 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.city ? 'border-red-500' : formData.city ? 'border-green-500' : ''
                       }`}
                     style={{
-                      borderColor: errors.city ? '#ef4444' : formData.city ? '#10b981' : '#e5e7eb',
-                      backgroundColor: 'white',
-                      color: formData.city ? '#1a1a1a' : '#9ca3af',
+                      borderColor: errors.city ? 'var(--color-error)' : formData.city ? 'var(--color-success)' : 'var(--border-default)',
+                      backgroundColor: 'var(--bg-card)',
+                      color: formData.city ? 'var(--text-primary)' : 'var(--text-muted)',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                    onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                   >
                     <option value="">Select City</option>
                     {cities.map(city => (
@@ -629,7 +629,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
 
               {/* Motivation */}
               <div>
-                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: '#1a1a1a' }}>
+                <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
                   Why do you want to join Designient? <span className="text-red-500">*</span>
                 </label>
                 <textarea
@@ -646,17 +646,17 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.motivation ? 'border-red-500' : formData.motivation.length >= 50 ? 'border-green-500' : ''
                     }`}
                   style={{
-                    borderColor: errors.motivation ? '#ef4444' : formData.motivation.length >= 50 ? '#10b981' : '#e5e7eb',
-                    backgroundColor: 'white',
-                    color: '#1a1a1a',
+                    borderColor: errors.motivation ? 'var(--color-error)' : formData.motivation.length >= 50 ? 'var(--color-success)' : 'var(--border-default)',
+                    backgroundColor: 'var(--bg-card)',
+                    color: 'var(--text-primary)',
                   }}
-                  onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
+                  onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                 />
                 <div className="flex justify-between items-start mt-1">
                   {errors.motivation ? (
                     <p id="motivation-error" className="text-xs text-red-500" role="alert">{errors.motivation}</p>
                   ) : (
-                    <p id="motivation-help" className="text-xs" style={{ color: formData.motivation.length >= 50 ? '#10b981' : '#6b7280' }}>
+                    <p id="motivation-help" className="text-xs" style={{ color: formData.motivation.length >= 50 ? 'var(--color-success)' : 'var(--text-muted)' }}>
                       {formData.motivation.length}/50 characters minimum {formData.motivation.length >= 50 && '✓'}
                     </p>
                   )}
@@ -672,7 +672,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2 p-3 rounded-lg"
-                  style={{ backgroundColor: '#fef2f2', color: '#ef4444' }}
+                  style={{ backgroundColor: 'var(--color-error-bg)', color: 'var(--color-error)' }}
                 >
                   <AlertCircle className="w-5 h-5 flex-shrink-0" />
                   <p className="font-body text-sm">{errorMessage}</p>
@@ -685,7 +685,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="flex flex-col gap-3 p-4 rounded-lg"
-                  style={{ backgroundColor: '#f0fdf4', color: '#10b981' }}
+                  style={{ backgroundColor: 'var(--color-success-bg)', color: 'var(--color-success)' }}
                 >
                   <div className="flex items-center gap-2">
                     <CheckCircle className="w-5 h-5 flex-shrink-0" />
@@ -701,10 +701,10 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed min-h-[44px]"
+                className="w-full px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed min-h-[44px] surface-on-accent"
                 style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white',
+                  backgroundColor: 'var(--color-cta)',
+                  color: 'var(--text-on-accent)',
                 }}
               >
                 {isSubmitting ? (

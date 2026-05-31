@@ -115,7 +115,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
   // Show loading state during hydration to prevent mismatch
   if (!isMounted || isLoading) {
     return (
-      <section className="py-20 md:py-28" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center">
@@ -131,7 +131,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
   }
 
   return (
-    <section className="py-20 md:py-28" style={{ backgroundColor: '#f9fafb' }}>
+    <section className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-subtle)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -144,7 +144,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)'
               }}>
               Payment Options
@@ -152,7 +152,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             <p
               className="font-body max-w-3xl mx-auto leading-relaxed"
               style={{
-                color: '#6b7280',
+                color: 'var(--text-muted)',
                 fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
                 lineHeight: '1.8'
               }}>
@@ -160,9 +160,9 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             </p>
 
             {/* 0% Interest Badge */}
-            <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full" style={{ backgroundColor: '#e8f5e9' }}>
-              <Percent className="w-4 h-4" style={{ color: '#2e7d32' }} />
-              <span className="font-body font-semibold text-sm" style={{ color: '#2e7d32' }}>
+            <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full" style={{ backgroundColor: 'var(--color-success-bg)' }}>
+              <Percent className="w-4 h-4" style={{ color: 'var(--color-success)' }} />
+              <span className="font-body font-semibold text-sm" style={{ color: 'var(--color-success)' }}>
                 0% Interest on all installment plans
               </span>
             </div>
@@ -176,16 +176,16 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.4 }}
-              className="bg-white border-2 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow"
-              style={{ borderColor: '#8458B3' }}>
+              className="bg-card border-2 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow"
+              style={{ borderColor: 'var(--color-primary)' }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg" style={{ backgroundColor: '#8458B3' }}>
+                <div className="p-2 rounded-lg accent-icon-box" style={{ backgroundColor: 'var(--color-cta)' }}>
                   <Calendar className="w-6 h-6 text-white" />
                 </div>
                 <h3
                   className="font-display font-bold"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)'
                   }}>
                   Request a Free Demo
@@ -195,7 +195,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               <p
                 className="font-body mb-6 leading-relaxed"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                   lineHeight: '1.7'
                 }}>
@@ -210,8 +210,8 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   'Any questions you have'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                    <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}>
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                    <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}>
                       {item}
                     </span>
                   </li>
@@ -222,10 +222,10 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 href="https://calendar.app.google/N6Kg8VKMFU84v6UP8"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105"
+                className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105 surface-on-accent"
                 style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white',
+                  backgroundColor: 'var(--color-cta)',
+                  color: 'var(--text-on-accent)',
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                 }}>
                 Request Free Demo
@@ -239,16 +239,16 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.4 }}
-              className="bg-white border-2 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow"
-              style={{ borderColor: '#f2d53c' }}>
+              className="bg-card border-2 rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl transition-shadow"
+              style={{ borderColor: 'var(--color-highlight)' }}>
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg" style={{ backgroundColor: '#f2d53c' }}>
-                  <CreditCard className="w-6 h-6" style={{ color: '#1a1a1a' }} />
+                <div className="p-2 rounded-lg accent-icon-box" style={{ backgroundColor: 'var(--color-highlight)' }}>
+                  <CreditCard className="w-6 h-6" style={{ color: 'var(--text-on-accent)' }} />
                 </div>
                 <h3
                   className="font-display font-bold"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)'
                   }}>
                   Reserve Your Seat
@@ -256,13 +256,13 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               </div>
 
               <div className="mb-4">
-                <p className="font-body font-semibold mb-2" style={{ color: '#1a1a1a', fontSize: 'clamp(1rem, 2vw, 1.125rem)' }}>
+                <p className="font-body font-semibold mb-2" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1rem, 2vw, 1.125rem)' }}>
                   10% Advance: {advanceDisplay}
                 </p>
                 <p
                   className="font-body text-sm mb-2 leading-relaxed"
                   style={{
-                    color: '#6b7280',
+                    color: 'var(--text-muted)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
                     lineHeight: '1.7'
                   }}>
@@ -278,8 +278,8 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   activeCurrency === 'INR' ? 'Pay via UPI or Bank Transfer' : 'Secure payment via Skydo'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#f2d53c' }} />
-                    <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}>
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
+                    <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.875rem, 1.5vw, 1rem)' }}>
                       {item}
                     </span>
                   </li>
@@ -290,10 +290,10 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi, I'm interested in enrolling for the ${courseNames[courseSlug]} course and would like to pay the advance of ${advanceDisplay} to book my slot for the upcoming batch.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105"
+                className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105 surface-on-accent"
                 style={{
-                  backgroundColor: '#f2d53c',
-                  color: '#1a1a1a',
+                  backgroundColor: 'var(--color-highlight)',
+                  color: 'var(--text-on-accent)',
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                 }}>
                 Pay {advanceDisplay} Advance
@@ -302,7 +302,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
 
               {/* Payment Info Badge */}
               <div className="mt-4 text-center">
-                <span className="font-body text-xs" style={{ color: '#6b7280' }}>
+                <span className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
                   You'll receive UPI/Bank details via WhatsApp
                 </span>
               </div>
@@ -315,11 +315,11 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.4 }}
-            className="bg-[#FFF6E2] rounded-xl p-6 md:p-8 border border-[#f2d53c] mb-8">
+            className="bg-[var(--bg-warm)] rounded-xl p-6 md:p-8 border border-[var(--color-highlight)] mb-8">
             <h3
               className="font-display font-semibold mb-6 text-center"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.25rem, 2.5vw, 1.5rem)'
               }}>
               {courseType === 'short' ? 'Payment Schedule' : 'Choose Your Installment Plan'}
@@ -333,8 +333,8 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                     key={index}
                     onClick={() => setSelectedPlan(index)}
                     className={`px-4 py-2 rounded-lg font-body font-semibold text-sm transition-all ${selectedPlan === index
-                      ? 'bg-[#8458B3] text-white'
-                      : 'bg-white text-[#4a4a4a] hover:bg-gray-100'
+                      ? 'bg-[var(--color-accent-cyan)] text-[var(--text-primary)]'
+                      : 'bg-card text-[var(--text-secondary)] hover:bg-[var(--bg-card-hover)]'
                       }`}>
                     {plan.name}
                   </button>
@@ -343,10 +343,10 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             )}
 
             {/* Installment Table */}
-            <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+            <div className="bg-card rounded-lg overflow-hidden shadow-sm">
               <table className="w-full">
                 <thead>
-                  <tr style={{ backgroundColor: '#8458B3' }}>
+                  <tr style={{ backgroundColor: 'var(--color-cta)' }}>
                     <th className="text-left py-3 px-4 font-body font-semibold text-white text-sm">Payment</th>
                     <th className="text-right py-3 px-4 font-body font-semibold text-white text-sm">Amount</th>
                     <th className="text-right py-3 px-4 font-body font-semibold text-white text-sm hidden sm:table-cell">When</th>
@@ -354,20 +354,20 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 </thead>
                 <tbody>
                   {installmentData.plans[selectedPlan].installments.map((inst, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                      <td className="py-3 px-4 font-body text-sm" style={{ color: '#4a4a4a' }}>
+                    <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-card'}>
+                      <td className="py-3 px-4 font-body text-sm" style={{ color: 'var(--text-secondary)' }}>
                         {inst.label}
-                        <span className="block sm:hidden text-xs mt-1" style={{ color: '#6b7280' }}>{inst.when}</span>
+                        <span className="block sm:hidden text-xs mt-1" style={{ color: 'var(--text-muted)' }}>{inst.when}</span>
                       </td>
-                      <td className="py-3 px-4 font-body font-semibold text-sm text-right" style={{ color: '#1a1a1a' }}>
+                      <td className="py-3 px-4 font-body font-semibold text-sm text-right" style={{ color: 'var(--text-primary)' }}>
                         {formatCurrency(inst.amount, activeCurrency)}
                       </td>
-                      <td className="py-3 px-4 font-body text-sm text-right hidden sm:table-cell" style={{ color: '#6b7280' }}>
+                      <td className="py-3 px-4 font-body text-sm text-right hidden sm:table-cell" style={{ color: 'var(--text-muted)' }}>
                         {inst.when}
                       </td>
                     </tr>
                   ))}
-                  <tr style={{ backgroundColor: '#8458B3' }}>
+                  <tr style={{ backgroundColor: 'var(--color-primary)' }}>
                     <td className="py-3 px-4 font-body font-bold text-white text-sm">Total</td>
                     <td className="py-3 px-4 font-body font-bold text-white text-sm text-right">{formatCurrency(totalPrice, activeCurrency)}</td>
                     <td className="py-3 px-4 hidden sm:table-cell"></td>
@@ -384,7 +384,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 <ul className="list-disc pl-4 space-y-1">
                   <li>All installment payments shall be due and payable within five (5) business days from the scheduled due date as outlined above.</li>
                   <li>In the event of non-payment by the due date, Designient reserves the right to immediately suspend the student's access to course materials, live sessions, and all related educational services until such time as the outstanding balance is paid in full.</li>
-                  <li>The 10% advance payment is non-refundable under any circumstances, in accordance with our <Link href="/cancellation-refund-policy" className="underline" style={{ color: '#8458B3' }}>Cancellation & Refund Policy</Link>.</li>
+                  <li>The 10% advance payment is non-refundable under any circumstances, in accordance with our <Link href="/cancellation-refund-policy" className="underline" style={{ color: 'var(--color-primary)' }}>Cancellation & Refund Policy</Link>.</li>
                   <li>Reinstatement following suspension shall be at the sole discretion of Designient and may be subject to additional administrative fees.</li>
                 </ul>
               </div>
@@ -398,7 +398,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.4 }}
-              className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-200 mb-8">
+              className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-gray-200 mb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 rounded-lg" style={{ backgroundColor: '#e3f2fd' }}>
                   <DollarSign className="w-6 h-6" style={{ color: '#1565c0' }} />
@@ -406,7 +406,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 <h3
                   className="font-display font-semibold"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
                   }}>
                   Education Loan EMI Options (6, 9, 12 Months)
@@ -416,7 +416,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               <p
                 className="font-body mb-6 leading-relaxed"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                   lineHeight: '1.7'
                 }}>
@@ -426,22 +426,22 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
 
               {/* Bank Logos */}
               <div className="flex flex-wrap items-center justify-center gap-6 mb-4 py-4 px-6 bg-gray-50 rounded-lg">
-                <div className="flex items-center px-4 py-3 bg-white rounded-lg shadow-sm border border-gray-200">
+                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
                   <Image src="/images/banks/icici.svg" alt="ICICI Bank" width={80} height={24} className="h-6 w-auto" />
                 </div>
-                <div className="flex items-center px-4 py-3 bg-white rounded-lg shadow-sm border border-gray-200">
+                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
                   <Image src="/images/banks/hdfc.svg" alt="HDFC Bank" width={80} height={24} className="h-6 w-auto" />
                 </div>
-                <div className="flex items-center px-4 py-3 bg-white rounded-lg shadow-sm border border-gray-200">
+                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
                   <Image src="/images/banks/axis.svg" alt="Axis Bank" width={80} height={24} className="h-6 w-auto" />
                 </div>
-                <div className="flex items-center px-4 py-3 bg-white rounded-lg shadow-sm border border-gray-200">
-                  <span className="font-body font-semibold text-sm" style={{ color: '#4a4a4a' }}>Kotak Mahindra</span>
+                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
+                  <span className="font-body font-semibold text-sm" style={{ color: 'var(--text-secondary)' }}>Kotak Mahindra</span>
                 </div>
-                <span className="font-body text-sm" style={{ color: '#6b7280' }}>and more...</span>
+                <span className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>and more...</span>
               </div>
 
-              <p className="font-body text-center text-sm" style={{ color: '#6b7280' }}>
+              <p className="font-body text-center text-sm" style={{ color: 'var(--text-muted)' }}>
                 Contact us after enrollment to discuss education loan options.
               </p>
             </motion.div>
@@ -457,33 +457,33 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             <h3
               className="font-display font-semibold mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
               }}>
               Important Information
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
-                  <strong>10% advance is non-refundable</strong> as per our <Link href="/cancellation-refund-policy" className="underline" style={{ color: '#8458B3' }}>Cancellation & Refund Policy</Link>.
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                  <strong>10% advance is non-refundable</strong> as per our <Link href="/cancellation-refund-policy" className="underline" style={{ color: 'var(--color-primary)' }}>Cancellation & Refund Policy</Link>.
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                   <strong>Balance of 1st installment</strong> must be paid 3 days before batch start date.
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                   <strong>0% interest</strong> on all in-house installment plans (2, 3, 4 month options).
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                   <strong>Location-based pricing:</strong> INR for India (via Razorpay), USD for international (via Skydo).
                 </span>
               </li>
@@ -497,13 +497,13 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.4 }}
             className="mt-8 text-center">
-            <p className="font-body text-xs" style={{ color: '#6b7280' }}>
+            <p className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
               By proceeding with payment, you agree to our{' '}
-              <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+              <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                 Terms and Conditions
               </Link>
               {' '}and{' '}
-              <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+              <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                 Cancellation & Refund Policy
               </Link>
               .

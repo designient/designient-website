@@ -48,10 +48,10 @@ export function CoursePricing({
 
   if (isLoading) {
     return (
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-[#8458B3] to-[#6b46c1] rounded-3xl p-8 md:p-12 shadow-2xl text-white text-center">
+            <div className="apple-card rounded-3xl p-8 md:p-12 shadow-2xl text-center">
               <div className="animate-pulse">Loading pricing...</div>
             </div>
           </div>
@@ -61,7 +61,7 @@ export function CoursePricing({
   }
 
   return (
-    <section id="pricing" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
+    <section id="pricing" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-card)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <motion.div
@@ -69,7 +69,8 @@ export function CoursePricing({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-br from-[#8458B3] to-[#6b46c1] rounded-3xl p-8 md:p-12 shadow-2xl text-white">
+            className="apple-card rounded-3xl p-8 md:p-12 shadow-2xl"
+            style={{ color: 'var(--text-primary)' }}>
 
             <div className="text-center mb-8">
               <h2

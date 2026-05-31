@@ -107,7 +107,7 @@ export function LocationsSection() {
       id="locations"
       className="py-24 md:py-32"
       style={{
-        backgroundColor: '#fceed1'
+        backgroundColor: 'var(--bg-peach)'
       }}>
       <StructuredData data={localBusinessSchemas} />
 
@@ -134,7 +134,7 @@ export function LocationsSection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6 text-center"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -144,7 +144,7 @@ export function LocationsSection() {
           <p
             className="font-body text-base md:text-lg max-w-3xl mx-auto font-normal text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -176,7 +176,7 @@ export function LocationsSection() {
             }}
             className="rounded-2xl overflow-hidden shadow-lg"
             style={{
-              backgroundColor: 'white'
+              backgroundColor: 'var(--bg-card)'
             }}
             itemScope
             itemType="https://schema.org/Place">
@@ -202,7 +202,7 @@ export function LocationsSection() {
                 <h3
                 className="font-display tracking-wide mb-4 sm:mb-6"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontWeight: 600,
                   fontSize: 'clamp(1.25rem, 3vw, 2.25rem)'
                 }}
@@ -221,13 +221,13 @@ export function LocationsSection() {
                     <MapPin
                     className="w-5 h-5 flex-shrink-0 mt-1"
                     style={{
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }} />
 
                     <div
                     className="font-body text-base font-normal"
                     style={{
-                      color: '#4a4a4a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.0625rem)',
                       lineHeight: '1.7'
                     }}>
@@ -248,14 +248,14 @@ export function LocationsSection() {
                     <Phone
                     className="w-5 h-5 flex-shrink-0"
                     style={{
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }} />
 
                     <a
                     href={`tel:${location.phone}`}
-                    className="font-body text-base font-normal hover:text-[#8458B3] transition-colors"
+                    className="font-body text-base font-normal hover:text-[var(--color-primary)] transition-colors"
                     style={{
-                      color: '#4a4a4a'
+                      color: 'var(--text-secondary)'
                     }}
                     itemProp="telephone">
 
@@ -267,14 +267,14 @@ export function LocationsSection() {
                     <Mail
                     className="w-5 h-5 flex-shrink-0"
                     style={{
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }} />
 
                     <a
                     href={`mailto:${location.email}`}
-                    className="font-body text-base font-normal hover:text-[#8458B3] transition-colors"
+                    className="font-body text-base font-normal hover:text-[var(--color-primary)] transition-colors"
                     style={{
-                      color: '#4a4a4a'
+                      color: 'var(--text-secondary)'
                     }}>
 
                       {location.email}
@@ -285,13 +285,13 @@ export function LocationsSection() {
                     <Clock
                     className="w-5 h-5 flex-shrink-0"
                     style={{
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }} />
 
                     <span
                     className="font-body text-base font-normal"
                     style={{
-                      color: '#4a4a4a'
+                      color: 'var(--text-secondary)'
                     }}>
 
                       {location.hours}
@@ -309,10 +309,10 @@ export function LocationsSection() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-body text-sm font-bold px-6 py-3 rounded-lg transition-colors hover:opacity-90 min-h-[44px] min-w-[140px] text-center"
+                className="inline-block font-body text-sm font-bold px-6 py-3 rounded-lg transition-colors hover:opacity-90 min-h-[44px] min-w-[140px] text-center surface-on-accent"
                 style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white'
+                  backgroundColor: 'var(--color-cta)',
+                  color: 'var(--text-on-accent)'
                 }}>
 
                   Get Directions

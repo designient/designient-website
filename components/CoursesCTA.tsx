@@ -7,16 +7,13 @@ import Link from 'next/link';
 export function CoursesCTA() {
   return (
     <section
-      className="py-24 md:py-32 relative overflow-hidden min-h-[50vh] flex items-center"
-      style={{
-        backgroundColor: '#8458B3'
-      }}>
+      className="py-24 md:py-32 relative overflow-hidden min-h-[50vh] flex items-center section-band-accent">
 
       {/* Background effects */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl bg-white" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl bg-white" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute inset-0 opacity-100 pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" />
       </div>
 
       <div className="max-w-2xl mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center">
@@ -36,10 +33,11 @@ export function CoursesCTA() {
             duration: 0.6,
             ease: [0.4, 0, 0.2, 1]
           }}
-          className="font-display tracking-wide text-white mb-4 md:mb-6 leading-[1.1]"
+          className="font-display tracking-wide mb-4 md:mb-6 leading-[1.1]"
           style={{
             fontWeight: 700,
-            fontSize: 'clamp(2rem, 4vw, 3.5rem)'
+            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+            color: 'var(--text-primary)'
           }}>
 
           Still Not Sure Which Course is Right?
@@ -62,9 +60,10 @@ export function CoursesCTA() {
             duration: 0.6,
             ease: [0.4, 0, 0.2, 1]
           }}
-          className="font-body text-white/95 mb-4 leading-[1.6]"
+          className="font-body mb-4 leading-[1.6]"
           style={{
-            fontSize: 'clamp(1rem, 1.8vw, 1.25rem)'
+            fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+            color: 'var(--text-secondary)'
           }}>
 
           Talk to our course advisors for free
@@ -87,11 +86,12 @@ export function CoursesCTA() {
             duration: 0.6,
             ease: [0.4, 0, 0.2, 1]
           }}
-          className="font-body text-white/80 mb-8 md:mb-10 leading-[1.6] text-sm"
+          className="font-body mb-8 md:mb-10 leading-[1.6] text-sm"
           style={{
-            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
+            fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+            color: 'var(--text-muted)'
           }}>
-          Need <Link href="/corporates" className="underline hover:no-underline font-semibold text-white">enterprise training</Link> or <Link href="/corporates/ai-enablement-workshops" className="underline hover:no-underline font-semibold text-white">AI enablement</Link> for your team? <Link href="/corporates" className="underline hover:no-underline font-semibold text-white">Explore our corporate solutions</Link>.
+          Need <Link href="/corporates" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-accent)' }}>enterprise training</Link> or <Link href="/corporates/ai-enablement-workshops" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-accent)' }}>AI enablement</Link> for your team? <Link href="/corporates" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-accent)' }}>Explore our corporate solutions</Link>.
         </motion.p>
 
         <motion.div
@@ -121,8 +121,8 @@ export function CoursesCTA() {
             }}
             className="font-body font-bold shadow-2xl flex items-center gap-2 mx-auto min-h-[44px]"
             style={{
-              backgroundColor: '#f2d53c',
-              color: '#1a1a1a',
+              backgroundColor: 'var(--color-accent)',
+              color: 'var(--text-on-accent)',
               padding: '14px 36px',
               borderRadius: '100px',
               fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'

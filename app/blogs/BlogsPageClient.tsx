@@ -31,7 +31,7 @@ interface BlogsPageClientProps {
 
 export function BlogsPageClient(props: BlogsPageClientProps) {
   return (
-    <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center font-body" style={{ color: '#6b7280' }}>Loading blogs...</div>}>
+    <Suspense fallback={<div className="min-h-[60vh] flex items-center justify-center font-body" style={{ color: 'var(--text-muted)' }}>Loading blogs...</div>}>
       <BlogsPageContent {...props} />
     </Suspense>
   )

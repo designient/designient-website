@@ -10,9 +10,9 @@ interface TableOfContentsProps {
 
 export function TableOfContents({ items }: TableOfContentsProps) {
   return (
-    <section className="py-8 md:py-12 border-b border-gray-200" style={{ backgroundColor: '#f9fafb' }}>
+    <section className="py-8 md:py-12 border-b border-gray-200" style={{ backgroundColor: 'var(--bg-subtle)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-        <h2 className="font-display text-xl md:text-2xl font-bold mb-6" style={{ color: '#1a1a1a' }}>
+        <h2 className="font-display text-xl md:text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
           Table of Contents
         </h2>
         <nav aria-label="Page contents">
@@ -21,8 +21,8 @@ export function TableOfContents({ items }: TableOfContentsProps) {
               <li key={item.id}>
                 <Link
                   href={`#${item.id}`}
-                  className="flex items-center gap-2 font-body text-sm md:text-base hover:underline transition-all p-2 rounded hover:bg-white"
-                  style={{ color: '#8458B3' }}
+                  className="flex items-center gap-2 font-body text-sm md:text-base hover:underline transition-all p-2 rounded hover:bg-[var(--color-accent-muted)]"
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   <Hash className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                   <span>{item.label}</span>

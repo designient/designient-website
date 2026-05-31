@@ -117,7 +117,7 @@ export function BlogGrid({
   if (posts.length === 0) {
     return (
       <div className="text-center py-16">
-        <p className="font-body text-lg" style={{ color: '#6b7280' }}>
+        <p className="font-body text-lg" style={{ color: 'var(--text-muted)' }}>
           No blog posts found matching your filters. Try adjusting your search criteria.
         </p>
       </div>
@@ -147,8 +147,8 @@ export function BlogGrid({
         <div ref={observerTarget} className="py-8 text-center">
           {isLoading && (
             <div className="flex items-center justify-center gap-2">
-              <div className="w-6 h-6 border-2 border-[#8458B3] border-t-transparent rounded-full animate-spin" />
-              <span className="font-body" style={{ color: '#6b7280' }}>
+              <div className="w-6 h-6 border-2 border-[var(--color-primary)] border-t-transparent rounded-full animate-spin" />
+              <span className="font-body" style={{ color: 'var(--text-muted)' }}>
                 Loading more posts...
               </span>
             </div>
@@ -178,7 +178,7 @@ export function BlogGrid({
                       ? 'text-white'
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
-                  style={p === currentPage ? { backgroundColor: '#8458B3' } : {}}>
+                  style={p === currentPage ? { backgroundColor: 'var(--color-cta)' } : {}}>
                   {p}
                 </a>
               )

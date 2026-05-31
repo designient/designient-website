@@ -124,20 +124,12 @@ export function BlogsPageContent({
       {/* Hero Section - Standardized */}
       <section
         className="relative min-h-[60vh] flex items-center pt-16 md:pt-20"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="blogs-hero-heading">
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl"
-            style={{ backgroundColor: '#8458B3' }}
-            aria-hidden="true"
-          />
-          <div
-            className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl"
-            style={{ backgroundColor: '#f2d53c' }}
-            aria-hidden="true"
-          />
+        <div className="absolute inset-0 opacity-100 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
         </div>
 
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center py-16 md:py-24 w-full">
@@ -146,12 +138,12 @@ export function BlogsPageContent({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}>
             {/* Breadcrumb */}
-            <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: '#6B7280' }}>
+            <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline font-body">
                 Home
               </Link>
               <ChevronRight className="w-4 h-4" />
-              <span style={{ color: '#8458B3' }} className="font-body">
+              <span style={{ color: 'var(--color-primary)' }} className="font-body">
                 Blogs
               </span>
             </div>
@@ -161,7 +153,7 @@ export function BlogsPageContent({
               id="blogs-hero-heading"
               className="font-display text-center mb-4 md:mb-6 leading-[1.1]"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontWeight: 700,
                 fontSize: 'clamp(2.5rem, 5vw, 4.5rem)'
               }}>
@@ -172,7 +164,7 @@ export function BlogsPageContent({
             <p
               className="text-center text-base md:text-lg max-w-5xl mx-auto leading-[1.6]"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
               }}>
               Expert insights, career guides, design tips, and industry trends to help you grow as a UI/UX designer.
@@ -210,7 +202,7 @@ export function BlogsPageContent({
 
       {/* Featured Post */}
       {featuredPost && (
-        <section className="py-12 md:py-16" style={{ backgroundColor: 'white' }}>
+        <section className="py-12 md:py-16" style={{ backgroundColor: 'var(--bg-card)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <FeaturedPost
               slug={featuredPost.slug}
@@ -227,7 +219,7 @@ export function BlogsPageContent({
 
       {/* Filters - Collapsible */}
       {showFilters && (
-        <section className="py-8" style={{ backgroundColor: '#f9fafb' }}>
+        <section className="py-8" style={{ backgroundColor: 'var(--bg-subtle)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <BlogFilters
               categories={categories}
@@ -241,7 +233,7 @@ export function BlogsPageContent({
       )}
 
       {/* Blog Grid */}
-      <section className="py-12 md:py-16" style={{ backgroundColor: 'white' }}>
+      <section className="py-12 md:py-16" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <BlogGrid
             initialPosts={initialPosts}

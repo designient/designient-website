@@ -30,11 +30,11 @@ export function RelatedPosts({ posts, currentSlug }: RelatedPostsProps) {
   if (posts.length === 0) return null
 
   return (
-    <section className="mt-16 pt-16 border-t-2" style={{ borderColor: '#e5e7eb' }}>
+    <section className="mt-16 pt-16 border-t-2" style={{ borderColor: 'var(--border-default)' }}>
       <h2
         className="font-display font-bold mb-8"
         style={{
-          color: '#8458B3',
+          color: 'var(--color-primary)',
           fontSize: 'clamp(1.75rem, 3vw, 2.5rem)'
         }}>
         Related Articles
@@ -47,7 +47,7 @@ export function RelatedPosts({ posts, currentSlug }: RelatedPostsProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.4 }}
-            className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+            className="bg-card rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
             <Link href={`/blogs/${post.slug}`} className="block">
               <div className="relative w-full" style={{ aspectRatio: '1200/760', minHeight: '180px' }}>
                 <Image
@@ -62,11 +62,11 @@ export function RelatedPosts({ posts, currentSlug }: RelatedPostsProps) {
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-2">
                   <span
-                    className="px-2 py-1 rounded-full text-xs font-semibold"
-                    style={{ backgroundColor: '#8458B3', color: 'white' }}>
+                    className="px-2 py-1 rounded-full text-xs font-semibold accent-icon-box"
+                    style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)' }}>
                     {post.category}
                   </span>
-                  <div className="flex items-center gap-1 text-xs" style={{ color: '#6b7280' }}>
+                  <div className="flex items-center gap-1 text-xs" style={{ color: 'var(--text-muted)' }}>
                     <Calendar className="w-3 h-3" />
                     <span>{formatDate(post.publishedDate)}</span>
                   </div>
@@ -74,17 +74,17 @@ export function RelatedPosts({ posts, currentSlug }: RelatedPostsProps) {
                 <h3
                   className="font-display font-bold mb-2 line-clamp-2"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1.125rem, 2vw, 1.25rem)'
                   }}>
                   {post.title}
                 </h3>
                 <p
                   className="font-body text-sm line-clamp-2 mb-3"
-                  style={{ color: '#4a4a4a', lineHeight: '1.6' }}>
+                  style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
                   {post.excerpt}
                 </p>
-                <div className="flex items-center gap-1 text-xs" style={{ color: '#6b7280' }}>
+                <div className="flex items-center gap-1 text-xs" style={{ color: 'var(--text-muted)' }}>
                   <Clock className="w-3 h-3" />
                   <span>{post.readingTime}</span>
                 </div>

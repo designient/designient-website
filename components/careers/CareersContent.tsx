@@ -189,12 +189,12 @@ export function CareersContent() {
       {/* Hero Section */}
       <section 
         className="relative min-h-[60vh] flex items-center pt-20 md:pt-24" 
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="careers-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
           <div className="max-w-4xl mx-auto text-center">
             {/* Breadcrumbs */}
-            <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: '#6B7280' }}>
+            <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <span>Careers</span>
@@ -207,7 +207,7 @@ export function CareersContent() {
               transition={{ duration: 0.6 }}
               className="font-display font-bold tracking-wide leading-tight mb-6"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                 fontWeight: 700
               }}>
@@ -220,7 +220,7 @@ export function CareersContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-8 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -231,7 +231,7 @@ export function CareersContent() {
       </section>
 
       {/* Why Work at Designient */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -243,7 +243,7 @@ export function CareersContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 Why Work at Designient
@@ -251,7 +251,7 @@ export function CareersContent() {
               <p
                 className="font-body leading-relaxed mb-8"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -261,7 +261,7 @@ export function CareersContent() {
               <p
                 className="font-body leading-relaxed mb-8"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -280,15 +280,15 @@ export function CareersContent() {
                   className="bg-gray-50 rounded-xl p-6 md:p-8">
                   <div className="flex items-start gap-4">
                     <div
-                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: '#8458B3' }}>
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 accent-icon-box"
+                      style={{ backgroundColor: 'var(--color-primary)' }}>
                       <item.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h3
                         className="font-display font-bold mb-2"
                         style={{
-                          color: '#1a1a1a',
+                          color: 'var(--text-primary)',
                           fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                         }}>
                         {item.title}
@@ -296,7 +296,7 @@ export function CareersContent() {
                       <p
                         className="font-body leading-relaxed"
                         style={{
-                          color: '#4a4a4a',
+                          color: 'var(--text-secondary)',
                           fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                           lineHeight: '1.7'
                         }}>
@@ -312,7 +312,7 @@ export function CareersContent() {
       </section>
 
       {/* Life at Designient */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -323,22 +323,22 @@ export function CareersContent() {
               className="text-center mb-8">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <Users
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-accent)',
                       strokeWidth: 2.5
                     }} />
                 </div>
                 <h2
                   className="font-display font-bold tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -356,7 +356,7 @@ export function CareersContent() {
               <p
                 className="font-body leading-relaxed text-center"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -370,7 +370,7 @@ export function CareersContent() {
       </section>
 
       {/* Who We're Looking For */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -382,7 +382,7 @@ export function CareersContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 Who We&apos;re Looking For
@@ -408,11 +408,11 @@ export function CareersContent() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                   className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                   <span
                     className="font-body leading-relaxed"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-primary)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                       lineHeight: '1.7'
                     }}>
@@ -426,7 +426,7 @@ export function CareersContent() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -437,14 +437,14 @@ export function CareersContent() {
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
               Open Positions
             </h2>
             <p
               className="font-body text-lg max-w-2xl mx-auto"
-              style={{ color: '#4a4a4a' }}>
+              style={{ color: 'var(--text-secondary)' }}>
               Join us in shaping the future of design education
             </p>
           </motion.div>
@@ -458,15 +458,15 @@ export function CareersContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                className="bg-white rounded-xl p-6 md:p-8 shadow-md hover:shadow-lg transition-shadow scroll-mt-24">
+                className="bg-card rounded-xl p-6 md:p-8 shadow-md hover:shadow-lg transition-shadow scroll-mt-24">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                   <div className="flex-1">
                     {position.id === 'ui-ux-mentor' ? (
                       <Link href="/careers/ui-ux-mentor">
                         <h3
-                          className="font-display font-bold mb-2 hover:text-[#8458B3] transition-colors cursor-pointer"
+                          className="font-display font-bold mb-2 hover:text-[var(--color-primary)] transition-colors cursor-pointer"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.5rem, 2.5vw, 2rem)'
                           }}>
                           {position.role}
@@ -475,9 +475,9 @@ export function CareersContent() {
                     ) : position.id === 'student-success' ? (
                       <Link href="/careers/student-success-coordinator">
                         <h3
-                          className="font-display font-bold mb-2 hover:text-[#8458B3] transition-colors cursor-pointer"
+                          className="font-display font-bold mb-2 hover:text-[var(--color-primary)] transition-colors cursor-pointer"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.5rem, 2.5vw, 2rem)'
                           }}>
                           {position.role}
@@ -486,9 +486,9 @@ export function CareersContent() {
                     ) : position.id === 'curriculum-specialist' ? (
                       <Link href="/careers/curriculum-designer">
                         <h3
-                          className="font-display font-bold mb-2 hover:text-[#8458B3] transition-colors cursor-pointer"
+                          className="font-display font-bold mb-2 hover:text-[var(--color-primary)] transition-colors cursor-pointer"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.5rem, 2.5vw, 2rem)'
                           }}>
                           {position.role}
@@ -498,7 +498,7 @@ export function CareersContent() {
                       <h3
                         className="font-display font-bold mb-2"
                         style={{
-                          color: '#1a1a1a',
+                          color: 'var(--text-primary)',
                           fontSize: 'clamp(1.5rem, 2.5vw, 2rem)'
                         }}>
                         {position.role}
@@ -506,14 +506,14 @@ export function CareersContent() {
                     )}
                     <div className="flex flex-wrap items-center gap-4 mb-3">
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" style={{ color: '#6b7280' }} />
-                        <span className="font-body text-sm" style={{ color: '#6b7280' }}>
+                        <MapPin className="w-4 h-4" style={{ color: 'var(--text-muted)' }} />
+                        <span className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                           {position.location}
                         </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4" style={{ color: '#6b7280' }} />
-                        <span className="font-body text-sm" style={{ color: '#6b7280' }}>
+                        <Clock className="w-4 h-4" style={{ color: 'var(--text-muted)' }} />
+                        <span className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                           {position.type}
                         </span>
                       </div>
@@ -521,7 +521,7 @@ export function CareersContent() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -534,8 +534,8 @@ export function CareersContent() {
                   {position.id === 'ui-ux-mentor' && (
                     <Link
                       href="/careers/ui-ux-mentor"
-                      className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[#8458B3]"
-                      style={{ color: '#8458B3' }}>
+                      className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[var(--color-primary)]"
+                      style={{ color: 'var(--color-primary)' }}>
                       View Full Job Description
                       <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -543,8 +543,8 @@ export function CareersContent() {
                   {position.id === 'student-success' && (
                     <Link
                       href="/careers/student-success-coordinator"
-                      className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[#8458B3]"
-                      style={{ color: '#8458B3' }}>
+                      className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[var(--color-primary)]"
+                      style={{ color: 'var(--color-primary)' }}>
                       View Full Job Description
                       <ArrowRight className="w-4 h-4" />
                     </Link>
@@ -552,16 +552,16 @@ export function CareersContent() {
                   {position.id === 'curriculum-specialist' && (
                     <Link
                       href="/careers/curriculum-designer"
-                      className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[#8458B3]"
-                      style={{ color: '#8458B3' }}>
+                      className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[var(--color-primary)]"
+                      style={{ color: 'var(--color-primary)' }}>
                       View Full Job Description
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   )}
                   <button
                     onClick={() => setExpandedRole(expandedRole === position.id ? null : position.id)}
-                    className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[#8458B3]"
-                    style={{ color: '#8458B3' }}>
+                    className="inline-flex items-center gap-2 font-body font-semibold text-sm transition-colors hover:text-[var(--color-primary)]"
+                    style={{ color: 'var(--color-primary)' }}>
                     {expandedRole === position.id ? 'Show Less' : 'View Details'}
                     <ArrowRight
                       className={`w-4 h-4 transition-transform ${expandedRole === position.id ? 'rotate-90' : ''}`}
@@ -576,13 +576,13 @@ export function CareersContent() {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                     className="mt-6 pt-6 border-t"
-                    style={{ borderColor: '#e5e7eb' }}>
+                    style={{ borderColor: 'var(--border-default)' }}>
                     <div className="space-y-6">
                       <div>
                         <h4
                           className="font-display font-bold mb-3"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                           }}>
                           About the Role
@@ -590,7 +590,7 @@ export function CareersContent() {
                         <p
                           className="font-body leading-relaxed"
                           style={{
-                            color: '#4a4a4a',
+                            color: 'var(--text-secondary)',
                             fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                             lineHeight: '1.7'
                           }}>
@@ -602,7 +602,7 @@ export function CareersContent() {
                         <h4
                           className="font-display font-bold mb-3"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                           }}>
                           Key Responsibilities
@@ -610,11 +610,11 @@ export function CareersContent() {
                         <ul className="space-y-2">
                           {position.responsibilities.map((responsibility, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                               <span
                                 className="font-body"
                                 style={{
-                                  color: '#4a4a4a',
+                                  color: 'var(--text-secondary)',
                                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                                   lineHeight: '1.7'
                                 }}>
@@ -629,7 +629,7 @@ export function CareersContent() {
                         <h4
                           className="font-display font-bold mb-3"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                           }}>
                           What We&apos;re Looking For
@@ -637,11 +637,11 @@ export function CareersContent() {
                         <ul className="space-y-2">
                           {position.lookingFor.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-2">
-                              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                               <span
                                 className="font-body"
                                 style={{
-                                  color: '#4a4a4a',
+                                  color: 'var(--text-secondary)',
                                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                                   lineHeight: '1.7'
                                 }}>
@@ -657,7 +657,7 @@ export function CareersContent() {
                           <h4
                             className="font-display font-bold mb-3"
                             style={{
-                              color: '#1a1a1a',
+                              color: 'var(--text-primary)',
                               fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                             }}>
                             Bonus Skills
@@ -665,11 +665,11 @@ export function CareersContent() {
                           <ul className="space-y-2">
                             {position.bonusSkills.map((skill, idx) => (
                               <li key={idx} className="flex items-start gap-2">
-                                <Award className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#f2d53c' }} />
+                                <Award className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
                                 <span
                                   className="font-body"
                                   style={{
-                                    color: '#4a4a4a',
+                                    color: 'var(--text-secondary)',
                                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                                     lineHeight: '1.7'
                                   }}>
@@ -682,11 +682,11 @@ export function CareersContent() {
                       )}
 
                       <div className="flex items-center gap-2">
-                        <Globe className="w-5 h-5" style={{ color: '#6b7280' }} />
+                        <Globe className="w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                         <span
                           className="font-body"
                           style={{
-                            color: '#4a4a4a',
+                            color: 'var(--text-secondary)',
                             fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                           }}>
                           <strong>Work Mode:</strong> {position.workMode}
@@ -702,7 +702,7 @@ export function CareersContent() {
       </section>
 
       {/* How Our Hiring Process Works */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -713,14 +713,14 @@ export function CareersContent() {
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
               How Our Hiring Process Works
             </h2>
             <p
               className="font-body text-lg max-w-2xl mx-auto"
-              style={{ color: '#4a4a4a' }}>
+              style={{ color: 'var(--text-secondary)' }}>
               We keep our hiring process transparent and respectful of your time.
             </p>
           </motion.div>
@@ -736,9 +736,10 @@ export function CareersContent() {
                 className="bg-gray-50 rounded-xl p-6 md:p-8">
                 <div className="flex items-start gap-4 md:gap-6">
                   <div
-                    className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink-0 font-display font-bold text-white"
+                    className="w-12 h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center flex-shrink-0 font-display font-bold text-white accent-icon-box"
                     style={{
-                      backgroundColor: '#8458B3',
+                      backgroundColor: 'var(--color-cta)',
+                      color: 'var(--text-on-accent)',
                       fontSize: 'clamp(1.25rem, 2vw, 1.75rem)'
                     }}>
                     {step.step}
@@ -747,7 +748,7 @@ export function CareersContent() {
                     <h3
                       className="font-display font-bold mb-2"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.25rem, 2vw, 1.75rem)'
                       }}>
                       {step.title}
@@ -755,7 +756,7 @@ export function CareersContent() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -770,7 +771,7 @@ export function CareersContent() {
       </section>
 
       {/* City-Specific Hiring Blocks */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -781,14 +782,14 @@ export function CareersContent() {
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
               City-Specific Opportunities
             </h2>
             <p
               className="font-body text-lg max-w-2xl mx-auto"
-              style={{ color: '#4a4a4a' }}>
+              style={{ color: 'var(--text-secondary)' }}>
               We&apos;re actively hiring across multiple cities. Find opportunities in your location.
             </p>
           </motion.div>
@@ -800,17 +801,17 @@ export function CareersContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="bg-gradient-to-br from-[#8458B3] to-[#a67fd4] rounded-xl p-6 md:p-8 text-white">
+              className="apple-card rounded-xl p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
-                  <MapPin className="w-8 h-8" style={{ color: '#f2d53c' }} />
+                  <MapPin className="w-8 h-8" style={{ color: 'var(--color-highlight)' }} />
                 </div>
                 <div className="flex-1">
                   <h3
                     className="font-display font-bold mb-3"
                     style={{
                       fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-                      color: '#f2d53c'
+                      color: 'var(--color-highlight)'
                     }}>
                     HIRING IN BANGALORE
                   </h3>
@@ -843,17 +844,17 @@ export function CareersContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="bg-gradient-to-br from-[#8458B3] to-[#a67fd4] rounded-xl p-6 md:p-8 text-white">
+              className="apple-card rounded-xl p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
-                  <MapPin className="w-8 h-8" style={{ color: '#f2d53c' }} />
+                  <MapPin className="w-8 h-8" style={{ color: 'var(--color-highlight)' }} />
                 </div>
                 <div className="flex-1">
                   <h3
                     className="font-display font-bold mb-3"
                     style={{
                       fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-                      color: '#f2d53c'
+                      color: 'var(--color-highlight)'
                     }}>
                     HIRING IN HYDERABAD
                   </h3>
@@ -887,17 +888,17 @@ export function CareersContent() {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.6 }}
               className="bg-gray-50 rounded-xl p-6 md:p-8 border-2"
-              style={{ borderColor: '#8458B3' }}>
+              style={{ borderColor: 'var(--color-primary)' }}>
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
-                  <MapPin className="w-8 h-8" style={{ color: '#8458B3' }} />
+                  <MapPin className="w-8 h-8" style={{ color: 'var(--color-primary)' }} />
                 </div>
                 <div className="flex-1">
                   <h3
                     className="font-display font-bold mb-3"
                     style={{
                       fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }}>
                     HIRING IN PUNE
                   </h3>
@@ -906,7 +907,7 @@ export function CareersContent() {
                     style={{
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                       lineHeight: '1.7',
-                      color: '#4a4a4a'
+                      color: 'var(--text-secondary)'
                     }}>
                     We occasionally onboard mentors and contributors from Pune, especially for weekend or hybrid roles.
                   </p>
@@ -915,7 +916,7 @@ export function CareersContent() {
                     style={{
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                       lineHeight: '1.7',
-                      color: '#4a4a4a'
+                      color: 'var(--text-secondary)'
                     }}>
                     If you&apos;re based in Pune and interested in teaching or supporting UI/UX learners, reach out.
                   </p>
@@ -927,7 +928,7 @@ export function CareersContent() {
       </section>
 
       {/* Don't See Your Role? */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <motion.div
@@ -938,22 +939,22 @@ export function CareersContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-4 mb-6">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <MessageCircle
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-accent)',
                       strokeWidth: 2.5
                     }} />
                 </div>
                 <h2
                   className="font-display font-bold tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -963,7 +964,7 @@ export function CareersContent() {
               <p
                 className="font-body leading-relaxed mb-8"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -977,7 +978,7 @@ export function CareersContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}>
-              <div className="bg-white rounded-xl p-6 md:p-8 shadow-md">
+              <div className="bg-card rounded-xl p-6 md:p-8 shadow-md">
                 <CareerApplicationForm roleName="General Application" />
               </div>
             </motion.div>
@@ -986,7 +987,7 @@ export function CareersContent() {
       </section>
 
       {/* Careers FAQs */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -997,7 +998,7 @@ export function CareersContent() {
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
               Careers FAQs
@@ -1016,7 +1017,7 @@ export function CareersContent() {
                 <h3
                   className="font-display font-bold mb-3"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                   }}>
                   {faq.question}
@@ -1024,7 +1025,7 @@ export function CareersContent() {
                 <p
                   className="font-body leading-relaxed"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                     lineHeight: '1.7'
                   }}>
@@ -1037,14 +1038,14 @@ export function CareersContent() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-24 md:py-32 section-band-accent">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center text-white">
+            className="max-w-3xl mx-auto text-center">
             <h2
               className="font-display font-bold mb-4"
               style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
@@ -1062,10 +1063,10 @@ export function CareersContent() {
                 href={getWhatsAppUrl({ type: 'careers', sourcePage: pathname })}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 min-h-[44px]"
+                className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 min-h-[44px] surface-on-accent"
                 style={{
-                  backgroundColor: '#f2d53c',
-                  color: '#1a1a1a',
+                  backgroundColor: 'var(--color-highlight)',
+                  color: 'var(--text-on-accent)',
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                 }}>
                 <MessageCircle className="w-5 h-5" />
@@ -1075,10 +1076,10 @@ export function CareersContent() {
               {/* Secondary: Email */}
               <a
                 href="mailto:careers@designient.com"
-                className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/10 min-h-[44px]"
+                className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[44px]"
                 style={{
-                  borderColor: 'white',
-                  color: 'white',
+                  borderColor: 'var(--bg-card)',
+                  color: 'var(--text-on-dark)',
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                 }}>
                 <Mail className="w-5 h-5" />
@@ -1088,10 +1089,10 @@ export function CareersContent() {
               {/* Tertiary: Contact Page */}
               <Link
                 href="/contact-us"
-                className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/10 min-h-[44px]"
+                className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[44px]"
                 style={{
-                  borderColor: 'white',
-                  color: 'white',
+                  borderColor: 'var(--bg-card)',
+                  color: 'var(--text-on-dark)',
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                 }}>
                 <MessageCircle className="w-5 h-5" />

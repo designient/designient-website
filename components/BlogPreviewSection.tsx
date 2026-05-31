@@ -30,7 +30,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
   const latestPosts = posts.slice(0, 3)
 
   return (
-    <section id="blog" className="py-20 sm:py-24 md:py-32 bg-white">
+    <section id="blog" className="py-20 sm:py-24 md:py-32 bg-card">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -54,7 +54,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
             <h2
               className="font-display tracking-wide leading-tight mb-6"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontWeight: 700,
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
@@ -63,7 +63,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
             <p
               className="font-body text-base md:text-lg max-w-2xl mx-auto font-normal text-center"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.6'
               }}>
@@ -74,7 +74,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
             href="/blogs"
             className="hidden md:flex items-center gap-2 font-body text-base font-semibold group"
             style={{
-              color: '#1F2937'
+              color: 'var(--text-primary)'
             }}>
             View All Posts
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -115,10 +115,10 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                   />
 
                   <span
-                    className="absolute top-4 left-4 font-body text-xs font-semibold px-3 py-1 rounded-full"
+                    className="absolute top-4 left-4 font-body text-xs font-semibold px-3 py-1 rounded-full accent-icon-box"
                     style={{
-                      backgroundColor: '#FF5841',
-                      color: 'white'
+                      backgroundColor: 'var(--color-cta)',
+                      color: 'var(--text-on-accent)'
                     }}>
                     {post.category}
                   </span>
@@ -127,7 +127,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                 <div
                   className="flex items-center gap-4 mb-4 font-body text-sm"
                   style={{
-                    color: '#6B7280'
+                    color: 'var(--text-muted)'
                   }}>
                   <span className="flex items-center gap-1">
                     <Calendar className="w-4 h-4" />
@@ -140,9 +140,9 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                 </div>
 
                 <h3
-                  className="font-display tracking-wide mb-3 group-hover:text-[#FF5841] transition-colors"
+                  className="font-display tracking-wide mb-3 group-hover:text-[var(--color-cta)] transition-colors"
                   style={{
-                    color: '#1F2937',
+                    color: 'var(--text-primary)',
                     fontWeight: 600,
                     fontSize: 'clamp(1.25rem, 3vw, 2.25rem)'
                   }}>
@@ -152,7 +152,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                 <p
                   className="font-body leading-relaxed mb-4 font-normal"
                   style={{
-                    color: '#6B7280',
+                    color: 'var(--text-muted)',
                     fontSize: 'clamp(0.9375rem, 1.8vw, 1.0625rem)',
                     lineHeight: '1.7'
                   }}>
@@ -162,7 +162,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                 <div
                   className="inline-flex items-center gap-2 font-body font-bold group/link min-h-[44px]"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
                   }}>
                   Read More
@@ -188,7 +188,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
             href="/blogs"
             className="inline-flex items-center gap-2 font-body text-base font-semibold"
             style={{
-              color: '#1F2937'
+              color: 'var(--text-primary)'
             }}>
             View All Posts
             <ArrowRight className="w-5 h-5" />

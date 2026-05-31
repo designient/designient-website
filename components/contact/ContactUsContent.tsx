@@ -57,12 +57,12 @@ export function ContactUsContent() {
       {/* Hero: H1 + subtext */}
       <section
         className="relative min-h-[40vh] flex items-center overflow-hidden"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="contact-hero-heading"
       >
-        <div className="absolute inset-0 opacity-5" aria-hidden="true">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl" style={{ backgroundColor: '#8458B3' }} />
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl" style={{ backgroundColor: '#f2d53c' }} />
+        <div className="absolute inset-0 opacity-100 pointer-events-none" aria-hidden="true">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" />
         </div>
 
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 py-12 md:py-20 text-center">
@@ -71,12 +71,12 @@ export function ContactUsContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
           >
-            <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: '#6b7280' }}>
-              <Link href="/" className="font-body hover:underline" style={{ color: '#6b7280' }}>
+            <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
+              <Link href="/" className="font-body hover:underline" style={{ color: 'var(--text-muted)' }}>
                 Home
               </Link>
               <ChevronRight className="w-4 h-4 flex-shrink-0" />
-              <span className="font-body" style={{ color: '#8458B3' }}>
+              <span className="font-body" style={{ color: 'var(--color-primary)' }}>
                 Contact Us
               </span>
             </nav>
@@ -84,14 +84,14 @@ export function ContactUsContent() {
             <h1
               id="contact-hero-heading"
               className="font-display font-bold text-center mb-4 md:mb-6 leading-[1.1]"
-              style={{ color: '#1a1a1a', fontSize: 'clamp(2.25rem, 5vw, 4rem)' }}
+              style={{ color: 'var(--text-primary)', fontSize: 'clamp(2.25rem, 5vw, 4rem)' }}
             >
               Contact Designient
             </h1>
 
             <p
               className="font-body text-center max-w-2xl mx-auto leading-relaxed"
-              style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}
+              style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}
             >
               Have a question about our UI/UX courses, placements, or careers? We&apos;re here to help.
             </p>
@@ -102,7 +102,7 @@ export function ContactUsContent() {
       {/* Contact Form */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="contact-form-heading"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -110,12 +110,12 @@ export function ContactUsContent() {
             <h2
               id="contact-form-heading"
               className="font-display font-bold text-center mb-8"
-              style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+              style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
             >
               Contact Form
             </h2>
-            <div className="rounded-2xl border-2 p-6 md:p-8" style={{ backgroundColor: '#FFF6E2', borderColor: '#f4e4c1' }}>
-              <Suspense fallback={<div className="min-h-[200px] flex items-center justify-center font-body text-slate-600">Loading form...</div>}>
+            <div className="rounded-2xl border-2 p-6 md:p-8" style={{ backgroundColor: 'var(--bg-warm)', borderColor: 'var(--bg-peach)' }}>
+              <Suspense fallback={<div className="min-h-[200px] flex items-center justify-center font-body text-secondary">Loading form...</div>}>
                 <ContactFormWrapper />
               </Suspense>
             </div>
@@ -124,9 +124,9 @@ export function ContactUsContent() {
       </section>
 
       {/* Response Time */}
-      <section className="py-8 md:py-10" style={{ backgroundColor: '#fceed1' }} aria-label="Response time">
+      <section className="py-8 md:py-10" style={{ backgroundColor: 'var(--bg-peach)' }} aria-label="Response time">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 text-center">
-          <p className="font-body text-base md:text-lg font-medium" style={{ color: '#1a1a1a' }}>
+          <p className="font-body text-base md:text-lg font-medium" style={{ color: 'var(--text-primary)' }}>
             We usually respond within 24 business hours.
           </p>
         </div>
@@ -135,49 +135,49 @@ export function ContactUsContent() {
       {/* Alternate Contact Options */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="alternate-contact-heading"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <h2
             id="alternate-contact-heading"
             className="font-display font-bold text-center mb-10"
-            style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+            style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
           >
             Alternate Contact Options
           </h2>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-6 md:gap-10">
             <div className="flex items-center gap-3">
-              <Mail className="w-6 h-6 flex-shrink-0" style={{ color: '#8458B3' }} />
+              <Mail className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
               <div>
-                <span className="font-body text-sm font-semibold block mb-0.5" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-semibold block mb-0.5" style={{ color: 'var(--text-muted)' }}>
                   Email
                 </span>
-                <a href="mailto:hello@designient.com" className="font-body font-medium hover:underline" style={{ color: '#8458B3' }}>
+                <a href="mailto:hello@designient.com" className="font-body font-medium hover:underline" style={{ color: 'var(--color-primary)' }}>
                   hello@designient.com
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <Mail className="w-6 h-6 flex-shrink-0" style={{ color: '#8458B3' }} />
+              <Mail className="w-6 h-6 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
               <div>
-                <span className="font-body text-sm font-semibold block mb-0.5" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-semibold block mb-0.5" style={{ color: 'var(--text-muted)' }}>
                   Careers
                 </span>
-                <a href="mailto:careers@designient.com" className="font-body font-medium hover:underline" style={{ color: '#8458B3' }}>
+                <a href="mailto:careers@designient.com" className="font-body font-medium hover:underline" style={{ color: 'var(--color-primary)' }}>
                   careers@designient.com
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <span className="w-6 h-6 flex-shrink-0 flex items-center justify-center font-body text-xs font-bold rounded" style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+              <span className="w-6 h-6 flex-shrink-0 flex items-center justify-center font-body text-xs font-bold rounded" style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
                 ✓
               </span>
               <div>
-                <span className="font-body text-sm font-semibold block mb-0.5" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-semibold block mb-0.5" style={{ color: 'var(--text-muted)' }}>
                   Certificate verification
                 </span>
-                <Link href="/verify" className="font-body font-medium hover:underline" style={{ color: '#8458B3' }}>
+                <Link href="/verify" className="font-body font-medium hover:underline" style={{ color: 'var(--color-primary)' }}>
                   Verify a certificate
                 </Link>
               </div>
@@ -189,30 +189,30 @@ export function ContactUsContent() {
       {/* Our Presence */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="our-presence-heading"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <h2
             id="our-presence-heading"
             className="font-display font-bold text-center mb-6"
-            style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+            style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
           >
             Our Presence
           </h2>
-          <p className="font-body text-center max-w-2xl mx-auto leading-relaxed" style={{ color: '#4a4a4a', fontSize: '1.0625rem' }}>
+          <p className="font-body text-center max-w-2xl mx-auto leading-relaxed" style={{ color: 'var(--text-secondary)', fontSize: '1.0625rem' }}>
             Designient operates across Hyderabad, Bengaluru, and Pune, serving learners across India and globally.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-body text-sm font-medium" style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-body text-sm font-medium" style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
               <MapPin className="w-4 h-4" />
               Hyderabad
             </span>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-body text-sm font-medium" style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-body text-sm font-medium" style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
               <MapPin className="w-4 h-4" />
               Bengaluru
             </span>
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-body text-sm font-medium" style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-body text-sm font-medium" style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
               <MapPin className="w-4 h-4" />
               Pune
             </span>
@@ -223,14 +223,14 @@ export function ContactUsContent() {
       {/* City-specific contact blocks */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="contact-by-city-heading"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <h2
             id="contact-by-city-heading"
             className="font-display font-bold text-center mb-10"
-            style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+            style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
           >
             Reach out from your city
           </h2>
@@ -243,18 +243,18 @@ export function ContactUsContent() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.08, duration: 0.4 }}
                 className="rounded-xl border-2 p-6 h-full flex flex-col"
-                style={{ borderColor: '#f4e4c1', backgroundColor: '#FFF6E2' }}
+                style={{ borderColor: 'var(--bg-peach)', backgroundColor: 'var(--bg-warm)' }}
               >
-                <h3 className="font-display font-semibold mb-3" style={{ fontSize: '1.25rem', color: '#8458B3' }}>
+                <h3 className="font-display font-semibold mb-3" style={{ fontSize: '1.25rem', color: 'var(--color-primary)' }}>
                   {block.city}
                 </h3>
-                <p className="font-body text-sm leading-relaxed flex-1 mb-4" style={{ color: '#4a4a4a' }}>
+                <p className="font-body text-sm leading-relaxed flex-1 mb-4" style={{ color: 'var(--text-secondary)' }}>
                   {block.text}
                 </p>
                 <Link
                   href={block.href}
                   className="font-body text-sm font-semibold inline-flex items-center gap-1.5 hover:underline"
-                  style={{ color: '#8458B3' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   Learn more about {block.city}
                   <ArrowRight className="w-4 h-4" />
@@ -268,14 +268,14 @@ export function ContactUsContent() {
       {/* Helpful Links */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="helpful-links-heading"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <h2
             id="helpful-links-heading"
             className="font-display font-bold text-center mb-10"
-            style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+            style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
           >
             Helpful Links
           </h2>
@@ -285,7 +285,7 @@ export function ContactUsContent() {
                 key={link.href}
                 href={link.href}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-body font-semibold border-2 transition-all hover:scale-105 hover:shadow-md"
-                style={{ backgroundColor: 'white', color: '#8458B3', borderColor: '#8458B3' }}
+                style={{ backgroundColor: 'var(--bg-card)', color: 'var(--color-primary)', borderColor: 'var(--color-primary)' }}
               >
                 {link.name}
                 <ArrowRight className="w-4 h-4" />
@@ -298,14 +298,14 @@ export function ContactUsContent() {
       {/* Contact FAQs */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="contact-faq-heading"
       >
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <h2
             id="contact-faq-heading"
             className="font-display font-bold text-center mb-10"
-            style={{ color: '#1a1a1a', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
+            style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 2.5vw, 2rem)' }}
           >
             Contact FAQs
           </h2>
@@ -317,20 +317,20 @@ export function ContactUsContent() {
                   <button
                     type="button"
                     onClick={() => setExpandedFaq(isOpen ? null : faq.id)}
-                    className="w-full text-left py-3 px-4 rounded-lg border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[#8458B3] focus:ring-offset-2"
+                    className="w-full text-left py-3 px-4 rounded-lg border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
                     style={{
-                      borderColor: isOpen ? '#8458B3' : '#e5e7eb',
-                      backgroundColor: isOpen ? '#fceed1' : 'white',
+                      borderColor: isOpen ? 'var(--color-primary)' : 'var(--border-default)',
+                      backgroundColor: isOpen ? 'var(--bg-peach)' : 'var(--bg-card)',
                     }}
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${faq.id}`}
                     id={`faq-question-${faq.id}`}
                   >
-                    <span className="font-body font-semibold flex items-center justify-between gap-2" style={{ color: '#1a1a1a' }}>
+                    <span className="font-body font-semibold flex items-center justify-between gap-2" style={{ color: 'var(--text-primary)' }}>
                       {faq.question}
                       <ChevronDown
                         className={`w-5 h-5 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-                        style={{ color: '#8458B3' }}
+                        style={{ color: 'var(--color-primary)' }}
                       />
                     </span>
                   </button>
@@ -346,7 +346,7 @@ export function ContactUsContent() {
                         transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <p className="font-body text-sm pt-2 pb-3 px-4 leading-relaxed" style={{ color: '#4a4a4a' }}>
+                        <p className="font-body text-sm pt-2 pb-3 px-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                           {faq.answer}
                         </p>
                       </motion.div>

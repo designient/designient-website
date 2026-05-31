@@ -158,31 +158,27 @@ export function Footer() {
 
   return (
     <footer
-      className="py-12 md:py-16"
-      style={{
-        backgroundColor: '#1a1a1a',
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-      }}
+      className="surface-footer py-12 md:py-16"
       itemScope
       itemType="https://schema.org/EducationalOrganization">
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         {/* Newsletter Section */}
-        <div className="mb-12 pb-12 border-b" style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }}>
+        <div className="mb-12 pb-12 border-b" style={{ borderColor: 'var(--border-default)' }}>
           <div className="max-w-2xl mx-auto text-center">
             <h3
               className="font-display tracking-wide mb-4"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--text-primary)',
                 fontWeight: 600,
                 fontSize: 'clamp(1.5rem, 3vw, 2rem)'
               }}>
               STAY UPDATED
             </h3>
             <p
-              className="font-body text-sm mb-6 font-normal md:whitespace-nowrap"
+              className="font-body mb-6 font-normal md:whitespace-nowrap"
               style={{
-                color: 'rgba(255, 255, 255, 0.7)',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(0.875rem, 1.2vw, 0.9375rem)'
               }}>
               Get the latest updates on courses, career tips, and industry insights delivered to your inbox.
@@ -202,11 +198,11 @@ export function Footer() {
                   placeholder="Enter your email"
                   required
                   disabled={isSubmitting}
-                  className="flex-1 px-4 py-3 rounded-lg font-body font-normal min-h-[44px]"
+                  className="flex-1 px-4 py-3 rounded-xl font-body font-normal min-h-[44px] border"
                   style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
-                    color: 'white',
+                    backgroundColor: 'var(--bg-input)',
+                    borderColor: 'var(--border-default)',
+                    color: 'var(--text-primary)',
                     outline: 'none',
                     fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
                     opacity: isSubmitting ? 0.6 : 1
@@ -215,15 +211,13 @@ export function Footer() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                  className="px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 whitespace-nowrap min-h-[44px]"
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                  className="btn-primary px-6 whitespace-nowrap"
                   style={{
-                    backgroundColor: '#8458B3',
-                    color: 'white',
-                    fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
                     opacity: isSubmitting ? 0.7 : 1,
-                    cursor: isSubmitting ? 'not-allowed' : 'pointer'
+                    cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)'
                   }}>
                   {isSubmitting ? 'Subscribing...' : (
                     <>
@@ -238,7 +232,7 @@ export function Footer() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-center text-sm font-body"
-                  style={{ color: '#10b981' }}
+                  style={{ color: 'var(--color-success)' }}
                 >
                   ✓ Thank you for subscribing! Check your email for confirmation.
                 </motion.p>
@@ -248,7 +242,7 @@ export function Footer() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="text-center text-sm font-body"
-                  style={{ color: '#ef4444' }}
+                  style={{ color: 'var(--color-error)' }}
                 >
                   {errorMessage}
                 </motion.p>
@@ -268,16 +262,13 @@ export function Footer() {
                 width={180}
                 height={60}
                 className="h-12 md:h-14 w-auto"
-                style={{
-                  filter: 'brightness(0) invert(1)'
-                }}
                 itemProp="logo"
               />
             </Link>
             <p
               className="font-body text-sm mb-6 font-normal"
               style={{
-                color: 'rgba(255, 255, 255, 0.7)',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(0.875rem, 1.2vw, 0.9375rem)',
                 lineHeight: '1.6'
               }}
@@ -292,21 +283,21 @@ export function Footer() {
               itemScope
               itemType="https://schema.org/PostalAddress">
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 flex-shrink-0" style={{ color: '#FFF6E2' }} />
+                <Phone className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
                 <a
                   href="tel:+919353000320"
-                  className="font-body text-xs font-normal hover:text-[#f2d53c] transition-colors"
-                  style={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                  className="font-body text-xs font-normal hover:text-[var(--color-accent)] transition-colors"
+                  style={{ color: 'var(--text-secondary)' }}
                   itemProp="telephone">
                   +91 9353 000 320
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 flex-shrink-0" style={{ color: '#FFF6E2' }} />
+                <Mail className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-accent)' }} />
                 <a
                   href="mailto:hello@designient.com"
-                  className="font-body text-xs font-normal hover:text-[#f2d53c] transition-colors"
-                  style={{ color: 'rgba(255, 255, 255, 0.7)' }}
+                  className="font-body text-xs font-normal hover:text-[var(--color-accent)] transition-colors"
+                  style={{ color: 'var(--text-secondary)' }}
                   itemProp="email">
                   hello@designient.com
                 </a>
@@ -326,18 +317,18 @@ export function Footer() {
                   whileTap={{ scale: 0.95 }}
                   className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
                   style={{
-                    backgroundColor: 'rgba(132, 88, 179, 0.15)',
-                    border: '1px solid rgba(132, 88, 179, 0.4)'
+                    backgroundColor: 'var(--color-accent-muted)',
+                    border: '1px solid var(--border-accent)'
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#8458B3';
-                    e.currentTarget.style.borderColor = '#8458B3';
+                    e.currentTarget.style.backgroundColor = 'var(--color-accent)';
+                    e.currentTarget.style.borderColor = 'var(--color-accent)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(132, 88, 179, 0.15)';
-                    e.currentTarget.style.borderColor = 'rgba(132, 88, 179, 0.4)';
+                    e.currentTarget.style.backgroundColor = 'var(--color-accent-muted)';
+                    e.currentTarget.style.borderColor = 'var(--border-accent)';
                   }}>
-                  <Icon className="w-4 h-4" style={{ color: '#FFF6E2' }} />
+                  <Icon className="w-4 h-4" style={{ color: 'var(--color-accent)' }} />
                 </motion.a>
               ))}
             </div>
@@ -348,7 +339,7 @@ export function Footer() {
             <h3
               className="font-display tracking-wide mb-4"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--color-accent)',
                 fontWeight: 600,
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
@@ -359,9 +350,9 @@ export function Footer() {
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                    className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                     style={{
-                      color: 'rgba(255, 255, 255, 0.7)'
+                      color: 'var(--text-secondary)'
                     }}>
                     {link.name}
                   </Link>
@@ -375,7 +366,7 @@ export function Footer() {
             <h3
               className="font-display tracking-wide mb-4"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--color-accent)',
                 fontWeight: 600,
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
@@ -386,9 +377,9 @@ export function Footer() {
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                    className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                     style={{
-                      color: 'rgba(255, 255, 255, 0.7)'
+                      color: 'var(--text-secondary)'
                     }}>
                     {link.name}
                   </Link>
@@ -399,7 +390,7 @@ export function Footer() {
             <h3
               className="font-display tracking-wide mb-4 mt-6"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--color-accent)',
                 fontWeight: 600,
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
@@ -412,7 +403,7 @@ export function Footer() {
                     <span
                       className="font-body text-xs font-normal inline-flex items-center gap-1.5"
                       style={{
-                        color: 'rgba(255, 255, 255, 0.5)',
+                        color: 'var(--text-muted)',
                         cursor: 'not-allowed'
                       }}>
                       {link.name}
@@ -430,7 +421,7 @@ export function Footer() {
                     <p
                       className="font-body text-[10px] font-normal"
                       style={{
-                        color: 'rgba(255, 255, 255, 0.4)',
+                        color: 'var(--text-muted)',
                         lineHeight: '1.4'
                       }}>
                       {link.description}
@@ -446,7 +437,7 @@ export function Footer() {
             <h3
               className="font-display tracking-wide mb-4"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--color-accent)',
                 fontWeight: 600,
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
@@ -457,9 +448,9 @@ export function Footer() {
                 <li key={link.path}>
                   <Link
                     href={link.path}
-                    className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                    className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                     style={{
-                      color: 'rgba(255, 255, 255, 0.7)'
+                      color: 'var(--text-secondary)'
                     }}>
                     {link.name}
                   </Link>
@@ -473,7 +464,7 @@ export function Footer() {
             <h3
               className="font-display tracking-wide mb-4"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--color-accent)',
                 fontWeight: 600,
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
@@ -483,9 +474,9 @@ export function Footer() {
               <li>
                 <Link
                   href="/blogs"
-                  className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                  className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                   style={{
-                    color: 'rgba(255, 255, 255, 0.7)'
+                    color: 'var(--text-secondary)'
                   }}>
                   Blogs
                 </Link>
@@ -493,9 +484,9 @@ export function Footer() {
               <li>
                 <Link
                   href="/faqs"
-                  className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                  className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                   style={{
-                    color: 'rgba(255, 255, 255, 0.7)'
+                    color: 'var(--text-secondary)'
                   }}>
                   FAQs
                 </Link>
@@ -503,9 +494,9 @@ export function Footer() {
               <li>
                 <Link
                   href="/contact-us"
-                  className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                  className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                   style={{
-                    color: 'rgba(255, 255, 255, 0.7)'
+                    color: 'var(--text-secondary)'
                   }}>
                   Contact Us
                 </Link>
@@ -515,7 +506,7 @@ export function Footer() {
             <h3
               className="font-display tracking-wide mb-4 mt-6"
               style={{
-                color: '#FFF6E2',
+                color: 'var(--color-accent)',
                 fontWeight: 600,
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
@@ -529,7 +520,7 @@ export function Footer() {
                       <span
                         className="font-body text-xs font-normal inline-flex items-center gap-1.5"
                         style={{
-                          color: 'rgba(255, 255, 255, 0.5)',
+                          color: 'var(--text-muted)',
                           cursor: 'not-allowed'
                         }}>
                         {link.name}
@@ -549,7 +540,7 @@ export function Footer() {
                         href={link.path}
                         className="font-body text-xs font-normal inline-flex items-center gap-1.5 transition-colors"
                         style={{
-                          color: 'rgba(255, 255, 255, 0.7)'
+                          color: 'var(--text-secondary)'
                         }}
                         target="_blank"
                         rel="noreferrer">
@@ -569,7 +560,7 @@ export function Footer() {
                     <p
                       className="font-body text-[10px] font-normal"
                       style={{
-                        color: 'rgba(255, 255, 255, 0.4)',
+                        color: 'var(--text-muted)',
                         lineHeight: '1.4'
                       }}>
                       {link.description}
@@ -585,12 +576,12 @@ export function Footer() {
         <div
           className="pt-8 border-t flex flex-col md:flex-row justify-between items-center gap-4"
           style={{
-            borderColor: 'rgba(255, 255, 255, 0.1)'
+            borderColor: 'var(--border-default)'
           }}>
           <p
             className="font-body text-xs font-normal text-center md:text-left"
             style={{
-              color: 'rgba(255, 255, 255, 0.5)'
+              color: 'var(--text-muted)'
             }}>
             © 2026 Designient Technologies Private Limited. All rights reserved.
           </p>
@@ -599,18 +590,18 @@ export function Footer() {
               <Link
                 key={link.path}
                 href={link.path}
-                className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+                className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
                 style={{
-                  color: 'rgba(255, 255, 255, 0.5)'
+                  color: 'var(--text-muted)'
                 }}>
                 {link.name}
               </Link>
             ))}
             <Link
               href="/sitemap.xml"
-              className="font-body text-xs font-normal transition-colors hover:text-[#f2d53c]"
+              className="font-body text-xs font-normal transition-colors hover:text-[var(--color-accent)]"
               style={{
-                color: 'rgba(255, 255, 255, 0.5)'
+                color: 'var(--text-muted)'
               }}>
               Sitemap
             </Link>

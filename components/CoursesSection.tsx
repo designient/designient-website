@@ -137,7 +137,7 @@ export function CoursesSection() {
     <section
       className="py-24 md:py-32"
       style={{
-        backgroundColor: '#ffffff'
+        backgroundColor: 'var(--bg-card)'
       }}>
       <StructuredData data={courseSchemas} />
 
@@ -164,7 +164,7 @@ export function CoursesSection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6 text-center"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -174,7 +174,7 @@ export function CoursesSection() {
           <p
             className="font-body text-base md:text-lg max-w-2xl mx-auto font-normal text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -197,12 +197,12 @@ export function CoursesSection() {
                     opacity: course.comingSoon ? 0.6 : 1
                   }}>
 
-                  <div className="relative p-6 sm:p-8 h-full flex flex-col rounded-2xl transition-all duration-300 hover:shadow-xl" style={{ backgroundColor: '#ffffff', border: hoveredIndex === index ? '1px solid #8458B3' : '1px solid #e5e5e5' }}>
+                  <div className="relative p-6 sm:p-8 h-full flex flex-col rounded-2xl transition-all duration-300 hover:shadow-xl" style={{ backgroundColor: 'var(--bg-card)', border: hoveredIndex === index ? '1px solid var(--color-primary)' : '1px solid var(--border-default)' }}>
                     <motion.span
                       className="font-body inline-block px-3 py-1.5 rounded-full text-xs font-bold mb-4 self-start"
                       style={{
-                        backgroundColor: '#f2d53c',
-                        color: '#1a1a1a'
+                        backgroundColor: 'var(--color-highlight)',
+                        color: 'var(--text-on-accent)'
                       }}>
 
                       {course.level}
@@ -211,7 +211,7 @@ export function CoursesSection() {
                     <h3
                       className="font-display tracking-wide mb-3 leading-tight"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontWeight: 600,
                         fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)'
                       }}>
@@ -222,7 +222,7 @@ export function CoursesSection() {
                     <div
                       className="font-body flex items-center gap-4 sm:gap-6 text-xs sm:text-sm mb-4 flex-wrap"
                       style={{
-                        color: '#4a4a4a'
+                        color: 'var(--text-secondary)'
                       }}>
 
                       <div className="flex items-center gap-2">
@@ -238,7 +238,7 @@ export function CoursesSection() {
                     <p
                       className="font-body mb-5 leading-relaxed font-normal"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(0.9375rem, 2vw, 1.0625rem)',
                         lineHeight: '1.7'
                       }}>
@@ -251,18 +251,18 @@ export function CoursesSection() {
                         {/* Stats - Always Visible */}
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <div className="font-display text-xl sm:text-2xl tracking-wide mb-1" style={{ color: '#1a1a1a' }}>
+                            <div className="font-display text-xl sm:text-2xl tracking-wide mb-1" style={{ color: 'var(--text-primary)' }}>
                               {course.stats.students}
                             </div>
-                            <div className="font-body text-xs uppercase tracking-wider font-semibold" style={{ color: '#6a6a6a' }}>
+                            <div className="font-body text-xs uppercase tracking-wider font-semibold" style={{ color: 'var(--text-muted)' }}>
                               Students
                             </div>
                           </div>
                           <div>
-                            <div className="font-display text-xl sm:text-2xl tracking-wide mb-1" style={{ color: '#8458B3' }}>
+                            <div className="font-display text-xl sm:text-2xl tracking-wide mb-1" style={{ color: 'var(--color-primary)' }}>
                               {course.stats.placement}
                             </div>
-                            <div className="font-body text-xs uppercase tracking-wider font-semibold" style={{ color: '#6a6a6a' }}>
+                            <div className="font-body text-xs uppercase tracking-wider font-semibold" style={{ color: 'var(--text-muted)' }}>
                               Placement
                             </div>
                           </div>
@@ -271,25 +271,25 @@ export function CoursesSection() {
                         {/* Batch Dates and Timings - Show detailed info for Pro course */}
                         {course.path === '/ui-ux-design-pro' ? (
                           <div className="space-y-2">
-                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: 'var(--color-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                               Upcoming Batches
                             </div>
                             <div className="space-y-2">
                               {/* Bangalore - Weekday Morning */}
                               {proCourseBatchSchedule.bangalore.weekday?.morning?.available && (
-                                <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
-                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                                <div className="p-2 rounded" style={{ backgroundColor: 'rgba(176, 228, 204, 0.05)' }}>
+                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                                     Bangalore - Weekday Morning
                                   </div>
                                   <div className="flex items-center gap-1.5 mb-0.5">
-                                    <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                    <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                    <Calendar className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                    <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                       {proCourseBatchSchedule.bangalore.weekday.morning.startDate}
                                     </span>
                                   </div>
                                   <div className="flex items-center gap-1.5">
-                                    <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                    <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                    <Clock className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                    <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                       {proCourseBatchSchedule.bangalore.weekday.morning.days}, {proCourseBatchSchedule.bangalore.weekday.morning.time}
                                     </span>
                                   </div>
@@ -297,19 +297,19 @@ export function CoursesSection() {
                               )}
                               {/* Bangalore - Weekend Morning */}
                               {proCourseBatchSchedule.bangalore.weekend?.morning?.available && (
-                                <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
-                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                                <div className="p-2 rounded" style={{ backgroundColor: 'rgba(176, 228, 204, 0.05)' }}>
+                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                                     Bangalore - Weekend Morning
                                   </div>
                                   <div className="flex items-center gap-1.5 mb-0.5">
-                                    <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                    <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                    <Calendar className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                    <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                       {proCourseBatchSchedule.bangalore.weekend.morning.startDate}
                                     </span>
                                   </div>
                                   <div className="flex items-center gap-1.5">
-                                    <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                    <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                    <Clock className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                    <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                       {proCourseBatchSchedule.bangalore.weekend.morning.days}, {proCourseBatchSchedule.bangalore.weekend.morning.time}
                                     </span>
                                   </div>
@@ -317,19 +317,19 @@ export function CoursesSection() {
                               )}
                               {/* Online - Same as Weekend Morning */}
                               {course.batchDates?.online?.global && proCourseBatchSchedule.bangalore.weekend?.morning?.available && (
-                                <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
-                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                                <div className="p-2 rounded" style={{ backgroundColor: 'rgba(176, 228, 204, 0.05)' }}>
+                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                                     Online (Global) - Morning
                                   </div>
                                   <div className="flex items-center gap-1.5 mb-0.5">
-                                    <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                    <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                    <Calendar className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                    <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                       {course.batchDates?.online?.global}
                                     </span>
                                   </div>
                                   <div className="flex items-center gap-1.5">
-                                    <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                    <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                    <Clock className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                    <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                       {proCourseBatchSchedule.bangalore.weekend.morning.days}, {proCourseBatchSchedule.bangalore.weekend.morning.time}
                                     </span>
                                   </div>
@@ -339,33 +339,33 @@ export function CoursesSection() {
                           </div>
                         ) : course.batchFull ? (
                           <div className="space-y-2">
-                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#dc2626', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: 'var(--color-error)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                               Batch Status
                             </div>
                             <div className="p-2 rounded" style={{ backgroundColor: 'rgba(220, 38, 38, 0.1)' }}>
-                              <p className="font-body text-xs font-semibold" style={{ color: '#dc2626', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                              <p className="font-body text-xs font-semibold" style={{ color: 'var(--color-error)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                 Current batch is full
                               </p>
                             </div>
                           </div>
                         ) : course.path === '/prompt-engineering-mastery' && course.batchDates?.online?.schedule ? (
                           <div className="space-y-2">
-                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: 'var(--color-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                               Upcoming Batches
                             </div>
-                            <div className="p-2 rounded" style={{ backgroundColor: 'rgba(132, 88, 179, 0.05)' }}>
-                              <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                            <div className="p-2 rounded" style={{ backgroundColor: 'rgba(176, 228, 204, 0.05)' }}>
+                              <div className="font-body text-xs font-semibold mb-1" style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                                 Online - Weekday Evening
                               </div>
                               <div className="flex items-center gap-1.5 mb-0.5">
-                                <Calendar className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                <Calendar className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                   {course.batchDates.online.global}
                                 </span>
                               </div>
                               <div className="flex items-center gap-1.5">
-                                <Clock className="w-3 h-3" style={{ color: '#8458B3' }} />
-                                <span className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
+                                <Clock className="w-3 h-3" style={{ color: 'var(--color-primary)' }} />
+                                <span className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)' }}>
                                   {course.batchDates.online.schedule.days}, {course.batchDates.online.schedule.time}
                                 </span>
                               </div>
@@ -373,22 +373,22 @@ export function CoursesSection() {
                           </div>
                         ) : course.batchDates ? (
                           <div className="space-y-2">
-                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: '#8458B3', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
+                            <div className="font-body text-xs uppercase tracking-wider font-bold mb-2" style={{ color: 'var(--color-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>
                               Upcoming Batches
                             </div>
                             <div className="space-y-2">
                               {course.batchDates.offline?.bengaluru && (
                                 <div>
-                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Bengaluru:</div>
-                                  <div className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
+                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Bengaluru:</div>
+                                  <div className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
                                     {course.batchDates.offline.bengaluru}
                                   </div>
                                 </div>
                               )}
                               {course.batchDates.online?.global && (
                                 <div>
-                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: '#1a1a1a', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Online:</div>
-                                  <div className="font-body text-xs" style={{ color: '#4a4a4a', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
+                                  <div className="font-body text-xs font-semibold mb-1" style={{ color: 'var(--text-primary)', fontSize: 'clamp(0.75rem, 1.5vw, 0.8125rem)' }}>Online:</div>
+                                  <div className="font-body text-xs" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.6875rem, 1.3vw, 0.75rem)', lineHeight: '1.6' }}>
                                     Global: {course.batchDates.online.global}
                                   </div>
                                 </div>
@@ -403,7 +403,7 @@ export function CoursesSection() {
                       <span
                         className="font-body font-bold mt-auto"
                         style={{
-                          color: '#1a1a1a'
+                          color: 'var(--text-primary)'
                         }}>
 
                         Coming Soon
@@ -411,7 +411,7 @@ export function CoursesSection() {
                     ) : (
                       <div className="font-body flex items-center gap-2 font-bold self-start group/btn min-h-[44px] mt-auto"
                         style={{
-                          color: '#8458B3',
+                          color: 'var(--color-primary)',
                           fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                         }}>
 

@@ -88,7 +88,7 @@ export function AIEnablementContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -96,7 +96,7 @@ export function AIEnablementContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="mb-8">
-              <Link href="/corporates" className="inline-flex items-center text-sm font-body mb-4 hover:underline" style={{ color: '#8458B3' }}>
+              <Link href="/corporates" className="inline-flex items-center text-sm font-body mb-4 hover:underline" style={{ color: 'var(--color-primary)' }}>
                 ← Back to For Corporates
               </Link>
             </motion.div>
@@ -107,7 +107,7 @@ export function AIEnablementContent() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.2'
               }}>
               AI Enablement & Hands-On Workshops for Product Teams
@@ -118,7 +118,7 @@ export function AIEnablementContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-4 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -130,10 +130,10 @@ export function AIEnablementContent() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-body text-sm md:text-base mb-8 leading-relaxed"
               style={{
-                color: '#6b7280',
+                color: 'var(--text-muted)',
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
-              For individual AI learning, check out our <Link href="/prompt-engineering-mastery" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>Prompt Engineering Mastery</Link> course or explore all our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>design courses</Link>.
+              For individual AI learning, check out our <Link href="/prompt-engineering-mastery" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>Prompt Engineering Mastery</Link> course or explore all our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>design courses</Link>.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -143,7 +143,7 @@ export function AIEnablementContent() {
               <Link
                 href="/contact-us?reason=corporate-proposal"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
-                style={{ backgroundColor: '#8458B3' }}>
+                style={{ backgroundColor: 'var(--color-cta)' }}>
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -153,7 +153,7 @@ export function AIEnablementContent() {
       </section>
 
       {/* AI Focus Areas */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -161,10 +161,10 @@ export function AIEnablementContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               AI Focus Areas
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Practical AI training tailored to your team&apos;s needs and workflows
             </p>
           </motion.div>
@@ -178,17 +178,17 @@ export function AIEnablementContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white border-2 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#e5e7eb' }}>
+                  className="bg-card border-2 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--border-default)' }}>
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFF6E2' }}>
-                      <Icon className="w-6 h-6" style={{ color: '#8458B3' }} />
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                      <Icon className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                     </div>
                   </div>
-                  <h3 className="font-display font-semibold mb-3" style={{ fontSize: '1.25rem', color: '#1a1a1a' }}>
+                  <h3 className="font-display font-semibold mb-3" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
                     {area.title}
                   </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {area.description}
                   </p>
                 </motion.div>
@@ -199,7 +199,7 @@ export function AIEnablementContent() {
       </section>
 
       {/* Tools We Work With */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -207,10 +207,10 @@ export function AIEnablementContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Tools We Work With
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Practical AI tools integrated into real product workflows
             </p>
           </motion.div>
@@ -222,15 +222,15 @@ export function AIEnablementContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="bg-white rounded-xl p-6 border-l-4 hover:shadow-lg transition-shadow"
-                style={{ borderColor: '#f2d53c' }}>
+                className="bg-card rounded-xl p-6 border-l-4 hover:shadow-lg transition-shadow"
+                style={{ borderColor: 'var(--color-highlight)' }}>
                 <div className="flex items-start gap-3">
-                  <Code className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#f2d53c' }} />
+                  <Code className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
                   <div>
-                    <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                    <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                       {tool.name}
                     </h3>
-                    <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                    <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                       {tool.description}
                     </p>
                   </div>
@@ -242,7 +242,7 @@ export function AIEnablementContent() {
       </section>
 
       {/* Workshop Style */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -250,10 +250,10 @@ export function AIEnablementContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Workshop Style
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto mb-4" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto mb-4" style={{ color: 'var(--text-secondary)' }}>
               Mixed delivery format combining multiple learning approaches
             </p>
           </motion.div>
@@ -265,15 +265,15 @@ export function AIEnablementContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
-                style={{ borderColor: '#e5e7eb' }}>
+                className="bg-card border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                style={{ borderColor: 'var(--border-default)' }}>
                 <div className="flex items-start gap-3">
-                  <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                  <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                   <div>
-                    <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                    <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                       {item.title}
                     </h3>
-                    <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                    <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                       {item.description}
                     </p>
                   </div>
@@ -285,7 +285,7 @@ export function AIEnablementContent() {
       </section>
 
       {/* Common Use Cases */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -293,10 +293,10 @@ export function AIEnablementContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Common Use Cases
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Real-world applications of AI in product development workflows
             </p>
           </motion.div>
@@ -310,17 +310,17 @@ export function AIEnablementContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white rounded-xl p-6 hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#e5e7eb', borderWidth: '2px', borderStyle: 'solid' }}>
+                  className="bg-card rounded-xl p-6 hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--border-default)', borderWidth: '2px', borderStyle: 'solid' }}>
                   <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: '#FFF6E2' }}>
-                      <Icon className="w-6 h-6" style={{ color: '#8458B3' }} />
+                    <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                      <Icon className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                         {useCase.title}
                       </h3>
-                      <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                      <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         {useCase.description}
                       </p>
                     </div>
@@ -333,7 +333,7 @@ export function AIEnablementContent() {
       </section>
 
       {/* Responsible AI Use */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -341,36 +341,36 @@ export function AIEnablementContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl p-8 shadow-lg border-l-4" style={{ borderColor: '#8458B3' }}>
+            <div className="bg-card rounded-xl p-8 shadow-lg border-l-4" style={{ borderColor: 'var(--color-primary)' }}>
               <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: '#FFF6E2' }}>
-                  <Shield className="w-8 h-8" style={{ color: '#8458B3' }} />
+                <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                  <Shield className="w-8 h-8" style={{ color: 'var(--color-primary)' }} />
                 </div>
                 <div>
-                  <h2 className="font-display font-bold mb-4" style={{ fontSize: '1.75rem', color: '#1a1a1a' }}>
+                  <h2 className="font-display font-bold mb-4" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
                     Responsible AI Use
                   </h2>
-                  <p className="font-body leading-relaxed mb-4" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                     Our approach to AI enablement emphasizes practical adoption with a focus on ethics and real-world constraints.
                   </p>
                 </div>
               </div>
               <ul className="space-y-3 ml-16">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8458B3' }} />
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>Focus on practical adoption:</strong> We help teams integrate AI tools into existing workflows rather than promising transformative outcomes
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8458B3' }} />
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>Emphasis on ethics and real-world constraints:</strong> We address data privacy, bias, accuracy, and the limitations of AI tools in enterprise contexts
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8458B3' }} />
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>No AI outcome guarantees:</strong> We don&apos;t promise specific productivity gains, automation results, or business outcomes. Success depends on team implementation, context, and various factors beyond our control
                   </p>
                 </li>
@@ -407,7 +407,7 @@ export function AIEnablementContent() {
       />
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-16 md:py-24 section-band-accent">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -415,22 +415,22 @@ export function AIEnablementContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+            <h2 className="font-display font-bold mb-6" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
               Help your team adopt AI with confidence.
             </h2>
-            <p className="font-body text-lg mb-8 text-white opacity-90" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
+            <p className="font-body text-lg mb-8" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
               Equip your product team with practical AI skills and responsible adoption practices. Let&apos;s discuss how we can support your team&apos;s AI journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact-us?reason=corporate-proposal"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[#8458B3] bg-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[var(--color-primary)] bg-card transition-all hover:scale-105">
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="/contact-us?reason=corporate-call"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white border-2 border-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold border-2 border-[var(--color-accent)] transition-all hover:scale-105" style={{ color: 'var(--color-accent)' }}>
                 Book a Call
               </Link>
             </div>

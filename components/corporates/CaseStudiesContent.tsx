@@ -71,7 +71,7 @@ export function CaseStudiesContent() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -83,7 +83,7 @@ export function CaseStudiesContent() {
               <Link
                 href="/corporates"
                 className="inline-flex items-center text-sm font-body mb-4 hover:underline"
-                style={{ color: '#8458B3' }}
+                style={{ color: 'var(--color-primary)' }}
               >
                 ← Back to For Corporates
               </Link>
@@ -95,7 +95,7 @@ export function CaseStudiesContent() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.2',
               }}
             >
@@ -107,7 +107,7 @@ export function CaseStudiesContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-4 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8',
               }}
@@ -119,7 +119,7 @@ export function CaseStudiesContent() {
       </section>
 
       {/* Outcomes we focus on */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -129,15 +129,15 @@ export function CaseStudiesContent() {
             className="text-center mb-12"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
-              <FileText className="w-8 h-8" style={{ color: '#8458B3' }} />
+              <FileText className="w-8 h-8" style={{ color: 'var(--color-primary)' }} />
               <h2
                 className="font-display font-bold"
-                style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}
+                style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}
               >
                 Outcomes we focus on
               </h2>
             </div>
-            <p className="font-body text-base max-w-2xl mx-auto" style={{ color: '#6b7280' }}>
+            <p className="font-body text-base max-w-2xl mx-auto" style={{ color: 'var(--text-muted)' }}>
               Our case studies highlight real engagements. Results vary by context and implementation.
             </p>
           </motion.div>
@@ -150,13 +150,13 @@ export function CaseStudiesContent() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="rounded-xl border-2 p-6"
-                style={{ borderColor: '#f4e4c1', backgroundColor: '#FFF6E2' }}
+                style={{ borderColor: 'var(--bg-peach)', backgroundColor: 'var(--bg-warm)' }}
               >
-                <item.icon className="w-8 h-8 mb-4" style={{ color: '#8458B3' }} />
-                <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.25rem', color: '#1a1a1a' }}>
+                <item.icon className="w-8 h-8 mb-4" style={{ color: 'var(--color-primary)' }} />
+                <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
                   {item.title}
                 </h3>
-                <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -166,7 +166,7 @@ export function CaseStudiesContent() {
       </section>
 
       {/* Industries */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#fceed1' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-peach)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,11 +177,11 @@ export function CaseStudiesContent() {
           >
             <h2
               className="font-display font-bold mb-3"
-              style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: '#1a1a1a' }}
+              style={{ fontSize: 'clamp(1.5rem, 2.5vw, 2rem)', color: 'var(--text-primary)' }}
             >
               Industries we work with
             </h2>
-            <p className="font-body text-sm max-w-xl mx-auto" style={{ color: '#6b7280' }}>
+            <p className="font-body text-sm max-w-xl mx-auto" style={{ color: 'var(--text-muted)' }}>
               We partner with organizations across sectors.
             </p>
           </motion.div>
@@ -194,7 +194,7 @@ export function CaseStudiesContent() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.04, duration: 0.3 }}
                 className="inline-block px-4 py-2 rounded-lg font-body text-sm font-medium"
-                style={{ backgroundColor: 'white', color: '#8458B3', border: '2px solid #f4e4c1' }}
+                style={{ backgroundColor: 'var(--bg-card)', color: 'var(--color-primary)', border: '2px solid var(--bg-peach)' }}
               >
                 {industry}
               </motion.span>
@@ -206,7 +206,7 @@ export function CaseStudiesContent() {
       <CorporateFAQSection faqs={caseStudyFaqs} title="Case Studies FAQs" />
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-16 md:py-24 section-band-accent">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -216,28 +216,29 @@ export function CaseStudiesContent() {
             className="max-w-3xl mx-auto text-center"
           >
             <h2
-              className="font-display font-bold mb-6 text-white"
-              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+              className="font-display font-bold mb-6"
+              style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Ready to explore a partnership?
             </h2>
             <p
-              className="font-body text-lg mb-8 text-white opacity-90"
-              style={{ fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}
+              className="font-body text-lg mb-8"
+              style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}
             >
               Request a proposal or book a call. We&apos;ll discuss your goals and how we can help.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact-us?reason=corporate-proposal"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[#8458B3] bg-white transition-all hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[var(--color-primary)] bg-card transition-all hover:scale-105"
               >
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="/contact-us?reason=corporate-call"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white border-2 border-white transition-all hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold border-2 border-[var(--color-accent)] transition-all hover:scale-105"
+                style={{ color: 'var(--color-accent)' }}
               >
                 Book a Call
               </Link>

@@ -73,12 +73,12 @@ export function CurriculumDesignerContent() {
       {/* Hero Section */}
       <section 
         className="relative min-h-[60vh] flex items-center pt-20 md:pt-24" 
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="role-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumbs */}
-            <div className="flex items-center gap-2 mb-6 text-sm" style={{ color: '#6B7280' }}>
+            <div className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline">Home</Link>
               <span>/</span>
               <Link href="/careers" className="hover:underline">Careers</Link>
@@ -93,7 +93,7 @@ export function CurriculumDesignerContent() {
               transition={{ duration: 0.6 }}
               className="font-display font-bold tracking-wide leading-tight mb-6"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                 fontWeight: 700
               }}>
@@ -106,7 +106,7 @@ export function CurriculumDesignerContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-8 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -120,20 +120,20 @@ export function CurriculumDesignerContent() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap items-center gap-6">
               <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a' }}>
+                <MapPin className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)' }}>
                   Remote
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a' }}>
+                <Clock className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)' }}>
                   Contract / Full-time
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Globe className="w-5 h-5" style={{ color: '#8458B3' }} />
-                <span className="font-body" style={{ color: '#4a4a4a' }}>
+                <Globe className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body" style={{ color: 'var(--text-secondary)' }}>
                   Remote
                 </span>
               </div>
@@ -143,7 +143,7 @@ export function CurriculumDesignerContent() {
       </section>
 
       {/* About the Role */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -154,22 +154,22 @@ export function CurriculumDesignerContent() {
               className="mb-8">
               <div className="flex items-center gap-4 mb-6">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <Briefcase
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-highlight)',
                       strokeWidth: 2.5
                     }} />
                 </div>
                 <h2
                   className="font-display font-bold tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -179,7 +179,7 @@ export function CurriculumDesignerContent() {
               <p
                 className="font-body leading-relaxed"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -191,7 +191,7 @@ export function CurriculumDesignerContent() {
       </section>
 
       {/* Key Responsibilities */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -203,7 +203,7 @@ export function CurriculumDesignerContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 Key Responsibilities
@@ -216,12 +216,12 @@ export function CurriculumDesignerContent() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.4 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-lg">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                    className="flex items-start gap-3 p-4 bg-card rounded-lg">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                     <span
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -236,7 +236,7 @@ export function CurriculumDesignerContent() {
       </section>
 
       {/* What We're Looking For */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -248,7 +248,7 @@ export function CurriculumDesignerContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 What We&apos;re Looking For
@@ -262,11 +262,11 @@ export function CurriculumDesignerContent() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.4 }}
                     className="flex items-start gap-3 p-4 bg-gray-50 rounded-lg">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                     <span
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -281,7 +281,7 @@ export function CurriculumDesignerContent() {
       </section>
 
       {/* Bonus Skills */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -293,7 +293,7 @@ export function CurriculumDesignerContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 Bonus Skills
@@ -306,12 +306,12 @@ export function CurriculumDesignerContent() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.4 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-lg">
-                    <Award className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#f2d53c' }} />
+                    className="flex items-start gap-3 p-4 bg-card rounded-lg">
+                    <Award className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
                     <span
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -326,7 +326,7 @@ export function CurriculumDesignerContent() {
       </section>
 
       {/* Location & Work Mode */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -338,19 +338,19 @@ export function CurriculumDesignerContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 Location & Work Mode
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                  <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                   <div>
                     <span
                       className="font-body font-semibold"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                       }}>
                       Location:
@@ -358,7 +358,7 @@ export function CurriculumDesignerContent() {
                     <span
                       className="font-body ml-2"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                       }}>
                       Remote
@@ -366,12 +366,12 @@ export function CurriculumDesignerContent() {
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Globe className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                  <Globe className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                   <div>
                     <span
                       className="font-body font-semibold"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                       }}>
                       Work Mode:
@@ -379,7 +379,7 @@ export function CurriculumDesignerContent() {
                     <span
                       className="font-body ml-2"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                       }}>
                       Remote work
@@ -393,7 +393,7 @@ export function CurriculumDesignerContent() {
       </section>
 
       {/* Why Join Designient */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -405,7 +405,7 @@ export function CurriculumDesignerContent() {
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)'
                 }}>
                 Why Join Designient
@@ -420,18 +420,18 @@ export function CurriculumDesignerContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
-                  className="bg-white rounded-xl p-6 md:p-8">
+                  className="bg-card rounded-xl p-6 md:p-8">
                   <div className="flex items-start gap-4">
                     <div
-                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: '#8458B3' }}>
+                      className="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 accent-icon-box"
+                      style={{ backgroundColor: 'var(--color-primary)' }}>
                       <item.icon className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h3
                         className="font-display font-bold mb-2"
                         style={{
-                          color: '#1a1a1a',
+                          color: 'var(--text-primary)',
                           fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                         }}>
                         {item.title}
@@ -439,7 +439,7 @@ export function CurriculumDesignerContent() {
                       <p
                         className="font-body leading-relaxed"
                         style={{
-                          color: '#4a4a4a',
+                          color: 'var(--text-secondary)',
                           fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                           lineHeight: '1.7'
                         }}>
@@ -458,9 +458,9 @@ export function CurriculumDesignerContent() {
       <CareerApplicationForm roleName="Content & Curriculum Specialist – UI/UX" roleId="curriculum-specialist" />
 
       {/* How to Apply - Alternative Options */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-24 md:py-32 section-band-accent">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center text-white">
+          <div className="max-w-3xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -480,10 +480,10 @@ export function CurriculumDesignerContent() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a
                   href="mailto:careers@designient.com?subject=Application for Content & Curriculum Specialist Position"
-                  className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 min-h-[44px]"
+                  className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 min-h-[44px] surface-on-accent"
                   style={{
-                    backgroundColor: '#f2d53c',
-                    color: '#1a1a1a',
+                    backgroundColor: 'var(--color-highlight)',
+                    color: 'var(--text-on-accent)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   <Mail className="w-5 h-5" />
@@ -492,10 +492,10 @@ export function CurriculumDesignerContent() {
 
                 <Link
                   href="/careers"
-                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/10 min-h-[44px]"
+                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[44px]"
                   style={{
-                    borderColor: 'white',
-                    color: 'white',
+                    borderColor: 'var(--bg-card)',
+                    color: 'var(--text-on-dark)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   <ArrowRight className="w-5 h-5" />
@@ -504,10 +504,10 @@ export function CurriculumDesignerContent() {
 
                 <a
                   href="tel:+919353000320"
-                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/10 min-h-[44px]"
+                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[44px]"
                   style={{
-                    borderColor: 'white',
-                    color: 'white',
+                    borderColor: 'var(--bg-card)',
+                    color: 'var(--text-on-dark)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   <Phone className="w-5 h-5" />

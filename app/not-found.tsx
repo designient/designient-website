@@ -22,7 +22,7 @@ export default function NotFound() {
   ]
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
       <main id="main-content" role="main" className="pt-24 md:pt-32">
         <section className="py-16 md:py-24">
@@ -31,11 +31,11 @@ export default function NotFound() {
               {/* 404 Icon */}
               <div
                 className="w-24 h-24 mx-auto mb-8 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(132, 88, 179, 0.1)' }}
+                style={{ backgroundColor: 'rgba(176, 228, 204, 0.1)' }}
               >
                 <span
                   className="font-display font-bold"
-                  style={{ color: '#8458B3', fontSize: '2.5rem' }}
+                  style={{ color: 'var(--color-primary)', fontSize: '2.5rem' }}
                 >
                   404
                 </span>
@@ -45,7 +45,7 @@ export default function NotFound() {
               <h1
                 className="font-display font-bold mb-4"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(2rem, 5vw, 3rem)',
                   lineHeight: '1.2'
                 }}
@@ -57,7 +57,7 @@ export default function NotFound() {
               <p
                 className="font-body text-lg mb-8"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   lineHeight: '1.7'
                 }}
               >
@@ -69,7 +69,7 @@ export default function NotFound() {
               <Link
                 href="/"
                 className="inline-block px-8 py-4 rounded-full font-body font-bold text-white transition-all hover:opacity-90 mb-12"
-                style={{ backgroundColor: '#8458B3' }}
+                style={{ backgroundColor: 'var(--color-cta)' }}
               >
                 Back to Homepage
               </Link>
@@ -79,7 +79,7 @@ export default function NotFound() {
                 <h2
                   className="font-display font-semibold mb-6"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: '1.25rem'
                   }}
                 >
@@ -92,19 +92,19 @@ export default function NotFound() {
                       href={link.path}
                       className="block p-4 rounded-lg border-2 transition-all hover:border-purple-500 text-left"
                       style={{
-                        backgroundColor: '#f9fafb',
-                        borderColor: '#e5e7eb'
+                        backgroundColor: 'var(--bg-subtle)',
+                        borderColor: 'var(--border-default)'
                       }}
                     >
                       <h3
                         className="font-display font-semibold mb-1"
-                        style={{ color: '#8458B3', fontSize: '1rem' }}
+                        style={{ color: 'var(--color-primary)', fontSize: '1rem' }}
                       >
                         {link.name}
                       </h3>
                       <p
                         className="font-body text-sm"
-                        style={{ color: '#6b7280' }}
+                        style={{ color: 'var(--text-muted)' }}
                       >
                         {link.description}
                       </p>
@@ -116,13 +116,13 @@ export default function NotFound() {
               {/* Contact Help */}
               <p
                 className="font-body text-sm mt-12"
-                style={{ color: '#6b7280' }}
+                style={{ color: 'var(--text-muted)' }}
               >
                 Need help? Reach us at{' '}
                 <a
                   href="mailto:hello@designient.com"
                   className="font-semibold hover:underline"
-                  style={{ color: '#8458B3' }}
+                  style={{ color: 'var(--color-primary)' }}
                 >
                   hello@designient.com
                 </a>

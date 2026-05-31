@@ -25,7 +25,7 @@ export function CurrencyToggle({ className = '', size = 'md' }: CurrencyTogglePr
   return (
     <div className={`inline-flex items-center gap-1 rounded-full ${className}`}
       style={{
-        backgroundColor: '#f3f4f6',
+        backgroundColor: 'var(--bg-muted)',
         padding: '4px'
       }}
       role="group"
@@ -34,8 +34,8 @@ export function CurrencyToggle({ className = '', size = 'md' }: CurrencyTogglePr
         onClick={() => handleToggle('INR')}
         className={`${sizeClasses[size]} font-body font-semibold rounded-full transition-all duration-200 min-w-[60px]`}
         style={{
-          backgroundColor: currency === 'INR' ? '#8458B3' : 'transparent',
-          color: currency === 'INR' ? 'white' : '#6b7280',
+          backgroundColor: currency === 'INR' ? 'var(--color-accent)' : 'transparent',
+          color: currency === 'INR' ? 'var(--text-on-accent)' : 'var(--text-muted)',
           cursor: 'pointer'
         }}
         aria-pressed={currency === 'INR'}
@@ -46,8 +46,8 @@ export function CurrencyToggle({ className = '', size = 'md' }: CurrencyTogglePr
         onClick={() => handleToggle('USD')}
         className={`${sizeClasses[size]} font-body font-semibold rounded-full transition-all duration-200 min-w-[60px]`}
         style={{
-          backgroundColor: currency === 'USD' ? '#8458B3' : 'transparent',
-          color: currency === 'USD' ? 'white' : '#6b7280',
+          backgroundColor: currency === 'USD' ? 'var(--color-accent)' : 'transparent',
+          color: currency === 'USD' ? 'var(--text-on-accent)' : 'var(--text-muted)',
           cursor: 'pointer'
         }}
         aria-pressed={currency === 'USD'}

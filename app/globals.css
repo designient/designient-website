@@ -2,11 +2,144 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ═══════════════════════════════════════════════════════════
+   DESIGNIENT DESIGN TOKENS — LOCKED (Mint Grey System)
+   Do not add new hex outside semantic status colors.
+   Dark mode only — no light theme.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  color-scheme: dark;
+
+  /* ── Grey monochrome surfaces (Apple-inspired, not black) ── */
+  --bg-base: #1c1c1e;
+  --bg-surface: #2c2c2e;
+  --bg-surface-elevated: #2c2c2e;
+  --bg-section-alt: #242426;
+  --bg-card: #2c2c2e;
+  --bg-card-hover: #3a3a3c;
+  --bg-elevated: #3a3a3c;
+  --bg-subtle: #242426;
+  --bg-muted: #48484a;
+  --bg-input: #1c1c1e;
+  --bg-footer: #141416;
+  --bg-overlay: rgba(0, 0, 0, 0.72);
+
+  /* Legacy surface aliases */
+  --bg-warm: var(--bg-section-alt);
+  --bg-peach: var(--bg-section-alt);
+  --bg-purple-subtle: var(--bg-muted);
+  --bg-purple-band: var(--bg-section-alt);
+
+  /* ── Typography scale ── */
+  --text-body: 1.0625rem;
+  --leading-body: 1.47;
+  --text-caption: 0.75rem;
+  --leading-caption: 1.33;
+  --text-headline: 1.0625rem;
+  --tracking-display: 0.04em;
+
+  /* ── Text ── */
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --text-muted: #86868b;
+  --text-inverse: #0d0d0d;
+  --text-on-accent: #0d0d0d;
+  --text-on-dark: #f5f5f7;
+
+  /* ── Mint primary (#B0E4CC) ── */
+  --color-accent: #B0E4CC;
+  --color-accent-hover: #9AD4BC;
+  --color-accent-muted: rgba(176, 228, 204, 0.14);
+  --color-accent-subtle: rgba(176, 228, 204, 0.08);
+
+  /* Legacy accent aliases → mint */
+  --color-primary: var(--color-accent);
+  --color-primary-hover: var(--color-accent-hover);
+  --color-highlight: var(--color-accent);
+  --color-highlight-muted: var(--color-accent-muted);
+  --text-on-highlight: var(--text-on-accent);
+  --color-cta: var(--color-accent);
+  --color-cta-hover: var(--color-accent-hover);
+  --color-accent-cyan: var(--color-accent);
+  --color-accent-cyan-hover: var(--color-accent-hover);
+  --color-focus-ring: var(--color-accent);
+  --color-footer-hover: var(--color-accent);
+
+  /* ── Radius & shadows (Apple-style) ── */
+  --radius-card: 18px;
+  --radius-button: 980px;
+  --radius-button-secondary: 12px;
+  --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.24);
+  --shadow-card-hover: 0 4px 24px rgba(0, 0, 0, 0.32);
+
+  /* ── Glass (header only) ── */
+  --glass-bg: color-mix(in srgb, var(--bg-elevated) 72%, transparent);
+  --glass-bg-strong: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-border-subtle: rgba(255, 255, 255, 0.06);
+  --glass-blur: 16px;
+  --glass-blur-heavy: 24px;
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --orb-color: rgba(255, 255, 255, 0.04);
+
+  /* ── Borders & shadows ── */
+  --border-default: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --border-accent: rgba(176, 228, 204, 0.35);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.28);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.32);
+  --shadow-glow-primary: 0 0 48px rgba(176, 228, 204, 0.06);
+  --shadow-glow-cta: 0 0 32px rgba(176, 228, 204, 0.08);
+
+  /* ── Semantic status ── */
+  --color-success: #4ade80;
+  --color-success-bg: rgba(74, 222, 128, 0.1);
+  --color-error: #f87171;
+  --color-error-bg: rgba(248, 113, 113, 0.1);
+  --color-warning: #fbbf24;
+  --color-warning-bg: rgba(251, 191, 36, 0.1);
+  --color-info-bg: rgba(176, 228, 204, 0.08);
+
+  /* ── Misc ── */
+  --gradient-purple: linear-gradient(135deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(176, 228, 204, 0.08) 0%, transparent 70%);
+}
+
+/* Subtle ambient glow for hero sections in dark mode */
+.hero-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-hero);
+  pointer-events: none;
+  z-index: 0;
+}
+
 @layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    background-color: var(--bg-base);
+  }
+
   body {
     font-family: var(--font-body), 'Inter', sans-serif;
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-base);
+    color: var(--text-primary);
+  }
+
+  p,
+  li,
+  label {
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
   }
 
   h1,
@@ -17,16 +150,9 @@
   h6 {
     font-family: var(--font-display), 'Bebas Neue', sans-serif;
     letter-spacing: 0.04em;
+    color: var(--text-primary);
   }
 
-  /* Ensure proper text rendering on mobile */
-  html {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
-    scroll-behavior: smooth;
-  }
-
-  /* Improve touch target sizes */
   button,
   a,
   input,
@@ -35,14 +161,25 @@
     touch-action: manipulation;
   }
 
-  /* Accessibility: Focus styles for keyboard navigation */
+  input,
+  select,
+  textarea {
+    background-color: var(--bg-input);
+    color: var(--text-primary);
+    border-color: var(--border-default);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted);
+  }
+
   *:focus-visible {
-    outline: 2px solid #8458B3;
+    outline: 2px solid var(--color-focus-ring);
     outline-offset: 2px;
     border-radius: 2px;
   }
 
-  /* Skip link - hidden by default, visible on focus */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -67,12 +204,12 @@
     overflow: visible;
     clip: auto;
     white-space: normal;
-    background-color: #8458B3;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--text-on-accent);
     font-weight: 600;
     text-decoration: none;
     border-radius: 0.375rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
   }
 }
 
@@ -82,21 +219,183 @@
   padding: 0;
 }
 
-/* Responsive image optimization */
 img {
   max-width: 100%;
   height: auto;
 }
 
-/* Continuous scrolling animation for company logos */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
+/* ── Tailwind utility overrides for theme-aware surfaces ── */
+.bg-white {
+  background-color: var(--bg-card) !important;
+}
 
-  100% {
-    transform: translateX(-50%);
-  }
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: var(--bg-subtle) !important;
+}
+
+.bg-gray-200 {
+  background-color: var(--bg-muted) !important;
+}
+
+.border-gray-100,
+.border-gray-200,
+.border-gray-300 {
+  border-color: var(--border-default) !important;
+}
+
+.text-gray-900,
+.text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+.text-gray-700,
+.text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.text-gray-500,
+.text-gray-400 {
+  color: var(--text-muted) !important;
+}
+
+.hover\:bg-gray-50:hover,
+.hover\:bg-gray-100:hover {
+  background-color: var(--bg-card-hover) !important;
+}
+
+.text-white {
+  color: var(--text-on-dark) !important;
+}
+
+.shadow-sm,
+.shadow-md,
+.shadow-lg,
+.shadow-xl,
+.shadow-2xl {
+  --tw-shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+.text-primary {
+  color: var(--text-primary) !important;
+}
+
+/* ── Apple-style component primitives ── */
+.apple-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.apple-card-hover:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body), 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: var(--text-body);
+  line-height: 1.2;
+  color: var(--text-on-accent);
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-body), 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: var(--text-body);
+  line-height: 1.2;
+  color: var(--color-accent);
+  background-color: transparent;
+  border: 1.5px solid var(--color-accent);
+  border-radius: var(--radius-button-secondary);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent-muted);
+}
+
+.surface-footer {
+  background-color: var(--bg-footer);
+  border-top: 1px solid var(--border-default);
+}
+
+/* ── Card utility (legacy alias) ── */
+.theme-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+}
+
+/* ── Glassmorphism utilities ── */
+.apple-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-nav {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--glass-border-subtle);
+}
+
+/* ── Section bands (monochrome + accent rule) ── */
+.section-band {
+  background-color: var(--bg-section-alt);
+  border-top: 1px solid var(--glass-border);
+}
+
+.section-band-accent {
+  background-color: var(--bg-section-alt);
+  border-top: 2px solid var(--color-accent);
+}
+
+/* ── Decorative blur orbs (monochrome) ── */
+.decorative-orb {
+  background-color: var(--orb-color);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-scroll {
@@ -110,10 +409,133 @@ img {
   animation-play-state: paused;
 }
 
-/* Fade edges for smooth scrolling effect - less aggressive on mobile */
+/* Dark logo treatment on mint/accent backgrounds */
+.logo-on-accent {
+  filter: brightness(0);
+}
+
+/* White/grey mono treatment for partner logos on dark backgrounds */
+.company-logo-mono {
+  filter: brightness(0) invert(1);
+  opacity: 0.72;
+  transition: opacity 0.25s ease;
+}
+
+.company-logo-mono:hover {
+  opacity: 0.95;
+}
+
 .company-logos-container {
   -webkit-mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
   mask-image: linear-gradient(to right, transparent, black 2%, black 98%, transparent);
+}
+
+/* Text & icons on solid mint/primary surfaces — always #0d0d0d */
+.surface-on-accent,
+.accent-icon-box {
+  color: var(--text-on-accent);
+}
+
+.surface-on-accent svg,
+.accent-icon-box svg,
+.surface-on-accent [class*="feather"],
+.accent-icon-box [class*="feather"] {
+  color: var(--text-on-accent) !important;
+  stroke: var(--text-on-accent) !important;
+}
+
+/* Inline mint backgrounds on labels, buttons, and table headers */
+button[style*="background-color: var(--color-cta)"],
+button[style*="background-color: var(--color-accent)"],
+button[style*="background-color: var(--color-highlight)"],
+button[style*="background-color: var(--color-primary)"],
+a[style*="background-color: var(--color-cta)"],
+a[style*="background-color: var(--color-accent)"],
+a[style*="background-color: var(--color-highlight)"],
+a[style*="background-color: var(--color-primary)"],
+span[style*="background-color: var(--color-cta)"],
+span[style*="background-color: var(--color-accent)"],
+span[style*="background-color: var(--color-highlight)"],
+span[style*="background-color: var(--color-primary)"],
+tr[style*="background-color: var(--color-primary)"] th,
+tr[style*="background-color: var(--color-cta)"] th,
+tr[style*="background-color: var(--color-primary)"] td,
+tr[style*="background-color: var(--color-cta)"] td,
+.btn-primary {
+  color: var(--text-on-accent) !important;
+}
+
+button[style*="background-color: var(--color-cta)"] svg,
+button[style*="background-color: var(--color-accent)"] svg,
+button[style*="background-color: var(--color-highlight)"] svg,
+button[style*="background-color: var(--color-primary)"] svg,
+a[style*="background-color: var(--color-cta)"] svg,
+a[style*="background-color: var(--color-accent)"] svg,
+a[style*="background-color: var(--color-highlight)"] svg,
+a[style*="background-color: var(--color-primary)"] svg,
+tr[style*="background-color: var(--color-cta)"] th svg,
+tr[style*="background-color: var(--color-primary)"] th svg {
+  color: var(--text-on-accent) !important;
+  stroke: var(--text-on-accent) !important;
+}
+
+/* Override text-white on mint surfaces (Tailwind white → light grey) */
+[style*="background-color: var(--color-cta)"].text-white,
+[style*="background-color: var(--color-accent)"].text-white,
+[style*="background-color: var(--color-highlight)"].text-white,
+[style*="background-color: var(--color-primary)"].text-white,
+[style*="background-color: var(--color-cta)"] .text-white,
+[style*="background-color: var(--color-accent)"] .text-white,
+[style*="background-color: var(--color-highlight)"] .text-white,
+[style*="background-color: var(--color-primary)"] .text-white,
+button[style*="background-color: var(--color-cta)"].text-white,
+button[style*="background-color: var(--color-accent)"].text-white,
+button[style*="background-color: var(--color-highlight)"].text-white,
+button[style*="background-color: var(--color-primary)"].text-white,
+a[style*="background-color: var(--color-cta)"].text-white,
+a[style*="background-color: var(--color-accent)"].text-white,
+tr[style*="background-color: var(--color-cta)"] .text-white,
+tr[style*="background-color: var(--color-primary)"] .text-white,
+tr[style*="background-color: var(--color-cta)"] th.text-white,
+tr[style*="background-color: var(--color-primary)"] th.text-white,
+.surface-on-accent.text-white,
+.accent-icon-box.text-white,
+.accent-icon-box .text-white {
+  color: var(--text-on-accent) !important;
+}
+
+div.accent-icon-box svg,
+span.accent-icon-box svg,
+td.accent-icon-box svg,
+th.accent-icon-box svg,
+div[style*="background-color: var(--color-highlight)"] svg,
+div[style*="background-color: var(--color-accent)"] svg,
+div[style*="background-color: var(--color-primary)"] svg,
+div[style*="background-color: var(--color-cta)"] svg,
+span[style*="background-color: var(--color-highlight)"] svg,
+span[style*="background-color: var(--color-accent)"] svg,
+span[style*="background-color: var(--color-primary)"] svg,
+span[style*="background-color: var(--color-cta)"] svg {
+  color: var(--text-on-accent) !important;
+  stroke: var(--text-on-accent) !important;
+}
+
+/* Form containers — mint glow on hover */
+.form-panel,
+.bg-card:has(form) {
+  transition: box-shadow 0.35s ease, border-color 0.35s ease;
+  border: 1px solid var(--border-default);
+}
+
+.form-panel:hover,
+.bg-card:has(form):hover {
+  box-shadow: var(--shadow-glow-cta), var(--shadow-card-hover);
+  border-color: var(--border-accent);
+}
+
+/* Form submit CTAs always use dark text on mint */
+form button[type="submit"] {
+  color: var(--text-on-accent) !important;
 }
 
 @media (min-width: 768px) {
@@ -123,16 +545,16 @@ img {
   }
 }
 
-/* Blog content styling */
+/* ── Blog / prose ── */
 .prose {
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .prose h2 {
   font-family: var(--font-display), 'Bebas Neue', sans-serif;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 700;
-  color: #8458B3;
+  color: var(--color-primary);
   margin-top: 2.5rem;
   margin-bottom: 1.25rem;
   line-height: 1.2;
@@ -142,7 +564,7 @@ img {
   font-family: var(--font-display), 'Bebas Neue', sans-serif;
   font-size: clamp(1.5rem, 2.5vw, 1.875rem);
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
   margin-top: 2rem;
   margin-bottom: 1rem;
   line-height: 1.3;
@@ -150,15 +572,16 @@ img {
 
 .prose p {
   margin-bottom: 1.5rem;
-  line-height: 1.8;
-  color: #4a4a4a;
+  line-height: var(--leading-body);
+  font-size: var(--text-body);
+  color: var(--text-secondary);
 }
 
 .prose ul,
 .prose ol {
   margin-bottom: 1.5rem;
   padding-left: 1.5rem;
-  color: #4a4a4a;
+  color: var(--text-secondary);
 }
 
 .prose li {
@@ -166,28 +589,21 @@ img {
   line-height: 1.8;
 }
 
-.prose ul {
-  list-style-type: disc;
-}
-
-.prose ol {
-  list-style-type: decimal;
-}
+.prose ul { list-style-type: disc; }
+.prose ol { list-style-type: decimal; }
 
 .prose strong {
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .prose a {
-  color: #8458B3;
+  color: var(--color-primary);
   text-decoration: underline;
   transition: opacity 0.2s;
 }
 
-.prose a:hover {
-  opacity: 0.8;
-}
+.prose a:hover { opacity: 0.8; }
 
 .prose img {
   border-radius: 0.5rem;
@@ -195,29 +611,29 @@ img {
 }
 
 .prose blockquote {
-  border-left: 4px solid #8458B3;
+  border-left: 4px solid var(--color-primary);
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
-  color: #4a4a4a;
-  /* Improved contrast from #6b7280 */
+  color: var(--text-secondary);
 }
 
 .prose code {
-  background-color: #f3f4f6;
+  background-color: var(--bg-muted);
   padding: 0.125rem 0.375rem;
   border-radius: 0.25rem;
   font-size: 0.875em;
-  color: #8458B3;
+  color: var(--color-primary);
 }
 
 .prose pre {
-  background-color: #1a1a1a;
-  color: #fff;
+  background-color: var(--bg-footer);
+  color: var(--text-on-dark);
   padding: 1.5rem;
   border-radius: 0.5rem;
   overflow-x: auto;
   margin: 2rem 0;
+  border: 1px solid var(--border-default);
 }
 
 .prose pre code {
@@ -226,59 +642,45 @@ img {
   color: inherit;
 }
 
-/* Table of Contents styling */
-.toc-container {
-  scroll-margin-top: 2rem;
-}
+.toc-container { scroll-margin-top: 2rem; }
 
 .toc-container .toc-link {
-  color: #8458B3;
+  color: var(--color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .toc-container .toc-link:hover {
-  color: #6d4298;
+  color: var(--color-primary-hover);
   text-decoration: underline;
 }
 
-/* Smooth scroll offset for headings */
 .prose h2[id],
 .prose h3[id] {
   scroll-margin-top: 2rem;
 }
 
-/* Global offset for sections with IDs */
 section[id] {
   scroll-margin-top: 100px;
 }
 
-/* ============================================
-   RESPONSIVE MOBILE OPTIMIZATIONS
-   ============================================ */
-
-/* Reduce excessive section padding on mobile */
+/* ── Mobile optimizations ── */
 @media (max-width: 639px) {
-
-  /* Tighter section padding on mobile */
   section {
     padding-top: 2.5rem !important;
     padding-bottom: 2.5rem !important;
   }
 
-  /* Reduce hero section padding */
   section[aria-labelledby="hero-heading"] {
     padding-top: 5rem !important;
     padding-bottom: 2.5rem !important;
   }
 
-  /* Improve horizontal margins on mobile */
   .max-w-container {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  /* Reduce large heading sizes on mobile for better balance */
   h1.font-display {
     font-size: clamp(1.5rem, 8vw, 2.5rem) !important;
     line-height: 1.15 !important;
@@ -288,7 +690,6 @@ section[id] {
     font-size: clamp(1.25rem, 6vw, 2rem) !important;
   }
 
-  /* Ensure form elements are touch-friendly */
   input,
   select,
   button[type="submit"] {
@@ -296,7 +697,6 @@ section[id] {
   }
 }
 
-/* Tablet-specific optimizations */
 @media (min-width: 640px) and (max-width: 1023px) {
   .max-w-container {
     padding-left: 1.5rem;
@@ -304,10 +704,7 @@ section[id] {
   }
 }
 
-/* Ensure proper spacing for fixed elements on mobile */
 @media (max-width: 767px) {
-
-  /* Add bottom padding to account for sticky buttons */
   main {
     padding-bottom: 5rem;
   }

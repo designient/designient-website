@@ -140,7 +140,7 @@ export default function AboutUsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={[organizationSchema, breadcrumbSchema]} />
       <Header />
       <main id="main-content" role="main">

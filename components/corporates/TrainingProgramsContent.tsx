@@ -104,7 +104,7 @@ export function TrainingProgramsContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -112,7 +112,7 @@ export function TrainingProgramsContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="mb-8">
-              <Link href="/corporates" className="inline-flex items-center text-sm font-body mb-4 hover:underline" style={{ color: '#8458B3' }}>
+              <Link href="/corporates" className="inline-flex items-center text-sm font-body mb-4 hover:underline" style={{ color: 'var(--color-primary)' }}>
                 ← Back to For Corporates
               </Link>
             </motion.div>
@@ -123,7 +123,7 @@ export function TrainingProgramsContent() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.2'
               }}>
               Customized Training Programs for Product & Design Teams
@@ -134,7 +134,7 @@ export function TrainingProgramsContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-4 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -146,10 +146,10 @@ export function TrainingProgramsContent() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-body text-sm md:text-base mb-8 leading-relaxed"
               style={{
-                color: '#6b7280',
+                color: 'var(--text-muted)',
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
-              For individual upskilling, explore our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>individual courses</Link> including <Link href="/ui-ux-design-pro" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>UI/UX Design Pro</Link> and <Link href="/ui-ux-design-master" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>UI/UX Design Master</Link>.
+              For individual upskilling, explore our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>individual courses</Link> including <Link href="/ui-ux-design-pro" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI/UX Design Pro</Link> and <Link href="/ui-ux-design-master" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI/UX Design Master</Link>.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -159,7 +159,7 @@ export function TrainingProgramsContent() {
               <Link
                 href="/contact-us?reason=corporate-proposal"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
-                style={{ backgroundColor: '#8458B3' }}>
+                style={{ backgroundColor: 'var(--color-cta)' }}>
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -169,7 +169,7 @@ export function TrainingProgramsContent() {
       </section>
 
       {/* Training Formats */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -177,10 +177,10 @@ export function TrainingProgramsContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Training Formats
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Flexible delivery options to suit your team&apos;s structure and preferences
             </p>
           </motion.div>
@@ -194,17 +194,17 @@ export function TrainingProgramsContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white border-2 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#e5e7eb' }}>
+                  className="bg-card border-2 rounded-xl p-8 text-center hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--border-default)' }}>
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFF6E2' }}>
-                      <Icon className="w-6 h-6" style={{ color: '#8458B3' }} />
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                      <Icon className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                     </div>
                   </div>
-                  <h3 className="font-display font-semibold mb-3" style={{ fontSize: '1.25rem', color: '#1a1a1a' }}>
+                  <h3 className="font-display font-semibold mb-3" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
                     {format.title}
                   </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {format.description}
                   </p>
                 </motion.div>
@@ -215,7 +215,7 @@ export function TrainingProgramsContent() {
       </section>
 
       {/* Program Duration Options */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -223,10 +223,10 @@ export function TrainingProgramsContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Program Duration Options
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               From intensive workshops to ongoing upskilling programs
             </p>
           </motion.div>
@@ -238,15 +238,15 @@ export function TrainingProgramsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="bg-white rounded-xl p-6 border-l-4 hover:shadow-lg transition-shadow"
-                style={{ borderColor: '#8458B3' }}>
+                className="bg-card rounded-xl p-6 border-l-4 hover:shadow-lg transition-shadow"
+                style={{ borderColor: 'var(--color-primary)' }}>
                 <div className="flex items-start gap-3">
-                  <Calendar className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                  <Calendar className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                   <div>
-                    <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                    <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                       {option.title}
                     </h3>
-                    <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                    <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                       {option.description}
                     </p>
                   </div>
@@ -258,7 +258,7 @@ export function TrainingProgramsContent() {
       </section>
 
       {/* Skill Areas Covered */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -266,10 +266,10 @@ export function TrainingProgramsContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Skill Areas Covered
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Comprehensive training across design disciplines and modern workflows
             </p>
           </motion.div>
@@ -281,15 +281,15 @@ export function TrainingProgramsContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05, duration: 0.4 }}
-                className="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
-                style={{ borderColor: '#e5e7eb' }}>
+                className="bg-card border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                style={{ borderColor: 'var(--border-default)' }}>
                 <div className="flex items-start gap-3 mb-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                  <h3 className="font-display font-semibold" style={{ fontSize: '1rem', color: '#1a1a1a' }}>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <h3 className="font-display font-semibold" style={{ fontSize: '1rem', color: 'var(--text-primary)' }}>
                     {skill.title}
                   </h3>
                 </div>
-                <p className="font-body text-xs leading-relaxed ml-8" style={{ color: '#4a4a4a' }}>
+                <p className="font-body text-xs leading-relaxed ml-8" style={{ color: 'var(--text-secondary)' }}>
                   {skill.description}
                 </p>
               </motion.div>
@@ -299,7 +299,7 @@ export function TrainingProgramsContent() {
       </section>
 
       {/* Certification */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -307,16 +307,16 @@ export function TrainingProgramsContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto">
-            <div className="bg-white rounded-xl p-8 shadow-lg border-l-4" style={{ borderColor: '#8458B3' }}>
+            <div className="bg-card rounded-xl p-8 shadow-lg border-l-4" style={{ borderColor: 'var(--color-primary)' }}>
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: '#FFF6E2' }}>
-                  <Award className="w-8 h-8" style={{ color: '#8458B3' }} />
+                <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                  <Award className="w-8 h-8" style={{ color: 'var(--color-primary)' }} />
                 </div>
                 <div>
-                  <h2 className="font-display font-bold mb-4" style={{ fontSize: '1.75rem', color: '#1a1a1a' }}>
+                  <h2 className="font-display font-bold mb-4" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
                     Certification
                   </h2>
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     Skill-based certification provided upon completion of the training program. Certificates recognize the skills and competencies developed during the program.
                   </p>
                 </div>
@@ -327,7 +327,7 @@ export function TrainingProgramsContent() {
       </section>
 
       {/* How Engagement Works */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -335,10 +335,10 @@ export function TrainingProgramsContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               How Engagement Works
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               A structured approach to delivering customized training programs
             </p>
           </motion.div>
@@ -351,19 +351,19 @@ export function TrainingProgramsContent() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#e5e7eb' }}>
+                  className="bg-card border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--border-default)' }}>
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white" style={{ backgroundColor: '#8458B3', fontSize: '1.25rem' }}>
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white accent-icon-box" style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)', fontSize: '1.25rem' }}>
                         {step.step}
                       </div>
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.25rem', color: '#1a1a1a' }}>
+                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
                         {step.title}
                       </h3>
-                      <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                      <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         {step.description}
                       </p>
                     </div>
@@ -402,7 +402,7 @@ export function TrainingProgramsContent() {
       />
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-16 md:py-24 section-band-accent">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -410,22 +410,22 @@ export function TrainingProgramsContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+            <h2 className="font-display font-bold mb-6" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
               Let&apos;s design a training program that fits your team.
             </h2>
-            <p className="font-body text-lg mb-8 text-white opacity-90" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
+            <p className="font-body text-lg mb-8" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
               Every team is unique. Share your goals, challenges, and requirements, and we&apos;ll create a customized training program tailored to your needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact-us?reason=corporate-proposal"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[#8458B3] bg-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[var(--color-primary)] bg-card transition-all hover:scale-105">
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="/contact-us?reason=corporate-call"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white border-2 border-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold border-2 border-[var(--color-accent)] transition-all hover:scale-105" style={{ color: 'var(--color-accent)' }}>
                 Book a Call
               </Link>
             </div>

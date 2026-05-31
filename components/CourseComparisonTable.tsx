@@ -29,7 +29,7 @@ const courses: Array<{
   level: 'Beginner-Inter.',
   certification: 'Adobe Certified',
   courseSlug: 'ui-ux-design-pro',
-  color: '#8458B3',
+  color: 'var(--color-primary)',
   path: '/ui-ux-design-pro'
 },
 {
@@ -41,7 +41,7 @@ const courses: Array<{
   level: 'Beginner',
   certification: 'Certificate',
   courseSlug: 'ui-ux-design-bootcamp',
-  color: '#8458B3',
+  color: 'var(--color-primary)',
   path: '/ui-ux-design-bootcamp'
 },
 {
@@ -53,7 +53,7 @@ const courses: Array<{
   level: 'Inter.-Advanced',
   certification: 'Diploma',
   courseSlug: 'ui-ux-design-master',
-  color: '#8458B3',
+  color: 'var(--color-primary)',
   path: '/ui-ux-design-master'
 },
 {
@@ -65,7 +65,7 @@ const courses: Array<{
   level: 'All Levels',
   certification: 'Certificate',
   courseSlug: 'prompt-engineering-mastery',
-  color: '#8458B3',
+  color: 'var(--color-primary)',
   path: '/prompt-engineering-mastery'
 }];
 
@@ -100,7 +100,7 @@ export function CourseComparisonTable() {
   const { getCoursePrice, isLoading } = useCurrency();
   
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -149,7 +149,7 @@ export function CourseComparisonTable() {
           <h2
             className="font-display tracking-wide leading-tight mb-4"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -194,15 +194,16 @@ export function CourseComparisonTable() {
 
             <thead className="sticky top-0 z-10">
               <tr
+                className="surface-on-accent"
                 style={{
-                  backgroundColor: '#8458B3'
+                  backgroundColor: 'var(--color-primary)'
                 }}>
 
                 <th
                   className="p-5 text-left font-bold border-b-2"
                   style={{
-                    color: 'white',
-                    borderColor: '#374151'
+                    color: 'var(--text-on-accent)',
+                    borderColor: 'var(--text-secondary)'
                   }}>
 
                   Feature
@@ -212,12 +213,12 @@ export function CourseComparisonTable() {
                   key={index}
                   className="p-5 text-center font-bold border-b-2 transition-all duration-300"
                   style={{
-                    color: 'white',
-                    borderColor: '#374151',
+                    color: 'var(--text-on-accent)',
+                    borderColor: 'var(--text-secondary)',
                     backgroundColor:
                     hoveredColumn === index ?
-                    'rgba(132, 88, 179, 0.3)' :
-                    '#8458B3'
+                    'rgba(176, 228, 204, 0.3)' :
+                    'var(--color-primary)'
                   }}
                   onMouseEnter={() => setHoveredColumn(index)}
                   onMouseLeave={() => setHoveredColumn(null)}>
@@ -241,15 +242,15 @@ export function CourseComparisonTable() {
                 key={featureIndex}
                 style={{
                   backgroundColor:
-                  featureIndex % 2 === 0 ? 'white' : '#FAFAFA',
+                  featureIndex % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)',
                   transition: 'background-color 0.3s ease'
                 }}>
 
                   <td
                   className="p-5 font-semibold border-b"
                   style={{
-                    color: '#4a4a4a',
-                    borderColor: '#E5E7EB',
+                    color: 'var(--text-secondary)',
+                    borderColor: 'var(--border-default)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
 
@@ -260,11 +261,11 @@ export function CourseComparisonTable() {
                   key={courseIndex}
                   className="p-5 text-center border-b transition-all duration-300"
                   style={{
-                    color: '#1a1a1a',
-                    borderColor: '#E5E7EB',
+                    color: 'var(--text-primary)',
+                    borderColor: 'var(--border-default)',
                     backgroundColor:
                     hoveredColumn === courseIndex ?
-                    'rgba(132, 88, 179, 0.08)' :
+                    'rgba(176, 228, 204, 0.08)' :
                     'transparent'
                   }}
                   onMouseEnter={() => setHoveredColumn(courseIndex)}
@@ -275,13 +276,13 @@ export function CourseComparisonTable() {
                           <div
                       className="w-6 h-6 rounded-full flex items-center justify-center"
                       style={{
-                        backgroundColor: 'rgba(132, 88, 179, 0.1)'
+                        backgroundColor: 'rgba(176, 228, 204, 0.1)'
                       }}>
 
                             <Check
                         className="w-4 h-4"
                         style={{
-                          color: '#8458B3'
+                          color: 'var(--color-primary)'
                         }} />
 
                           </div>
@@ -290,7 +291,7 @@ export function CourseComparisonTable() {
                   <span
                     className="font-bold text-lg"
                     style={{
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }}>
                           {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
                         </span> :
@@ -333,7 +334,7 @@ export function CourseComparisonTable() {
             }}
             className="rounded-xl overflow-hidden"
             style={{
-              backgroundColor: 'white',
+              backgroundColor: 'var(--bg-card)',
               boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
               border: `2px solid ${course.color}`
             }}>
@@ -345,10 +346,10 @@ export function CourseComparisonTable() {
                 backgroundColor: course.color
               }}>
 
-                <h3 className="font-display font-bold text-white mb-2" style={{ fontWeight: 600, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+                <h3 className="font-display font-bold mb-2" style={{ fontWeight: 600, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: 'var(--text-on-accent)' }}>
                   {course.name}
                 </h3>
-                <p className="font-display text-3xl font-bold text-white">
+                <p className="font-display text-3xl font-bold" style={{ color: 'var(--text-on-accent)' }}>
                   {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
                 </p>
               </div>
@@ -362,13 +363,13 @@ export function CourseComparisonTable() {
                 key={fIndex}
                 className="flex justify-between items-center pb-4 border-b"
                 style={{
-                  borderColor: '#E5E7EB'
+                  borderColor: 'var(--border-default)'
                 }}>
 
                       <span
                   className="font-semibold text-sm"
                   style={{
-                    color: '#6b7280',
+                    color: 'var(--text-muted)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
 
@@ -378,13 +379,13 @@ export function CourseComparisonTable() {
                 <div
                   className="w-6 h-6 rounded-full flex items-center justify-center"
                   style={{
-                    backgroundColor: 'rgba(132, 88, 179, 0.1)'
+                    backgroundColor: 'rgba(176, 228, 204, 0.1)'
                   }}>
 
                           <Check
                     className="w-4 h-4"
                     style={{
-                      color: '#8458B3'
+                      color: 'var(--color-primary)'
                     }} />
 
                         </div> :
@@ -392,7 +393,7 @@ export function CourseComparisonTable() {
                 <span
                   className="font-medium text-sm"
                   style={{
-                    color: '#1a1a1a'
+                    color: 'var(--text-primary)'
                   }}>
 
                           {feature.name === 'Duration' && course.duration}
@@ -408,9 +409,10 @@ export function CourseComparisonTable() {
 
                 <Link
                   href={course.path}
-                  className="w-full text-white font-body font-semibold mt-4 min-h-[44px] flex items-center justify-center gap-2 transition-transform hover:scale-105"
+                  className="w-full font-body font-semibold mt-4 min-h-[44px] flex items-center justify-center gap-2 transition-transform hover:scale-105"
                   style={{
                     backgroundColor: course.color,
+                    color: 'var(--text-on-accent)',
                     padding: '12px 28px',
                     borderRadius: '100px',
                     fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, MapPin, BookOpen, Users, CheckCircle, MessageCircle, Briefcase, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'react-feather'
+import { CompanyLogoBadge } from '../shared/CompanyLogoBadge'
 
 // ============================================
 // DATA STRUCTURES
@@ -396,7 +397,7 @@ export function SuccessStoriesContent() {
   return (
     <>
       {/* 1️⃣ HERO SECTION */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.h1
@@ -406,7 +407,7 @@ export function SuccessStoriesContent() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.2'
               }}>
               Real Success Stories from Designient Students
@@ -417,7 +418,7 @@ export function SuccessStoriesContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-4 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -429,7 +430,7 @@ export function SuccessStoriesContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-body text-sm italic mb-8"
-              style={{ color: '#6b7280' }}>
+              style={{ color: 'var(--text-muted)' }}>
               Shared with consent. Individual results may vary.
             </motion.p>
             <motion.div
@@ -441,8 +442,8 @@ export function SuccessStoriesContent() {
                 href="#deeper-journeys"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold transition-all hover:scale-105"
                 style={{
-                  backgroundColor: '#8458B3',
-                  color: 'white'
+                  backgroundColor: 'var(--color-cta)',
+                  color: 'var(--text-on-accent)'
                 }}>
                 View Stories
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -451,9 +452,9 @@ export function SuccessStoriesContent() {
                 href="/apply-now"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold transition-all hover:scale-105 border-2"
                 style={{
-                  backgroundColor: 'white',
-                  color: '#8458B3',
-                  borderColor: '#8458B3'
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--color-primary)',
+                  borderColor: 'var(--color-primary)'
                 }}>
                 Apply Now
               </Link>
@@ -463,7 +464,7 @@ export function SuccessStoriesContent() {
       </section>
 
       {/* 2️⃣ QUICK PROOF STRIP */}
-      <section className="py-12 md:py-16" style={{ backgroundColor: 'white' }}>
+      <section className="py-12 md:py-16" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {[
@@ -479,10 +480,10 @@ export function SuccessStoriesContent() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 className="text-center">
-                <div className="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: '#f3f4f6' }}>
-                  <item.icon className="w-6 h-6" style={{ color: '#8458B3' }} />
+                <div className="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--bg-muted)' }}>
+                  <item.icon className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                 </div>
-                <p className="font-body text-sm md:text-base" style={{ color: '#4a4a4a' }}>
+                <p className="font-body text-sm md:text-base" style={{ color: 'var(--text-secondary)' }}>
                   {item.text}
                 </p>
               </motion.div>
@@ -493,7 +494,7 @@ export function SuccessStoriesContent() {
 
       {/* 1️⃣ DEEPER JOURNEYS */}
       {longFormStories.length > 0 && (
-        <section id="deeper-journeys" className="py-16 md:py-24" style={{ backgroundColor: '#FFF6E2' }}>
+        <section id="deeper-journeys" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -505,11 +506,11 @@ export function SuccessStoriesContent() {
                 className="font-display font-bold mb-4"
                 style={{
                   fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                  color: '#1a1a1a'
+                  color: 'var(--text-primary)'
                 }}>
                 Deeper Journeys
               </h2>
-              <p className="font-body max-w-2xl mx-auto" style={{ color: '#6b7280', fontSize: '1.0625rem' }}>
+              <p className="font-body max-w-2xl mx-auto" style={{ color: 'var(--text-muted)', fontSize: '1.0625rem' }}>
                 Extended stories from students who went from where they were to where they wanted to be.
               </p>
             </motion.div>
@@ -526,44 +527,40 @@ export function SuccessStoriesContent() {
                     transition={{ delay: (index % 2) * 0.08, duration: 0.45 }}
                     className="flex flex-col h-full">
                     <div
-                      className="bg-white rounded-2xl overflow-hidden border-2 hover:shadow-lg transition-all flex flex-col flex-1"
+                      className="bg-card rounded-2xl overflow-hidden border-2 hover:shadow-lg transition-all flex flex-col flex-1"
                       style={{
-                        borderColor: isExpanded ? '#8458B3' : '#e5e7eb',
-                        boxShadow: isExpanded ? '0 4px 20px rgba(132, 88, 179, 0.12)' : undefined
+                        borderColor: isExpanded ? 'var(--color-primary)' : 'var(--border-default)',
+                        boxShadow: isExpanded ? '0 4px 20px rgba(176, 228, 204, 0.12)' : undefined
                       }}>
                       {/* Card header with left accent */}
                       <button
                         onClick={() => toggleStory(story.id)}
-                        className="w-full p-5 md:p-6 flex items-center gap-4 text-left hover:bg-gray-50/80 transition-colors focus:outline-none focus:ring-2 focus:ring-[#8458B3] focus:ring-offset-2 rounded-t-2xl"
+                        className="w-full p-5 md:p-6 flex items-center gap-4 text-left hover:bg-gray-50/80 transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 rounded-t-2xl"
                         aria-expanded={isExpanded}
                         aria-controls={`story-content-${story.id}`}>
                         <div
                           className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 font-display font-bold text-lg"
-                          style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+                          style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
                           {initial}
                         </div>
                         <div className="flex-1 min-w-0 text-left">
-                          <h3 className="font-display font-semibold mb-1.5" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                          <h3 className="font-display font-semibold mb-1.5" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                             {story.name}
                           </h3>
-                          <div className="flex flex-wrap items-center gap-2 text-sm mb-2" style={{ color: '#6b7280' }}>
+                          <div className="flex flex-wrap items-center gap-2 text-sm mb-2" style={{ color: 'var(--text-muted)' }}>
                             <span className="font-body">{story.city}</span>
                             <span className="font-body">·</span>
                             <span className="font-body">{story.course}</span>
                           </div>
                           {story.company && (
-                            <span
-                              className="inline-block font-body text-xs font-semibold px-2.5 py-1 rounded-md"
-                              style={{ backgroundColor: '#8458B3', color: 'white' }}>
-                              {story.company}
-                            </span>
+                            <CompanyLogoBadge company={story.company} size="md" />
                           )}
                         </div>
                         <div className="flex-shrink-0">
                           {isExpanded ? (
-                            <ChevronUp className="w-5 h-5" style={{ color: '#8458B3' }} />
+                            <ChevronUp className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
                           ) : (
-                            <ChevronDown className="w-5 h-5" style={{ color: '#8458B3' }} />
+                            <ChevronDown className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
                           )}
                         </div>
                       </button>
@@ -578,34 +575,34 @@ export function SuccessStoriesContent() {
                             className="overflow-hidden border-t border-gray-100">
                             <div className="px-5 md:px-6 py-5 space-y-5">
                               <div>
-                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: '#8458B3' }}>
+                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: 'var(--color-primary)' }}>
                                   Before joining
                                 </h4>
-                                <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                                <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                   {story.beforeJoining}
                                 </p>
                               </div>
                               <div>
-                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: '#8458B3' }}>
+                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: 'var(--color-primary)' }}>
                                   What changed
                                 </h4>
-                                <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                                <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                   {story.whatChanged}
                                 </p>
                               </div>
                               <div>
-                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: '#8458B3' }}>
+                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: 'var(--color-primary)' }}>
                                   Biggest learning
                                 </h4>
-                                <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                                <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                                   {story.biggestLearning}
                                 </p>
                               </div>
                               <div className="pt-2 border-t border-gray-100">
-                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: '#8458B3' }}>
+                                <h4 className="font-body font-semibold text-xs uppercase tracking-wide mb-1.5" style={{ color: 'var(--color-primary)' }}>
                                   Where they are now
                                 </h4>
-                                <p className="font-body text-sm leading-relaxed font-medium" style={{ color: '#1a1a1a' }}>
+                                <p className="font-body text-sm leading-relaxed font-medium" style={{ color: 'var(--text-primary)' }}>
                                   {story.currentStatus}
                                 </p>
                               </div>
@@ -623,7 +620,7 @@ export function SuccessStoriesContent() {
       )}
 
       {/* 2️⃣ MORE STUDENT EXPERIENCES */}
-      <section id="more-stories" className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section id="more-stories" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -633,13 +630,13 @@ export function SuccessStoriesContent() {
             className="font-display font-bold text-center mb-12"
             style={{
               fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-              color: '#1a1a1a'
+              color: 'var(--text-primary)'
             }}>
             More Student Experiences
           </motion.h2>
           {textTestimonials.length === 0 ? (
             <div className="text-center py-12">
-              <p className="font-body text-lg mb-4" style={{ color: '#6b7280' }}>
+              <p className="font-body text-lg mb-4" style={{ color: 'var(--text-muted)' }}>
                 Testimonials are being added. Check back soon!
               </p>
             </div>
@@ -653,34 +650,30 @@ export function SuccessStoriesContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.4 }}
-                    className="bg-white rounded-xl border-2 p-6 hover:shadow-lg transition-shadow"
-                    style={{ borderColor: '#e5e7eb' }}>
+                    className="bg-card rounded-xl border-2 p-6 hover:shadow-lg transition-shadow"
+                    style={{ borderColor: 'var(--border-default)' }}>
                     <div className="mb-4">
                       <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                        <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                           {testimonial.name}
                         </h3>
                         {testimonial.company && (
-                          <span
-                            className="font-body text-xs font-medium px-2.5 py-1 rounded-full"
-                            style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
-                            {testimonial.company}
-                          </span>
+                          <CompanyLogoBadge company={testimonial.company} />
                         )}
                       </div>
-                      <div className="flex items-center gap-2 text-sm mb-2" style={{ color: '#6b7280' }}>
+                      <div className="flex items-center gap-2 text-sm mb-2" style={{ color: 'var(--text-muted)' }}>
                         <MapPin className="w-4 h-4 flex-shrink-0" />
                         <span className="font-body">{testimonial.city}</span>
                       </div>
-                      <div className="flex items-center gap-2 text-sm mb-3" style={{ color: '#6b7280' }}>
+                      <div className="flex items-center gap-2 text-sm mb-3" style={{ color: 'var(--text-muted)' }}>
                         <BookOpen className="w-4 h-4 flex-shrink-0" />
                         <span className="font-body">{testimonial.course}</span>
                       </div>
-                      <p className="font-body text-sm font-semibold mb-3" style={{ color: '#8458B3' }}>
+                      <p className="font-body text-sm font-semibold mb-3" style={{ color: 'var(--color-primary)' }}>
                         {testimonial.outcome}
                       </p>
                     </div>
-                    <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                    <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                       &ldquo;{testimonial.testimonial}&rdquo;
                     </p>
                   </motion.div>
@@ -694,9 +687,9 @@ export function SuccessStoriesContent() {
                     disabled={isLoading}
                     className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed border-2"
                     style={{
-                      backgroundColor: 'white',
-                      color: '#8458B3',
-                      borderColor: '#8458B3'
+                      backgroundColor: 'var(--bg-card)',
+                      color: 'var(--color-primary)',
+                      borderColor: 'var(--color-primary)'
                     }}>
                     {isLoading ? 'Loading...' : 'Load More Stories'}
                     <ArrowRight className="w-5 h-5 ml-2" />
@@ -709,7 +702,7 @@ export function SuccessStoriesContent() {
       </section>
 
       {/* 3️⃣ OUR FEW ADPLIST STORIES */}
-      <section id="featured-stories" className="py-16 md:py-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section id="featured-stories" className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -721,17 +714,17 @@ export function SuccessStoriesContent() {
               className="font-display font-bold mb-3"
               style={{
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                color: '#1a1a1a'
+                color: 'var(--text-primary)'
               }}>
               Our Few ADPlist Stories
             </h2>
-            <p className="font-body max-w-xl mx-auto" style={{ color: '#6b7280', fontSize: '1.0625rem' }}>
+            <p className="font-body max-w-xl mx-auto" style={{ color: 'var(--text-muted)', fontSize: '1.0625rem' }}>
               Mentorship feedback from ADPlist — in their own words
             </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg border-2" style={{ borderColor: '#f4e4c1', minHeight: '280px' }}>
+            <div className="bg-card rounded-2xl overflow-hidden shadow-lg border-2" style={{ borderColor: 'var(--bg-peach)', minHeight: '280px' }}>
               <AnimatePresence mode="wait">
                 {featuredStories[featuredIndex] && (
                   <motion.div
@@ -745,22 +738,27 @@ export function SuccessStoriesContent() {
                       <p
                         className="font-body leading-relaxed mb-4"
                         style={{
-                          color: '#1a1a1a',
+                          color: 'var(--text-primary)',
                           fontSize: 'clamp(1rem, 1.4vw, 1.1875rem)',
                           lineHeight: '1.7'
                         }}>
                         &ldquo;{featuredStories[featuredIndex].testimonial}&rdquo;
                       </p>
                       <div className="flex items-center gap-3 flex-wrap mt-auto pt-2">
-                        <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                        <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                           {featuredStories[featuredIndex].name}
                         </h3>
+                        <CompanyLogoBadge
+                          company={featuredStories[featuredIndex].company}
+                          showName={false}
+                          className="rounded-full"
+                        />
                         <span
                           className="font-body text-xs font-medium px-2.5 py-1 rounded-full"
-                          style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+                          style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
                           {featuredStories[featuredIndex].role} at {featuredStories[featuredIndex].company}
                         </span>
-                        <span className="font-body text-sm flex items-center gap-1.5" style={{ color: '#6b7280' }}>
+                        <span className="font-body text-sm flex items-center gap-1.5" style={{ color: 'var(--text-muted)' }}>
                           <span role="img" aria-label={featuredStories[featuredIndex].country}>
                             {featuredStories[featuredIndex].countryFlag}
                           </span>
@@ -777,8 +775,8 @@ export function SuccessStoriesContent() {
               <button
                 type="button"
                 onClick={() => setFeaturedIndex((i) => (i === 0 ? featuredStories.length - 1 : i - 1))}
-                className="p-3 rounded-full border-2 transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#8458B3] focus:ring-offset-2"
-                style={{ borderColor: '#8458B3', color: '#8458B3' }}
+                className="p-3 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
                 aria-label="Previous story">
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -791,9 +789,9 @@ export function SuccessStoriesContent() {
                     role="tab"
                     aria-selected={featuredIndex === i}
                     aria-label={`Go to story ${i + 1}`}
-                    className="w-2.5 h-2.5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[#8458B3] focus:ring-offset-2"
+                    className="w-2.5 h-2.5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
                     style={{
-                      backgroundColor: featuredIndex === i ? '#8458B3' : '#d1d5db',
+                      backgroundColor: featuredIndex === i ? 'var(--color-primary)' : 'var(--border-default)',
                       transform: featuredIndex === i ? 'scale(1.2)' : undefined
                     }}
                   />
@@ -802,13 +800,13 @@ export function SuccessStoriesContent() {
               <button
                 type="button"
                 onClick={() => setFeaturedIndex((i) => (i === featuredStories.length - 1 ? 0 : i + 1))}
-                className="p-3 rounded-full border-2 transition-colors hover:bg-white focus:outline-none focus:ring-2 focus:ring-[#8458B3] focus:ring-offset-2"
-                style={{ borderColor: '#8458B3', color: '#8458B3' }}
+                className="p-3 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
+                style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
                 aria-label="Next story">
                 <ChevronRight className="w-6 h-6" />
               </button>
             </div>
-            <p className="text-center font-body text-sm mt-3" style={{ color: '#6b7280' }}>
+            <p className="text-center font-body text-sm mt-3" style={{ color: 'var(--text-muted)' }}>
               {featuredIndex + 1} of {featuredStories.length}
             </p>
           </div>
@@ -816,7 +814,7 @@ export function SuccessStoriesContent() {
       </section>
 
       {/* 6️⃣ OUTCOME CLUSTERS */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -826,7 +824,7 @@ export function SuccessStoriesContent() {
             className="font-display font-bold text-center mb-12"
             style={{
               fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-              color: '#1a1a1a'
+              color: 'var(--text-primary)'
             }}>
             What our students commonly experience
           </motion.h2>
@@ -846,8 +844,8 @@ export function SuccessStoriesContent() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
                   className="flex items-start gap-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                  <span className="font-body text-base leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {outcome}
                   </span>
                 </motion.li>
@@ -858,7 +856,7 @@ export function SuccessStoriesContent() {
       </section>
 
       {/* 8️⃣ INTERNAL LINKING SECTION */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -868,7 +866,7 @@ export function SuccessStoriesContent() {
             className="font-display font-bold text-center mb-12"
             style={{
               fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-              color: '#1a1a1a'
+              color: 'var(--text-primary)'
             }}>
             Want to start your own journey?
           </motion.h2>
@@ -892,9 +890,9 @@ export function SuccessStoriesContent() {
                     href={link.href}
                     className="block p-6 rounded-lg border-2 text-center font-body font-semibold transition-all hover:scale-105 hover:shadow-md"
                     style={{
-                      backgroundColor: 'white',
-                      color: '#8458B3',
-                      borderColor: '#8458B3'
+                      backgroundColor: 'var(--bg-card)',
+                      color: 'var(--color-primary)',
+                      borderColor: 'var(--color-primary)'
                     }}>
                     {link.name}
                     <ArrowRight className="w-4 h-4 inline-block ml-2" />
@@ -907,7 +905,7 @@ export function SuccessStoriesContent() {
       </section>
 
       {/* 9️⃣ FINAL CTA SECTION */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--color-cta)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -915,22 +913,22 @@ export function SuccessStoriesContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+            <h2 className="font-display font-bold mb-6" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
               Your story could be next.
             </h2>
-            <p className="font-body text-lg mb-8 text-white opacity-90" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
+            <p className="font-body text-lg mb-8" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
               If you're willing to learn, practice, and show up — we'll guide you every step of the way.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/apply-now"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[#8458B3] bg-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[var(--color-primary)] bg-card transition-all hover:scale-105">
                 Apply Now
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="/contact-us"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white border-2 border-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold border-2 border-[var(--color-accent)] transition-all hover:scale-105" style={{ color: 'var(--color-accent)' }}>
                 Talk to a Mentor
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>

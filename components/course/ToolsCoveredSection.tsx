@@ -24,7 +24,7 @@ export function ToolsCoveredSection({
   description = 'Industry-standard tools used by professional designers worldwide'
 }: ToolsCoveredSectionProps) {
   return (
-    <section id="tools" className="py-20 md:py-28" style={{ backgroundColor: '#f9fafb' }}>
+    <section id="tools" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-subtle)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,14 +36,14 @@ export function ToolsCoveredSection({
           {/* Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center gap-2 mb-4">
-              <div className="p-3 rounded-lg" style={{ backgroundColor: '#8458B3' }}>
-                <ToolIcon className="w-6 h-6" style={{ color: 'white' }} />
+              <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--color-accent-muted)' }}>
+                <ToolIcon className="w-6 h-6" style={{ color: 'var(--text-on-dark)' }} />
               </div>
             </div>
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.25rem)'
               }}>
               {title}
@@ -51,7 +51,7 @@ export function ToolsCoveredSection({
             <p
               className="font-body text-lg max-w-2xl mx-auto leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 lineHeight: '1.8'
               }}>
               {description}
@@ -67,10 +67,10 @@ export function ToolsCoveredSection({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
-                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
+                className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300">
                 <div className="flex flex-col items-center text-center">
                   <div className="mb-4">
-                    <div className="w-24 h-24 rounded-lg flex items-center justify-center p-4 bg-white border-2 relative" style={{ borderColor: '#FFF6E2' }}>
+                    <div className="w-24 h-24 rounded-lg flex items-center justify-center p-4 bg-card border-2 relative" style={{ borderColor: 'var(--bg-warm)' }}>
                       <Image
                         src={tool.logo}
                         alt={`${tool.name} design tool logo used in UI UX design course`}
@@ -88,17 +88,17 @@ export function ToolsCoveredSection({
                     <h3
                       className="font-display font-bold mb-2"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.25rem)'
                       }}>
                       {tool.name}
                     </h3>
                     {tool.category && (
                       <span
-                        className="inline-block px-2 py-1 rounded text-xs font-body font-semibold mb-3"
+                        className="inline-block px-2 py-1 rounded text-xs font-body font-semibold mb-3 accent-icon-box"
                         style={{
-                          backgroundColor: '#8458B3',
-                          color: 'white'
+                          backgroundColor: 'var(--color-primary)',
+                          color: 'var(--text-on-accent)'
                         }}>
                         {tool.category}
                       </span>
@@ -106,7 +106,7 @@ export function ToolsCoveredSection({
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#6b7280',
+                        color: 'var(--text-muted)',
                         fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                         lineHeight: '1.6'
                       }}>

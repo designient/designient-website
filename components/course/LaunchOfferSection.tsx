@@ -68,7 +68,7 @@ export function LaunchOfferSection({
   }
 
   return (
-    <section className="py-16 md:py-20" style={{ backgroundColor: '#8458B3' }}>
+    <section className="py-16 md:py-20 section-band-accent">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -79,16 +79,16 @@ export function LaunchOfferSection({
 
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full bg-[#f2d53c]">
-              <Gift className="w-5 h-5" style={{ color: '#1a1a1a' }} />
-              <span className="font-body font-bold text-sm uppercase tracking-wide" style={{ color: '#1a1a1a' }}>
+            <div className="inline-flex items-center gap-2 mb-4 px-4 py-2 rounded-full accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }}>
+              <Gift className="w-5 h-5" style={{ color: 'var(--text-on-accent)' }} />
+              <span className="font-body font-bold text-sm uppercase tracking-wide" style={{ color: 'var(--text-on-accent)' }}>
                 Launch Offer
               </span>
             </div>
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: 'white',
+                color: 'var(--text-on-dark)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)'
               }}>
               Additional Bonuses Worth {totalValue} FREE
@@ -99,37 +99,37 @@ export function LaunchOfferSection({
           </div>
 
           {/* Countdown Timer */}
-          <div className="bg-white rounded-xl p-6 md:p-8 mb-8 shadow-lg">
+          <div className="bg-card rounded-xl p-6 md:p-8 mb-8 shadow-lg">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto text-center">
               <div className="flex flex-col items-center">
-                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: '#8458B3' }}>
+                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: 'var(--color-primary)' }}>
                   {String(timeLeft.days).padStart(2, '0')}
                 </span>
-                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
                   Days
                 </span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: '#8458B3' }}>
+                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: 'var(--color-primary)' }}>
                   {String(timeLeft.hours).padStart(2, '0')}
                 </span>
-                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
                   Hours
                 </span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: '#8458B3' }}>
+                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: 'var(--color-primary)' }}>
                   {String(timeLeft.minutes).padStart(2, '0')}
                 </span>
-                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
                   Minutes
                 </span>
               </div>
               <div className="flex flex-col items-center">
-                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: '#8458B3' }}>
+                <span className="font-display font-bold text-4xl md:text-5xl mb-1" style={{ color: 'var(--color-primary)' }}>
                   {String(timeLeft.seconds).padStart(2, '0')}
                 </span>
-                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: '#6b7280' }}>
+                <span className="font-body text-sm font-medium uppercase tracking-wider" style={{ color: 'var(--text-muted)' }}>
                   Seconds
                 </span>
               </div>
@@ -147,11 +147,11 @@ export function LaunchOfferSection({
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white rounded-xl p-6 shadow-lg">
+                  className="bg-card rounded-xl p-6 shadow-lg">
                   <div className="flex flex-col md:flex-row md:items-start gap-4">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#FFF6E2' }}>
-                        <CheckCircle className="w-6 h-6" style={{ color: '#8458B3' }} />
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                        <CheckCircle className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -159,7 +159,7 @@ export function LaunchOfferSection({
                         <h3
                           className="font-display font-bold"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
                           }}>
                           {bonus.title}
@@ -167,7 +167,7 @@ export function LaunchOfferSection({
                         <span
                           className="font-body font-semibold whitespace-nowrap"
                           style={{
-                            color: '#8458B3',
+                            color: 'var(--color-primary)',
                             fontSize: 'clamp(1rem, 1.8vw, 1.125rem)'
                           }}>
                           {bonusPrice}
@@ -176,7 +176,7 @@ export function LaunchOfferSection({
                       <p
                         className="font-body leading-relaxed"
                         style={{
-                          color: '#4a4a4a',
+                          color: 'var(--text-secondary)',
                           fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                           lineHeight: '1.7'
                         }}>
@@ -195,19 +195,19 @@ export function LaunchOfferSection({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.4 }}
-            className="mt-8 p-6 rounded-xl border-2 border-[#f2d53c] bg-[#FFF6E2] text-center">
-            <p className="font-body text-sm mb-2" style={{ color: '#6b7280' }}>
+            className="mt-8 p-6 rounded-xl border-2 border-[var(--color-highlight)] bg-[#F0EFFF] text-center">
+            <p className="font-body text-sm mb-2" style={{ color: 'var(--text-muted)' }}>
               Total Bonus Value
             </p>
             <p
               className="font-display font-bold"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.5rem, 3vw, 2.25rem)'
               }}>
               {totalValue} FREE
             </p>
-            <p className="font-body text-sm mt-2" style={{ color: '#6b7280' }}>
+            <p className="font-body text-sm mt-2" style={{ color: 'var(--text-muted)' }}>
               All bonuses included at no extra cost when you enroll now
             </p>
           </motion.div>

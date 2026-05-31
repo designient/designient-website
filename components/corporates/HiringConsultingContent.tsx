@@ -88,7 +88,7 @@ export function HiringConsultingContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -96,7 +96,7 @@ export function HiringConsultingContent() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="mb-8">
-              <Link href="/corporates" className="inline-flex items-center text-sm font-body mb-4 hover:underline" style={{ color: '#8458B3' }}>
+              <Link href="/corporates" className="inline-flex items-center text-sm font-body mb-4 hover:underline" style={{ color: 'var(--color-primary)' }}>
                 ← Back to For Corporates
               </Link>
             </motion.div>
@@ -107,7 +107,7 @@ export function HiringConsultingContent() {
               className="font-display font-bold mb-6"
               style={{
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 lineHeight: '1.2'
               }}>
               Hiring Support & Design Consulting for Growing Teams
@@ -118,7 +118,7 @@ export function HiringConsultingContent() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="font-body text-lg md:text-xl mb-4 leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
                 lineHeight: '1.8'
               }}>
@@ -130,10 +130,10 @@ export function HiringConsultingContent() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="font-body text-sm md:text-base mb-8 leading-relaxed"
               style={{
-                color: '#6b7280',
+                color: 'var(--text-muted)',
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
-              For individual career development, explore our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>individual design courses</Link> including <Link href="/ui-ux-design-pro" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>UI/UX Design Pro</Link> and <Link href="/ui-ux-design-bootcamp" className="underline hover:no-underline font-semibold" style={{ color: '#8458B3' }}>UI/UX Design Bootcamp</Link>.
+              For individual career development, explore our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>individual design courses</Link> including <Link href="/ui-ux-design-pro" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI/UX Design Pro</Link> and <Link href="/ui-ux-design-bootcamp" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI/UX Design Bootcamp</Link>.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -143,7 +143,7 @@ export function HiringConsultingContent() {
               <Link
                 href="/contact-us?reason=corporate-proposal"
                 className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
-                style={{ backgroundColor: '#8458B3' }}>
+                style={{ backgroundColor: 'var(--color-cta)' }}>
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -153,7 +153,7 @@ export function HiringConsultingContent() {
       </section>
 
       {/* Talent Pool Access */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -161,10 +161,10 @@ export function HiringConsultingContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Talent Pool Access
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Access to designers at various experience levels for your team needs
             </p>
           </motion.div>
@@ -178,17 +178,17 @@ export function HiringConsultingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white border-2 rounded-xl p-6 text-center hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#e5e7eb' }}>
+                  className="bg-card border-2 rounded-xl p-6 text-center hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--border-default)' }}>
                   <div className="flex justify-center mb-4">
-                    <div className="p-3 rounded-lg" style={{ backgroundColor: '#FFF6E2' }}>
-                      <Icon className="w-6 h-6" style={{ color: '#8458B3' }} />
+                    <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                      <Icon className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
                     </div>
                   </div>
-                  <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                  <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                     {talent.title}
                   </h3>
-                  <p className="font-body text-xs leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body text-xs leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {talent.description}
                   </p>
                 </motion.div>
@@ -201,7 +201,7 @@ export function HiringConsultingContent() {
             viewport={{ once: true }}
             transition={{ delay: 0.5, duration: 0.4 }}
             className="mt-8 text-center">
-            <p className="font-body text-sm italic" style={{ color: '#6b7280' }}>
+            <p className="font-body text-sm italic" style={{ color: 'var(--text-muted)' }}>
               Note: Talent availability varies. We facilitate connections but do not guarantee specific candidates or hiring outcomes.
             </p>
           </motion.div>
@@ -209,7 +209,7 @@ export function HiringConsultingContent() {
       </section>
 
       {/* Consulting Services */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -217,10 +217,10 @@ export function HiringConsultingContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Consulting Services
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Design expertise and strategic guidance for your product challenges
             </p>
           </motion.div>
@@ -234,15 +234,15 @@ export function HiringConsultingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white rounded-xl p-6 border-l-4 hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#FF5841' }}>
+                  className="bg-card rounded-xl p-6 border-l-4 hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--color-cta)' }}>
                   <div className="flex items-start gap-3 mb-3">
-                    <Icon className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#FF5841' }} />
+                    <Icon className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-cta)' }} />
                     <div className="flex-1">
-                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                         {service.title}
                       </h3>
-                      <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                      <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         {service.description}
                       </p>
                     </div>
@@ -255,7 +255,7 @@ export function HiringConsultingContent() {
       </section>
 
       {/* Engagement Models */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -263,10 +263,10 @@ export function HiringConsultingContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               Engagement Models
             </h2>
-            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
               Flexible engagement options to suit your team&apos;s needs and structure
             </p>
           </motion.div>
@@ -280,17 +280,17 @@ export function HiringConsultingContent() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-white border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
-                  style={{ borderColor: '#e5e7eb' }}>
+                  className="bg-card border-2 rounded-xl p-6 hover:shadow-lg transition-shadow"
+                  style={{ borderColor: 'var(--border-default)' }}>
                   <div className="flex items-start gap-3">
-                    <div className="p-2 rounded-lg flex-shrink-0" style={{ backgroundColor: '#FFF6E2' }}>
-                      <Icon className="w-5 h-5" style={{ color: '#8458B3' }} />
+                    <div className="p-2 rounded-lg flex-shrink-0" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                      <Icon className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                      <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                         {model.title}
                       </h3>
-                      <p className="font-body text-sm leading-relaxed" style={{ color: '#4a4a4a' }}>
+                      <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         {model.description}
                       </p>
                     </div>
@@ -303,7 +303,7 @@ export function HiringConsultingContent() {
       </section>
 
       {/* Trust & Confidentiality */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -311,36 +311,36 @@ export function HiringConsultingContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-xl p-8 shadow-lg border-l-4" style={{ borderColor: '#8458B3' }}>
+            <div className="bg-card rounded-xl p-8 shadow-lg border-l-4" style={{ borderColor: 'var(--color-primary)' }}>
               <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: '#FFF6E2' }}>
-                  <Shield className="w-8 h-8" style={{ color: '#8458B3' }} />
+                <div className="p-3 rounded-lg flex-shrink-0" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                  <Shield className="w-8 h-8" style={{ color: 'var(--color-primary)' }} />
                 </div>
                 <div>
-                  <h2 className="font-display font-bold mb-4" style={{ fontSize: '1.75rem', color: '#1a1a1a' }}>
+                  <h2 className="font-display font-bold mb-4" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
                     Trust & Confidentiality
                   </h2>
-                  <p className="font-body leading-relaxed mb-4" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
                     We maintain strict confidentiality and transparency in all our engagements.
                   </p>
                 </div>
               </div>
               <ul className="space-y-3 ml-16">
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8458B3' }} />
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>No guaranteed outcomes:</strong> We don&apos;t promise specific hiring results, project outcomes, or business impact. Success depends on multiple factors including team fit, implementation, and market conditions
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8458B3' }} />
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>Confidential handling of corporate data:</strong> We treat all corporate information, strategies, product details, and business data with strict confidentiality
                   </p>
                 </li>
                 <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#8458B3' }} />
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0 accent-icon-box" style={{ backgroundColor: 'var(--color-accent)' }} />
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     <strong>NDAs available on request:</strong> We can execute non-disclosure agreements to protect your sensitive information, product strategies, and business plans
                   </p>
                 </li>
@@ -377,7 +377,7 @@ export function HiringConsultingContent() {
       />
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#8458B3' }}>
+      <section className="py-16 md:py-24 section-band-accent">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -385,22 +385,22 @@ export function HiringConsultingContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display font-bold mb-6 text-white" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+            <h2 className="font-display font-bold mb-6" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
               Tell us what you need. We&apos;ll propose the right model.
             </h2>
-            <p className="font-body text-lg mb-8 text-white opacity-90" style={{ fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
+            <p className="font-body text-lg mb-8" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)' }}>
               Whether you need design talent, consulting expertise, or both, we&apos;ll work with you to design an engagement model that fits your team&apos;s needs and goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact-us?reason=corporate-proposal"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[#8458B3] bg-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-[var(--color-primary)] bg-card transition-all hover:scale-105">
                 Request a Proposal
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
               <Link
                 href="/contact-us?reason=corporate-call"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white border-2 border-white transition-all hover:scale-105">
+                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold border-2 border-[var(--color-accent)] transition-all hover:scale-105" style={{ color: 'var(--color-accent)' }}>
                 Book a Call
               </Link>
             </div>

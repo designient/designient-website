@@ -35,7 +35,7 @@ const steps = [
 
 export function HowLearningWorksSection() {
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -55,13 +55,13 @@ export function HowLearningWorksSection() {
             ease: [0.4, 0, 0.2, 1]
           }}
           className="text-center mb-16 md:mb-24">
-          <h2 className="font-display tracking-wide leading-tight mb-6 text-center" style={{ color: '#8458B3', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
+          <h2 className="font-display tracking-wide leading-tight mb-6 text-center" style={{ color: 'var(--color-primary)', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
             How Your Journey at Designient Works
           </h2>
           <p
             className="font-body text-base md:text-lg max-w-3xl mx-auto font-normal text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -94,22 +94,22 @@ export function HowLearningWorksSection() {
                 }}
                 className="text-center">
                 <div
-                  className="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4"
+                  className="w-16 h-16 mx-auto rounded-2xl flex items-center justify-center mb-4 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <Icon
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-accent)',
                       strokeWidth: 2.5
                     }} />
                 </div>
                 <h3
                   className="font-display font-semibold mb-3"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(0.9375rem, 2vw, 1.125rem)'
                   }}>
                   {step.title}
@@ -117,7 +117,7 @@ export function HowLearningWorksSection() {
                 <p
                   className="font-body leading-relaxed font-normal"
                   style={{
-                    color: '#6b7280',
+                    color: 'var(--text-muted)',
                     fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)',
                     lineHeight: '1.6'
                   }}>

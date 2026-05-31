@@ -81,7 +81,7 @@ export function HeroTestimonials() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.6, duration: 0.4 }}
       className="mt-8 max-w-2xl mx-auto">
-      <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
+      <div className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -94,21 +94,21 @@ export function HeroTestimonials() {
             {/* Rating */}
             <div className="flex items-center justify-center gap-1 mb-4" aria-label={`Rating: ${currentTestimonial.rating} out of 5 stars`}>
               {[...Array(currentTestimonial.rating)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 fill-current" style={{ color: '#f2d53c' }} aria-hidden="true" />
+                <Star key={i} className="w-5 h-5 fill-current" style={{ color: 'var(--color-highlight)' }} aria-hidden="true" />
               ))}
             </div>
 
             {/* Quote */}
-            <blockquote className="font-body text-base md:text-lg leading-relaxed mb-4" style={{ color: '#1a1a1a' }}>
+            <blockquote className="font-body text-base md:text-lg leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
               "{currentTestimonial.quote}"
             </blockquote>
 
             {/* Author */}
             <div className="flex flex-col items-center">
-              <p className="font-body font-semibold text-sm" style={{ color: '#1a1a1a' }}>
+              <p className="font-body font-semibold text-sm" style={{ color: 'var(--text-primary)' }}>
                 {currentTestimonial.author}
               </p>
-              <p className="font-body text-xs" style={{ color: '#6b7280' }}>
+              <p className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
                 {currentTestimonial.role} at {currentTestimonial.company}
               </p>
             </div>
@@ -121,7 +121,7 @@ export function HeroTestimonials() {
             onClick={goToPrevious}
             className="p-2 rounded-full hover:bg-gray-100 transition-colors"
             aria-label="Previous testimonial">
-            <ChevronLeft className="w-5 h-5" style={{ color: '#8458B3' }} aria-hidden="true" />
+            <ChevronLeft className="w-5 h-5" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
           </button>
 
           {/* Dots indicator */}
@@ -134,7 +134,7 @@ export function HeroTestimonials() {
                   index === currentIndex ? 'w-8' : ''
                 }`}
                 style={{
-                  backgroundColor: index === currentIndex ? '#8458B3' : '#e5e7eb'
+                  backgroundColor: index === currentIndex ? 'var(--color-primary)' : 'var(--border-default)'
                 }}
                 aria-label={`Go to testimonial ${index + 1}`}
                 aria-selected={index === currentIndex}
@@ -147,7 +147,7 @@ export function HeroTestimonials() {
             onClick={goToNext}
             className="p-2 rounded-full hover:bg-gray-100 transition-colors"
             aria-label="Next testimonial">
-            <ChevronRight className="w-5 h-5" style={{ color: '#8458B3' }} aria-hidden="true" />
+            <ChevronRight className="w-5 h-5" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
           </button>
         </div>
       </div>

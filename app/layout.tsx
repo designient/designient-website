@@ -85,14 +85,14 @@ export default function RootLayout({
   children: React.ReactNode
 }): React.ReactElement {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`}>
+    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
         {/* Analytics preconnects */}
         <link rel="preconnect" href="https://i.pravatar.cc" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://connect.facebook.net" />
       </head>
-      <body className="font-sans antialiased" suppressHydrationWarning>
+      <body className="font-sans antialiased bg-[var(--bg-base)] text-[var(--text-primary)]" suppressHydrationWarning>
         <SkipLink />
         <CurrencyProvider>
           {children}

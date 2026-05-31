@@ -44,7 +44,7 @@ export function TestimonialsSection() {
     <section
       className="py-24 md:py-32"
       style={{
-        backgroundColor: '#fceed1'
+        backgroundColor: 'var(--bg-peach)'
       }}>
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -70,7 +70,7 @@ export function TestimonialsSection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6 text-center"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -80,7 +80,7 @@ export function TestimonialsSection() {
           <p
             className="font-body text-base md:text-lg max-w-2xl mx-auto font-normal text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -96,27 +96,27 @@ export function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: index * 0.15, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-              className="bg-white rounded-xl border-2 p-6 hover:shadow-lg transition-shadow flex flex-col h-full"
-              style={{ borderColor: '#f4e4c1' }}>
+              className="bg-card rounded-xl border-2 p-6 hover:shadow-lg transition-shadow flex flex-col h-full"
+              style={{ borderColor: 'var(--bg-peach)' }}>
 
               <div className="mb-4">
                 <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                  <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                     {testimonial.name}
                   </h3>
                   <span
                     className="font-body text-xs font-medium px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: '#f4e4c1', color: '#8458B3' }}>
+                    style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
                     {testimonial.company}
                   </span>
                 </div>
-                <p className="font-body text-sm font-medium mb-3" style={{ color: '#8458B3' }}>
+                <p className="font-body text-sm font-medium mb-3" style={{ color: 'var(--color-primary)' }}>
                   {testimonial.role}
                 </p>
                 {/* Star rating removed to match More Student Experiences style, or can keep if preferred. Keeping concise for now. */}
               </div>
 
-              <p className="font-body text-sm leading-relaxed flex-grow" style={{ color: '#4a4a4a' }}>
+              <p className="font-body text-sm leading-relaxed flex-grow" style={{ color: 'var(--text-secondary)' }}>
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
             </motion.div>
@@ -134,9 +134,9 @@ export function TestimonialsSection() {
             href="/success-stories"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-semibold transition-all hover:scale-105 border-2"
             style={{
-              backgroundColor: 'white',
-              color: '#8458B3',
-              borderColor: '#8458B3'
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--color-primary)',
+              borderColor: 'var(--color-primary)'
             }}>
             View All Success Stories
             <ArrowRight className="w-5 h-5" />

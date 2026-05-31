@@ -246,7 +246,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
   }
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto">
           <motion.div
@@ -258,7 +258,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
             <h2
               className="font-display font-bold mb-4"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
               Apply for This Position
@@ -266,7 +266,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
             <p
               className="font-body leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                 lineHeight: '1.7'
               }}>
@@ -281,13 +281,13 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 className="mb-6 p-6 rounded-xl flex items-start gap-4"
-                style={{ backgroundColor: '#f0fdf4', border: '2px solid #22c55e' }}>
+                style={{ backgroundColor: 'var(--color-success-bg)', border: '2px solid #22c55e' }}>
                 <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#22c55e' }} />
                 <div className="flex-1">
                   <h3
                     className="font-display font-bold mb-2"
                     style={{
-                      color: '#166534',
+                      color: 'var(--color-success)',
                       fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                     }}>
                     Application Submitted Successfully
@@ -295,7 +295,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   <p
                     className="font-body"
                     style={{
-                      color: '#166534',
+                      color: 'var(--color-success)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                       lineHeight: '1.7'
                     }}>
@@ -309,7 +309,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   }}
                   className="flex-shrink-0"
                   aria-label="Close success message">
-                  <X className="w-5 h-5" style={{ color: '#166534' }} />
+                  <X className="w-5 h-5" style={{ color: 'var(--color-success)' }} />
                 </button>
               </motion.div>
             )}
@@ -326,10 +326,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="fullName"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                Full Name <span style={{ color: '#dc2626' }}>*</span>
+                Full Name <span style={{ color: 'var(--color-error)' }}>*</span>
               </label>
               <input
                 type="text"
@@ -341,10 +341,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 aria-required="true"
                 aria-invalid={errors.fullName ? 'true' : 'false'}
                 aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-                className={`w-full px-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                className={`w-full px-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                   }`}
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: 'var(--bg-card)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}
               />
@@ -352,7 +352,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 <p
                   id="fullName-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.fullName}
@@ -366,13 +366,13 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="email"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                Email Address <span style={{ color: '#dc2626' }}>*</span>
+                Email Address <span style={{ color: 'var(--color-error)' }}>*</span>
               </label>
               <div className="relative">
-                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 <input
                   type="email"
                   id="email"
@@ -383,10 +383,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   aria-required="true"
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                     }`}
                   style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'var(--bg-card)',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                   }}
                 />
@@ -395,7 +395,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 <p
                   id="email-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.email}
@@ -409,10 +409,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="phone"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                Phone Number <span style={{ color: '#dc2626' }}>*</span>
+                Phone Number <span style={{ color: 'var(--color-error)' }}>*</span>
               </label>
               <div className="flex gap-2">
                 <CountryCodeSelect
@@ -421,7 +421,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   id="phoneCountryCode"
                 />
                 <div className="relative flex-1">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                   <input
                     type="tel"
                     id="phone"
@@ -432,10 +432,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                     aria-required="true"
                     aria-invalid={errors.phone ? 'true' : 'false'}
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
-                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}
                     style={{
-                      backgroundColor: 'white',
+                      backgroundColor: 'var(--bg-card)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                     }}
                   />
@@ -445,7 +445,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 <p
                   id="phone-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.phone}
@@ -459,10 +459,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="whatsapp"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                WhatsApp Number <span className="font-normal text-sm" style={{ color: '#6b7280' }}>(Optional)</span>
+                WhatsApp Number <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
               </label>
               <div className="flex gap-2">
                 <CountryCodeSelect
@@ -471,7 +471,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   id="whatsappCountryCode"
                 />
                 <div className="relative flex-1">
-                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                   <input
                     type="tel"
                     id="whatsapp"
@@ -480,10 +480,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                     onChange={handleInputChange}
                     aria-invalid={errors.whatsapp ? 'true' : 'false'}
                     aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
-                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                       }`}
                     style={{
-                      backgroundColor: 'white',
+                      backgroundColor: 'var(--bg-card)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                     }}
                   />
@@ -493,7 +493,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 <p
                   id="whatsapp-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.whatsapp}
@@ -507,10 +507,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="resume"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                Resume (PDF) <span style={{ color: '#dc2626' }}>*</span>
+                Resume (PDF) <span style={{ color: 'var(--color-error)' }}>*</span>
               </label>
               <div className="relative">
                 <input
@@ -530,20 +530,20 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-colors cursor-pointer min-h-[44px] ${errors.resume
                     ? 'border-red-500 bg-red-50'
                     : resumeFile
-                      ? 'border-[#8458B3] bg-purple-50'
-                      : 'border-gray-300 bg-gray-50 hover:border-[#8458B3]'
+                      ? 'border-[var(--color-primary)] bg-purple-50'
+                      : 'border-gray-300 bg-gray-50 hover:border-[var(--bg-purple-band)]'
                     }`}>
-                  <Upload className="w-5 h-5 flex-shrink-0" style={{ color: errors.resume ? '#dc2626' : '#8458B3' }} />
+                  <Upload className="w-5 h-5 flex-shrink-0" style={{ color: errors.resume ? 'var(--color-error)' : 'var(--color-primary)' }} />
                   <div className="flex-1">
                     {resumeFile ? (
                       <div className="flex items-center gap-2">
-                        <FileText className="w-4 h-4" style={{ color: '#8458B3' }} />
-                        <span className="font-body text-sm truncate max-w-[200px] md:max-w-none" style={{ color: '#1a1a1a' }}>
+                        <FileText className="w-4 h-4" style={{ color: 'var(--color-primary)' }} />
+                        <span className="font-body text-sm truncate max-w-[200px] md:max-w-none" style={{ color: 'var(--text-primary)' }}>
                           {resumeFile.name} ({(resumeFile.size / 1024 / 1024).toFixed(2)} MB)
                         </span>
                       </div>
                     ) : (
-                      <span className="font-body text-sm" style={{ color: '#6b7280' }}>
+                      <span className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                         Click to upload or drag and drop
                       </span>
                     )}
@@ -553,14 +553,14 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
               <p
                 id="resume-help"
                 className="mt-2 font-body text-xs"
-                style={{ color: '#6b7280' }}>
+                style={{ color: 'var(--text-muted)' }}>
                 PDF only, maximum file size 5MB
               </p>
               {errors.resume && (
                 <p
                   id="resume-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.resume}
@@ -574,13 +574,13 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="portfolioUrl"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                Portfolio URL <span className="font-normal text-sm" style={{ color: '#6b7280' }}>(Optional)</span>
+                Portfolio URL <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
               </label>
               <div className="relative">
-                <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 <input
                   type="url"
                   id="portfolioUrl"
@@ -590,10 +590,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   placeholder="https://yourportfolio.com"
                   aria-invalid={errors.portfolioUrl ? 'true' : 'false'}
                   aria-describedby={errors.portfolioUrl ? 'portfolioUrl-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.portfolioUrl ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.portfolioUrl ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                     }`}
                   style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'var(--bg-card)',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                   }}
                 />
@@ -602,7 +602,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 <p
                   id="portfolioUrl-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.portfolioUrl}
@@ -616,13 +616,13 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="linkedinUrl"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                LinkedIn Profile URL <span className="font-normal text-sm" style={{ color: '#6b7280' }}>(Optional)</span>
+                LinkedIn Profile URL <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
               </label>
               <div className="relative">
-                <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: '#6b7280' }} />
+                <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5" style={{ color: 'var(--text-muted)' }} />
                 <input
                   type="url"
                   id="linkedinUrl"
@@ -632,10 +632,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   placeholder="https://linkedin.com/in/yourprofile"
                   aria-invalid={errors.linkedinUrl ? 'true' : 'false'}
                   aria-describedby={errors.linkedinUrl ? 'linkedinUrl-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.linkedinUrl ? 'border-red-500' : 'border-gray-300 focus:border-[#8458B3]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.linkedinUrl ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
                     }`}
                   style={{
-                    backgroundColor: 'white',
+                    backgroundColor: 'var(--bg-card)',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                   }}
                 />
@@ -644,7 +644,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 <p
                   id="linkedinUrl-error"
                   className="mt-2 flex items-center gap-2 font-body text-sm"
-                  style={{ color: '#dc2626' }}
+                  style={{ color: 'var(--color-error)' }}
                   role="alert">
                   <AlertCircle className="w-4 h-4" />
                   {errors.linkedinUrl}
@@ -658,10 +658,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 htmlFor="coverLetter"
                 className="block font-body font-semibold mb-2"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                 }}>
-                Cover Letter <span className="font-normal text-sm" style={{ color: '#6b7280' }}>(Optional)</span>
+                Cover Letter <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
               </label>
               <textarea
                 id="coverLetter"
@@ -670,22 +670,22 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 onChange={handleInputChange}
                 rows={6}
                 placeholder="Tell us why you're interested in this role and what makes you a great fit..."
-                className="w-full px-4 py-3 rounded-lg font-body border-2 border-gray-300 focus:border-[#8458B3] transition-colors resize-y"
+                className="w-full px-4 py-3 rounded-lg font-body border-2 border-gray-300 focus:border-[var(--color-primary)] transition-colors resize-y"
                 style={{
-                  backgroundColor: 'white',
+                  backgroundColor: 'var(--bg-card)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                   minHeight: '120px'
                 }}
               />
               <div className="flex justify-between items-start mt-1">
-                <p id="coverLetter-hint" className="font-body text-xs" style={{ color: '#6b7280' }}>
+                <p id="coverLetter-hint" className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
                   Minimum {COVER_LETTER_MIN} characters
                 </p>
                 <span
                   className="font-body text-xs"
                   style={{
-                    color: formData.coverLetter.length < COVER_LETTER_MIN ? '#ef4444' :
-                      formData.coverLetter.length > COVER_LETTER_MAX * 0.9 ? '#f59e0b' : '#6b7280'
+                    color: formData.coverLetter.length < COVER_LETTER_MIN ? 'var(--color-error)' :
+                      formData.coverLetter.length > COVER_LETTER_MAX * 0.9 ? 'var(--color-warning)' : 'var(--text-muted)'
                   }}
                 >
                   {formData.coverLetter.length} / {COVER_LETTER_MAX}
@@ -700,8 +700,8 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 disabled={isSubmitting}
                 className="w-full inline-flex items-center justify-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
                 style={{
-                  backgroundColor: isSubmitting ? '#9ca3af' : '#8458B3',
-                  color: 'white',
+                  backgroundColor: isSubmitting ? 'var(--text-muted)' : 'var(--color-cta)',
+                  color: 'var(--text-on-accent)',
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                 }}>
                 {isSubmitting ? (
@@ -718,7 +718,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
               </button>
               <p
                 className="mt-4 font-body text-xs text-center"
-                style={{ color: '#6b7280' }}>
+                style={{ color: 'var(--text-muted)' }}>
                 By submitting this form, you agree to our privacy policy. We respect your data and will only use it for recruitment purposes.
               </p>
             </div>

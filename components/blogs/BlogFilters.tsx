@@ -59,13 +59,13 @@ export function BlogFilters({
   const hasActiveFilters = selectedCategory || selectedTags.length > 0 || sortBy !== 'latest'
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-md mb-8">
+    <div className="bg-card rounded-xl p-6 shadow-md mb-8">
       <div className="flex items-center gap-2 mb-4">
-        <Filter className="w-5 h-5" style={{ color: '#8458B3' }} />
+        <Filter className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
         <h3
           className="font-display font-bold"
           style={{
-            color: '#1a1a1a',
+            color: 'var(--text-primary)',
             fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
           }}>
           Filter & Sort
@@ -74,7 +74,7 @@ export function BlogFilters({
           <button
             onClick={clearFilters}
             className="ml-auto flex items-center gap-1 text-sm font-body"
-            style={{ color: '#8458B3' }}>
+            style={{ color: 'var(--color-primary)' }}>
             <X className="w-4 h-4" />
             Clear All
           </button>
@@ -85,7 +85,7 @@ export function BlogFilters({
       <div className="mb-6">
         <label
           className="block font-body font-semibold mb-2"
-          style={{ color: '#1a1a1a', fontSize: '0.875rem' }}>
+          style={{ color: 'var(--text-primary)', fontSize: '0.875rem' }}>
           Category
         </label>
         <div className="flex flex-wrap gap-2">
@@ -96,7 +96,7 @@ export function BlogFilters({
                 ? 'text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
-            style={!selectedCategory ? { backgroundColor: '#8458B3' } : {}}>
+            style={!selectedCategory ? { backgroundColor: 'var(--color-cta)' } : {}}>
             All
           </button>
           {categories.map((category) => (
@@ -108,7 +108,7 @@ export function BlogFilters({
                   ? 'text-white'
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
-              style={selectedCategory === category ? { backgroundColor: '#8458B3' } : {}}>
+              style={selectedCategory === category ? { backgroundColor: 'var(--color-cta)' } : {}}>
               {category}
             </button>
           ))}
@@ -120,7 +120,7 @@ export function BlogFilters({
         <div className="mb-6">
           <label
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a', fontSize: '0.875rem' }}>
+            style={{ color: 'var(--text-primary)', fontSize: '0.875rem' }}>
             Tags
           </label>
           <div className="flex flex-wrap gap-2">
@@ -133,7 +133,7 @@ export function BlogFilters({
                     ? 'text-white'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
-                style={selectedTags.includes(tag) ? { backgroundColor: '#8458B3' } : {}}>
+                style={selectedTags.includes(tag) ? { backgroundColor: 'var(--color-cta)' } : {}}>
                 {tag}
               </button>
             ))}
@@ -145,7 +145,7 @@ export function BlogFilters({
       <div>
         <label
           className="block font-body font-semibold mb-2"
-          style={{ color: '#1a1a1a', fontSize: '0.875rem' }}>
+          style={{ color: 'var(--text-primary)', fontSize: '0.875rem' }}>
           Sort By
         </label>
         <div className="flex gap-2">
@@ -156,7 +156,7 @@ export function BlogFilters({
                 ? 'text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
-            style={sortBy === 'latest' ? { backgroundColor: '#8458B3' } : {}}>
+            style={sortBy === 'latest' ? { backgroundColor: 'var(--color-cta)' } : {}}>
             Latest
           </button>
           <button
@@ -166,7 +166,7 @@ export function BlogFilters({
                 ? 'text-white'
                 : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
-            style={sortBy === 'popular' ? { backgroundColor: '#8458B3' } : {}}>
+            style={sortBy === 'popular' ? { backgroundColor: 'var(--color-cta)' } : {}}>
             Most Popular
           </button>
         </div>

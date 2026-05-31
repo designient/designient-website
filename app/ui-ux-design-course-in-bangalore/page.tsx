@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default function BangaloreCityPage() {
   return (
     <QuickApplyProvider>
-      <div className="min-h-screen bg-white font-sans text-slate-900">
+      <div className="min-h-screen bg-base font-sans text-primary">
         <CityPageSchemas
           cityName="Bangalore"
           cityUrl="https://designient.com/ui-ux-design-course-in-bangalore"

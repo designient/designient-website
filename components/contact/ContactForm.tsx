@@ -180,9 +180,9 @@ export function ContactForm() {
         <div
           className="mb-6 p-4 rounded-lg"
           style={{
-            backgroundColor: '#d1fae5',
-            border: '1px solid #10b981',
-            color: '#065f46'
+            backgroundColor: 'var(--color-success-bg)',
+            border: '1px solid var(--color-success)',
+            color: 'var(--color-success)'
           }}>
           <p className="font-body font-semibold">{submitMessage}</p>
         </div>
@@ -192,9 +192,9 @@ export function ContactForm() {
         <div
           className="mb-6 p-4 rounded-lg"
           style={{
-            backgroundColor: '#fee2e2',
-            border: '1px solid #ef4444',
-            color: '#991b1b'
+            backgroundColor: 'var(--color-error-bg)',
+            border: '1px solid var(--color-error)',
+            color: 'var(--color-error)'
           }}>
           <p className="font-body font-semibold">
             Something went wrong. Please try again or email us directly at hello@designient.com
@@ -208,8 +208,8 @@ export function ContactForm() {
           <label
             htmlFor="fullName"
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a' }}>
-            Full Name <span style={{ color: '#ef4444' }}>*</span>
+            style={{ color: 'var(--text-primary)' }}>
+            Full Name <span style={{ color: 'var(--color-error)' }}>*</span>
           </label>
           <input
             type="text"
@@ -223,15 +223,15 @@ export function ContactForm() {
             aria-describedby={errors.fullName ? 'fullName-error' : undefined}
             className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{
-              borderColor: errors.fullName ? '#ef4444' : '#e5e7eb',
-              backgroundColor: 'white'
+              borderColor: errors.fullName ? 'var(--color-error)' : 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)'
             }}
           />
           {errors.fullName && (
             <p
               id="fullName-error"
               className="mt-1 font-body text-sm"
-              style={{ color: '#ef4444' }}
+              style={{ color: 'var(--color-error)' }}
               role="alert">
               {errors.fullName}
             </p>
@@ -243,8 +243,8 @@ export function ContactForm() {
           <label
             htmlFor="email"
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a' }}>
-            Email Address <span style={{ color: '#ef4444' }}>*</span>
+            style={{ color: 'var(--text-primary)' }}>
+            Email Address <span style={{ color: 'var(--color-error)' }}>*</span>
           </label>
           <input
             type="email"
@@ -258,15 +258,15 @@ export function ContactForm() {
             aria-describedby={errors.email ? 'email-error' : undefined}
             className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{
-              borderColor: errors.email ? '#ef4444' : '#e5e7eb',
-              backgroundColor: 'white'
+              borderColor: errors.email ? 'var(--color-error)' : 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)'
             }}
           />
           {errors.email && (
             <p
               id="email-error"
               className="mt-1 font-body text-sm"
-              style={{ color: '#ef4444' }}
+              style={{ color: 'var(--color-error)' }}
               role="alert">
               {errors.email}
             </p>
@@ -278,7 +278,7 @@ export function ContactForm() {
           <label
             htmlFor="phone"
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a' }}>
+            style={{ color: 'var(--text-primary)' }}>
             Phone Number
           </label>
           <div className="flex gap-2">
@@ -297,20 +297,20 @@ export function ContactForm() {
               aria-describedby={errors.phone ? 'phone-error' : 'phone-hint'}
               className="flex-1 px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{
-                borderColor: errors.phone ? '#ef4444' : '#e5e7eb',
-                backgroundColor: 'white'
+                borderColor: errors.phone ? 'var(--color-error)' : 'var(--border-default)',
+                backgroundColor: 'var(--bg-card)'
               }}
               placeholder="Enter phone number"
             />
           </div>
-          <p id="phone-hint" className="mt-1 font-body text-xs" style={{ color: '#6b7280' }}>
+          <p id="phone-hint" className="mt-1 font-body text-xs" style={{ color: 'var(--text-muted)' }}>
             7-15 digits without country code
           </p>
           {errors.phone && (
             <p
               id="phone-error"
               className="mt-1 font-body text-sm"
-              style={{ color: '#ef4444' }}
+              style={{ color: 'var(--color-error)' }}
               role="alert">
               {errors.phone}
             </p>
@@ -322,8 +322,8 @@ export function ContactForm() {
           <label
             htmlFor="whatsapp"
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a' }}>
-            WhatsApp Number <span className="font-normal text-sm" style={{ color: '#6b7280' }}>(Optional)</span>
+            style={{ color: 'var(--text-primary)' }}>
+            WhatsApp Number <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
           </label>
           <div className="flex gap-2">
             <CountryCodeSelect
@@ -341,8 +341,8 @@ export function ContactForm() {
               aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
               className="flex-1 px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{
-                borderColor: errors.whatsapp ? '#ef4444' : '#e5e7eb',
-                backgroundColor: 'white'
+                borderColor: errors.whatsapp ? 'var(--color-error)' : 'var(--border-default)',
+                backgroundColor: 'var(--bg-card)'
               }}
               placeholder="Enter WhatsApp number"
             />
@@ -351,7 +351,7 @@ export function ContactForm() {
             <p
               id="whatsapp-error"
               className="mt-1 font-body text-sm"
-              style={{ color: '#ef4444' }}
+              style={{ color: 'var(--color-error)' }}
               role="alert">
               {errors.whatsapp}
             </p>
@@ -363,8 +363,8 @@ export function ContactForm() {
           <label
             htmlFor="reason"
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a' }}>
-            Reason for Contact <span style={{ color: '#ef4444' }}>*</span>
+            style={{ color: 'var(--text-primary)' }}>
+            Reason for Contact <span style={{ color: 'var(--color-error)' }}>*</span>
           </label>
           <select
             id="reason"
@@ -377,8 +377,8 @@ export function ContactForm() {
             aria-describedby={errors.reason ? 'reason-error' : undefined}
             className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{
-              borderColor: errors.reason ? '#ef4444' : '#e5e7eb',
-              backgroundColor: 'white'
+              borderColor: errors.reason ? 'var(--color-error)' : 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)'
             }}>
             <option value="">Select a reason...</option>
             <option value="course-enquiry">Course Enquiry</option>
@@ -391,7 +391,7 @@ export function ContactForm() {
             <p
               id="reason-error"
               className="mt-1 font-body text-sm"
-              style={{ color: '#ef4444' }}
+              style={{ color: 'var(--color-error)' }}
               role="alert">
               {errors.reason}
             </p>
@@ -403,8 +403,8 @@ export function ContactForm() {
           <label
             htmlFor="message"
             className="block font-body font-semibold mb-2"
-            style={{ color: '#1a1a1a' }}>
-            Message <span style={{ color: '#ef4444' }}>*</span>
+            style={{ color: 'var(--text-primary)' }}>
+            Message <span style={{ color: 'var(--color-error)' }}>*</span>
           </label>
           <div className="relative">
             <textarea
@@ -420,28 +420,28 @@ export function ContactForm() {
               rows={6}
               className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 resize-y"
               style={{
-                borderColor: errors.message ? '#ef4444' : '#e5e7eb',
-                backgroundColor: 'white'
+                borderColor: errors.message ? 'var(--color-error)' : 'var(--border-default)',
+                backgroundColor: 'var(--bg-card)'
               }}
             />
             <span
               className="absolute bottom-3 right-3 font-body text-xs"
               style={{
-                color: formData.message.length < MESSAGE_MIN ? '#ef4444' :
-                  formData.message.length > MESSAGE_MAX * 0.9 ? '#f59e0b' : '#6b7280'
+                color: formData.message.length < MESSAGE_MIN ? 'var(--color-error)' :
+                  formData.message.length > MESSAGE_MAX * 0.9 ? 'var(--color-warning)' : 'var(--text-muted)'
               }}
             >
               {formData.message.length} / {MESSAGE_MAX}
             </span>
           </div>
-          <p id="message-hint" className="mt-1 font-body text-xs" style={{ color: '#6b7280' }}>
+          <p id="message-hint" className="mt-1 font-body text-xs" style={{ color: 'var(--text-muted)' }}>
             Minimum {MESSAGE_MIN} characters
           </p>
           {errors.message && (
             <p
               id="message-error"
               className="mt-1 font-body text-sm"
-              style={{ color: '#ef4444' }}
+              style={{ color: 'var(--color-error)' }}
               role="alert">
               {errors.message}
             </p>
@@ -453,19 +453,19 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full px-6 py-4 rounded-lg font-body font-semibold text-white transition-colors hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-6 py-4 rounded-lg font-body font-semibold text-white transition-colors hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
             style={{
-              backgroundColor: '#8458B3'
+              backgroundColor: 'var(--color-cta)'
             }}>
             {isSubmitting ? 'Submitting...' : 'Submit Enquiry'}
           </button>
-          <p className="mt-3 text-center font-body text-xs" style={{ color: '#6b7280' }}>
+          <p className="mt-3 text-center font-body text-xs" style={{ color: 'var(--text-muted)' }}>
             By submitting this form, you agree to our{' '}
-            <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+            <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
               Privacy Policy
             </Link>
             {' '}and{' '}
-            <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: '#8458B3' }}>
+            <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
               Terms and Conditions
             </Link>
             .

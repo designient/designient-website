@@ -34,7 +34,7 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
   } : null;
 
   return (
-    <section id="faqs" className="py-20 md:py-28" style={{ backgroundColor: 'white' }}>
+    <section id="faqs" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-card)' }}>
       {faqSchema && <StructuredData data={faqSchema} />}
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
@@ -46,12 +46,12 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
           <h2
             className="font-display font-bold mb-4"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
             {title}
           </h2>
-          <p className="font-body text-base md:text-lg max-w-2xl mx-auto leading-relaxed mt-4" style={{ color: '#6b7280' }}>
+          <p className="font-body text-base md:text-lg max-w-2xl mx-auto leading-relaxed mt-4" style={{ color: 'var(--text-muted)' }}>
             Common questions about the bootcamp, curriculum, and enrollment process.
           </p>
         </motion.div>
@@ -64,8 +64,8 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="border rounded-lg overflow-hidden bg-white"
-              style={{ borderColor: '#e5e7eb' }}>
+              className="border rounded-lg overflow-hidden bg-card"
+              style={{ borderColor: 'var(--border-default)' }}>
               
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -73,7 +73,7 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
                 <h3
                   className="font-display font-semibold pr-8 flex-1"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(0.9375rem, 2vw, 1.125rem)'
                   }}>
                   {faq.question}
@@ -81,7 +81,7 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}>
-                  <ChevronDown className="w-5 h-5 flex-shrink-0" style={{ color: '#8458B3' }} />
+                  <ChevronDown className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
                 </motion.div>
               </button>
 
@@ -97,7 +97,7 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
                       <p
                         className="font-body font-normal"
                         style={{
-                          color: '#6b7280',
+                          color: 'var(--text-muted)',
                           fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                           lineHeight: '1.7'
                         }}>

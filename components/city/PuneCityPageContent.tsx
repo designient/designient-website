@@ -27,7 +27,7 @@ export function PuneCityPageContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center pt-16 md:pt-20" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="min-h-[60vh] flex items-center pt-16 md:pt-20" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumbs */}
@@ -36,11 +36,11 @@ export function PuneCityPageContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="mb-6">
-              <Link href="/" className="font-body text-sm hover:underline" style={{ color: '#6b7280' }}>
+              <Link href="/" className="font-body text-sm hover:underline" style={{ color: 'var(--text-muted)' }}>
                 Home
               </Link>
-              <span className="font-body text-sm mx-2" style={{ color: '#6b7280' }}>›</span>
-              <span className="font-body text-sm" style={{ color: '#8458B3' }}>UI/UX Design Course in Pune</span>
+              <span className="font-body text-sm mx-2" style={{ color: 'var(--text-muted)' }}>›</span>
+              <span className="font-body text-sm" style={{ color: 'var(--color-primary)' }}>UI/UX Design Course in Pune</span>
             </motion.div>
 
             <motion.div
@@ -51,7 +51,7 @@ export function PuneCityPageContent() {
               <h1
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2.5rem, 5vw, 4rem)'
                 }}>
                 UI/UX Design Course in Pune – Weekend Batch | Designient
@@ -59,7 +59,7 @@ export function PuneCityPageContent() {
               <p
                 className="font-body text-lg md:text-xl max-w-3xl mx-auto mb-8"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                 }}>
                 A weekend-focused UI/UX design course in Pune, built for working professionals and career switchers.
@@ -69,8 +69,8 @@ export function PuneCityPageContent() {
                   href="/ui-ux-design-pro#enroll"
                   className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105"
                   style={{
-                    backgroundColor: '#8458B3',
-                    color: 'white',
+                    backgroundColor: 'var(--color-cta)',
+                    color: 'var(--text-on-accent)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   Enroll Now
@@ -78,10 +78,10 @@ export function PuneCityPageContent() {
                 </Link>
                 <a
                   href="tel:+919353000320"
-                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/50"
+                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)]"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   <Phone className="w-5 h-5" />
@@ -94,20 +94,20 @@ export function PuneCityPageContent() {
       </section>
 
       {/* Pune – weekend batches */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#fceed1' }} aria-labelledby="pune-intro-heading">
+      <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-peach)' }} aria-labelledby="pune-intro-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2
               id="pune-intro-heading"
               className="font-display font-bold mb-6"
-              style={{ color: '#8458B3', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+              style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Pune
             </h2>
-            <p className="font-body text-lg leading-relaxed mb-4" style={{ color: '#1a1a1a' }}>
+            <p className="font-body text-lg leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
               We support learners from Pune primarily through weekend batches.
             </p>
-            <p className="font-body text-lg leading-relaxed" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               If you&apos;re based in Pune and balancing work with learning, our team can help you plan accordingly.
             </p>
           </div>
@@ -115,7 +115,7 @@ export function PuneCityPageContent() {
       </section>
 
       {/* Why Learn UI/UX Design in Pune */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -126,17 +126,17 @@ export function PuneCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <MapPin className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <MapPin className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Why Learn UI/UX Design in Pune
@@ -152,7 +152,7 @@ export function PuneCityPageContent() {
               className="prose prose-lg max-w-none">
               <p
                 className="font-body text-lg leading-relaxed mb-6"
-                style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+                style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
                 Pune has a strong IT, services, and startup ecosystem. As companies focus more on usability and product experience, UI/UX designers are in growing demand across industries.
               </p>
             </motion.div>
@@ -161,7 +161,7 @@ export function PuneCityPageContent() {
       </section>
 
       {/* UI/UX Design Pro Course Overview */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -172,17 +172,17 @@ export function PuneCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <BookOpen className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <BookOpen className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   UI/UX Design Pro Course
@@ -198,8 +198,8 @@ export function PuneCityPageContent() {
               className="prose prose-lg max-w-none">
               <p
                 className="font-body text-lg leading-relaxed mb-6"
-                style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
-                This program is part of Designient's <Link href="/ui-ux-design-pro" className="font-semibold underline" style={{ color: '#8458B3' }}>UI/UX Design Pro course</Link> — a 3-month intensive curriculum covering UX research, UI design, prototyping, and usability testing through hands-on projects.
+                style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+                This program is part of Designient's <Link href="/ui-ux-design-pro" className="font-semibold underline" style={{ color: 'var(--color-primary)' }}>UI/UX Design Pro course</Link> — a 3-month intensive curriculum covering UX research, UI design, prototyping, and usability testing through hands-on projects.
               </p>
             </motion.div>
           </div>
@@ -207,7 +207,7 @@ export function PuneCityPageContent() {
       </section>
 
       {/* Batch Availability in Pune */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -218,17 +218,17 @@ export function PuneCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Calendar className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Calendar className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Batch Availability in Pune
@@ -242,14 +242,14 @@ export function PuneCityPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="max-w-2xl mx-auto">
-              <div className="p-8 rounded-xl text-center" style={{ backgroundColor: '#fee2e2' }}>
-                <h3 className="font-display font-semibold mb-4 text-2xl" style={{ color: '#dc2626' }}>
+              <div className="p-8 rounded-xl text-center" style={{ backgroundColor: 'var(--color-error-bg)' }}>
+                <h3 className="font-display font-semibold mb-4 text-2xl" style={{ color: 'var(--color-error)' }}>
                   Current Batch is Full
                 </h3>
-                <p className="font-body text-lg mb-4" style={{ color: '#991b1b' }}>
+                <p className="font-body text-lg mb-4" style={{ color: 'var(--color-error)' }}>
                   To maintain quality mentorship and personalised feedback, each batch is intentionally kept small.
                 </p>
-                <p className="font-body text-sm" style={{ color: '#991b1b' }}>
+                <p className="font-body text-sm" style={{ color: 'var(--color-error)' }}>
                   New batch dates will be announced soon. <Link href="/contact-us" className="underline font-semibold">Contact us</Link> to be notified when the next batch opens.
                 </p>
               </div>
@@ -259,7 +259,7 @@ export function PuneCityPageContent() {
       </section>
 
       {/* Who This Course Is For */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -270,17 +270,17 @@ export function PuneCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Users className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Users className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Who This Course Is For
@@ -306,9 +306,9 @@ export function PuneCityPageContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="flex items-start gap-3 p-4 rounded-lg"
-                  style={{ backgroundColor: 'white' }}>
-                  <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                  <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                  style={{ backgroundColor: 'var(--bg-card)' }}>
+                  <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                     {item}
                   </span>
                 </motion.div>
@@ -319,7 +319,7 @@ export function PuneCityPageContent() {
       </section>
 
       {/* Why Designient in Pune */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -330,17 +330,17 @@ export function PuneCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Award className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Award className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Why Designient in Pune
@@ -369,16 +369,16 @@ export function PuneCityPageContent() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     className="flex items-start gap-4 p-6 rounded-xl"
-                    style={{ backgroundColor: '#FFF6E2' }}>
+                    style={{ backgroundColor: 'var(--bg-warm)' }}>
                     <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                       style={{
-                        backgroundColor: '#8458B3',
-                        boxShadow: '0 2px 8px rgba(132, 88, 179, 0.3)'
+                        backgroundColor: 'var(--color-primary)',
+                        boxShadow: '0 2px 8px rgba(176, 228, 204, 0.3)'
                       }}>
-                      <Icon className="w-6 h-6" style={{ color: 'white', strokeWidth: 2.5 }} />
+                      <Icon className="w-6 h-6" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                     </div>
-                    <p className="font-body font-semibold" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                    <p className="font-body font-semibold" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                       {item.text}
                     </p>
                   </motion.div>
@@ -390,7 +390,7 @@ export function PuneCityPageContent() {
       </section>
 
       {/* Placement Support */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -401,17 +401,17 @@ export function PuneCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Briefcase className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Briefcase className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Placement Support
@@ -427,7 +427,7 @@ export function PuneCityPageContent() {
               className="prose prose-lg max-w-none">
               <p
                 className="font-body text-lg leading-relaxed"
-                style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+                style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
                 Learners receive portfolio reviews, interview preparation, resume support, and career mentoring to apply for UI/UX roles confidently.
               </p>
             </motion.div>
@@ -439,7 +439,7 @@ export function PuneCityPageContent() {
       <CourseFAQ faqs={faqs} title="Frequently Asked Questions" />
 
       {/* Related Links */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -448,7 +448,7 @@ export function PuneCityPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="text-center">
-              <p className="font-body mb-6" style={{ color: '#6b7280', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+              <p className="font-body mb-6" style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                 Learn more about Designient and our placement support:
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -456,8 +456,8 @@ export function PuneCityPageContent() {
                   href="/ui-ux-design-pro"
                   className="inline-flex items-center gap-2 font-body font-semibold px-6 py-3 rounded-full border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   View Full Course Details
@@ -467,8 +467,8 @@ export function PuneCityPageContent() {
                   href="/about-us"
                   className="inline-flex items-center gap-2 font-body font-semibold px-6 py-3 rounded-full border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   About Designient
@@ -478,8 +478,8 @@ export function PuneCityPageContent() {
                   href="/placements"
                   className="inline-flex items-center gap-2 font-body font-semibold px-6 py-3 rounded-full border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   Placement Support

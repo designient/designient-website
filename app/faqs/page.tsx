@@ -162,18 +162,18 @@ export default function FAQsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={[faqSchema, breadcrumbSchema]} />
       <Header />
       <main id="main-content" role="main">
         {/* Hero Section */}
-        <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: '#f9fafb' }}>
+        <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'var(--bg-subtle)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                   lineHeight: '1.2'
                 }}>
@@ -182,7 +182,7 @@ export default function FAQsPage() {
               <p
                 className="font-body text-lg md:text-xl"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   lineHeight: '1.7',
                   maxWidth: '800px',
                   margin: '0 auto'
@@ -194,13 +194,13 @@ export default function FAQsPage() {
         </section>
 
         {/* Quick Navigation */}
-        <section className="py-12" style={{ backgroundColor: 'white', borderBottom: '2px solid #e5e7eb' }}>
+        <section className="py-12" style={{ backgroundColor: 'var(--bg-card)', borderBottom: '2px solid var(--border-default)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <h2
                 className="font-display font-bold mb-6 text-center"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1.5rem, 3vw, 2rem)'
                 }}>
                 Quick Navigation
@@ -209,37 +209,37 @@ export default function FAQsPage() {
                 <a
                   href="#admissions-batches"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
-                  style={{ backgroundColor: '#f3f4f6', color: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
                   Admissions & Batches
                 </a>
                 <a
                   href="#placements-careers"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
-                  style={{ backgroundColor: '#f3f4f6', color: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
                   Placements & Careers
                 </a>
                 <a
                   href="#certifications-verification"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
-                  style={{ backgroundColor: '#f3f4f6', color: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
                   Certifications & Verification
                 </a>
                 <a
                   href="#learning-experience"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
-                  style={{ backgroundColor: '#f3f4f6', color: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
                   Learning Experience
                 </a>
                 <a
                   href="#scholarships-support"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
-                  style={{ backgroundColor: '#f3f4f6', color: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
                   Scholarships & Support
                 </a>
                 <a
                   href="#careers-at-designient"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
-                  style={{ backgroundColor: '#f3f4f6', color: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
                   Careers at Designient
                 </a>
               </div>
@@ -248,7 +248,7 @@ export default function FAQsPage() {
         </section>
 
         {/* FAQ Sections */}
-        <section className="py-16 md:py-24" style={{ backgroundColor: 'white' }}>
+        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto space-y-16">
               
@@ -257,18 +257,18 @@ export default function FAQsPage() {
                 <h2
                   className="font-display font-bold mb-8 pb-4 border-b-2"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}>
                   Admissions & Batches
                 </h2>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       How do I enrol in a course?
@@ -276,18 +276,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       You can apply through our website and speak with our team before confirming your enrolment.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       How long is the course?
@@ -295,18 +295,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Our UI/UX design courses span from 3 months for the Pro Course to 9 months for the Master Course, with regular classes and hands-on sessions.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are there any course prerequisites?
@@ -314,18 +314,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       There are no strict prerequisites, just an eagerness to learn, basic communication skills, and a passion for creating user-centric designs.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are weekday and weekend batches available?
@@ -333,18 +333,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Batch availability depends on the city and current schedule. Check individual city pages for specific batch options.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Do you offer online classes?
@@ -352,18 +352,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes, we provide both online and offline modes of learning to cater to our diverse student base across India and the World.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       What if I miss a class?
@@ -371,18 +371,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       We provide recorded sessions and supplementary materials for any classes you might miss.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Can I take a trial class before enrolling?
@@ -390,18 +390,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes, we offer demo sessions to give you a glimpse of our teaching style and course content.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Do you provide any course materials?
@@ -409,7 +409,7 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -424,18 +424,18 @@ export default function FAQsPage() {
                 <h2
                   className="font-display font-bold mb-8 pb-4 border-b-2"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}>
                   Placements & Careers
                 </h2>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Do you offer job placement or internships after the course?
@@ -443,18 +443,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes, we have partnerships with leading companies and offer placement assistance to all our students. We offer internships regularly to our top performing students after the course.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       What roles can I apply for after completing the course?
@@ -462,18 +462,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Learners typically apply for UI Designer, UX Designer, Product Designer, and related roles.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Do you help with interviews and resumes?
@@ -481,18 +481,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes. We support learners with resume reviews, portfolio guidance, and mock interviews.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Do you provide freelance assistance?
@@ -500,18 +500,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes, we provide complete freelance assistance to candidates who want to learn how to make more money by being their own boss.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are there any opportunities for further specialization after this course?
@@ -519,18 +519,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Absolutely! We offer advanced modules and specialization courses in areas like user research, interaction design, and more.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Do you offer assistance to students looking to study abroad?
@@ -538,7 +538,7 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -553,18 +553,18 @@ export default function FAQsPage() {
                 <h2
                   className="font-display font-bold mb-8 pb-4 border-b-2"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}>
                   Certifications & Verification
                 </h2>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       How can someone verify my certificate?
@@ -572,18 +572,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Certificates can be verified using our official verification page.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are certificates valid for LinkedIn?
@@ -591,7 +591,7 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -606,18 +606,18 @@ export default function FAQsPage() {
                 <h2
                   className="font-display font-bold mb-8 pb-4 border-b-2"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}>
                   Learning Experience
                 </h2>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are sessions live or recorded?
@@ -625,18 +625,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Sessions are mentor-led and live, with additional learning resources provided.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Will I receive feedback on my work?
@@ -644,18 +644,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes. Regular feedback is a core part of the learning process.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are there any group projects or team activities?
@@ -663,18 +663,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes, collaboration is a key part of our course. You'll work on group projects to simulate real-world team environments.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Is there any post-course support?
@@ -682,18 +682,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Certainly! We offer mentorship sessions, workshops, alumni meetups, and additional resources to ensure your continued growth in the field.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       How is the course content updated?
@@ -701,7 +701,7 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -716,18 +716,18 @@ export default function FAQsPage() {
                 <h2
                   className="font-display font-bold mb-8 pb-4 border-b-2"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}>
                   Scholarships & Support
                 </h2>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Are there any scholarship opportunities or discounts?
@@ -735,7 +735,7 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -750,18 +750,18 @@ export default function FAQsPage() {
                 <h2
                   className="font-display font-bold mb-8 pb-4 border-b-2"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}>
                   Careers at Designient
                 </h2>
                 <div className="space-y-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       Is Designient hiring?
@@ -769,18 +769,18 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
                       Yes. Open positions are listed on our Careers page.
                     </p>
                   </div>
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
                     <h3
                       className="font-display font-bold mb-3"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                       }}>
                       How can I apply for a role?
@@ -788,7 +788,7 @@ export default function FAQsPage() {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                         lineHeight: '1.7'
                       }}>
@@ -803,13 +803,13 @@ export default function FAQsPage() {
         </section>
 
         {/* Final CTA */}
-        <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1.75rem, 3vw, 2.5rem)'
                 }}>
                 Still have questions?
@@ -817,7 +817,7 @@ export default function FAQsPage() {
               <p
                 className="font-body mb-8 text-lg"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   lineHeight: '1.7'
                 }}>
                 Get in touch with our team for personalized assistance.
@@ -826,7 +826,7 @@ export default function FAQsPage() {
                 <Link
                   href="/courses"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-body font-semibold text-white transition-colors hover:opacity-90"
-                  style={{ backgroundColor: '#8458B3' }}>
+                  style={{ backgroundColor: 'var(--color-cta)' }}>
                   View Courses
                   <ArrowRight className="w-5 h-5" />
                 </Link>
@@ -834,8 +834,8 @@ export default function FAQsPage() {
                   href="/contact-us"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-body font-semibold border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3'
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)'
                   }}>
                   Contact Us
                   <ArrowRight className="w-5 h-5" />

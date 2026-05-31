@@ -189,13 +189,13 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
   }
 
   return (
-    <div className={`bg-white rounded-xl ${compact ? 'p-4 md:p-6' : 'p-6 md:p-8'} shadow-lg border border-gray-100`}>
+    <div className={`apple-card ${compact ? 'p-4 md:p-6' : 'p-6 md:p-8'}`}>
       {!compact && (
         <div className="text-center mb-6">
-          <h3 className="font-display font-bold mb-2" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: '#1a1a1a' }}>
+          <h3 className="font-display font-bold mb-2" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: 'var(--text-primary)' }}>
             Start Your Application
           </h3>
-          <p className="font-body text-sm" style={{ color: '#6b7280' }}>
+          <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
             Fill in your details and we'll get back to you within 24 hours
           </p>
         </div>
@@ -213,12 +213,12 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             required
             className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: '#1a1a1a',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-primary)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           />
         </div>
 
@@ -233,12 +233,12 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             required
             className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: '#1a1a1a',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-primary)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           />
         </div>
 
@@ -259,12 +259,12 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
               required
               className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
               style={{
-                borderColor: '#e5e7eb',
-                backgroundColor: 'white',
-                color: '#1a1a1a',
+                borderColor: 'var(--border-default)',
+                backgroundColor: 'var(--bg-card)',
+                color: 'var(--text-primary)',
               }}
-              onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-              onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+              onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+              onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
             />
           </div>
         </div>
@@ -286,12 +286,12 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
               required
               className="flex-1 px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
               style={{
-                borderColor: '#e5e7eb',
-                backgroundColor: 'white',
-                color: '#1a1a1a',
+                borderColor: 'var(--border-default)',
+                backgroundColor: 'var(--bg-card)',
+                color: 'var(--text-primary)',
               }}
-              onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-              onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+              onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+              onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
             />
           </div>
         </div>
@@ -305,12 +305,12 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             required
             className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: formData.availability ? '#1a1a1a' : '#9ca3af',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: formData.availability ? 'var(--text-primary)' : 'var(--text-muted)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           >
             <option value="">Select Availability</option>
             {availabilityOptions.map(option => (
@@ -328,12 +328,12 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             required
             className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: formData.city ? '#1a1a1a' : '#9ca3af',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: formData.city ? 'var(--text-primary)' : 'var(--text-muted)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           >
             <option value="">Select City</option>
             {cities.map(city => (
@@ -348,7 +348,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 p-3 rounded-lg"
-            style={{ backgroundColor: '#fef2f2', color: '#ef4444' }}
+            style={{ backgroundColor: 'var(--color-error-bg)', color: 'var(--color-error)' }}
           >
             <AlertCircle className="w-5 h-5 flex-shrink-0" />
             <p className="font-body text-sm">{errorMessage}</p>
@@ -361,7 +361,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 p-3 rounded-lg"
-            style={{ backgroundColor: '#f0fdf4', color: '#10b981' }}
+            style={{ backgroundColor: 'var(--color-success-bg)', color: 'var(--color-success)' }}
           >
             <CheckCircle className="w-5 h-5 flex-shrink-0" />
             <p className="font-body text-sm">Thank you! We'll get back to you within 24 hours.</p>
@@ -372,10 +372,10 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed min-h-[44px]"
+          className="w-full px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed min-h-[44px] surface-on-accent"
           style={{
-            backgroundColor: '#8458B3',
-            color: 'white',
+            backgroundColor: 'var(--color-cta)',
+            color: 'var(--text-on-accent)',
           }}
         >
           {isSubmitting ? (

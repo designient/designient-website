@@ -22,7 +22,7 @@ export function CorporateFAQSection({ faqs, title = 'Frequently Asked Questions'
   }
 
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -31,8 +31,8 @@ export function CorporateFAQSection({ faqs, title = 'Frequently Asked Questions'
           transition={{ duration: 0.6 }}
           className="text-center mb-12">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <HelpCircle className="w-8 h-8" style={{ color: '#8458B3' }} />
-            <h2 className="font-display font-bold" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: '#8458B3' }}>
+            <HelpCircle className="w-8 h-8" style={{ color: 'var(--color-primary)' }} />
+            <h2 className="font-display font-bold" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
               {title}
             </h2>
           </div>
@@ -45,19 +45,19 @@ export function CorporateFAQSection({ faqs, title = 'Frequently Asked Questions'
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="bg-white rounded-xl border-2 overflow-hidden transition-shadow hover:shadow-lg"
-              style={{ borderColor: '#e5e7eb' }}>
+              className="bg-card rounded-xl border-2 overflow-hidden transition-shadow hover:shadow-lg"
+              style={{ borderColor: 'var(--border-default)' }}>
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-[#8458B3] focus:ring-offset-2 rounded-xl"
+                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 rounded-xl"
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}>
-                <h3 className="font-display font-semibold pr-4" style={{ fontSize: '1.125rem', color: '#1a1a1a' }}>
+                <h3 className="font-display font-semibold pr-4" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
                   {faq.question}
                 </h3>
                 <ChevronDown
                   className={`w-5 h-5 flex-shrink-0 transition-transform ${openIndex === index ? 'transform rotate-180' : ''}`}
-                  style={{ color: '#8458B3' }}
+                  style={{ color: 'var(--color-primary)' }}
                 />
               </button>
               <div
@@ -66,7 +66,7 @@ export function CorporateFAQSection({ faqs, title = 'Frequently Asked Questions'
                   openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
                 <div className="px-6 pb-5">
-                  <p className="font-body leading-relaxed" style={{ color: '#4a4a4a' }}>
+                  <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                     {faq.answer}
                   </p>
                 </div>

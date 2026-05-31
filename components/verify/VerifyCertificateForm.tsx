@@ -135,13 +135,13 @@ export function VerifyCertificateForm() {
 
   return (
     <>
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-10">
             <h1
               className="font-display font-bold mb-6"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(2rem, 5vw, 2.5rem)',
                 lineHeight: '1.2'
               }}>
@@ -150,7 +150,7 @@ export function VerifyCertificateForm() {
             <p
               className="font-body text-base md:text-lg"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 lineHeight: '1.7',
                 maxWidth: '800px',
                 margin: '0 auto'
@@ -159,17 +159,17 @@ export function VerifyCertificateForm() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="max-w-xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
+          <form onSubmit={handleSubmit} className="max-w-xl mx-auto bg-card rounded-2xl shadow-lg border border-gray-100 p-6 md:p-8">
             {error && (
-              <div className="mb-6 p-4 rounded-lg flex items-start gap-3" style={{ backgroundColor: '#fef2f2' }}>
-                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#dc2626' }} />
-                <p className="font-body text-sm" style={{ color: '#991b1b' }}>{error}</p>
+              <div className="mb-6 p-4 rounded-lg flex items-start gap-3" style={{ backgroundColor: 'var(--color-error-bg)' }}>
+                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-error)' }} />
+                <p className="font-body text-sm" style={{ color: 'var(--color-error)' }}>{error}</p>
               </div>
             )}
 
             <div className="space-y-6">
               <div>
-                <label htmlFor="certificateId" className="block font-body text-sm font-medium mb-2" style={{ color: '#374151' }}>
+                <label htmlFor="certificateId" className="block font-body text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Certificate ID <span className="text-gray-400 text-xs">(Optional - use Certificate ID or Admission ID)</span>
                 </label>
                 <input
@@ -186,12 +186,12 @@ export function VerifyCertificateForm() {
                   onBlur={(e) => tryAutoFillFromCertificateId(e.target.value)}
                   placeholder="e.g. DS841211802"
                   className="w-full px-4 py-3 rounded-lg border font-body text-base focus:outline-none focus:ring-2"
-                  style={{ borderColor: '#e5e7eb', color: '#1a1a1a' }}
+                  style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
                 />
               </div>
 
               <div>
-                <label htmlFor="admissionId" className="block font-body text-sm font-medium mb-2" style={{ color: '#374151' }}>
+                <label htmlFor="admissionId" className="block font-body text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Admission ID <span className="text-gray-400 text-xs">(Optional - use Certificate ID or Admission ID)</span>
                 </label>
                 <input
@@ -208,12 +208,12 @@ export function VerifyCertificateForm() {
                   onBlur={(e) => tryAutoFillFromAdmissionId(e.target.value)}
                   placeholder="e.g. DSS41001"
                   className="w-full px-4 py-3 rounded-lg border font-body text-base focus:outline-none focus:ring-2"
-                  style={{ borderColor: '#e5e7eb', color: '#1a1a1a' }}
+                  style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
                 />
               </div>
 
               <div>
-                <label htmlFor="courseName" className="block font-body text-sm font-medium mb-2" style={{ color: '#374151' }}>
+                <label htmlFor="courseName" className="block font-body text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Course name
                 </label>
                 <select
@@ -222,7 +222,7 @@ export function VerifyCertificateForm() {
                   value={courseName}
                   onChange={(e) => setCourseName(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border font-body text-base focus:outline-none focus:ring-2"
-                  style={{ borderColor: '#e5e7eb', color: '#1a1a1a' }}
+                  style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
                 >
                   <option value="">Select course (optional)</option>
                   {courses.map((c) => (
@@ -232,7 +232,7 @@ export function VerifyCertificateForm() {
               </div>
 
               <div>
-                <label htmlFor="year" className="block font-body text-sm font-medium mb-2" style={{ color: '#374151' }}>
+                <label htmlFor="year" className="block font-body text-sm font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>
                   Year
                 </label>
                 <select
@@ -241,7 +241,7 @@ export function VerifyCertificateForm() {
                   value={year}
                   onChange={(e) => setYear(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border font-body text-base focus:outline-none focus:ring-2"
-                  style={{ borderColor: '#e5e7eb', color: '#1a1a1a' }}
+                  style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
                 >
                   <option value="">Select year (optional)</option>
                   {years.map((y) => (
@@ -254,8 +254,8 @@ export function VerifyCertificateForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="mt-8 w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-body font-semibold text-white transition-colors disabled:opacity-60"
-              style={{ backgroundColor: '#8458B3' }}
+              className="mt-8 w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-body font-semibold text-white transition-colors disabled:opacity-60 surface-on-accent"
+              style={{ backgroundColor: 'var(--color-cta)' }}
             >
               {isSubmitting ? (
                 <>Verifying…</>
@@ -268,7 +268,7 @@ export function VerifyCertificateForm() {
             </button>
           </form>
 
-          <div className="max-w-xl mx-auto mt-8 flex flex-wrap items-center justify-center gap-4 text-sm" style={{ color: '#6b7280' }}>
+          <div className="max-w-xl mx-auto mt-8 flex flex-wrap items-center justify-center gap-4 text-sm" style={{ color: 'var(--text-muted)' }}>
             <span className="flex items-center gap-2">
               <Shield className="w-4 h-4" />
               Secure verification
@@ -277,7 +277,7 @@ export function VerifyCertificateForm() {
               <CheckCircle className="w-4 h-4" />
               Instant result
             </span>
-            <Link href="/contact-us" className="flex items-center gap-2 hover:underline" style={{ color: '#8458B3' }}>
+            <Link href="/contact-us" className="flex items-center gap-2 hover:underline" style={{ color: 'var(--color-primary)' }}>
               <HelpCircle className="w-4 h-4" />
               Need help?
             </Link>
@@ -285,32 +285,32 @@ export function VerifyCertificateForm() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#f9fafb' }}>
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2
               className="font-display font-bold mb-8 text-center"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.5rem, 3vw, 2rem)'
               }}>
               Why verify?
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-xl bg-white border border-gray-100 text-center">
-                <FileText className="w-10 h-10 mx-auto mb-3" style={{ color: '#8458B3' }} />
-                <h3 className="font-body font-semibold mb-2" style={{ color: '#1a1a1a' }}>Authenticity</h3>
-                <p className="font-body text-sm" style={{ color: '#6b7280', lineHeight: 1.6 }}>Confirm that the certificate was issued by Designient and has not been altered.</p>
+              <div className="p-6 rounded-xl bg-card border border-gray-100 text-center">
+                <FileText className="w-10 h-10 mx-auto mb-3" style={{ color: 'var(--color-primary)' }} />
+                <h3 className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Authenticity</h3>
+                <p className="font-body text-sm" style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>Confirm that the certificate was issued by Designient and has not been altered.</p>
               </div>
-              <div className="p-6 rounded-xl bg-white border border-gray-100 text-center">
-                <Shield className="w-10 h-10 mx-auto mb-3" style={{ color: '#8458B3' }} />
-                <h3 className="font-body font-semibold mb-2" style={{ color: '#1a1a1a' }}>Employers & recruiters</h3>
-                <p className="font-body text-sm" style={{ color: '#6b7280', lineHeight: 1.6 }}>Share the verification link so employers can validate your credential.</p>
+              <div className="p-6 rounded-xl bg-card border border-gray-100 text-center">
+                <Shield className="w-10 h-10 mx-auto mb-3" style={{ color: 'var(--color-primary)' }} />
+                <h3 className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Employers & recruiters</h3>
+                <p className="font-body text-sm" style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>Share the verification link so employers can validate your credential.</p>
               </div>
-              <div className="p-6 rounded-xl bg-white border border-gray-100 text-center">
-                <CheckCircle className="w-10 h-10 mx-auto mb-3" style={{ color: '#8458B3' }} />
-                <h3 className="font-body font-semibold mb-2" style={{ color: '#1a1a1a' }}>LinkedIn</h3>
-                <p className="font-body text-sm" style={{ color: '#6b7280', lineHeight: 1.6 }}>Add to your LinkedIn profile with one click from the verification result page.</p>
+              <div className="p-6 rounded-xl bg-card border border-gray-100 text-center">
+                <CheckCircle className="w-10 h-10 mx-auto mb-3" style={{ color: 'var(--color-primary)' }} />
+                <h3 className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>LinkedIn</h3>
+                <p className="font-body text-sm" style={{ color: 'var(--text-muted)', lineHeight: 1.6 }}>Add to your LinkedIn profile with one click from the verification result page.</p>
               </div>
             </div>
           </div>

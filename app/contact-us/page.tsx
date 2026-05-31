@@ -98,7 +98,7 @@ const faqSchema = {
 
 export default function ContactUsPage() {
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={breadcrumbSchema} />
       <StructuredData data={organizationSchema} />
       <StructuredData data={faqSchema} />

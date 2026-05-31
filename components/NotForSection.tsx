@@ -13,7 +13,7 @@ const notForItems = [
 
 export function NotForSection() {
   return (
-    <section className="py-16 md:py-20 bg-white">
+    <section className="py-16 md:py-20 bg-card">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -36,7 +36,7 @@ export function NotForSection() {
           <h2
             className="font-display tracking-wide leading-tight mb-8"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -64,12 +64,12 @@ export function NotForSection() {
                 }}
                 className="flex items-start gap-4">
                 <div className="flex-shrink-0 mt-0.5">
-                  <X className="w-5 h-5" style={{ color: '#ef4444' }} />
+                  <X className="w-5 h-5" style={{ color: 'var(--color-error)' }} />
                 </div>
                 <span
                   className="font-body font-normal flex-1"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                     lineHeight: '1.7'
                   }}>
@@ -82,7 +82,7 @@ export function NotForSection() {
           <p
             className="font-body font-semibold md:whitespace-nowrap"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
               lineHeight: '1.7'
             }}>

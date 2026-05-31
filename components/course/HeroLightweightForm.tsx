@@ -123,12 +123,12 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
   }
 
   return (
-    <div className="bg-white rounded-xl p-5 md:p-6 shadow-lg border border-gray-100">
+    <div className="bg-card rounded-xl p-5 md:p-6 shadow-lg border border-gray-100">
       <div className="text-center mb-4">
-        <h3 className="font-display font-bold mb-1" style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.375rem)', color: '#1a1a1a' }}>
+        <h3 className="font-display font-bold mb-1" style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.375rem)', color: 'var(--text-primary)' }}>
           Get Course Details
         </h3>
-        <p className="font-body text-xs" style={{ color: '#6b7280' }}>
+        <p className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
           Talk to our admissions team
         </p>
       </div>
@@ -145,12 +145,12 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
             required
             className="w-full px-4 py-2.5 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: '#1a1a1a',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-primary)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           />
         </div>
 
@@ -165,12 +165,12 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
             required
             className="w-full px-4 py-2.5 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: '#1a1a1a',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-primary)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           />
         </div>
 
@@ -185,12 +185,12 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
             required
             className="w-full px-4 py-2.5 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px]"
             style={{
-              borderColor: '#e5e7eb',
-              backgroundColor: 'white',
-              color: '#1a1a1a',
+              borderColor: 'var(--border-default)',
+              backgroundColor: 'var(--bg-card)',
+              color: 'var(--text-primary)',
             }}
-            onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-            onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+            onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+            onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
           />
         </div>
 
@@ -200,7 +200,7 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 p-2 rounded-lg"
-            style={{ backgroundColor: '#fef2f2', color: '#ef4444' }}
+            style={{ backgroundColor: 'var(--color-error-bg)', color: 'var(--color-error)' }}
           >
             <AlertCircle className="w-4 h-4 flex-shrink-0" />
             <p className="font-body text-xs">{errorMessage}</p>
@@ -213,7 +213,7 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-2 p-2 rounded-lg"
-            style={{ backgroundColor: '#f0fdf4', color: '#10b981' }}
+            style={{ backgroundColor: 'var(--color-success-bg)', color: 'var(--color-success)' }}
           >
             <CheckCircle className="w-4 h-4 flex-shrink-0" />
             <p className="font-body text-xs">We'll get back to you within 24 hours!</p>
@@ -224,10 +224,10 @@ export function HeroLightweightForm({ courseSlug, courseName }: HeroLightweightF
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full px-4 py-2.5 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed h-[44px] text-sm"
+          className="w-full px-4 py-2.5 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed h-[44px] text-sm surface-on-accent"
           style={{
-            backgroundColor: '#8458B3',
-            color: 'white',
+            backgroundColor: 'var(--color-cta)',
+            color: 'var(--text-on-accent)',
           }}
         >
           {isSubmitting ? (

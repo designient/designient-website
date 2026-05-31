@@ -42,7 +42,7 @@ export function FeaturedPost({
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-xl overflow-hidden shadow-xl mb-12">
+      className="bg-card rounded-xl overflow-hidden shadow-xl mb-12">
       <Link href={`/blogs/${slug}`} className="block">
         <div className="grid md:grid-cols-2 gap-0">
           <div className="relative w-full" style={{ aspectRatio: '1200/760', minHeight: '300px' }}>
@@ -57,8 +57,8 @@ export function FeaturedPost({
             />
             <div className="absolute top-4 left-4">
               <span
-                className="px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide"
-                style={{ backgroundColor: '#f2d53c', color: '#1a1a1a' }}>
+                className="px-4 py-2 rounded-full text-sm font-bold uppercase tracking-wide accent-icon-box"
+                style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
                 Featured
               </span>
             </div>
@@ -66,15 +66,15 @@ export function FeaturedPost({
           <div className="p-8 md:p-12 flex flex-col justify-center">
             <div className="mb-4">
               <span
-                className="px-4 py-2 rounded-full text-sm font-semibold"
-                style={{ backgroundColor: '#8458B3', color: 'white' }}>
+                className="px-4 py-2 rounded-full text-sm font-semibold accent-icon-box"
+                style={{ backgroundColor: 'var(--color-primary)', color: 'var(--text-on-accent)' }}>
                 {category}
               </span>
             </div>
             <h1
               className="font-display font-bold mb-4"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
                 lineHeight: '1.2'
               }}>
@@ -83,23 +83,23 @@ export function FeaturedPost({
             <p
               className="font-body mb-6"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                 lineHeight: '1.7'
               }}>
               {excerpt}
             </p>
             <div className="flex items-center gap-4 mb-6 flex-wrap">
-              <div className="flex items-center gap-2 text-sm" style={{ color: '#6b7280' }}>
+              <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
                 <Calendar className="w-4 h-4" />
                 <span>{formatDate(publishedDate)}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm" style={{ color: '#6b7280' }}>
+              <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--text-muted)' }}>
                 <Clock className="w-4 h-4" />
                 <span>{readingTime}</span>
               </div>
             </div>
-            <div className="flex items-center gap-2 font-body font-semibold" style={{ color: '#8458B3' }}>
+            <div className="flex items-center gap-2 font-body font-semibold" style={{ color: 'var(--color-primary)' }}>
               <span>Read Article</span>
               <ArrowRight className="w-5 h-5" />
             </div>

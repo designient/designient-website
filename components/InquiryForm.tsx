@@ -148,7 +148,7 @@ export function InquiryForm() {
   };
 
   return (
-    <section id="start-your-journey" className="py-24 md:py-32" style={{ backgroundColor: '#fceed1' }}>
+    <section id="start-your-journey" className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-peach)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -170,7 +170,7 @@ export function InquiryForm() {
           <h2
             className="font-display tracking-wide leading-tight mb-6"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -179,7 +179,7 @@ export function InquiryForm() {
           <p
             className="font-body text-base md:text-lg font-normal max-w-2xl mx-auto md:whitespace-nowrap text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -188,7 +188,7 @@ export function InquiryForm() {
           <p
             className="font-body text-sm font-normal mt-4 max-w-xl mx-auto text-center"
             style={{
-              color: '#6b7280',
+              color: 'var(--text-muted)',
               fontSize: 'clamp(0.875rem, 1.2vw, 0.9375rem)',
               lineHeight: '1.6'
             }}>
@@ -217,7 +217,7 @@ export function InquiryForm() {
               ease: [0.4, 0, 0.2, 1]
             }}
             className="flex flex-col items-center justify-center">
-            <div className="rounded-2xl overflow-hidden border bg-white shadow-lg w-full max-w-md" style={{ borderColor: '#e5e5e5' }}>
+            <div className="rounded-2xl overflow-hidden border bg-card shadow-lg w-full max-w-md" style={{ borderColor: 'var(--border-default)' }}>
               <Image
                 src="/adobe-certified-certificate.webp"
                 alt="Adobe Certified Professional certificate badge - Designient UI/UX design course"
@@ -248,16 +248,16 @@ export function InquiryForm() {
               duration: 0.6,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 w-full max-w-md mx-auto lg:mx-0">
+            className="form-panel bg-card p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 w-full max-w-md mx-auto lg:mx-0">
             <div className="text-center mb-3 md:mb-4">
               <h3
                 className="font-display text-lg md:text-xl mb-1"
-                style={{ color: '#1a1a1a' }}>
+                style={{ color: 'var(--text-primary)' }}>
                 Get Course Details
               </h3>
               <p
                 className="font-body text-xs"
-                style={{ color: '#6a6a6a' }}>
+                style={{ color: 'var(--text-muted)' }}>
                 Speak with our career counselors today
               </p>
             </div>
@@ -277,7 +277,7 @@ export function InquiryForm() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                   style={{
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}
                 />
               </div>
@@ -296,7 +296,7 @@ export function InquiryForm() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                   style={{
-                    borderColor: '#e5e7eb'
+                    borderColor: 'var(--border-default)'
                   }}
                 />
               </div>
@@ -324,7 +324,7 @@ export function InquiryForm() {
                     onChange={handleInputChange}
                     className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
-                      borderColor: '#e5e7eb'
+                      borderColor: 'var(--border-default)'
                     }}
                   />
                 </div>
@@ -351,7 +351,7 @@ export function InquiryForm() {
                     onChange={handleInputChange}
                     className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
                     style={{
-                      borderColor: '#e5e7eb'
+                      borderColor: 'var(--border-default)'
                     }}
                   />
                 </div>
@@ -369,8 +369,8 @@ export function InquiryForm() {
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all appearance-none min-h-[44px]"
                   style={{
-                    borderColor: '#e5e7eb',
-                    color: formData.courseInterest ? '#1a1a1a' : '#9ca3af'
+                    borderColor: 'var(--border-default)',
+                    color: formData.courseInterest ? 'var(--text-primary)' : 'var(--text-muted)'
                   }}>
                   <option value="" disabled>
                     Select Course Interest
@@ -386,9 +386,9 @@ export function InquiryForm() {
                 <div
                   className="mt-4 p-3 rounded-lg text-center"
                   style={{
-                    backgroundColor: '#fee2e2',
-                    border: '1px solid #ef4444',
-                    color: '#991b1b'
+                    backgroundColor: 'var(--color-error-bg)',
+                    border: '1px solid var(--color-error)',
+                    color: 'var(--color-error)'
                   }}>
                   <p className="font-body font-semibold text-xs">
                     {error}
@@ -399,9 +399,9 @@ export function InquiryForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
                 style={{
-                  backgroundColor: '#8458B3',
+                  backgroundColor: 'var(--color-cta)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
                 {isSubmitting ? 'Submitting...' : 'Get Free Consultation →'}
@@ -411,9 +411,9 @@ export function InquiryForm() {
                 <div
                   className="mt-4 p-4 rounded-lg text-center"
                   style={{
-                    backgroundColor: '#d1fae5',
-                    border: '1px solid #10b981',
-                    color: '#065f46'
+                    backgroundColor: 'var(--color-success-bg)',
+                    border: '1px solid var(--color-success)',
+                    color: 'var(--color-success)'
                   }}>
                   <p className="font-body font-semibold text-sm">
                     Thank you! We've received your inquiry and will get back to you within 24 hours.
@@ -424,7 +424,7 @@ export function InquiryForm() {
               <p
                 className="text-center text-xs mt-3 flex items-center justify-center gap-1"
                 style={{
-                  color: '#6a6a6a'
+                  color: 'var(--text-muted)'
                 }}>
                 <svg
                   width="12"
@@ -445,7 +445,7 @@ export function InquiryForm() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: '#8458B3' }}>privacy</Link>. No spam.
+                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>privacy</Link>. No spam.
               </p>
             </form>
           </motion.div>

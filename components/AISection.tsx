@@ -24,7 +24,7 @@ export function AISection() {
   ];
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -46,7 +46,7 @@ export function AISection() {
           <h2
             className="font-display tracking-wide leading-tight mb-6"
             style={{
-              color: '#8458B3',
+              color: 'var(--color-primary)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
@@ -55,7 +55,7 @@ export function AISection() {
           <p
             className="font-body text-base md:text-lg font-normal max-w-3xl mx-auto text-center"
             style={{
-              color: '#4a4a4a',
+              color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
               lineHeight: '1.6'
             }}>
@@ -88,19 +88,19 @@ export function AISection() {
                 }}
                 className="text-center p-6 rounded-2xl"
                 style={{
-                  backgroundColor: '#FFF6E2'
+                  backgroundColor: 'var(--bg-warm)'
                 }}>
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4"
+                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Icon className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Icon className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h3
                   className="font-display font-semibold mb-3"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(1rem, 2vw, 1.125rem)'
                   }}>
                   {feature.title}
@@ -108,7 +108,7 @@ export function AISection() {
                 <p
                   className="font-body font-normal"
                   style={{
-                    color: '#6b7280',
+                    color: 'var(--text-muted)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                     lineHeight: '1.6'
                   }}>

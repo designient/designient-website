@@ -27,7 +27,7 @@ export function BangaloreCityPageContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center pt-16 md:pt-20" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="min-h-[60vh] flex items-center pt-16 md:pt-20" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
           <div className="max-w-4xl mx-auto">
             {/* Breadcrumbs */}
@@ -36,11 +36,11 @@ export function BangaloreCityPageContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
               className="mb-6">
-              <Link href="/" className="font-body text-sm hover:underline" style={{ color: '#6b7280' }}>
+              <Link href="/" className="font-body text-sm hover:underline" style={{ color: 'var(--text-muted)' }}>
                 Home
               </Link>
-              <span className="font-body text-sm mx-2" style={{ color: '#6b7280' }}>›</span>
-              <span className="font-body text-sm" style={{ color: '#8458B3' }}>UI/UX Design Course in Bangalore</span>
+              <span className="font-body text-sm mx-2" style={{ color: 'var(--text-muted)' }}>›</span>
+              <span className="font-body text-sm" style={{ color: 'var(--color-primary)' }}>UI/UX Design Course in Bangalore</span>
             </motion.div>
 
             <motion.div
@@ -51,7 +51,7 @@ export function BangaloreCityPageContent() {
               <h1
                 className="font-display font-bold mb-6"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2.5rem, 5vw, 4rem)'
                 }}>
                 UI/UX Design Course in Bangalore – Designient School of Masterminds
@@ -59,7 +59,7 @@ export function BangaloreCityPageContent() {
               <p
                 className="font-body text-lg md:text-xl max-w-3xl mx-auto mb-8"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
                 }}>
                 Master UI/UX design with hands-on training, mentor-led learning, and placement support in Bangalore.
@@ -69,8 +69,8 @@ export function BangaloreCityPageContent() {
                   href="/ui-ux-design-pro#enroll"
                   className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105"
                   style={{
-                    backgroundColor: '#8458B3',
-                    color: 'white',
+                    backgroundColor: 'var(--color-cta)',
+                    color: 'var(--text-on-accent)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   Enroll Now
@@ -78,10 +78,10 @@ export function BangaloreCityPageContent() {
                 </Link>
                 <a
                   href="tel:+919353000320"
-                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/50"
+                  className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)]"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   <Phone className="w-5 h-5" />
@@ -94,20 +94,20 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* Bengaluru – learners reach out */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#fceed1' }} aria-labelledby="bengaluru-intro-heading">
+      <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-peach)' }} aria-labelledby="bengaluru-intro-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2
               id="bengaluru-intro-heading"
               className="font-display font-bold mb-6"
-              style={{ color: '#8458B3', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+              style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
             >
               Bengaluru
             </h2>
-            <p className="font-body text-lg leading-relaxed mb-4" style={{ color: '#1a1a1a' }}>
+            <p className="font-body text-lg leading-relaxed mb-4" style={{ color: 'var(--text-primary)' }}>
               Learners from Bengaluru often reach out to us for weekday and weekend UI/UX batches.
             </p>
-            <p className="font-body text-lg leading-relaxed" style={{ color: '#4a4a4a' }}>
+            <p className="font-body text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               If you&apos;re a working professional or student based in Bengaluru, our team can guide you on the right batch and learning path.
             </p>
           </div>
@@ -115,7 +115,7 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* Why Learn UI/UX Design in Bangalore */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -126,17 +126,17 @@ export function BangaloreCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <MapPin className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <MapPin className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Why Learn UI/UX Design in Bangalore
@@ -152,7 +152,7 @@ export function BangaloreCityPageContent() {
               className="prose prose-lg max-w-none">
               <p
                 className="font-body text-lg leading-relaxed mb-6"
-                style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+                style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
                 Bangalore is India's leading tech and startup hub. From SaaS and fintech to AI-driven products, companies here rely heavily on strong UI/UX design. Learning UI/UX in Bangalore gives you exposure to real product thinking, modern design workflows, and strong career opportunities.
               </p>
             </motion.div>
@@ -161,7 +161,7 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* UI/UX Design Pro Course Overview */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -172,17 +172,17 @@ export function BangaloreCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <BookOpen className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <BookOpen className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   UI/UX Design Pro Course
@@ -198,8 +198,8 @@ export function BangaloreCityPageContent() {
               className="prose prose-lg max-w-none">
               <p
                 className="font-body text-lg leading-relaxed mb-6"
-                style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
-                This city page is powered by our flagship <Link href="/ui-ux-design-pro" className="font-semibold underline" style={{ color: '#8458B3' }}>UI/UX Design Pro course</Link> — a 3-month intensive program designed to take you from fundamentals to portfolio-ready. The course focuses on user research, wireframing, UI design, prototyping, and usability testing through real-world projects.
+                style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+                This city page is powered by our flagship <Link href="/ui-ux-design-pro" className="font-semibold underline" style={{ color: 'var(--color-primary)' }}>UI/UX Design Pro course</Link> — a 3-month intensive program designed to take you from fundamentals to portfolio-ready. The course focuses on user research, wireframing, UI design, prototyping, and usability testing through real-world projects.
               </p>
             </motion.div>
           </div>
@@ -207,7 +207,7 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* Batch Availability in Bangalore */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -218,17 +218,17 @@ export function BangaloreCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Users className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Users className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Batch Availability in Bangalore
@@ -244,32 +244,32 @@ export function BangaloreCityPageContent() {
               className="space-y-6">
               {/* Weekday Batches */}
               {proCourseBatchSchedule.bangalore.weekday && (
-                <div className="p-6 rounded-xl" style={{ backgroundColor: '#FFF6E2' }}>
-                  <h3 className="font-display font-semibold mb-4 text-xl" style={{ color: '#8458B3' }}>
+                <div className="p-6 rounded-xl" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                  <h3 className="font-display font-semibold mb-4 text-xl" style={{ color: 'var(--color-primary)' }}>
                     Weekday Batches
                   </h3>
                   <div className="space-y-4 mb-4">
                     {/* Morning Batch - Available */}
                     {proCourseBatchSchedule.bangalore.weekday.morning?.available && (
-                      <div className="p-4 rounded-lg border-2" style={{ backgroundColor: 'white', borderColor: '#8458B3' }}>
+                      <div className="p-4 rounded-lg border-2" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--color-primary)' }}>
                         <div className="flex items-center justify-between mb-2">
-                          <p className="font-body font-semibold text-sm" style={{ color: '#8458B3' }}>Morning Batch</p>
-                          <span className="px-2 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#8458B3', color: 'white' }}>Available</span>
+                          <p className="font-body font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>Morning Batch</p>
+                          <span className="px-2 py-1 rounded-full text-xs font-semibold accent-icon-box" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--text-on-accent)' }}>Available</span>
                         </div>
                         <div className="space-y-2">
                           <div className="flex items-start gap-3">
-                            <Calendar className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                            <Calendar className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                             <div>
-                              <p className="font-body font-semibold text-xs mb-1" style={{ color: '#1a1a1a' }}>Start Date</p>
-                              <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>{proCourseBatchSchedule.bangalore.weekday.morning.startDate}</p>
+                              <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--text-primary)' }}>Start Date</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{proCourseBatchSchedule.bangalore.weekday.morning.startDate}</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                            <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                             <div>
-                              <p className="font-body font-semibold text-xs mb-1" style={{ color: '#1a1a1a' }}>Schedule</p>
-                              <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>{proCourseBatchSchedule.bangalore.weekday.morning.days}</p>
-                              <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>{proCourseBatchSchedule.bangalore.weekday.morning.time}</p>
+                              <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--text-primary)' }}>Schedule</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{proCourseBatchSchedule.bangalore.weekday.morning.days}</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{proCourseBatchSchedule.bangalore.weekday.morning.time}</p>
                             </div>
                           </div>
                         </div>
@@ -277,64 +277,64 @@ export function BangaloreCityPageContent() {
                     )}
                     {/* Evening Batch - Not Available */}
                     {proCourseBatchSchedule.bangalore.weekday.evening && (
-                      <div className="p-4 rounded-lg border" style={{ backgroundColor: '#f9fafb', borderColor: '#e5e7eb', opacity: 0.6 }}>
+                      <div className="p-4 rounded-lg border" style={{ backgroundColor: 'var(--bg-subtle)', borderColor: 'var(--border-default)', opacity: 0.6 }}>
                         <div className="flex items-center justify-between mb-2">
-                          <p className="font-body font-semibold text-sm" style={{ color: '#6b7280' }}>Evening Batch</p>
-                          <span className="px-2 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#9ca3af', color: 'white' }}>Not Available</span>
+                          <p className="font-body font-semibold text-sm" style={{ color: 'var(--text-muted)' }}>Evening Batch</p>
+                          <span className="px-2 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: 'var(--text-muted)', color: 'var(--text-on-dark)' }}>Not Available</span>
                         </div>
                         <div className="space-y-2">
                           <div className="flex items-start gap-3">
-                            <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#9ca3af' }} />
+                            <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--text-muted)' }} />
                             <div>
-                              <p className="font-body font-semibold text-xs mb-1" style={{ color: '#6b7280' }}>Schedule</p>
-                              <p className="font-body text-sm" style={{ color: '#9ca3af' }}>{proCourseBatchSchedule.bangalore.weekday.evening.days}</p>
-                              <p className="font-body text-sm" style={{ color: '#9ca3af' }}>{proCourseBatchSchedule.bangalore.weekday.evening.time}</p>
+                              <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--text-muted)' }}>Schedule</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>{proCourseBatchSchedule.bangalore.weekday.evening.days}</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>{proCourseBatchSchedule.bangalore.weekday.evening.time}</p>
                             </div>
                           </div>
                         </div>
                       </div>
                     )}
                   </div>
-                  <p className="font-body text-sm" style={{ color: '#6b7280' }}>
+                  <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                     Perfect for students and career switchers who can commit to weekday learning schedules.
                   </p>
                 </div>
               )}
               {/* Weekend Batches */}
               {proCourseBatchSchedule.bangalore.weekend && (
-                <div className="p-6 rounded-xl" style={{ backgroundColor: '#FFF6E2' }}>
-                  <h3 className="font-display font-semibold mb-4 text-xl" style={{ color: '#8458B3' }}>
+                <div className="p-6 rounded-xl" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                  <h3 className="font-display font-semibold mb-4 text-xl" style={{ color: 'var(--color-primary)' }}>
                     Weekend Batches
                   </h3>
                   <div className="space-y-4 mb-4">
                     {/* Morning Batch - Available */}
                     {proCourseBatchSchedule.bangalore.weekend.morning?.available && (
-                      <div className="p-4 rounded-lg border-2" style={{ backgroundColor: 'white', borderColor: '#8458B3' }}>
+                      <div className="p-4 rounded-lg border-2" style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--color-primary)' }}>
                         <div className="flex items-center justify-between mb-2">
-                          <p className="font-body font-semibold text-sm" style={{ color: '#8458B3' }}>Morning Batch</p>
-                          <span className="px-2 py-1 rounded-full text-xs font-semibold" style={{ backgroundColor: '#8458B3', color: 'white' }}>Available</span>
+                          <p className="font-body font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>Morning Batch</p>
+                          <span className="px-2 py-1 rounded-full text-xs font-semibold accent-icon-box" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--text-on-accent)' }}>Available</span>
                         </div>
                         <div className="space-y-2">
                           <div className="flex items-start gap-3">
-                            <Calendar className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                            <Calendar className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                             <div>
-                              <p className="font-body font-semibold text-xs mb-1" style={{ color: '#1a1a1a' }}>Start Date</p>
-                              <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>{proCourseBatchSchedule.bangalore.weekend.morning.startDate}</p>
+                              <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--text-primary)' }}>Start Date</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{proCourseBatchSchedule.bangalore.weekend.morning.startDate}</p>
                             </div>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                            <Clock className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                             <div>
-                              <p className="font-body font-semibold text-xs mb-1" style={{ color: '#1a1a1a' }}>Schedule</p>
-                              <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>{proCourseBatchSchedule.bangalore.weekend.morning.days}</p>
-                              <p className="font-body text-sm" style={{ color: '#4a4a4a' }}>{proCourseBatchSchedule.bangalore.weekend.morning.time}</p>
+                              <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--text-primary)' }}>Schedule</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{proCourseBatchSchedule.bangalore.weekend.morning.days}</p>
+                              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{proCourseBatchSchedule.bangalore.weekend.morning.time}</p>
                             </div>
                           </div>
                         </div>
                       </div>
                     )}
                   </div>
-                  <p className="font-body text-sm" style={{ color: '#6b7280' }}>
+                  <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                     Designed for working professionals who want to upskill without disrupting their work schedule.
                   </p>
                 </div>
@@ -347,7 +347,7 @@ export function BangaloreCityPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="font-body text-center mt-8"
-              style={{ color: '#6b7280', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+              style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
               All batches are small and mentor-led to ensure personalised feedback.
             </motion.p>
           </div>
@@ -355,7 +355,7 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* Who This Course Is For */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -366,17 +366,17 @@ export function BangaloreCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Users className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Users className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Who This Course Is For
@@ -403,9 +403,9 @@ export function BangaloreCityPageContent() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                   className="flex items-start gap-3 p-4 rounded-lg"
-                  style={{ backgroundColor: 'white' }}>
-                  <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
-                  <span className="font-body" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                  style={{ backgroundColor: 'var(--bg-card)' }}>
+                  <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
+                  <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                     {item}
                   </span>
                 </motion.div>
@@ -416,7 +416,7 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* Why Designient in Bangalore */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: 'white' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -427,17 +427,17 @@ export function BangaloreCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Award className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Award className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Why Designient in Bangalore
@@ -466,16 +466,16 @@ export function BangaloreCityPageContent() {
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                     className="flex items-start gap-4 p-6 rounded-xl"
-                    style={{ backgroundColor: '#FFF6E2' }}>
+                    style={{ backgroundColor: 'var(--bg-warm)' }}>
                     <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                       style={{
-                        backgroundColor: '#8458B3',
-                        boxShadow: '0 2px 8px rgba(132, 88, 179, 0.3)'
+                        backgroundColor: 'var(--color-primary)',
+                        boxShadow: '0 2px 8px rgba(176, 228, 204, 0.3)'
                       }}>
-                      <Icon className="w-6 h-6" style={{ color: 'white', strokeWidth: 2.5 }} />
+                      <Icon className="w-6 h-6" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                     </div>
-                    <p className="font-body font-semibold" style={{ color: '#4a4a4a', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+                    <p className="font-body font-semibold" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                       {item.text}
                     </p>
                   </motion.div>
@@ -487,7 +487,7 @@ export function BangaloreCityPageContent() {
       </section>
 
       {/* Placement Support */}
-      <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -498,17 +498,17 @@ export function BangaloreCityPageContent() {
               className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
-                  <Briefcase className="w-8 h-8" style={{ color: '#8458B3', strokeWidth: 2.5 }} />
+                  <Briefcase className="w-8 h-8" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                 </div>
                 <h2
                   className="font-display font-bold"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3rem)'
                   }}>
                   Placement Support
@@ -524,7 +524,7 @@ export function BangaloreCityPageContent() {
               className="prose prose-lg max-w-none">
               <p
                 className="font-body text-lg leading-relaxed"
-                style={{ color: '#4a4a4a', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
+                style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.25rem)' }}>
                 Learners receive resume support, portfolio reviews, mock interviews, and guidance on applying to UI/UX roles in Bangalore's startup and product ecosystem.
               </p>
             </motion.div>
@@ -536,7 +536,7 @@ export function BangaloreCityPageContent() {
       <CourseFAQ faqs={faqs} title="Frequently Asked Questions" />
 
       {/* Related Links */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: 'white' }}>
+      <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -545,7 +545,7 @@ export function BangaloreCityPageContent() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="text-center">
-              <p className="font-body mb-6" style={{ color: '#6b7280', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
+              <p className="font-body mb-6" style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
                 Learn more about Designient and our placement support:
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -553,8 +553,8 @@ export function BangaloreCityPageContent() {
                   href="/ui-ux-design-pro"
                   className="inline-flex items-center gap-2 font-body font-semibold px-6 py-3 rounded-full border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   View Full Course Details
@@ -564,8 +564,8 @@ export function BangaloreCityPageContent() {
                   href="/about-us"
                   className="inline-flex items-center gap-2 font-body font-semibold px-6 py-3 rounded-full border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   About Designient
@@ -575,8 +575,8 @@ export function BangaloreCityPageContent() {
                   href="/placements"
                   className="inline-flex items-center gap-2 font-body font-semibold px-6 py-3 rounded-full border-2 transition-colors hover:bg-purple-50"
                   style={{
-                    borderColor: '#8458B3',
-                    color: '#8458B3',
+                    borderColor: 'var(--color-primary)',
+                    color: 'var(--color-primary)',
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
                   }}>
                   Placement Support

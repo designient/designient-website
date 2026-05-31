@@ -99,8 +99,8 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                 onClick={() => setIsOpen(!isOpen)}
                 className="w-full px-2 sm:px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center justify-between gap-1 sm:gap-2 min-h-[44px]"
                 style={{
-                    borderColor: '#e5e7eb',
-                    color: '#1a1a1a'
+                    borderColor: 'var(--border-default)',
+                    color: 'var(--text-primary)'
                 }}
             >
                 <div className="flex items-center gap-1 sm:gap-2 overflow-hidden">
@@ -112,10 +112,10 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
 
             {isOpen && (
                 <div
-                    className="absolute z-50 w-[280px] sm:w-full mt-1 bg-white border rounded-lg shadow-lg max-h-60 overflow-auto left-0"
-                    style={{ borderColor: '#e5e7eb' }}
+                    className="absolute z-50 w-[280px] sm:w-full mt-1 bg-card border rounded-lg shadow-lg max-h-60 overflow-auto left-0"
+                    style={{ borderColor: 'var(--border-default)' }}
                 >
-                    <div className="sticky top-0 bg-white z-10 px-3 py-2 border-b" style={{ borderColor: '#e5e7eb' }}>
+                    <div className="sticky top-0 bg-card z-10 px-3 py-2 border-b" style={{ borderColor: 'var(--border-default)' }}>
                         <div className="relative">
                             <Search className="absolute left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 text-gray-400" />
                             <input
@@ -139,7 +139,7 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                                     setSearch('')
                                 }}
                                 className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2 transition-colors border-b last:border-0 border-gray-50"
-                                style={{ color: '#1a1a1a' }}
+                                style={{ color: 'var(--text-primary)' }}
                             >
                                 <span className="text-lg">{country.flag}</span>
                                 <span className="font-mono text-gray-500">{country.code}</span>

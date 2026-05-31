@@ -129,11 +129,11 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
       transition={{ delay: 0.5, duration: 0.6 }}
       className="max-w-2xl mx-auto mt-8"
     >
-      <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
-        <h3 className="font-display font-bold text-center mb-4" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: '#1a1a1a' }}>
+      <div className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-gray-100">
+        <h3 className="font-display font-bold text-center mb-4" style={{ fontSize: 'clamp(1.25rem, 2vw, 1.5rem)', color: 'var(--text-primary)' }}>
           Start Your Application
         </h3>
-        <p className="font-body text-center mb-6 text-sm" style={{ color: '#6b7280' }}>
+        <p className="font-body text-center mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
           Fill in your details and we'll get back to you within 24 hours
         </p>
 
@@ -150,12 +150,12 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
                 required
                 className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2"
                 style={{
-                  borderColor: '#e5e7eb',
-                  backgroundColor: 'white',
-                  color: '#1a1a1a',
+                  borderColor: 'var(--border-default)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-primary)',
                 }}
-                onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-                onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+                onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+                onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
               />
             </div>
 
@@ -170,12 +170,12 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
                 required
                 className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2"
                 style={{
-                  borderColor: '#e5e7eb',
-                  backgroundColor: 'white',
-                  color: '#1a1a1a',
+                  borderColor: 'var(--border-default)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-primary)',
                 }}
-                onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-                onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+                onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+                onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
               />
             </div>
 
@@ -190,12 +190,12 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
                 required
                 className="w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2"
                 style={{
-                  borderColor: '#e5e7eb',
-                  backgroundColor: 'white',
-                  color: '#1a1a1a',
+                  borderColor: 'var(--border-default)',
+                  backgroundColor: 'var(--bg-card)',
+                  color: 'var(--text-primary)',
                 }}
-                onFocus={(e) => (e.target.style.borderColor = '#8458B3')}
-                onBlur={(e) => (e.target.style.borderColor = '#e5e7eb')}
+                onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
+                onBlur={(e) => (e.target.style.borderColor = 'var(--border-default)')}
               />
             </div>
           </div>
@@ -206,7 +206,7 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 p-3 rounded-lg"
-              style={{ backgroundColor: '#fef2f2', color: '#ef4444' }}
+              style={{ backgroundColor: 'var(--color-error-bg)', color: 'var(--color-error)' }}
             >
               <AlertCircle className="w-5 h-5 flex-shrink-0" />
               <p className="font-body text-sm">{errorMessage}</p>
@@ -219,7 +219,7 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               className="flex items-center gap-2 p-3 rounded-lg"
-              style={{ backgroundColor: '#f0fdf4', color: '#10b981' }}
+              style={{ backgroundColor: 'var(--color-success-bg)', color: 'var(--color-success)' }}
             >
               <CheckCircle className="w-5 h-5 flex-shrink-0" />
               <p className="font-body text-sm">Thank you! We'll get back to you within 24 hours.</p>
@@ -230,10 +230,10 @@ export function CourseHeroQuickForm({ courseSlug, courseName }: CourseHeroQuickF
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+            className="w-full px-6 py-3 rounded-lg font-body font-bold flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed surface-on-accent"
             style={{
-              backgroundColor: '#8458B3',
-              color: 'white',
+              backgroundColor: 'var(--color-cta)',
+              color: 'var(--text-on-accent)',
             }}
           >
             {isSubmitting ? (

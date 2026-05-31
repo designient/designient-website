@@ -25,18 +25,12 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Hero Section */}
       <section
         className="relative min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="about-hero-heading">
         {/* Background pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl"
-            style={{ backgroundColor: '#8458B3' }}
-            aria-hidden="true" />
-          <div
-            className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl"
-            style={{ backgroundColor: '#f2d53c' }}
-            aria-hidden="true" />
+        <div className="absolute inset-0 opacity-100 pointer-events-none">
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
+          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
         </div>
 
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center py-16 md:py-24">
@@ -46,10 +40,10 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}>
 
             {/* Breadcrumb */}
-            <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: '#6B7280' }}>
+            <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline font-body">Home</Link>
               <ChevronRight className="w-4 h-4" />
-              <span style={{ color: '#8458B3' }} className="font-body">About Us</span>
+              <span style={{ color: 'var(--color-primary)' }} className="font-body">About Us</span>
             </div>
 
             {/* Main heading */}
@@ -57,7 +51,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               id="about-hero-heading"
               className="font-display text-center mb-4 md:mb-6 leading-[1.1]"
               style={{
-                color: '#1a1a1a',
+                color: 'var(--text-primary)',
                 fontWeight: 700,
                 fontSize: 'clamp(2.5rem, 5vw, 4.5rem)'
               }}>
@@ -68,7 +62,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             <p
               className="text-center text-base md:text-lg max-w-5xl mx-auto leading-[1.6] md:whitespace-nowrap"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
               }}>
               Redefining UI/UX education for creative minds ready to turn passion into profession.
@@ -80,7 +74,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Our Story */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="our-story-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -93,7 +87,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               id="our-story-heading"
               className="font-display font-bold mb-6 tracking-wide"
               style={{
-                color: '#8458B3',
+                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                 fontWeight: 700
               }}>
@@ -102,7 +96,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             <p
               className="font-body leading-relaxed"
               style={{
-                color: '#4a4a4a',
+                color: 'var(--text-secondary)',
                 fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                 lineHeight: '1.8'
               }}>
@@ -115,7 +109,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Our Founder & Mentors */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="founder-mentors-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -126,15 +120,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <User
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-accent)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -143,7 +137,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="founder-mentors-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -153,7 +147,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed"
                     style={{
-                      color: '#4a4a4a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -162,7 +156,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed"
                     style={{
-                      color: '#4a4a4a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -171,7 +165,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed font-semibold"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-primary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -187,7 +181,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Team Details */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="team-details-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -199,15 +193,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             <div className="mb-12 text-center">
               <div className="flex items-center justify-center gap-6 mb-8">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <UserCheck
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-highlight)',
                       strokeWidth: 2.5
                     }} />
                 </div>
@@ -215,7 +209,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="team-details-heading"
                   className="font-display font-bold tracking-wide leading-tight"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -250,11 +244,11 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                  className="bg-card rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
                   <h3
                     className="font-display font-bold mb-2"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-primary)',
                       fontSize: 'clamp(1.25rem, 2vw, 1.5rem)'
                     }}>
                     {member.name}
@@ -262,7 +256,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body font-semibold mb-4"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--color-primary)',
                       fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
                     }}>
                     {member.title}
@@ -273,7 +267,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                         key={pIndex}
                         className="font-body leading-relaxed"
                         style={{
-                          color: '#4a4a4a',
+                          color: 'var(--text-secondary)',
                           fontSize: 'clamp(0.875rem, 1.5vw, 0.9375rem)',
                           lineHeight: '1.7'
                         }}>
@@ -291,7 +285,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Mission */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="mission-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -302,15 +296,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <Target
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-accent)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -319,7 +313,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="mission-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -328,7 +322,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 <p
                   className="font-body leading-relaxed"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                     lineHeight: '1.8'
                   }}>
@@ -343,7 +337,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Vision & Values */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="vision-values-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -354,15 +348,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-12">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <Heart
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-highlight)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -371,7 +365,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="vision-values-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -380,7 +374,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 <p
                   className="font-body mb-8 leading-relaxed"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                     lineHeight: '1.8'
                   }}>
@@ -394,25 +388,25 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.4 }}
-                      className="flex items-center gap-4 p-5 bg-[#FFF6E2] rounded-lg border-l-4"
-                      style={{ borderLeftColor: '#8458B3' }}>
+                      className="flex items-center gap-4 p-5 bg-[var(--bg-warm)] rounded-lg border-l-4"
+                      style={{ borderLeftColor: 'var(--color-primary)' }}>
                       <div
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                         style={{
-                          backgroundColor: '#f2d53c',
+                          backgroundColor: 'var(--color-highlight)',
                           boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                         }}>
                         <Globe
                           className="w-6 h-6"
                           style={{
-                            color: '#8458B3',
+                            color: 'var(--text-on-highlight)',
                             strokeWidth: 2.5
                           }} />
                       </div>
                       <span
                         className="font-body font-semibold"
                         style={{
-                          color: '#1a1a1a',
+                          color: 'var(--text-primary)',
                           fontSize: 'clamp(1rem, 1.5vw, 1.125rem)'
                         }}>
                         {value}
@@ -429,7 +423,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Who We Exist For */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#fceed1' }}
+        style={{ backgroundColor: 'var(--bg-peach)' }}
         aria-labelledby="who-we-exist-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -443,7 +437,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 id="who-we-exist-heading"
                 className="font-display font-bold mb-8 tracking-wide leading-tight"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   fontWeight: 700
                 }}>
@@ -454,7 +448,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed text-center"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -473,12 +467,12 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.4 }}
-                    className="flex items-start gap-3 p-4 bg-white rounded-lg">
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                    className="flex items-start gap-3 p-4 bg-card rounded-lg">
+                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                     <span
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#1a1a1a',
+                        color: 'var(--text-primary)',
                         fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                         lineHeight: '1.7'
                       }}>
@@ -490,7 +484,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed text-center mt-6"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -504,7 +498,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Why Choose Us */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#fceed1' }}
+        style={{ backgroundColor: 'var(--bg-peach)' }}
         aria-labelledby="why-choose-us-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -518,7 +512,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 id="why-choose-us-heading"
                 className="font-display font-bold mb-6 tracking-wide leading-tight"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   fontWeight: 700
                 }}>
@@ -533,24 +527,24 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  className="flex items-start gap-4 p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow">
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                     style={{
-                      backgroundColor: '#f2d53c',
+                      backgroundColor: 'var(--color-highlight)',
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                     }}>
                     <CheckCircle
                       className="w-8 h-8"
                       style={{
-                        color: '#8458B3',
+                        color: 'var(--text-on-highlight)',
                         strokeWidth: 2.5
                       }} />
                   </div>
                   <p
                     className="font-body leading-relaxed pt-1"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                       lineHeight: '1.7'
                     }}>
@@ -566,7 +560,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* What Makes Designient Different */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="what-makes-different-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -577,15 +571,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <TrendingUp
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-highlight)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -594,7 +588,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="what-makes-different-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -604,7 +598,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed font-semibold"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-primary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -613,7 +607,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed font-semibold"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-primary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -622,7 +616,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed"
                     style={{
-                      color: '#4a4a4a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -635,11 +629,11 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                       'Recruiter-ready outcomes'
                     ].map((item, index) => (
                       <li key={index} className="flex items-start gap-3">
-                        <span className="font-body text-[#8458B3] mt-1">•</span>
+                        <span className="font-body text-[var(--color-primary)] mt-1">•</span>
                         <span
                           className="font-body leading-relaxed"
                           style={{
-                            color: '#4a4a4a',
+                            color: 'var(--text-secondary)',
                             fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                             lineHeight: '1.8'
                           }}>
@@ -652,7 +646,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                         lineHeight: '1.8'
                       }}>
@@ -661,7 +655,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                     <p
                       className="font-body leading-relaxed"
                       style={{
-                        color: '#4a4a4a',
+                        color: 'var(--text-secondary)',
                         fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                         lineHeight: '1.8'
                       }}>
@@ -678,7 +672,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Our Approach */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="our-approach-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -689,15 +683,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <BookOpen
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-highlight)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -706,7 +700,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="our-approach-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -715,7 +709,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 <p
                   className="font-body leading-relaxed"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                     lineHeight: '1.8'
                   }}>
@@ -730,7 +724,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Our Teaching Philosophy */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="teaching-philosophy-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -741,15 +735,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <Zap
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-highlight)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -758,7 +752,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="teaching-philosophy-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -768,7 +762,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed"
                     style={{
-                      color: '#4a4a4a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -777,7 +771,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed"
                     style={{
-                      color: '#4a4a4a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -796,12 +790,12 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: index * 0.1, duration: 0.4 }}
-                        className="flex items-start gap-3 p-4 bg-white rounded-lg">
-                        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#8458B3' }} />
+                        className="flex items-start gap-3 p-4 bg-card rounded-lg">
+                        <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                         <span
                           className="font-body leading-relaxed"
                           style={{
-                            color: '#1a1a1a',
+                            color: 'var(--text-primary)',
                             fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                             lineHeight: '1.7'
                           }}>
@@ -813,7 +807,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   <p
                     className="font-body leading-relaxed font-semibold pt-2"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-primary)',
                       fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                       lineHeight: '1.8'
                     }}>
@@ -829,7 +823,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Live Class Photos Gallery */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="gallery-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -841,15 +835,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             <div className="mb-12 text-center">
               <div className="flex items-center justify-center gap-6 mb-8">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <Camera
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-highlight)',
                       strokeWidth: 2.5
                     }} />
                 </div>
@@ -857,7 +851,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="gallery-heading"
                   className="font-display font-bold tracking-wide leading-tight"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -867,7 +861,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed max-w-3xl mx-auto"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -912,7 +906,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Designient by the Numbers */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#fceed1' }}
+        style={{ backgroundColor: 'var(--bg-peach)' }}
         aria-labelledby="by-numbers-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -926,7 +920,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 id="by-numbers-heading"
                 className="font-display font-bold mb-8 tracking-wide leading-tight"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   fontWeight: 700
                 }}>
@@ -946,24 +940,24 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-                  className="flex items-start gap-4 p-6 bg-white rounded-lg shadow-sm">
+                  className="flex items-start gap-4 p-6 bg-card rounded-lg shadow-sm">
                   <div
-                    className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0"
+                    className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                     style={{
-                      backgroundColor: '#f2d53c',
+                      backgroundColor: 'var(--color-highlight)',
                       boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                     }}>
                     <BarChart
                       className="w-6 h-6"
                       style={{
-                        color: '#8458B3',
+                        color: 'var(--text-on-highlight)',
                         strokeWidth: 2.5
                       }} />
                   </div>
                   <p
                     className="font-body leading-relaxed pt-1"
                     style={{
-                      color: '#1a1a1a',
+                      color: 'var(--text-secondary)',
                       fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                       lineHeight: '1.7'
                     }}>
@@ -979,7 +973,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Career Support */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: '#FFF6E2' }}
+        style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-labelledby="career-support-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -990,15 +984,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <div className="flex items-start gap-6 mb-8">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                 style={{
-                  backgroundColor: '#f2d53c',
+                  backgroundColor: 'var(--color-highlight)',
                   boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                 }}>
                 <Briefcase
                   className="w-8 h-8"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-on-highlight)',
                     strokeWidth: 2.5
                   }} />
               </div>
@@ -1007,7 +1001,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="career-support-heading"
                   className="font-display font-bold mb-6 tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -1016,7 +1010,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 <p
                   className="font-body leading-relaxed"
                   style={{
-                    color: '#4a4a4a',
+                    color: 'var(--text-secondary)',
                     fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                     lineHeight: '1.8'
                   }}>
@@ -1031,7 +1025,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Our Journey */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="our-journey-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -1043,15 +1037,15 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             <div className="mb-16 md:mb-20 text-center">
               <div className="flex items-center justify-center gap-6 mb-8">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                   style={{
-                    backgroundColor: '#f2d53c',
+                    backgroundColor: 'var(--color-highlight)',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
                   }}>
                   <Calendar
                     className="w-8 h-8"
                     style={{
-                      color: '#8458B3',
+                      color: 'var(--text-on-highlight)',
                       strokeWidth: 2.5
                     }} />
                 </div>
@@ -1059,7 +1053,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                   id="our-journey-heading"
                   className="font-display font-bold tracking-wide"
                   style={{
-                    color: '#8458B3',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                     fontWeight: 700
                   }}>
@@ -1071,14 +1065,14 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             {/* Horizontal Timeline */}
             <div className="relative">
               {/* Horizontal Timeline Line */}
-              <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5" style={{ backgroundColor: '#E5E7EB' }}>
+              <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5" style={{ backgroundColor: 'var(--border-default)' }}>
                 <motion.div
                   initial={{ scaleX: 0 }}
                   whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1.5, ease: [0.4, 0, 0.2, 1] }}
                   className="absolute top-0 left-0 bottom-0 origin-left w-full"
-                  style={{ backgroundColor: '#8458B3' }}
+                  style={{ backgroundColor: 'var(--color-primary)' }}
                 />
               </div>
 
@@ -1096,8 +1090,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                     {/* Timeline Node with Year */}
                     <div className="relative z-10 mb-4">
                       <div
-                        className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg mx-auto"
-                        style={{ backgroundColor: '#8458B3' }}>
+                        className="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-lg mx-auto accent-icon-box"
+                        style={{ backgroundColor: 'var(--color-primary)' }}>
                         <span
                           className="font-display font-bold text-white text-center"
                           style={{
@@ -1114,13 +1108,13 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                       <div
                         className="p-4 md:p-5 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 text-center h-full"
                         style={{
-                          backgroundColor: '#FFF6E2',
-                          borderTop: '4px solid #8458B3'
+                          backgroundColor: 'var(--bg-warm)',
+                          borderTop: '4px solid var(--color-primary)'
                         }}>
                         <h3
                           className="font-display font-bold mb-2 tracking-wide"
                           style={{
-                            color: '#8458B3',
+                            color: 'var(--color-primary)',
                             fontSize: 'clamp(0.8125rem, 1.1vw, 0.9375rem)'
                           }}>
                           {milestone.event}
@@ -1128,7 +1122,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                         <p
                           className="font-body leading-relaxed text-xs"
                           style={{
-                            color: '#4a4a4a',
+                            color: 'var(--text-secondary)',
                             lineHeight: '1.5'
                           }}>
                           {milestone.year === '2016' && 'Designient School of Masterminds was founded with a vision to transform UI/UX design education in India.'}
@@ -1152,7 +1146,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
       {/* Why UI/UX Design Matters Today */}
       <section
         className="py-24 md:py-32"
-        style={{ backgroundColor: 'white' }}
+        style={{ backgroundColor: 'var(--bg-card)' }}
         aria-labelledby="why-uiux-matters-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -1166,7 +1160,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 id="why-uiux-matters-heading"
                 className="font-display font-bold mb-6 tracking-wide leading-tight"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3.5rem)',
                   fontWeight: 700
                 }}>
@@ -1177,7 +1171,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -1186,7 +1180,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed font-semibold"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -1195,7 +1189,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed"
                 style={{
-                  color: '#4a4a4a',
+                  color: 'var(--text-secondary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -1204,7 +1198,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               <p
                 className="font-body leading-relaxed font-semibold"
                 style={{
-                  color: '#1a1a1a',
+                  color: 'var(--text-primary)',
                   fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                   lineHeight: '1.8'
                 }}>
@@ -1217,8 +1211,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
 
       {/* CTA Section */}
       <section
-        className="py-24 md:py-32"
-        style={{ backgroundColor: '#8458B3' }}
+        className="py-24 md:py-32 section-band-accent"
         aria-labelledby="cta-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -1226,13 +1219,14 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-            className="max-w-3xl mx-auto text-center text-white">
+            className="max-w-3xl mx-auto text-center">
             <h2
               id="cta-heading"
               className="font-display font-bold mb-6 tracking-wide leading-tight"
               style={{
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                fontWeight: 700
+                fontWeight: 700,
+                color: 'var(--text-primary)'
               }}>
               Ready to begin your UI/UX journey with us?
             </h2>
@@ -1241,7 +1235,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               style={{
                 fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
                 lineHeight: '1.7',
-                color: 'rgba(255, 255, 255, 0.9)'
+                color: 'var(--text-secondary)'
               }}>
               Join hundreds of students who have transformed their careers with our hands-on, mentor-led approach to UI/UX design education.
             </p>
@@ -1250,8 +1244,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 href="/contact-us"
                 className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105 min-h-[48px] shadow-lg"
                 style={{
-                  backgroundColor: '#f2d53c',
-                  color: '#1a1a1a',
+                  backgroundColor: 'var(--color-accent)',
+                  color: 'var(--text-on-accent)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
                 }}>
                 Contact us
@@ -1259,10 +1253,10 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               </Link>
               <Link
                 href="/courses"
-                className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-white/10 min-h-[48px]"
+                className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[48px]"
                 style={{
-                  borderColor: 'white',
-                  color: 'white',
+                  borderColor: 'var(--color-accent)',
+                  color: 'var(--color-accent)',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)'
                 }}>
                 View Courses
@@ -1316,7 +1310,7 @@ function AboutPageFAQ() {
   };
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <StructuredData data={faqSchema} />
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
@@ -1327,22 +1321,22 @@ function AboutPageFAQ() {
           className="mb-12 md:mb-16">
           <div className="flex items-center justify-center gap-6 mb-8">
             <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+              className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 accent-icon-box"
               style={{
-                backgroundColor: '#f2d53c',
+                backgroundColor: 'var(--color-highlight)',
                 boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
               }}>
               <HelpCircle
                 className="w-8 h-8"
                 style={{
-                  color: '#8458B3',
+                  color: 'var(--text-on-accent)',
                   strokeWidth: 2.5
                 }} />
             </div>
             <h2
               className="font-display tracking-wide leading-tight"
               style={{
-                color: '#8458B3',
+                color: 'var(--text-primary)',
                 fontWeight: 700,
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
@@ -1359,22 +1353,22 @@ function AboutPageFAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="border rounded-lg overflow-hidden bg-white"
-              style={{ borderColor: '#e5e7eb' }}
+              className="border rounded-lg overflow-hidden bg-card"
+              style={{ borderColor: 'var(--border-default)' }}
               itemScope
               itemType="https://schema.org/Question">
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 py-4 flex items-center justify-between text-left min-h-[44px] hover:bg-gray-50 transition-colors"
                 style={{
-                  backgroundColor: openIndex === index ? '#FFF6E2' : 'white'
+                  backgroundColor: openIndex === index ? 'var(--bg-warm)' : 'var(--bg-card)'
                 }}
                 aria-expanded={openIndex === index}
                 aria-controls={`faq-answer-${index}`}>
                 <h3
                   className="font-display font-semibold pr-8 flex-1"
                   style={{
-                    color: '#1a1a1a',
+                    color: 'var(--text-primary)',
                     fontSize: 'clamp(0.9375rem, 2vw, 1.125rem)'
                   }}
                   itemProp="name">
@@ -1383,7 +1377,7 @@ function AboutPageFAQ() {
                 <motion.div
                   animate={{ rotate: openIndex === index ? 180 : 0 }}
                   transition={{ duration: 0.3 }}>
-                  <ChevronDown className="w-5 h-5 flex-shrink-0" style={{ color: '#8458B3' }} />
+                  <ChevronDown className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
                 </motion.div>
               </button>
               <AnimatePresence>
@@ -1396,11 +1390,11 @@ function AboutPageFAQ() {
                     id={`faq-answer-${index}`}
                     itemScope
                     itemType="https://schema.org/Answer">
-                    <div className="px-6 py-4 border-t" style={{ borderColor: '#e5e7eb' }}>
+                    <div className="px-6 py-4 border-t" style={{ borderColor: 'var(--border-default)' }}>
                       <p
                         className="font-body leading-relaxed"
                         style={{
-                          color: '#4a4a4a',
+                          color: 'var(--text-secondary)',
                           fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
                           lineHeight: '1.7'
                         }}

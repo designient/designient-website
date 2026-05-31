@@ -71,9 +71,10 @@ export function UrgencyBanner({
       <div 
         className={`rounded-xl p-4 md:p-6 shadow-lg ${
           isPricingVariant 
-            ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900' 
-            : 'bg-gradient-to-r from-[#8458B3] to-[#6b46c1] text-white'
-        }`}>
+            ? 'bg-[var(--color-warning)] text-[var(--text-inverse)]' 
+            : 'apple-card border-[var(--border-accent)]'
+        }`}
+        style={isPricingVariant ? undefined : { color: 'var(--text-primary)' }}>
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
           
           {/* Countdown Timer */}
@@ -119,7 +120,7 @@ export function UrgencyBanner({
           {seatsRemaining !== undefined && (
             <>
               {showCountdown && timeRemaining && (
-                <div className={`hidden md:block h-8 w-px ${isPricingVariant ? 'bg-gray-900 opacity-30' : 'bg-white opacity-30'}`} />
+                <div className={`hidden md:block h-8 w-px ${isPricingVariant ? 'bg-gray-900 opacity-30' : 'bg-[var(--border-default)] opacity-30'}`} />
               )}
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5 flex-shrink-0" aria-hidden="true" />
@@ -143,7 +144,7 @@ export function UrgencyBanner({
           {seatsRemaining !== undefined && seatsRemaining <= 5 && (
             <>
               {seatsRemaining !== undefined && (
-                <div className={`hidden md:block h-8 w-px ${isPricingVariant ? 'bg-gray-900 opacity-30' : 'bg-white opacity-30'}`} />
+                <div className={`hidden md:block h-8 w-px ${isPricingVariant ? 'bg-gray-900 opacity-30' : 'bg-[var(--border-default)] opacity-30'}`} />
               )}
               <div className="flex items-center gap-2">
                 <AlertCircle className={`w-5 h-5 flex-shrink-0 ${isPricingVariant ? 'text-red-600' : 'text-yellow-300'}`} aria-hidden="true" />
