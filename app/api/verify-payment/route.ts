@@ -1,22 +1,10 @@
-import { createHmac, timingSafeEqual } from 'crypto'
 import { NextRequest, NextResponse } from 'next/server'
-import { getRazorpayKeySecret } from '../../../lib/razorpay'
+import { verifyRazorpayPaymentSignature } from '../../../lib/razorpay'
 
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 
 function jsonError(message: string, status: number) {
   return NextResponse.json({ success: false, error: message }, { status })
-}
-
-function signaturesMatch(expected: string, received: string): boolean {
-  try {
-    const expectedBuf = Buffer.from(expected, 'utf8')
-    const receivedBuf = Buffer.from(received, 'utf8')
-    if (expectedBuf.length !== receivedBuf.length) return false
-    return timingSafeEqual(expectedBuf, receivedBuf)
-  } catch {
-    return false
-  }
 }
 
 export async function POST(request: NextRequest) {
@@ -36,11 +24,9 @@ export async function POST(request: NextRequest) {
       return jsonError('razorpay_order_id, razorpay_payment_id, and razorpay_signature are required.', 400)
     }
 
-    const secret = getRazorpayKeySecret()
-    const payload = `${orderId}|${paymentId}`
-    const expectedSignature = createHmac('sha256', secret).update(payload).digest('hex')
+    const valid = await verifyRazorpayPaymentSignature(orderId, paymentId, signature)
 
-    if (!signaturesMatch(expectedSignature, signature)) {
+    if (!valid) {
       return jsonError('Payment signature verification failed.', 400)
     }
 

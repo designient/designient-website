@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getRazorpayClient } from '../../../lib/razorpay'
+import { createRazorpayOrder } from '../../../lib/razorpay'
 
-export const runtime = 'nodejs'
+export const runtime = 'edge'
 
 const MIN_AMOUNT_PAISE = 100
 
@@ -38,9 +38,7 @@ export async function POST(request: NextRequest) {
         ? (body.notes as Record<string, string>)
         : undefined
 
-    const razorpay = getRazorpayClient()
-
-    const order = await razorpay.orders.create({
+    const order = await createRazorpayOrder({
       amount: Math.round(amount),
       currency,
       receipt,
@@ -64,11 +62,7 @@ export async function POST(request: NextRequest) {
     }
 
     const message =
-      err && typeof err === 'object' && 'error' in err
-        ? JSON.stringify((err as { error: unknown }).error)
-        : err instanceof Error
-          ? err.message
-          : 'Failed to create order'
+      err instanceof Error ? err.message : 'Failed to create order'
 
     console.error('Create order error:', err)
     return jsonError(message, statusCode >= 400 && statusCode < 600 ? statusCode : 500)
