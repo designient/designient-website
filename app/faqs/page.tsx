@@ -142,7 +142,7 @@ const allFAQs = [
   {
     question: 'Who is the AI Product Design Course for — and how do I apply?',
     answer:
-      'The AI Product Design Course is for PMs, designers with 1 to 3 years of experience, and UX writers or content designers who want to specialise in designing AI-native products — trust UI, error states, confidence design, and hallucination handling. The prerequisite is that you have shipped at least one digital product in any role. It is application-based because the cohort is 12 students and the critique sessions require a specific level of product context. Applications are reviewed within 48 hours. Accepted students pay a booking token to confirm their seat. If you want to experience the methodology before applying, the AI Product Design Live monthly workshop is a free 2-hour session where one complete AI state design problem is worked through live. Email hello@designient.com for the next date.'
+      'The AI Product Design Course is for PMs, designers with 1 to 3 years of experience, and UX writers or content designers who want to specialise in designing AI-native products — trust UI, error states, confidence design, and hallucination handling. The prerequisite is that you have shipped at least one digital product in any role. It is application-based because the cohort is 12 students and the critique sessions require a specific level of product context. Applications are reviewed within 48 hours. Accepted students pay a booking token to confirm their seat. If you want to experience the methodology before applying, the AI Product Design Live monthly workshop is a free 2-hour session — a real AI product audited and redesigned live in Figma. Register at /ai-product-design-live.'
   }
 ]
 

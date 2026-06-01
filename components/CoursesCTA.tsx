@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Calendar, Mail } from 'react-feather'
+import { ArrowRight, Calendar } from 'react-feather'
 import Link from 'next/link'
 import { coursesHubGoalRecommendations } from '../data/coursesHubData'
 
@@ -76,14 +76,24 @@ export function CoursesCTA() {
               AI Automation Live and AI Product Design Live run monthly — free 2-hour sessions that let you experience
               the AI Track format before committing.
             </p>
-            <a
-              href="mailto:hello@designient.com"
-              className="font-body inline-flex items-center gap-2 font-bold min-h-[44px]"
-              style={{ color: 'var(--color-primary)' }}
-            >
-              <Mail className="w-5 h-5" />
-              hello@designient.com for next dates
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              <Link
+                href="/ai-automation-live"
+                className="font-body inline-flex items-center gap-2 font-bold min-h-[44px]"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                AI Automation Live
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                href="/ai-product-design-live"
+                className="font-body inline-flex items-center gap-2 font-bold min-h-[44px]"
+                style={{ color: 'var(--color-primary)' }}
+              >
+                AI Product Design Live
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
           </motion.div>
         </div>
 

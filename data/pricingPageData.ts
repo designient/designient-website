@@ -141,15 +141,15 @@ export const freeWorkshopsPricing = [
     name: 'AI Automation Live',
     schedule: 'Monthly',
     duration: '2 Hours',
-    registerHref: '/contact-us',
-    registerLabel: 'Contact us to register',
+    registerHref: '/ai-automation-live',
+    registerLabel: 'Register free',
   },
   {
     name: 'AI Product Design Live',
     schedule: 'Monthly',
     duration: '2 Hours',
-    registerHref: '/contact-us',
-    registerLabel: 'Contact us to register',
+    registerHref: '/ai-product-design-live',
+    registerLabel: 'Register free',
   },
 ]
 

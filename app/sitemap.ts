@@ -185,6 +185,30 @@ export function getSitemapEntries(): SitemapEntry[] {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/ai-automation-live`,
+      lastModified: lastmod,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/ai-product-design-live`,
+      lastModified: lastmod,
+      changeFrequency: 'weekly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/ai-automation-accelerator`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/ai-product-design-course`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/success-stories`,
       lastModified: lastmod,
       changeFrequency: 'weekly',

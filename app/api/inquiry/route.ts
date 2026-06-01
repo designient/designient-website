@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
 export const runtime = 'edge'
-import { inquiryLeadEmail, inquiryCustomerCopy } from '../../../lib/email-templates'
+import {
+  getWorkshopEmailTemplates,
+  getWorkshopRegistration,
+  inquiryCustomerCopy,
+  inquiryLeadEmail,
+} from '../../../lib/email-templates'
 import { getResendFrom } from '../../../lib/resend'
 
 function jsonError(message: string, status: number) {
@@ -22,6 +27,7 @@ export async function POST(request: NextRequest) {
     const whatsapp = body.whatsapp as string | undefined
     const whatsappCountryCode = body.whatsappCountryCode as string | undefined
     const courseInterest = body.courseInterest as string | undefined
+    const source = body.source as string | undefined
 
     if (!name?.trim()) {
       return NextResponse.json({ success: false, error: 'Name is required.' }, { status: 400 })
@@ -30,10 +36,22 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: 'Email is required.' }, { status: 400 })
     }
 
-    const data = { name: name ?? '', email: email ?? '', phone, phoneCountryCode, whatsapp, whatsappCountryCode, courseInterest }
+    const data = {
+      name: name ?? '',
+      email: email ?? '',
+      phone,
+      phoneCountryCode,
+      whatsapp,
+      whatsappCountryCode,
+      courseInterest: courseInterest ?? source,
+      source,
+    }
+
+    const workshopSource = getWorkshopRegistration(data)
+    const workshopEmails = workshopSource ? getWorkshopEmailTemplates(workshopSource) : null
 
     // 1. Send Lead Email
-    const lead = inquiryLeadEmail(data)
+    const lead = workshopEmails ? workshopEmails.lead(data) : inquiryLeadEmail(data)
     const leadRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -55,7 +73,7 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. Send Customer Copy
-    const customer = inquiryCustomerCopy(data)
+    const customer = workshopEmails ? workshopEmails.customer(data) : inquiryCustomerCopy(data)
     const customerRes = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {

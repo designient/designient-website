@@ -275,7 +275,7 @@ export const aiProductFaqs = [
   {
     question: 'Can I attend the free workshop before deciding?',
     answer:
-      'Yes. The AI Product Design Live monthly workshop is a free 2-hour session — one complete AI state design problem worked through live. Email hello@designient.com for the next date.',
+      'Yes. The AI Product Design Live monthly workshop is a free 2-hour session — a real AI product audited and redesigned live in Figma. Register at designient.com/ai-product-design-live.',
   },
   {
     question: 'What is the refund policy?',

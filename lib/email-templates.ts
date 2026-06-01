@@ -96,6 +96,24 @@ export interface InquiryFormData {
   whatsapp?: string
   whatsappCountryCode?: string
   courseInterest?: string
+  source?: string
+}
+
+export type WorkshopSource = 'ai-automation-live' | 'ai-product-design-live'
+
+const WORKSHOP_SOURCES: WorkshopSource[] = ['ai-automation-live', 'ai-product-design-live']
+
+export function getWorkshopRegistration(data: InquiryFormData): WorkshopSource | null {
+  const key = data.source || data.courseInterest
+  if (key && WORKSHOP_SOURCES.includes(key as WorkshopSource)) {
+    return key as WorkshopSource
+  }
+  return null
+}
+
+/** @deprecated Use getWorkshopRegistration */
+export function isAiAutomationLiveRegistration(data: InquiryFormData): boolean {
+  return getWorkshopRegistration(data) === 'ai-automation-live'
 }
 
 export function inquiryLeadEmail(data: InquiryFormData) {
@@ -111,6 +129,81 @@ export function inquiryLeadEmail(data: InquiryFormData) {
      <p><strong>Phone:</strong> ${phoneFull}</p>
      <p><strong>WhatsApp:</strong> ${whatsappFull}</p>
      <p><strong>Course interest:</strong> ${data.courseInterest || '—'}</p>`
+  )
+  return { subject, text, html }
+}
+
+export function aiAutomationLiveLeadEmail(data: InquiryFormData) {
+  const phoneFull = data.phone ? `${data.phoneCountryCode || ''} ${data.phone}`.trim() : '—'
+  const subject = `Workshop registration – AI Automation Live – ${data.name}`
+  const text = `Source: ai-automation-live\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${phoneFull}\nWorkshop: AI Automation Live`
+  const html = wrapHtml(
+    subject,
+    `<h2 style="color: #B0E4CC;">New AI Automation Live registration</h2>
+     <p><strong>Source:</strong> ai-automation-live</p>
+     <p><strong>Name:</strong> ${data.name}</p>
+     <p><strong>Email:</strong> ${data.email}</p>
+     <p><strong>Phone:</strong> ${phoneFull}</p>
+     <p><strong>Workshop:</strong> AI Automation Live</p>`
+  )
+  return { subject, text, html }
+}
+
+export function aiProductDesignLiveLeadEmail(data: InquiryFormData) {
+  const phoneFull = data.phone ? `${data.phoneCountryCode || ''} ${data.phone}`.trim() : '—'
+  const subject = `Workshop registration – AI Product Design Live – ${data.name}`
+  const text = `Source: ai-product-design-live\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${phoneFull}\nWorkshop: AI Product Design Live`
+  const html = wrapHtml(
+    subject,
+    `<h2 style="color: #B0E4CC;">New AI Product Design Live registration</h2>
+     <p><strong>Source:</strong> ai-product-design-live</p>
+     <p><strong>Name:</strong> ${data.name}</p>
+     <p><strong>Email:</strong> ${data.email}</p>
+     <p><strong>Phone:</strong> ${phoneFull}</p>
+     <p><strong>Workshop:</strong> AI Product Design Live</p>`
+  )
+  return { subject, text, html }
+}
+
+export function aiProductDesignLiveCustomerCopy(data: InquiryFormData) {
+  const subject = `You're registered – AI Product Design Live | ${SITE_NAME}`
+  const text = `Hi ${data.name},\n\nYou're registered for AI Product Design Live.\n\nYour Zoom link will arrive at this email address shortly. The session recording and all bonuses (Figma file, trust audit checklist, teardown examples) are sent within 24 hours of the workshop — even if you cannot attend live.\n\nIf you are among the first 5 registrants this month, you will receive a separate email with your 1:1 Portfolio and Application Review booking link.\n\nQuestions? Reply to this email or write to hello@designient.com\n\nBest,\n${SITE_NAME}`
+  const html = wrapHtml(
+    subject,
+    `<h2 style="color:#B0E4CC;">You're registered for AI Product Design Live</h2>
+     <p>Hi ${data.name},</p>
+     <p>You're registered for <strong>AI Product Design Live</strong>.</p>
+     <p>Your <strong>Zoom link</strong> will arrive at this email address shortly.</p>
+     <p>The session recording and all bonuses (Figma file, trust audit checklist, teardown examples, community access) are sent within <strong>24 hours</strong> of the workshop — even if you cannot attend live.</p>
+     <p>If you are among the first 5 registrants this month, you will receive a separate email with your 1:1 Portfolio and Application Review booking link.</p>
+     <p>Questions? Reply to this email or write to <a href="mailto:hello@designient.com">hello@designient.com</a></p>
+     <p>Best,<br>${SITE_NAME}</p>`
+  )
+  return { subject, text, html }
+}
+
+export function getWorkshopEmailTemplates(source: WorkshopSource) {
+  switch (source) {
+    case 'ai-automation-live':
+      return { lead: aiAutomationLiveLeadEmail, customer: aiAutomationLiveCustomerCopy }
+    case 'ai-product-design-live':
+      return { lead: aiProductDesignLiveLeadEmail, customer: aiProductDesignLiveCustomerCopy }
+  }
+}
+
+export function aiAutomationLiveCustomerCopy(data: InquiryFormData) {
+  const subject = `You're registered – AI Automation Live | ${SITE_NAME}`
+  const text = `Hi ${data.name},\n\nYou're registered for AI Automation Live.\n\nYour Zoom link will arrive at this email address shortly. The session recording and all bonuses (workflow file, templates, guides) are sent within 24 hours of the workshop — even if you cannot attend live.\n\nIf you are among the first 5 registrants this month, you will receive a separate email with your 1:1 Automation Strategy Session booking link.\n\nQuestions? Reply to this email or write to hello@designient.com\n\nBest,\n${SITE_NAME}`
+  const html = wrapHtml(
+    subject,
+    `<h2 style="color:#B0E4CC;">You're registered for AI Automation Live</h2>
+     <p>Hi ${data.name},</p>
+     <p>You're registered for <strong>AI Automation Live</strong>.</p>
+     <p>Your <strong>Zoom link</strong> will arrive at this email address shortly.</p>
+     <p>The session recording and all bonuses (workflow file, templates, guides) are sent within <strong>24 hours</strong> of the workshop — even if you cannot attend live.</p>
+     <p>If you are among the first 5 registrants this month, you will receive a separate email with your 1:1 Automation Strategy Session booking link.</p>
+     <p>Questions? Reply to this email or write to <a href="mailto:hello@designient.com">hello@designient.com</a></p>
+     <p>Best,<br>${SITE_NAME}</p>`
   )
   return { subject, text, html }
 }

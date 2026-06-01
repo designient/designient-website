@@ -347,11 +347,11 @@ export function AIProductLearningPath() {
         <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-warm)' }}>
           <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>FREE ENTRY POINT</p>
           <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            If you are not yet sure this is the right course, the monthly <strong>AI Product Design Live</strong> workshop is a free 2-hour session that covers one complete AI state design problem live. Email{' '}
-            <a href="mailto:hello@designient.com?subject=AI%20Product%20Design%20Live%20Workshop" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
-              hello@designient.com
-            </a>{' '}
-            for the next date.
+            If you are not yet sure this is the right course, the monthly <strong>AI Product Design Live</strong> workshop is a free 2-hour session — a real AI product audited and redesigned live in Figma.{' '}
+            <Link href="/ai-product-design-live" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+              Register free for the next session
+            </Link>
+            .
           </p>
         </div>
       </div>

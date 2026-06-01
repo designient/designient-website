@@ -340,11 +340,11 @@ export function AIAcceleratorLearningPath() {
         <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-card)' }}>
           <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>FREE ENTRY POINT</p>
           <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            The monthly <strong>AI Automation Live</strong> workshop is a free 2-hour session — one complete automation problem built live, from trigger to deployed workflow. Email{' '}
-            <a href="mailto:hello@designient.com?subject=AI%20Automation%20Live%20Workshop" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
-              hello@designient.com
-            </a>{' '}
-            for the next date.
+            The monthly <strong>AI Automation Live</strong> workshop is a free 2-hour session — one complete automation problem built live, from trigger to deployed workflow.{' '}
+            <Link href="/ai-automation-live" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+              Register free for the next session
+            </Link>
+            .
           </p>
         </div>
       </div>
