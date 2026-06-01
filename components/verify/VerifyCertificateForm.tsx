@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import React, { useState } from 'react'
 import { Search, CheckCircle, Shield, AlertCircle, HelpCircle, FileText } from 'react-feather'
 import Link from 'next/link'
@@ -135,9 +136,8 @@ export function VerifyCertificateForm() {
 
   return (
     <>
-      <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center mb-10">
+      <PageHero size="compact" align="center">
+          <div className="max-w-2xl mx-auto mb-10">
             <h1
               className="font-display font-bold mb-6"
               style={{
@@ -282,8 +282,7 @@ export function VerifyCertificateForm() {
               Need help?
             </Link>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">

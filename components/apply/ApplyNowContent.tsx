@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import { useState, FormEvent } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -209,8 +210,7 @@ export function ApplyNowContent() {
 
   if (currentStep === 'success') {
     return (
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+      <PageHero size="default" align="center">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -252,17 +252,15 @@ export function ApplyNowContent() {
               </div>
             </div>
           </motion.div>
-        </div>
-      </section>
+      </PageHero>
     )
   }
 
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+      <PageHero size="default" align="center">
+          <div className="max-w-4xl mx-auto">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -288,8 +286,7 @@ export function ApplyNowContent() {
               Limited seats. Mentor-led learning. Applications are reviewed before confirmation.
             </motion.p>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* How It Works */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>

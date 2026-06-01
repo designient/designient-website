@@ -75,7 +75,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   return (
     <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
-      <main id="main-content" role="main" className="pt-24 md:pt-32 pb-16 md:pb-24">
+      <main id="main-content" role="main" className="pb-16 md:pb-24">
         <article className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>

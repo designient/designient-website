@@ -6,6 +6,7 @@ import { ChevronRight, Clock, Users, Monitor, TrendingUp, Star, Award, Calendar,
 import Link from 'next/link';
 import { HeroTestimonials } from './HeroTestimonials';
 import { UrgencyBanner } from './UrgencyBanner';
+import { PageHero } from '../layout/PageHero';
 
 interface CourseHeroProps {
   title: string;
@@ -48,17 +49,11 @@ export function CourseHero({
   ];
 
   return (
-    <section
-      className="relative min-h-[70vh] flex items-center overflow-hidden pt-20 md:pt-24 hero-glow"
-      style={{ backgroundColor: 'var(--bg-base)' }}>
-      
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-100 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
-        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" />
-      </div>
-
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 py-16 md:py-24">
+    <PageHero
+      size="course"
+      align="center"
+      className="min-h-[70vh] flex flex-col justify-center"
+      contentClassName="py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -127,7 +122,7 @@ export function CourseHero({
                   <p
                     className="font-body text-xs"
                     style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)' }}>
-                    To maintain quality mentorship and personalised feedback, each batch is intentionally kept small. New batch dates will be announced soon. <Link href="/contact-us" className="underline font-semibold">Contact us</Link> to be notified when the next batch opens.
+                    To maintain quality mentorship and personalised feedback, each batch is intentionally kept small. New batch dates will be announced soon. <Link href="/contact-us" className="course-inline-link">Contact us</Link> to be notified when the next batch opens.
                   </p>
                 </div>
               </motion.div>
@@ -246,7 +241,6 @@ export function CourseHero({
           {/* Social Proof Testimonials */}
           {!batchFull && <HeroTestimonials />}
         </motion.div>
-      </div>
-    </section>
+    </PageHero>
   );
 }

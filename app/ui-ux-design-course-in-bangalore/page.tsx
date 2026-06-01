@@ -41,7 +41,7 @@ export default function BangaloreCityPage() {
           cityUrl="https://designient.com/ui-ux-design-course-in-bangalore"
         />
         <Header />
-        <main id="main-content" role="main" className="pt-24 md:pt-32">
+        <main id="main-content" role="main">
           <BangaloreCityPageContent />
         </main>
         <Footer />

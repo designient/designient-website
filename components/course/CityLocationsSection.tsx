@@ -95,7 +95,7 @@ export function CityLocationsSection() {
                   <div className="p-3 rounded-lg mb-4" style={{ backgroundColor: 'var(--color-error-bg)' }}>
                     <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--color-error)' }}>Current batch is full</p>
                     <p className="font-body text-xs" style={{ color: 'var(--color-error)' }}>
-                      New batch dates will be announced soon. <Link href="/contact-us" className="underline">Contact us</Link> to be notified.
+                      New batch dates will be announced soon. <Link href="/contact-us" className="course-inline-link">Contact us</Link> to be notified.
                     </p>
                   </div>
                 ) : (

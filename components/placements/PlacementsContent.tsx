@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
@@ -156,12 +157,8 @@ export function PlacementsContent() {
   return (
     <>
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[60vh] flex items-center pt-20 md:pt-24" 
-        style={{ backgroundColor: 'var(--bg-warm)' }}
-        aria-labelledby="placements-heading">
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
-          <div className="max-w-4xl mx-auto text-center">
+      <PageHero size="tall" align="center" aria-labelledby="placements-heading">
+          <div className="max-w-4xl mx-auto w-full">
             {/* Breadcrumbs */}
             <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline">Home</Link>
@@ -196,8 +193,7 @@ export function PlacementsContent() {
               Bring your UI/UX skills to the job market with structured career support, interview readiness, and recruiter guidance.
             </motion.p>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Placement Highlights Stats */}
       <section className="py-24 md:py-32 section-band-accent">

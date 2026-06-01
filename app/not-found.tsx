@@ -24,14 +24,14 @@ export default function NotFound() {
   return (
     <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
-      <main id="main-content" role="main" className="pt-24 md:pt-32">
+      <main id="main-content" role="main">
         <section className="py-16 md:py-24">
           <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               {/* 404 Icon */}
               <div
                 className="w-24 h-24 mx-auto mb-8 rounded-full flex items-center justify-center"
-                style={{ backgroundColor: 'rgba(176, 228, 204, 0.1)' }}
+                style={{ backgroundColor: 'rgba(240, 255, 66, 0.1)' }}
               >
                 <span
                   className="font-display font-bold"

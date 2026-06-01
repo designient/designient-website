@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../../layout/PageHero'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -8,6 +9,17 @@ import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
 import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
 import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
 import { CrossCoursePrice } from '../../pricing/CrossCoursePrice'
+import {
+  AnimatedCard,
+  AnimatedGrid,
+  AnimatedGridItem,
+  AnimatedReveal,
+  CourseAnimatedSection,
+  CourseCurriculumTimeline,
+  CourseTrackStep,
+  CourseTrackSteps,
+  StaggerItem,
+} from '../animated'
 import {
   bootcampBonuses,
   bootcampComparison,
@@ -91,12 +103,8 @@ export function BootcampHero() {
   }
 
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
-      </div>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+    <PageHero size="course" align="center">
+      <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
             <Link href="/" className="hover:underline">Home</Link>
             <ChevronRight className="w-4 h-4" />
@@ -164,9 +172,8 @@ export function BootcampHero() {
           <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>
             {bootcampHero.guaranteeNote}
           </p>
-        </div>
       </div>
-    </section>
+    </PageHero>
   )
 }
 
@@ -199,127 +206,134 @@ export function BootcampPatternInterrupt() {
 
 export function BootcampLearningPath() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          Your Path After This Bootcamp
-        </h2>
+    <CourseAnimatedSection title="Your Path After This Bootcamp" backgroundColor="var(--bg-warm)">
+      <StaggerItem>
+        <AnimatedCard variant="primary">
+          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-primary)' }}>
+            DESIGN TRACK
+          </p>
+          <CourseTrackSteps>
+            <CourseTrackStep index={0} active>
+              <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Bootcamp</strong>{' '}
+              <span style={{ color: 'var(--color-primary)' }}>← You are here</span>
+            </CourseTrackStep>
+            <CourseTrackStep index={1}>
+              <Link href="/ui-ux-design-pro" className="course-inline-link">
+                UI UX Design Pro
+              </Link>{' '}
+              (10 weeks · <CrossCoursePrice slug={COURSE_SLUGS.pro} />)
+            </CourseTrackStep>
+            <CourseTrackStep index={2}>
+              <Link href="/ui-ux-design-master" className="course-inline-link">
+                UI UX Design Master
+              </Link>{' '}
+              (6 months · <CrossCoursePrice slug={COURSE_SLUGS.master} />)
+            </CourseTrackStep>
+          </CourseTrackSteps>
+        </AnimatedCard>
+      </StaggerItem>
 
-        <div className="space-y-8 mb-8">
-          <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-card)', border: '2px solid var(--color-primary)' }}>
-            <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>DESIGN TRACK</p>
-            <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 1:</strong> UI UX Design Bootcamp <span style={{ color: 'var(--color-primary)' }}>← You are here</span></li>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 2:</strong> <Link href="/ui-ux-design-pro" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Pro</Link> (10 weeks · <CrossCoursePrice slug={COURSE_SLUGS.pro} />)</li>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 3:</strong> <Link href="/ui-ux-design-master" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Master</Link> (6 months · <CrossCoursePrice slug={COURSE_SLUGS.master} />)</li>
-            </ol>
-          </div>
+      <StaggerItem className="mt-6">
+        <AnimatedCard variant="highlight">
+          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-highlight)' }}>
+            AI TRACK (separate track, no design background required)
+          </p>
+          <CourseTrackSteps>
+            <CourseTrackStep index={0}>
+              <Link href="/ai-automation-accelerator" className="course-inline-link">
+                AI Automation Accelerator
+              </Link>{' '}
+              (8 weeks)
+            </CourseTrackStep>
+            <CourseTrackStep index={1}>
+              <Link href="/ai-product-design-course" className="course-inline-link">
+                AI Product Design Course
+              </Link>{' '}
+              (6 weeks)
+            </CourseTrackStep>
+          </CourseTrackSteps>
+        </AnimatedCard>
+      </StaggerItem>
 
-          <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-card)', border: '2px solid var(--color-highlight)' }}>
-            <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-highlight)' }}>AI TRACK (separate track, no design background required)</p>
-            <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 1:</strong> <Link href="/ai-automation-accelerator" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>AI Automation Accelerator</Link> (8 weeks)</li>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 2:</strong> <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>AI Product Design Course</Link> (6 weeks)</li>
-            </ol>
-          </div>
-        </div>
-
-        <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+      <StaggerItem className="mt-8 space-y-4">
+        <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <strong style={{ color: 'var(--text-primary)' }}>Not sure which track?</strong> The Design Track is for anyone who wants to become a UI/UX designer. The AI Track is for working professionals and freelancers who want to build AI-powered automation workflows. Both tracks are available regardless of your background.
         </p>
         <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           The UI UX Design Bootcamp is the fastest way to confirm whether design is the right path for you before committing to the 10-week Pro course. 90% of Pro students come through the Bootcamp first.
         </p>
-      </div>
-    </section>
+      </StaggerItem>
+    </CourseAnimatedSection>
   )
 }
 
 export function BootcampWhatYouBuild() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-4 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          What You Will Build This Weekend
-        </h2>
-        <p className="font-body text-center mb-10" style={{ color: 'var(--text-secondary)' }}>
-          Five artefacts. All built live. All yours to keep and present.
-        </p>
-        <div className="space-y-6">
-          {bootcampDeliverables.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
-              className="rounded-xl p-6"
-              style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}
-            >
-              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
-                {index + 1}. {item.title}
-              </h3>
-              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                {item.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection
+      title="What You Will Build This Weekend"
+      subtitle="Five artefacts. All built live. All yours to keep and present."
+      backgroundColor="var(--bg-card)"
+    >
+      {bootcampDeliverables.map((item, index) => (
+        <StaggerItem key={item.title}>
+          <AnimatedCard variant="subtle">
+            <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+              {index + 1}. {item.title}
+            </h3>
+            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              {item.description}
+            </p>
+          </AnimatedCard>
+        </StaggerItem>
+      ))}
+    </CourseAnimatedSection>
   )
 }
 
 export function BootcampSchedule() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-10 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          Friday, Saturday, Sunday — The Full Schedule
-        </h2>
-        <div className="space-y-8">
-          {bootcampSchedule.map((day) => (
-            <div key={day.title} className="rounded-2xl p-6 md:p-8 bg-card shadow-sm">
-              <h3 className="font-display font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
-                {day.title}
-              </h3>
-              <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                {day.body}
-              </p>
-              <p className="font-body text-sm mb-1"><strong>Tools:</strong> {day.tools}</p>
-              <p className="font-body text-sm"><strong>Deliverable:</strong> {day.deliverable}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection
+      title="Friday, Saturday, Sunday — The Full Schedule"
+      backgroundColor="var(--bg-warm)"
+    >
+      <AnimatedReveal>
+        <CourseCurriculumTimeline
+          items={bootcampSchedule.map((day) => ({
+            key: day.title,
+            title: day.title,
+            body: day.body,
+            tools: day.tools,
+            deliverable: day.deliverable,
+          }))}
+        />
+      </AnimatedReveal>
+    </CourseAnimatedSection>
   )
 }
 
 export function BootcampToolchain() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-4 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-          The Toolchain: Perplexity, Claude, FigJam AI, Figma Make, Figma, Claude Design, Bolt
-        </h2>
-        <p className="font-body text-center mb-10 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-          Seven tools. Each taught in context — not as a separate lesson, but as part of the workflow at the moment you need it.
-        </p>
-        <div className="grid md:grid-cols-2 gap-4">
-          {bootcampTools.map((tool) => (
-            <div key={tool.name} className="rounded-xl p-5" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+    <CourseAnimatedSection
+      title="The Toolchain: Perplexity, Claude, FigJam AI, Figma Make, Figma, Claude Design, Bolt"
+      subtitle="Seven tools. Each taught in context — not as a separate lesson, but as part of the workflow at the moment you need it."
+      backgroundColor="var(--bg-card)"
+      maxWidthClass="max-w-4xl"
+    >
+      <AnimatedGrid>
+        {bootcampTools.map((tool) => (
+          <AnimatedGridItem key={tool.name}>
+            <AnimatedCard variant="subtle" className="h-full p-5">
               <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>
                 {tool.name}
               </h3>
               <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 {tool.description}
               </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+            </AnimatedCard>
+          </AnimatedGridItem>
+        ))}
+      </AnimatedGrid>
+    </CourseAnimatedSection>
   )
 }
 

@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../../layout/PageHero'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -8,6 +9,17 @@ import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
 import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
 import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
 import { CrossCoursePrice, CrossCoursePriceRange } from '../../pricing/CrossCoursePrice'
+import {
+  AnimatedCard,
+  AnimatedGrid,
+  AnimatedGridItem,
+  AnimatedReveal,
+  CourseAnimatedSection,
+  CourseCurriculumTimeline,
+  CourseTrackStep,
+  CourseTrackSteps,
+  StaggerItem,
+} from '../animated'
 import {
   proBonuses,
   proCurriculumWeeks,
@@ -84,12 +96,8 @@ export function ProHero() {
   }
 
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
-      </div>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+    <PageHero size="course" align="center">
+      <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
             <Link href="/" className="hover:underline">Home</Link>
             <ChevronRight className="w-4 h-4" />
@@ -149,9 +157,8 @@ export function ProHero() {
           <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>
             {proHero.bookingNote}
           </p>
-        </div>
       </div>
-    </section>
+    </PageHero>
   )
 }
 
@@ -192,121 +199,121 @@ export function ProPatternInterrupt() {
 
 export function ProLearningPath() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          Your Path Before and After This Course
-        </h2>
-
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-card)', border: '2px solid var(--color-primary)' }}>
-          <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>DESIGN TRACK</p>
-          <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
-            <li>
-              Step 1:{' '}
-              <Link href="/ui-ux-design-bootcamp" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+    <CourseAnimatedSection title="Your Path Before and After This Course" backgroundColor="var(--bg-base)">
+      <StaggerItem>
+        <AnimatedCard variant="primary">
+          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-primary)' }}>
+            DESIGN TRACK
+          </p>
+          <CourseTrackSteps>
+            <CourseTrackStep index={0}>
+              <Link href="/ui-ux-design-bootcamp" className="course-inline-link">
                 UI UX Design Bootcamp
               </Link>{' '}
               (3 days · <CrossCoursePriceRange slug={COURSE_SLUGS.bootcamp} />) — recommended if you have never designed before
-            </li>
-            <li>
-              Step 2: <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Pro ← You are here</strong>
-            </li>
-            <li>
-              Step 3:{' '}
-              <Link href="/ui-ux-design-master" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            </CourseTrackStep>
+            <CourseTrackStep index={1} active>
+              <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Pro ← You are here</strong>
+            </CourseTrackStep>
+            <CourseTrackStep index={2}>
+              <Link href="/ui-ux-design-master" className="course-inline-link">
                 UI UX Design Master
               </Link>{' '}
               (6 months · <CrossCoursePrice slug={COURSE_SLUGS.master} />) — for designers who want to reach lead and senior level
-            </li>
-          </ol>
-        </div>
+            </CourseTrackStep>
+          </CourseTrackSteps>
+        </AnimatedCard>
+      </StaggerItem>
 
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px dashed var(--color-highlight)' }}>
+      <StaggerItem className="mt-6">
+        <AnimatedCard variant="dashed">
           <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>
             CROSS-TRACK BRIDGE — RECOMMENDED FOR PRO GRADUATES
           </p>
-          <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             After completing this course, Pro graduates who are moving into AI-product-focused roles are recommended to take the{' '}
-            <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/ai-product-design-course" className="course-inline-link">
               AI Product Design Course
             </Link>{' '}
             next. That course goes 6 weeks deep on designing AI behaviour — trust UI, error states, confidence design — which is the fastest-growing specialisation in the Indian product design market in 2026. Pro gives you the design foundation. AI Product Design gives you the AI specialisation.
           </p>
-        </div>
+        </AnimatedCard>
+      </StaggerItem>
 
+      <StaggerItem className="mt-8">
         <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <strong style={{ color: 'var(--text-primary)' }}>Not started yet?</strong> If you have never designed before, the{' '}
-          <Link href="/ui-ux-design-bootcamp" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+          <Link href="/ui-ux-design-bootcamp" className="course-inline-link">
             UI UX Design Bootcamp
           </Link>{' '}
           is a 3-day, <CrossCoursePrice slug={COURSE_SLUGS.bootcamp} /> entry point that lets you complete a full design process and confirm the path before committing to 10 weeks.
         </p>
-      </div>
-    </section>
+      </StaggerItem>
+    </CourseAnimatedSection>
   )
 }
 
 export function ProWhatYouBuild() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-4 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          What You Will Build and Ship in 10 Weeks
-        </h2>
-        <p className="font-body text-center mb-10" style={{ color: 'var(--text-secondary)' }}>
-          A complete design portfolio. Every artefact listed below is built during the course — not after it.
-        </p>
-        <div className="space-y-6">
-          {proPortfolioModules.map((mod) => (
-            <div key={mod.title} className="rounded-xl p-6" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
-              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{mod.title}</h3>
-              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{mod.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection
+      title="What You Will Build and Ship in 10 Weeks"
+      subtitle="A complete design portfolio. Every artefact listed below is built during the course — not after it."
+      backgroundColor="var(--bg-card)"
+    >
+      {proPortfolioModules.map((mod) => (
+        <StaggerItem key={mod.title}>
+          <AnimatedCard variant="subtle">
+            <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+              {mod.title}
+            </h3>
+            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              {mod.description}
+            </p>
+          </AnimatedCard>
+        </StaggerItem>
+      ))}
+    </CourseAnimatedSection>
   )
 }
 
 export function ProCurriculum() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-10 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          The 10-Week Curriculum
-        </h2>
-        <div className="space-y-4">
-          {proCurriculumWeeks.map((week) => (
-            <div key={week.week} className="rounded-xl p-5 md:p-6 bg-card shadow-sm">
-              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{week.week}</h3>
-              <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{week.topics}</p>
-              <p className="font-body text-sm"><strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong> {week.deliverable}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection title="The 10-Week Curriculum" backgroundColor="var(--bg-warm)">
+      <AnimatedReveal>
+        <CourseCurriculumTimeline
+          items={proCurriculumWeeks.map((week) => ({
+            key: week.week,
+            title: week.week,
+            topics: week.topics,
+            deliverable: week.deliverable,
+          }))}
+        />
+      </AnimatedReveal>
+    </CourseAnimatedSection>
   )
 }
 
 export function ProToolchain() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-          The Toolchain: Perplexity, Claude, FigJam AI, Figma, Bolt
-        </h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {proTools.map((tool) => (
-            <div key={tool.name} className="rounded-xl p-5" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
-              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>{tool.name}</h3>
-              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{tool.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection
+      title="The Toolchain: Perplexity, Claude, FigJam AI, Figma, Bolt"
+      backgroundColor="var(--bg-card)"
+    >
+      <AnimatedGrid>
+        {proTools.map((tool) => (
+          <AnimatedGridItem key={tool.name}>
+            <AnimatedCard variant="subtle" className="h-full p-5">
+              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>
+                {tool.name}
+              </h3>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                {tool.description}
+              </p>
+            </AnimatedCard>
+          </AnimatedGridItem>
+        ))}
+      </AnimatedGrid>
+    </CourseAnimatedSection>
   )
 }
 

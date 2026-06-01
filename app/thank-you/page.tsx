@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
+import { PageHero } from '../../components/layout/PageHero'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -31,22 +32,19 @@ export default function ThankYouPage() {
     <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
       <main id="main-content" role="main">
-        {/* Hero Section */}
-        <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'var(--bg-subtle)' }}>
-          <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1
-                className="font-display font-bold mb-6"
-                style={{
-                  color: 'var(--text-primary)',
-                  fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                  lineHeight: '1.2'
-                }}>
-                Thank You for Reaching Out
-              </h1>
-            </div>
+        <PageHero size="compact" align="center">
+          <div className="max-w-3xl mx-auto">
+            <h1
+              className="font-display font-bold mb-6"
+              style={{
+                color: 'var(--text-primary)',
+                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+                lineHeight: '1.2'
+              }}>
+              Thank You for Reaching Out
+            </h1>
           </div>
-        </section>
+        </PageHero>
 
         {/* Confirmation Content */}
         <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>

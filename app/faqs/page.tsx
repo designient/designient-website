@@ -1,6 +1,7 @@
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { StructuredData } from '../../components/StructuredData'
+import { PageHero } from '../../components/layout/PageHero'
 import Link from 'next/link'
 import { ArrowRight } from 'react-feather'
 import type { Metadata } from 'next'
@@ -186,32 +187,29 @@ export default function FAQsPage() {
       <StructuredData data={[faqSchema, breadcrumbSchema]} />
       <Header />
       <main id="main-content" role="main">
-        {/* Hero Section */}
-        <section className="pt-24 pb-12 md:pt-32 md:pb-16" style={{ backgroundColor: 'var(--bg-subtle)' }}>
-          <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1
-                className="font-display font-bold mb-6"
-                style={{
-                  color: 'var(--text-primary)',
-                  fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-                  lineHeight: '1.2'
-                }}>
-                Frequently Asked Questions
-              </h1>
-              <p
-                className="font-body text-lg md:text-xl"
-                style={{
-                  color: 'var(--text-secondary)',
-                  lineHeight: '1.7',
-                  maxWidth: '800px',
-                  margin: '0 auto'
-                }}>
-                Everything you need to know about our UI/UX courses, mentorship, placements, and certifications.
-              </p>
-            </div>
+        <PageHero size="compact" align="center">
+          <div className="max-w-4xl mx-auto">
+            <h1
+              className="font-display font-bold mb-6"
+              style={{
+                color: 'var(--text-primary)',
+                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                lineHeight: '1.2'
+              }}>
+              Frequently Asked Questions
+            </h1>
+            <p
+              className="font-body text-lg md:text-xl"
+              style={{
+                color: 'var(--text-secondary)',
+                lineHeight: '1.7',
+                maxWidth: '800px',
+                margin: '0 auto'
+              }}>
+              Everything you need to know about our UI/UX courses, mentorship, placements, and certifications.
+            </p>
           </div>
-        </section>
+        </PageHero>
 
         {/* Quick Navigation */}
         <section className="py-12" style={{ backgroundColor: 'var(--bg-card)', borderBottom: '2px solid var(--border-default)' }}>

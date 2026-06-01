@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import { 
@@ -187,12 +188,8 @@ export function CareersContent() {
   return (
     <>
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[60vh] flex items-center pt-20 md:pt-24" 
-        style={{ backgroundColor: 'var(--bg-warm)' }}
-        aria-labelledby="careers-heading">
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
-          <div className="max-w-4xl mx-auto text-center">
+      <PageHero size="tall" align="center" aria-labelledby="careers-heading">
+          <div className="max-w-4xl mx-auto w-full text-center">
             {/* Breadcrumbs */}
             <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline">Home</Link>
@@ -227,8 +224,7 @@ export function CareersContent() {
               Join a team that&apos;s shaping the future of UI/UX education through mentorship, creativity, and real-world impact.
             </motion.p>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Why Work at Designient */}
       <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>

@@ -143,7 +143,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-base font-sans text-primary">
       <StructuredData data={organizationSchema} />
       <Header />
-      <main id="main-content" role="main">
+      <main id="main-content" role="main" className="main-flush">
         {/* SECTION 1: Hero */}
         <Hero />
         {/* SECTION 2: Quick Trust Strip */}

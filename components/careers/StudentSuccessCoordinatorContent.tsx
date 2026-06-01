@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { 
@@ -71,12 +72,8 @@ export function StudentSuccessCoordinatorContent() {
   return (
     <>
       {/* Hero Section */}
-      <section 
-        className="relative min-h-[60vh] flex items-center pt-20 md:pt-24" 
-        style={{ backgroundColor: 'var(--bg-warm)' }}
-        aria-labelledby="role-heading">
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
-          <div className="max-w-4xl mx-auto">
+      <PageHero size="tall" align="center" aria-labelledby="role-heading">
+          <div className="max-w-4xl mx-auto w-full">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
               <Link href="/" className="hover:underline">Home</Link>
@@ -139,8 +136,7 @@ export function StudentSuccessCoordinatorContent() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* About the Role */}
       <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>

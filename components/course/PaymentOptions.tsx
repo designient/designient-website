@@ -2,9 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, CreditCard, ArrowRight, CheckCircle, DollarSign, Percent, AlertCircle } from 'react-feather';
+import { Calendar, CreditCard, ArrowRight, CheckCircle, Percent, AlertCircle } from 'react-feather';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useCurrency } from '../../contexts/CurrencyContext';
 import { coursePricing, type CoursePricingData } from '../../data/coursePricing';
 import { RazorpayCheckout } from '../payments/RazorpayCheckout';
@@ -396,75 +395,19 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             </div>
 
             {/* Payment Terms */}
-            <div className="mt-4 flex items-start gap-2 p-4 rounded-lg" style={{ backgroundColor: '#fff3cd', border: '1px solid #ffc107' }}>
+            <div className="course-payment-terms mt-4 flex items-start gap-2 p-4 rounded-lg" style={{ backgroundColor: '#fff3cd', border: '1px solid #ffc107' }}>
               <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#856404' }} />
               <div className="font-body text-sm" style={{ color: '#856404' }}>
                 <p className="font-semibold mb-2">Terms and Conditions of Payment:</p>
                 <ul className="list-disc pl-4 space-y-1">
                   <li>All installment payments shall be due and payable within five (5) business days from the scheduled due date as outlined above.</li>
                   <li>In the event of non-payment by the due date, Designient reserves the right to immediately suspend the student's access to course materials, live sessions, and all related educational services until such time as the outstanding balance is paid in full.</li>
-                  <li>The 10% advance payment is non-refundable under any circumstances, in accordance with our <Link href="/cancellation-refund-policy" className="underline" style={{ color: 'var(--color-primary)' }}>Cancellation & Refund Policy</Link>.</li>
+                  <li>The 10% advance payment is non-refundable under any circumstances, in accordance with our <Link href="/cancellation-refund-policy" className="course-inline-link">Cancellation & Refund Policy</Link>.</li>
                   <li>Reinstatement following suspension shall be at the sole discretion of Designient and may be subject to additional administrative fees.</li>
                 </ul>
               </div>
             </div>
           </motion.div>
-
-          {/* Education Loan Section - INR Only */}
-          {activeCurrency === 'INR' && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4, duration: 0.4 }}
-              className="bg-card rounded-xl p-6 md:p-8 shadow-lg border border-gray-200 mb-8">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 rounded-lg" style={{ backgroundColor: '#e3f2fd' }}>
-                  <DollarSign className="w-6 h-6" style={{ color: '#1565c0' }} />
-                </div>
-                <h3
-                  className="font-display font-semibold"
-                  style={{
-                    color: 'var(--text-primary)',
-                    fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
-                  }}>
-                  Education Loan EMI Options (6, 9, 12 Months)
-                </h3>
-              </div>
-
-              <p
-                className="font-body mb-6 leading-relaxed"
-                style={{
-                  color: 'var(--text-secondary)',
-                  fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)',
-                  lineHeight: '1.7'
-                }}>
-                For longer EMI tenures of 6, 9, or 12 months, we partner with leading banks to offer education loans.
-                Subject to bank approval and eligibility criteria.
-              </p>
-
-              {/* Bank Logos */}
-              <div className="flex flex-wrap items-center justify-center gap-6 mb-4 py-4 px-6 bg-gray-50 rounded-lg">
-                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
-                  <Image src="/images/banks/icici.svg" alt="ICICI Bank" width={80} height={24} className="h-6 w-auto" />
-                </div>
-                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
-                  <Image src="/images/banks/hdfc.svg" alt="HDFC Bank" width={80} height={24} className="h-6 w-auto" />
-                </div>
-                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
-                  <Image src="/images/banks/axis.svg" alt="Axis Bank" width={80} height={24} className="h-6 w-auto" />
-                </div>
-                <div className="flex items-center px-4 py-3 bg-card rounded-lg shadow-sm border border-gray-200">
-                  <span className="font-body font-semibold text-sm" style={{ color: 'var(--text-secondary)' }}>Kotak Mahindra</span>
-                </div>
-                <span className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>and more...</span>
-              </div>
-
-              <p className="font-body text-center text-sm" style={{ color: 'var(--text-muted)' }}>
-                Contact us after enrollment to discuss education loan options.
-              </p>
-            </motion.div>
-          )}
 
           {/* Important Information Box */}
           <motion.div
@@ -485,7 +428,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               <li className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                 <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
-                  <strong>10% advance is non-refundable</strong> as per our <Link href="/cancellation-refund-policy" className="underline" style={{ color: 'var(--color-primary)' }}>Cancellation & Refund Policy</Link>.
+                  <strong>10% advance is non-refundable</strong> as per our <Link href="/cancellation-refund-policy" className="course-inline-link">Cancellation & Refund Policy</Link>.
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -518,27 +461,27 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             className="mt-8 text-center">
             <p className="font-body text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               By proceeding with payment, you agree to our{' '}
-              <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/terms-and-conditions" className="course-inline-link">
                 Terms and Conditions
               </Link>
               ,{' '}
-              <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/cancellation-refund-policy" className="course-inline-link">
                 Cancellation &amp; Refund Policy
               </Link>
               , and{' '}
-              <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/privacy-policy" className="course-inline-link">
                 Privacy Policy
               </Link>
               . See{' '}
-              <Link href="/pricing" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/pricing" className="course-inline-link">
                 Pricing
               </Link>
               ,{' '}
-              <Link href="/shipping-delivery" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/shipping-delivery" className="course-inline-link">
                 Shipping &amp; Delivery
               </Link>
               , and{' '}
-              <Link href="/grievance-redressal" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/grievance-redressal" className="course-inline-link">
                 Grievance Redressal
               </Link>
               .

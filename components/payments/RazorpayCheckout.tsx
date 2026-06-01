@@ -115,7 +115,7 @@ export function RazorpayCheckout({
           contact: customerContact,
         },
         theme: {
-          color: '#8458B3',
+          color: '#F0FF42',
         },
         ...(currency === 'USD' ? { config: getPayPalCheckoutConfig() } : {}),
         handler: async (response) => {

@@ -17,7 +17,7 @@ function wrapHtml(title: string, body: string): string {
 <head><meta charset="utf-8"><title>${title}</title></head>
 <body style="font-family: system-ui, sans-serif; line-height: 1.6; color: #1a1a1a; max-width: 600px; margin: 0 auto; padding: 20px;">
   ${body}
-  <p style="margin-top: 24px; font-size: 12px; color: #6b7280;">${SITE_NAME} · ${FOOTER_LOCATION}<br><a href="mailto:admissions@designient.com" style="color: #B0E4CC; text-decoration: none;">admissions@designient.com</a> · <a href="${SITE_URL}" style="color: #B0E4CC; text-decoration: none;">${SITE_URL}</a></p>
+  <p style="margin-top: 24px; font-size: 12px; color: #6b7280;">${SITE_NAME} · ${FOOTER_LOCATION}<br><a href="mailto:admissions@designient.com" style="color: #F0FF42; text-decoration: none;">admissions@designient.com</a> · <a href="${SITE_URL}" style="color: #F0FF42; text-decoration: none;">${SITE_URL}</a></p>
 </body>
 </html>
   `.trim()
@@ -41,7 +41,7 @@ export function contactLeadEmail(data: ContactFormData) {
   const text = `Name: ${name}\nEmail: ${data.email}\nPhone: ${data.phone || '—'}\nReason: ${data.reason || '—'}\n\nMessage:\n${message}`
   const html = wrapHtml(
     subject,
-    `<h2 style="color: #B0E4CC;">New contact submission</h2>
+    `<h2 style="color: #F0FF42;">New contact submission</h2>
      <p><strong>Name:</strong> ${name}</p>
      <p><strong>Email:</strong> ${data.email}</p>
      <p><strong>Phone:</strong> ${data.phone || '—'}</p>
@@ -61,7 +61,7 @@ export function contactCustomerCopy(data: ContactFormData) {
     `<table width="100%" style="max-width:600px;margin:auto;font-family:system-ui,sans-serif;">
       <tr><td>
         <img src="https://designient.com/designient-official.png" width="140" alt="Designient" style="margin-bottom:16px;">
-        <h2 style="color:#B0E4CC;">Thanks for reaching out to Designient</h2>
+        <h2 style="color:#F0FF42;">Thanks for reaching out to Designient</h2>
         <p>Hi ${name},</p>
         <p>
           Thanks for getting in touch with us.  
@@ -74,7 +74,7 @@ export function contactCustomerCopy(data: ContactFormData) {
           If you’d like a quicker conversation, you can directly connect with our team here:
         </p>
         <p>
-          👉 <a href="https://wa.me/919353000320" style="color: #B0E4CC; text-decoration: underline;">Chat on WhatsApp</a>
+          👉 <a href="https://wa.me/919353000320" style="color: #F0FF42; text-decoration: underline;">Chat on WhatsApp</a>
         </p>
         <p>
           Best,<br>
@@ -123,7 +123,7 @@ export function inquiryLeadEmail(data: InquiryFormData) {
   const text = `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${phoneFull}\nWhatsApp: ${whatsappFull}\nCourse interest: ${data.courseInterest || '—'}`
   const html = wrapHtml(
     subject,
-    `<h2 style="color: #B0E4CC;">New course inquiry</h2>
+    `<h2 style="color: #F0FF42;">New course inquiry</h2>
      <p><strong>Name:</strong> ${data.name}</p>
      <p><strong>Email:</strong> ${data.email}</p>
      <p><strong>Phone:</strong> ${phoneFull}</p>
@@ -139,7 +139,7 @@ export function aiAutomationLiveLeadEmail(data: InquiryFormData) {
   const text = `Source: ai-automation-live\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${phoneFull}\nWorkshop: AI Automation Live`
   const html = wrapHtml(
     subject,
-    `<h2 style="color: #B0E4CC;">New AI Automation Live registration</h2>
+    `<h2 style="color: #F0FF42;">New AI Automation Live registration</h2>
      <p><strong>Source:</strong> ai-automation-live</p>
      <p><strong>Name:</strong> ${data.name}</p>
      <p><strong>Email:</strong> ${data.email}</p>
@@ -155,7 +155,7 @@ export function aiProductDesignLiveLeadEmail(data: InquiryFormData) {
   const text = `Source: ai-product-design-live\nName: ${data.name}\nEmail: ${data.email}\nPhone: ${phoneFull}\nWorkshop: AI Product Design Live`
   const html = wrapHtml(
     subject,
-    `<h2 style="color: #B0E4CC;">New AI Product Design Live registration</h2>
+    `<h2 style="color: #F0FF42;">New AI Product Design Live registration</h2>
      <p><strong>Source:</strong> ai-product-design-live</p>
      <p><strong>Name:</strong> ${data.name}</p>
      <p><strong>Email:</strong> ${data.email}</p>
@@ -170,7 +170,7 @@ export function aiProductDesignLiveCustomerCopy(data: InquiryFormData) {
   const text = `Hi ${data.name},\n\nYou're registered for AI Product Design Live.\n\nYour Zoom link will arrive at this email address shortly. The session recording and all bonuses (Figma file, trust audit checklist, teardown examples) are sent within 24 hours of the workshop — even if you cannot attend live.\n\nIf you are among the first 5 registrants this month, you will receive a separate email with your 1:1 Portfolio and Application Review booking link.\n\nQuestions? Reply to this email or write to hello@designient.com\n\nBest,\n${SITE_NAME}`
   const html = wrapHtml(
     subject,
-    `<h2 style="color:#B0E4CC;">You're registered for AI Product Design Live</h2>
+    `<h2 style="color:#F0FF42;">You're registered for AI Product Design Live</h2>
      <p>Hi ${data.name},</p>
      <p>You're registered for <strong>AI Product Design Live</strong>.</p>
      <p>Your <strong>Zoom link</strong> will arrive at this email address shortly.</p>
@@ -196,7 +196,7 @@ export function aiAutomationLiveCustomerCopy(data: InquiryFormData) {
   const text = `Hi ${data.name},\n\nYou're registered for AI Automation Live.\n\nYour Zoom link will arrive at this email address shortly. The session recording and all bonuses (workflow file, templates, guides) are sent within 24 hours of the workshop — even if you cannot attend live.\n\nIf you are among the first 5 registrants this month, you will receive a separate email with your 1:1 Automation Strategy Session booking link.\n\nQuestions? Reply to this email or write to hello@designient.com\n\nBest,\n${SITE_NAME}`
   const html = wrapHtml(
     subject,
-    `<h2 style="color:#B0E4CC;">You're registered for AI Automation Live</h2>
+    `<h2 style="color:#F0FF42;">You're registered for AI Automation Live</h2>
      <p>Hi ${data.name},</p>
      <p>You're registered for <strong>AI Automation Live</strong>.</p>
      <p>Your <strong>Zoom link</strong> will arrive at this email address shortly.</p>
@@ -216,7 +216,7 @@ export function inquiryCustomerCopy(data: InquiryFormData) {
     `<table width="100%" style="max-width:600px;margin:auto;font-family:system-ui,sans-serif;">
       <tr><td>
         <img src="https://designient.com/designient-official.png" width="140" alt="Designient" style="margin-bottom:16px;">
-        <h2 style="color:#B0E4CC;">Thanks for your interest in Designient</h2>
+        <h2 style="color:#F0FF42;">Thanks for your interest in Designient</h2>
         <p>Hi ${data.name},</p>
         <p>
           We’ve received your inquiry and our admissions team will reach out to you shortly.
@@ -226,7 +226,7 @@ export function inquiryCustomerCopy(data: InquiryFormData) {
           a short demo and counselling call here:
         </p>
         <p>
-          👉 <a href="https://calendar.app.google/7YJuPUwR2EfdWr8Q8" style="color: #B0E4CC; text-decoration: underline;">
+          👉 <a href="https://calendar.app.google/7YJuPUwR2EfdWr8Q8" style="color: #F0FF42; text-decoration: underline;">
           Book a demo & counselling call
           </a>
         </p>
@@ -234,7 +234,7 @@ export function inquiryCustomerCopy(data: InquiryFormData) {
           You may also explore our programs here:
         </p>
         <p>
-          👉 <a href="https://designient.com" style="color: #B0E4CC; text-decoration: underline;">
+          👉 <a href="https://designient.com" style="color: #F0FF42; text-decoration: underline;">
           View available programs
           </a>
         </p>
@@ -242,7 +242,7 @@ export function inquiryCustomerCopy(data: InquiryFormData) {
           Or speak to us instantly:
         </p>
         <p>
-          👉 <a href="https://wa.me/919353000320" style="color: #B0E4CC; text-decoration: underline;">Chat on WhatsApp</a>
+          👉 <a href="https://wa.me/919353000320" style="color: #F0FF42; text-decoration: underline;">Chat on WhatsApp</a>
         </p>
         <p>
           We usually respond within <strong>24 business hours</strong>.
@@ -274,7 +274,7 @@ export function applyLeadEmail(data: ApplyFormData) {
   const text = lines.join('\n')
   const html = wrapHtml(
     subject,
-    `<h2 style="color: #B0E4CC;">New course application</h2>
+    `<h2 style="color: #F0FF42;">New course application</h2>
      <pre style="font-family: inherit; white-space: pre-wrap;">${lines.map((l) => l.replace(/</g, '&lt;')).join('\n')}</pre>`
   )
   return { subject, text, html }
@@ -288,7 +288,7 @@ export function applyCustomerCopy(data: ApplyFormData) {
     `<table width="100%" style="max-width:600px;margin:auto;font-family:system-ui,sans-serif;">
       <tr><td>
         <img src="https://designient.com/designient-official.png" width="140" alt="Designient" style="margin-bottom:16px;">
-        <h2 style="color:#B0E4CC;">Your application has been received</h2>
+        <h2 style="color:#F0FF42;">Your application has been received</h2>
         <p>Hi ${data.fullName},</p>
         <p>
           Thanks for applying to the <strong>${data.program || 'course'}</strong> at Designient.
@@ -301,7 +301,7 @@ export function applyCustomerCopy(data: ApplyFormData) {
           In the meantime, you can book a short counselling and demo call with our team:
         </p>
         <p>
-          👉 <a href="https://calendar.app.google/7YJuPUwR2EfdWr8Q8" style="color: #B0E4CC; text-decoration: underline;">
+          👉 <a href="https://calendar.app.google/7YJuPUwR2EfdWr8Q8" style="color: #F0FF42; text-decoration: underline;">
           Book your counselling & demo call
           </a>
         </p>
@@ -309,7 +309,7 @@ export function applyCustomerCopy(data: ApplyFormData) {
           You can also explore the complete program details here:
         </p>
         <p>
-          👉 <a href="https://designient.com" style="color: #B0E4CC; text-decoration: underline;">
+          👉 <a href="https://designient.com" style="color: #F0FF42; text-decoration: underline;">
           View full course details
           </a>
         </p>
@@ -317,7 +317,7 @@ export function applyCustomerCopy(data: ApplyFormData) {
           Prefer chatting instead?
         </p>
         <p>
-          👉 <a href="https://wa.me/919353000320" style="color: #B0E4CC; text-decoration: underline;">Chat on WhatsApp</a>
+          👉 <a href="https://wa.me/919353000320" style="color: #F0FF42; text-decoration: underline;">Chat on WhatsApp</a>
         </p>
         <p>
           Best,<br>
@@ -346,7 +346,7 @@ export function careersLeadEmail(data: CareersApplyFormData) {
   const text = `Role: ${data.roleName || '—'}\nName: ${data.fullName}\nEmail: ${data.email}\nPhone: ${data.phone || '—'}\nPortfolio: ${data.portfolioUrl || '—'}\nLinkedIn: ${data.linkedinUrl || '—'}\n\nCover letter:\n${data.coverLetter || '—'}`
   const html = wrapHtml(
     subject,
-    `<h2 style="color: #B0E4CC;">New career application</h2>
+    `<h2 style="color: #F0FF42;">New career application</h2>
      <p><strong>Role:</strong> ${data.roleName || '—'}</p>
      <p><strong>Name:</strong> ${data.fullName}</p>
      <p><strong>Email:</strong> ${data.email}</p>
@@ -367,7 +367,7 @@ export function careersCustomerCopy(data: CareersApplyFormData) {
     `<table width="100%" style="max-width:600px;margin:auto;font-family:system-ui,sans-serif;">
       <tr><td>
         <img src="https://designient.com/designient-official.png" width="140" alt="Designient" style="margin-bottom:16px;">
-        <h2 style="color:#B0E4CC;">Thanks for applying to Designient</h2>
+        <h2 style="color:#F0FF42;">Thanks for applying to Designient</h2>
         <p>Hi ${data.fullName},</p>
         <p>
           Thank you for applying for the role of <strong>${data.roleName || 'a role'}</strong> at Designient School of Masterminds.
@@ -383,7 +383,7 @@ export function careersCustomerCopy(data: CareersApplyFormData) {
           You can learn more about Designient here:
         </p>
         <p>
-          👉 <a href="https://designient.com" style="color: #B0E4CC; text-decoration: underline;">
+          👉 <a href="https://designient.com" style="color: #F0FF42; text-decoration: underline;">
           Visit Designient website
           </a>
         </p>

@@ -14,6 +14,9 @@ module.exports = {
         'body': ['var(--font-body)', 'Inter', 'sans-serif'],
         'sans': ['var(--font-body)', 'Inter', 'sans-serif']
       },
+      letterSpacing: {
+        display: '1.6px',
+      },
       maxWidth: {
         'container': '1600px'
       },

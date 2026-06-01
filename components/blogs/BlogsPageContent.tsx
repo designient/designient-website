@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -122,17 +123,11 @@ export function BlogsPageContent({
   return (
     <>
       {/* Hero Section - Standardized */}
-      <section
-        className="relative min-h-[60vh] flex items-center pt-16 md:pt-20"
-        style={{ backgroundColor: 'var(--bg-warm)' }}
-        aria-labelledby="blogs-hero-heading">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-100 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
-        </div>
-
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center py-16 md:py-24 w-full">
+      <PageHero
+        size="tall"
+        align="center"
+        aria-labelledby="blogs-hero-heading"
+        contentClassName="py-16 md:py-24 w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -197,8 +192,7 @@ export function BlogsPageContent({
               />
             </div>
           </motion.div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Featured Post */}
       {featuredPost && (

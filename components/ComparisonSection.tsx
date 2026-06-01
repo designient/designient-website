@@ -1,7 +1,9 @@
 'use client'
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'framer-motion';
+import { useCurrency } from '../contexts/CurrencyContext';
+import { pickByCurrency } from '../lib/localizedPricing';
 
 const designComparisons = [
   { feature: 'Placement Rate', designient: '95%', others: 'Up to 70%', highlight: true },
@@ -15,7 +17,7 @@ const designComparisons = [
   { feature: 'AI Tools in Curriculum', designient: '7 tools, live workflow', others: 'Mentioned only', highlight: false },
 ];
 
-const aiComparisons = [
+const aiComparisonsBase = [
   { feature: 'Output', designient: '3 deployed automations', others: 'Knowledge of tools, no output', highlight: true },
   { feature: 'Tools taught to depth', designient: 'n8n, Make, ManyChat, Relevance AI', others: '14+ tools at surface level', highlight: false },
   { feature: 'Batch size', designient: '35 max', others: '200 to 400+', highlight: false },
@@ -23,7 +25,6 @@ const aiComparisons = [
   { feature: 'Portfolio', designient: '3 live demos with ROI', others: 'No portfolio', highlight: false },
   { feature: 'Guarantee', designient: '50% refund — conditions stated', others: 'No refund', highlight: true },
   { feature: 'Duration', designient: '8 weeks', others: '14 days', highlight: false },
-  { feature: 'Price', designient: 'Rs 34,999 early bird', others: 'Rs 60,000 to Rs 1,00,000', highlight: false },
 ];
 
 type ComparisonRow = {
@@ -94,6 +95,26 @@ function ComparisonTable({
 }
 
 export function ComparisonSection() {
+  const { currency, isLoading, getCoursePrice } = useCurrency();
+
+  const aiComparisons = useMemo(() => {
+    const designientPrice = isLoading
+      ? '…'
+      : `${getCoursePrice('ai-automation-accelerator').price} early bird`;
+    const othersPrice = pickByCurrency(
+      currency,
+      'Rs 60,000 to Rs 1,00,000',
+      '$800 to $1,400',
+    );
+    const priceRow: ComparisonRow = {
+      feature: 'Price',
+      designient: designientPrice,
+      others: othersPrice,
+      highlight: false,
+    };
+    return [...aiComparisonsBase, priceRow];
+  }, [currency, isLoading, getCoursePrice]);
+
   return (
     <section id="comparison" className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">

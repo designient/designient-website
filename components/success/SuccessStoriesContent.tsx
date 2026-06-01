@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
@@ -397,9 +398,8 @@ export function SuccessStoriesContent() {
   return (
     <>
       {/* 1️⃣ HERO SECTION */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
+      <PageHero size="default" align="center">
+          <div className="max-w-4xl mx-auto">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -460,8 +460,7 @@ export function SuccessStoriesContent() {
               </Link>
             </motion.div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* 2️⃣ QUICK PROOF STRIP */}
       <section className="py-12 md:py-16" style={{ backgroundColor: 'var(--bg-card)' }}>
@@ -530,7 +529,7 @@ export function SuccessStoriesContent() {
                       className="bg-card rounded-2xl overflow-hidden border-2 hover:shadow-lg transition-all flex flex-col flex-1"
                       style={{
                         borderColor: isExpanded ? 'var(--color-primary)' : 'var(--border-default)',
-                        boxShadow: isExpanded ? '0 4px 20px rgba(176, 228, 204, 0.12)' : undefined
+                        boxShadow: isExpanded ? '0 4px 20px rgba(240, 255, 66, 0.12)' : undefined
                       }}>
                       {/* Card header with left accent */}
                       <button

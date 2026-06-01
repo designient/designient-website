@@ -439,7 +439,7 @@ export function CourseDetailSection({
               key={i}
               className="aspect-square rounded-lg"
               style={{
-                backgroundColor: 'rgba(176, 228, 204, 0.1)'
+                backgroundColor: 'rgba(240, 255, 66, 0.1)'
               }} />
 
             )}

@@ -78,7 +78,7 @@ export default async function BlogsPage({ searchParams }: BlogsPageProps) {
   return (
     <div className="min-h-screen bg-base font-sans text-primary">
       <Header />
-      <main id="main-content" role="main" className="pt-24 md:pt-32">
+      <main id="main-content" role="main">
         <BlogsPageClient
           featuredPost={featured}
           initialPosts={initialPosts}

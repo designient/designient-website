@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, FileText, Target, Users, CheckCircle, BarChart2 } from 'react-feather'
@@ -71,8 +72,7 @@ export function CaseStudiesContent() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+      <PageHero size="default" align="center">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -115,8 +115,7 @@ export function CaseStudiesContent() {
               Real partnerships and outcome-focused results. Explore how we&apos;ve helped organizations upskill teams and solve design challenges.
             </motion.p>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Outcomes we focus on */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>

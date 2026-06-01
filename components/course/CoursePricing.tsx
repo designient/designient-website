@@ -139,7 +139,7 @@ export function CoursePricing({
                     To maintain quality mentorship and personalised feedback, each batch is intentionally kept small.
                   </p>
                   <p className="font-body text-sm opacity-80">
-                    New batch dates will be announced soon. <Link href="/contact-us" className="underline font-semibold">Contact us</Link> to be notified when the next batch opens.
+                    New batch dates will be announced soon. <Link href="/contact-us" className="course-inline-link">Contact us</Link> to be notified when the next batch opens.
                   </p>
                 </div>
               </div>
@@ -351,7 +351,7 @@ export function CoursePricing({
                 See payment options below to get started
               </p>
               <p className="font-body text-sm opacity-80">
-                Need help? <Link href="/contact-us" className="underline">Contact us</Link>
+                Need help? <Link href="/contact-us" className="course-inline-link">Contact us</Link>
               </p>
             </div>
           </motion.div>

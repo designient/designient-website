@@ -41,7 +41,7 @@ export default function HyderabadCityPage() {
           cityUrl="https://designient.com/ui-ux-design-course-in-hyderabad"
         />
         <Header />
-        <main id="main-content" role="main" className="pt-24 md:pt-32">
+        <main id="main-content" role="main">
           <HyderabadCityPageContent />
         </main>
         <Footer />

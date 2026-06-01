@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle, Target, Heart, Globe, Award, Calendar, ArrowRight, Briefcase, Users, BookOpen, ChevronRight, ChevronDown, User, TrendingUp, Zap, BarChart, HelpCircle, Camera, UserCheck } from 'react-feather';
@@ -23,17 +24,11 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
   return (
     <>
       {/* Hero Section */}
-      <section
-        className="relative min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20"
-        style={{ backgroundColor: 'var(--bg-warm)' }}
-        aria-labelledby="about-hero-heading">
-        {/* Background pattern */}
-        <div className="absolute inset-0 opacity-100 pointer-events-none">
-          <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
-          <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" aria-hidden="true" />
-        </div>
-
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center py-16 md:py-24">
+      <PageHero
+        size="tall"
+        align="center"
+        aria-labelledby="about-hero-heading"
+        contentClassName="py-16 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -68,8 +63,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
               Redefining UI/UX education for creative minds ready to turn passion into profession.
             </p>
           </motion.div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Our Story */}
       <section

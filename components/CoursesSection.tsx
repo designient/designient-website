@@ -5,25 +5,19 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Clock, Users } from 'react-feather';
 import Link from 'next/link';
 import { StructuredData } from './StructuredData';
-import { homepageAiTrackCards, homepageDesignTrackCards } from '../data/homepageCatalog';
+import { homepageAiTrackCards, homepageDesignTrackCards, type NavCourse } from '../data/homepageCatalog';
+import { useCurrency } from '../contexts/CurrencyContext';
 
-type CourseCard = {
-  title: string;
-  duration: string;
-  hours: string;
-  level: string;
-  description: string;
-  path: string;
-  priceFrom: string;
-  badge?: string;
-};
-
-function CourseCardGrid({ courses }: { courses: CourseCard[] }) {
+function CourseCardGrid({ courses }: { courses: NavCourse[] }) {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { getCoursePrice, isLoading } = useCurrency();
 
   return (
     <div className={`grid grid-cols-1 gap-6 ${courses.length === 2 ? 'md:grid-cols-2' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
-      {courses.map((course, index) => (
+      {courses.map((course, index) => {
+        const priceFrom = isLoading ? '…' : getCoursePrice(course.courseSlug).price;
+
+        return (
         <Link
           key={course.path}
           href={course.path}
@@ -89,7 +83,7 @@ function CourseCardGrid({ courses }: { courses: CourseCard[] }) {
             </p>
 
             <p className="font-body font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
-              Price from: {course.priceFrom}
+              Price from: {priceFrom}
             </p>
 
             <div
@@ -101,7 +95,8 @@ function CourseCardGrid({ courses }: { courses: CourseCard[] }) {
             </div>
           </div>
         </Link>
-      ))}
+        );
+      })}
     </div>
   );
 }

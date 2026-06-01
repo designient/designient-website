@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../../layout/PageHero'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
@@ -7,6 +8,15 @@ import { ArrowRight, Award, CheckCircle, ChevronRight, Shield } from 'react-feat
 import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
 import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
 import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
+import {
+  AnimatedCard,
+  AnimatedReveal,
+  CourseAnimatedSection,
+  CourseCurriculumTimeline,
+  CourseTrackStep,
+  CourseTrackSteps,
+  StaggerItem,
+} from '../animated'
 import {
   masterAdvancedSection,
   masterAiDistinction,
@@ -74,12 +84,8 @@ export function MasterHero() {
   }
 
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
-      </div>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+    <PageHero size="course" align="center">
+      <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
             <Link href="/" className="hover:underline">Home</Link>
             <ChevronRight className="w-4 h-4" />
@@ -129,9 +135,8 @@ export function MasterHero() {
           </button>
 
           <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>{masterHero.bookingNote}</p>
-        </div>
       </div>
-    </section>
+    </PageHero>
   )
 }
 
@@ -172,15 +177,15 @@ export function MasterPatternInterrupt() {
 
 export function MasterWhatYouBuild() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-4 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          What You Will Build and Deliver in 6 Months
-        </h2>
-        <p className="font-body mb-4" style={{ color: 'var(--text-secondary)' }}>
-          Across 6 months and 6 modules, you build a portfolio that reflects senior-level thinking — not just execution. The artefacts are real deliverables on real briefs, reviewed by mentors and in some modules by client stakeholders.
+    <CourseAnimatedSection
+      title="What You Will Build and Deliver in 6 Months"
+      subtitle="Across 6 months and 6 modules, you build a portfolio that reflects senior-level thinking — not just execution. The artefacts are real deliverables on real briefs, reviewed by mentors and in some modules by client stakeholders."
+      backgroundColor="var(--bg-card)"
+    >
+      <StaggerItem>
+        <p className="font-body font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
+          By the end of month 6:
         </p>
-        <p className="font-body font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>By the end of month 6:</p>
         <ul className="space-y-3">
           {masterPortfolioOutputs.map((item) => (
             <li key={item} className="font-body flex items-start gap-3 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -189,30 +194,26 @@ export function MasterWhatYouBuild() {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
+      </StaggerItem>
+    </CourseAnimatedSection>
   )
 }
 
 export function MasterCurriculum() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-10 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          The 6-Month Curriculum
-        </h2>
-        <div className="space-y-6">
-          {masterCurriculumModules.map((mod) => (
-            <div key={mod.title} className="rounded-xl p-6 md:p-8 bg-card shadow-sm">
-              <h3 className="font-display font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>{mod.title}</h3>
-              <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{mod.body}</p>
-              <p className="font-body text-sm mb-1"><strong>Tools:</strong> {mod.tools}</p>
-              <p className="font-body text-sm"><strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong> {mod.deliverable}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection title="The 6-Month Curriculum" backgroundColor="var(--bg-warm)">
+      <AnimatedReveal>
+        <CourseCurriculumTimeline
+          items={masterCurriculumModules.map((mod) => ({
+            key: mod.title,
+            title: mod.title,
+            body: mod.body,
+            tools: mod.tools,
+            deliverable: mod.deliverable,
+          }))}
+        />
+      </AnimatedReveal>
+    </CourseAnimatedSection>
   )
 }
 
@@ -232,7 +233,7 @@ export function MasterAiDistinction() {
           </p>
           <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             The{' '}
-            <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/ai-product-design-course" className="course-inline-link">
               AI Product Design Course
             </Link>{' '}
             is a separate 6-week standalone course that goes significantly deeper on the execution layer — designing all 8 AI states in Figma, writing full AI behaviour specifications, building functional Bolt/v0 prototypes of AI features, and producing two portfolio case studies specifically in AI product design. That course is built for designers and PMs who want AI product design as their primary specialisation — not as one module within a broader curriculum.
@@ -255,43 +256,49 @@ export function MasterAiDistinction() {
 
 export function MasterLearningPath() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          Your Path Before and After This Course
-        </h2>
-
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-card)', border: '2px solid var(--color-primary)' }}>
-          <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>DESIGN TRACK</p>
-          <ol className="font-body space-y-3 mb-6" style={{ color: 'var(--text-secondary)' }}>
-            <li>
-              Step 1:{' '}
-              <Link href="/ui-ux-design-bootcamp" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Bootcamp</Link> (3 days) — the entry point
-            </li>
-            <li>
-              Step 2:{' '}
-              <Link href="/ui-ux-design-pro" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Pro</Link> (10 weeks) — the foundation
-            </li>
-            <li>
-              Step 3: <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Master ← You are here</strong> — the advanced curriculum
-            </li>
-          </ol>
-          <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Prerequisites for this course:</p>
+    <CourseAnimatedSection title="Your Path Before and After This Course" backgroundColor="var(--bg-warm)">
+      <StaggerItem>
+        <AnimatedCard variant="primary">
+          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-primary)' }}>
+            DESIGN TRACK
+          </p>
+          <CourseTrackSteps>
+            <CourseTrackStep index={0}>
+              <Link href="/ui-ux-design-bootcamp" className="course-inline-link">
+                UI UX Design Bootcamp
+              </Link>{' '}
+              (3 days) — the entry point
+            </CourseTrackStep>
+            <CourseTrackStep index={1}>
+              <Link href="/ui-ux-design-pro" className="course-inline-link">
+                UI UX Design Pro
+              </Link>{' '}
+              (10 weeks) — the foundation
+            </CourseTrackStep>
+            <CourseTrackStep index={2} active>
+              <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Master ← You are here</strong> — the advanced curriculum
+            </CourseTrackStep>
+          </CourseTrackSteps>
+          <p className="font-body font-semibold mb-2 mt-6 pt-4 border-t" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>
+            Prerequisites for this course:
+          </p>
           <ul className="font-body space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
             <li>Option A: Completion of UI UX Design Pro</li>
             <li>Option B: 1 or more years of professional design experience in any role</li>
           </ul>
-        </div>
+        </AnimatedCard>
+      </StaggerItem>
 
+      <StaggerItem className="mt-8">
         <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <strong style={{ color: 'var(--text-primary)' }}>After Master:</strong> The natural progression is the{' '}
-          <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+          <Link href="/ai-product-design-course" className="course-inline-link">
             AI Product Design Course
           </Link>{' '}
           for designers moving into AI-native product roles. Master gives you the advanced design foundation. AI Product Design gives you the AI specialisation. Together they represent the most complete senior product designer curriculum Designient offers.
         </p>
-      </div>
-    </section>
+      </StaggerItem>
+    </CourseAnimatedSection>
   )
 }
 

@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   ArrowRight,
   CheckCircle,
@@ -12,10 +12,19 @@ import {
 import Link from 'next/link';
 import { CountryCodeSelect } from './shared/CountryCodeSelect';
 import { courseInterestOptions } from '../data/homepageCatalog';
+import { PageHeroBackground } from './layout/PageHero';
+
+const TRUST_CHIPS = [
+  '95% Placement Rate',
+  'Small Batches',
+  'Live Mentorship',
+  'Real Projects',
+  'Adobe Certified',
+  '5 Courses',
+  '2 Tracks',
+] as const;
 
 export function Hero() {
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -399,136 +408,101 @@ export function Hero() {
   };
   return (
     <section
-      className="hero-glow relative flex flex-col pt-20 pb-8 md:pt-28 md:pb-16 lg:pt-32 lg:pb-24 overflow-hidden"
-      style={{
-        backgroundColor: 'var(--bg-warm)'
-      }}
+      className="home-hero hero-glow relative flex flex-col pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 overflow-hidden"
       aria-labelledby="hero-heading"
       itemScope
       itemType="https://schema.org/EducationalOrganization">
 
-      {/* Main Container - 16px margin on mobile (px-4), 24px on md, 32px on lg */}
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 w-full flex-1">
-        {/* Grid: Stack on mobile, 2-column on lg */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_440px] xl:grid-cols-[1fr_480px] gap-8 lg:gap-8 items-start">
-          {/* Left Column: Content */}
+      <PageHeroBackground showFormOrb />
+
+      <div className="max-w-container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 relative z-10 w-full flex-1">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(300px,440px)] xl:grid-cols-[minmax(0,1fr)_480px] gap-8 sm:gap-10 lg:gap-12 xl:gap-14 items-start lg:items-center">
           <motion.div
-            initial={{
-              opacity: 0,
-              x: -30
-            }}
-            animate={{
-              opacity: 1,
-              x: 0
-            }}
-            transition={{
-              duration: 0.8,
-              ease: [0.4, 0, 0.2, 1]
-            }}
-            className="text-left order-1">
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+            className="text-left order-1 min-w-0">
 
-            {/* Badge */}
-            <motion.div
-              initial={{ opacity: 1, y: 0 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full mb-3 md:mb-4"
-              style={{ backgroundColor: 'var(--color-highlight)' }}>
-              <span
-                className="font-body font-bold uppercase tracking-wide text-xs md:text-sm"
-                style={{ color: 'var(--text-on-accent)' }}>
-                Mentor-Led. Career-Focused.
-              </span>
-            </motion.div>
+            <div className="home-hero__badge">
+              <span className="home-hero__badge-dot" aria-hidden="true" />
+              Mentor-Led. Career-Focused.
+            </div>
 
-            {/* Main Heading - Optimized for mobile */}
             <h1
               id="hero-heading"
-              className="font-display tracking-wide leading-[1.1] mb-4 md:mb-6 font-bold"
+              className="font-display font-bold leading-[1.05] mb-4 sm:mb-5 md:mb-6 max-w-3xl"
               style={{
-                fontWeight: 700,
-                fontSize: 'clamp(1.75rem, 5vw, 3.25rem)',
+                fontSize: 'clamp(2rem, 5.5vw, 4rem)',
                 color: 'var(--text-primary)',
-                wordBreak: 'break-word'
               }}
               itemProp="name">
-              UI UX Design Courses and AI Training Built Around Real Outcomes — Not Just Certificates
+              UI UX Design Courses and AI Training Built Around{' '}
+              <span className="home-hero__headline-accent">Real Outcomes</span>
             </h1>
 
             <p
-              className="font-body text-base mb-4 md:mb-6 max-w-2xl font-normal leading-relaxed"
+              className="font-body mb-5 sm:mb-6 max-w-2xl font-normal"
               style={{
                 color: 'var(--text-secondary)',
-                fontSize: 'clamp(0.9375rem, 2vw, 1.25rem)',
-                lineHeight: '1.6'
+                fontSize: 'clamp(0.9375rem, 2.2vw, 1.1875rem)',
+                lineHeight: 1.65,
               }}
               itemProp="description">
               We run small batches. We teach with live mentors. We use real briefs, not mock projects. We have placed 150+ students at companies like Google, Amazon, Microsoft, and Flipkart. And we do not believe in courses that keep you busy without making you better.
             </p>
 
-            <div className="flex flex-wrap gap-x-3 gap-y-2 mb-4 md:mb-6">
-              {['95% Placement Rate', 'Small Batches', 'Live Mentorship', 'Real Projects', 'Adobe Certified', '5 Courses', '2 Tracks'].map((chip) => (
-                <div key={chip} className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
-                  <span className="font-body font-medium text-xs md:text-sm" style={{ color: 'var(--text-primary)' }}>
-                    {chip}
-                  </span>
-                </div>
+            <div className="flex flex-wrap gap-2 mb-5 sm:mb-6 md:mb-8 max-w-2xl">
+              {TRUST_CHIPS.map((chip) => (
+                <span key={chip} className="home-hero__chip">
+                  <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
+                  {chip}
+                </span>
               ))}
             </div>
 
-            {/* CTA Buttons - Stack on mobile, side-by-side on sm+ */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-6 md:mb-8">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6 sm:mb-8">
               <Link
                 href="/courses"
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold transition-transform hover:scale-105 min-h-[48px] w-full sm:w-auto shadow-lg shadow-purple-900/10 text-sm md:text-base"
-                style={{
-                  backgroundColor: 'var(--color-cta)',
-                  color: 'var(--text-on-accent)'
-                }}>
-                <BookOpen className="w-4 h-4 flex-shrink-0" />
+                className="home-hero__cta-primary flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[48px] w-full sm:w-auto text-sm md:text-base">
+                <BookOpen className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 <span>Explore Courses</span>
               </Link>
               <Link
                 href="/corporates/hiring-consulting"
-                className="flex items-center justify-center gap-2 px-5 py-3 rounded-full font-body font-bold border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[48px] w-full sm:w-auto text-sm md:text-base"
-                style={{
-                  borderColor: 'var(--text-primary)',
-                  color: 'var(--text-primary)'
-                }}>
-                <ArrowRight className="w-4 h-4 flex-shrink-0" />
+                className="home-hero__cta-secondary flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[48px] w-full sm:w-auto text-sm md:text-base">
+                <ArrowRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 <span>Hiring Support</span>
               </Link>
             </div>
 
-            {/* Social Proof - Compact on mobile */}
-            <div className="flex items-center gap-2 md:gap-3">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) =>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              <div className="flex -space-x-2.5" aria-hidden="true">
+                {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
-                    className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden">
+                    className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 overflow-hidden"
+                    style={{ borderColor: 'var(--bg-base)', backgroundColor: 'var(--bg-muted)' }}>
                     <img
                       src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                      alt={`Designient UI UX design student profile ${i + 1}`}
-                      width="32"
-                      height="32"
+                      alt=""
+                      width={36}
+                      height={36}
                       loading="lazy"
                       className="w-full h-full object-cover" />
                   </div>
-                )}
+                ))}
               </div>
-              <Link href="/success-stories" className="group">
-                <div className="flex items-center gap-0.5 mb-0.5">
-                  {[1, 2, 3, 4, 5].map((i) =>
+              <Link href="/success-stories" className="group min-w-0">
+                <div className="flex items-center gap-0.5 mb-0.5" aria-hidden="true">
+                  {[1, 2, 3, 4, 5].map((i) => (
                     <Star
                       key={i}
-                      className="w-3 h-3 fill-current"
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current"
                       style={{ color: 'var(--color-highlight)' }} />
-                  )}
+                  ))}
                 </div>
                 <p
-                  className="font-body text-[11px] md:text-xs font-medium group-hover:underline transition-all"
+                  className="font-body text-xs sm:text-sm font-medium group-hover:underline transition-all"
                   style={{ color: 'var(--text-secondary)' }}>
                   4.8/5 from 150+ students
                 </p>
@@ -536,16 +510,11 @@ export function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column: Form - Constrained width on desktop */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 0.3,
-              duration: 0.8,
-              ease: [0.4, 0, 0.2, 1]
-            }}
-          className="form-panel bg-card p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl relative z-20 order-2 w-full">
+            transition={{ delay: 0.15, duration: 0.7, ease: [0.4, 0, 0.2, 1] }}
+            className="home-hero__form form-panel p-4 sm:p-5 md:p-6 rounded-2xl md:rounded-3xl relative z-20 order-2 w-full max-w-lg mx-auto lg:max-w-none lg:mx-0 lg:sticky lg:top-28">
 
             <div className="text-center mb-3 md:mb-4">
               <h3
@@ -573,7 +542,7 @@ export function Hero() {
                   required
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
                   style={{
                     borderColor: 'var(--border-default)'
                   }} />
@@ -592,7 +561,7 @@ export function Hero() {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
                   style={{
                     borderColor: 'var(--border-default)'
                   }} />
@@ -618,7 +587,7 @@ export function Hero() {
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
                     style={{
                       borderColor: 'var(--border-default)'
                     }}
@@ -645,7 +614,7 @@ export function Hero() {
                     required
                     value={formData.whatsapp}
                     onChange={handleInputChange}
-                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all min-h-[44px]"
+                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
                     style={{
                       borderColor: 'var(--border-default)'
                     }}
@@ -666,7 +635,7 @@ export function Hero() {
                   required
                   value={formData.courseInterest}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all appearance-none min-h-[44px]"
+                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all appearance-none min-h-[44px]"
                   style={{
                     borderColor: 'var(--border-default)',
                     color: formData.courseInterest ? 'var(--text-primary)' : 'var(--text-muted)'
@@ -756,29 +725,19 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Company Logos Strip - Auto Scrolling */}
       <motion.div
-        initial={{
-          opacity: 0,
-          y: 20
-        }}
-        animate={{
-          opacity: 1,
-          y: 0
-        }}
-        transition={{
-          delay: 0.6,
-          duration: 0.8
-        }}
-        className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full mt-6 md:mt-10">
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.7 }}
+        className="home-hero__logos-strip max-w-container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 w-full relative z-10">
 
         <p
-          className="text-center font-body text-[10px] md:text-xs uppercase tracking-wider mb-3 md:mb-4 font-semibold"
+          className="text-center font-body text-[10px] sm:text-xs uppercase tracking-[0.2em] mb-3 sm:mb-4 font-semibold"
           style={{ color: 'var(--text-muted)' }}>
           Our Students Work At
         </p>
-        <div className="py-4 md:py-6 overflow-hidden company-logos-container">
-          <div className="flex items-center gap-6 sm:gap-8 md:gap-12 animate-scroll" style={{ width: 'max-content' }}>
+        <div className="py-3 sm:py-4 md:py-5 overflow-hidden company-logos-container">
+          <div className="flex items-center gap-8 sm:gap-10 md:gap-14 animate-scroll" style={{ width: 'max-content' }}>
             {/* First set of logos */}
             {companies.map((company, index) =>
               <div

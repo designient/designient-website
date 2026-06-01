@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, CheckCircle, Users, Briefcase, Target, ArrowRight, Phone, Mail, ChevronDown, BookOpen, Award, TrendingUp, Clock, Calendar } from 'react-feather'
@@ -28,9 +29,8 @@ export function BangaloreCityPageContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center pt-16 md:pt-20" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 w-full">
-          <div className="max-w-4xl mx-auto">
+      <PageHero size="tall" align="center">
+          <div className="max-w-4xl mx-auto w-full">
             {/* Breadcrumbs */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -91,8 +91,7 @@ export function BangaloreCityPageContent() {
               </div>
             </motion.div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* Bengaluru – learners reach out */}
       <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-peach)' }} aria-labelledby="bengaluru-intro-heading">
@@ -472,7 +471,7 @@ export function BangaloreCityPageContent() {
                       className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 accent-icon-box"
                       style={{
                         backgroundColor: 'var(--color-primary)',
-                        boxShadow: '0 2px 8px rgba(176, 228, 204, 0.3)'
+                        boxShadow: '0 2px 8px rgba(240, 255, 66, 0.3)'
                       }}>
                       <Icon className="w-6 h-6" style={{ color: 'var(--text-on-accent)', strokeWidth: 2.5 }} />
                     </div>

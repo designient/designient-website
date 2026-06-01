@@ -3,7 +3,17 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Award, GitBranch, Star, Target, TrendingUp, type Icon } from 'react-feather'
+import {
+  ArrowRight,
+  Award,
+  ChevronDown,
+  GitBranch,
+  Star,
+  Target,
+  TrendingUp,
+  type Icon,
+} from 'react-feather'
+import { motionEase } from './course/animated/motion'
 
 type PathNodeData = {
   title: string
@@ -11,8 +21,6 @@ type PathNodeData = {
   path: string
   badge?: string
   badgeIcon?: Icon
-  bridgeSource?: boolean
-  bridgeTarget?: boolean
 }
 
 const designNodes: PathNodeData[] = [
@@ -23,7 +31,6 @@ const designNodes: PathNodeData[] = [
     badge: 'Most Popular',
     badgeIcon: Star,
     path: '/ui-ux-design-pro',
-    bridgeSource: true,
   },
   {
     title: 'UI UX Design Master',
@@ -48,9 +55,22 @@ const aiNodes: PathNodeData[] = [
     badge: 'By Application Only',
     badgeIcon: Target,
     path: '/ai-product-design-course',
-    bridgeTarget: true,
   },
 ]
+
+function PathConnector({ accentColor, delay }: { accentColor: string; delay: number }) {
+  return (
+    <motion.div
+      className="path-viz-connector hidden md:block"
+      style={{ '--connector-color': accentColor } as React.CSSProperties}
+      initial={{ scaleX: 0, opacity: 0 }}
+      whileInView={{ scaleX: 1, opacity: 1 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ delay, duration: 0.55, ease: motionEase }}
+      aria-hidden="true"
+    />
+  )
+}
 
 function PathNode({
   title,
@@ -71,19 +91,20 @@ function PathNode({
 }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ delay, duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-      className="relative flex-1 min-w-[140px] max-w-[220px]"
+      initial={{ opacity: 0, y: 24, scale: 0.96 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ delay, duration: 0.55, ease: motionEase }}
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="relative flex-1 min-w-[140px] max-w-[240px] w-full md:w-auto"
     >
       <Link
         href={path}
-        className="block rounded-xl p-4 md:p-5 text-center transition-transform hover:scale-[1.02]"
+        className="block rounded-2xl p-4 md:p-5 text-center transition-shadow"
         style={{
           backgroundColor: 'var(--bg-card)',
           border: `2px solid ${accentColor}`,
-          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)',
+          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
         }}
       >
         <p className="font-body text-xs font-bold mb-2 uppercase tracking-wide" style={{ color: accentColor }}>
@@ -109,15 +130,86 @@ function PathNode({
   )
 }
 
+function MobileConnector({ color }: { color: string }) {
+  return (
+    <motion.div
+      className="flex justify-center py-1 md:hidden"
+      initial={{ opacity: 0, y: -8 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.35, ease: motionEase }}
+      aria-hidden="true"
+    >
+      <ChevronDown className="w-5 h-5" style={{ color }} />
+    </motion.div>
+  )
+}
+
+function PathTrack({
+  label,
+  labelColor,
+  accentColor,
+  nodes,
+  baseDelay,
+}: {
+  label: string
+  labelColor: string
+  accentColor: string
+  nodes: PathNodeData[]
+  baseDelay: number
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.15 }}
+      transition={{ duration: 0.5, ease: motionEase }}
+    >
+      <p className="font-body text-sm font-bold mb-5 tracking-wide" style={{ color: labelColor }}>
+        {label}
+      </p>
+      <div className="flex flex-col md:flex-row items-stretch md:items-center gap-1 md:gap-1">
+        {nodes.map((node, index) => (
+          <React.Fragment key={node.path}>
+            <PathNode
+              title={node.title}
+              step={node.step}
+              badge={node.badge}
+              badgeIcon={node.badgeIcon}
+              path={node.path}
+              accentColor={accentColor}
+              delay={baseDelay + index * 0.12}
+            />
+            {index < nodes.length - 1 && (
+              <>
+                <MobileConnector color={accentColor} />
+                <PathConnector accentColor={accentColor} delay={baseDelay + index * 0.12 + 0.2} />
+              </>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
 export function LearningPathVisualization() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+    <section className="py-16 md:py-24 relative overflow-hidden" style={{ backgroundColor: 'var(--bg-base)' }}>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(240, 255, 66, 0.06) 0%, transparent 60%)',
+        }}
+        aria-hidden="true"
+      />
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.6, ease: motionEase }}
           className="text-center mb-10 md:mb-14"
         >
           <h2
@@ -130,71 +222,43 @@ export function LearningPathVisualization() {
           >
             The Learning Path
           </h2>
+          <p
+            className="font-body max-w-2xl mx-auto leading-relaxed"
+            style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 2vw, 1.0625rem)' }}
+          >
+            Two independent tracks — design and AI — with an optional bridge for Pro graduates moving into AI product roles.
+          </p>
         </motion.div>
 
         <div className="space-y-12 md:space-y-16 max-w-5xl mx-auto">
-          <div>
-            <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>
-              DESIGN TRACK
-            </p>
-            <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2">
-              {designNodes.map((node, index) => (
-                <React.Fragment key={node.path}>
-                  <PathNode
-                    title={node.title}
-                    step={node.step}
-                    badge={node.badge}
-                    badgeIcon={node.badgeIcon}
-                    path={node.path}
-                    accentColor="var(--color-primary)"
-                    delay={index * 0.1}
-                  />
-                  {index < designNodes.length - 1 && (
-                    <ArrowRight
-                      className="hidden md:block w-6 h-6 flex-shrink-0 mx-1"
-                      style={{ color: 'var(--color-primary)' }}
-                    />
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
+          <PathTrack
+            label="DESIGN TRACK"
+            labelColor="var(--color-primary)"
+            accentColor="var(--color-primary)"
+            nodes={designNodes}
+            baseDelay={0}
+          />
 
           <div className="relative">
-            <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-highlight)' }}>
-              AI TRACK
-            </p>
-            <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3 md:gap-2 md:max-w-[70%]">
-              {aiNodes.map((node, index) => (
-                <React.Fragment key={node.path}>
-                  <PathNode
-                    title={node.title}
-                    step={node.step}
-                    badge={node.badge}
-                    badgeIcon={node.badgeIcon}
-                    path={node.path}
-                    accentColor="var(--color-highlight)"
-                    delay={0.3 + index * 0.1}
-                  />
-                  {index < aiNodes.length - 1 && (
-                    <ArrowRight
-                      className="hidden md:block w-6 h-6 flex-shrink-0 mx-1"
-                      style={{ color: 'var(--color-highlight)' }}
-                    />
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
+            <PathTrack
+              label="AI TRACK"
+              labelColor="var(--color-highlight)"
+              accentColor="var(--color-highlight)"
+              nodes={aiNodes}
+              baseDelay={0.25}
+            />
 
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.95, y: 12 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="hidden lg:block absolute right-0 top-8 w-[28%]"
+              transition={{ delay: 0.5, duration: 0.55, ease: motionEase }}
+              className="mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-10 lg:w-[30%]"
             >
-              <div
-                className="rounded-xl p-4 text-center"
+              <motion.div
+                animate={{ boxShadow: ['0 0 0 rgba(240,255,66,0)', '0 0 24px rgba(240,255,66,0.12)', '0 0 0 rgba(240,255,66,0)'] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                className="rounded-2xl p-5 text-center"
                 style={{
                   backgroundColor: 'var(--bg-subtle)',
                   border: '1px dashed var(--color-highlight)',
@@ -207,13 +271,14 @@ export function LearningPathVisualization() {
                   <GitBranch className="w-3.5 h-3.5" aria-hidden="true" />
                   CROSS-TRACK BRIDGE
                 </p>
-                <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                  Pro graduates recommended here next →
+                <p className="font-body text-sm leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                  Pro graduates recommended here next
+                  <ArrowRight className="inline w-4 h-4 mx-1 align-text-bottom" style={{ color: 'var(--color-highlight)' }} aria-hidden="true" />
                 </p>
-                <p className="font-body text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
+                <p className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
                   Recommended next step for Pro graduates moving into AI product roles.
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
 
@@ -221,8 +286,8 @@ export function LearningPathVisualization() {
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="font-body text-center max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.35, duration: 0.5, ease: motionEase }}
+            className="font-body text-center max-w-3xl mx-auto leading-relaxed pt-2"
             style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 2vw, 1.0625rem)' }}
           >
             The two tracks are independent — you do not need to complete the Design Track to take an AI Track course.

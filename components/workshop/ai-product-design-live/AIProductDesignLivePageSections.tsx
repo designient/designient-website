@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../../layout/PageHero'
 import Link from 'next/link'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -63,8 +64,7 @@ export function AIProductDesignLiveUrgencyStrip() {
 
 export function AIProductDesignLiveHero() {
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+    <PageHero size="course">
         <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
           <Link href="/" className="hover:underline">Home</Link>
           <ChevronRight className="w-4 h-4" />
@@ -117,8 +117,7 @@ export function AIProductDesignLiveHero() {
             </p>
           </div>
         </div>
-      </div>
-    </section>
+    </PageHero>
   )
 }
 

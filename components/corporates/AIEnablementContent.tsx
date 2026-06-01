@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../layout/PageHero'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Zap, Users, Search, Settings, Target, Shield, CheckCircle, Code, Layers } from 'react-feather'
@@ -88,8 +89,7 @@ export function AIEnablementContent() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+      <PageHero size="default" align="center">
           <div className="max-w-4xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -149,8 +149,7 @@ export function AIEnablementContent() {
               </Link>
             </motion.div>
           </div>
-        </div>
-      </section>
+      </PageHero>
 
       {/* AI Focus Areas */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>

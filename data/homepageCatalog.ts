@@ -75,19 +75,9 @@ export const aiTrackNavCourses: NavCourse[] = [
   },
 ]
 
-export const homepageDesignTrackCards = designTrackNavCourses.map((course) => ({
-  ...course,
-  priceFrom: course.courseSlug === 'ui-ux-design-bootcamp'
-    ? 'Rs 1,999'
-    : course.courseSlug === 'ui-ux-design-pro'
-      ? 'Rs 49,999'
-      : 'Rs 99,999',
-}))
-
-export const homepageAiTrackCards = aiTrackNavCourses.map((course) => ({
-  ...course,
-  priceFrom: course.courseSlug === 'ai-automation-accelerator' ? 'Rs 34,999' : 'Rs 64,999',
-}))
+/** Homepage course cards — pricing comes from coursePricing via CurrencyContext */
+export const homepageDesignTrackCards = designTrackNavCourses
+export const homepageAiTrackCards = aiTrackNavCourses
 
 export const footerCourseGroups = [
   {

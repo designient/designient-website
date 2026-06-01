@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../../layout/PageHero'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, ChevronRight, Shield, Target } from 'react-feather'
 import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
@@ -8,6 +9,17 @@ import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStr
 import { CrossCoursePriceRange } from '../../pricing/CrossCoursePrice'
 import { LocalizedPriceText } from '../../pricing/LocalizedPriceText'
 import { LocalizedPatternComparison } from '../../pricing/LocalizedPatternComparison'
+import { motion } from 'framer-motion'
+import {
+  AnimatedCard,
+  AnimatedGrid,
+  AnimatedGridItem,
+  CourseAnimatedSection,
+  CourseTrackStep,
+  CourseTrackSteps,
+  StaggerItem,
+} from '../animated'
+import { motionEase, viewportOnce } from '../animated/motion'
 import {
   aiProductBonuses,
   aiProductCurriculumWeeks,
@@ -45,9 +57,8 @@ export function AIProductUrgencyStrip() {
 
 export function AIProductHero() {
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+    <PageHero size="course" align="center">
+      <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
             <Link href="/" className="hover:underline">Home</Link>
             <ChevronRight className="w-4 h-4" />
@@ -107,9 +118,8 @@ export function AIProductHero() {
           <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>
             {aiProductHero.bookingNote}
           </p>
-        </div>
       </div>
-    </section>
+    </PageHero>
   )
 }
 
@@ -177,7 +187,7 @@ export function AIProductPriceJustification() {
         </ol>
         <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           {aiProductPriceJustification.closing}{' '}
-          <Link href="/ui-ux-design-pro" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+          <Link href="/ui-ux-design-pro" className="course-inline-link">
             UI UX Design Pro
           </Link>{' '}
           is the foundation course this specialisation builds on.
@@ -189,37 +199,46 @@ export function AIProductPriceJustification() {
 
 export function AIProductCurriculum() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-10 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          The 6-Week Curriculum
-        </h2>
-        <div className="space-y-8">
-          {aiProductCurriculumWeeks.map((week) => (
-            <div key={week.week} className="rounded-xl p-5 md:p-6 bg-card shadow-sm">
-              <h3 className="font-display font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>{week.week}</h3>
-              <div className="space-y-4">
-                {week.sessions.map((session) => (
-                  <div key={session.title} className="pl-4 border-l-2" style={{ borderColor: 'var(--color-accent)' }}>
-                    <h4 className="font-body font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>{session.title}</h4>
-                    <p className="font-body text-sm mb-2 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{session.body}</p>
-                    {session.tools && (
-                      <p className="font-body text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
-                        <strong>Tools:</strong> {session.tools}
-                      </p>
-                    )}
-                    <p className="font-body text-sm">
-                      <strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong>{' '}
-                      <span style={{ color: 'var(--text-secondary)' }}>{session.deliverable}</span>
+    <CourseAnimatedSection title="The 6-Week Curriculum" backgroundColor="var(--bg-warm)">
+      {aiProductCurriculumWeeks.map((week) => (
+        <StaggerItem key={week.week}>
+          <AnimatedCard variant="subtle">
+            <h3 className="font-display font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>
+              {week.week}
+            </h3>
+            <div className="space-y-4">
+              {week.sessions.map((session, sessionIndex) => (
+                <motion.div
+                  key={session.title}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={viewportOnce}
+                  transition={{ delay: sessionIndex * 0.06, duration: 0.45, ease: motionEase }}
+                  className="pl-4 border-l-2"
+                  style={{ borderColor: 'var(--color-accent)' }}
+                >
+                  <h4 className="font-body font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
+                    {session.title}
+                  </h4>
+                  <p className="font-body text-sm mb-2 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    {session.body}
+                  </p>
+                  {session.tools && (
+                    <p className="font-body text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
+                      <strong>Tools:</strong> {session.tools}
                     </p>
-                  </div>
-                ))}
-              </div>
+                  )}
+                  <p className="font-body text-sm">
+                    <strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong>{' '}
+                    <span style={{ color: 'var(--text-secondary)' }}>{session.deliverable}</span>
+                  </p>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </AnimatedCard>
+        </StaggerItem>
+      ))}
+    </CourseAnimatedSection>
   )
 }
 
@@ -248,64 +267,73 @@ export function AIProductEightStatesSection() {
 
 export function AIProductToolchain() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-          The Toolchain: Perplexity, Claude, FigJam AI, Figma, Bolt
-        </h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {aiProductTools.map((tool) => (
-            <div key={tool.name} className="rounded-xl p-5 bg-card" style={{ border: '1px solid var(--border-default)' }}>
-              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>{tool.name}</h3>
-              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{tool.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection
+      title="The Toolchain: Perplexity, Claude, FigJam AI, Figma, Bolt"
+      backgroundColor="var(--bg-warm)"
+    >
+      <AnimatedGrid>
+        {aiProductTools.map((tool) => (
+          <AnimatedGridItem key={tool.name}>
+            <AnimatedCard variant="subtle" className="h-full p-5">
+              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>
+                {tool.name}
+              </h3>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                {tool.description}
+              </p>
+            </AnimatedCard>
+          </AnimatedGridItem>
+        ))}
+      </AnimatedGrid>
+    </CourseAnimatedSection>
   )
 }
 
 export function AIProductLearningPath() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          Your Path to and from This Course
-        </h2>
-
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-subtle)', border: '2px solid var(--color-primary)' }}>
-          <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>AI TRACK</p>
-          <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
-            <li>
-              Step 1:{' '}
-              <Link href="/ai-automation-accelerator" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+    <CourseAnimatedSection title="Your Path to and from This Course" backgroundColor="var(--bg-card)">
+      <StaggerItem>
+        <AnimatedCard variant="primary">
+          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-primary)' }}>
+            AI TRACK
+          </p>
+          <CourseTrackSteps>
+            <CourseTrackStep index={0}>
+              <Link href="/ai-automation-accelerator" className="course-inline-link">
                 AI Automation Accelerator
               </Link>{' '}
               (8 weeks · <CrossCoursePriceRange slug={COURSE_SLUGS.aiAutomation} />) — recommended if you want to build AI automation fluency before or alongside this course
-            </li>
-            <li>
-              Step 2: <strong style={{ color: 'var(--text-primary)' }}>AI Product Design Course ← You are here</strong>
-            </li>
-          </ol>
-        </div>
+            </CourseTrackStep>
+            <CourseTrackStep index={1} active>
+              <strong style={{ color: 'var(--text-primary)' }}>AI Product Design Course ← You are here</strong>
+            </CourseTrackStep>
+          </CourseTrackSteps>
+        </AnimatedCard>
+      </StaggerItem>
 
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-base)', border: '1px dashed var(--border-default)' }}>
-          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-primary)' }}>CROSS-TRACK ENTRY</p>
-          <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+      <StaggerItem className="mt-6">
+        <AnimatedCard variant="muted">
+          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-primary)' }}>
+            CROSS-TRACK ENTRY
+          </p>
+          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             This course is open to PMs and product folks from the Design Track — specifically{' '}
-            <Link href="/ui-ux-design-pro" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/ui-ux-design-pro" className="course-inline-link">
               UI UX Design Pro
             </Link>{' '}
             graduates who want an AI product specialisation. Pro graduates receive <LocalizedPriceText inr="Rs 5,000" usd="USD 49" /> off the standard price.
           </p>
-        </div>
+        </AnimatedCard>
+      </StaggerItem>
 
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-subtle)' }}>
-          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--text-primary)' }}>AFTER THIS COURSE</p>
+      <StaggerItem className="mt-6">
+        <AnimatedCard variant="subtle">
+          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--text-primary)' }}>
+            AFTER THIS COURSE
+          </p>
           <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
             There is no Step 3 on the AI Track. AI Product Design is the advanced specialisation. Graduates who want the full senior design curriculum should consider the{' '}
-            <Link href="/ui-ux-design-master" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/ui-ux-design-master" className="course-inline-link">
               UI UX Design Master
             </Link>
             , which is available in parallel.
@@ -313,20 +341,24 @@ export function AIProductLearningPath() {
           <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             <strong style={{ color: 'var(--text-primary)' }}>Master vs AI Product Design:</strong> Master includes a 2-week AI product strategy module at overview level. This course is 6 weeks on execution — all 8 states in Figma, behaviour specs, Bolt/v0 prototype, two case studies.
           </p>
-        </div>
+        </AnimatedCard>
+      </StaggerItem>
 
-        <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-warm)' }}>
-          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>FREE ENTRY POINT</p>
+      <StaggerItem className="mt-6">
+        <AnimatedCard variant="highlight">
+          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>
+            FREE ENTRY POINT
+          </p>
           <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             If you are not yet sure this is the right course, the monthly <strong>AI Product Design Live</strong> workshop is a free 2-hour session — a real AI product audited and redesigned live in Figma.{' '}
-            <Link href="/ai-product-design-live" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/ai-product-design-live" className="course-inline-link">
               Register free for the next session
             </Link>
             .
           </p>
-        </div>
-      </div>
-    </section>
+        </AnimatedCard>
+      </StaggerItem>
+    </CourseAnimatedSection>
   )
 }
 
@@ -360,7 +392,7 @@ export function AIProductGuarantee() {
               </p>
               <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 Written claim within 14 days of the final session. Students who miss sessions or skip deliverables are ineligible. Full terms at{' '}
-                <Link href="/cancellation-refund-policy" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+                <Link href="/cancellation-refund-policy" className="course-inline-link">
                   /cancellation-refund-policy
                 </Link>
                 .

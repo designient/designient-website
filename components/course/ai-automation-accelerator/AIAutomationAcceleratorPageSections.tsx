@@ -1,5 +1,6 @@
 'use client'
 
+import { PageHero } from '../../layout/PageHero'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, ChevronRight, Shield, Zap } from 'react-feather'
 import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
@@ -7,6 +8,17 @@ import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
 import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
 import { CrossCoursePriceRange } from '../../pricing/CrossCoursePrice'
 import { LocalizedPatternComparison } from '../../pricing/LocalizedPatternComparison'
+import { motion } from 'framer-motion'
+import {
+  AnimatedCard,
+  AnimatedGrid,
+  AnimatedGridItem,
+  CourseAnimatedSection,
+  CourseTrackStep,
+  CourseTrackSteps,
+  StaggerItem,
+} from '../animated'
+import { motionEase, viewportOnce } from '../animated/motion'
 import {
   aiAcceleratorBonuses,
   aiAcceleratorBuildArtifacts,
@@ -42,9 +54,8 @@ export function AIAcceleratorUrgencyStrip() {
 
 export function AIAcceleratorHero() {
   return (
-    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+    <PageHero size="course" align="center">
+      <div className="max-w-4xl mx-auto text-center">
           <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
             <Link href="/" className="hover:underline">Home</Link>
             <ChevronRight className="w-4 h-4" />
@@ -104,9 +115,8 @@ export function AIAcceleratorHero() {
           <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>
             {aiAcceleratorHero.bookingNote}
           </p>
-        </div>
       </div>
-    </section>
+    </PageHero>
   )
 }
 
@@ -152,83 +162,105 @@ export function AIAcceleratorPatternInterrupt() {
 
 export function AIAcceleratorWhatYouBuild() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-base)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-10 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          What You Will Build and Deploy in 8 Weeks
-        </h2>
-        <div className="space-y-8">
-          {aiAcceleratorBuildArtifacts.map((item) => (
-            <div key={item.title} className="rounded-xl p-6 md:p-8 bg-card" style={{ border: '1px solid var(--border-default)' }}>
-              <h3 className="font-display font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>{item.title}</h3>
-              <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>{item.description}</p>
-              <p className="font-body text-sm mb-3 italic" style={{ color: 'var(--text-muted)' }}>{item.examples}</p>
-              <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>{item.supporting}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection title="What You Will Build and Deploy in 8 Weeks" backgroundColor="var(--bg-base)">
+      {aiAcceleratorBuildArtifacts.map((item) => (
+        <StaggerItem key={item.title}>
+          <AnimatedCard variant="subtle">
+            <h3 className="font-display font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>
+              {item.title}
+            </h3>
+            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
+              {item.description}
+            </p>
+            <p className="font-body text-sm mb-3 italic" style={{ color: 'var(--text-muted)' }}>
+              {item.examples}
+            </p>
+            <p className="font-body text-sm" style={{ color: 'var(--text-secondary)' }}>
+              {item.supporting}
+            </p>
+          </AnimatedCard>
+        </StaggerItem>
+      ))}
+    </CourseAnimatedSection>
   )
 }
 
 export function AIAcceleratorCurriculum() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-6 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          The 8-Week Curriculum
-        </h2>
-        <div className="rounded-xl p-5 md:p-6 mb-8 bg-card shadow-sm" style={{ border: '2px dashed var(--color-primary)' }}>
-          <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>{aiAcceleratorPreCourse.title}</h3>
-          <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{aiAcceleratorPreCourse.body}</p>
-        </div>
-        <div className="space-y-8">
-          {aiAcceleratorCurriculumWeeks.map((week) => (
-            <div key={week.week} className="rounded-xl p-5 md:p-6 bg-card shadow-sm">
-              <h3 className="font-display font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>{week.week}</h3>
-              <div className="space-y-4">
-                {week.sessions.map((session) => (
-                  <div key={session.title} className="pl-4 border-l-2" style={{ borderColor: 'var(--color-accent)' }}>
-                    <h4 className="font-body font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>{session.title}</h4>
-                    <p className="font-body text-sm mb-2 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{session.body}</p>
-                    {session.tools && (
-                      <p className="font-body text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
-                        <strong>Tool:</strong> {session.tools}
-                      </p>
-                    )}
-                    <p className="font-body text-sm">
-                      <strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong>{' '}
-                      <span style={{ color: 'var(--text-secondary)' }}>{session.deliverable}</span>
+    <CourseAnimatedSection title="The 8-Week Curriculum" backgroundColor="var(--bg-warm)">
+      <StaggerItem>
+        <AnimatedCard variant="dashed">
+          <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>
+            {aiAcceleratorPreCourse.title}
+          </h3>
+          <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+            {aiAcceleratorPreCourse.body}
+          </p>
+        </AnimatedCard>
+      </StaggerItem>
+      {aiAcceleratorCurriculumWeeks.map((week) => (
+        <StaggerItem key={week.week} className="mt-6">
+          <AnimatedCard variant="subtle">
+            <h3 className="font-display font-semibold mb-4" style={{ color: 'var(--color-primary)' }}>
+              {week.week}
+            </h3>
+            <div className="space-y-4">
+              {week.sessions.map((session, sessionIndex) => (
+                <motion.div
+                  key={session.title}
+                  initial={{ opacity: 0, x: -12 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={viewportOnce}
+                  transition={{ delay: sessionIndex * 0.06, duration: 0.45, ease: motionEase }}
+                  className="pl-4 border-l-2"
+                  style={{ borderColor: 'var(--color-accent)' }}
+                >
+                  <h4 className="font-body font-semibold mb-1" style={{ color: 'var(--text-primary)' }}>
+                    {session.title}
+                  </h4>
+                  <p className="font-body text-sm mb-2 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    {session.body}
+                  </p>
+                  {session.tools && (
+                    <p className="font-body text-xs mb-1" style={{ color: 'var(--text-muted)' }}>
+                      <strong>Tool:</strong> {session.tools}
                     </p>
-                  </div>
-                ))}
-              </div>
+                  )}
+                  <p className="font-body text-sm">
+                    <strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong>{' '}
+                    <span style={{ color: 'var(--text-secondary)' }}>{session.deliverable}</span>
+                  </p>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
+          </AnimatedCard>
+        </StaggerItem>
+      ))}
+    </CourseAnimatedSection>
   )
 }
 
 export function AIAcceleratorToolchain() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-          The Toolchain: Zapier, n8n, Make, Airtable, ManyChat, Relevance AI
-        </h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          {aiAcceleratorTools.map((tool) => (
-            <div key={tool.name} className="rounded-xl p-5" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
-              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>{tool.name}</h3>
-              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{tool.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <CourseAnimatedSection
+      title="The Toolchain: Zapier, n8n, Make, Airtable, ManyChat, Relevance AI"
+      backgroundColor="var(--bg-card)"
+    >
+      <AnimatedGrid>
+        {aiAcceleratorTools.map((tool) => (
+          <AnimatedGridItem key={tool.name}>
+            <AnimatedCard variant="subtle" className="h-full p-5">
+              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>
+                {tool.name}
+              </h3>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                {tool.description}
+              </p>
+            </AnimatedCard>
+          </AnimatedGridItem>
+        ))}
+      </AnimatedGrid>
+    </CourseAnimatedSection>
   )
 }
 
@@ -264,8 +296,7 @@ export function AIAcceleratorTeamEnrollment() {
           </Link>
           <a
             href="mailto:hello@designient.com?subject=Team%20Enrollment%20%E2%80%94%20AI%20Automation%20Accelerator"
-            className="font-body text-sm underline"
-            style={{ color: 'var(--color-primary)' }}
+            className="course-inline-link font-body text-sm"
           >
             Or email hello@designient.com
           </a>
@@ -277,48 +308,51 @@ export function AIAcceleratorTeamEnrollment() {
 
 export function AIAcceleratorLearningPath() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          Your Path Before and After This Course
-        </h2>
-
-        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-card)', border: '2px solid var(--color-primary)' }}>
-          <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>AI TRACK</p>
-          <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
-            <li>
-              Step 1: <strong style={{ color: 'var(--text-primary)' }}>AI Automation Accelerator ← You are here</strong>
-            </li>
-            <li>
-              Step 2:{' '}
-              <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+    <CourseAnimatedSection title="Your Path Before and After This Course" backgroundColor="var(--bg-warm)">
+      <StaggerItem>
+        <AnimatedCard variant="primary">
+          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-primary)' }}>
+            AI TRACK
+          </p>
+          <CourseTrackSteps>
+            <CourseTrackStep index={0} active>
+              <strong style={{ color: 'var(--text-primary)' }}>AI Automation Accelerator ← You are here</strong>
+            </CourseTrackStep>
+            <CourseTrackStep index={1}>
+              <Link href="/ai-product-design-course" className="course-inline-link">
                 AI Product Design Course
               </Link>{' '}
               (6 weeks · <CrossCoursePriceRange slug={COURSE_SLUGS.aiProduct} />) — design AI behaviour, trust UI, and all AI states for designers and PMs moving into AI product roles
-            </li>
-          </ol>
-        </div>
+            </CourseTrackStep>
+          </CourseTrackSteps>
+        </AnimatedCard>
+      </StaggerItem>
 
-        <p className="font-body leading-relaxed mb-8" style={{ color: 'var(--text-secondary)' }}>
+      <StaggerItem className="mt-8">
+        <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           <strong style={{ color: 'var(--text-primary)' }}>Not sure which track?</strong> The AI Track is for working professionals and freelancers who want to build AI automation workflows or design AI-native products — no design background required. The Design Track (UI UX Design Bootcamp → Pro → Master) is for people who want to become UI/UX designers.{' '}
-          <Link href="/courses" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+          <Link href="/courses" className="course-inline-link">
             Compare all courses
           </Link>
           .
         </p>
+      </StaggerItem>
 
-        <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-card)' }}>
-          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>FREE ENTRY POINT</p>
+      <StaggerItem className="mt-6">
+        <AnimatedCard variant="highlight">
+          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>
+            FREE ENTRY POINT
+          </p>
           <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
             The monthly <strong>AI Automation Live</strong> workshop is a free 2-hour session — one complete automation problem built live, from trigger to deployed workflow.{' '}
-            <Link href="/ai-automation-live" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/ai-automation-live" className="course-inline-link">
               Register free for the next session
             </Link>
             .
           </p>
-        </div>
-      </div>
-    </section>
+        </AnimatedCard>
+      </StaggerItem>
+    </CourseAnimatedSection>
   )
 }
 
@@ -355,7 +389,7 @@ export function AIAcceleratorGuarantee() {
               </p>
               <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 This guarantee does not promise a business outcome from your automations. It promises that if you do the work, three working automations will exist when you finish. Full terms at{' '}
-                <Link href="/cancellation-refund-policy" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+                <Link href="/cancellation-refund-policy" className="course-inline-link">
                   /cancellation-refund-policy
                 </Link>
                 .

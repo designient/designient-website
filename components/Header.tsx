@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { motion, useScroll, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, ChevronDown } from 'react-feather';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -48,32 +48,27 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(null);
-  const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const lastScrollY = useRef(0);
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const { getCoursePrice, isLoading } = useCurrency();
 
   useEffect(() => {
-    const unsubscribe = scrollY.on('change', (latest) => {
-      setIsScrolled(latest > 50);
+    const updateScroll = () => {
+      setIsScrolled(window.scrollY > 1);
+    };
+    updateScroll();
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    return () => window.removeEventListener('scroll', updateScroll);
+  }, []);
 
-      const currentScrollY = latest;
-      const previousScrollY = lastScrollY.current;
-
-      if (currentScrollY > previousScrollY && currentScrollY > 100) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-
-      lastScrollY.current = currentScrollY;
-    });
-    return () => unsubscribe();
-  }, [scrollY]);
+  useEffect(() => {
+    setIsScrolled(window.scrollY > 1);
+    setMobileMenuOpen(false);
+    setActiveDropdown(null);
+    setMobileDropdownOpen(null);
+  }, [pathname]);
 
   useEffect(() => {
     setMounted(true);
@@ -132,13 +127,11 @@ export function Header() {
 
   return (
     <motion.header
-      className={`fixed top-0 left-0 right-0 z-[60] transition-colors duration-500 glass-nav ${isScrolled ? 'border-b border-[var(--glass-border-subtle)]' : ''}`}
+      className={`fixed top-0 left-0 right-0 z-[60] transition-[background-color,box-shadow,border-color] duration-300 glass-nav ${isScrolled ? 'glass-nav--scrolled' : ''}`}
       initial={{
         y: 0
       }}
-      animate={{
-        y: isVisible ? 0 : '-100%'
-      }}
+      animate={{ y: 0 }}
       role="banner">
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">

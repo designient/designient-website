@@ -145,7 +145,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
   if (isLoading) {
     return (
       <section
-        className="pt-24 md:pt-32 pb-16"
+        className="pt-8 md:pt-12 pb-16"
         aria-label="Certificate verification"
         aria-busy="true"
         aria-live="polite"
@@ -164,7 +164,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
   if (error || !certificate) {
     return (
       <section
-        className="pt-24 md:pt-32 pb-16"
+        className="pt-8 md:pt-12 pb-16"
         style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-live="polite"
         aria-atomic="true"
@@ -240,7 +240,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
         }
       `}} />
       <section
-        className="pt-24 md:pt-32 pb-8 certificate-print-section"
+        className="pt-8 md:pt-12 pb-8 certificate-print-section"
         style={{ backgroundColor: 'var(--bg-warm)' }}
         aria-label="Certificate details"
       >
@@ -357,7 +357,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
               <div
                 className="absolute left-0 right-0 bottom-0 h-2 sm:h-3 opacity-90 flex-shrink-0"
                 style={{
-                  background: 'linear-gradient(90deg, #e9c46a 0%, #f4a261 30%, #c77dff 70%, #B0E4CC 100%)',
+                  background: 'linear-gradient(90deg, #e9c46a 0%, #f4a261 30%, #c77dff 70%, #F0FF42 100%)',
                   borderRadius: '0 0 2px 2px'
                 }}
                 aria-hidden

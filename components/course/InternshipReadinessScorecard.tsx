@@ -46,7 +46,7 @@ export function InternshipReadinessScorecard({ levels }: InternshipReadinessScor
                 style={{
                   borderColor: index === 1 ? 'var(--color-primary)' : 'var(--border-default)',
                   backgroundColor: index === 1 ? 'var(--bg-purple-subtle)' : 'var(--bg-card)',
-                  boxShadow: index === 1 ? '0 4px 6px -1px rgba(176, 228, 204, 0.1)' : '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
+                  boxShadow: index === 1 ? '0 4px 6px -1px rgba(240, 255, 66, 0.1)' : '0 1px 3px 0 rgba(0, 0, 0, 0.1)'
                 }}
               >
                 <div className="flex items-center gap-3 mb-5">
