@@ -26,6 +26,9 @@ const contactFaqs = [
 
 const helpfulLinks = [
   { name: 'UI/UX Design Pro', href: '/ui-ux-design-pro' },
+  { name: 'Course Pricing', href: '/pricing' },
+  { name: 'Grievance Redressal', href: '/grievance-redressal' },
+  { name: 'Shipping & Delivery', href: '/shipping-delivery' },
   { name: 'Placements', href: '/placements' },
   { name: 'Careers', href: '/careers' },
   { name: 'FAQs', href: '/faqs' },

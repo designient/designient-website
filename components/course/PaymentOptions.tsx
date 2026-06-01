@@ -499,14 +499,30 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.4 }}
             className="mt-8 text-center">
-            <p className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
+            <p className="font-body text-xs leading-relaxed" style={{ color: 'var(--text-muted)' }}>
               By proceeding with payment, you agree to our{' '}
               <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                 Terms and Conditions
               </Link>
-              {' '}and{' '}
+              ,{' '}
               <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
-                Cancellation & Refund Policy
+                Cancellation &amp; Refund Policy
+              </Link>
+              , and{' '}
+              <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                Privacy Policy
+              </Link>
+              . See{' '}
+              <Link href="/pricing" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                Pricing
+              </Link>
+              ,{' '}
+              <Link href="/shipping-delivery" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                Shipping &amp; Delivery
+              </Link>
+              , and{' '}
+              <Link href="/grievance-redressal" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                Grievance Redressal
               </Link>
               .
             </p>

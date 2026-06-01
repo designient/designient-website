@@ -116,6 +116,9 @@ export function Footer() {
     { name: 'Privacy Policy', path: '/privacy-policy' },
     { name: 'Terms and Conditions', path: '/terms-and-conditions' },
     { name: 'Cancellation & Refund Policy', path: '/cancellation-refund-policy' },
+    { name: 'Pricing', path: '/pricing' },
+    { name: 'Shipping and Delivery Policy', path: '/shipping-delivery' },
+    { name: 'Grievance Redressal', path: '/grievance-redressal' },
     { name: 'Disclaimer', path: '/disclaimer' },
     { name: 'Code of Conduct', path: '/code-of-conduct' },
     { name: 'Accessibility Statement', path: '/accessibility' }

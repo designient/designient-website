@@ -704,7 +704,8 @@ export function PrivacyPolicyContent() {
         </h2>
         <p className="font-body leading-relaxed mb-4" style={bodyStyle}>
           In compliance with the IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, Designient has
-          designated a Grievance Officer for privacy-related complaints:
+          designated a Grievance Officer for privacy-related complaints. See our dedicated{' '}
+          <Link href="/grievance-redressal" className={linkClass}>Grievance Redressal</Link> page for the full complaint process.
         </p>
         <div className="rounded-lg p-6 mb-4" style={{ backgroundColor: 'var(--bg-subtle)' }}>
           <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Grievance Officer:</p>

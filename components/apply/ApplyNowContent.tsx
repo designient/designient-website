@@ -671,6 +671,14 @@ export function ApplyNowContent() {
                         <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
                           Cancellation & Refund Policy
                         </Link>
+                        {', '}
+                        <Link href="/pricing" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                          Pricing
+                        </Link>
+                        , and{' '}
+                        <Link href="/grievance-redressal" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                          Grievance Redressal
+                        </Link>
                         . I consent to receive communications via email, phone, and WhatsApp regarding my application.
                       </span>
                     </label>

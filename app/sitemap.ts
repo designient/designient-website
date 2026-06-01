@@ -23,6 +23,12 @@ export function getSitemapEntries(): SitemapEntry[] {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/pricing`,
+      lastModified: lastmod,
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/ui-ux-design-pro`,
       lastModified: lastmod,
       changeFrequency: 'monthly',
@@ -108,6 +114,18 @@ export function getSitemapEntries(): SitemapEntry[] {
     },
     {
       url: `${baseUrl}/privacy-policy`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/grievance-redressal`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/shipping-delivery`,
       lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.5,

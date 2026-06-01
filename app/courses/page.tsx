@@ -6,6 +6,7 @@ import { AiTrackIcon, CoursesTrackSection, DesignTrackIcon } from '../../compone
 import { DesignTrackComparisonTable, AiTrackComparisonTable } from '../../components/CourseComparisonTable'
 import { CoursesFAQ } from '../../components/CoursesFAQ'
 import { CoursesCTA } from '../../components/CoursesCTA'
+import { PricingDetailsLink } from '../../components/PricingDetailsLink'
 import { Footer } from '../../components/Footer'
 import { StructuredData } from '../../components/StructuredData'
 import {
@@ -133,6 +134,7 @@ export default function CoursesPage() {
         cards={aiTrackHubCards}
       />
       <AiTrackComparisonTable />
+      <PricingDetailsLink />
       <CoursesCTA />
       <CoursesFAQ />
       <Footer />

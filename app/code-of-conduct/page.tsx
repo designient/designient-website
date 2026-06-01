@@ -3,10 +3,12 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { StructuredData } from '../../components/StructuredData'
 import Link from 'next/link'
+import { LEGAL_LAST_UPDATED } from '../../lib/siteLegal'
 
 export const metadata: Metadata = {
   title: 'Code of Conduct | Designient Technologies Private Limited',
-  description: 'Code of Conduct for Designient Technologies Private Limited. Learn about expected behavior, unacceptable conduct, and consequences for violations in our learning community.',
+  description:
+    "Designient's student Code of Conduct including AI Track obligations, data protection responsibilities, and WhatsApp automation conduct standards.",
   robots: {
     index: true,
     follow: true,
@@ -16,7 +18,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Code of Conduct | Designient',
-    description: 'Code of Conduct for Designient Technologies Private Limited.',
+    description:
+      "Designient's student Code of Conduct including AI Track obligations, data protection responsibilities, and WhatsApp automation conduct standards.",
     url: 'https://designient.com/code-of-conduct',
     type: 'website',
   },
@@ -54,7 +57,7 @@ export default function CodeOfConductPage() {
               Code of Conduct
             </h1>
             <p className="font-body text-lg" style={{ color: 'var(--text-secondary)' }}>
-              Last Updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Last Updated: {LEGAL_LAST_UPDATED}
             </p>
           </div>
 
@@ -223,10 +226,143 @@ export default function CodeOfConductPage() {
             </div>
           </section>
 
+          {/* Section: AI Track Student Obligations */}
+          <section className="mb-12">
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
+              AI Track Student Obligations
+            </h2>
+            <div className="space-y-6">
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                Students enrolled in the AI Automation Accelerator and AI Product Design Course build and deploy systems that may affect people beyond the Designient cohort — including the clients, leads, and end users whose data flows through student-built automation workflows. This section sets out the conduct obligations specific to AI Track students.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                These obligations are in addition to, not in place of, the general student conduct expectations in the rest of this Code of Conduct.
+              </p>
+
+              <div>
+                <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>
+                  1. Responsible Use of Automation Tools
+                </h3>
+                <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                  You may only use tools taught in Designient courses for lawful purposes. You must not use n8n, Make, ManyChat, Relevance AI, Claude API, or any other tool introduced in the curriculum to:
+                </p>
+                <ul className="list-disc pl-6 space-y-2" style={{ color: 'var(--text-secondary)' }}>
+                  <li className="font-body">Collect, process, or store personal data without the knowledge and consent of the individuals whose data is being collected</li>
+                  <li className="font-body">Send unsolicited commercial messages (spam) via WhatsApp, email, or any other channel</li>
+                  <li className="font-body">Scrape personal data from websites or platforms in violation of those platforms&apos; terms of service</li>
+                  <li className="font-body">Build or deploy automation workflows that facilitate fraud, deception, or financial harm to any person</li>
+                  <li className="font-body">Impersonate any individual or organisation in automated communications</li>
+                  <li className="font-body">Circumvent security systems, access controls, or authentication mechanisms on any platform</li>
+                  <li className="font-body">Process sensitive personal data categories — including health data, financial data, or data of minors — without appropriate legal basis and technical safeguards</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>
+                  2. Compliance with Data Protection Law
+                </h3>
+                <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                  When you deploy a workflow or automation that collects, processes, or stores personal data from real people in any commercial or operational context, you become a data fiduciary under India&apos;s Digital Personal Data Protection Act 2023. This means:
+                </p>
+                <ul className="list-disc pl-6 space-y-2 mb-3" style={{ color: 'var(--text-secondary)' }}>
+                  <li className="font-body">You must have a lawful basis for collecting that data</li>
+                  <li className="font-body">You must inform individuals whose data you collect about what you are collecting and why</li>
+                  <li className="font-body">You must respond to requests from individuals to access, correct, or delete their data</li>
+                  <li className="font-body">You must implement reasonable security measures to protect the data your workflow holds</li>
+                  <li className="font-body">You must not retain data longer than necessary for the stated purpose</li>
+                </ul>
+                <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  Designient&apos;s curriculum includes responsible data handling guidance as an educational resource. This guidance does not constitute legal advice. If you are unsure whether a workflow you are building is compliant with applicable law, seek independent legal advice before deploying it commercially.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>
+                  3. WhatsApp and ManyChat Conduct
+                </h3>
+                <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                  Students who build WhatsApp automation workflows using ManyChat during the AI Automation Accelerator must comply with:
+                </p>
+                <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
+                  <li className="font-body">
+                    WhatsApp&apos;s Business Policy (
+                    <a href="https://www.whatsapp.com/legal/business-policy" className="text-[var(--color-primary)] underline" target="_blank" rel="noopener noreferrer">
+                      whatsapp.com/legal/business-policy
+                    </a>
+                    )
+                  </li>
+                  <li className="font-body">Meta&apos;s Messaging Guidelines for WhatsApp Business</li>
+                  <li className="font-body">
+                    ManyChat&apos;s Terms of Service (
+                    <a href="https://manychat.com/terms" className="text-[var(--color-primary)] underline" target="_blank" rel="noopener noreferrer">
+                      manychat.com/terms
+                    </a>
+                    )
+                  </li>
+                </ul>
+                <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>Specifically, you must not:</p>
+                <ul className="list-disc pl-6 space-y-2 mb-3" style={{ color: 'var(--text-secondary)' }}>
+                  <li className="font-body">Send bulk messages to individuals who have not opted in to receive communications from you</li>
+                  <li className="font-body">Use ManyChat flows to send promotional messages to individuals without their prior consent</li>
+                  <li className="font-body">Represent yourself or your business falsely in any automated WhatsApp communication</li>
+                  <li className="font-body">Build workflows that harvest phone numbers without the explicit consent of the individuals being added</li>
+                </ul>
+                <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  Violation of WhatsApp&apos;s Business Policy can result in your WhatsApp Business account being permanently banned. This is your responsibility, not Designient&apos;s.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>
+                  4. Commercial Deployment During the Course
+                </h3>
+                <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  During the course, you are building automations for your own learning. If you choose to deploy these automations commercially — meaning you use them in a live business context with real customers or clients — you are doing so as an independent operator. Designient provides education only. Designient has no liability for the operation, output, or legal compliance of any automation you deploy commercially, including during the course period.
+                </p>
+              </div>
+
+              <div>
+                <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>
+                  5. Sharing Automations and Workflows with Third Parties
+                </h3>
+                <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                  Workflow files, n8n configurations, and ManyChat flows shared within the cohort are shared for educational purposes only. You may not:
+                </p>
+                <ul className="list-disc pl-6 space-y-2" style={{ color: 'var(--text-secondary)' }}>
+                  <li className="font-body">Sell or commercially redistribute workflow files or templates shared by Designient or fellow students</li>
+                  <li className="font-body">Use another student&apos;s workflow commercially without that student&apos;s explicit written permission</li>
+                  <li className="font-body">Claim authorship of a workflow or tool built primarily by another student or by Designient</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Reporting AI Tool Misuse */}
+          <section className="mb-12">
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
+              Reporting AI Tool Misuse
+            </h2>
+            <div className="space-y-4">
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                If you become aware that a fellow student is using tools taught in a Designient course in a manner that violates this Code of Conduct — including collecting personal data without consent, sending spam, or deploying automations that harm third parties — you should report it.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>How to report:</strong> Email{' '}
+                <Link href="mailto:hello@designient.com" className="text-[var(--color-primary)] underline">hello@designient.com</Link> with subject line: Code of Conduct Report — AI Tool Misuse. Include a description of the conduct you observed and, if possible, supporting evidence. Reports can be made anonymously.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>What happens after a report:</strong> Designient will review all reports within 5 working days. Where a violation is substantiated, Designient may take action including issuing a formal warning, removing the student from the cohort without refund, and where legally required, reporting the conduct to the relevant regulatory authority.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                Designient does not have the ability to shut down or disable automations deployed on third-party platforms by students. If you believe an automation is causing active harm to individuals, you should also report it directly to the relevant platform (WhatsApp, ManyChat, n8n, Make, or Relevance AI) and, where appropriate, to the relevant law enforcement authority.
+              </p>
+            </div>
+          </section>
+
           {/* Additional Information */}
           <div className="mt-12 pt-8 border-t-2" style={{ borderColor: 'var(--border-default)' }}>
             <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
-              This Code of Conduct is part of and should be read together with our <Link href="/terms-and-conditions" className="text-[var(--color-primary)] underline">Terms and Conditions</Link>. In case of any conflict between this Code and the Terms and Conditions, the Terms and Conditions shall prevail.
+              This Code of Conduct is part of and should be read together with our <Link href="/terms-and-conditions" className="text-[var(--color-primary)] underline">Terms and Conditions</Link> (including AI Track responsibilities in Section 15). In case of any conflict between this Code and the Terms and Conditions, the Terms and Conditions shall prevail.
             </p>
             <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
               Designient reserves the right to modify this Code of Conduct at any time. Any changes will be posted on this page with an updated &quot;Last Updated&quot; date. Continued participation in our programs after changes are posted constitutes acceptance of the updated Code of Conduct.

@@ -3,10 +3,12 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import { StructuredData } from '../../components/StructuredData'
 import Link from 'next/link'
+import { LEGAL_LAST_UPDATED } from '../../lib/siteLegal'
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement | Designient Technologies Private Limited',
-  description: 'Accessibility statement for Designient Technologies Private Limited. Learn about our commitment to making learning accessible to all learners.',
+  description:
+    "Designient's accessibility statement for designient.com and AI Track course tools. WCAG compliance, third-party tool disclosure, and accommodation requests.",
   robots: {
     index: true,
     follow: true,
@@ -16,7 +18,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Accessibility Statement | Designient',
-    description: 'Accessibility statement for Designient Technologies Private Limited.',
+    description:
+      "Designient's accessibility statement for designient.com and AI Track course tools. WCAG compliance, third-party tool disclosure, and accommodation requests.",
     url: 'https://designient.com/accessibility',
     type: 'website',
   },
@@ -54,7 +57,7 @@ export default function AccessibilityPage() {
               Accessibility Statement
             </h1>
             <p className="font-body text-lg" style={{ color: 'var(--text-secondary)' }}>
-              Last Updated: {new Date().toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' })}
+              Last Updated: {LEGAL_LAST_UPDATED}
             </p>
           </div>
 
@@ -198,6 +201,55 @@ export default function AccessibilityPage() {
               </ul>
               <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                 We value your feedback and suggestions for improving accessibility. If you have ideas or recommendations, please share them with us via email. Your input helps us make our services better for everyone.
+              </p>
+            </div>
+          </section>
+
+          {/* Section: Third-Party Tools — AI Track */}
+          <section className="mb-12">
+            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
+              Third-Party Tools Used in AI Track Courses
+            </h2>
+            <div className="space-y-4">
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                Designient&apos;s AI Automation Accelerator and AI Product Design Course require students to create accounts with and use third-party tools as part of the curriculum. These tools — including n8n, Make, Airtable, ManyChat, Relevance AI, Figma, Bolt, Perplexity, and Claude — are independently operated platforms. Designient does not control the accessibility features, compliance posture, or WCAG conformance of these third-party tools.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Designient&apos;s accessibility commitment covers:</strong>
+              </p>
+              <ul className="list-disc pl-6 space-y-2 mb-3" style={{ color: 'var(--text-secondary)' }}>
+                <li className="font-body">The designient.com website</li>
+                <li className="font-body">The Designient student workspace at app.designient.com</li>
+                <li className="font-body">Course materials produced and distributed by Designient including Notion documents, Figma files, and PDF guides</li>
+              </ul>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Designient&apos;s accessibility commitment does not extend to:</strong>
+              </p>
+              <ul className="list-disc pl-6 space-y-2 mb-3" style={{ color: 'var(--text-secondary)' }}>
+                <li className="font-body">Third-party platforms students are required to use during AI Track courses</li>
+                <li className="font-body">
+                  Zoom, which is used for all live sessions (Zoom&apos;s own accessibility statement is available at{' '}
+                  <a href="https://zoom.us/accessibility" className="text-[var(--color-primary)] underline" target="_blank" rel="noopener noreferrer">
+                    zoom.us/accessibility
+                  </a>
+                  )
+                </li>
+                <li className="font-body">The Razorpay payment checkout interface</li>
+                <li className="font-body">
+                  Any tool listed in the{' '}
+                  <Link href="/privacy-policy" className="text-[var(--color-primary)] underline">Privacy Policy</Link> Section 6 third-party tool tables
+                </li>
+              </ul>
+              <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>If you require accessibility accommodations for AI Track course participation:</strong>
+              </p>
+              <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
+                If a required third-party tool presents an accessibility barrier that affects your ability to participate in a course, contact{' '}
+                <Link href="mailto:hello@designient.com" className="text-[var(--color-primary)] underline">hello@designient.com</Link> before enrolling. We will assess whether reasonable adjustments can be made — for example, substituting an alternative tool where the curriculum permits, providing additional mentor support, or adjusting deliverable formats. Designient cannot guarantee that every required tool will meet your specific accessibility needs, but we are committed to exploring every reasonable option.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                <strong style={{ color: 'var(--text-primary)' }}>Zoom accessibility:</strong> All Designient live sessions are delivered via Zoom. Zoom supports closed captions, screen readers, keyboard navigation, and other accessibility features. To request live captioning or other Zoom accessibility accommodations for your sessions, email{' '}
+                <Link href="mailto:hello@designient.com" className="text-[var(--color-primary)] underline">hello@designient.com</Link> at least 5 working days before your cohort starts.
               </p>
             </div>
           </section>

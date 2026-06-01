@@ -697,7 +697,8 @@ export function TermsPolicyContent() {
         </h2>
         <div className="space-y-4">
           <p className="font-body leading-relaxed" style={bodyStyle}>
-            Designient maintains a formal grievance redressal process for all enrolled students, applicants, and course enquirers, in compliance with the IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021 and the Consumer Protection Act 2019.
+            Designient maintains a formal grievance redressal process for all enrolled students, applicants, and course enquirers, in compliance with the IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021 and the Consumer Protection Act 2019. Full details are on our{' '}
+            <Link href="/grievance-redressal" className={linkClass}>Grievance Redressal</Link> page.
           </p>
           <div className="rounded-lg p-6" style={{ backgroundColor: 'var(--bg-subtle)' }}>
             <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Grievance Officer:</p>

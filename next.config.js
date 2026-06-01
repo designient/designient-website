@@ -14,6 +14,12 @@ const nextConfig = {
         permanent: true,
         statusCode: 301,
       },
+      {
+        source: '/grievances',
+        destination: '/grievance-redressal',
+        permanent: true,
+        statusCode: 301,
+      },
     ]
   },
   images: {

@@ -468,6 +468,10 @@ export function ContactForm() {
             <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
               Terms and Conditions
             </Link>
+            . For complaints, see{' '}
+            <Link href="/grievance-redressal" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              Grievance Redressal
+            </Link>
             .
           </p>
         </div>

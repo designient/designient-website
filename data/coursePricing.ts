@@ -71,11 +71,11 @@ export const coursePricing: CoursePricingData = {
   'ai-automation-accelerator': {
     inr: {
       price: '₹34,999',
-      originalPrice: '₹49,999'
+      originalPrice: '₹44,999'
     },
     usd: {
       price: '$449',
-      originalPrice: '$649'
+      originalPrice: '$449'
     }
   },
   'ai-product-design-course': {

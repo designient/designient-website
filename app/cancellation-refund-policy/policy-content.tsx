@@ -18,8 +18,9 @@ export function CancellationRefundPolicyContent() {
           <strong>Applies to:</strong> All active Designient courses — UI UX Design Bootcamp, UI UX Design Pro, UI UX Design Master, AI Automation Accelerator, AI Product Design Course.
         </p>
         <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
-          This page explains our refund and cancellation terms in plain language. For the full legal clauses, refer to our{' '}
-          <Link href="/terms-and-conditions" className={courseLinkClass}>Terms and Conditions</Link>.
+          This page explains our refund and cancellation terms in plain language. For current course fees and EMI options,
+          see our <Link href="/pricing" className={courseLinkClass}>Pricing page</Link>. For the full legal clauses, refer
+          to our <Link href="/terms-and-conditions" className={courseLinkClass}>Terms and Conditions</Link>.
         </p>
         <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
           If you have a question not answered here, email{' '}
