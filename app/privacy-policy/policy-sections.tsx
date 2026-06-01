@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 
 const tableClass = 'w-full text-sm border-collapse my-4'
@@ -8,455 +9,844 @@ const tableStyle = { borderColor: 'var(--border-default)', color: 'var(--text-se
 const thStyle = { ...tableStyle, backgroundColor: 'var(--bg-subtle)', color: 'var(--text-primary)' }
 const linkClass = 'text-[var(--color-primary)] underline hover:no-underline'
 
-export function PrivacyPolicyUpdatedSections() {
+const h2Style = { fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }
+const h3Style = { color: 'var(--text-primary)' }
+const bodyStyle = { color: 'var(--text-secondary)' }
+
+const REGISTERED_ADDRESS =
+  '2-108/2/79, Street No 2, Boduppal, Hyderabad, Telangana 500092, India'
+
+function DataField({ label, children }: { label: string; children: ReactNode }) {
   return (
-    <>
-      {/* Section 1: Data We Collect */}
-      <section className="mb-12">
-        <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
-          1. Data We Collect
-        </h2>
-        <div className="space-y-8">
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.1 Data Collected Through Course Inquiry and Application Forms</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              When you submit an inquiry, application, or consultation request through designient.com, we collect the following information:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Full name</li>
-              <li className="font-body">Email address</li>
-              <li className="font-body">Phone number (including country code)</li>
-              <li className="font-body">WhatsApp number (including country code)</li>
-              <li className="font-body">Course interest (selected from the current course catalog)</li>
-              <li className="font-body">Any additional information you voluntarily provide in free-text fields</li>
-            </ul>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
-              This data is collected through forms at the following locations:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Homepage inquiry form (<Link href="/" className={linkClass}>/</Link>)</li>
-              <li className="font-body">Apply Now page (<Link href="/apply-now" className={linkClass}>/apply-now</Link>)</li>
-              <li className="font-body">
-                Individual course pages (
-                <Link href="/ui-ux-design-bootcamp" className={linkClass}>/ui-ux-design-bootcamp</Link>,{' '}
-                <Link href="/ui-ux-design-pro" className={linkClass}>/ui-ux-design-pro</Link>,{' '}
-                <Link href="/ui-ux-design-master" className={linkClass}>/ui-ux-design-master</Link>,{' '}
-                <Link href="/courses" className={linkClass}>/ai-automation-accelerator</Link>,{' '}
-                <Link href="/courses" className={linkClass}>/ai-product-design-course</Link>)
-              </li>
-              <li className="font-body">Contact page (<Link href="/contact-us" className={linkClass}>/contact-us</Link>)</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              This data is submitted to Designient&apos;s API (<code>/api/inquiry</code>, <code>/api/apply</code>, <code>/api/contact</code>) and synced to our CRM (HubSpot) and email service (Resend). See Section 3 for details on these third-party processors.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.2 Data Collected Through Free Workshop Registration</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              Designient offers free monthly workshops — AI Automation Live and AI Product Design Live. When you register for a free workshop, we collect:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Full name</li>
-              <li className="font-body">Email address</li>
-              <li className="font-body">Phone number (optional)</li>
-              <li className="font-body">Workshop selected</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              This data is used to send you workshop confirmation details, reminders, and follow-up communications related to the workshop topic. It is not used to enroll you in any paid course without your explicit consent. You may be added to our marketing communications list as a result of workshop registration — you can unsubscribe at any time using the link in any email we send.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.3 Data Collected Through Newsletter Subscription</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              When you subscribe to the Designient newsletter via the footer form (<code>/api/newsletter/subscribe</code>), we collect your email address. This is used solely for newsletter communications. You may unsubscribe at any time.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.4 Data Collected Through Team Enrollment Inquiries</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              When a company submits a team enrollment inquiry for the AI Automation Accelerator via{' '}
-              <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>{' '}
-              or the corporate inquiry form (<Link href="/corporates" className={linkClass}>/corporates</Link>), we collect:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Company name</li>
-              <li className="font-body">Contact person name and email address</li>
-              <li className="font-body">Phone number</li>
-              <li className="font-body">Team size and relevant details provided in the inquiry</li>
-            </ul>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
-              This data is used solely to process the team enrollment inquiry, communicate with the relevant company contact, prepare enrollment agreements, and issue invoices. We do not use company contact data for marketing purposes unless the contact has separately subscribed to marketing communications.
-            </p>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Individual employee data (names, email addresses) of team members enrolled through a corporate team enrollment is collected at enrollment and used in the same way as individual course enrollment data under Section 1.1.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.5 Data Collected During Course Delivery</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              Once enrolled, additional data is collected in connection with course delivery:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Session attendance records</li>
-              <li className="font-body">Deliverable submission records (used to assess guarantee eligibility)</li>
-              <li className="font-body">Feedback submitted during live sessions</li>
-              <li className="font-body">Communication records between students and mentors via the course platform</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              This data is held for the duration of the course and for a period of 12 months after course completion, after which it is anonymised or deleted except where required for legal or accounting purposes.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.6 Data Collected Through the Designient Workspace (app.designient.com)</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              The Designient student workspace at app.designient.com collects data related to cohort management, assignment submissions, and mentorship interactions. The privacy practices of the workspace platform are governed separately. Students are directed to the relevant privacy terms at the point of workspace account creation.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>1.7 Cookies and Analytics</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              Designient uses Google Tag Manager and Meta Pixel on designient.com for analytics and advertising purposes. These tools may collect:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Pages visited and time spent</li>
-              <li className="font-body">Referral source</li>
-              <li className="font-body">Device and browser type</li>
-              <li className="font-body">IP address (anonymised where applicable)</li>
-              <li className="font-body">Interaction data (button clicks, form submissions — not form content)</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              You can manage cookie preferences through your browser settings. A cookie consent mechanism is implemented on designient.com. Refusing analytics cookies does not affect your ability to use the website or submit any form.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 2: How We Use Your Data */}
-      <section className="mb-12">
-        <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
-          2. How We Use Your Data
-        </h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>2.1 Course Inquiry and Application Data</h3>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>We use inquiry and application data to:</p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Respond to your inquiry or consultation request</li>
-              <li className="font-body">Assess your application for application-based courses (UI UX Design Pro, UI UX Design Master, AI Product Design Course)</li>
-              <li className="font-body">Send you enrollment offers, cohort information, and payment instructions</li>
-              <li className="font-body">Communicate course updates, schedule changes, and mentor assignments</li>
-              <li className="font-body">Send relevant marketing communications about Designient courses (you may unsubscribe at any time)</li>
-              <li className="font-body">Sync your contact record to HubSpot for CRM and follow-up management</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              We do not use inquiry or application data to make automated decisions about your eligibility for any course. Application reviews are conducted by human Designient staff.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>2.2 Workshop Registration Data</h3>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>We use workshop registration data to:</p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Send workshop confirmation and access details</li>
-              <li className="font-body">Send reminders before the workshop</li>
-              <li className="font-body">Send follow-up content related to the workshop topic</li>
-              <li className="font-body">Add you to our general marketing list (unsubscribe available in every email)</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              We do not share workshop registration data with any third party other than our email service provider (Resend) and CRM (HubSpot) for the purpose of sending the communications above.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>2.3 Team Enrollment Data</h3>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>We use team enrollment data to:</p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Process and respond to the enrollment inquiry</li>
-              <li className="font-body">Prepare and issue team enrollment agreements and invoices</li>
-              <li className="font-body">Communicate with the designated company contact regarding cohort logistics</li>
-              <li className="font-body">Issue certificates and completion records for enrolled team members</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              We do not use team enrollment company data for marketing purposes unless separately consented to.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>2.4 Course Delivery Data</h3>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>We use course delivery data to:</p>
-            <ul className="list-disc pl-6 space-y-1" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Manage attendance and deliverable records</li>
-              <li className="font-body">
-                Assess guarantee eligibility under{' '}
-                <Link href="/terms-and-conditions" className={linkClass}>Section 6 of our Terms and Conditions</Link>
-              </li>
-              <li className="font-body">Provide mentor feedback and course administration</li>
-              <li className="font-body">Issue certificates and diplomas on completion</li>
-              <li className="font-body">Conduct internal quality review of course delivery</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Third-Party Tools and Services */}
-      <section className="mb-12">
-        <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
-          3. Third-Party Tools and Services
-        </h2>
-        <div className="space-y-8">
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>3.1 Tools Used by Designient to Deliver Services</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              The following third-party tools are used by Designient in delivering its services. Data processed by these tools is subject to their respective privacy policies.
-            </p>
-            <div className="overflow-x-auto">
-              <table className={tableClass} style={tableStyle}>
-                <thead>
-                  <tr>
-                    <th className={thClass} style={thStyle}>Tool</th>
-                    <th className={thClass} style={thStyle}>Purpose</th>
-                    <th className={thClass} style={thStyle}>Data processed</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>HubSpot</td>
-                    <td className={tdClass} style={tableStyle}>CRM and lead management</td>
-                    <td className={tdClass} style={tableStyle}>Name, email, phone, WhatsApp, course interest</td>
-                  </tr>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>Resend</td>
-                    <td className={tdClass} style={tableStyle}>Transactional email delivery</td>
-                    <td className={tdClass} style={tableStyle}>Name, email address</td>
-                  </tr>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>Razorpay</td>
-                    <td className={tdClass} style={tableStyle}>Payment processing (India)</td>
-                    <td className={tdClass} style={tableStyle}>Payment data — Designient does not store card details</td>
-                  </tr>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>PayPal</td>
-                    <td className={tdClass} style={tableStyle}>Payment processing (international)</td>
-                    <td className={tdClass} style={tableStyle}>Payment data — Designient does not store card details</td>
-                  </tr>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>Google Tag Manager</td>
-                    <td className={tdClass} style={tableStyle}>Analytics tag management</td>
-                    <td className={tdClass} style={tableStyle}>Anonymised usage data</td>
-                  </tr>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>Meta Pixel</td>
-                    <td className={tdClass} style={tableStyle}>Advertising analytics</td>
-                    <td className={tdClass} style={tableStyle}>Anonymised usage data</td>
-                  </tr>
-                  <tr>
-                    <td className={tdClass} style={tableStyle}>Google Analytics (if implemented)</td>
-                    <td className={tdClass} style={tableStyle}>Website analytics</td>
-                    <td className={tdClass} style={tableStyle}>Anonymised usage data</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>3.2 Third-Party Tools Students Are Required to Use During Courses</h3>
-            <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-              As part of their course curriculum, students are required to create accounts with and use third-party tools. These accounts are created by the student independently. Designient does not hold, access, or control the student&apos;s credentials for these tools, and is not responsible for the data practices of these third-party platforms.
-            </p>
-            <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-              Students should review the privacy policy of each tool before creating an account.
-            </p>
-            <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Design Track tools (UI UX Design Bootcamp, Pro, Master):</p>
-            <div className="overflow-x-auto mb-6">
-              <table className={tableClass} style={tableStyle}>
-                <thead>
-                  <tr>
-                    <th className={thClass} style={thStyle}>Tool</th>
-                    <th className={thClass} style={thStyle}>Privacy Policy URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td className={tdClass} style={tableStyle}>Figma</td><td className={tdClass} style={tableStyle}><a href="https://www.figma.com/legal/privacy/" className={linkClass} target="_blank" rel="noopener noreferrer">figma.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Bolt</td><td className={tdClass} style={tableStyle}><a href="https://bolt.new" className={linkClass} target="_blank" rel="noopener noreferrer">bolt.new</a> (refer to their current privacy policy)</td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Perplexity</td><td className={tdClass} style={tableStyle}><a href="https://www.perplexity.ai/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">perplexity.ai/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Claude (Anthropic)</td><td className={tdClass} style={tableStyle}><a href="https://www.anthropic.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>FigJam AI (Figma)</td><td className={tdClass} style={tableStyle}><a href="https://www.figma.com/legal/privacy/" className={linkClass} target="_blank" rel="noopener noreferrer">figma.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Google Workspace</td><td className={tdClass} style={tableStyle}><a href="https://policies.google.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>AI Track tools (AI Automation Accelerator):</p>
-            <div className="overflow-x-auto mb-6">
-              <table className={tableClass} style={tableStyle}>
-                <thead>
-                  <tr>
-                    <th className={thClass} style={thStyle}>Tool</th>
-                    <th className={thClass} style={thStyle}>Privacy Policy URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td className={tdClass} style={tableStyle}>Zapier</td><td className={tdClass} style={tableStyle}><a href="https://zapier.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">zapier.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>n8n</td><td className={tdClass} style={tableStyle}><a href="https://n8n.io/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">n8n.io/privacy</a> (self-hosted version has no n8n data access)</td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Make (formerly Integromat)</td><td className={tdClass} style={tableStyle}><a href="https://www.make.com/en/privacy-notice" className={linkClass} target="_blank" rel="noopener noreferrer">make.com/en/privacy-notice</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Airtable</td><td className={tdClass} style={tableStyle}><a href="https://www.airtable.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">airtable.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>ManyChat</td><td className={tdClass} style={tableStyle}><a href="https://manychat.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">manychat.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Relevance AI</td><td className={tdClass} style={tableStyle}><a href="https://relevanceai.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">relevanceai.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Claude API (Anthropic)</td><td className={tdClass} style={tableStyle}><a href="https://www.anthropic.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a></td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>AI Track tools (AI Product Design Course):</p>
-            <div className="overflow-x-auto">
-              <table className={tableClass} style={tableStyle}>
-                <thead>
-                  <tr>
-                    <th className={thClass} style={thStyle}>Tool</th>
-                    <th className={thClass} style={thStyle}>Privacy Policy URL</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td className={tdClass} style={tableStyle}>Perplexity</td><td className={tdClass} style={tableStyle}><a href="https://www.perplexity.ai/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">perplexity.ai/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Claude (Anthropic)</td><td className={tdClass} style={tableStyle}><a href="https://www.anthropic.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">anthropic.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>FigJam AI (Figma)</td><td className={tdClass} style={tableStyle}><a href="https://www.figma.com/legal/privacy/" className={linkClass} target="_blank" rel="noopener noreferrer">figma.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Figma</td><td className={tdClass} style={tableStyle}><a href="https://www.figma.com/legal/privacy/" className={linkClass} target="_blank" rel="noopener noreferrer">figma.com/privacy</a></td></tr>
-                  <tr><td className={tdClass} style={tableStyle}>Bolt or v0.dev</td><td className={tdClass} style={tableStyle}>Refer to current privacy policies at <a href="https://bolt.new" className={linkClass} target="_blank" rel="noopener noreferrer">bolt.new</a> and <a href="https://v0.dev" className={linkClass} target="_blank" rel="noopener noreferrer">v0.dev</a></td></tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>3.3 API Usage Costs and Student Accounts</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Some tools used in the AI Automation Accelerator and AI Product Design Course — specifically the Claude API — are paid services that students access on their own accounts. API usage costs are the student&apos;s own responsibility. Designient does not reimburse or subsidise API costs. Indicative usage costs are provided in course materials to help students budget. Designient is not responsible for any unexpected charges arising from the student&apos;s use of these APIs.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>3.4 Self-Hosted n8n</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Students in the AI Automation Accelerator who choose to self-host n8n on a third-party VPS (Virtual Private Server) — as guided by the n8n Self-Hosting bonus resource — are responsible for the security and data practices of their own server environment. Designient provides guidance as an educational resource only. Designient has no access to, and is not responsible for, any data stored on a student&apos;s self-hosted n8n instance.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Student-Built Automation Systems */}
-      <section className="mb-12">
-        <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
-          4. Student-Built Automation Systems
-        </h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>4.1 Data Collected by Student-Built Workflows</h3>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              Students enrolled in the AI Automation Accelerator build automation workflows that may collect, process, and store data from third parties — for example, a WhatsApp lead qualification workflow that receives messages from prospective clients, or an internal operations workflow that processes employee or customer data.
-            </p>
-            <p className="font-body leading-relaxed mb-3" style={{ color: 'var(--text-secondary)' }}>
-              These automation systems are built and operated by the student independently. Designient has no access to, and is not responsible for, the data collected, processed, or stored by student-built automation workflows.
-            </p>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Students who build automation workflows that collect personal data from third parties are responsible for:
-            </p>
-            <ul className="list-disc pl-6 space-y-1 mb-3" style={{ color: 'var(--text-secondary)' }}>
-              <li className="font-body">Ensuring they have a lawful basis for collecting that data under applicable law (including India&apos;s Digital Personal Data Protection Act 2023 where applicable)</li>
-              <li className="font-body">Informing individuals whose data is collected about how it will be used</li>
-              <li className="font-body">Securing the automation system and any data it stores</li>
-              <li className="font-body">Complying with data retention and deletion obligations</li>
-            </ul>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Designient&apos;s curriculum includes responsible data handling guidance as part of the AI Automation Accelerator. This guidance is educational in nature and does not constitute legal advice.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>4.2 ManyChat and WhatsApp Business API</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Students who build ManyChat-based WhatsApp automation workflows during the AI Automation Accelerator create their own ManyChat accounts and connect them to their own WhatsApp Business accounts. Data collected through these workflows (including messages received from end users) is held in the student&apos;s ManyChat account, not by Designient. Students are responsible for complying with WhatsApp&apos;s Business Policy and ManyChat&apos;s terms of service when using these tools.
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+    <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+      <strong style={{ color: 'var(--text-primary)' }}>{label}</strong> {children}
+    </p>
   )
 }
 
-export function PrivacyPolicyRetentionAndRights() {
+function ToolTable({ rows }: { rows: { tool: string; policy: string; href?: string }[] }) {
+  return (
+    <table className={tableClass} style={tableStyle}>
+      <thead>
+        <tr>
+          <th className={thClass} style={thStyle}>Tool</th>
+          <th className={thClass} style={thStyle}>Privacy Policy</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={row.tool}>
+            <td className={tdClass} style={tableStyle}>{row.tool}</td>
+            <td className={tdClass} style={tableStyle}>
+              {row.href ? (
+                <a href={row.href} className={linkClass} target="_blank" rel="noopener noreferrer">
+                  {row.policy}
+                </a>
+              ) : (
+                row.policy
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  )
+}
+
+export function PrivacyPolicyContent() {
   return (
     <>
-      {/* Section 5: Data Retention */}
+      {/* Introduction */}
       <section className="mb-12">
-        <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
-          5. Data Retention
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Introduction
         </h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>5.1 Inquiry and Application Data</h3>
-            <p className="font-body leading-relaxed mb-2" style={{ color: 'var(--text-secondary)' }}>
-              Inquiry data for individuals who do not enroll in a course is retained for 24 months from the date of inquiry, after which it is deleted from our CRM. You may request deletion at any time by emailing{' '}
-              <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>.
+        <div className="space-y-4">
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            This Privacy Policy explains how Designient Technologies Private Limited, operating as Designient School of
+            Masterminds (&quot;Designient,&quot; &quot;We,&quot; &quot;Us,&quot; or &quot;Our&quot;), collects, uses,
+            stores, shares, and protects the personal data of individuals (&quot;You&quot; or &quot;Your&quot;) who
+            interact with our website at designient.com, enroll in our courses, register for our workshops, or
+            communicate with us in any capacity.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            By submitting any form on designient.com, enrolling in any course, or registering for any workshop, you
+            acknowledge that you have read and understood this Privacy Policy and consent to the collection and use of
+            your data as described herein.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            If you do not agree with this Privacy Policy, do not use designient.com or any Designient service.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            This Privacy Policy is published in compliance with the Digital Personal Data Protection Act 2023, the
+            Information Technology Act 2000, and the IT (Intermediary Guidelines and Digital Media Ethics Code) Rules
+            2021. It should be read together with our{' '}
+            <Link href="/terms-and-conditions" className={linkClass}>
+              Terms and Conditions
+            </Link>{' '}
+            and{' '}
+            <Link href="/cancellation-refund-policy" className={linkClass}>
+              Cancellation &amp; Refund Policy
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* Section 1 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 1 — Who We Are and How to Contact Us
+        </h2>
+        <div className="space-y-4">
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            <strong style={{ color: 'var(--text-primary)' }}>Data Fiduciary (as defined under DPDPA 2023):</strong>
+            <br />
+            Designient Technologies Private Limited
+            <br />
+            Operating as Designient School of Masterminds
+          </p>
+          <div className="rounded-lg p-6" style={{ backgroundColor: 'var(--bg-subtle)' }}>
+            <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+              Grievance Officer and Data Protection Contact:
             </p>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Inquiry data for individuals who enroll is retained as part of the enrollment record.
+            <p className="font-body mb-1" style={bodyStyle}>Mohammed Fyros Shabrin Sultana</p>
+            <p className="font-body mb-1" style={bodyStyle}>
+              Email: <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>
+            </p>
+            <p className="font-body mb-1" style={bodyStyle}>
+              Phone: <a href="tel:+919353000320" className={linkClass}>+91 9353 000 320</a>
+            </p>
+            <p className="font-body" style={bodyStyle}>
+              Address: Designient Technologies Private Limited, {REGISTERED_ADDRESS}
             </p>
           </div>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            For any privacy-related question, request, or complaint, email{' '}
+            <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link> with subject
+            line: Privacy — [Your Query]. We will respond within 7 working days.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 2 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 2 — What Data We Collect and Why
+        </h2>
+        <div className="space-y-8">
           <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>5.2 Enrollment and Course Records</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Enrollment records, payment records, attendance records, and certificates are retained for 7 years from the date of course completion for accounting and legal compliance purposes. Certificate issuance records are retained indefinitely to support the certificate verification service at{' '}
-              <Link href="/verify" className={linkClass}>/verify</Link>.
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.1 Inquiry and Application Data</h3>
+            <DataField label="What we collect:">
+              When you submit an inquiry, consultation request, or course application through any form on
+              designient.com, we collect your full name, email address, phone number (including country code), WhatsApp
+              number (including country code), course interest, and any additional information you voluntarily provide.
+            </DataField>
+            <DataField label="Why we collect it:">
+              To respond to your inquiry, assess your application for application-based courses, send you enrollment
+              offers and course information, and communicate with you about Designient programs.
+            </DataField>
+            <DataField label="Lawful basis under DPDPA 2023:">
+              Consent given at the time of form submission, and legitimate interest in responding to a service enquiry.
+            </DataField>
+            <DataField label="Collected at:">
+              Homepage inquiry form,{' '}
+              <Link href="/apply-now" className={linkClass}>Apply Now page</Link> (/apply-now), individual course pages, and{' '}
+              <Link href="/contact-us" className={linkClass}>contact page</Link> (/contact-us).
+            </DataField>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.2 Enrollment and Payment Data</h3>
+            <DataField label="What we collect:">
+              Upon enrollment, we collect your full name, email address, phone number, payment confirmation data, course
+              selected, cohort dates, and GSTIN (where provided for B2B invoicing).
+            </DataField>
+            <DataField label="Why we collect it:">
+              To process your enrollment, issue your invoice and tax receipt, communicate course logistics, confirm your
+              seat, and maintain enrollment records required under the Companies Act 2013 and Income Tax Act 1961.
+            </DataField>
+            <DataField label="Lawful basis:">Performance of a contract (the enrollment agreement between you and Designient).</DataField>
+            <div className="rounded-lg p-4 my-3 border-l-4" style={{ backgroundColor: 'var(--bg-subtle)', borderColor: 'var(--color-warning)' }}>
+              <p className="font-body leading-relaxed" style={bodyStyle}>
+                <strong style={{ color: 'var(--text-primary)' }}>Important note on payment data:</strong> Designient does
+                not store, hold, copy, or retain your payment instrument data including card numbers, CVV, expiry dates, or
+                bank account credentials. All payment data is processed exclusively by Razorpay Software Private Limited.
+                See Section 5 for details of what Razorpay independently collects.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.3 Course Delivery Data</h3>
+            <DataField label="What we collect:">
+              During a course, we collect session attendance records, deliverable submission records, feedback submitted
+              during live sessions, and communication records between students and mentors via the course platform.
+            </DataField>
+            <DataField label="Why we collect it:">
+              To deliver the course, assess guarantee eligibility, provide mentor feedback, and issue certificates upon
+              completion.
+            </DataField>
+            <DataField label="Lawful basis:">Performance of a contract.</DataField>
+            <DataField label="Retention:">
+              7 years from last interaction for enrollment, payment, and course completion records. See Section 8 for the
+              full retention schedule.
+            </DataField>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.4 Free Workshop Registration Data</h3>
+            <DataField label="What we collect:">
+              When you register for AI Automation Live or AI Product Design Live, we collect your full name, email
+              address, and optionally your phone number and the workshop you are registering for.
+            </DataField>
+            <DataField label="Why we collect it:">
+              To send you workshop confirmation details, Zoom link, reminders, and follow-up content related to the
+              workshop topic.
+            </DataField>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Marketing list:</strong> Upon registration, you may be
+              added to Designient&apos;s marketing communications list. You may unsubscribe at any time using the link in
+              any email. Registration does not constitute enrollment in or obligation to purchase any paid course.
+            </p>
+            <DataField label="Lawful basis:">Consent given at registration.</DataField>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.5 Newsletter Subscription Data</h3>
+            <DataField label="What we collect:">Your email address when you subscribe via the footer form.</DataField>
+            <DataField label="Why we collect it:">To send you the Designient newsletter.</DataField>
+            <DataField label="Lawful basis:">Consent. You may unsubscribe at any time.</DataField>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.6 Team Enrollment Inquiry Data</h3>
+            <DataField label="What we collect:">
+              Company name, contact person name and email address, phone number, team size, and relevant details provided
+              in the inquiry.
+            </DataField>
+            <DataField label="Why we collect it:">
+              To process team enrollment inquiries, prepare agreements, and issue invoices.
+            </DataField>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Marketing:</strong> We do not use team enrollment company
+              contact data for marketing purposes unless the contact has separately subscribed.
+            </p>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              Individual employee data of team members enrolled through a corporate team enrollment is collected and used
+              in the same way as individual course enrollment data under Section 2.2.
             </p>
           </div>
+
           <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>5.3 Workshop Registration Data</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Workshop registration data is retained for 12 months from the date of registration. If you are added to our general marketing list as a result of workshop registration, your email address remains on that list until you unsubscribe.
-            </p>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.7 Website Usage and Analytics Data</h3>
+            <DataField label="What we collect:">
+              Pages visited and time spent, referral source, device and browser type, IP address (anonymised where
+              applicable), and interaction data (button clicks, form submissions — not form content).
+            </DataField>
+            <DataField label="Why we collect it:">
+              To understand how students and visitors use our website, improve our content and user experience, and measure
+              the effectiveness of our marketing.
+            </DataField>
+            <DataField label="Tools used:">
+              Google Tag Manager and Meta (Facebook) Pixel. These are third-party tools that may collect data as described
+              in their respective privacy policies. See Section 5.
+            </DataField>
+            <DataField label="Cookies:">See Section 3.</DataField>
+            <DataField label="Lawful basis:">
+              Legitimate interest in website improvement and marketing effectiveness, subject to your cookie consent
+              choices.
+            </DataField>
           </div>
+
           <div>
-            <h3 className="font-display font-semibold mb-3 text-xl" style={{ color: 'var(--text-primary)' }}>5.4 Team Enrollment Records</h3>
-            <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              Company-level team enrollment records and invoices are retained for 7 years from the date of the enrollment agreement for accounting and legal compliance purposes.
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>2.8 Certificate Verification Data</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              The certificate verification service at{' '}
+              <Link href="/verify" className={linkClass}>designient.com/verify</Link> stores certificate hash codes and
+              the name of the certificate holder to enable third-party verification of Designient credentials. This data is
+              retained indefinitely to maintain the integrity of the verification service.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Section 6: Your Rights */}
+      {/* Section 3 */}
       <section className="mb-12">
-        <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }}>
-          6. Your Rights
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 3 — Cookies
+        </h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>3.1 Designient&apos;s Own Cookies</h3>
+            <p className="font-body leading-relaxed mb-3" style={bodyStyle}>
+              Designient uses cookies on designient.com for the following purposes:
+            </p>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Essential cookies:</strong> Required for the website to
+              function. Cannot be disabled. These include session management and form security tokens.
+            </p>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Analytics cookies (Google Tag Manager):</strong> Collect
+              anonymised data about page visits, referral sources, and user behaviour to help us improve our website. You
+              can decline these through the cookie consent banner.
+            </p>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Advertising cookies (Meta Pixel):</strong> Used to measure
+              the effectiveness of our advertising on Facebook and Instagram and to serve relevant ads to users who have
+              visited our website. You can decline these through the cookie consent banner.
+            </p>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              You can manage cookie preferences through our cookie consent banner (shown on first visit) or through your
+              browser settings. Declining analytics and advertising cookies does not affect your ability to use
+              designient.com or submit any form.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>3.2 Razorpay&apos;s Cookies During Payment</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              When you proceed to payment on designient.com, Razorpay Software Private Limited may independently set
+              cookies on your browser for transaction security, fraud prevention, and payment service improvement purposes.
+              These cookies are set by Razorpay, not by Designient, and are governed by Razorpay&apos;s Privacy Policy at{' '}
+              <a href="https://razorpay.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">
+                razorpay.com/privacy
+              </a>
+              . Disabling Razorpay&apos;s cookies may prevent your payment from completing successfully.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 4 — How We Use Your Data
+        </h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>4.1 Course Inquiry and Application Data</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              We use this data to respond to your inquiry, assess your application, send enrollment offers and course
+              information, communicate course updates, process payments, and send relevant marketing communications about
+              Designient courses. You may unsubscribe from marketing communications at any time. Application reviews are
+              conducted by human Designient staff — no automated decisions are made about your eligibility for any course.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>4.2 Enrollment and Payment Data</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              We use this data to confirm and manage your enrollment, issue invoices and tax receipts, deliver the
+              course, assess guarantee eligibility, issue certificates, and maintain records required by law.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>4.3 Workshop Registration Data</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              We use this data to send workshop confirmation details, reminders, follow-up content, and to add you to our
+              general marketing list (with unsubscribe available in every communication).
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>4.4 Marketing Communications</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              Enrolled students and workshop registrants are added to Designient&apos;s marketing communications list on
+              an opt-out basis. You may unsubscribe at any time using the unsubscribe link in any email. Unsubscribing from
+              marketing communications does not affect course-related transactional communications (session reminders,
+              payment receipts, cohort updates).
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>4.5 Analytics and Improvement</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              We use anonymised, aggregated website usage data to understand how visitors interact with designient.com and
+              to improve our content, course pages, and conversion flows. This data cannot identify you individually.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 5 — Third-Party Data Processors and Their Roles
+        </h2>
+        <p className="font-body leading-relaxed mb-6" style={bodyStyle}>
+          Designient shares your personal data with the following third-party processors, each of whom processes data
+          solely for the purpose of delivering services to Designient. Each processor is required to handle your data in
+          accordance with applicable law.
+        </p>
+        <div className="space-y-8">
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>5.1 Razorpay Software Private Limited — Payment Processing</h3>
+            <DataField label="Role:">Processes all INR course fee payments made on designient.com.</DataField>
+            <DataField label="Data shared:">
+              Your name, email address, phone number, and payment instrument details are collected and processed directly
+              by Razorpay during checkout.
+            </DataField>
+            <DataField label="Independent data collection:">
+              Razorpay independently collects and stores your payment information including card details, mobile number,
+              email address, and billing address through the Razorpay checkout interface. This data is governed solely by
+              Razorpay&apos;s Privacy Policy.
+            </DataField>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Razorpay may:</strong> Send you transaction confirmation
+              alerts by SMS and email independently of Designient. Share your transaction data with acquiring banks, the
+              Reserve Bank of India, and regulatory agencies as required under applicable Indian law. Use aggregated,
+              anonymised transaction data for its own analytics and business purposes.
+            </p>
+            <p className="font-body leading-relaxed mb-1" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Razorpay data contact:</strong>{' '}
+              <a href="mailto:dpo@razorpay.com" className={linkClass}>dpo@razorpay.com</a>
+            </p>
+            <p className="font-body leading-relaxed mb-1" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Razorpay Privacy Policy:</strong>{' '}
+              <a href="https://razorpay.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">
+                razorpay.com/privacy
+              </a>
+            </p>
+            <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Razorpay Grievances:</strong>{' '}
+              <a href="https://razorpay.com/grievances" className={linkClass} target="_blank" rel="noopener noreferrer">
+                razorpay.com/grievances
+              </a>
+            </p>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Payment data deletion:</strong> For deletion of payment data
+              held by Razorpay, contact Razorpay directly at{' '}
+              <a href="https://razorpay.com/support" className={linkClass} target="_blank" rel="noopener noreferrer">
+                razorpay.com/support
+              </a>
+              . Designient does not hold payment instrument data and cannot action Razorpay&apos;s data deletion on your
+              behalf.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>5.2 HubSpot Inc. — CRM and Lead Management</h3>
+            <DataField label="Role:">
+              Stores and manages inquiry, application, and enrollment contact records. Used for follow-up communications,
+              lead tracking, and cohort management.
+            </DataField>
+            <DataField label="Data shared:">
+              Name, email address, phone number, WhatsApp number, course interest, enrollment status, and communication
+              history.
+            </DataField>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>HubSpot Privacy Policy:</strong>{' '}
+              <a href="https://legal.hubspot.com/privacy-policy" className={linkClass} target="_blank" rel="noopener noreferrer">
+                legal.hubspot.com/privacy-policy
+              </a>
+              {' · '}
+              <strong style={{ color: 'var(--text-primary)' }}>HubSpot DPA:</strong>{' '}
+              <a href="https://legal.hubspot.com/dpa" className={linkClass} target="_blank" rel="noopener noreferrer">
+                legal.hubspot.com/dpa
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>5.3 Resend — Transactional Email Delivery</h3>
+            <DataField label="Role:">
+              Delivers all transactional emails sent by Designient including enrollment confirmations, course reminders,
+              certificate notifications, and workshop details.
+            </DataField>
+            <DataField label="Data shared:">Name and email address.</DataField>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Resend Privacy Policy:</strong>{' '}
+              <a href="https://resend.com/legal/privacy-policy" className={linkClass} target="_blank" rel="noopener noreferrer">
+                resend.com/legal/privacy-policy
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>5.4 Google — Analytics</h3>
+            <DataField label="Role:">
+              Google Tag Manager and Google Analytics collect anonymised website usage data as described in Section 2.7.
+            </DataField>
+            <DataField label="Data shared:">
+              Anonymised browsing behaviour, device type, referral source, IP address (anonymised).
+            </DataField>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Google Privacy Policy:</strong>{' '}
+              <a href="https://policies.google.com/privacy" className={linkClass} target="_blank" rel="noopener noreferrer">
+                policies.google.com/privacy
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>5.5 Meta Platforms Inc. — Advertising Analytics</h3>
+            <DataField label="Role:">
+              Meta Pixel tracks anonymised conversion events on designient.com to measure advertising effectiveness on
+              Facebook and Instagram.
+            </DataField>
+            <DataField label="Data shared:">
+              Anonymised interaction events (page views, form submissions — not form content).
+            </DataField>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              <strong style={{ color: 'var(--text-primary)' }}>Meta Privacy Policy:</strong>{' '}
+              <a href="https://www.facebook.com/privacy/policy" className={linkClass} target="_blank" rel="noopener noreferrer">
+                facebook.com/privacy/policy
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 6 — Third-Party Tools Used by Students During Courses
+        </h2>
+        <p className="font-body leading-relaxed mb-6" style={bodyStyle}>
+          Students enrolled in Designient courses are required to create their own accounts with and use certain
+          third-party tools as part of the curriculum. Designient does not hold, access, or control student credentials for
+          these tools and is not responsible for the data practices of these third-party platforms. Students should review
+          the privacy policy of each tool before creating an account.
+        </p>
+        <div className="space-y-6">
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>Design Track Tools</h3>
+            <ToolTable
+              rows={[
+                { tool: 'Figma / FigJam AI', policy: 'figma.com/privacy', href: 'https://www.figma.com/privacy/' },
+                { tool: 'Bolt', policy: 'bolt.new (refer to current privacy policy)' },
+                { tool: 'Perplexity', policy: 'perplexity.ai/privacy', href: 'https://www.perplexity.ai/privacy' },
+                { tool: 'Claude (Anthropic)', policy: 'anthropic.com/privacy', href: 'https://www.anthropic.com/privacy' },
+                { tool: 'Google Workspace', policy: 'policies.google.com/privacy', href: 'https://policies.google.com/privacy' },
+              ]}
+            />
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>AI Automation Accelerator Tools</h3>
+            <ToolTable
+              rows={[
+                { tool: 'Zapier', policy: 'zapier.com/privacy', href: 'https://zapier.com/privacy' },
+                { tool: 'n8n (cloud)', policy: 'n8n.io/privacy', href: 'https://n8n.io/privacy/' },
+                { tool: 'Make', policy: 'make.com/en/privacy-notice', href: 'https://www.make.com/en/privacy-notice' },
+                { tool: 'Airtable', policy: 'airtable.com/privacy', href: 'https://www.airtable.com/privacy' },
+                { tool: 'ManyChat', policy: 'manychat.com/privacy', href: 'https://manychat.com/privacy' },
+                { tool: 'Relevance AI', policy: 'relevanceai.com/privacy', href: 'https://relevanceai.com/privacy' },
+                { tool: 'Claude API (Anthropic)', policy: 'anthropic.com/privacy', href: 'https://www.anthropic.com/privacy' },
+              ]}
+            />
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>AI Product Design Course Tools</h3>
+            <ToolTable
+              rows={[
+                { tool: 'Perplexity', policy: 'perplexity.ai/privacy', href: 'https://www.perplexity.ai/privacy' },
+                { tool: 'Claude (Anthropic)', policy: 'anthropic.com/privacy', href: 'https://www.anthropic.com/privacy' },
+                { tool: 'FigJam AI / Figma', policy: 'figma.com/privacy', href: 'https://www.figma.com/privacy/' },
+                { tool: 'Bolt or v0.dev', policy: 'bolt.new / v0.dev (refer to current policies)' },
+              ]}
+            />
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>API Costs</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              Some tools — specifically the Claude API — are paid services that students access on their own accounts. API
+              usage costs are the student&apos;s responsibility. Designient does not reimburse API costs.
+            </p>
+          </div>
+          <div>
+            <h3 className="font-display font-semibold mb-3 text-xl" style={h3Style}>Self-Hosted n8n</h3>
+            <p className="font-body leading-relaxed" style={bodyStyle}>
+              Students who choose to self-host n8n are responsible for the security and data practices of their own server
+              environment. Designient provides guidance as an educational resource only and has no access to data stored on
+              any student&apos;s self-hosted instance.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 7 — Student-Built Automation Systems
         </h2>
         <div className="space-y-4">
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            You have the following rights regarding your personal data held by Designient:
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Students enrolled in the AI Automation Accelerator build automation workflows that may collect, process, and
+            store personal data from third parties in a commercial or professional context. These automation systems are
+            built and operated by the student independently. Designient has no access to and is not responsible for the
+            data collected, processed, or stored by student-built automation workflows.
           </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            <strong>Right of access:</strong> You may request a copy of the personal data we hold about you.
+          <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+            Students who build automation workflows that collect personal data from third parties are solely responsible
+            for:
           </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            <strong>Right to correction:</strong> You may request correction of inaccurate personal data.
+          <ul className="list-disc pl-6 space-y-2 mb-3" style={bodyStyle}>
+            <li className="font-body">Having a lawful basis for collecting that data under applicable law including DPDPA 2023</li>
+            <li className="font-body">Informing individuals whose data is collected about how it will be used</li>
+            <li className="font-body">Securing the automation system and any data it stores</li>
+            <li className="font-body">Complying with data retention and deletion obligations</li>
+            <li className="font-body">
+              Compliance with WhatsApp&apos;s Business Policy and ManyChat&apos;s terms of service where WhatsApp automation
+              is deployed
+            </li>
+          </ul>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Designient&apos;s curriculum includes responsible data handling guidance as part of the AI Automation
+            Accelerator. This guidance is educational in nature and does not constitute legal advice.
           </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            <strong>Right to deletion:</strong> You may request deletion of your personal data, subject to retention obligations under Section 5 and applicable law. Deletion requests relating to enrollment or payment records that we are legally required to retain will be partially fulfilled — we will anonymise data where possible while retaining the minimum required for legal compliance.
+        </div>
+      </section>
+
+      {/* Section 8 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 8 — Data Retention
+        </h2>
+        <p className="font-body leading-relaxed mb-4" style={bodyStyle}>
+          Designient retains personal data for the following periods:
+        </p>
+        <table className={tableClass} style={tableStyle}>
+          <thead>
+            <tr>
+              <th className={thClass} style={thStyle}>Data Type</th>
+              <th className={thClass} style={thStyle}>Retention Period</th>
+              <th className={thClass} style={thStyle}>Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              ['Inquiry and application data (non-enrolled)', '24 months from last interaction', 'CRM management, follow-up'],
+              ['Enrollment records', '7 years from last interaction', 'Companies Act 2013, Income Tax Act 1961'],
+              ['Payment records and invoices', '7 years from last interaction', 'GST Act, Income Tax Act 1961'],
+              ['Course delivery records (attendance, deliverables)', '7 years from last interaction', 'Guarantee eligibility, legal compliance'],
+              ['Certificate issuance records', 'Indefinitely', 'Certificate verification service integrity'],
+              ['Workshop registration data', '7 years from last interaction', 'Consistent with general retention'],
+              ['Marketing list (enrolled students)', 'Until unsubscribe', 'Opt-out model'],
+              ['Marketing list (workshop registrants)', 'Until unsubscribe or 7 years', 'Opt-out model'],
+              ['Team enrollment records and invoices', '7 years from enrollment agreement', 'Companies Act 2013, GST Act'],
+              ['Website analytics data', '26 months (Google Analytics default)', 'Website improvement'],
+            ].map(([type, period, reason]) => (
+              <tr key={type}>
+                <td className={tdClass} style={tableStyle}>{type}</td>
+                <td className={tdClass} style={tableStyle}>{period}</td>
+                <td className={tdClass} style={tableStyle}>{reason}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="font-body leading-relaxed mt-4" style={bodyStyle}>
+          After the applicable retention period, data is either permanently deleted or irreversibly anonymised. You may
+          request earlier deletion as described in Section 9.
+        </p>
+      </section>
+
+      {/* Section 9 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 9 — Your Rights Under DPDPA 2023
+        </h2>
+        <p className="font-body leading-relaxed mb-4" style={bodyStyle}>
+          Under the Digital Personal Data Protection Act 2023, you have the following rights in relation to personal data
+          held by Designient:
+        </p>
+        <ul className="list-disc pl-6 space-y-3 mb-4" style={bodyStyle}>
+          <li className="font-body">
+            <strong style={{ color: 'var(--text-primary)' }}>Right of access:</strong> You may request a summary of the
+            personal data Designient holds about you and the purposes for which it is being processed.
+          </li>
+          <li className="font-body">
+            <strong style={{ color: 'var(--text-primary)' }}>Right to correction:</strong> You may request correction of any
+            inaccurate or incomplete personal data.
+          </li>
+          <li className="font-body">
+            <strong style={{ color: 'var(--text-primary)' }}>Right to erasure:</strong> You may request deletion of your
+            personal data. Designient will delete data that is not required to be retained under applicable law. Data that
+            Designient is legally required to retain (enrollment records, payment records, tax invoices) will be anonymised
+            rather than deleted where full deletion is not permissible.
+          </li>
+          <li className="font-body">
+            <strong style={{ color: 'var(--text-primary)' }}>Right to grievance redressal:</strong> You may raise a grievance
+            with Designient&apos;s Grievance Officer as described in Section 1 and Section 10.
+          </li>
+          <li className="font-body">
+            <strong style={{ color: 'var(--text-primary)' }}>Right to nominate:</strong> You may nominate another individual
+            to exercise your data rights on your behalf in the event of your death or incapacity.
+          </li>
+          <li className="font-body">
+            <strong style={{ color: 'var(--text-primary)' }}>Right to withdraw consent:</strong> Where processing is based
+            on your consent (marketing communications, workshop registration), you may withdraw consent at any time.
+            Withdrawal does not affect the lawfulness of processing before withdrawal.
+          </li>
+        </ul>
+        <div className="rounded-lg p-4 mb-4 border-l-4" style={{ backgroundColor: 'var(--bg-subtle)', borderColor: 'var(--color-warning)' }}>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            <strong style={{ color: 'var(--text-primary)' }}>Limitation — Razorpay data:</strong> For personal data collected
+            and stored independently by Razorpay Software Private Limited during the payment process (including card
+            details, transaction records, and payment instrument data), rights requests must be submitted directly to
+            Razorpay at{' '}
+            <a href="https://razorpay.com/support" className={linkClass} target="_blank" rel="noopener noreferrer">
+              razorpay.com/support
+            </a>{' '}
+            or{' '}
+            <a href="mailto:dpo@razorpay.com" className={linkClass}>dpo@razorpay.com</a>. Designient does not hold this data
+            and cannot action Razorpay&apos;s data rights requests on your behalf.
           </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            <strong>Right to withdraw consent for marketing:</strong> You may unsubscribe from marketing communications at any time using the unsubscribe link in any email or by emailing{' '}
-            <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>.
+        </div>
+        <p className="font-body leading-relaxed" style={bodyStyle}>
+          <strong style={{ color: 'var(--text-primary)' }}>How to exercise your rights:</strong> Email{' '}
+          <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link> with subject line:
+          Privacy Request — [Right You Are Exercising] — [Your Name]. Designient will respond within 7 working days of
+          receipt.
+        </p>
+      </section>
+
+      {/* Section 10 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 10 — Grievance Redressal
+        </h2>
+        <p className="font-body leading-relaxed mb-4" style={bodyStyle}>
+          In compliance with the IT (Intermediary Guidelines and Digital Media Ethics Code) Rules 2021, Designient has
+          designated a Grievance Officer for privacy-related complaints:
+        </p>
+        <div className="rounded-lg p-6 mb-4" style={{ backgroundColor: 'var(--bg-subtle)' }}>
+          <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Grievance Officer:</p>
+          <p className="font-body mb-1" style={bodyStyle}>Mohammed Fyros Shabrin Sultana</p>
+          <p className="font-body mb-1" style={bodyStyle}>Designient Technologies Private Limited</p>
+          <p className="font-body mb-1" style={bodyStyle}>
+            Email: <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>
           </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            <strong>Right to data portability:</strong> You may request a machine-readable copy of personal data you have provided to us.
+          <p className="font-body mb-1" style={bodyStyle}>
+            Phone: <a href="tel:+919353000320" className={linkClass}>+91 9353 000 320</a>
           </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            To exercise any of these rights, email{' '}
-            <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>{' '}
-            with the subject line: Privacy Request — [Right You Are Exercising]. We will respond within 30 calendar days.
+          <p className="font-body" style={bodyStyle}>Address: {REGISTERED_ADDRESS}</p>
+        </div>
+        <p className="font-body leading-relaxed mb-2" style={bodyStyle}>
+          Designient will acknowledge all privacy-related grievances within 2 working days and provide a substantive
+          response within 5 working days of receipt.
+        </p>
+        <p className="font-body leading-relaxed" style={bodyStyle}>
+          If your grievance is not resolved to your satisfaction, you may escalate to the appropriate authority under the
+          Digital Personal Data Protection Act 2023.
+        </p>
+      </section>
+
+      {/* Section 11 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 11 — Data Security
+        </h2>
+        <div className="space-y-4">
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Designient implements reasonable technical and organisational security measures to protect personal data from
+            unauthorised access, disclosure, alteration, or destruction. These include access controls, encrypted data
+            transmission (HTTPS), and restricted internal access to personal data on a need-to-know basis.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            However, no internet transmission or electronic storage is completely secure. Designient cannot guarantee
+            absolute security of data transmitted to or from designient.com. In the event of a data breach that is likely to
+            result in harm to you, Designient will notify you and the Data Protection Board of India (once constituted) as
+            required under the DPDPA 2023.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Designient is not responsible for any intercepted information sent via the internet beyond Designient&apos;s
+            reasonable control.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 12 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 12 — Children&apos;s Data
+        </h2>
+        <div className="space-y-4">
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Designient&apos;s courses and services are directed at individuals aged 18 years and older. Designient does not
+            knowingly collect personal data from individuals under the age of 18 without verifiable parental or guardian
+            consent.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Under the DPDPA 2023, processing of data of a child (person under 18 years) requires verifiable parental consent.
+            If you are under 18 and wish to enroll in a Designient course, your parent or legal guardian must provide consent
+            and complete the enrollment on your behalf.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            If Designient becomes aware that it has collected personal data from a child without appropriate consent, it
+            will delete that data promptly.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 13 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 13 — Transfers of Personal Data
+        </h2>
+        <p className="font-body leading-relaxed" style={bodyStyle}>
+          Designient does not transfer personal data outside India except as necessary for the provision of services by
+          processors listed in Section 5 (specifically HubSpot, Resend, Google, and Meta, which operate internationally).
+          Where such transfers occur, Designient ensures the processor is bound by contractual obligations that provide
+          equivalent protection to Indian data protection law.
+        </p>
+      </section>
+
+      {/* Section 14 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 14 — Changes to This Privacy Policy
+        </h2>
+        <div className="space-y-4">
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            Designient may update this Privacy Policy from time to time. Where changes materially affect how we use your
+            personal data, we will notify enrolled students by email at least 14 calendar days before the changes take
+            effect. Minor changes (formatting, clarifications, typographical corrections) take effect immediately upon
+            publication.
+          </p>
+          <p className="font-body leading-relaxed" style={bodyStyle}>
+            The &quot;Last updated&quot; date at the top of this policy reflects the date of the most recent version. Your
+            continued use of designient.com after any change constitutes acceptance of the updated Privacy Policy.
+          </p>
+        </div>
+      </section>
+
+      {/* Section 15 */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Section 15 — Governing Law and Jurisdiction
+        </h2>
+        <p className="font-body leading-relaxed" style={bodyStyle}>
+          This Privacy Policy is governed by the laws of India. Any dispute arising out of or in connection with this
+          Privacy Policy shall be subject to the exclusive jurisdiction of the competent Courts and Tribunals having
+          jurisdiction in Hyderabad, Telangana, India.
+        </p>
+      </section>
+
+      {/* Contact */}
+      <section className="mb-12">
+        <h2 className="font-display font-bold mb-6" style={h2Style}>
+          Contact Details
+        </h2>
+        <div className="rounded-lg p-6" style={{ backgroundColor: 'var(--bg-subtle)' }}>
+          <p className="font-body mb-2" style={{ color: 'var(--text-primary)' }}>
+            <strong>Brand name:</strong> Designient School of Masterminds
+          </p>
+          <p className="font-body mb-2" style={bodyStyle}>
+            <strong>Legal entity:</strong> Designient Technologies Private Limited
+          </p>
+          <p className="font-body mb-2" style={bodyStyle}>
+            <strong>Registered:</strong> Companies Act 2013, Hyderabad, Telangana, India
+          </p>
+          <p className="font-body mb-2" style={bodyStyle}>
+            <strong>Registered address:</strong> {REGISTERED_ADDRESS}
+          </p>
+          <p className="font-body mb-2" style={bodyStyle}>
+            <strong>Primary contact:</strong>{' '}
+            <Link href="mailto:hello@designient.com" className={linkClass}>hello@designient.com</Link>
+          </p>
+          <p className="font-body mb-2" style={bodyStyle}>
+            <strong>Phone:</strong>{' '}
+            <a href="tel:+919353000320" className={linkClass}>+91 9353 000 320</a>
+          </p>
+          <p className="font-body" style={bodyStyle}>
+            <strong>Grievance Officer:</strong> Mohammed Fyros Shabrin Sultana — hello@designient.com
           </p>
         </div>
       </section>

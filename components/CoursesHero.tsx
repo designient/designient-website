@@ -1,18 +1,17 @@
 'use client'
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ChevronRight } from 'react-feather';
-import Link from 'next/link';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { ChevronRight, CheckCircle } from 'react-feather'
+import Link from 'next/link'
+import { coursesHubTrustChips } from '../data/coursesHubData'
+
 export function CoursesHero() {
   return (
     <section
       className="relative min-h-[60vh] flex items-center overflow-hidden pt-16 md:pt-20 hero-glow"
-      style={{
-        backgroundColor: 'var(--bg-base)'
-      }}>
-
-      {/* Subtle background pattern */}
+      style={{ backgroundColor: 'var(--bg-base)' }}
+    >
       <div className="absolute inset-0 opacity-100 pointer-events-none">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
         <div className="absolute bottom-1/4 left-1/4 w-80 h-80 rounded-full filter blur-3xl decorative-orb" />
@@ -20,73 +19,54 @@ export function CoursesHero() {
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-center py-16 md:py-24">
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 20
-          }}
-          animate={{
-            opacity: 1,
-            y: 0
-          }}
-          transition={{
-            duration: 0.6,
-            ease: [0.4, 0, 0.2, 1]
-          }}>
-
-          {/* Breadcrumb */}
-          <div
-            className="flex items-center justify-center gap-2 mb-6 text-sm"
-            style={{
-              color: 'var(--text-muted)'
-            }}>
-
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <div className="flex items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
             <Link href="/" className="hover:underline">
               Home
             </Link>
             <ChevronRight className="w-4 h-4" />
-            <span
-              style={{
-                color: 'var(--color-accent)'
-              }}>
-
-              Courses
-            </span>
+            <span style={{ color: 'var(--color-accent)' }}>Courses</span>
           </div>
 
-          {/* Main heading */}
           <h1
             className="font-display tracking-wide mb-4 md:mb-6 leading-[1.1]"
             style={{
               color: 'var(--text-primary)',
               fontWeight: 700,
-              fontSize: 'clamp(2.5rem, 5vw, 4.5rem)'
-            }}>
-
-            Choose Your Design Journey
+              fontSize: 'clamp(2rem, 4.5vw, 3.75rem)',
+            }}
+          >
+            All Courses — Two Tracks, Five Paths, One Place to Compare
           </h1>
 
-          {/* Subtitle */}
           <p
-            className="font-body text-base md:text-lg max-w-3xl mx-auto leading-[1.6] mb-4"
+            className="font-body max-w-3xl mx-auto leading-[1.6] mb-8"
             style={{
               color: 'var(--text-secondary)',
-              fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
-            }}>
+              fontSize: 'clamp(1.0625rem, 2vw, 1.25rem)',
+            }}
+          >
+            Designient runs two parallel learning tracks. The Design Track takes you from complete beginner to senior
+            UI/UX designer. The AI Track teaches you to build AI automation workflows and design AI-native products.
+            Both tracks use live mentorship, small batches, and real project outcomes — not recorded lectures and mock
+            briefs.
+          </p>
 
-            Four comprehensive paths to mastery. Same excellence, different pace.
-          </p>
-          
-          {/* Corporate Link */}
-          <p
-            className="font-body text-sm md:text-base max-w-2xl mx-auto leading-[1.6]"
-            style={{
-              color: 'var(--text-muted)',
-              fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
-            }}>
-            Looking for <Link href="/corporates/training-programs" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-accent)' }}>team training</Link> or <Link href="/corporates" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-accent)' }}>enterprise solutions</Link>? We also offer <Link href="/corporates/ai-enablement-workshops" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-accent)' }}>AI enablement workshops</Link> for product teams.
-          </p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-3 max-w-4xl mx-auto">
+            {coursesHubTrustChips.map((chip) => (
+              <div key={chip} className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                <span className="font-body text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
+                  {chip}
+                </span>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
-    </section>);
-
+    </section>
+  )
 }

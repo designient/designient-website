@@ -40,32 +40,32 @@ export interface CoursePricingData {
 export const coursePricing: CoursePricingData = {
   'ui-ux-design-bootcamp': {
     inr: {
-      price: '₹34,999',
-      originalPrice: '₹60,000'
+      price: '₹1,999',
+      originalPrice: '₹5,000'
     },
     usd: {
-      price: '$466',
-      originalPrice: '$799'
+      price: '$49',
+      originalPrice: '$49'
     }
   },
   'ui-ux-design-pro': {
     inr: {
-      price: '₹74,999',
-      originalPrice: '₹95,000'
+      price: '₹49,999',
+      originalPrice: '₹59,999'
     },
     usd: {
-      price: '$999',
-      originalPrice: '$1,299'
+      price: '$699',
+      originalPrice: '$699'
     }
   },
   'ui-ux-design-master': {
     inr: {
-      price: '₹1,24,999',
-      originalPrice: '₹1,50,000'
+      price: '₹99,999',
+      originalPrice: '₹1,19,999'
     },
     usd: {
-      price: '$1,699',
-      originalPrice: '$1,999'
+      price: '$1,399',
+      originalPrice: '$1,399'
     }
   },
   'ai-automation-accelerator': {

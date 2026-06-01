@@ -9,9 +9,10 @@ interface CourseWhoShouldTakeProps {
   idealFor: string[];
   notFor?: string[];
   locationRelevance?: string;
+  title?: string;
 }
 
-export function CourseWhoShouldTake({ description, idealFor, notFor, locationRelevance }: CourseWhoShouldTakeProps) {
+export function CourseWhoShouldTake({ description, idealFor, notFor, locationRelevance, title = 'Who Should Take This Course?' }: CourseWhoShouldTakeProps) {
   return (
     <section id="who-should-take" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-warm)' }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -33,7 +34,7 @@ export function CourseWhoShouldTake({ description, idealFor, notFor, locationRel
                   color: 'var(--color-primary)',
                   fontSize: 'clamp(2rem, 4vw, 3rem)'
                 }}>
-                Who Should Take This Course?
+                {title}
               </h2>
             </div>
             <p

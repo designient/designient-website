@@ -1,0 +1,433 @@
+'use client'
+
+import React from 'react'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { ArrowRight, CheckCircle, ChevronRight, Gift, Shield, Star } from 'react-feather'
+import {
+  proBonuses,
+  proCurriculumWeeks,
+  proHero,
+  proPatternComparison,
+  proPlacementSection,
+  proPopularSection,
+  proPortfolioModules,
+  proTools,
+  proValueStack,
+} from '../../../data/proPageData'
+
+function ComparisonTable({
+  leftHeader,
+  rightHeader,
+  rows,
+}: {
+  leftHeader: string
+  rightHeader: string
+  rows: { feature: string; pro: string; others: string }[]
+}) {
+  return (
+    <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
+      <table className="w-full min-w-[560px]">
+        <thead>
+          <tr style={{ backgroundColor: 'var(--color-primary)' }}>
+            <th className="p-4 text-left font-bold sticky left-0 z-10" style={{ color: 'var(--text-on-accent)', backgroundColor: 'var(--color-primary)' }}>
+              Feature
+            </th>
+            <th className="p-4 text-center font-bold" style={{ color: 'var(--text-on-accent)' }}>{leftHeader}</th>
+            <th className="p-4 text-center font-bold" style={{ color: 'var(--text-on-accent)' }}>{rightHeader}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row, index) => (
+            <tr key={row.feature} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
+              <td className="p-4 font-semibold sticky left-0 z-10 border-t" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)', backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
+                {row.feature}
+              </td>
+              <td className="p-4 text-center border-t font-medium" style={{ color: 'var(--color-primary)', borderColor: 'var(--border-default)' }}>
+                {row.pro}
+              </td>
+              <td className="p-4 text-center border-t" style={{ color: 'var(--text-muted)', borderColor: 'var(--border-default)' }}>
+                {row.others}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )
+}
+
+export function ProUrgencyStrip() {
+  return (
+    <div className="py-3 px-4 text-center" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
+      <p className="font-body text-sm md:text-base font-semibold">
+        Design Track — Step 2 · Most Popular · 5 early bird seats remaining at Rs 49,999. Applications reviewed within 48 hours.{' '}
+        <Link href="/apply-now" className="underline hover:no-underline inline-flex items-center gap-1 font-bold">
+          Apply for the Course
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </p>
+    </div>
+  )
+}
+
+export function ProHero() {
+  const scrollToApply = () => {
+    const el = document.getElementById('course-application-form')
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    else window.location.href = '/apply-now'
+  }
+
+  return (
+    <section className="relative overflow-hidden pt-8 md:pt-12 pb-16 md:pb-24 hero-glow" style={{ backgroundColor: 'var(--bg-base)' }}>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full filter blur-3xl decorative-orb" />
+      </div>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+        <div className="text-center max-w-4xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
+            <Link href="/" className="hover:underline">Home</Link>
+            <ChevronRight className="w-4 h-4" />
+            <Link href="/courses" className="hover:underline">Courses</Link>
+            <ChevronRight className="w-4 h-4" />
+            <span>Design Track</span>
+            <ChevronRight className="w-4 h-4" />
+            <span style={{ color: 'var(--color-primary)' }}>UI UX Design Pro</span>
+          </div>
+
+          <span
+            className="font-body inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6"
+            style={{ backgroundColor: 'var(--color-primary)', color: 'var(--text-on-accent)' }}
+          >
+            <Star className="w-3.5 h-3.5" aria-hidden="true" />
+            {proHero.badge}
+          </span>
+
+          <h1 className="font-display mb-6 leading-[1.1]" style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: 'clamp(1.875rem, 4.5vw, 3.25rem)' }}>
+            {proHero.title}
+          </h1>
+
+          <p className="font-body mb-8 leading-relaxed mx-auto" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1.0625rem, 2vw, 1.25rem)', maxWidth: '820px' }}>
+            {proHero.subtitle}
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-8">
+            {proHero.trustChips.map((chip) => (
+              <span key={chip} className="font-body text-sm font-medium flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
+                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+                {chip}
+              </span>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-3xl mx-auto">
+            {proHero.stats.map((stat) => (
+              <div key={stat.label} className="rounded-xl p-4 bg-card shadow-sm">
+                <p className="font-display font-bold text-2xl md:text-3xl mb-1" style={{ color: 'var(--color-primary)' }}>{stat.value}</p>
+                <p className="font-body text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="font-body font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>{proHero.seatNote}</p>
+
+          <button
+            type="button"
+            onClick={scrollToApply}
+            className="font-body font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform min-h-[44px] inline-flex items-center gap-2 mb-4"
+            style={{ backgroundColor: 'var(--color-accent)', color: 'var(--text-on-accent)' }}
+          >
+            Apply for the Course
+            <ArrowRight className="w-5 h-5" />
+          </button>
+
+          <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>
+            {proHero.bookingNote}
+          </p>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProPopularSection() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
+        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          {proPopularSection.title}
+        </h2>
+        <div className="space-y-4">
+          {proPopularSection.paragraphs.map((p) => (
+            <p key={p} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{p}</p>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProPatternInterrupt() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+        <h2 className="font-display font-bold mb-6" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          {proPatternComparison.title}
+        </h2>
+        <div className="space-y-4 mb-10">
+          {proPatternComparison.intro.map((p) => (
+            <p key={p} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{p}</p>
+          ))}
+        </div>
+        <ComparisonTable leftHeader="UI UX Design Pro" rightHeader="Generic Online UI UX Courses" rows={proPatternComparison.rows} />
+      </div>
+    </section>
+  )
+}
+
+export function ProLearningPath() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-base)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          Your Path Before and After This Course
+        </h2>
+
+        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-card)', border: '2px solid var(--color-primary)' }}>
+          <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>DESIGN TRACK</p>
+          <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
+            <li>
+              Step 1:{' '}
+              <Link href="/ui-ux-design-bootcamp" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+                UI UX Design Bootcamp
+              </Link>{' '}
+              (3 days · Rs 1,999–5,000) — recommended if you have never designed before
+            </li>
+            <li>
+              Step 2: <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Pro ← You are here</strong>
+            </li>
+            <li>
+              Step 3:{' '}
+              <Link href="/ui-ux-design-master" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+                UI UX Design Master
+              </Link>{' '}
+              (6 months · Rs 99,999) — for designers who want to reach lead and senior level
+            </li>
+          </ol>
+        </div>
+
+        <div className="rounded-2xl p-6 md:p-8 mb-8" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px dashed var(--color-highlight)' }}>
+          <p className="font-body text-sm font-bold mb-3 tracking-wide" style={{ color: 'var(--color-highlight)' }}>
+            CROSS-TRACK BRIDGE — RECOMMENDED FOR PRO GRADUATES
+          </p>
+          <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+            After completing this course, Pro graduates who are moving into AI-product-focused roles are recommended to take the{' '}
+            <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+              AI Product Design Course
+            </Link>{' '}
+            next. That course goes 6 weeks deep on designing AI behaviour — trust UI, error states, confidence design — which is the fastest-growing specialisation in the Indian product design market in 2026. Pro gives you the design foundation. AI Product Design gives you the AI specialisation.
+          </p>
+        </div>
+
+        <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+          <strong style={{ color: 'var(--text-primary)' }}>Not started yet?</strong> If you have never designed before, the{' '}
+          <Link href="/ui-ux-design-bootcamp" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
+            UI UX Design Bootcamp
+          </Link>{' '}
+          is a 3-day, Rs 1,999 entry point that lets you complete a full design process and confirm the path before committing to 10 weeks.
+        </p>
+      </div>
+    </section>
+  )
+}
+
+export function ProWhatYouBuild() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+        <h2 className="font-display font-bold mb-4 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          What You Will Build and Ship in 10 Weeks
+        </h2>
+        <p className="font-body text-center mb-10" style={{ color: 'var(--text-secondary)' }}>
+          A complete design portfolio. Every artefact listed below is built during the course — not after it.
+        </p>
+        <div className="space-y-6">
+          {proPortfolioModules.map((mod) => (
+            <div key={mod.title} className="rounded-xl p-6" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{mod.title}</h3>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{mod.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProCurriculum() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+        <h2 className="font-display font-bold mb-10 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          The 10-Week Curriculum
+        </h2>
+        <div className="space-y-4">
+          {proCurriculumWeeks.map((week) => (
+            <div key={week.week} className="rounded-xl p-5 md:p-6 bg-card shadow-sm">
+              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>{week.week}</h3>
+              <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{week.topics}</p>
+              <p className="font-body text-sm"><strong style={{ color: 'var(--color-primary)' }}>Deliverable:</strong> {week.deliverable}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProToolchain() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+          The Toolchain: Perplexity, Claude, FigJam AI, Figma, Bolt
+        </h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          {proTools.map((tool) => (
+            <div key={tool.name} className="rounded-xl p-5" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+              <h3 className="font-display font-semibold mb-2" style={{ color: 'var(--color-primary)' }}>{tool.name}</h3>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{tool.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProPlacementSection() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
+        <h2 className="font-display font-bold mb-4" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          {proPlacementSection.title}
+        </h2>
+        <p className="font-body font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>{proPlacementSection.intro}</p>
+        <div className="space-y-4 mb-6">
+          {proPlacementSection.body.map((p) => (
+            <p key={p} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{p}</p>
+          ))}
+        </div>
+        <Link href="/placements" className="font-body inline-flex items-center gap-2 font-bold" style={{ color: 'var(--color-primary)' }}>
+          View placement details
+          <ArrowRight className="w-5 h-5" />
+        </Link>
+      </div>
+    </section>
+  )
+}
+
+export function ProBonusStack() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <Gift className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
+          <h2 className="font-display font-bold" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+            The Bonus Stack
+          </h2>
+        </div>
+        <div className="space-y-4">
+          {proBonuses.map((bonus) => (
+            <div
+              key={bonus.name}
+              className="rounded-xl p-5 bg-card"
+              style={{ border: bonus.highlight ? '2px solid var(--color-highlight)' : '1px solid var(--border-default)' }}
+            >
+              <div className="flex flex-wrap justify-between gap-2 mb-2">
+                <h3 className="font-display font-semibold" style={{ color: 'var(--text-primary)' }}>{bonus.name}</h3>
+                <span className="font-body text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
+                  Standalone value: {bonus.value} · Included
+                </span>
+              </div>
+              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{bonus.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export function ProValueStack() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-2xl">
+        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
+          The Value Stack
+        </h2>
+        <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
+          <table className="w-full min-w-[400px]">
+            <thead>
+              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
+                <th className="p-4 text-left font-bold" style={{ color: 'var(--text-on-accent)' }}>Item</th>
+                <th className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Standalone Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {proValueStack.map((row, index) => (
+                <tr key={row.item} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
+                  <td className="p-4 border-t text-sm" style={{ color: 'var(--text-secondary)', borderColor: 'var(--border-default)' }}>{row.item}</td>
+                  <td className="p-4 border-t text-right font-semibold text-sm" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>{row.value}</td>
+                </tr>
+              ))}
+              <tr style={{ backgroundColor: 'var(--bg-warm)' }}>
+                <td className="p-4 border-t font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Total value</td>
+                <td className="p-4 border-t text-right font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Rs 3,25,992</td>
+              </tr>
+              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
+                <td className="p-4 font-bold" style={{ color: 'var(--text-on-accent)' }}>Early bird price</td>
+                <td className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Rs 49,999</td>
+              </tr>
+              <tr style={{ backgroundColor: 'var(--color-accent-muted)' }}>
+                <td className="p-4 font-bold" style={{ color: 'var(--text-primary)' }}>Standard price</td>
+                <td className="p-4 text-right font-bold" style={{ color: 'var(--color-primary)' }}>Rs 59,999</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p className="font-body text-sm text-center mt-6" style={{ color: 'var(--text-muted)' }}>
+          EMI available — Rs 16,666/month for 3 months (early bird) · Zero interest · International USD 699 via PayPal
+        </p>
+      </div>
+    </section>
+  )
+}
+
+export function ProGuarantee() {
+  return (
+    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
+        <div className="rounded-2xl p-8 md:p-10 border-2" style={{ borderColor: 'var(--color-primary)', backgroundColor: 'var(--bg-subtle)' }}>
+          <div className="flex items-start gap-4">
+            <Shield className="w-8 h-8 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+            <div>
+              <h2 className="font-display font-bold mb-4" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+                Guarantee
+              </h2>
+              <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                If you complete all 10 weeks, submit every module deliverable, attend all live sessions, and do not have a job-ready portfolio and case study at the end — you receive a 25% refund.
+              </p>
+              <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                Submit your claim in writing within 14 days of the final session. Students who miss sessions or skip deliverables are ineligible.
+              </p>
+              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                This guarantee does not promise a job. It promises that if you do the work, you will have the work to show.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

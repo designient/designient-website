@@ -41,12 +41,6 @@ export function getSitemapEntries(): SitemapEntry[] {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/prompt-engineering-mastery`,
-      lastModified: lastmod,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/ui-ux-design-course-in-bangalore`,
       lastModified: lastmod,
       changeFrequency: 'monthly',

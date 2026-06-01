@@ -1,430 +1,169 @@
 'use client'
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'react-feather';
-import Link from 'next/link';
-import { useCurrency } from '../contexts/CurrencyContext';
-import { CurrencyToggle } from './CurrencyToggle';
-import type { CoursePricingData } from '../data/coursePricing';
+import React from 'react'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { aiTrackComparison as aiRows, designTrackComparison as designRows, type ComparisonRow } from '../data/coursesHubData'
 
-const courses: Array<{
-  name: string;
-  fullName: string;
-  duration: string;
-  hours: string;
-  format: string;
-  level: string;
-  certification: string;
-  courseSlug: keyof CoursePricingData;
-  color: string;
-  path: string;
-}> = [
-{
-  name: 'Pro',
-  fullName: 'UI/UX Design Pro',
-  duration: '3 Months',
-  hours: '124 Hours',
-  format: 'Hybrid',
-  level: 'Beginner-Inter.',
-  certification: 'Adobe Certified',
-  courseSlug: 'ui-ux-design-pro',
-  color: 'var(--color-primary)',
-  path: '/ui-ux-design-pro'
-},
-{
-  name: 'Bootcamp',
-  fullName: 'UI/UX Design Bootcamp',
-  duration: '30 Days',
-  hours: '36 Hours',
-  format: 'Intensive',
-  level: 'Beginner',
-  certification: 'Certificate',
-  courseSlug: 'ui-ux-design-bootcamp',
-  color: 'var(--color-primary)',
-  path: '/ui-ux-design-bootcamp'
-},
-{
-  name: 'Master',
-  fullName: 'UI/UX Design Master',
-  duration: '6 Months',
-  hours: '200+ Hours',
-  format: 'Hybrid',
-  level: 'Inter.-Advanced',
-  certification: 'Diploma',
-  courseSlug: 'ui-ux-design-master',
-  color: 'var(--color-primary)',
-  path: '/ui-ux-design-master'
-},
-{
-  name: 'Prompt Engineering',
-  fullName: 'Prompt Engineering Mastery',
-  duration: '30 Days',
-  hours: '40 Hours',
-  format: 'Online',
-  level: 'All Levels',
-  certification: 'Certificate',
-  courseSlug: 'prompt-engineering-mastery',
-  color: 'var(--color-primary)',
-  path: '/prompt-engineering-mastery'
-}];
+type TrackComparisonTableProps = {
+  title: string
+  columns: string[]
+  rows: ComparisonRow[]
+  footnote?: React.ReactNode
+  backgroundColor?: string
+}
 
-const features = [
-{
-  name: 'Duration',
-  type: 'text'
-},
-{
-  name: 'Total Hours',
-  type: 'text'
-},
-{
-  name: 'Format',
-  type: 'text'
-},
-{
-  name: 'Level',
-  type: 'text'
-},
-{
-  name: 'Certification',
-  type: 'check'
-},
-{
-  name: 'Price',
-  type: 'price'
-}];
-
-export function CourseComparisonTable() {
-  const [hoveredColumn, setHoveredColumn] = useState<number | null>(null);
-  const { getCoursePrice, isLoading } = useCurrency();
-  
+export function TrackComparisonTable({
+  title,
+  columns,
+  rows,
+  footnote,
+  backgroundColor = 'var(--bg-card)',
+}: TrackComparisonTableProps) {
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
+    <section className="py-12 md:py-16" style={{ backgroundColor }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 30
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3
-          }}
-          transition={{
-            duration: 0.6,
-            ease: [0.4, 0, 0.2, 1]
-          }}
-          className="text-center mb-8">
-          
-          {/* Currency Toggle */}
-          <div className="flex justify-center mb-6">
-            <CurrencyToggle size="md" />
-          </div>
-        </motion.div>
-        
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3
-          }}
-          transition={{
-            duration: 0.6,
-            ease: [0.4, 0, 0.2, 1]
-          }}
-          className="text-center mb-12">
-
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        >
           <h2
-            className="font-display tracking-wide leading-tight mb-4"
+            className="font-display tracking-wide leading-tight mb-8 text-center"
             style={{
               color: 'var(--color-primary)',
               fontWeight: 700,
-              fontSize: 'clamp(2rem, 4vw, 3.5rem)'
-            }}>
-
-            Find Your Perfect Course
+              fontSize: 'clamp(1.5rem, 3vw, 2.25rem)',
+            }}
+          >
+            {title}
           </h2>
-          <p className="font-body text-sm mt-4 opacity-75 max-w-2xl mx-auto">
-            Fees are displayed in INR for learners in India and USD for international learners. You can switch currency using the toggle above.
-          </p>
-        </motion.div>
 
-        {/* Desktop Table */}
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 30
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0
-          }}
-          viewport={{
-            once: true,
-            amount: 0.3
-          }}
-          transition={{
-            delay: 0.2,
-            duration: 0.6,
-            ease: [0.4, 0, 0.2, 1]
-          }}
-          className="hidden md:block overflow-x-auto rounded-xl"
-          style={{
-            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)'
-          }}>
-
-          <table
-            className="w-full"
-            style={{
-              borderCollapse: 'separate',
-              borderSpacing: 0
-            }}>
-
-            <thead className="sticky top-0 z-10">
-              <tr
-                className="surface-on-accent"
-                style={{
-                  backgroundColor: 'var(--color-primary)'
-                }}>
-
-                <th
-                  className="p-5 text-left font-bold border-b-2"
-                  style={{
-                    color: 'var(--text-on-accent)',
-                    borderColor: 'var(--text-secondary)'
-                  }}>
-
-                  Feature
-                </th>
-                {courses.map((course, index) =>
-                <th
-                  key={index}
-                  className="p-5 text-center font-bold border-b-2 transition-all duration-300"
-                  style={{
-                    color: 'var(--text-on-accent)',
-                    borderColor: 'var(--text-secondary)',
-                    backgroundColor:
-                    hoveredColumn === index ?
-                    'rgba(176, 228, 204, 0.3)' :
-                    'var(--color-primary)'
-                  }}
-                  onMouseEnter={() => setHoveredColumn(index)}
-                  onMouseLeave={() => setHoveredColumn(null)}>
-
-                    <div className="flex flex-col items-center gap-2">
-                      <span className="text-xl">{course.name}</span>
-                      <div
-                      className="w-12 h-1 rounded-full"
-                      style={{
-                        backgroundColor: course.color
-                      }} />
-
-                    </div>
+          <div
+            className="overflow-x-auto rounded-xl"
+            style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}
+          >
+            <table className="w-full min-w-[640px]" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>
+              <thead>
+                <tr className="surface-on-accent" style={{ backgroundColor: 'var(--color-primary)' }}>
+                  <th
+                    className="sticky left-0 z-20 p-4 text-left font-bold min-w-[160px]"
+                    style={{
+                      color: 'var(--text-on-accent)',
+                      backgroundColor: 'var(--color-primary)',
+                      boxShadow: '2px 0 4px rgba(0,0,0,0.1)',
+                    }}
+                  >
+                    Feature
                   </th>
-                )}
-              </tr>
-            </thead>
-            <tbody>
-              {features.map((feature, featureIndex) =>
-              <tr
-                key={featureIndex}
-                style={{
-                  backgroundColor:
-                  featureIndex % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)',
-                  transition: 'background-color 0.3s ease'
-                }}>
-
-                  <td
-                  className="p-5 font-semibold border-b"
-                  style={{
-                    color: 'var(--text-secondary)',
-                    borderColor: 'var(--border-default)',
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
-                  }}>
-
-                    {feature.name}
-                  </td>
-                  {courses.map((course, courseIndex) =>
-                <td
-                  key={courseIndex}
-                  className="p-5 text-center border-b transition-all duration-300"
-                  style={{
-                    color: 'var(--text-primary)',
-                    borderColor: 'var(--border-default)',
-                    backgroundColor:
-                    hoveredColumn === courseIndex ?
-                    'rgba(176, 228, 204, 0.08)' :
-                    'transparent'
-                  }}
-                  onMouseEnter={() => setHoveredColumn(courseIndex)}
-                  onMouseLeave={() => setHoveredColumn(null)}>
-
-                      {feature.type === 'check' ?
-                  <div className="flex justify-center">
-                          <div
-                      className="w-6 h-6 rounded-full flex items-center justify-center"
-                      style={{
-                        backgroundColor: 'rgba(176, 228, 204, 0.1)'
-                      }}>
-
-                            <Check
-                        className="w-4 h-4"
-                        style={{
-                          color: 'var(--color-primary)'
-                        }} />
-
-                          </div>
-                        </div> :
-                  feature.type === 'price' ?
-                  <span
-                    className="font-bold text-lg"
-                    style={{
-                      color: 'var(--color-primary)'
-                    }}>
-                          {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
-                        </span> :
-
-                  <span className="font-medium">
-                          {feature.name === 'Duration' && course.duration}
-                          {feature.name === 'Total Hours' && course.hours}
-                          {feature.name === 'Format' && course.format}
-                          {feature.name === 'Level' && course.level}
-                        </span>
-                  }
-                    </td>
-                )}
+                  {columns.map((column) => (
+                    <th
+                      key={column}
+                      className="p-4 text-center font-bold min-w-[140px]"
+                      style={{ color: 'var(--text-on-accent)' }}
+                    >
+                      {column}
+                    </th>
+                  ))}
                 </tr>
-              )}
-            </tbody>
-          </table>
-        </motion.div>
-
-        {/* Mobile Cards */}
-        <div className="md:hidden space-y-6">
-          {courses.map((course, index) =>
-          <motion.div
-            key={index}
-            initial={{
-              opacity: 0,
-              y: 30
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0
-            }}
-            viewport={{
-              once: true
-            }}
-            transition={{
-              delay: index * 0.1,
-              duration: 0.6,
-              ease: [0.4, 0, 0.2, 1]
-            }}
-            className="rounded-xl overflow-hidden"
-            style={{
-              backgroundColor: 'var(--bg-card)',
-              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
-              border: `2px solid ${course.color}`
-            }}>
-
-              {/* Card Header */}
-              <div
-              className="p-6 text-center"
-              style={{
-                backgroundColor: course.color
-              }}>
-
-                <h3 className="font-display font-bold mb-2" style={{ fontWeight: 600, fontSize: 'clamp(1.5rem, 3vw, 2.25rem)', color: 'var(--text-on-accent)' }}>
-                  {course.name}
-                </h3>
-                <p className="font-display text-3xl font-bold" style={{ color: 'var(--text-on-accent)' }}>
-                  {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
-                </p>
-              </div>
-
-              {/* Card Content */}
-              <div className="p-6 space-y-4">
-                {features.
-              filter((f) => f.type !== 'price').
-              map((feature, fIndex) =>
-              <div
-                key={fIndex}
-                className="flex justify-between items-center pb-4 border-b"
-                style={{
-                  borderColor: 'var(--border-default)'
-                }}>
-
-                      <span
-                  className="font-semibold text-sm"
-                  style={{
-                    color: 'var(--text-muted)',
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
-                  }}>
-
-                        {feature.name}
-                      </span>
-                      {feature.type === 'check' ?
-                <div
-                  className="w-6 h-6 rounded-full flex items-center justify-center"
-                  style={{
-                    backgroundColor: 'rgba(176, 228, 204, 0.1)'
-                  }}>
-
-                          <Check
-                    className="w-4 h-4"
+              </thead>
+              <tbody>
+                {rows.map((row, rowIndex) => (
+                  <tr
+                    key={row.label}
                     style={{
-                      color: 'var(--color-primary)'
-                    }} />
+                      backgroundColor: rowIndex % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)',
+                    }}
+                  >
+                    <td
+                      className="sticky left-0 z-10 p-4 font-semibold border-t min-w-[160px]"
+                      style={{
+                        color: 'var(--text-primary)',
+                        borderColor: 'var(--border-default)',
+                        backgroundColor: rowIndex % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)',
+                        boxShadow: '2px 0 4px rgba(0,0,0,0.06)',
+                      }}
+                    >
+                      {row.label}
+                    </td>
+                    {row.values.map((value, colIndex) => (
+                      <td
+                        key={`${row.label}-${colIndex}`}
+                        className="p-4 text-center border-t align-top"
+                        style={{
+                          color: 'var(--text-secondary)',
+                          borderColor: 'var(--border-default)',
+                          fontSize: 'clamp(0.8125rem, 1.5vw, 0.9375rem)',
+                        }}
+                      >
+                        {value}
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-                        </div> :
-
-                <span
-                  className="font-medium text-sm"
-                  style={{
-                    color: 'var(--text-primary)'
-                  }}>
-
-                          {feature.name === 'Duration' && course.duration}
-                          {feature.name === 'Total Hours' && course.hours}
-                          {feature.name === 'Format' && course.format}
-                          {feature.name === 'Level' && course.level}
-                          {feature.name === 'Certification' &&
-                  course.certification}
-                        </span>
-                }
-                    </div>
-              )}
-
-                <Link
-                  href={course.path}
-                  className="w-full font-body font-semibold mt-4 min-h-[44px] flex items-center justify-center gap-2 transition-transform hover:scale-105"
-                  style={{
-                    backgroundColor: course.color,
-                    color: 'var(--text-on-accent)',
-                    padding: '12px 28px',
-                    borderRadius: '100px',
-                    fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
-                  }}>
-                  View Course
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </motion.div>
+          {footnote && (
+            <div
+              className="font-body mt-6 p-4 rounded-xl text-sm leading-relaxed"
+              style={{
+                color: 'var(--text-secondary)',
+                backgroundColor: 'var(--bg-subtle)',
+                border: '1px solid var(--border-default)',
+              }}
+            >
+              {footnote}
+            </div>
           )}
-        </div>
+        </motion.div>
       </div>
-    </section>);
+    </section>
+  )
+}
 
+export function DesignTrackComparisonTable() {
+  return (
+    <TrackComparisonTable
+      title="Design Track — Course Comparison"
+      columns={['UI UX Design Bootcamp', 'UI UX Design Pro', 'UI UX Design Master']}
+      rows={designRows}
+      backgroundColor="var(--bg-warm)"
+      footnote={
+        <>
+          → 95% placement rate applies to Pro and Master graduates who completed placement support.{' '}
+          <Link
+            href="/placements"
+            className="font-semibold underline hover:no-underline"
+            style={{ color: 'var(--color-primary)' }}
+          >
+            View placement details →
+          </Link>
+        </>
+      }
+    />
+  )
+}
+
+export function AiTrackComparisonTable() {
+  return (
+    <TrackComparisonTable
+      title="AI Track — Course Comparison"
+      columns={['AI Automation Accelerator', 'AI Product Design Course']}
+      rows={aiRows}
+      backgroundColor="var(--bg-card)"
+      footnote={
+        <>
+          → Both AI Track courses are online-only. Available to students across India and internationally. Free monthly
+          workshops available — email{' '}
+          <a href="mailto:hello@designient.com" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+            hello@designient.com
+          </a>{' '}
+          for next dates.
+        </>
+      }
+    />
+  )
 }

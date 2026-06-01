@@ -24,6 +24,7 @@ interface CourseStructuredDataProps {
   outcome?: string;
   audience?: string | string[];
   educationalCredentialAwarded?: string;
+  hideRating?: boolean;
 }
 
 export function CourseStructuredData({
@@ -43,7 +44,8 @@ export function CourseStructuredData({
   learningObjectives,
   outcome,
   audience,
-  educationalCredentialAwarded: propEducationalCredentialAwarded
+  educationalCredentialAwarded: propEducationalCredentialAwarded,
+  hideRating = false,
 }: CourseStructuredDataProps) {
   const { currency, isLoading } = useCurrency();
   
@@ -105,13 +107,15 @@ export function CourseStructuredData({
         validFrom: '2026-01-01'
       }
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: ratingValue,
-      reviewCount: reviewCount,
-      bestRating: '5',
-      worstRating: '1'
-    },
+    ...(hideRating ? {} : {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: ratingValue,
+        reviewCount: reviewCount,
+        bestRating: '5',
+        worstRating: '1'
+      },
+    }),
     duration: duration,
     totalTime: totalTime
   };

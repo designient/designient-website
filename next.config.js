@@ -6,6 +6,16 @@ const nextConfig = {
       { source: '/sitemap.xml', destination: '/api/sitemap' },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/prompt-engineering-mastery',
+        destination: '/courses',
+        permanent: true,
+        statusCode: 301,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
