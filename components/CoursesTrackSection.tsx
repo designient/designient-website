@@ -13,6 +13,8 @@ import {
   Zap,
   type Icon,
 } from 'react-feather'
+import { useCurrency } from '../contexts/CurrencyContext'
+import { pickByCurrency } from '../lib/localizedPricing'
 import type { CoursesHubCard } from '../data/coursesHubData'
 
 const highlightIcons: Record<string, Icon> = {
@@ -32,6 +34,13 @@ type CoursesTrackSectionProps = {
 }
 
 function CourseHubCard({ course, accentColor }: { course: CoursesHubCard; accentColor: string }) {
+  const { currency, isLoading } = useCurrency()
+  const earlyBird = isLoading
+    ? '…'
+    : pickByCurrency(currency, course.priceEarlyBirdInr, course.priceEarlyBirdUsd)
+  const standard = isLoading
+    ? '…'
+    : pickByCurrency(currency, course.priceStandardInr, course.priceStandardUsd)
   const HighlightIcon = course.highlight ? highlightIcons[course.highlight] : null
 
   return (
@@ -98,7 +107,7 @@ function CourseHubCard({ course, accentColor }: { course: CoursesHubCard; accent
         </div>
         <div className="flex flex-wrap gap-x-2">
           <dt className="font-semibold" style={{ color: 'var(--text-primary)' }}>Price from:</dt>
-          <dd>{course.priceEarlyBird} early bird · {course.priceStandard} standard</dd>
+          <dd>{earlyBird} early bird · {standard} standard</dd>
         </div>
         <div className="flex flex-wrap gap-x-2">
           <dt className="font-semibold" style={{ color: 'var(--text-primary)' }}>Certificate:</dt>

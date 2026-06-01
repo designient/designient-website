@@ -4,14 +4,14 @@ import { useCallback, useState, type CSSProperties } from 'react'
 import Script from 'next/script'
 import { useRouter } from 'next/navigation'
 import { ArrowRight, Loader } from 'react-feather'
+import { getMinAmountLabel, type RazorpayCurrency } from '../../lib/razorpay-constants'
 
 export interface RazorpayCheckoutProps {
-  /** Amount in paise (e.g. 349990 for ₹3,499.90) */
-  amountPaise: number
-  currency?: 'INR'
+  /** Amount in smallest currency unit: paise (INR) or cents (USD) */
+  amountMinorUnits: number
+  currency: RazorpayCurrency
   receipt?: string
   description: string
-  courseName?: string
   courseSlug?: string
   customerName?: string
   customerEmail?: string
@@ -23,9 +23,26 @@ export interface RazorpayCheckoutProps {
   redirectOnSuccess?: string
 }
 
+function getPayPalCheckoutConfig(): RazorpayCheckoutConfig {
+  return {
+    display: {
+      blocks: {
+        paypal: {
+          name: 'Pay with PayPal',
+          instruments: [{ method: 'paypal' }],
+        },
+      },
+      sequence: ['block.paypal'],
+      preferences: {
+        show_default_blocks: false,
+      },
+    },
+  }
+}
+
 export function RazorpayCheckout({
-  amountPaise,
-  currency = 'INR',
+  amountMinorUnits,
+  currency,
   receipt,
   description,
   courseSlug,
@@ -44,6 +61,7 @@ export function RazorpayCheckout({
   const [error, setError] = useState<string | null>(null)
 
   const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID
+  const minLabel = getMinAmountLabel(currency)
 
   const openCheckout = useCallback(async () => {
     setError(null)
@@ -58,8 +76,9 @@ export function RazorpayCheckout({
       return
     }
 
-    if (amountPaise < 100) {
-      setError('Minimum payment amount is ₹1.')
+    const minMinor = currency === 'INR' ? 100 : 50
+    if (amountMinorUnits < minMinor) {
+      setError(`Minimum payment amount is ${minLabel}.`)
       return
     }
 
@@ -70,10 +89,10 @@ export function RazorpayCheckout({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          amount: amountPaise,
+          amount: amountMinorUnits,
           currency,
           receipt: receipt ?? `rcpt_${courseSlug ?? 'course'}_${Date.now()}`,
-          notes: courseSlug ? { course_slug: courseSlug } : undefined,
+          notes: courseSlug ? { course_slug: courseSlug, currency } : { currency },
         }),
       })
 
@@ -98,6 +117,7 @@ export function RazorpayCheckout({
         theme: {
           color: '#8458B3',
         },
+        ...(currency === 'USD' ? { config: getPayPalCheckoutConfig() } : {}),
         handler: async (response) => {
           setLoading(true)
           try {
@@ -152,7 +172,7 @@ export function RazorpayCheckout({
       setLoading(false)
     }
   }, [
-    amountPaise,
+    amountMinorUnits,
     courseSlug,
     currency,
     customerContact,
@@ -160,6 +180,7 @@ export function RazorpayCheckout({
     customerName,
     description,
     keyId,
+    minLabel,
     onVerified,
     receipt,
     redirectOnSuccess,

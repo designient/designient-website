@@ -1,3 +1,5 @@
+import type { LocalizedValueRow } from './localizedPricingTypes'
+
 export const proHero = {
   badge: 'Most Popular · Design Track — Step 2 · 10 Weeks · 25 Students Per Cohort · Adobe Certified',
   title: 'UI UX Design Pro Course: From Complete Beginner to Job-Ready Designer in 10 Weeks',
@@ -111,29 +113,37 @@ export const proPlacementSection = {
 }
 
 export const proBonuses = [
-  { name: 'AI Design Workflow Playbook', value: 'Rs 5,999', description: 'A documented end-to-end design workflow combining all 5 tools — from research to prototype — with the exact prompts used at each stage.', highlight: false },
-  { name: 'Client Project Template Pack', value: 'Rs 4,999', description: 'Brief template, feedback collection form, revision tracker, and handoff checklist. Used in weeks 8 and 9.', highlight: false },
-  { name: 'Adobe Certification Prep Guide', value: 'Rs 3,999', description: 'Step-by-step preparation for the Adobe Certified Professional exam included with the course.', highlight: false },
-  { name: 'Design System Starter Kit', value: 'Rs 7,999', description: 'A production-ready Figma design system template — colour tokens, type scale, spacing system, 40+ base components.', highlight: false },
-  { name: 'Unlimited Portfolio Review', value: 'Rs 12,999', description: 'Submit your portfolio for mentor review as many times as you need during the course and for 3 months after graduation.', highlight: false },
-  { name: 'Placement Assistance — 6 Months', value: 'Rs 15,999', description: 'Structured placement support beginning in week 10. Resume, LinkedIn, portfolio, mock interviews, partner introductions.', highlight: false },
-  { name: 'Lifetime Mentorship Access', value: 'Rs 9,999', description: 'After graduation, retain access to the Designient mentor network for portfolio pieces, career decisions, and design questions.', highlight: false },
-  { name: 'AI Product Design Course — Rs 5,000 Alumni Discount', value: 'Rs 5,000', description: 'Pro graduates who take the AI Product Design Course receive Rs 5,000 off the standard price. Applied automatically at checkout.', highlight: false },
-  { name: '[Early Bird Exclusive] 1:1 Career Strategy Session (45 min)', value: 'Rs 8,999', description: 'A private session with your mentor at the end of week 10. Career path strategy, portfolio positioning, and target companies or roles.', highlight: true },
+  { name: 'AI Design Workflow Playbook', valueInr: 'Rs 5,999', valueUsd: 'USD 89', description: 'A documented end-to-end design workflow combining all 5 tools — from research to prototype — with the exact prompts used at each stage.', highlight: false },
+  { name: 'Client Project Template Pack', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: 'Brief template, feedback collection form, revision tracker, and handoff checklist. Used in weeks 8 and 9.', highlight: false },
+  { name: 'Adobe Certification Prep Guide', valueInr: 'Rs 3,999', valueUsd: 'USD 59', description: 'Step-by-step preparation for the Adobe Certified Professional exam included with the course.', highlight: false },
+  { name: 'Design System Starter Kit', valueInr: 'Rs 7,999', valueUsd: 'USD 109', description: 'A production-ready Figma design system template — colour tokens, type scale, spacing system, 40+ base components.', highlight: false },
+  { name: 'Unlimited Portfolio Review', valueInr: 'Rs 12,999', valueUsd: 'USD 179', description: 'Submit your portfolio for mentor review as many times as you need during the course and for 3 months after graduation.', highlight: false },
+  { name: 'Placement Assistance — 6 Months', valueInr: 'Rs 15,999', valueUsd: 'USD 219', description: 'Structured placement support beginning in week 10. Resume, LinkedIn, portfolio, mock interviews, partner introductions.', highlight: false },
+  { name: 'Lifetime Mentorship Access', valueInr: 'Rs 9,999', valueUsd: 'USD 139', description: 'After graduation, retain access to the Designient mentor network for portfolio pieces, career decisions, and design questions.', highlight: false },
+  { name: 'AI Product Design Course — Rs 5,000 Alumni Discount', valueInr: 'Rs 5,000', valueUsd: 'USD 49', description: 'Pro graduates who take the AI Product Design Course receive Rs 5,000 off the standard price. Applied automatically at checkout.', highlight: false },
+  { name: '[Early Bird Exclusive] 1:1 Career Strategy Session (45 min)', valueInr: 'Rs 8,999', valueUsd: 'USD 129', description: 'A private session with your mentor at the end of week 10. Career path strategy, portfolio positioning, and target companies or roles.', highlight: true },
 ]
 
-export const proValueStack = [
-  { item: 'UI UX Design Pro (10 weeks · 84 live hours · real client project · placement support)', value: 'Rs 2,50,000' },
-  { item: 'AI Design Workflow Playbook', value: 'Rs 5,999' },
-  { item: 'Client Project Template Pack', value: 'Rs 4,999' },
-  { item: 'Adobe Certification Prep Guide', value: 'Rs 3,999' },
-  { item: 'Design System Starter Kit', value: 'Rs 7,999' },
-  { item: 'Unlimited Portfolio Review', value: 'Rs 12,999' },
-  { item: 'Placement Assistance — 6 months', value: 'Rs 15,999' },
-  { item: 'Lifetime Mentorship Access', value: 'Rs 9,999' },
-  { item: 'AI Product Design Course Alumni Discount', value: 'Rs 5,000' },
-  { item: '[Early Bird] 1:1 Career Strategy Session', value: 'Rs 8,999' },
+export const proValueStack: LocalizedValueRow[] = [
+  { item: 'UI UX Design Pro (10 weeks · 84 live hours · real client project · placement support)', valueInr: 'Rs 2,50,000', valueUsd: 'USD 2,999' },
+  { item: 'AI Design Workflow Playbook', valueInr: 'Rs 5,999', valueUsd: 'USD 89' },
+  { item: 'Client Project Template Pack', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'Adobe Certification Prep Guide', valueInr: 'Rs 3,999', valueUsd: 'USD 59' },
+  { item: 'Design System Starter Kit', valueInr: 'Rs 7,999', valueUsd: 'USD 109' },
+  { item: 'Unlimited Portfolio Review', valueInr: 'Rs 12,999', valueUsd: 'USD 179' },
+  { item: 'Placement Assistance — 6 months', valueInr: 'Rs 15,999', valueUsd: 'USD 219' },
+  { item: 'Lifetime Mentorship Access', valueInr: 'Rs 9,999', valueUsd: 'USD 139' },
+  { item: 'AI Product Design Course Alumni Discount', valueInr: 'Rs 5,000', valueUsd: 'USD 49' },
+  { item: '[Early Bird] 1:1 Career Strategy Session', valueInr: 'Rs 8,999', valueUsd: 'USD 129' },
+  { item: 'Total standalone value', rowType: 'total', valueInr: 'Rs 3,25,992', valueUsd: 'USD 3,999' },
+  { item: 'Your early bird price', rowType: 'earlyBird', valueInr: 'Rs 49,999', valueUsd: 'USD 699' },
+  { item: 'Standard price (after early bird)', rowType: 'standard', valueInr: 'Rs 59,999', valueUsd: 'USD 699' },
 ]
+
+export const proEmiConfig = {
+  inr: { months: 3, perMonth: '16,666' },
+  usd: { months: 3, perMonth: '233' },
+} as const
 
 export const proIdealFor = [
   'You have no design background and want a structured 10-week path from zero to job-ready.',

@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createRazorpayOrder } from '../../../lib/razorpay'
+import {
+  createRazorpayOrder,
+  getMinAmount,
+  getMinAmountLabel,
+  isSupportedCurrency,
+  type RazorpayCurrency,
+} from '../../../lib/razorpay'
 
 export const runtime = 'edge'
-
-const MIN_AMOUNT_PAISE = 100
 
 function jsonError(message: string, status: number) {
   return NextResponse.json({ success: false, error: message }, { status })
@@ -19,18 +23,24 @@ export async function POST(request: NextRequest) {
     }
 
     const amount = typeof body.amount === 'number' ? body.amount : Number(body.amount)
-    const currency = typeof body.currency === 'string' ? body.currency.toUpperCase() : 'INR'
+    const currencyRaw = typeof body.currency === 'string' ? body.currency.toUpperCase() : 'INR'
     const receipt =
       typeof body.receipt === 'string' && body.receipt.trim()
         ? body.receipt.trim().slice(0, 40)
         : `rcpt_${Date.now()}`
 
-    if (!Number.isFinite(amount) || amount < MIN_AMOUNT_PAISE) {
-      return jsonError(`Amount must be at least ${MIN_AMOUNT_PAISE} paise (₹1).`, 400)
+    if (!isSupportedCurrency(currencyRaw)) {
+      return jsonError('Only INR and USD currencies are supported.', 400)
     }
 
-    if (currency !== 'INR') {
-      return jsonError('Only INR currency is supported.', 400)
+    const currency: RazorpayCurrency = currencyRaw
+    const minAmount = getMinAmount(currency)
+
+    if (!Number.isFinite(amount) || amount < minAmount) {
+      return jsonError(
+        `Amount must be at least ${minAmount} (${getMinAmountLabel(currency)} in smallest currency units).`,
+        400
+      )
     }
 
     const notes =
@@ -61,8 +71,7 @@ export async function POST(request: NextRequest) {
       return jsonError('Razorpay authentication failed. Check API keys.', 401)
     }
 
-    const message =
-      err instanceof Error ? err.message : 'Failed to create order'
+    const message = err instanceof Error ? err.message : 'Failed to create order'
 
     console.error('Create order error:', err)
     return jsonError(message, statusCode >= 400 && statusCode < 600 ? statusCode : 500)

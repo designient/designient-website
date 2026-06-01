@@ -1,3 +1,5 @@
+import type { LocalizedValueRow } from './localizedPricingTypes'
+
 export const aiProductHero = {
   badge: 'By Application Only · AI Track — Step 2 · 6 Weeks · 12 Seats Per Cohort · Certificate',
   title: 'AI Product Design Course: Design AI Behaviour, Trust UI, and Every State Between',
@@ -210,27 +212,35 @@ export const aiProductTools = [
 ]
 
 export const aiProductBonuses = [
-  { name: 'AI Behaviour Spec Template Library', value: 'Rs 4,999', description: 'Notion template — all 8 AI states with pre-built structure, example copy, and a checklist. Use from week 1 and on every AI project after.', highlight: false },
-  { name: 'AI State Design System Kit', value: 'Rs 6,999', description: 'Figma file — all 8 AI states pre-built as components. The structure you build in week 3, given as a reference in week 1.', highlight: false },
-  { name: 'AI Prototype Prompt Vault', value: 'Rs 3,999', description: '50 tested prompts for Bolt and v0.dev — AI state simulation, interactive transitions, confidence indicator rendering, fallback state prototyping.', highlight: false },
-  { name: 'Figma for Non-Designers Pre-Course Crash Module', value: 'Rs 5,999', description: '2-hour async module covering exactly the Figma operations this course requires. Built for PMs and non-designers. Released the week before the cohort starts.', highlight: false },
-  { name: '60-Day Post-Course Mentor Access', value: 'Rs 8,999', description: 'Direct access to your mentor via the cohort channel for 60 days after the final session.', highlight: false },
-  { name: 'Live Group Portfolio Review Session', value: 'Rs 6,999', description: 'Dedicated end-of-course session — structured critique of both case studies using a defined feedback rubric.', highlight: false },
-  { name: 'AI Product Design Alumni Community', value: 'Rs 2,999', description: 'Permanent access to the alumni channel — peer critique, job leads, project collaborations.', highlight: false },
-  { name: '[Early Bird Exclusive] One 30-Minute 1:1 Mentor Session', value: 'Rs 4,999', description: 'Redeemable in weeks 3 to 5. Use it on your Figma state library, original feature design, or prototype.', highlight: true },
+  { name: 'AI Behaviour Spec Template Library', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: 'Notion template — all 8 AI states with pre-built structure, example copy, and a checklist. Use from week 1 and on every AI project after.', highlight: false },
+  { name: 'AI State Design System Kit', valueInr: 'Rs 6,999', valueUsd: 'USD 99', description: 'Figma file — all 8 AI states pre-built as components. The structure you build in week 3, given as a reference in week 1.', highlight: false },
+  { name: 'AI Prototype Prompt Vault', valueInr: 'Rs 3,999', valueUsd: 'USD 59', description: '50 tested prompts for Bolt and v0.dev — AI state simulation, interactive transitions, confidence indicator rendering, fallback state prototyping.', highlight: false },
+  { name: 'Figma for Non-Designers Pre-Course Crash Module', valueInr: 'Rs 5,999', valueUsd: 'USD 89', description: '2-hour async module covering exactly the Figma operations this course requires. Built for PMs and non-designers. Released the week before the cohort starts.', highlight: false },
+  { name: '60-Day Post-Course Mentor Access', valueInr: 'Rs 8,999', valueUsd: 'USD 129', description: 'Direct access to your mentor via the cohort channel for 60 days after the final session.', highlight: false },
+  { name: 'Live Group Portfolio Review Session', valueInr: 'Rs 6,999', valueUsd: 'USD 99', description: 'Dedicated end-of-course session — structured critique of both case studies using a defined feedback rubric.', highlight: false },
+  { name: 'AI Product Design Alumni Community', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'Permanent access to the alumni channel — peer critique, job leads, project collaborations.', highlight: false },
+  { name: '[Early Bird Exclusive] One 30-Minute 1:1 Mentor Session', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: 'Redeemable in weeks 3 to 5. Use it on your Figma state library, original feature design, or prototype.', highlight: true },
 ]
 
-export const aiProductValueStack = [
-  { item: 'AI Product Design Course (6 weeks · 42 live hours · 2 case studies · prototype)', value: 'Rs 1,50,000' },
-  { item: 'AI Behaviour Spec Template Library', value: 'Rs 4,999' },
-  { item: 'AI State Design System Kit', value: 'Rs 6,999' },
-  { item: 'AI Prototype Prompt Vault', value: 'Rs 3,999' },
-  { item: 'Figma for Non-Designers Pre-Course Module', value: 'Rs 5,999' },
-  { item: '60-Day Post-Course Mentor Access', value: 'Rs 8,999' },
-  { item: 'Live Group Portfolio Review Session', value: 'Rs 6,999' },
-  { item: 'AI Product Design Alumni Community', value: 'Rs 2,999' },
-  { item: '[Early Bird] 1:1 Mentor Session', value: 'Rs 4,999' },
+export const aiProductValueStack: LocalizedValueRow[] = [
+  { item: 'AI Product Design Course (6 weeks · 42 live hours · 2 case studies · prototype)', valueInr: 'Rs 1,50,000', valueUsd: 'USD 1,899' },
+  { item: 'AI Behaviour Spec Template Library', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'AI State Design System Kit', valueInr: 'Rs 6,999', valueUsd: 'USD 99' },
+  { item: 'AI Prototype Prompt Vault', valueInr: 'Rs 3,999', valueUsd: 'USD 59' },
+  { item: 'Figma for Non-Designers Pre-Course Module', valueInr: 'Rs 5,999', valueUsd: 'USD 89' },
+  { item: '60-Day Post-Course Mentor Access', valueInr: 'Rs 8,999', valueUsd: 'USD 129' },
+  { item: 'Live Group Portfolio Review Session', valueInr: 'Rs 6,999', valueUsd: 'USD 99' },
+  { item: 'AI Product Design Alumni Community', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: '[Early Bird] 1:1 Mentor Session', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'Total standalone value', rowType: 'total', valueInr: 'Rs 1,95,992', valueUsd: 'USD 2,499' },
+  { item: 'Your early bird price', rowType: 'earlyBird', valueInr: 'Rs 64,999', valueUsd: 'USD 899' },
+  { item: 'Standard price (after early bird)', rowType: 'standard', valueInr: 'Rs 79,999', valueUsd: 'USD 899' },
 ]
+
+export const aiProductEmiConfig = {
+  inr: { months: 3, perMonth: '21,666' },
+  usd: { months: 3, perMonth: '299' },
+} as const
 
 export const aiProductIdealFor = [
   'You are a PM at a company shipping AI features with no framework for designing the UX of what the model actually does.',

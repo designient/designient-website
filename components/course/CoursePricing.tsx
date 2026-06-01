@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { CheckCircle, ArrowRight, Clock, Calendar } from 'react-feather';
 import Link from 'next/link';
 import { useCurrency } from '../../contexts/CurrencyContext';
-import { CurrencyToggle } from '../CurrencyToggle';
 import { UrgencyBanner } from './UrgencyBanner';
 import type { CoursePricingData } from '../../data/coursePricing';
 import { proCourseBatchSchedule } from '../../data/batchSchedule';
@@ -99,10 +98,9 @@ export function CoursePricing({
                 </div>
               )}
 
-              {/* Currency Toggle */}
-              <div className="flex justify-center mb-4">
-                <CurrencyToggle size="md" />
-              </div>
+              <p className="font-body text-sm opacity-90 mb-4 max-w-xl mx-auto">
+                Showing <strong>{currency}</strong> prices — change currency using the toggle in the site header.
+              </p>
 
               <div className="flex items-center justify-center gap-4 mb-2 flex-wrap">
                 {pricing.originalPrice && (

@@ -3,6 +3,11 @@
  * Uses fetch + Web Crypto (no Node.js razorpay SDK).
  */
 
+export type { RazorpayCurrency } from './razorpay-constants'
+export { getMinAmount, getMinAmountLabel, isSupportedCurrency } from './razorpay-constants'
+
+import type { RazorpayCurrency } from './razorpay-constants'
+
 export function getRazorpayKeyId(): string {
   const keyId = process.env.RAZORPAY_KEY_ID
   if (!keyId) {
@@ -61,7 +66,7 @@ export type RazorpayOrderResponse = {
 
 export async function createRazorpayOrder(params: {
   amount: number
-  currency: string
+  currency: RazorpayCurrency
   receipt: string
   notes?: Record<string, string>
 }): Promise<RazorpayOrderResponse> {

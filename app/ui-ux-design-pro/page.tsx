@@ -5,6 +5,8 @@ import { FloatingApplyButton } from '../../components/course/FloatingApplyButton
 import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
+import { CourseSecondaryText } from '../../components/pricing/CourseSecondaryText'
+import { proEmiConfig } from '../../data/proPageData'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
 import { PaymentOptions } from '../../components/course/PaymentOptions'
 import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
@@ -171,7 +173,15 @@ export default function UIUXDesignProPage() {
             courseName="UI UX Design Pro"
             courseSlug="ui-ux-design-pro"
             ctaText="Apply for the UI UX Design Pro Course"
-            secondaryText="India's most enrolled UI/UX design course. Ten weeks, 25 students, one real client project, and a structured path to placement. 5 early bird seats at Rs 49,999 · Standard at Rs 59,999 · International at USD 699. EMI available — Rs 16,666/month for 3 months (early bird) · Zero interest."
+            secondaryText={
+              <CourseSecondaryText
+                slug="ui-ux-design-pro"
+                lead="India's most enrolled UI/UX design course. Ten weeks, 25 students, one real client project, and a structured path to placement."
+                earlyBirdSeats={5}
+                emi={proEmiConfig}
+                guarantee=""
+              />
+            }
           />
         </main>
         <Footer />

@@ -1,3 +1,5 @@
+import type { LocalizedValueRow } from './localizedPricingTypes'
+
 export const masterHero = {
   badge: 'Most Advanced · Design Track — Step 3 · 6 Months · 15 Students Per Cohort · Diploma Certified',
   title: 'UI UX Design Master Course: From Competent Designer to Senior, Lead, or Principal in 6 Months',
@@ -114,27 +116,35 @@ export const masterAiDistinction = {
 }
 
 export const masterBonuses = [
-  { name: 'Advanced Figma Systems Playbook', value: 'Rs 8,999', description: 'The exact approach to building, governing, and maintaining a multi-brand enterprise design system. Used directly in module 1.', highlight: false },
-  { name: 'AI Product Strategy Toolkit', value: 'Rs 4,999', description: 'Templates for AI feature briefing, behaviour specification at overview level, and AI product audit.', highlight: false },
-  { name: 'Design Leadership Facilitation Pack', value: 'Rs 5,999', description: 'Critique facilitation templates, stakeholder presentation structure, design review agenda formats, and team onboarding playbook.', highlight: false },
-  { name: 'Capstone Project Brief Library', value: 'Rs 3,999', description: '30 senior-level design briefs across 10 industries — for students selecting a capstone from a curated set.', highlight: false },
-  { name: 'Placement Assistance — 6 Months', value: 'Rs 15,999', description: 'Structured placement support starting month 6. Resume, LinkedIn, portfolio, mock interviews, partner introductions.', highlight: false },
-  { name: 'Lifetime Mentorship Access', value: 'Rs 12,999', description: 'Post-graduation access to the Designient mentor network for career decisions, portfolio review, and design questions.', highlight: false },
-  { name: 'AI Product Design Course — Rs 5,000 Alumni Discount', value: 'Rs 5,000', description: 'Master graduates receive Rs 5,000 off the AI Product Design Course standard price.', highlight: false },
-  { name: '[Early Bird Exclusive] 2 x 1:1 Mentor Strategy Sessions', value: 'Rs 17,998', description: 'Two private 45-minute sessions with your mentor — one at month 2 and one at month 5. First 5 early bird applicants only.', highlight: true },
+  { name: 'Advanced Figma Systems Playbook', valueInr: 'Rs 8,999', valueUsd: 'USD 129', description: 'The exact approach to building, governing, and maintaining a multi-brand enterprise design system. Used directly in module 1.', highlight: false },
+  { name: 'AI Product Strategy Toolkit', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: 'Templates for AI feature briefing, behaviour specification at overview level, and AI product audit.', highlight: false },
+  { name: 'Design Leadership Facilitation Pack', valueInr: 'Rs 5,999', valueUsd: 'USD 89', description: 'Critique facilitation templates, stakeholder presentation structure, design review agenda formats, and team onboarding playbook.', highlight: false },
+  { name: 'Capstone Project Brief Library', valueInr: 'Rs 3,999', valueUsd: 'USD 59', description: '30 senior-level design briefs across 10 industries — for students selecting a capstone from a curated set.', highlight: false },
+  { name: 'Placement Assistance — 6 Months', valueInr: 'Rs 15,999', valueUsd: 'USD 219', description: 'Structured placement support starting month 6. Resume, LinkedIn, portfolio, mock interviews, partner introductions.', highlight: false },
+  { name: 'Lifetime Mentorship Access', valueInr: 'Rs 12,999', valueUsd: 'USD 179', description: 'Post-graduation access to the Designient mentor network for career decisions, portfolio review, and design questions.', highlight: false },
+  { name: 'AI Product Design Course — Rs 5,000 Alumni Discount', valueInr: 'Rs 5,000', valueUsd: 'USD 49', description: 'Master graduates receive Rs 5,000 off the AI Product Design Course standard price.', highlight: false },
+  { name: '[Early Bird Exclusive] 2 x 1:1 Mentor Strategy Sessions', valueInr: 'Rs 17,998', valueUsd: 'USD 259', description: 'Two private 45-minute sessions with your mentor — one at month 2 and one at month 5. First 5 early bird applicants only.', highlight: true },
 ]
 
-export const masterValueStack = [
-  { item: 'UI UX Design Master (6 months · 120 live hours · 200+ total hours · 2 client projects · diploma)', value: 'Rs 4,00,000' },
-  { item: 'Advanced Figma Systems Playbook', value: 'Rs 8,999' },
-  { item: 'AI Product Strategy Toolkit', value: 'Rs 4,999' },
-  { item: 'Design Leadership Facilitation Pack', value: 'Rs 5,999' },
-  { item: 'Capstone Project Brief Library', value: 'Rs 3,999' },
-  { item: 'Placement Assistance — 6 months', value: 'Rs 15,999' },
-  { item: 'Lifetime Mentorship Access', value: 'Rs 12,999' },
-  { item: 'AI Product Design Course Alumni Discount', value: 'Rs 5,000' },
-  { item: '[Early Bird] 2 x 1:1 Mentor Strategy Sessions', value: 'Rs 17,998' },
+export const masterValueStack: LocalizedValueRow[] = [
+  { item: 'UI UX Design Master (6 months · 120 live hours · 200+ total hours · 2 client projects · diploma)', valueInr: 'Rs 4,00,000', valueUsd: 'USD 4,999' },
+  { item: 'Advanced Figma Systems Playbook', valueInr: 'Rs 8,999', valueUsd: 'USD 129' },
+  { item: 'AI Product Strategy Toolkit', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'Design Leadership Facilitation Pack', valueInr: 'Rs 5,999', valueUsd: 'USD 89' },
+  { item: 'Capstone Project Brief Library', valueInr: 'Rs 3,999', valueUsd: 'USD 59' },
+  { item: 'Placement Assistance — 6 months', valueInr: 'Rs 15,999', valueUsd: 'USD 219' },
+  { item: 'Lifetime Mentorship Access', valueInr: 'Rs 12,999', valueUsd: 'USD 179' },
+  { item: 'AI Product Design Course Alumni Discount', valueInr: 'Rs 5,000', valueUsd: 'USD 49' },
+  { item: '[Early Bird] 2 x 1:1 Mentor Strategy Sessions', valueInr: 'Rs 17,998', valueUsd: 'USD 259' },
+  { item: 'Total standalone value', rowType: 'total', valueInr: 'Rs 4,75,992', valueUsd: 'USD 5,799' },
+  { item: 'Your early bird price', rowType: 'earlyBird', valueInr: 'Rs 99,999', valueUsd: 'USD 1,399' },
+  { item: 'Standard price (after early bird)', rowType: 'standard', valueInr: 'Rs 1,19,999', valueUsd: 'USD 1,399' },
 ]
+
+export const masterEmiConfig = {
+  inr: { months: 6, perMonth: '16,666' },
+  usd: { months: 6, perMonth: '233' },
+} as const
 
 export const masterIdealFor = [
   'You have 1+ year of design experience and keep hitting a ceiling on senior roles.',

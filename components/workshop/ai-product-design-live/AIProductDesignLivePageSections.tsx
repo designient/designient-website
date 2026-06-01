@@ -12,6 +12,10 @@ import {
   Video,
   Zap,
 } from 'react-feather'
+import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
+import { LocalizedPriceText } from '../../pricing/LocalizedPriceText'
+import { useCurrency } from '../../../contexts/CurrencyContext'
+import { pickByCurrency } from '../../../lib/localizedPricing'
 import { WorkshopRegistrationForm } from '../WorkshopRegistrationForm'
 import {
   aiProductDesignLiveBonuses,
@@ -30,12 +34,14 @@ function scrollToRegister() {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-function sessionUrgencyLine() {
+function SessionUrgencyLine() {
+  const { currency, isLoading } = useCurrency()
   const { dateLabel, timeLabel, portfolioReviewSpotsRemaining } = aiProductDesignLiveSession
+  const valueLabel = isLoading ? '…' : pickByCurrency(currency, 'Rs 4,999', 'USD 69')
   return (
     <>
       Next session: <strong>{dateLabel}</strong> · <strong>{timeLabel}</strong> · Free to attend · First 5
-      registrants get a 1:1 Portfolio and Application Review (Rs 4,999 value) —{' '}
+      registrants get a 1:1 Portfolio and Application Review ({valueLabel} value) —{' '}
       <strong>{portfolioReviewSpotsRemaining} spots remaining</strong>
     </>
   )
@@ -45,7 +51,7 @@ export function AIProductDesignLiveUrgencyStrip() {
   return (
     <div className="py-3 px-4 text-center" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
       <p className="font-body text-sm md:text-base font-semibold">
-        {sessionUrgencyLine()}{' '}
+        <SessionUrgencyLine />{' '}
         <button type="button" onClick={scrollToRegister} className="underline hover:no-underline inline-flex items-center gap-1 font-bold">
           Register Free
           <ArrowRight className="w-4 h-4" />
@@ -93,7 +99,8 @@ export function AIProductDesignLiveHero() {
             </div>
 
             <p className="font-body text-sm font-semibold p-4 rounded-xl mb-4" style={{ backgroundColor: 'var(--bg-subtle)', color: 'var(--text-primary)' }}>
-              First 5 registrants this month receive a free 1:1 Portfolio and Application Review (30 min · Rs 4,999 value).{' '}
+              First 5 registrants this month receive a free 1:1 Portfolio and Application Review (30 min ·{' '}
+              <LocalizedPriceText inr="Rs 4,999" usd="USD 69" /> value).{' '}
               <strong>{aiProductDesignLiveSession.portfolioReviewSpotsRemaining} spots remaining.</strong>
             </p>
           </div>
@@ -219,7 +226,7 @@ export function AIProductDesignLiveBonuses() {
                 </p>
               )}
               <p className="font-body text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
-                Standalone value: {bonus.value} · Yours free
+                Standalone value: <LocalizedPriceText inr={bonus.valueInr} usd={bonus.valueUsd} /> · Yours free
               </p>
             </motion.div>
           ))}
@@ -230,46 +237,29 @@ export function AIProductDesignLiveBonuses() {
 }
 
 export function AIProductDesignLiveValueStack() {
-  const { rows, totalAllAttendees, totalFirstFive, investment } = aiProductDesignLiveValueStack
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)' }}>
-          The Value Stack
-        </h2>
-        <div className="overflow-x-auto rounded-xl shadow-md">
-          <table className="w-full min-w-[320px]">
-            <thead>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <th className="p-4 text-left font-bold" style={{ color: 'var(--text-on-accent)' }}>What You Get</th>
-                <th className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Standalone Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row, i) => (
-                <tr key={row.item} style={{ backgroundColor: i % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-base)' }}>
-                  <td className="p-4 font-body text-sm border-t" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>{row.item}</td>
-                  <td className="p-4 font-body text-sm text-right border-t font-semibold" style={{ color: 'var(--color-primary)', borderColor: 'var(--border-default)' }}>{row.value}</td>
-                </tr>
-              ))}
-              <tr style={{ backgroundColor: 'var(--bg-card)' }}>
-                <td className="p-4 font-body font-bold border-t" style={{ borderColor: 'var(--border-default)' }}>Total value (all attendees)</td>
-                <td className="p-4 font-body font-bold text-right border-t" style={{ color: 'var(--color-primary)', borderColor: 'var(--border-default)' }}>{totalAllAttendees}</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--bg-base)' }}>
-                <td className="p-4 font-body font-bold border-t" style={{ borderColor: 'var(--border-default)' }}>Total value (first 5 registrants)</td>
-                <td className="p-4 font-body font-bold text-right border-t" style={{ color: 'var(--color-primary)', borderColor: 'var(--border-default)' }}>{totalFirstFive}</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-highlight)' }}>
-                <td className="p-4 font-display font-bold border-t" style={{ color: 'var(--text-on-accent)', borderColor: 'var(--border-default)' }}>Your investment</td>
-                <td className="p-4 font-display font-bold text-right border-t text-xl" style={{ color: 'var(--text-on-accent)', borderColor: 'var(--border-default)' }}>{investment}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  )
+  const stack = aiProductDesignLiveValueStack
+  const rows = [
+    ...stack.rows,
+    {
+      item: 'Total value (all attendees)',
+      rowType: 'total' as const,
+      valueInr: stack.totalAllAttendeesInr,
+      valueUsd: stack.totalAllAttendeesUsd,
+    },
+    {
+      item: 'Total value (first 5 registrants)',
+      rowType: 'standard' as const,
+      valueInr: stack.totalFirstFiveInr,
+      valueUsd: stack.totalFirstFiveUsd,
+    },
+    {
+      item: 'Your investment',
+      rowType: 'earlyBird' as const,
+      valueInr: stack.investmentInr,
+      valueUsd: stack.investmentUsd,
+    },
+  ]
+  return <CurrencyAwareValueStack title="The Value Stack" rows={rows} />
 }
 
 export function AIProductDesignLiveWhoFor() {
@@ -405,7 +395,8 @@ export function AIProductDesignLiveFooterCTA() {
           Next session: {aiProductDesignLiveSession.dateLabel} · {aiProductDesignLiveSession.timeLabel} · Zoom · Free
         </p>
         <p className="font-body text-sm" style={{ color: 'var(--text-on-accent)', opacity: 0.9 }}>
-          First 5 registrants receive a free 1:1 Portfolio and Application Review (Rs 4,999 value).{' '}
+          First 5 registrants receive a free 1:1 Portfolio and Application Review (
+          <LocalizedPriceText inr="Rs 4,999" usd="USD 69" /> value).{' '}
           {aiProductDesignLiveSession.portfolioReviewSpotsRemaining} spots remaining.
         </p>
       </div>

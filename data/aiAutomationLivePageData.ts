@@ -42,7 +42,7 @@ export const aiAutomationLiveBonuses = [
     description:
       'The exact automation built live, exported as a ready-to-import n8n workflow. Open your n8n account, import the file, connect your credentials, and the automation runs. No rebuilding from scratch.',
     why: 'Most people watch a tutorial and then spend three hours trying to recreate it. You skip that entirely.',
-    value: 'Rs 2,999',
+    valueInr: 'Rs 2,999', valueUsd: 'USD 59',
     firstFiveOnly: false,
   },
   {
@@ -50,7 +50,7 @@ export const aiAutomationLiveBonuses = [
     description:
       'A Notion template with the 5 most automatable tasks mapped out for 6 common role types: operations manager, marketer, freelancer, founder, sales professional, HR lead. Each task includes the tools typically involved and the automation pattern that solves it.',
     why: 'The most common reason professionals don’t start automating is not knowing where to start. This guide removes that friction in under 15 minutes.',
-    value: 'Rs 1,999',
+    valueInr: 'Rs 1,999', valueUsd: 'USD 29',
     firstFiveOnly: false,
   },
   {
@@ -58,7 +58,7 @@ export const aiAutomationLiveBonuses = [
     description:
       'Three pre-wired n8n workflow templates beyond the one built in the session: (1) Lead capture form → Airtable → email notification, (2) Weekly data report automation → formatted → sent to team, (3) Slack notification router — triggers from any tool, routes to the right channel. All ready to import with a short setup guide each.',
     why: '',
-    value: 'Rs 4,999',
+    valueInr: 'Rs 4,999', valueUsd: 'USD 69',
     firstFiveOnly: false,
   },
   {
@@ -66,7 +66,7 @@ export const aiAutomationLiveBonuses = [
     description:
       'The full 2-hour session recording sent to your registered email within 24 hours. Rewatch at any pace. Share with a colleague who could not attend.',
     why: '',
-    value: 'Rs 2,999',
+    valueInr: 'Rs 2,999', valueUsd: 'USD 59',
     firstFiveOnly: false,
   },
   {
@@ -74,7 +74,7 @@ export const aiAutomationLiveBonuses = [
     description:
       'Access to the Designient AI Automation community channel for 30 days after the workshop. Ask questions about the workflow you are deploying, share what you have built, and connect with other professionals doing the same work.',
     why: '',
-    value: 'Rs 1,999',
+    valueInr: 'Rs 1,999', valueUsd: 'USD 29',
     firstFiveOnly: false,
   },
   {
@@ -82,7 +82,7 @@ export const aiAutomationLiveBonuses = [
     description:
       'If you enroll in the AI Automation Accelerator after the workshop, registered attendees get a 48-hour exclusive window before early bird seats open to the public. Early bird is Rs 34,999; standard is Rs 44,999 — Rs 10,000 difference. You get first access before anyone else.',
     why: '',
-    value: 'Rs 10,000',
+    valueInr: 'Rs 10,000', valueUsd: 'USD 129',
     firstFiveOnly: false,
   },
   {
@@ -90,24 +90,27 @@ export const aiAutomationLiveBonuses = [
     description:
       'A private 30-minute session with a Designient mentor, redeemable within 30 days of the workshop. Map your personal automation roadmap — which 3 automations to build first, in which order, and how they connect.',
     why: '',
-    value: 'Rs 4,999',
+    valueInr: 'Rs 4,999', valueUsd: 'USD 69',
     firstFiveOnly: true,
   },
 ]
 
 export const aiAutomationLiveValueStack = {
   rows: [
-    { item: 'n8n Workflow File from the Session', value: 'Rs 2,999' },
-    { item: 'Workflow Audit Mini-Guide (Notion)', value: 'Rs 1,999' },
-    { item: '3 Bonus n8n Workflow Templates', value: 'Rs 4,999' },
-    { item: 'Session Recording (sent within 24 hours)', value: 'Rs 2,999' },
-    { item: '30-Day AI Automation Community Access', value: 'Rs 1,999' },
-    { item: 'AI Automation Accelerator 48-hr Early Bird Priority Access', value: 'Rs 10,000' },
-    { item: '[First 5 Only] 1:1 Automation Strategy Session (30 min)', value: 'Rs 4,999' },
+    { item: 'n8n Workflow File from the Session', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+    { item: 'Workflow Audit Mini-Guide (Notion)', valueInr: 'Rs 1,999', valueUsd: 'USD 29' },
+    { item: '3 Bonus n8n Workflow Templates', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+    { item: 'Session Recording (sent within 24 hours)', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+    { item: '30-Day AI Automation Community Access', valueInr: 'Rs 1,999', valueUsd: 'USD 29' },
+    { item: 'AI Automation Accelerator 48-hr Early Bird Priority Access', valueInr: 'Rs 10,000', valueUsd: 'USD 129' },
+    { item: '[First 5 Only] 1:1 Automation Strategy Session (30 min)', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
   ],
-  totalAllAttendees: 'Rs 24,994',
-  totalFirstFive: 'Rs 29,993',
-  investment: 'Rs 0',
+  totalAllAttendeesInr: 'Rs 24,994',
+  totalAllAttendeesUsd: 'USD 299',
+  totalFirstFiveInr: 'Rs 29,993',
+  totalFirstFiveUsd: 'USD 359',
+  investmentInr: 'Rs 0',
+  investmentUsd: 'USD 0',
 }
 
 export type AIAutomationLiveFaq = {

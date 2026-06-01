@@ -6,6 +6,8 @@ import { FloatingApplyButton } from '../../components/course/FloatingApplyButton
 import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
+import { CourseSecondaryText } from '../../components/pricing/CourseSecondaryText'
+import { aiAcceleratorEmiConfig } from '../../data/aiAutomationAcceleratorPageData'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
 import { PaymentOptions } from '../../components/course/PaymentOptions'
 import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
@@ -176,7 +178,16 @@ export default function AIAutomationAcceleratorPage() {
             courseName="AI Automation Accelerator"
             courseSlug="ai-automation-accelerator"
             ctaText="Claim Your Seat in the AI Automation Accelerator"
-            secondaryText="Eight weeks. Six tools. Three automations running live by the time it ends. 8 early bird seats at Rs 34,999 · 27 standard seats at Rs 44,999 · International at USD 449. EMI — Rs 11,666/month for 3 months (early bird) · Zero interest. 50% money-back guarantee if you do the work and still have nothing deployed."
+            secondaryText={
+              <CourseSecondaryText
+                slug="ai-automation-accelerator"
+                lead="Eight weeks. Six tools. Three automations running live by the time it ends."
+                earlyBirdSeats={8}
+                standardSeats={27}
+                emi={aiAcceleratorEmiConfig}
+                guarantee="50% money-back guarantee if you do the work and still have nothing deployed."
+              />
+            }
           />
         </main>
         <Footer />

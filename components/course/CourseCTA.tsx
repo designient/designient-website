@@ -10,7 +10,7 @@ import { useQuickApply } from './QuickApplyContext';
 interface CourseCTAProps {
   courseName: string;
   ctaText?: string;
-  secondaryText?: string;
+  secondaryText?: React.ReactNode;
   cityName?: string;
   courseSlug?: string;
 }

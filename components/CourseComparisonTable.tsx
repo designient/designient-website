@@ -3,6 +3,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import { useCurrency } from '../contexts/CurrencyContext'
 import { aiTrackComparison as aiRows, designTrackComparison as designRows, type ComparisonRow } from '../data/coursesHubData'
 
 type TrackComparisonTableProps = {
@@ -20,6 +21,8 @@ export function TrackComparisonTable({
   footnote,
   backgroundColor = 'var(--bg-card)',
 }: TrackComparisonTableProps) {
+  const { currency, isLoading } = useCurrency()
+
   return (
     <section className="py-12 md:py-16" style={{ backgroundColor }}>
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -87,7 +90,7 @@ export function TrackComparisonTable({
                     >
                       {row.label}
                     </td>
-                    {row.values.map((value, colIndex) => (
+                    {(currency === 'INR' ? row.valuesInr : row.valuesUsd).map((value, colIndex) => (
                       <td
                         key={`${row.label}-${colIndex}`}
                         className="p-4 text-center border-t align-top"
@@ -97,7 +100,7 @@ export function TrackComparisonTable({
                           fontSize: 'clamp(0.8125rem, 1.5vw, 0.9375rem)',
                         }}
                       >
-                        {value}
+                        {isLoading ? '…' : value}
                       </td>
                     ))}
                   </tr>

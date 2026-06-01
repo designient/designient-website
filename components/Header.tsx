@@ -439,6 +439,13 @@ export function Header() {
                 style={{ backgroundColor: 'var(--bg-warm)' }}
                 aria-label="Mobile navigation">
 
+                <div className="flex items-center justify-between gap-4 pb-6 mb-4 border-b" style={{ borderColor: 'var(--border-default)' }}>
+                  <span className="font-body text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>
+                    Currency
+                  </span>
+                  <CurrencyToggle size="md" />
+                </div>
+
                 {/* Main Navigation Links */}
                 <div className="space-y-1">
                   {navLinks.map((link, index) => (

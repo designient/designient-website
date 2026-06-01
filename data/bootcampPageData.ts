@@ -1,3 +1,5 @@
+import type { LocalizedValueRow } from './localizedPricingTypes'
+
 export const bootcampHero = {
   badge: 'Design Track — Step 1 · 3 Days · 50 Early Bird Seats · Beginner-Friendly',
   title: 'UI UX Design Bootcamp: Build a Portfolio-Ready Product in 3 Days — No Experience Required',
@@ -102,24 +104,27 @@ export const bootcampTools = [
 ]
 
 export const bootcampBonuses = [
-  { name: 'AI Design Prompt Vault', value: 'Rs 4,999', description: 'The exact prompts used across the bootcamp — for research, persona building, critique, case study writing, and visual direction. Tested and refined across multiple cohorts.' },
-  { name: 'Figma Starter Kit', value: 'Rs 2,999', description: 'A pre-built Figma file with the component library, colour variables, text styles, and auto layout frames you will need from Saturday morning.' },
-  { name: 'Bolt Portfolio Deploy Guide', value: 'Rs 2,999', description: 'A step-by-step guide to deploying your Bolt prototype as a shareable public link and embedding it in your portfolio.' },
-  { name: 'Live Portfolio Review (Post-Bootcamp)', value: 'Rs 5,999', description: 'A 90-minute online session the week after the bootcamp where mentor reviews every student\'s five artefacts and gives specific feedback.' },
-  { name: 'Career Launchpad Kit', value: 'Rs 2,999', description: 'Resume template, LinkedIn profile guide, portfolio structure guide, and 10 cold outreach templates for junior designer roles.' },
-  { name: 'Alumni Community — 30-Day Access', value: 'Rs 1,999', description: 'Access to the Designient Design alumni channel for 30 days. Peer feedback, job leads, and design resources.' },
-  { name: '[Early Bird Exclusive] Priority Critique Slot', value: 'Rs 2,999', description: 'Early bird students get a priority slot in Saturday\'s live critique loop — mentor reviews their work first. Available to first 50 students only.', highlight: true },
+  { name: 'AI Design Prompt Vault', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: 'The exact prompts used across the bootcamp — for research, persona building, critique, case study writing, and visual direction. Tested and refined across multiple cohorts.' },
+  { name: 'Figma Starter Kit', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'A pre-built Figma file with the component library, colour variables, text styles, and auto layout frames you will need from Saturday morning.' },
+  { name: 'Bolt Portfolio Deploy Guide', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'A step-by-step guide to deploying your Bolt prototype as a shareable public link and embedding it in your portfolio.' },
+  { name: 'Live Portfolio Review (Post-Bootcamp)', valueInr: 'Rs 5,999', valueUsd: 'USD 89', description: 'A 90-minute online session the week after the bootcamp where mentor reviews every student\'s five artefacts and gives specific feedback.' },
+  { name: 'Career Launchpad Kit', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'Resume template, LinkedIn profile guide, portfolio structure guide, and 10 cold outreach templates for junior designer roles.' },
+  { name: 'Alumni Community — 30-Day Access', valueInr: 'Rs 1,999', valueUsd: 'USD 29', description: 'Access to the Designient Design alumni channel for 30 days. Peer feedback, job leads, and design resources.' },
+  { name: '[Early Bird Exclusive] Priority Critique Slot', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'Early bird students get a priority slot in Saturday\'s live critique loop — mentor reviews their work first. Available to first 50 students only.', highlight: true },
 ]
 
-export const bootcampValueStack = [
-  { item: 'UI UX Design Bootcamp (3 days · 18 live hours · 5 portfolio artefacts)', value: 'Rs 20,000' },
-  { item: 'AI Design Prompt Vault', value: 'Rs 4,999' },
-  { item: 'Figma Starter Kit', value: 'Rs 2,999' },
-  { item: 'Bolt Portfolio Deploy Guide', value: 'Rs 2,999' },
-  { item: 'Live Portfolio Review (post-bootcamp)', value: 'Rs 5,999' },
-  { item: 'Career Launchpad Kit', value: 'Rs 2,999' },
-  { item: 'Alumni Community — 30-day access', value: 'Rs 1,999' },
-  { item: '[Early Bird] Priority Critique Slot', value: 'Rs 2,999' },
+export const bootcampValueStack: LocalizedValueRow[] = [
+  { item: 'UI UX Design Bootcamp (3 days · 18 live hours · 5 portfolio artefacts)', valueInr: 'Rs 20,000', valueUsd: 'USD 249' },
+  { item: 'AI Design Prompt Vault', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'Figma Starter Kit', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: 'Bolt Portfolio Deploy Guide', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: 'Live Portfolio Review (post-bootcamp)', valueInr: 'Rs 5,999', valueUsd: 'USD 89' },
+  { item: 'Career Launchpad Kit', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: 'Alumni Community — 30-day access', valueInr: 'Rs 1,999', valueUsd: 'USD 29' },
+  { item: '[Early Bird] Priority Critique Slot', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: 'Total standalone value', rowType: 'total', valueInr: 'Rs 44,993', valueUsd: 'USD 549' },
+  { item: 'Your early bird price', rowType: 'earlyBird', valueInr: 'Rs 1,999', valueUsd: 'USD 49' },
+  { item: 'Standard price (after early bird)', rowType: 'standard', valueInr: 'Rs 5,000', valueUsd: 'USD 49' },
 ]
 
 export const bootcampComparison = {

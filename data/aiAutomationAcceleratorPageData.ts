@@ -1,3 +1,5 @@
+import type { LocalizedValueRow } from './localizedPricingTypes'
+
 export const aiAcceleratorHero = {
   badge: 'Highest Demand 2026 · AI Track — Step 1 · 8 Weeks · 35 Seats · Open Enrollment',
   title: 'AI Automation Accelerator: Build 3 Deployed AI Workflows in 8 Weeks — No Coding Required',
@@ -43,7 +45,7 @@ export const aiAcceleratorPatternComparison = {
     { feature: 'Tools taught to depth', pro: 'n8n, Make, ManyChat, Relevance AI', others: 'Surface demos' },
     { feature: 'Coding required', pro: 'None', others: 'None' },
     { feature: 'Guarantee', pro: '50% refund — conditions stated', others: 'No refund policy' },
-    { feature: 'Price', pro: 'Rs 34,999 early bird', others: 'Rs 60,000 to Rs 1,00,000' },
+    { feature: 'Price', proInr: 'Rs 34,999 early bird', proUsd: 'USD 449 early bird', others: 'Rs 60,000 to Rs 1,00,000' },
     { feature: 'Mentor access', pro: 'Live, every session', others: 'Recorded video' },
   ],
 }
@@ -231,27 +233,35 @@ export const aiAcceleratorTools = [
 ]
 
 export const aiAcceleratorBonuses = [
-  { name: 'Workflow Audit Canvas', value: 'Rs 3,999', description: 'Notion template — map and prioritise every automatable task in your current work before session 1. Completed as a pre-course exercise.', highlight: false },
-  { name: 'n8n Quick-Start Template Pack', value: 'Rs 4,999', description: '15 pre-wired n8n workflow templates — lead capture, report generation, Slack notifications, data sync, email triggers, and more.', highlight: false },
-  { name: 'AI Automation Freelance Pricing Kit', value: 'Rs 5,999', description: 'Rate card for Indian and international automation clients. Proposal template. Niche selection guide. First client outreach sequence.', highlight: false },
-  { name: 'n8n Self-Hosting Guide', value: 'Rs 2,999', description: 'Step-by-step setup on Hetzner, DigitalOcean, or Hostinger — from Rs 750/month. Full data privacy, zero per-execution fees at scale.', highlight: false },
-  { name: '60-Day Post-Course Mentor Access', value: 'Rs 8,999', description: 'Direct mentor access via cohort channel for 60 days after the final session.', highlight: false },
-  { name: 'Live Portfolio Presentation Session', value: 'Rs 5,999', description: 'Week 8 session — each student demos all 3 automations live. Structured critique before showing employers or clients.', highlight: false },
-  { name: 'AI Automation Alumni Community', value: 'Rs 2,999', description: 'Permanent access — peer workflow critique, job and project leads, tool updates.', highlight: false },
-  { name: '[Early Bird Exclusive] One 30-Minute 1:1 Mentor Workflow Review', value: 'Rs 4,999', description: 'Redeemable in weeks 4 to 6. Use it on a specific build problem, a misbehaving workflow, or freelance packaging questions.', highlight: true },
+  { name: 'Workflow Audit Canvas', valueInr: 'Rs 3,999', valueUsd: 'USD 59', description: 'Notion template — map and prioritise every automatable task in your current work before session 1. Completed as a pre-course exercise.', highlight: false },
+  { name: 'n8n Quick-Start Template Pack', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: '15 pre-wired n8n workflow templates — lead capture, report generation, Slack notifications, data sync, email triggers, and more.', highlight: false },
+  { name: 'AI Automation Freelance Pricing Kit', valueInr: 'Rs 5,999', valueUsd: 'USD 89', description: 'Rate card for Indian and international automation clients. Proposal template. Niche selection guide. First client outreach sequence.', highlight: false },
+  { name: 'n8n Self-Hosting Guide', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'Step-by-step setup on Hetzner, DigitalOcean, or Hostinger — from Rs 750/month. Full data privacy, zero per-execution fees at scale.', highlight: false },
+  { name: '60-Day Post-Course Mentor Access', valueInr: 'Rs 8,999', valueUsd: 'USD 129', description: 'Direct mentor access via cohort channel for 60 days after the final session.', highlight: false },
+  { name: 'Live Portfolio Presentation Session', valueInr: 'Rs 5,999', valueUsd: 'USD 89', description: 'Week 8 session — each student demos all 3 automations live. Structured critique before showing employers or clients.', highlight: false },
+  { name: 'AI Automation Alumni Community', valueInr: 'Rs 2,999', valueUsd: 'USD 59', description: 'Permanent access — peer workflow critique, job and project leads, tool updates.', highlight: false },
+  { name: '[Early Bird Exclusive] One 30-Minute 1:1 Mentor Workflow Review', valueInr: 'Rs 4,999', valueUsd: 'USD 69', description: 'Redeemable in weeks 4 to 6. Use it on a specific build problem, a misbehaving workflow, or freelance packaging questions.', highlight: true },
 ]
 
-export const aiAcceleratorValueStack = [
-  { item: 'AI Automation Accelerator (8 weeks · 56 live hours · 3 deployed automations)', value: 'Rs 1,20,000' },
-  { item: 'Workflow Audit Canvas', value: 'Rs 3,999' },
-  { item: 'n8n Quick-Start Template Pack', value: 'Rs 4,999' },
-  { item: 'AI Automation Freelance Pricing Kit', value: 'Rs 5,999' },
-  { item: 'n8n Self-Hosting Guide', value: 'Rs 2,999' },
-  { item: '60-Day Post-Course Mentor Access', value: 'Rs 8,999' },
-  { item: 'Live Portfolio Presentation Session', value: 'Rs 5,999' },
-  { item: 'AI Automation Alumni Community', value: 'Rs 2,999' },
-  { item: '[Early Bird] 1:1 Mentor Workflow Review', value: 'Rs 4,999' },
+export const aiAcceleratorValueStack: LocalizedValueRow[] = [
+  { item: 'AI Automation Accelerator (8 weeks · 56 live hours · 3 deployed automations)', valueInr: 'Rs 1,20,000', valueUsd: 'USD 1,499' },
+  { item: 'Workflow Audit Canvas', valueInr: 'Rs 3,999', valueUsd: 'USD 59' },
+  { item: 'n8n Quick-Start Template Pack', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'AI Automation Freelance Pricing Kit', valueInr: 'Rs 5,999', valueUsd: 'USD 89' },
+  { item: 'n8n Self-Hosting Guide', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: '60-Day Post-Course Mentor Access', valueInr: 'Rs 8,999', valueUsd: 'USD 129' },
+  { item: 'Live Portfolio Presentation Session', valueInr: 'Rs 5,999', valueUsd: 'USD 89' },
+  { item: 'AI Automation Alumni Community', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+  { item: '[Early Bird] 1:1 Mentor Workflow Review', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
+  { item: 'Total standalone value', rowType: 'total', valueInr: 'Rs 1,60,992', valueUsd: 'USD 1,899' },
+  { item: 'Your early bird price', rowType: 'earlyBird', valueInr: 'Rs 34,999', valueUsd: 'USD 449' },
+  { item: 'Standard price (after early bird)', rowType: 'standard', valueInr: 'Rs 44,999', valueUsd: 'USD 449' },
 ]
+
+export const aiAcceleratorEmiConfig = {
+  inr: { months: 3, perMonth: '11,666' },
+  usd: { months: 3, perMonth: '149' },
+} as const
 
 export const aiAcceleratorIdealFor = [
   'You are an operations manager, marketing lead, HR professional, founder, or solopreneur spending 10+ hours per week on tasks that follow the same pattern every time.',

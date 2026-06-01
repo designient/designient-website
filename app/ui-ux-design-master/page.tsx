@@ -5,6 +5,8 @@ import { FloatingApplyButton } from '../../components/course/FloatingApplyButton
 import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
+import { CourseSecondaryText } from '../../components/pricing/CourseSecondaryText'
+import { masterEmiConfig } from '../../data/masterPageData'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
 import { PaymentOptions } from '../../components/course/PaymentOptions'
 import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
@@ -168,7 +170,15 @@ export default function UIUXDesignMasterPage() {
             courseName="UI UX Design Master"
             courseSlug="ui-ux-design-master"
             ctaText="Apply for the UI UX Design Master Course"
-            secondaryText="Six months. 15 students. The most advanced design curriculum Designient offers. Two real client projects, six specialist modules, and a diploma at the end. 5 early bird seats at Rs 99,999 · Standard at Rs 1,19,999 · International at USD 1,399. EMI available — Rs 16,666/month for 6 months (early bird) · Zero interest."
+            secondaryText={
+              <CourseSecondaryText
+                slug="ui-ux-design-master"
+                lead="Six months. 15 students. The most advanced design curriculum Designient offers. Two real client projects, six specialist modules, and a diploma at the end."
+                earlyBirdSeats={5}
+                emi={masterEmiConfig}
+                guarantee=""
+              />
+            }
           />
         </main>
         <Footer />

@@ -114,7 +114,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
   // Calculate installments
   const installmentData = calculateInstallments(totalPrice, activeCurrency, courseType);
   const advanceDisplay = formatCurrency(installmentData.advance, activeCurrency);
-  const advancePaise = Math.round(installmentData.advance * 100);
+  const advanceMinorUnits = Math.round(installmentData.advance * 100);
 
   // Show loading state during hydration to prevent mismatch
   if (!isMounted || isLoading) {
@@ -279,7 +279,9 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   'Reserves your seat in the batch',
                   'Balance of 1st installment due 3 days before batch starts',
                   'Choose from flexible installment plans',
-                  activeCurrency === 'INR' ? 'Pay securely via Razorpay (UPI, cards, net banking)' : 'Secure payment via Skydo'
+                  activeCurrency === 'INR'
+                    ? 'Pay securely via Razorpay (UPI, cards, net banking)'
+                    : 'Pay securely via PayPal on Razorpay Checkout'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
@@ -290,34 +292,19 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 ))}
               </ul>
 
-              {activeCurrency === 'INR' ? (
-                <RazorpayCheckout
-                  amountPaise={advancePaise}
-                  description={`${courseNames[courseSlug]} — 10% advance`}
-                  courseSlug={courseSlug}
-                  receipt={`adv_${courseSlug}_${Date.now()}`.slice(0, 40)}
-                  buttonText={`Pay ${advanceDisplay} Advance`}
-                  buttonStyle={{
-                    backgroundColor: 'var(--color-highlight)',
-                    color: 'var(--text-on-accent)',
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
-                  }}
-                />
-              ) : (
-                <a
-                  href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi, I'm interested in enrolling for the ${courseNames[courseSlug]} course and would like to pay the advance of ${advanceDisplay} to book my slot for the upcoming batch.`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105 surface-on-accent"
-                  style={{
-                    backgroundColor: 'var(--color-highlight)',
-                    color: 'var(--text-on-accent)',
-                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
-                  }}>
-                  Pay {advanceDisplay} Advance
-                  <ArrowRight className="w-4 h-4 inline-block ml-2" />
-                </a>
-              )}
+              <RazorpayCheckout
+                amountMinorUnits={advanceMinorUnits}
+                currency={activeCurrency}
+                description={`${courseNames[courseSlug]} — 10% advance`}
+                courseSlug={courseSlug}
+                receipt={`adv_${courseSlug}_${Date.now()}`.slice(0, 40)}
+                buttonText={`Pay ${advanceDisplay} Advance`}
+                buttonStyle={{
+                  backgroundColor: 'var(--color-highlight)',
+                  color: 'var(--text-on-accent)',
+                  fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+                }}
+              />
 
               <div className="mt-4 text-center">
                 <span className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
@@ -334,7 +321,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                       </a>
                     </>
                   ) : (
-                    'International payments handled via Skydo'
+                    'International payments via PayPal on Razorpay Checkout'
                   )}
                 </span>
               </div>
@@ -516,7 +503,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
               <li className="flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
                 <span className="font-body" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.9375rem, 1.5vw, 1.0625rem)' }}>
-                  <strong>Location-based pricing:</strong> INR for India (via Razorpay), USD for international (via Skydo).
+                  <strong>Location-based pricing:</strong> INR via Razorpay · USD via PayPal on Razorpay Checkout.
                 </span>
               </li>
             </ul>

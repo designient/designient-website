@@ -1,7 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, ChevronRight, Gift, Shield, Zap } from 'react-feather'
+import { ArrowRight, CheckCircle, ChevronRight, Shield, Zap } from 'react-feather'
+import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
+import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
+import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
+import { CrossCoursePriceRange } from '../../pricing/CrossCoursePrice'
+import { LocalizedPatternComparison } from '../../pricing/LocalizedPatternComparison'
 import {
   aiAcceleratorBonuses,
   aiAcceleratorBuildArtifacts,
@@ -11,49 +16,9 @@ import {
   aiAcceleratorPatternComparison,
   aiAcceleratorPreCourse,
   aiAcceleratorTools,
+  aiAcceleratorEmiConfig,
   aiAcceleratorValueStack,
 } from '../../../data/aiAutomationAcceleratorPageData'
-
-function ComparisonTable({
-  leftHeader,
-  rightHeader,
-  rows,
-}: {
-  leftHeader: string
-  rightHeader: string
-  rows: { feature: string; pro: string; others: string }[]
-}) {
-  return (
-    <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
-      <table className="w-full min-w-[560px]">
-        <thead>
-          <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-            <th className="p-4 text-left font-bold sticky left-0 z-10" style={{ color: 'var(--text-on-accent)', backgroundColor: 'var(--color-primary)' }}>
-              Feature
-            </th>
-            <th className="p-4 text-center font-bold" style={{ color: 'var(--text-on-accent)' }}>{leftHeader}</th>
-            <th className="p-4 text-center font-bold" style={{ color: 'var(--text-on-accent)' }}>{rightHeader}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={row.feature} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
-              <td className="p-4 font-semibold sticky left-0 z-10 border-t" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)', backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
-                {row.feature}
-              </td>
-              <td className="p-4 text-center border-t font-medium" style={{ color: 'var(--color-primary)', borderColor: 'var(--border-default)' }}>
-                {row.pro}
-              </td>
-              <td className="p-4 text-center border-t" style={{ color: 'var(--text-muted)', borderColor: 'var(--border-default)' }}>
-                {row.others}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
-}
 
 function scrollToEnroll() {
   const el = document.getElementById('course-application-form') ?? document.getElementById('pricing')
@@ -63,15 +28,15 @@ function scrollToEnroll() {
 
 export function AIAcceleratorUrgencyStrip() {
   return (
-    <div className="py-3 px-4 text-center" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
-      <p className="font-body text-sm md:text-base font-semibold">
-        AI Track — Step 1 · Highest Demand 2026 · 8 early bird seats at Rs 34,999 — Rs 10,000 off standard. Seat confirmed on payment.{' '}
-        <button type="button" onClick={scrollToEnroll} className="underline hover:no-underline inline-flex items-center gap-1 font-bold">
-          Claim My Seat
-          <ArrowRight className="w-4 h-4" />
-        </button>
-      </p>
-    </div>
+    <CourseUrgencyStrip
+      slug={COURSE_SLUGS.aiAutomation}
+      prefix="AI Track — Step 1 · Highest Demand 2026"
+      earlyBirdSeats={8}
+      showRegister={false}
+      suffix="Seat confirmed on payment"
+      onRegister={scrollToEnroll}
+      claimLabel="Claim My Seat"
+    />
   )
 }
 
@@ -174,7 +139,12 @@ export function AIAcceleratorPatternInterrupt() {
             <p key={p} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{p}</p>
           ))}
         </div>
-        <ComparisonTable leftHeader="AI Automation Accelerator" rightHeader="14-Day AI Generalist Programs" rows={aiAcceleratorPatternComparison.rows} />
+        <LocalizedPatternComparison
+          bare
+          leftHeader="AI Automation Accelerator"
+          rightHeader="14-Day AI Generalist Programs"
+          rows={aiAcceleratorPatternComparison.rows}
+        />
       </div>
     </section>
   )
@@ -324,7 +294,7 @@ export function AIAcceleratorLearningPath() {
               <Link href="/ai-product-design-course" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>
                 AI Product Design Course
               </Link>{' '}
-              (6 weeks · Rs 64,999–79,999) — design AI behaviour, trust UI, and all AI states for designers and PMs moving into AI product roles
+              (6 weeks · <CrossCoursePriceRange slug={COURSE_SLUGS.aiProduct} />) — design AI behaviour, trust UI, and all AI states for designers and PMs moving into AI product roles
             </li>
           </ol>
         </div>
@@ -353,79 +323,16 @@ export function AIAcceleratorLearningPath() {
 }
 
 export function AIAcceleratorBonusStack() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <Gift className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
-          <h2 className="font-display font-bold" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-            The Bonus Stack
-          </h2>
-        </div>
-        <div className="space-y-4">
-          {aiAcceleratorBonuses.map((bonus) => (
-            <div
-              key={bonus.name}
-              className="rounded-xl p-5"
-              style={{ border: bonus.highlight ? '2px solid var(--color-highlight)' : '1px solid var(--border-default)', backgroundColor: 'var(--bg-subtle)' }}
-            >
-              <div className="flex flex-wrap justify-between gap-2 mb-2">
-                <h3 className="font-display font-semibold" style={{ color: 'var(--text-primary)' }}>{bonus.name}</h3>
-                <span className="font-body text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
-                  Standalone value: {bonus.value} · Included
-                </span>
-              </div>
-              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{bonus.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  return <CurrencyAwareBonusStack bonuses={aiAcceleratorBonuses} />
 }
 
 export function AIAcceleratorValueStack() {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-2xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          The Value Stack
-        </h2>
-        <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
-          <table className="w-full min-w-[400px]">
-            <thead>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <th className="p-4 text-left font-bold" style={{ color: 'var(--text-on-accent)' }}>Item</th>
-                <th className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Standalone Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {aiAcceleratorValueStack.map((row, index) => (
-                <tr key={row.item} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
-                  <td className="p-4 border-t text-sm" style={{ color: 'var(--text-secondary)', borderColor: 'var(--border-default)' }}>{row.item}</td>
-                  <td className="p-4 border-t text-right font-semibold text-sm" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>{row.value}</td>
-                </tr>
-              ))}
-              <tr style={{ backgroundColor: 'var(--bg-warm)' }}>
-                <td className="p-4 border-t font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Total value</td>
-                <td className="p-4 border-t text-right font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Rs 1,60,992</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <td className="p-4 font-bold" style={{ color: 'var(--text-on-accent)' }}>Early bird price</td>
-                <td className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Rs 34,999</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-accent-muted)' }}>
-                <td className="p-4 font-bold" style={{ color: 'var(--text-primary)' }}>Standard price</td>
-                <td className="p-4 text-right font-bold" style={{ color: 'var(--color-primary)' }}>Rs 44,999</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="font-body text-sm text-center mt-6" style={{ color: 'var(--text-muted)' }}>
-          EMI available — Rs 11,666/month for 3 months (early bird) · Zero interest · International USD 449 via PayPal
-        </p>
-      </div>
-    </section>
+    <CurrencyAwareValueStack
+      rows={aiAcceleratorValueStack}
+      emi={aiAcceleratorEmiConfig}
+      internationalUsdNote="USD 449"
+    />
   )
 }
 

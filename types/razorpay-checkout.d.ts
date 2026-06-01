@@ -14,6 +14,23 @@ interface RazorpayHandlerResponse {
   razorpay_signature: string
 }
 
+interface RazorpayDisplayBlock {
+  name: string
+  instruments: Array<{ method: string }>
+}
+
+interface RazorpayDisplayConfig {
+  blocks?: Record<string, RazorpayDisplayBlock>
+  sequence?: string[]
+  preferences?: {
+    show_default_blocks?: boolean
+  }
+}
+
+interface RazorpayCheckoutConfig {
+  display?: RazorpayDisplayConfig
+}
+
 interface RazorpayOptions {
   key: string
   amount: number
@@ -28,6 +45,7 @@ interface RazorpayOptions {
   modal?: {
     ondismiss?: () => void
   }
+  config?: RazorpayCheckoutConfig
 }
 
 interface RazorpayInstance {

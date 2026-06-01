@@ -16,8 +16,10 @@ export type CoursesHubCard = {
   totalHours: string
   level: string
   batchSize: string
-  priceEarlyBird: string
-  priceStandard: string
+  priceEarlyBirdInr: string
+  priceEarlyBirdUsd: string
+  priceStandardInr: string
+  priceStandardUsd: string
   certificate: string
   placementSupport: string
   enrollmentNote?: string
@@ -35,8 +37,10 @@ export const designTrackHubCards: CoursesHubCard[] = [
     totalHours: '18 Live Hours',
     level: 'Beginner — no experience required',
     batchSize: 'Up to 200',
-    priceEarlyBird: 'Rs 1,999',
-    priceStandard: 'Rs 5,000',
+    priceEarlyBirdInr: 'Rs 1,999',
+    priceEarlyBirdUsd: 'USD 49',
+    priceStandardInr: 'Rs 5,000',
+    priceStandardUsd: 'USD 49',
     certificate: 'Yes',
     placementSupport: 'Not included',
     path: '/ui-ux-design-bootcamp',
@@ -51,8 +55,10 @@ export const designTrackHubCards: CoursesHubCard[] = [
     totalHours: '124 Total Hours',
     level: 'Beginner to Intermediate',
     batchSize: '25 per cohort',
-    priceEarlyBird: 'Rs 49,999',
-    priceStandard: 'Rs 59,999',
+    priceEarlyBirdInr: 'Rs 49,999',
+    priceEarlyBirdUsd: 'USD 699',
+    priceStandardInr: 'Rs 59,999',
+    priceStandardUsd: 'USD 699',
     certificate: 'Adobe Certified Professional',
     placementSupport: 'Included — 6 months',
     path: '/ui-ux-design-pro',
@@ -67,8 +73,10 @@ export const designTrackHubCards: CoursesHubCard[] = [
     totalHours: '200+ Total Hours',
     level: 'Intermediate to Advanced (1+ yr experience or Pro completion required)',
     batchSize: '15 per cohort',
-    priceEarlyBird: 'Rs 99,999',
-    priceStandard: 'Rs 1,19,999',
+    priceEarlyBirdInr: 'Rs 99,999',
+    priceEarlyBirdUsd: 'USD 1,399',
+    priceStandardInr: 'Rs 1,19,999',
+    priceStandardUsd: 'USD 1,399',
     certificate: 'Diploma Certification',
     placementSupport: 'Included — 6 months',
     path: '/ui-ux-design-master',
@@ -86,8 +94,10 @@ export const aiTrackHubCards: CoursesHubCard[] = [
     totalHours: '76 Total Hours',
     level: 'Beginner to Intermediate — no prior tech background required',
     batchSize: '35 per cohort (hard cap)',
-    priceEarlyBird: 'Rs 34,999',
-    priceStandard: 'Rs 44,999',
+    priceEarlyBirdInr: 'Rs 34,999',
+    priceEarlyBirdUsd: 'USD 449',
+    priceStandardInr: 'Rs 44,999',
+    priceStandardUsd: 'USD 449',
     certificate: 'Yes',
     placementSupport: 'Not included',
     enrollmentNote: 'Open checkout — seat confirmed on payment',
@@ -104,8 +114,10 @@ export const aiTrackHubCards: CoursesHubCard[] = [
     totalHours: '67 Total Hours',
     level: 'Intermediate — must have shipped a digital product in any role',
     batchSize: '12 per cohort',
-    priceEarlyBird: 'Rs 64,999',
-    priceStandard: 'Rs 79,999',
+    priceEarlyBirdInr: 'Rs 64,999',
+    priceEarlyBirdUsd: 'USD 899',
+    priceStandardInr: 'Rs 79,999',
+    priceStandardUsd: 'USD 899',
     certificate: 'Yes',
     placementSupport: 'Not included',
     enrollmentNote: 'Application-based — reviewed within 48 hours',
@@ -115,53 +127,52 @@ export const aiTrackHubCards: CoursesHubCard[] = [
 
 export type ComparisonRow = {
   label: string
-  values: string[]
+  valuesInr: string[]
+  valuesUsd: string[]
 }
 
 export const designTrackComparison: ComparisonRow[] = [
-  { label: 'Duration', values: ['3 Days', '10 Weeks', '6 Months'] },
-  { label: 'Total Hours', values: ['18 hrs live', '124 hrs', '200+ hrs'] },
-  { label: 'Level', values: ['Complete beginner', 'Beginner to intermediate', 'Intermediate to advanced'] },
-  { label: 'Prerequisite', values: ['None', 'None', '1 yr experience or Pro completion'] },
-  { label: 'Batch size', values: ['Up to 200', '25 per cohort', '15 per cohort'] },
-  { label: 'Enrollment', values: ['Open checkout', 'Application-based', 'Application-based'] },
-  { label: 'Real client project', values: ['No', 'Yes — weeks 8–9', 'Yes — 2 client projects'] },
-  { label: 'AI tools taught', values: ['7 tools live', '5 tools live', '5 tools + advanced usage'] },
-  { label: 'Figma', values: ['✓', '✓', '✓ Advanced'] },
-  { label: 'Bolt prototype', values: ['✓', '✓', '✓'] },
-  { label: 'Portfolio output', values: ['5 artefacts', 'Job-ready portfolio', 'Senior-level portfolio + capstone'] },
-  { label: 'Adobe Certification', values: ['No', 'Included', 'No (Diploma instead)'] },
-  { label: 'Diploma', values: ['No', 'No', 'Yes'] },
-  { label: 'Placement support', values: ['No', '6 months', '6 months'] },
-  { label: 'Placement rate', values: ['—', '95%', '95%'] },
-  { label: 'Lifetime mentorship', values: ['No', 'Yes', 'Yes'] },
-  { label: 'EMI available', values: ['No', 'Yes — 0% interest', 'Yes — 0% interest'] },
-  { label: 'Early bird price', values: ['Rs 1,999', 'Rs 49,999', 'Rs 99,999'] },
-  { label: 'Standard price', values: ['Rs 5,000', 'Rs 59,999', 'Rs 1,19,999'] },
-  { label: 'International (USD)', values: ['$49', '$699', '$1,399'] },
-  { label: 'Guarantee', values: ['Full refund if no output', '25% refund — conditions', '25% refund — conditions'] },
+  { label: 'Duration', valuesInr: ['3 Days', '10 Weeks', '6 Months'], valuesUsd: ['3 Days', '10 Weeks', '6 Months'] },
+  { label: 'Total Hours', valuesInr: ['18 hrs live', '124 hrs', '200+ hrs'], valuesUsd: ['18 hrs live', '124 hrs', '200+ hrs'] },
+  { label: 'Level', valuesInr: ['Complete beginner', 'Beginner to intermediate', 'Intermediate to advanced'], valuesUsd: ['Complete beginner', 'Beginner to intermediate', 'Intermediate to advanced'] },
+  { label: 'Prerequisite', valuesInr: ['None', 'None', '1 yr experience or Pro completion'], valuesUsd: ['None', 'None', '1 yr experience or Pro completion'] },
+  { label: 'Batch size', valuesInr: ['Up to 200', '25 per cohort', '15 per cohort'], valuesUsd: ['Up to 200', '25 per cohort', '15 per cohort'] },
+  { label: 'Enrollment', valuesInr: ['Open checkout', 'Application-based', 'Application-based'], valuesUsd: ['Open checkout', 'Application-based', 'Application-based'] },
+  { label: 'Real client project', valuesInr: ['No', 'Yes — weeks 8–9', 'Yes — 2 client projects'], valuesUsd: ['No', 'Yes — weeks 8–9', 'Yes — 2 client projects'] },
+  { label: 'AI tools taught', valuesInr: ['7 tools live', '5 tools live', '5 tools + advanced usage'], valuesUsd: ['7 tools live', '5 tools live', '5 tools + advanced usage'] },
+  { label: 'Figma', valuesInr: ['✓', '✓', '✓ Advanced'], valuesUsd: ['✓', '✓', '✓ Advanced'] },
+  { label: 'Bolt prototype', valuesInr: ['✓', '✓', '✓'], valuesUsd: ['✓', '✓', '✓'] },
+  { label: 'Portfolio output', valuesInr: ['5 artefacts', 'Job-ready portfolio', 'Senior-level portfolio + capstone'], valuesUsd: ['5 artefacts', 'Job-ready portfolio', 'Senior-level portfolio + capstone'] },
+  { label: 'Adobe Certification', valuesInr: ['No', 'Included', 'No (Diploma instead)'], valuesUsd: ['No', 'Included', 'No (Diploma instead)'] },
+  { label: 'Diploma', valuesInr: ['No', 'No', 'Yes'], valuesUsd: ['No', 'No', 'Yes'] },
+  { label: 'Placement support', valuesInr: ['No', '6 months', '6 months'], valuesUsd: ['No', '6 months', '6 months'] },
+  { label: 'Placement rate', valuesInr: ['—', '95%', '95%'], valuesUsd: ['—', '95%', '95%'] },
+  { label: 'Lifetime mentorship', valuesInr: ['No', 'Yes', 'Yes'], valuesUsd: ['No', 'Yes', 'Yes'] },
+  { label: 'EMI available', valuesInr: ['No', 'Yes — 0% interest', 'Yes — 0% interest'], valuesUsd: ['No', 'Yes — 0% interest', 'Yes — 0% interest'] },
+  { label: 'Early bird price', valuesInr: ['Rs 1,999', 'Rs 49,999', 'Rs 99,999'], valuesUsd: ['USD 49', 'USD 699', 'USD 1,399'] },
+  { label: 'Standard price', valuesInr: ['Rs 5,000', 'Rs 59,999', 'Rs 1,19,999'], valuesUsd: ['USD 49', 'USD 699', 'USD 1,399'] },
+  { label: 'Guarantee', valuesInr: ['Full refund if no output', '25% refund — conditions', '25% refund — conditions'], valuesUsd: ['Full refund if no output', '25% refund — conditions', '25% refund — conditions'] },
 ]
 
 export const aiTrackComparison: ComparisonRow[] = [
-  { label: 'Duration', values: ['8 Weeks', '6 Weeks'] },
-  { label: 'Total Hours', values: ['76 hrs', '67 hrs'] },
-  { label: 'Level', values: ['Beginner to intermediate', 'Intermediate'] },
-  { label: 'Prerequisite', values: ['None', 'Must have shipped a digital product'] },
-  { label: 'Batch size', values: ['35 per cohort', '12 per cohort'] },
-  { label: 'Enrollment', values: ['Open checkout', 'Application-based'] },
-  { label: 'Coding required', values: ['No', 'No'] },
-  { label: 'Primary tools', values: ['Zapier, n8n, Make, Airtable, ManyChat, Relevance AI', 'Perplexity, Claude, FigJam AI, Figma, Bolt'] },
-  { label: 'Portfolio output', values: ['3 deployed production automations', '2 portfolio case studies + functional prototype'] },
-  { label: 'Output format', values: ['Live automations — demonstrable by screen share', 'Figma files + Bolt/v0 prototype + written case studies'] },
-  { label: 'AI role', values: ['You build AI workflows and agents', 'You design the UX of AI products'] },
-  { label: "Who it's for", values: ['Ops leads, marketers, freelancers, founders, solopreneurs', 'PMs, designers 1–3 yrs, UX writers, content designers'] },
-  { label: 'Team enrollment', values: ['Yes — per-seat discount available', 'No'] },
-  { label: 'Free entry point', values: ['AI Automation Live (monthly workshop)', 'AI Product Design Live (monthly workshop)'] },
-  { label: 'Guarantee', values: ['50% refund — conditions stated', '25% refund — conditions stated'] },
-  { label: 'EMI available', values: ['Yes — 0% interest', 'Yes — 0% interest'] },
-  { label: 'Early bird price', values: ['Rs 34,999', 'Rs 64,999'] },
-  { label: 'Standard price', values: ['Rs 44,999', 'Rs 79,999'] },
-  { label: 'International (USD)', values: ['$449', '$899'] },
+  { label: 'Duration', valuesInr: ['8 Weeks', '6 Weeks'], valuesUsd: ['8 Weeks', '6 Weeks'] },
+  { label: 'Total Hours', valuesInr: ['76 hrs', '67 hrs'], valuesUsd: ['76 hrs', '67 hrs'] },
+  { label: 'Level', valuesInr: ['Beginner to intermediate', 'Intermediate'], valuesUsd: ['Beginner to intermediate', 'Intermediate'] },
+  { label: 'Prerequisite', valuesInr: ['None', 'Must have shipped a digital product'], valuesUsd: ['None', 'Must have shipped a digital product'] },
+  { label: 'Batch size', valuesInr: ['35 per cohort', '12 per cohort'], valuesUsd: ['35 per cohort', '12 per cohort'] },
+  { label: 'Enrollment', valuesInr: ['Open checkout', 'Application-based'], valuesUsd: ['Open checkout', 'Application-based'] },
+  { label: 'Coding required', valuesInr: ['No', 'No'], valuesUsd: ['No', 'No'] },
+  { label: 'Primary tools', valuesInr: ['Zapier, n8n, Make, Airtable, ManyChat, Relevance AI', 'Perplexity, Claude, FigJam AI, Figma, Bolt'], valuesUsd: ['Zapier, n8n, Make, Airtable, ManyChat, Relevance AI', 'Perplexity, Claude, FigJam AI, Figma, Bolt'] },
+  { label: 'Portfolio output', valuesInr: ['3 deployed production automations', '2 portfolio case studies + functional prototype'], valuesUsd: ['3 deployed production automations', '2 portfolio case studies + functional prototype'] },
+  { label: 'Output format', valuesInr: ['Live automations — demonstrable by screen share', 'Figma files + Bolt/v0 prototype + written case studies'], valuesUsd: ['Live automations — demonstrable by screen share', 'Figma files + Bolt/v0 prototype + written case studies'] },
+  { label: 'AI role', valuesInr: ['You build AI workflows and agents', 'You design the UX of AI products'], valuesUsd: ['You build AI workflows and agents', 'You design the UX of AI products'] },
+  { label: "Who it's for", valuesInr: ['Ops leads, marketers, freelancers, founders, solopreneurs', 'PMs, designers 1–3 yrs, UX writers, content designers'], valuesUsd: ['Ops leads, marketers, freelancers, founders, solopreneurs', 'PMs, designers 1–3 yrs, UX writers, content designers'] },
+  { label: 'Team enrollment', valuesInr: ['Yes — per-seat discount available', 'No'], valuesUsd: ['Yes — per-seat discount available', 'No'] },
+  { label: 'Free entry point', valuesInr: ['AI Automation Live (monthly workshop)', 'AI Product Design Live (monthly workshop)'], valuesUsd: ['AI Automation Live (monthly workshop)', 'AI Product Design Live (monthly workshop)'] },
+  { label: 'Guarantee', valuesInr: ['50% refund — conditions stated', '25% refund — conditions stated'], valuesUsd: ['50% refund — conditions stated', '25% refund — conditions stated'] },
+  { label: 'EMI available', valuesInr: ['Yes — 0% interest', 'Yes — 0% interest'], valuesUsd: ['Yes — 0% interest', 'Yes — 0% interest'] },
+  { label: 'Early bird price', valuesInr: ['Rs 34,999', 'Rs 64,999'], valuesUsd: ['USD 449', 'USD 899'] },
+  { label: 'Standard price', valuesInr: ['Rs 44,999', 'Rs 79,999'], valuesUsd: ['USD 449', 'USD 899'] },
 ]
 
 export const coursesHubGoalRecommendations = [

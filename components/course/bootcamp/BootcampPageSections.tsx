@@ -3,7 +3,11 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, CheckCircle, ChevronRight, Gift, Shield } from 'react-feather'
+import { ArrowRight, CheckCircle, ChevronRight, Shield } from 'react-feather'
+import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
+import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
+import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
+import { CrossCoursePrice } from '../../pricing/CrossCoursePrice'
 import {
   bootcampBonuses,
   bootcampComparison,
@@ -67,15 +71,15 @@ function ComparisonTable({
 
 export function BootcampUrgencyStrip() {
   return (
-    <div className="py-3 px-4 text-center" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
-      <p className="font-body text-sm md:text-base font-semibold">
-        Design Track — Step 1 · 50 early bird seats at Rs 1,999. Next cohort filling fast.{' '}
-        <Link href="/apply-now" className="underline hover:no-underline inline-flex items-center gap-1 font-bold">
-          Claim My Seat
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </p>
-    </div>
+    <CourseUrgencyStrip
+      slug={COURSE_SLUGS.bootcamp}
+      prefix="Design Track — Step 1"
+      earlyBirdSeats={50}
+      showRegister={false}
+      suffix="Next cohort filling fast"
+      claimHref="/apply-now"
+      claimLabel="Claim My Seat"
+    />
   )
 }
 
@@ -206,8 +210,8 @@ export function BootcampLearningPath() {
             <p className="font-body text-sm font-bold mb-4 tracking-wide" style={{ color: 'var(--color-primary)' }}>DESIGN TRACK</p>
             <ol className="font-body space-y-3" style={{ color: 'var(--text-secondary)' }}>
               <li><strong style={{ color: 'var(--text-primary)' }}>Step 1:</strong> UI UX Design Bootcamp <span style={{ color: 'var(--color-primary)' }}>← You are here</span></li>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 2:</strong> <Link href="/ui-ux-design-pro" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Pro</Link> (10 weeks · Rs 49,999)</li>
-              <li><strong style={{ color: 'var(--text-primary)' }}>Step 3:</strong> <Link href="/ui-ux-design-master" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Master</Link> (6 months · Rs 99,999)</li>
+              <li><strong style={{ color: 'var(--text-primary)' }}>Step 2:</strong> <Link href="/ui-ux-design-pro" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Pro</Link> (10 weeks · <CrossCoursePrice slug={COURSE_SLUGS.pro} />)</li>
+              <li><strong style={{ color: 'var(--text-primary)' }}>Step 3:</strong> <Link href="/ui-ux-design-master" className="underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI UX Design Master</Link> (6 months · <CrossCoursePrice slug={COURSE_SLUGS.master} />)</li>
             </ol>
           </div>
 
@@ -320,81 +324,11 @@ export function BootcampToolchain() {
 }
 
 export function BootcampBonusStack() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <Gift className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
-          <h2 className="font-display font-bold" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-            The Bonus Stack
-          </h2>
-        </div>
-        <div className="space-y-4">
-          {bootcampBonuses.map((bonus) => (
-            <div
-              key={bonus.name}
-              className="rounded-xl p-5 bg-card"
-              style={{ border: bonus.highlight ? '2px solid var(--color-highlight)' : '1px solid var(--border-default)' }}
-            >
-              <div className="flex flex-wrap justify-between gap-2 mb-2">
-                <h3 className="font-display font-semibold" style={{ color: 'var(--text-primary)' }}>
-                  {bonus.name}
-                </h3>
-                <span className="font-body text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
-                  Standalone value: {bonus.value} · Included
-                </span>
-              </div>
-              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                {bonus.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  return <CurrencyAwareBonusStack bonuses={bootcampBonuses} />
 }
 
 export function BootcampValueStack() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-2xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          The Value Stack
-        </h2>
-        <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
-          <table className="w-full min-w-[400px]">
-            <thead>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <th className="p-4 text-left font-bold" style={{ color: 'var(--text-on-accent)' }}>Item</th>
-                <th className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Standalone Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {bootcampValueStack.map((row, index) => (
-                <tr key={row.item} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
-                  <td className="p-4 border-t" style={{ color: 'var(--text-secondary)', borderColor: 'var(--border-default)' }}>{row.item}</td>
-                  <td className="p-4 border-t text-right font-semibold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>{row.value}</td>
-                </tr>
-              ))}
-              <tr style={{ backgroundColor: 'var(--bg-warm)' }}>
-                <td className="p-4 border-t font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Total value</td>
-                <td className="p-4 border-t text-right font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Rs 44,993</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <td className="p-4 font-bold" style={{ color: 'var(--text-on-accent)' }}>Early bird price</td>
-                <td className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Rs 1,999</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-accent-muted)' }}>
-                <td className="p-4 font-bold" style={{ color: 'var(--text-primary)' }}>Standard price</td>
-                <td className="p-4 text-right font-bold" style={{ color: 'var(--color-primary)' }}>Rs 5,000</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  )
+  return <CurrencyAwareValueStack rows={bootcampValueStack} />
 }
 
 export function BootcampGuarantee() {

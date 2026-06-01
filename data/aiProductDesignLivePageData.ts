@@ -35,7 +35,7 @@ export const aiProductDesignLiveBonuses = [
     description:
       'The exact redesigned screens built live during the 2-hour workshop. The trust failures corrected, the AI states applied, the copy revised — all in a Figma file you can open, study, and use as a reference for your own design work.',
     why: 'Seeing a redesigned screen is useful. Having the file — being able to inspect every layer, every component decision, every copy choice — is the difference between watching and learning.',
-    value: 'Rs 3,999',
+    valueInr: 'Rs 3,999', valueUsd: 'USD 59',
     firstFiveOnly: false,
   },
   {
@@ -43,7 +43,7 @@ export const aiProductDesignLiveBonuses = [
     description:
       'The 5-criteria trust audit framework used in the session — in a Notion template you can apply to any AI product immediately. Each criterion has a definition, questions to ask, and examples of what passing and failing looks like.',
     why: 'The framework is the repeatable skill. The checklist turns the session methodology into something you can use on your next product review or portfolio project tomorrow.',
-    value: 'Rs 2,999',
+    valueInr: 'Rs 2,999', valueUsd: 'USD 59',
     firstFiveOnly: false,
   },
   {
@@ -51,7 +51,7 @@ export const aiProductDesignLiveBonuses = [
     description:
       'Three additional AI product teardown documents — products beyond the one covered live. Each identifies trust failures, notes what the design got wrong, and suggests a redesign direction. Formats include Notion docs and annotated screenshots.',
     why: 'One example teaches you the pattern. Three examples teach you to generalise it.',
-    value: 'Rs 3,999',
+    valueInr: 'Rs 3,999', valueUsd: 'USD 59',
     firstFiveOnly: false,
   },
   {
@@ -59,7 +59,7 @@ export const aiProductDesignLiveBonuses = [
     description:
       'The full 2-hour session recording sent to your registered email within 24 hours. Pause on the Figma decisions. Rewatch the audit methodology at the speed you need.',
     why: '',
-    value: 'Rs 2,999',
+    valueInr: 'Rs 2,999', valueUsd: 'USD 59',
     firstFiveOnly: false,
   },
   {
@@ -67,7 +67,7 @@ export const aiProductDesignLiveBonuses = [
     description:
       'Access to the Designient AI Product Design community channel for 30 days after the workshop. Ask questions about the teardown methodology, share your own AI product audit attempts, and connect with designers and PMs.',
     why: '',
-    value: 'Rs 1,999',
+    valueInr: 'Rs 1,999', valueUsd: 'USD 29',
     firstFiveOnly: false,
   },
   {
@@ -75,7 +75,7 @@ export const aiProductDesignLiveBonuses = [
     description:
       'The AI Product Design Course runs 12 students per cohort and is application-based. Registered workshop attendees get a 48-hour exclusive window to submit their application before the next cohort opens publicly. Applications in this window are reviewed first.',
     why: 'If you decide the course is right for you after the workshop, this window is the difference between getting a seat in the next cohort and waiting for the one after.',
-    value: 'Rs 5,000',
+    valueInr: 'Rs 5,000', valueUsd: 'USD 49',
     firstFiveOnly: false,
   },
   {
@@ -83,24 +83,27 @@ export const aiProductDesignLiveBonuses = [
     description:
       'A private 30-minute session with a Designient mentor, redeemable within 30 days. Review your portfolio through the lens of AI product design, or use it as a pre-application conversation for the AI Product Design Course.',
     why: '',
-    value: 'Rs 4,999',
+    valueInr: 'Rs 4,999', valueUsd: 'USD 69',
     firstFiveOnly: true,
   },
 ]
 
 export const aiProductDesignLiveValueStack = {
   rows: [
-    { item: 'Figma File from the Session (redesigned screens)', value: 'Rs 3,999' },
-    { item: 'AI Trust Audit Checklist (Notion template)', value: 'Rs 2,999' },
-    { item: '3 AI Product Teardown Examples', value: 'Rs 3,999' },
-    { item: 'Session Recording (sent within 24 hours)', value: 'Rs 2,999' },
-    { item: '30-Day AI Product Design Community Access', value: 'Rs 1,999' },
-    { item: 'AI Product Design Course 48-hr Priority Application Window', value: 'Rs 5,000' },
-    { item: '[First 5 Only] 1:1 Portfolio and Application Review (30 min)', value: 'Rs 4,999' },
+    { item: 'Figma File from the Session (redesigned screens)', valueInr: 'Rs 3,999', valueUsd: 'USD 59' },
+    { item: 'AI Trust Audit Checklist (Notion template)', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+    { item: '3 AI Product Teardown Examples', valueInr: 'Rs 3,999', valueUsd: 'USD 59' },
+    { item: 'Session Recording (sent within 24 hours)', valueInr: 'Rs 2,999', valueUsd: 'USD 59' },
+    { item: '30-Day AI Product Design Community Access', valueInr: 'Rs 1,999', valueUsd: 'USD 29' },
+    { item: 'AI Product Design Course 48-hr Priority Application Window', valueInr: 'Rs 5,000', valueUsd: 'USD 49' },
+    { item: '[First 5 Only] 1:1 Portfolio and Application Review (30 min)', valueInr: 'Rs 4,999', valueUsd: 'USD 69' },
   ],
-  totalAllAttendees: 'Rs 20,995',
-  totalFirstFive: 'Rs 25,994',
-  investment: 'Rs 0',
+  totalAllAttendeesInr: 'Rs 20,995',
+  totalAllAttendeesUsd: 'USD 249',
+  totalFirstFiveInr: 'Rs 25,994',
+  totalFirstFiveUsd: 'USD 309',
+  investmentInr: 'Rs 0',
+  investmentUsd: 'USD 0',
 }
 
 export type AIProductDesignLiveFaq = {

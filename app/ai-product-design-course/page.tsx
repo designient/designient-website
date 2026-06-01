@@ -6,6 +6,8 @@ import { FloatingApplyButton } from '../../components/course/FloatingApplyButton
 import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
+import { CourseSecondaryText } from '../../components/pricing/CourseSecondaryText'
+import { aiProductEmiConfig } from '../../data/aiProductDesignPageData'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
 import { PaymentOptions } from '../../components/course/PaymentOptions'
 import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
@@ -180,7 +182,15 @@ export default function AIProductDesignCoursePage() {
             courseName="AI Product Design Course"
             courseSlug="ai-product-design-course"
             ctaText="Apply for the AI Product Design Course"
-            secondaryText="Six weeks. 12 students. Two portfolio artefacts that prove you can design AI products that hold user trust under pressure. 5 early bird seats at Rs 64,999 · Standard at Rs 79,999 · International at USD 899. EMI available — Rs 21,666/month for 3 months (early bird) · Zero interest. 25% money-back guarantee if you do the work and the output is not there."
+            secondaryText={
+              <CourseSecondaryText
+                slug="ai-product-design-course"
+                lead="Six weeks. 12 students. Two portfolio artefacts that prove you can design AI products that hold user trust under pressure."
+                earlyBirdSeats={5}
+                emi={aiProductEmiConfig}
+                guarantee="25% money-back guarantee if you do the work and the output is not there."
+              />
+            }
           />
         </main>
         <Footer />

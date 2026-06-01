@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { PricingCurrencyTable } from '../../components/pricing/PricingCurrencyTable'
 import type { CoursePricingBlock, EmiRow } from '../../data/pricingPageData'
 import {
   aiTrackPricing,
@@ -22,29 +23,6 @@ const thStyle = { ...tableStyle, backgroundColor: 'var(--bg-subtle)', color: 'va
 const h2Style = { fontSize: 'clamp(1.5rem, 3vw, 2rem)', color: 'var(--color-primary)' }
 const bodyStyle = { color: 'var(--text-secondary)' }
 const linkClass = 'text-[var(--color-primary)] underline hover:no-underline'
-
-function PricingTable({ tiers }: { tiers: CoursePricingBlock['tiers'] }) {
-  return (
-    <table className={tableClass} style={tableStyle}>
-      <thead>
-        <tr>
-          <th className={thClass} style={thStyle}>Pricing</th>
-          <th className={thClass} style={thStyle}>INR</th>
-          <th className={thClass} style={thStyle}>USD</th>
-        </tr>
-      </thead>
-      <tbody>
-        {tiers.map((tier) => (
-          <tr key={tier.label}>
-            <td className={tdClass} style={tableStyle}>{tier.label}</td>
-            <td className={tdClass} style={tableStyle}>{tier.inr}</td>
-            <td className={tdClass} style={tableStyle}>{tier.usd}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  )
-}
 
 function EmiTable({ rows }: { rows: EmiRow[] }) {
   return (
@@ -95,7 +73,7 @@ function CoursePricingSection({ course }: { course: CoursePricingBlock }) {
         <strong>Enrollment:</strong> {course.enrollment}
       </p>
 
-      <PricingTable tiers={course.tiers} />
+      <PricingCurrencyTable tiers={course.tiers} />
 
       {course.bookingToken && (
         <p className="font-body leading-relaxed mb-3" style={bodyStyle}>
@@ -142,9 +120,12 @@ function CoursePricingSection({ course }: { course: CoursePricingBlock }) {
 export function PricingPageContent() {
   return (
     <>
-      <p className="font-body leading-relaxed mb-8" style={{ ...bodyStyle, fontSize: '1.125rem' }}>
+      <p className="font-body leading-relaxed mb-4" style={{ ...bodyStyle, fontSize: '1.125rem' }}>
         All prices are inclusive of applicable GST unless otherwise stated. Prices are published in Indian Rupees (INR) and
-        US Dollars (USD). USD pricing is available for international students paying via PayPal.
+        US Dollars (USD). USD pricing is available for international students paying via PayPal on Razorpay Checkout.
+      </p>
+      <p className="font-body text-sm mb-8" style={bodyStyle}>
+        Switch currency using the <strong>INR / USD</strong> toggle in the site header. Your selected currency is highlighted in the tables below.
       </p>
 
       <section className="mb-12">

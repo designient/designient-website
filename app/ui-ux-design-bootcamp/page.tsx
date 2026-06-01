@@ -5,6 +5,7 @@ import { FloatingApplyButton } from '../../components/course/FloatingApplyButton
 import { CoursePricing } from '../../components/course/CoursePricing'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { CourseCTA } from '../../components/course/CourseCTA'
+import { CourseSecondaryText } from '../../components/pricing/CourseSecondaryText'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
 import { PaymentOptions } from '../../components/course/PaymentOptions'
 import { CourseApplicationForm } from '../../components/course/CourseApplicationForm'
@@ -164,7 +165,14 @@ export default function UIUXDesignBootcampPage() {
             courseName="UI UX Design Bootcamp"
             courseSlug="ui-ux-design-bootcamp"
             ctaText="Claim Your Seat in the UI UX Design Bootcamp"
-            secondaryText="One weekend. Five portfolio artefacts. The fastest way to prove to yourself — and to an employer — that you can design. 50 early bird seats at Rs 1,999 · Standard at Rs 5,000 · International at USD 49. Full refund if you do not ship by Sunday 7pm."
+            secondaryText={
+              <CourseSecondaryText
+                slug="ui-ux-design-bootcamp"
+                lead="One weekend. Five portfolio artefacts. The fastest way to prove to yourself — and to an employer — that you can design."
+                earlyBirdSeats={50}
+                guarantee="Full refund if you do not ship by Sunday 7pm."
+              />
+            }
           />
         </main>
         <Footer />

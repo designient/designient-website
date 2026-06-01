@@ -3,12 +3,16 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, Award, CheckCircle, ChevronRight, Gift, Shield } from 'react-feather'
+import { ArrowRight, Award, CheckCircle, ChevronRight, Shield } from 'react-feather'
+import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
+import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
+import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
 import {
   masterAdvancedSection,
   masterAiDistinction,
   masterBonuses,
   masterCurriculumModules,
+  masterEmiConfig,
   masterHero,
   masterPatternComparison,
   masterPortfolioOutputs,
@@ -50,15 +54,15 @@ function ComparisonTable({
 
 export function MasterUrgencyStrip() {
   return (
-    <div className="py-3 px-4 text-center" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
-      <p className="font-body text-sm md:text-base font-semibold">
-        Design Track — Step 3 · Most Advanced · Cohort now open. 15 seats. 5 early bird seats at Rs 99,999. Applications reviewed within 48 hours.{' '}
-        <Link href="/apply-now" className="underline hover:no-underline inline-flex items-center gap-1 font-bold">
-          Apply for the Course
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </p>
-    </div>
+    <CourseUrgencyStrip
+      slug={COURSE_SLUGS.master}
+      prefix="Design Track — Step 3 · Most Advanced · Cohort now open. 15 seats"
+      seatLabel="5 early bird seats at"
+      showRegister={false}
+      suffix="Applications reviewed within 48 hours"
+      claimHref="/apply-now"
+      claimLabel="Apply for the Course"
+    />
   )
 }
 
@@ -292,70 +296,11 @@ export function MasterLearningPath() {
 }
 
 export function MasterBonusStack() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <Gift className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
-          <h2 className="font-display font-bold" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>The Bonus Stack</h2>
-        </div>
-        <div className="space-y-4">
-          {masterBonuses.map((bonus) => (
-            <div key={bonus.name} className="rounded-xl p-5 bg-card" style={{ border: bonus.highlight ? '2px solid var(--color-highlight)' : '1px solid var(--border-default)' }}>
-              <div className="flex flex-wrap justify-between gap-2 mb-2">
-                <h3 className="font-display font-semibold" style={{ color: 'var(--text-primary)' }}>{bonus.name}</h3>
-                <span className="font-body text-sm font-bold" style={{ color: 'var(--color-primary)' }}>Standalone value: {bonus.value} · Included</span>
-              </div>
-              <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{bonus.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+  return <CurrencyAwareBonusStack bonuses={masterBonuses} />
 }
 
 export function MasterValueStack() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-2xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>The Value Stack</h2>
-        <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
-          <table className="w-full min-w-[400px]">
-            <thead>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <th className="p-4 text-left font-bold" style={{ color: 'var(--text-on-accent)' }}>Item</th>
-                <th className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Standalone Value</th>
-              </tr>
-            </thead>
-            <tbody>
-              {masterValueStack.map((row, index) => (
-                <tr key={row.item} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
-                  <td className="p-4 border-t text-sm" style={{ color: 'var(--text-secondary)', borderColor: 'var(--border-default)' }}>{row.item}</td>
-                  <td className="p-4 border-t text-right font-semibold text-sm" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>{row.value}</td>
-                </tr>
-              ))}
-              <tr style={{ backgroundColor: 'var(--bg-warm)' }}>
-                <td className="p-4 border-t font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Total value</td>
-                <td className="p-4 border-t text-right font-bold" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>Rs 4,75,992</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-                <td className="p-4 font-bold" style={{ color: 'var(--text-on-accent)' }}>Early bird price</td>
-                <td className="p-4 text-right font-bold" style={{ color: 'var(--text-on-accent)' }}>Rs 99,999</td>
-              </tr>
-              <tr style={{ backgroundColor: 'var(--color-accent-muted)' }}>
-                <td className="p-4 font-bold" style={{ color: 'var(--text-primary)' }}>Standard price</td>
-                <td className="p-4 text-right font-bold" style={{ color: 'var(--color-primary)' }}>Rs 1,19,999</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="font-body text-sm text-center mt-6" style={{ color: 'var(--text-muted)' }}>
-          EMI available — Rs 16,666/month for 6 months (early bird) · Zero interest · International USD 1,399 via PayPal
-        </p>
-      </div>
-    </section>
-  )
+  return <CurrencyAwareValueStack rows={masterValueStack} emi={masterEmiConfig} internationalUsdNote="USD 1,399" />
 }
 
 export function MasterGuarantee() {
