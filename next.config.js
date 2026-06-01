@@ -9,6 +9,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: '/ai-automation-bootcamp',
+        destination: '/ai-automation-accelerator',
+        permanent: true,
+        statusCode: 301,
+      },
+      {
         source: '/prompt-engineering-mastery',
         destination: '/courses',
         permanent: true,

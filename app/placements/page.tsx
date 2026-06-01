@@ -5,8 +5,9 @@ import { PlacementsContent } from '../../components/placements/PlacementsContent
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'UI/UX Design Placement Support & Career Outcomes | Designient',
-  description: 'Get placement support and career guidance for UI/UX design roles. 75%+ placement rate, portfolio reviews, interview coaching, and job referrals. Launch your design career with Designient.',
+  title: 'UI/UX Design Placement and Career Outcomes | Designient',
+  description:
+    '95% placement rate. See where Design Track graduates get hired and what Designient\'s AI Track produces for professionals and freelancers.',
   keywords: ['UI UX design placement', 'design job placement', 'UI UX career support', 'design job assistance', 'UI UX interview coaching', 'design portfolio review', 'design job referrals'],
   openGraph: {
     title: 'UI/UX Design Placement Support & Career Outcomes | Designient',

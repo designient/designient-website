@@ -8,7 +8,15 @@ import { CityPageSchemas } from '../../components/city/CityPageSchemas'
 export const metadata: Metadata = {
   title: 'UI/UX Design Course in Pune – Weekend Batch | Designient',
   description: 'A weekend-focused UI/UX design course in Pune for working professionals and career switchers. Designient supports Pune learners through weekend batches.',
-  keywords: ['UI/UX design course Pune', 'UX course Pune', 'weekend design course Pune', 'UI/UX bootcamp Pune', 'design course Pune'],
+  keywords: [
+    'UI/UX design course Pune',
+    'UX course Pune',
+    'weekend design course Pune',
+    'UI/UX bootcamp Pune',
+    'design course Pune',
+    'AI automation course Pune online',
+    'AI product design course Pune online',
+  ],
   openGraph: {
     title: 'UI/UX Design Course in Pune – Weekend Batch | Designient',
     description: 'Weekend-focused UI/UX design course in Pune for working professionals and career switchers.',

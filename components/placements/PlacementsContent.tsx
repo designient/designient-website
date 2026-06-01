@@ -25,7 +25,7 @@ import { getWhatsAppUrl } from '../../utils/whatsapp'
 const placementStats = [
   {
     icon: TrendingUp,
-    value: '75%+',
+    value: '95%',
     label: 'Placement Rate',
     description: 'with top companies'
   },
@@ -138,7 +138,7 @@ const faqs = [
   },
   {
     question: 'Do you guarantee a job?',
-    answer: 'While we cannot guarantee employment, we provide comprehensive placement support including portfolio building, interview coaching, and job referrals. Our 75%+ placement rate reflects the effectiveness of our support system when students actively engage with the process.'
+    answer: 'While we cannot guarantee employment, we provide comprehensive placement support including portfolio building, interview coaching, and job referrals. Our 95% placement rate reflects the effectiveness of our support system when students actively engage with the process.'
   },
   {
     question: 'Are internships part of the placement support?',
@@ -574,6 +574,127 @@ export function PlacementsContent() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* What the AI Track Produces */}
+      <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-card)' }}>
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto">
+            <h2
+              className="font-display font-bold mb-6"
+              style={{
+                color: 'var(--color-primary)',
+                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              }}>
+              What the AI Track Produces
+            </h2>
+            <p
+              className="font-body leading-relaxed mb-6"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                lineHeight: '1.8',
+              }}>
+              The AI Automation Accelerator and AI Product Design Course are not placement-focused courses — they are outcome-focused in a different way.
+            </p>
+            <p
+              className="font-body leading-relaxed mb-6"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                lineHeight: '1.8',
+              }}>
+              The Design Track measures outcomes in placement rates and salary packages because those are the right metrics for students entering the employment market as designers.
+            </p>
+            <p
+              className="font-body leading-relaxed mb-4"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                lineHeight: '1.8',
+              }}>
+              The AI Track measures outcomes differently:
+            </p>
+            <p
+              className="font-body leading-relaxed mb-3"
+              style={{
+                color: 'var(--text-primary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+                lineHeight: '1.8',
+                fontWeight: 600,
+              }}>
+              AI Automation Accelerator graduates leave with:
+            </p>
+            <p
+              className="font-body leading-relaxed mb-6"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                lineHeight: '1.8',
+              }}>
+              Three deployed production automation workflows running live — not slides, not certificates, not portfolio mockups. Three systems that can be screen-shared, triggered in real time, and demonstrated to any employer, client, or stakeholder in under two minutes. The ROI is calculated per automation. The documentation is written and handoff-ready.
+            </p>
+            <p
+              className="font-body leading-relaxed mb-3"
+              style={{
+                color: 'var(--text-primary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+                lineHeight: '1.8',
+                fontWeight: 600,
+              }}>
+              AI Product Design Course graduates leave with:
+            </p>
+            <p
+              className="font-body leading-relaxed mb-8"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                lineHeight: '1.8',
+              }}>
+              Two portfolio case studies — one audit of a live AI product with redesigned screens, one original AI feature designed across all 8 states in Figma with a functional Bolt/v0 prototype. Both are real work. Both are demonstrable. Neither requires an employer to trust a certificate they have not heard of.
+            </p>
+            <div
+              className="rounded-xl p-6 mb-8"
+              style={{
+                backgroundColor: 'var(--bg-subtle)',
+                border: '1px solid var(--border-default)',
+              }}>
+              <p
+                className="font-body leading-relaxed"
+                style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+                  lineHeight: '1.8',
+                }}>
+                If you are a working professional or freelancer who wants to add AI automation or AI product design to your career — the AI Track does not promise a job. It produces the portfolio that makes the conversation possible.
+              </p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/ai-automation-accelerator"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-body font-semibold text-white transition-colors hover:opacity-90"
+                style={{ backgroundColor: 'var(--color-cta)' }}>
+                AI Automation Accelerator
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link
+                href="/ai-product-design-course"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-body font-semibold border-2 transition-colors hover:bg-purple-50"
+                style={{
+                  borderColor: 'var(--color-primary)',
+                  color: 'var(--color-primary)',
+                }}>
+                AI Product Design Course
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 

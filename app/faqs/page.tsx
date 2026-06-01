@@ -45,6 +45,11 @@ const allFAQs = [
     answer: 'Batch availability depends on the city and current schedule. Check individual city pages for specific batch options.'
   },
   {
+    question: 'How big is each batch?',
+    answer:
+      'Batch sizes vary by course — and deliberately so. Smaller batches at the advanced and specialist level mean more direct mentor time and deeper feedback. UI UX Design Bootcamp: up to 200 students, with critique sessions in smaller groups. UI UX Design Pro: 25 students per cohort. UI UX Design Master: 15 students per cohort. AI Automation Accelerator: 35 students per cohort (hard cap). AI Product Design Course: 12 students per cohort — application-based. The AI Automation Accelerator and AI Product Design Course are new tracks. The AI Automation Accelerator is the largest AI Track cohort by design — open enrollment, no prerequisites. The AI Product Design Course is the smallest — 12 students, by application, because the critique sessions require depth that larger groups cannot sustain.'
+  },
+  {
     question: 'Do you offer online classes?',
     answer: 'Yes, we provide both online and offline modes of learning to cater to our diverse student base across India and the World.'
   },
@@ -123,6 +128,21 @@ const allFAQs = [
   {
     question: 'How can I apply for a role?',
     answer: 'You can apply through the Careers page or contact our team.'
+  },
+  {
+    question: 'What is the AI Track — and how is it different from the Design Track?',
+    answer:
+      'The Design Track — Bootcamp, Pro, and Master — is for people who want to become UI/UX designers. It teaches the full design discipline: research, wireframing, visual design, prototyping, and career placement. The AI Track — AI Automation Accelerator and AI Product Design Course — is for working professionals, freelancers, and product people who want to build AI automation workflows or design AI-native products. No design background is required. The two tracks are independent. You do not need to complete the Design Track to take an AI Track course. The one cross-track bridge is a recommendation for Design Track Pro graduates moving into AI product roles: the AI Product Design Course is the natural specialisation after Pro.'
+  },
+  {
+    question: 'Do I need to know how to code to take the AI Automation Accelerator?',
+    answer:
+      'No. The AI Automation Accelerator uses no-code and low-code tools throughout: Zapier, n8n, Make, Airtable, ManyChat, and Relevance AI. The only thing that resembles code is JSON — a structured data format n8n uses — and the course teaches you the specific JSON patterns you will actually encounter. If you use SaaS tools in your daily work, are comfortable learning new software interfaces, and are not afraid of a settings panel — you have the right baseline. No programming background is required at any point.'
+  },
+  {
+    question: 'Who is the AI Product Design Course for — and how do I apply?',
+    answer:
+      'The AI Product Design Course is for PMs, designers with 1 to 3 years of experience, and UX writers or content designers who want to specialise in designing AI-native products — trust UI, error states, confidence design, and hallucination handling. The prerequisite is that you have shipped at least one digital product in any role. It is application-based because the cohort is 12 students and the critique sessions require a specific level of product context. Applications are reviewed within 48 hours. Accepted students pay a booking token to confirm their seat. If you want to experience the methodology before applying, the AI Product Design Live monthly workshop is a free 2-hour session where one complete AI state design problem is worked through live. Email hello@designient.com for the next date.'
   }
 ]
 
@@ -237,6 +257,12 @@ export default function FAQsPage() {
                   Scholarships & Support
                 </a>
                 <a
+                  href="#ai-track"
+                  className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
+                  style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
+                  AI Track
+                </a>
+                <a
                   href="#careers-at-designient"
                   className="px-4 py-2 rounded-full font-body font-semibold transition-colors hover:opacity-80"
                   style={{ backgroundColor: 'var(--bg-muted)', color: 'var(--color-primary)' }}>
@@ -338,6 +364,47 @@ export default function FAQsPage() {
                         lineHeight: '1.7'
                       }}>
                       Batch availability depends on the city and current schedule. Check individual city pages for specific batch options.
+                    </p>
+                  </div>
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3
+                      className="font-display font-bold mb-3"
+                      style={{
+                        color: 'var(--text-primary)',
+                        fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
+                      }}>
+                      How big is each batch?
+                    </h3>
+                    <p
+                      className="font-body leading-relaxed mb-4"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                        lineHeight: '1.7'
+                      }}>
+                      Batch sizes vary by course — and deliberately so. Smaller batches at the advanced and specialist level mean more direct mentor time and deeper feedback.
+                    </p>
+                    <ul
+                      className="font-body list-disc pl-6 mb-4 space-y-2"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                        lineHeight: '1.7'
+                      }}>
+                      <li>UI UX Design Bootcamp: up to 200 students, with critique sessions in smaller groups</li>
+                      <li>UI UX Design Pro: 25 students per cohort</li>
+                      <li>UI UX Design Master: 15 students per cohort</li>
+                      <li>AI Automation Accelerator: 35 students per cohort (hard cap)</li>
+                      <li>AI Product Design Course: 12 students per cohort — application-based</li>
+                    </ul>
+                    <p
+                      className="font-body leading-relaxed"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                        lineHeight: '1.7'
+                      }}>
+                      The AI Automation Accelerator and AI Product Design Course are new tracks. The AI Automation Accelerator is the largest AI Track cohort by design — open enrollment, no prerequisites. The AI Product Design Course is the smallest — 12 students, by application, because the critique sessions require depth that larger groups cannot sustain.
                     </p>
                   </div>
                   <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
@@ -740,6 +807,78 @@ export default function FAQsPage() {
                         lineHeight: '1.7'
                       }}>
                       We do offer scholarships for deserving candidates. Please contact our Admissions Counsellor to know if you're eligible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* AI Track */}
+              <div id="ai-track" className="scroll-mt-24">
+                <h2
+                  className="font-display font-bold mb-8 pb-4 border-b-2"
+                  style={{
+                    color: 'var(--color-primary)',
+                    fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+                    borderColor: 'var(--border-default)'
+                  }}>
+                  AI Track
+                </h2>
+                <div className="space-y-6">
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3
+                      className="font-display font-bold mb-3"
+                      style={{
+                        color: 'var(--text-primary)',
+                        fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
+                      }}>
+                      What is the AI Track — and how is it different from the Design Track?
+                    </h3>
+                    <p
+                      className="font-body leading-relaxed"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                        lineHeight: '1.7'
+                      }}>
+                      The Design Track — Bootcamp, Pro, and Master — is for people who want to become UI/UX designers. It teaches the full design discipline: research, wireframing, visual design, prototyping, and career placement. The AI Track — AI Automation Accelerator and AI Product Design Course — is for working professionals, freelancers, and product people who want to build AI automation workflows or design AI-native products. No design background is required. The two tracks are independent. You do not need to complete the Design Track to take an AI Track course. The one cross-track bridge is a recommendation for Design Track Pro graduates moving into AI product roles: the AI Product Design Course is the natural specialisation after Pro.
+                    </p>
+                  </div>
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3
+                      className="font-display font-bold mb-3"
+                      style={{
+                        color: 'var(--text-primary)',
+                        fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
+                      }}>
+                      Do I need to know how to code to take the AI Automation Accelerator?
+                    </h3>
+                    <p
+                      className="font-body leading-relaxed"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                        lineHeight: '1.7'
+                      }}>
+                      No. The AI Automation Accelerator uses no-code and low-code tools throughout: Zapier, n8n, Make, Airtable, ManyChat, and Relevance AI. The only thing that resembles code is JSON — a structured data format n8n uses — and the course teaches you the specific JSON patterns you will actually encounter. If you use SaaS tools in your daily work, are comfortable learning new software interfaces, and are not afraid of a settings panel — you have the right baseline. No programming background is required at any point.
+                    </p>
+                  </div>
+                  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">
+                    <h3
+                      className="font-display font-bold mb-3"
+                      style={{
+                        color: 'var(--text-primary)',
+                        fontSize: 'clamp(1.125rem, 2vw, 1.5rem)'
+                      }}>
+                      Who is the AI Product Design Course for — and how do I apply?
+                    </h3>
+                    <p
+                      className="font-body leading-relaxed"
+                      style={{
+                        color: 'var(--text-secondary)',
+                        fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
+                        lineHeight: '1.7'
+                      }}>
+                      The AI Product Design Course is for PMs, designers with 1 to 3 years of experience, and UX writers or content designers who want to specialise in designing AI-native products — trust UI, error states, confidence design, and hallucination handling. The prerequisite is that you have shipped at least one digital product in any role. It is application-based because the cohort is 12 students and the critique sessions require a specific level of product context. Applications are reviewed within 48 hours. Accepted students pay a booking token to confirm their seat. If you want to experience the methodology before applying, the AI Product Design Live monthly workshop is a free 2-hour session where one complete AI state design problem is worked through live. Email hello@designient.com for the next date.
                     </p>
                   </div>
                 </div>

@@ -8,7 +8,15 @@ import { CityPageSchemas } from '../../components/city/CityPageSchemas'
 export const metadata: Metadata = {
   title: 'UI/UX Design Course in Hyderabad – Designient School of Masterminds',
   description: 'Learn UI/UX design with industry-focused training, real projects, and career support in Hyderabad. Designient’s core mentoring team is based in Hyderabad.',
-  keywords: ['UI/UX design course Hyderabad', 'UX course Hyderabad', 'design training Hyderabad', 'UI/UX bootcamp Hyderabad', 'design course Hyderabad'],
+  keywords: [
+    'UI/UX design course Hyderabad',
+    'UX course Hyderabad',
+    'design training Hyderabad',
+    'UI/UX bootcamp Hyderabad',
+    'design course Hyderabad',
+    'AI automation course Hyderabad online',
+    'AI product design course Hyderabad online',
+  ],
   openGraph: {
     title: 'UI/UX Design Course in Hyderabad – Designient',
     description: 'Learn UI/UX design with industry-focused training and career support in Hyderabad.',

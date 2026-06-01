@@ -135,14 +135,44 @@ export default function ThankYouPage() {
                   }}>
                   While we prepare a response, you might find these resources helpful:
                 </p>
+                <p
+                  className="font-body font-semibold mb-2"
+                  style={{ color: 'var(--text-primary)' }}>
+                  Design Track
+                </p>
+                <ul
+                  className="font-body space-y-2 ml-6 mb-6"
+                  style={{
+                    color: 'var(--text-secondary)',
+                    lineHeight: '1.7',
+                    listStyleType: 'disc',
+                  }}>
+                  <li>UI UX Design Bootcamp — 3 Days · Beginner</li>
+                  <li>UI UX Design Pro — 10 Weeks · Most Popular</li>
+                  <li>UI UX Design Master — 6 Months · Advanced</li>
+                </ul>
+                <p
+                  className="font-body font-semibold mb-2"
+                  style={{ color: 'var(--text-primary)' }}>
+                  AI Track
+                </p>
+                <ul
+                  className="font-body space-y-2 ml-6 mb-6"
+                  style={{
+                    color: 'var(--text-secondary)',
+                    lineHeight: '1.7',
+                    listStyleType: 'disc',
+                  }}>
+                  <li>AI Automation Accelerator — 8 Weeks · Highest Demand 2026</li>
+                  <li>AI Product Design Course — 6 Weeks · By Application Only</li>
+                </ul>
                 <ul
                   className="font-body space-y-2 ml-6"
                   style={{
                     color: 'var(--text-secondary)',
                     lineHeight: '1.7',
-                    listStyleType: 'disc'
+                    listStyleType: 'disc',
                   }}>
-                  <li>Explore our course curriculum and learning outcomes</li>
                   <li>Read success stories from our alumni</li>
                   <li>Check out our FAQs for common questions</li>
                   <li>Learn about our placement assistance program</li>
@@ -161,7 +191,7 @@ export default function ThankYouPage() {
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <Link
-                    href="/ui-ux-design-pro"
+                    href="/courses"
                     className="block p-6 rounded-xl border-2 hover:border-purple-500 transition-colors text-center"
                     style={{
                       backgroundColor: 'var(--bg-subtle)',
@@ -173,12 +203,12 @@ export default function ThankYouPage() {
                         color: 'var(--color-primary)',
                         fontSize: '1.25rem'
                       }}>
-                      UI/UX Design Pro Course
+                      All Courses
                     </h3>
                     <p
                       className="font-body text-sm"
                       style={{ color: 'var(--text-secondary)' }}>
-                      Learn about our comprehensive UI/UX design course
+                      Compare Design Track and AI Track courses
                     </p>
                   </Link>
                   <Link

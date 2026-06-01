@@ -6,7 +6,8 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'About Us - Designient School of Masterminds | UI/UX Design Training',
-  description: 'Learn about Designient School of Masterminds - India\'s leading UI/UX design training institute. Hands-on training, industry mentors, portfolio building, and 95% placement rate. Founded in 2016, serving students globally.',
+  description:
+    'India\'s leading UI/UX and AI school. Hands-on training, live mentorship, real projects, 95% placement rate. Founded 2018. Bangalore, Hyderabad, Pune.',
   keywords: ['about designient', 'UI/UX design school', 'design training institute', 'design education', 'designient school', 'UI/UX training Bangalore', 'design school India'],
   openGraph: {
     title: 'About Us - Designient School of Masterminds | UI/UX Design Training',
@@ -65,7 +66,7 @@ const aboutData = {
   journey: {
     title: 'Our Journey',
     milestones: [
-      { year: '2016', event: 'A Vision Was Born' },
+      { year: '2018', event: 'A Vision Was Born' },
       { year: '2018', event: 'Adobe Partnership Begins' },
       { year: '2020', event: 'Online Learning Started' },
       { year: '2021', event: '150+ Students Placed' },
@@ -85,7 +86,7 @@ export default function AboutUsPage() {
     description: 'Redefining UI/UX education for creative minds ready to turn passion into profession. Hands-on training, industry mentors, and career support.',
     url: 'https://designient.com',
     logo: 'https://designient.com/designient-logo.svg',
-    foundingDate: '2016',
+    foundingDate: '2018',
     address: [
       {
         '@type': 'PostalAddress',

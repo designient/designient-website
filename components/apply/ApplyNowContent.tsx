@@ -21,11 +21,16 @@ interface FormData {
   consent: boolean
 }
 
-const programs = [
-  'UI/UX Design Pro',
-  'UI/UX Design Bootcamp',
-  'UI/UX Design Master',
-  'Prompt Engineering Mastery'
+const programs: { label: string; applicationNote?: string }[] = [
+  { label: 'UI UX Design Bootcamp (3 Days) — Design Track' },
+  { label: 'UI UX Design Pro (10 Weeks) — Most Popular · Design Track' },
+  { label: 'UI UX Design Master (6 Months) — Design Track' },
+  { label: 'AI Automation Accelerator (8 Weeks) — Highest Demand 2026 · AI Track' },
+  {
+    label: 'AI Product Design Course (6 Weeks) — By Application Only · AI Track',
+    applicationNote: 'Applications reviewed within 48 hours.',
+  },
+  { label: 'Not sure yet — help me choose' },
 ]
 
 const applicantTypes = [
@@ -359,24 +364,31 @@ export function ApplyNowContent() {
                     <div className="space-y-2">
                       {programs.map(program => (
                         <label
-                          key={program}
-                          className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                            formData.program === program
+                          key={program.label}
+                          className={`flex flex-col p-4 rounded-lg border-2 cursor-pointer transition-colors ${
+                            formData.program === program.label
                               ? 'border-[var(--color-primary)] bg-purple-50'
                               : 'border-gray-300 hover:border-gray-400'
                           }`}>
-                          <input
-                            type="radio"
-                            name="program"
-                            value={program}
-                            checked={formData.program === program}
-                            onChange={(e) => {
-                              setFormData(prev => ({ ...prev, program: e.target.value }))
-                              if (errors.program) setErrors(prev => ({ ...prev, program: undefined }))
-                            }}
-                            className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
-                          />
-                          <span className="font-body" style={{ color: 'var(--text-primary)' }}>{program}</span>
+                          <span className="flex items-center gap-3">
+                            <input
+                              type="radio"
+                              name="program"
+                              value={program.label}
+                              checked={formData.program === program.label}
+                              onChange={(e) => {
+                                setFormData(prev => ({ ...prev, program: e.target.value }))
+                                if (errors.program) setErrors(prev => ({ ...prev, program: undefined }))
+                              }}
+                              className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
+                            />
+                            <span className="font-body" style={{ color: 'var(--text-primary)' }}>{program.label}</span>
+                          </span>
+                          {program.applicationNote && (
+                            <span className="font-body text-xs mt-2 ml-7" style={{ color: 'var(--text-muted)' }}>
+                              {program.applicationNote}
+                            </span>
+                          )}
                         </label>
                       ))}
                     </div>

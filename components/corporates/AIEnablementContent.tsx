@@ -133,7 +133,7 @@ export function AIEnablementContent() {
                 color: 'var(--text-muted)',
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
-              For individual AI learning, check out our <Link href="/prompt-engineering-mastery" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>Prompt Engineering Mastery</Link> course or explore all our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>design courses</Link>.
+              For individual AI learning, explore the <Link href="/ai-automation-accelerator" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>AI Automation Accelerator</Link> and <Link href="/ai-product-design-course" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>AI Product Design Course</Link>, or browse all <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>courses</Link>.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -405,6 +405,86 @@ export function AIEnablementContent() {
           }
         ]}
       />
+
+      {/* Individual AI Learning Path */}
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto">
+            <h2
+              className="font-display font-bold mb-6 text-center"
+              style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
+              Want to Upskill Individually Before or Alongside a Corporate Engagement?
+            </h2>
+            <p
+              className="font-body text-lg leading-relaxed text-center mb-4"
+              style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+              Our corporate AI enablement workshops are designed for teams. If you are an individual professional, founder, or freelancer who wants to build hands-on AI skills — not a workshop delivered to a group, but a curriculum you complete yourself with live mentorship and deployed outputs — the AI Track is built for that.
+            </p>
+            <p
+              className="font-body text-lg leading-relaxed text-center mb-10"
+              style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+              Both courses are online, run monthly, and produce portfolio-ready outcomes that demonstrate AI fluency in concrete terms.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div
+                className="rounded-xl p-8 border-2 h-full flex flex-col"
+                style={{ borderColor: 'var(--border-default)' }}>
+                <h3 className="font-display font-bold mb-2" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
+                  AI Automation Accelerator
+                </h3>
+                <p className="font-body text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
+                  8 Weeks · Professionals and Freelancers
+                </p>
+                <p className="font-body text-sm leading-relaxed mb-4 flex-1" style={{ color: 'var(--text-secondary)' }}>
+                  Build 3 deployed AI automation workflows using n8n, Make, ManyChat, and Relevance AI. The individual equivalent of what our corporate AI enablement workshops deliver at team level.
+                </p>
+                <p className="font-body text-sm mb-6" style={{ color: 'var(--text-muted)' }}>
+                  Team enrollment available for 5 or more from the same company.
+                </p>
+                <Link
+                  href="/ai-automation-accelerator"
+                  className="inline-flex items-center gap-2 font-body font-semibold text-sm"
+                  style={{ color: 'var(--color-primary)' }}>
+                  View Course
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <div
+                className="rounded-xl p-8 border-2 h-full flex flex-col"
+                style={{ borderColor: 'var(--border-default)' }}>
+                <h3 className="font-display font-bold mb-2" style={{ fontSize: '1.25rem', color: 'var(--text-primary)' }}>
+                  AI Product Design Course
+                </h3>
+                <p className="font-body text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
+                  6 Weeks · By Application Only
+                </p>
+                <p className="font-body text-sm leading-relaxed mb-6 flex-1" style={{ color: 'var(--text-secondary)' }}>
+                  Design AI behaviour — trust UI, error states, confidence design. For PMs, designers, and UX writers who want to specialise in designing AI-native products.
+                </p>
+                <Link
+                  href="/ai-product-design-course"
+                  className="inline-flex items-center gap-2 font-body font-semibold text-sm"
+                  style={{ color: 'var(--color-primary)' }}>
+                  View Course
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+            <p className="font-body text-sm text-center" style={{ color: 'var(--text-muted)' }}>
+              For corporate team training, upskilling programs, or AI enablement workshops for your organisation —{' '}
+              <Link href="/corporates#corporate-proposal" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                submit a corporate inquiry
+              </Link>
+              .
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Final CTA Section */}
       <section className="py-16 md:py-24 section-band-accent">

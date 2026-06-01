@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useCurrency } from '../../contexts/CurrencyContext';
 import { coursePricing, type CoursePricingData } from '../../data/coursePricing';
+import { RazorpayCheckout } from '../payments/RazorpayCheckout';
 
 interface PaymentOptionsProps {
   courseSlug: keyof CoursePricingData;
@@ -113,6 +114,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
   // Calculate installments
   const installmentData = calculateInstallments(totalPrice, activeCurrency, courseType);
   const advanceDisplay = formatCurrency(installmentData.advance, activeCurrency);
+  const advancePaise = Math.round(installmentData.advance * 100);
 
   // Show loading state during hydration to prevent mismatch
   if (!isMounted || isLoading) {
@@ -277,7 +279,7 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   'Reserves your seat in the batch',
                   'Balance of 1st installment due 3 days before batch starts',
                   'Choose from flexible installment plans',
-                  activeCurrency === 'INR' ? 'Pay via UPI or Bank Transfer' : 'Secure payment via Skydo'
+                  activeCurrency === 'INR' ? 'Pay securely via Razorpay (UPI, cards, net banking)' : 'Secure payment via Skydo'
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
@@ -288,24 +290,52 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                 ))}
               </ul>
 
-              <a
-                href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi, I'm interested in enrolling for the ${courseNames[courseSlug]} course and would like to pay the advance of ${advanceDisplay} to book my slot for the upcoming batch.`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105 surface-on-accent"
-                style={{
-                  backgroundColor: 'var(--color-highlight)',
-                  color: 'var(--text-on-accent)',
-                  fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
-                }}>
-                Pay {advanceDisplay} Advance
-                <ArrowRight className="w-4 h-4 inline-block ml-2" />
-              </a>
+              {activeCurrency === 'INR' ? (
+                <RazorpayCheckout
+                  amountPaise={advancePaise}
+                  description={`${courseNames[courseSlug]} — 10% advance`}
+                  courseSlug={courseSlug}
+                  receipt={`adv_${courseSlug}_${Date.now()}`.slice(0, 40)}
+                  buttonText={`Pay ${advanceDisplay} Advance`}
+                  buttonStyle={{
+                    backgroundColor: 'var(--color-highlight)',
+                    color: 'var(--text-on-accent)',
+                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+                  }}
+                />
+              ) : (
+                <a
+                  href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi, I'm interested in enrolling for the ${courseNames[courseSlug]} course and would like to pay the advance of ${advanceDisplay} to book my slot for the upcoming batch.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center font-body font-semibold py-3 px-6 rounded-lg transition-all hover:scale-105 surface-on-accent"
+                  style={{
+                    backgroundColor: 'var(--color-highlight)',
+                    color: 'var(--text-on-accent)',
+                    fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
+                  }}>
+                  Pay {advanceDisplay} Advance
+                  <ArrowRight className="w-4 h-4 inline-block ml-2" />
+                </a>
+              )}
 
-              {/* Payment Info Badge */}
               <div className="mt-4 text-center">
                 <span className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
-                  You'll receive UPI/Bank details via WhatsApp
+                  {activeCurrency === 'INR' ? (
+                    <>
+                      Secured by Razorpay. Prefer manual transfer?{' '}
+                      <a
+                        href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi, I'd like to pay the ${courseNames[courseSlug]} advance of ${advanceDisplay} via bank transfer.`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                        style={{ color: 'var(--color-primary)' }}>
+                        Contact us on WhatsApp
+                      </a>
+                    </>
+                  ) : (
+                    'International payments handled via Skydo'
+                  )}
                 </span>
               </div>
             </motion.div>

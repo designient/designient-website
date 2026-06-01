@@ -813,6 +813,83 @@ export function SuccessStoriesContent() {
         </div>
       </section>
 
+      {/* AI Track Stories — Coming Soon */}
+      <section className="py-16 md:py-24" style={{ backgroundColor: '#FFF6E2' }}>
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-4xl mx-auto">
+            <span
+              className="inline-block px-4 py-1.5 rounded-full font-body text-sm font-semibold mb-6"
+              style={{ backgroundColor: 'var(--color-primary)', color: '#fff' }}>
+              AI Track — New
+            </span>
+            <h2
+              className="font-display font-bold mb-6"
+              style={{
+                color: 'var(--color-primary)',
+                fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
+              }}>
+              AI Track Success Stories — Cohort 1 in Progress
+            </h2>
+            <p
+              className="font-body leading-relaxed mb-4"
+              style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)', lineHeight: '1.8' }}>
+              The AI Automation Accelerator and AI Product Design Course are now open for enrollment. The first cohorts are underway.
+            </p>
+            <p
+              className="font-body leading-relaxed mb-4"
+              style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)', lineHeight: '1.8' }}>
+              Outcomes on the AI Track look different from the Design Track — not placement rates and salary packages, but deployed automations running in production, AI product design case studies with functional prototypes, and the kind of portfolio you can demonstrate live in 90 seconds.
+            </p>
+            <p
+              className="font-body leading-relaxed mb-10"
+              style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1rem, 1.8vw, 1.125rem)', lineHeight: '1.8' }}>
+              We will publish the first AI Track outcomes here after cohort 1 completes. In the meantime, the course pages show exactly what students build across 6 or 8 weeks.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div
+                className="rounded-xl p-6 border-2 h-full flex flex-col bg-card"
+                style={{ borderColor: 'var(--border-default)' }}>
+                <h3 className="font-display font-semibold mb-3" style={{ color: 'var(--text-primary)', fontSize: '1.125rem' }}>
+                  What AI Automation Accelerator students build
+                </h3>
+                <p className="font-body text-sm leading-relaxed mb-6 flex-1" style={{ color: 'var(--text-secondary)' }}>
+                  3 deployed production automations — n8n workflows, AI decision layers, WhatsApp pipelines, and autonomous Relevance AI agents. Documented, ROI-calculated, and live.
+                </p>
+                <Link
+                  href="/ai-automation-accelerator"
+                  className="inline-flex items-center gap-2 font-body font-semibold text-sm"
+                  style={{ color: 'var(--color-primary)' }}>
+                  See the course
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+              <div
+                className="rounded-xl p-6 border-2 h-full flex flex-col bg-card"
+                style={{ borderColor: 'var(--border-default)' }}>
+                <h3 className="font-display font-semibold mb-3" style={{ color: 'var(--text-primary)', fontSize: '1.125rem' }}>
+                  What AI Product Design students build
+                </h3>
+                <p className="font-body text-sm leading-relaxed mb-6 flex-1" style={{ color: 'var(--text-secondary)' }}>
+                  An AI product audit case study of a live product + an original AI feature designed across all 8 states in Figma + a functional Bolt/v0 prototype. Two portfolio artefacts that prove AI product design fluency.
+                </p>
+                <Link
+                  href="/ai-product-design-course"
+                  className="inline-flex items-center gap-2 font-body font-semibold text-sm"
+                  style={{ color: 'var(--color-primary)' }}>
+                  See the course
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* 6️⃣ OUTCOME CLUSTERS */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -876,7 +953,8 @@ export function SuccessStoriesContent() {
                 { name: 'UI/UX Design Pro Course', href: '/ui-ux-design-pro' },
                 { name: 'UI/UX Design Master', href: '/ui-ux-design-master' },
                 { name: 'UI/UX Bootcamp', href: '/ui-ux-design-bootcamp' },
-                { name: 'Prompt Mastery', href: '/prompt-engineering-mastery' },
+                { name: 'AI Automation Accelerator', href: '/ai-automation-accelerator' },
+                { name: 'AI Product Design Course', href: '/ai-product-design-course' },
                 { name: 'Apply Now', href: '/apply-now' },
                 { name: 'Placements', href: '/placements' }
               ].map((link, index) => (

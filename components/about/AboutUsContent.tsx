@@ -721,6 +721,120 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
         </div>
       </section>
 
+      {/* What We Teach */}
+      <section
+        className="py-24 md:py-32"
+        style={{ backgroundColor: '#FFF6E2' }}
+        aria-labelledby="what-we-teach-heading">
+        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+            className="max-w-4xl mx-auto">
+            <h2
+              id="what-we-teach-heading"
+              className="font-display font-bold mb-4 tracking-wide"
+              style={{
+                color: 'var(--color-primary)',
+                fontSize: 'clamp(2rem, 4vw, 3.5rem)',
+              }}>
+              What We Teach
+            </h2>
+            <p
+              className="font-body leading-relaxed mb-12"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                lineHeight: '1.8',
+              }}>
+              Two tracks. Five courses. Every one of them built around a real outcome — not a certificate you frame and forget.
+            </p>
+
+            <div className="space-y-12">
+              <div>
+                <h3
+                  className="font-display font-bold mb-3"
+                  style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+                  Design Track — Become a UI/UX Designer
+                </h3>
+                <p
+                  className="font-body leading-relaxed mb-6"
+                  style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                  Three courses that take you from complete beginner to senior designer level. Every course uses real client projects, live mentorship, and AI tools embedded throughout.
+                </p>
+                <ul className="space-y-4 mb-6 list-none pl-0">
+                  <li className="font-body" style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Bootcamp</strong> — 3 days, from ₹1,999. Build a full portfolio piece in one weekend. The fastest way to find out if design is the right path.
+                  </li>
+                  <li className="font-body" style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Pro</strong> — 10 weeks, from ₹49,999. Most Popular. From zero to job-ready. Real client project, Adobe certification, placement support.
+                  </li>
+                  <li className="font-body" style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Master</strong> — 6 months, from ₹99,999. For experienced designers. Advanced systems, AI product strategy, leadership, diploma certification.
+                  </li>
+                </ul>
+                <Link
+                  href="/courses"
+                  className="inline-flex items-center gap-2 font-body font-semibold transition-colors hover:opacity-80"
+                  style={{ color: 'var(--color-primary)' }}>
+                  Explore the Design Track
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              <div>
+                <h3
+                  className="font-display font-bold mb-3"
+                  style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>
+                  AI Track — Build AI Workflows and Design AI Products
+                </h3>
+                <p
+                  className="font-body leading-relaxed mb-6"
+                  style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                  Two courses for working professionals, freelancers, PMs, and designers who want to build AI automation systems or design AI-native products. No design background required.
+                </p>
+                <ul className="space-y-4 mb-6 list-none pl-0">
+                  <li className="font-body" style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>AI Automation Accelerator</strong> — 8 weeks, from ₹34,999. Highest Demand 2026. Build 3 deployed AI automations using n8n, Make, ManyChat, and Relevance AI.
+                  </li>
+                  <li className="font-body" style={{ color: 'var(--text-secondary)', lineHeight: '1.8' }}>
+                    <strong style={{ color: 'var(--text-primary)' }}>AI Product Design Course</strong> — 6 weeks, from ₹64,999. By Application Only. Design AI behaviour — trust UI, error states, confidence design.
+                  </li>
+                </ul>
+                <Link
+                  href="/courses"
+                  className="inline-flex items-center gap-2 font-body font-semibold transition-colors hover:opacity-80"
+                  style={{ color: 'var(--color-primary)' }}>
+                  Explore the AI Track
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            <p
+              className="font-body leading-relaxed mt-12 pt-8 border-t"
+              style={{
+                color: 'var(--text-secondary)',
+                fontSize: 'clamp(1rem, 1.8vw, 1.125rem)',
+                lineHeight: '1.8',
+                borderColor: 'var(--border-default)',
+              }}>
+              Not sure which track is right for you?{' '}
+              <Link href="/courses" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                Compare all courses
+              </Link>{' '}
+              or{' '}
+              <Link href="/apply-now" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                book a free consultation
+              </Link>
+              .
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Our Teaching Philosophy */}
       <section
         className="py-24 md:py-32"
@@ -1125,8 +1239,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                             color: 'var(--text-secondary)',
                             lineHeight: '1.5'
                           }}>
-                          {milestone.year === '2016' && 'Designient School of Masterminds was founded with a vision to transform UI/UX design education in India.'}
-                          {milestone.year === '2018' && 'We partnered with Adobe to offer certified design courses, bringing industry-standard training to our students.'}
+                          {milestone.year === '2018' && milestone.event === 'A Vision Was Born' && 'Designient School of Masterminds was founded with a vision to transform UI/UX design education in India.'}
+                          {milestone.year === '2018' && milestone.event === 'Adobe Partnership Begins' && 'We partnered with Adobe to offer certified design courses, bringing industry-standard training to our students.'}
                           {milestone.year === '2020' && 'Launched our online learning platform, making quality design education accessible to students globally.'}
                           {milestone.year === '2021' && 'Celebrated a major milestone with 150+ students successfully placed in top design roles across the industry.'}
                           {milestone.year === '2023' && 'Expanded our physical presence with a new state-of-the-art office in Hyderabad, serving students in South India.'}

@@ -59,6 +59,7 @@ const industries = [
 const serviceTypes = [
   'Training Programs',
   'AI Enablement & Workshops',
+  'AI Automation Team Enrollment',
   'Hiring & Consulting',
   'UX Audits',
   'Product Redesigns',

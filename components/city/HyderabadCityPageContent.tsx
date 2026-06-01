@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { MapPin, CheckCircle, Users, Briefcase, Target, ArrowRight, Phone, BookOpen, Award, TrendingUp, Heart, Clock, Calendar } from 'react-feather'
 import Link from 'next/link'
 import { CourseFAQ } from '../course/CourseFAQ'
+import { CityAITrackSection } from './CityAITrackSection'
 import { CourseCTA } from '../course/CourseCTA'
 import { proCourseBatchSchedule } from '../../data/batchSchedule'
 
@@ -437,6 +438,8 @@ export function HyderabadCityPageContent() {
 
       {/* FAQs */}
       <CourseFAQ faqs={faqs} title="Frequently Asked Questions" />
+
+      <CityAITrackSection cityName="Hyderabad" />
 
       {/* Related Links */}
       <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-card)' }}>

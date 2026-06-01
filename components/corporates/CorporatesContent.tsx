@@ -108,7 +108,7 @@ export function CorporatesContent() {
                 color: 'var(--text-muted)',
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
-              For individual upskilling, explore our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>flagship courses</Link> including <Link href="/ui-ux-design-pro" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI/UX Design Pro</Link> and <Link href="/prompt-engineering-mastery" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>Prompt Engineering Mastery</Link>.
+              For individual upskilling, explore our <Link href="/courses" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>flagship courses</Link> including <Link href="/ui-ux-design-pro" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>UI/UX Design Pro</Link> and <Link href="/ai-automation-accelerator" className="underline hover:no-underline font-semibold" style={{ color: 'var(--color-primary)' }}>AI Automation Accelerator</Link>.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -177,6 +177,38 @@ export function CorporatesContent() {
               )
             })}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+            className="max-w-5xl mx-auto mt-8 bg-card border-2 rounded-xl p-8 hover:shadow-lg transition-shadow"
+            style={{ borderColor: 'var(--border-default)' }}>
+            <div className="flex justify-center mb-4">
+              <div className="p-3 rounded-lg" style={{ backgroundColor: 'var(--bg-warm)' }}>
+                <Zap className="w-6 h-6" style={{ color: 'var(--color-primary)' }} />
+              </div>
+            </div>
+            <h3 className="font-display font-semibold text-center mb-4" style={{ color: 'var(--text-primary)', fontSize: '1.25rem' }}>
+              Teams Upskilling in AI Automation
+            </h3>
+            <p className="font-body leading-relaxed text-center mb-4 max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+              Companies with 5 to 35 professionals — operations managers, marketers, sales leads, HR teams, or cross-functional product squads — who want to build practical AI automation skills together as a cohort rather than sending one person at a time.
+            </p>
+            <p className="font-body leading-relaxed text-center mb-6 max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+              The AI Automation Accelerator is available for team enrollment with a per-seat discount, a dedicated pre-course alignment session, and a group portfolio review at the end.
+            </p>
+            <div className="text-center">
+              <Link
+                href="#corporate-proposal"
+                className="inline-flex items-center gap-2 font-body font-semibold transition-colors hover:opacity-80"
+                style={{ color: 'var(--color-primary)' }}>
+                Enquire about team enrollment
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -219,6 +251,15 @@ export function CorporatesContent() {
                         <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                           {offering.description}
                         </p>
+                        {offering.title === 'AI Enablement & Workshops' && (
+                          <p className="font-body text-sm leading-relaxed mt-4 italic" style={{ color: 'var(--text-muted)' }}>
+                            For individuals who want to build hands-on AI automation skills independently, the{' '}
+                            <Link href="/ai-automation-accelerator" className="underline hover:no-underline font-semibold not-italic" style={{ color: 'var(--color-primary)' }}>
+                              AI Automation Accelerator
+                            </Link>{' '}
+                            is available for both individual and team enrollment.
+                          </p>
+                        )}
                       </div>
                     </div>
                     <div className="flex items-center text-sm font-semibold mt-4" style={{ color: offering.color }}>
@@ -353,7 +394,7 @@ export function CorporatesContent() {
       />
 
       {/* Final CTA Section */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--color-cta)' }}>
+      <section id="corporate-proposal" className="py-16 md:py-24 scroll-mt-24" style={{ backgroundColor: 'var(--color-cta)' }}>
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

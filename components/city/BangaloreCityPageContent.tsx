@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { MapPin, CheckCircle, Users, Briefcase, Target, ArrowRight, Phone, Mail, ChevronDown, BookOpen, Award, TrendingUp, Clock, Calendar } from 'react-feather'
 import Link from 'next/link'
 import { CourseFAQ } from '../course/CourseFAQ'
+import { CityAITrackSection } from './CityAITrackSection'
 import { CourseCTA } from '../course/CourseCTA'
 import { proCourseBatchSchedule } from '../../data/batchSchedule'
 
@@ -534,6 +535,8 @@ export function BangaloreCityPageContent() {
 
       {/* FAQs */}
       <CourseFAQ faqs={faqs} title="Frequently Asked Questions" />
+
+      <CityAITrackSection cityName="Bangalore" />
 
       {/* Related Links */}
       <section className="py-16 md:py-20" style={{ backgroundColor: 'var(--bg-card)' }}>
