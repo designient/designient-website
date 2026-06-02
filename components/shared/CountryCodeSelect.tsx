@@ -97,11 +97,7 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                 type="button"
                 id={id}
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full px-2 sm:px-3 py-3 sm:py-2.5 text-sm rounded-lg border bg-gray-50 focus:outline-none focus:ring-2 transition-all flex items-center justify-between gap-1 sm:gap-2 min-h-[44px]"
-                style={{
-                    borderColor: 'var(--border-default)',
-                    color: 'var(--text-primary)'
-                }}
+                className="form-input w-full px-2 sm:px-3 py-3 sm:py-2.5 text-base sm:text-sm flex items-center justify-between gap-1 sm:gap-2 min-h-[48px]"
             >
                 <div className="flex items-center gap-1 sm:gap-2 overflow-hidden">
                     <span className="text-lg sm:text-base flex-shrink-0">{selectedCountry?.flag}</span>
@@ -112,8 +108,12 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
 
             {isOpen && (
                 <div
-                    className="absolute z-50 w-[280px] sm:w-full mt-1 bg-card border rounded-lg shadow-lg max-h-60 overflow-auto left-0"
-                    style={{ borderColor: 'var(--border-default)' }}
+                    className="absolute z-50 mt-1 bg-card border rounded-lg shadow-lg max-h-60 overflow-auto left-0 scroll-touch"
+                    style={{
+                        borderColor: 'var(--border-default)',
+                        width: 'min(280px, calc(100vw - 2rem))',
+                        maxWidth: 'min(280px, calc(100vw - 2rem))',
+                    }}
                 >
                     <div className="sticky top-0 bg-card z-10 px-3 py-2 border-b" style={{ borderColor: 'var(--border-default)' }}>
                         <div className="relative">
@@ -123,7 +123,8 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                                 placeholder="Search..."
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
-                                className="w-full pl-7 pr-3 py-1.5 text-sm border rounded bg-gray-50 focus:outline-none focus:border-purple-500 transition-colors"
+                                className="w-full pl-7 pr-3 py-1.5 text-sm border rounded bg-gray-50 focus:outline-none transition-colors"
+                                style={{ borderColor: 'var(--border-default)' }}
                                 autoFocus
                             />
                         </div>

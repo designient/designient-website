@@ -361,7 +361,8 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
             )}
 
             {/* Installment Table */}
-            <div className="bg-card rounded-lg overflow-hidden shadow-sm">
+            <div className="table-scroll -mx-4 px-4 sm:mx-0 sm:px-0 rounded-lg">
+              <div className="bg-card rounded-lg overflow-hidden shadow-sm min-w-[280px]">
               <table className="w-full">
                 <thead>
                   <tr style={{ backgroundColor: 'var(--color-cta)' }}>
@@ -392,12 +393,13 @@ export function PaymentOptions({ courseSlug, courseType }: PaymentOptionsProps) 
                   </tr>
                 </tbody>
               </table>
+              </div>
             </div>
 
             {/* Payment Terms */}
-            <div className="course-payment-terms mt-4 flex items-start gap-2 p-4 rounded-lg" style={{ backgroundColor: '#fff3cd', border: '1px solid #ffc107' }}>
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: '#856404' }} />
-              <div className="font-body text-sm" style={{ color: '#856404' }}>
+            <div className="course-payment-terms alert-warning mt-4 flex items-start gap-2 p-4 rounded-lg">
+              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+              <div className="font-body text-sm">
                 <p className="font-semibold mb-2">Terms and Conditions of Payment:</p>
                 <ul className="list-disc pl-4 space-y-1">
                   <li>All installment payments shall be due and payable within five (5) business days from the scheduled due date as outlined above.</li>

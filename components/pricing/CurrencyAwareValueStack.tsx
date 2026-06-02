@@ -30,7 +30,7 @@ export function CurrencyAwareValueStack({
         >
           {title}
         </h2>
-        <div className="overflow-x-auto rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
+        <div className="table-scroll -mx-4 px-4 sm:mx-0 sm:px-0 rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
           <table className="w-full min-w-[400px]">
             <thead>
               <tr style={{ backgroundColor: 'var(--color-primary)' }}>

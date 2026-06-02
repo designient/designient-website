@@ -145,18 +145,18 @@ export function ComparisonSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          className="overflow-x-auto"
+          className="table-scroll -mx-4 px-4 sm:mx-0 sm:px-0"
         >
           <ComparisonTable
             title="Design Track — Designient vs Other Design Courses"
             leftHeader={
-              <div className="flex items-center justify-center">
+              <div className="logo-on-accent-band">
                 <img
                   src="/designient-logo.svg"
                   alt="Designient School of Masterminds UI UX design training logo"
-                  className="h-8 sm:h-10 md:h-12 w-auto object-contain logo-on-accent"
-                  width="160"
-                  height="56"
+                  className="site-logo h-8 sm:h-10 md:h-12 w-auto object-contain"
+                  width={160}
+                  height={56}
                 />
               </div>
             }

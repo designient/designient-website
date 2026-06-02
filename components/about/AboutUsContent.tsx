@@ -55,7 +55,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
 
             {/* Subtitle */}
             <p
-              className="text-center text-base md:text-lg max-w-5xl mx-auto leading-[1.6] md:whitespace-nowrap"
+              className="text-center text-base md:text-lg max-w-5xl mx-auto leading-[1.6]"
               style={{
                 color: 'var(--text-secondary)',
                 fontSize: 'clamp(1.125rem, 2vw, 1.375rem)'
@@ -717,8 +717,7 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
 
       {/* What We Teach */}
       <section
-        className="py-24 md:py-32"
-        style={{ backgroundColor: '#FFF6E2' }}
+        className="py-24 md:py-32 section-band-warm"
         aria-labelledby="what-we-teach-heading">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
@@ -729,9 +728,8 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
             className="max-w-4xl mx-auto">
             <h2
               id="what-we-teach-heading"
-              className="font-display font-bold mb-4 tracking-wide"
+              className="font-display font-bold mb-4 tracking-wide section-heading"
               style={{
-                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)',
               }}>
               What We Teach
@@ -816,11 +814,11 @@ export function AboutUsContent({ aboutData }: AboutUsContentProps) {
                 borderColor: 'var(--border-default)',
               }}>
               Not sure which track is right for you?{' '}
-              <Link href="/courses" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/courses" className="font-semibold course-inline-link">
                 Compare all courses
               </Link>{' '}
               or{' '}
-              <Link href="/apply-now" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+              <Link href="/apply-now" className="font-semibold course-inline-link">
                 book a free consultation
               </Link>
               .

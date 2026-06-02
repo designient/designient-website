@@ -63,7 +63,7 @@ export default function CancellationRefundPolicyPage() {
           <div className="mt-12 pt-8 border-t-2" style={{ borderColor: 'var(--border-default)' }}>
             <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
               This page is written in plain language for students. The full legal clauses are in our{' '}
-              <Link href="/terms-and-conditions" className="text-[var(--color-primary)] underline">Terms and Conditions</Link>.
+              <Link href="/terms-and-conditions" className="course-inline-link">Terms and Conditions</Link>.
               In case of any conflict, the Terms and Conditions shall prevail.
             </p>
             <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)', fontSize: '1.125rem' }}>
@@ -72,19 +72,19 @@ export default function CancellationRefundPolicyPage() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <Link href="/terms-and-conditions" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/terms-and-conditions" className="font-body course-inline-link">
               Terms and Conditions
             </Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link href="/contact-us" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/contact-us" className="font-body course-inline-link">
               Contact Us
             </Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link href="/faqs" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/faqs" className="font-body course-inline-link">
               FAQs
             </Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link href="/" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/" className="font-body course-inline-link">
               Home
             </Link>
           </div>

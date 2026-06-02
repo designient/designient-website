@@ -244,7 +244,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
 
         {/* Phone */}
         <div>
-          <div className="flex gap-2">
+          <div className="form-phone-row">
             <CountryCodeSelect
               value={formData.phoneCountryCode}
               onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
@@ -271,7 +271,7 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
 
         {/* WhatsApp */}
         <div>
-          <div className="flex gap-2">
+          <div className="form-phone-row">
             <CountryCodeSelect
               value={formData.whatsappCountryCode}
               onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}

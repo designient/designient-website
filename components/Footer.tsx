@@ -5,6 +5,7 @@ import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, Send, Youtube } fr
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { SiteLogo } from './shared/SiteLogo';
 import { footerCourseGroups } from '../data/homepageCatalog';
 
 export function Footer() {
@@ -172,7 +173,7 @@ export function Footer() {
               STAY UPDATED
             </h3>
             <p
-              className="font-body mb-6 font-normal md:whitespace-nowrap"
+              className="font-body mb-6 font-normal"
               style={{
                 color: 'var(--text-secondary)',
                 fontSize: 'clamp(0.875rem, 1.2vw, 0.9375rem)'
@@ -209,7 +210,7 @@ export function Footer() {
                   disabled={isSubmitting}
                   whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
                   whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  className="btn-primary px-6 whitespace-nowrap"
+                  className="btn-primary px-6 w-full sm:w-auto"
                   style={{
                     opacity: isSubmitting ? 0.7 : 1,
                     cursor: isSubmitting ? 'not-allowed' : 'pointer',
@@ -251,14 +252,11 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-12 mb-10 sm:mb-12">
           {/* Brand Section */}
           <div>
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/designient-logo.svg"
-                alt="Designient School of Masterminds UI UX design training institute logo"
+            <Link href="/" className="site-logo-link inline-block mb-4" itemProp="logo">
+              <SiteLogo
                 width={180}
                 height={60}
                 className="h-12 md:h-14 w-auto"
-                itemProp="logo"
               />
             </Link>
             <p

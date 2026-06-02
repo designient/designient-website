@@ -297,7 +297,7 @@ export function ApplyNowContent() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', color: 'var(--color-primary)' }}>
+            <h2 className="font-display font-bold mb-6 section-heading" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
               How It Works
             </h2>
           </motion.div>
@@ -356,7 +356,7 @@ export function ApplyNowContent() {
                 <form onSubmit={handleRouterSubmit} className="space-y-6">
                   <div>
                     <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      1. Which program are you applying for? <span className="text-red-500">*</span>
+                      1. Which program are you applying for? <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <div className="space-y-2">
                       {programs.map(program => (
@@ -364,7 +364,7 @@ export function ApplyNowContent() {
                           key={program.label}
                           className={`flex flex-col p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                             formData.program === program.label
-                              ? 'border-[var(--color-primary)] bg-purple-50'
+                              ? 'choice-card--selected'
                               : 'border-gray-300 hover:border-gray-400'
                           }`}>
                           <span className="flex items-center gap-3">
@@ -389,12 +389,12 @@ export function ApplyNowContent() {
                         </label>
                       ))}
                     </div>
-                    {errors.program && <p className="mt-2 text-xs text-red-500">{errors.program}</p>}
+                    {errors.program && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.program}</p>}
                   </div>
 
                   <div>
                     <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      2. What best describes you? <span className="text-red-500">*</span>
+                      2. What best describes you? <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <div className="space-y-2">
                       {applicantTypes.map(type => (
@@ -402,7 +402,7 @@ export function ApplyNowContent() {
                           key={type}
                           className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
                             formData.applicantType === type
-                              ? 'border-[var(--color-primary)] bg-purple-50'
+                              ? 'choice-card--selected'
                               : 'border-gray-300 hover:border-gray-400'
                           }`}>
                           <input
@@ -420,7 +420,7 @@ export function ApplyNowContent() {
                         </label>
                       ))}
                     </div>
-                    {errors.applicantType && <p className="mt-2 text-xs text-red-500">{errors.applicantType}</p>}
+                    {errors.applicantType && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.applicantType}</p>}
                   </div>
 
                   <button
@@ -466,7 +466,7 @@ export function ApplyNowContent() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        Full Name <span className="text-red-500">*</span>
+                        Full Name <span style={{ color: 'var(--color-error)' }}>*</span>
                       </label>
                       <input
                         type="text"
@@ -476,17 +476,17 @@ export function ApplyNowContent() {
                           setFormData(prev => ({ ...prev, fullName: e.target.value }))
                           if (errors.fullName) setErrors(prev => ({ ...prev, fullName: undefined }))
                         }}
-                        className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                        className={`form-input ${
+                          errors.fullName ? 'form-input--error' : ''
                         }`}
                         placeholder="John Doe"
                       />
-                      {errors.fullName && <p className="mt-1 text-xs text-red-500">{errors.fullName}</p>}
+                      {errors.fullName && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.fullName}</p>}
                     </div>
 
                     <div>
                       <label htmlFor="email" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        Email <span className="text-red-500">*</span>
+                        Email <span style={{ color: 'var(--color-error)' }}>*</span>
                       </label>
                       <input
                         type="email"
@@ -496,18 +496,18 @@ export function ApplyNowContent() {
                           setFormData(prev => ({ ...prev, email: e.target.value }))
                           if (errors.email) setErrors(prev => ({ ...prev, email: undefined }))
                         }}
-                        className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                        className={`form-input ${
+                          errors.email ? 'form-input--error' : ''
                         }`}
                         placeholder="john@example.com"
                       />
-                      {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+                      {errors.email && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.email}</p>}
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Phone Number <span className="text-red-500">*</span>
+                      Phone Number <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <input
                       type="tel"
@@ -517,17 +517,17 @@ export function ApplyNowContent() {
                         setFormData(prev => ({ ...prev, phone: e.target.value }))
                         if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }))
                       }}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                      className={`form-input ${
+                        errors.phone ? 'form-input--error' : ''
                       }`}
                       placeholder="+91 98765 43210"
                     />
-                    {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone}</p>}
+                    {errors.phone && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.phone}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="currentBackground" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Current Background <span className="text-red-500">*</span>
+                      Current Background <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <textarea
                       id="currentBackground"
@@ -537,17 +537,17 @@ export function ApplyNowContent() {
                         if (errors.currentBackground) setErrors(prev => ({ ...prev, currentBackground: undefined }))
                       }}
                       rows={3}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                        errors.currentBackground ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                      className={`form-input form-textarea resize-none ${
+                        errors.currentBackground ? 'form-textarea--error' : ''
                       }`}
                       placeholder="Tell us about your current role, education, or background..."
                     />
-                    {errors.currentBackground && <p className="mt-1 text-xs text-red-500">{errors.currentBackground}</p>}
+                    {errors.currentBackground && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.currentBackground}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="experienceLevel" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Experience Level <span className="text-red-500">*</span>
+                      Experience Level <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <select
                       id="experienceLevel"
@@ -556,20 +556,20 @@ export function ApplyNowContent() {
                         setFormData(prev => ({ ...prev, experienceLevel: e.target.value }))
                         if (errors.experienceLevel) setErrors(prev => ({ ...prev, experienceLevel: undefined }))
                       }}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                        errors.experienceLevel ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                      className={`form-select ${
+                        errors.experienceLevel ? 'form-select--error' : ''
                       }`}>
                       <option value="">Select your experience level</option>
                       {experienceLevels.map(level => (
                         <option key={level} value={level}>{level}</option>
                       ))}
                     </select>
-                    {errors.experienceLevel && <p className="mt-1 text-xs text-red-500">{errors.experienceLevel}</p>}
+                    {errors.experienceLevel && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.experienceLevel}</p>}
                   </div>
 
                   <div>
                     <label htmlFor="careerGoal" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Career Goal <span className="text-red-500">*</span>
+                      Career Goal <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <textarea
                       id="careerGoal"
@@ -579,18 +579,18 @@ export function ApplyNowContent() {
                         if (errors.careerGoal) setErrors(prev => ({ ...prev, careerGoal: undefined }))
                       }}
                       rows={3}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                        errors.careerGoal ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                      className={`form-input form-textarea resize-none ${
+                        errors.careerGoal ? 'form-textarea--error' : ''
                       }`}
                       placeholder="What do you hope to achieve with this course? What are your career aspirations?"
                     />
-                    {errors.careerGoal && <p className="mt-1 text-xs text-red-500">{errors.careerGoal}</p>}
+                    {errors.careerGoal && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.careerGoal}</p>}
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="availability" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        Availability <span className="text-red-500">*</span>
+                        Availability <span style={{ color: 'var(--color-error)' }}>*</span>
                       </label>
                       <select
                         id="availability"
@@ -599,20 +599,20 @@ export function ApplyNowContent() {
                           setFormData(prev => ({ ...prev, availability: e.target.value }))
                           if (errors.availability) setErrors(prev => ({ ...prev, availability: undefined }))
                         }}
-                        className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.availability ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                        className={`form-select ${
+                          errors.availability ? 'form-select--error' : ''
                         }`}>
                         <option value="">Select availability</option>
                         {availabilityOptions.map(option => (
                           <option key={option} value={option}>{option}</option>
                         ))}
                       </select>
-                      {errors.availability && <p className="mt-1 text-xs text-red-500">{errors.availability}</p>}
+                      {errors.availability && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.availability}</p>}
                     </div>
 
                     <div>
                       <label htmlFor="city" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        City <span className="text-red-500">*</span>
+                        City <span style={{ color: 'var(--color-error)' }}>*</span>
                       </label>
                       <select
                         id="city"
@@ -621,21 +621,21 @@ export function ApplyNowContent() {
                           setFormData(prev => ({ ...prev, city: e.target.value }))
                           if (errors.city) setErrors(prev => ({ ...prev, city: undefined }))
                         }}
-                        className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors ${
-                          errors.city ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                        className={`form-select ${
+                          errors.city ? 'form-select--error' : ''
                         }`}>
                         <option value="">Select your city</option>
                         {cities.map(city => (
                           <option key={city} value={city}>{city}</option>
                         ))}
                       </select>
-                      {errors.city && <p className="mt-1 text-xs text-red-500">{errors.city}</p>}
+                      {errors.city && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.city}</p>}
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="motivation" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Why do you want to join Designient? <span className="text-red-500">*</span>
+                      Why do you want to join Designient? <span style={{ color: 'var(--color-error)' }}>*</span>
                     </label>
                     <textarea
                       id="motivation"
@@ -645,12 +645,12 @@ export function ApplyNowContent() {
                         if (errors.motivation) setErrors(prev => ({ ...prev, motivation: undefined }))
                       }}
                       rows={5}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body transition-colors resize-none ${
-                        errors.motivation ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                      className={`form-input form-textarea resize-none ${
+                        errors.motivation ? 'form-textarea--error' : ''
                       }`}
                       placeholder="Share your motivation, what excites you about design, and why you chose Designient..."
                     />
-                    {errors.motivation && <p className="mt-1 text-xs text-red-500">{errors.motivation}</p>}
+                    {errors.motivation && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.motivation}</p>}
                     <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
                       Minimum 50 characters. Please be specific and genuine.
                     </p>
@@ -669,29 +669,29 @@ export function ApplyNowContent() {
                       />
                       <span className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                         I agree to the{' '}
-                        <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                        <Link href="/terms-and-conditions" className="course-inline-link">
                           Terms and Conditions
                         </Link>
                         {', '}
-                        <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                        <Link href="/privacy-policy" className="course-inline-link">
                           Privacy Policy
                         </Link>
                         {', and '}
-                        <Link href="/cancellation-refund-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                        <Link href="/cancellation-refund-policy" className="course-inline-link">
                           Cancellation & Refund Policy
                         </Link>
                         {', '}
-                        <Link href="/pricing" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                        <Link href="/pricing" className="course-inline-link">
                           Pricing
                         </Link>
                         , and{' '}
-                        <Link href="/grievance-redressal" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+                        <Link href="/grievance-redressal" className="course-inline-link">
                           Grievance Redressal
                         </Link>
                         . I consent to receive communications via email, phone, and WhatsApp regarding my application.
                       </span>
                     </label>
-                    {errors.consent && <p className="mt-2 text-xs text-red-500">{errors.consent}</p>}
+                    {errors.consent && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.consent}</p>}
                   </div>
 
                   <div className="pt-4">

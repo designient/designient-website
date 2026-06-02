@@ -30,9 +30,9 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
-      className="fixed bottom-20 right-4 md:bottom-6 md:right-6 z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg transition-all hover:scale-110 hover:shadow-xl"
+      className="fixed z-50 flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg transition-all hover:scale-110 hover:shadow-xl right-4 md:right-6 bottom-[calc(5rem+env(safe-area-inset-bottom,0px))] md:bottom-[calc(1.5rem+env(safe-area-inset-bottom,0px))]"
       style={{
-        backgroundColor: '#25D366', // WhatsApp green
+        backgroundColor: '#25D366',
       }}
     >
       <svg

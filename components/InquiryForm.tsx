@@ -178,7 +178,7 @@ export function InquiryForm() {
             Ready to take your career to the next level?
           </h2>
           <p
-            className="font-body text-base md:text-lg font-normal max-w-2xl mx-auto md:whitespace-nowrap text-center"
+            className="font-body text-base md:text-lg font-normal max-w-2xl mx-auto text-center"
             style={{
               color: 'var(--text-secondary)',
               fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
@@ -308,7 +308,7 @@ export function InquiryForm() {
                 <label htmlFor="inquiry-phone" className="sr-only">
                   Phone Number
                 </label>
-                <div className="flex gap-2 items-start w-full">
+                <div className="form-phone-row">
                   <CountryCodeSelect
                     value={formData.phoneCountryCode}
                     onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
@@ -335,7 +335,7 @@ export function InquiryForm() {
                 <label htmlFor="inquiry-whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
-                <div className="flex gap-2 items-start w-full">
+                <div className="form-phone-row">
                   <CountryCodeSelect
                     value={formData.whatsappCountryCode}
                     onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
@@ -447,7 +447,7 @@ export function InquiryForm() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>privacy</Link>. No spam.
+                We respect your <Link href="/privacy-policy" className="course-inline-link">privacy</Link>. No spam.
               </p>
             </form>
           </motion.div>

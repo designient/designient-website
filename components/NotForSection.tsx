@@ -80,7 +80,7 @@ export function NotForSection() {
           </ul>
           
           <p
-            className="font-body font-semibold md:whitespace-nowrap"
+            className="font-body font-semibold"
             style={{
               color: 'var(--color-primary)',
               fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',

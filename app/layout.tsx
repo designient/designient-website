@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import React from 'react'
 import { Bebas_Neue, Inter } from 'next/font/google'
 import { CurrencyProvider } from '../contexts/CurrencyContext'
@@ -20,6 +20,12 @@ const inter = Inter({
   variable: '--font-body',
   display: 'swap',
 })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+}
 
 export const metadata: Metadata = {
   title: {
@@ -75,7 +81,7 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon-designient.png',
     shortcut: '/favicon-designient.png',
-    apple: '/favicon-designient.png',
+    apple: '/apple-touch-icon.png',
   },
 }
 

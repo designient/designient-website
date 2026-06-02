@@ -54,19 +54,19 @@ export default function GrievanceRedressalPage() {
           <GrievanceRedressalPolicyContent />
 
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <Link href="/privacy-policy" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/privacy-policy" className="font-body course-inline-link">
               Privacy Policy
             </Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link href="/terms-and-conditions" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/terms-and-conditions" className="font-body course-inline-link">
               Terms and Conditions
             </Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link href="/contact-us" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/contact-us" className="font-body course-inline-link">
               Contact Us
             </Link>
             <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <Link href="/" className="font-body text-[var(--color-primary)] underline hover:no-underline">
+            <Link href="/" className="font-body course-inline-link">
               Home
             </Link>
           </div>

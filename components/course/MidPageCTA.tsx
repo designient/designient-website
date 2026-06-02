@@ -59,12 +59,12 @@ export function MidPageCTA({ courseSlug, courseName }: MidPageCTAProps) {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center items-stretch sm:items-center">
             <motion.button
               onClick={scrollToApplication}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-lg font-body font-bold text-sm md:text-base transition-all shadow-lg hover:shadow-xl whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-body font-bold text-sm md:text-base transition-all shadow-lg hover:shadow-xl w-full sm:w-auto"
               style={{
                 backgroundColor: 'var(--color-cta)',
                 color: 'var(--text-on-accent)'
@@ -75,7 +75,7 @@ export function MidPageCTA({ courseSlug, courseName }: MidPageCTAProps) {
 
             <Link
               href={`/${courseSlug}#pricing`}
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-lg font-body font-semibold text-sm md:text-base transition-all border-2 hover:bg-gray-50 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-body font-semibold text-sm md:text-base transition-all border-2 hover:bg-gray-50 w-full sm:w-auto"
               style={{
                 borderColor: 'var(--color-primary)',
                 color: 'var(--color-primary)'
@@ -86,7 +86,7 @@ export function MidPageCTA({ courseSlug, courseName }: MidPageCTAProps) {
 
             <button
               onClick={() => openModal(courseSlug, courseName)}
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-lg font-body font-semibold text-sm md:text-base transition-all border-2 hover:bg-gray-50 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-body font-semibold text-sm md:text-base transition-all border-2 hover:bg-gray-50 w-full sm:w-auto"
               style={{
                 borderColor: 'var(--color-primary)',
                 color: 'var(--color-primary)'

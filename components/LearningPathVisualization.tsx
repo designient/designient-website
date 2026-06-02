@@ -253,7 +253,7 @@ export function LearningPathVisualization() {
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.55, ease: motionEase }}
-              className="mt-8 lg:mt-0 lg:absolute lg:right-0 lg:top-10 lg:w-[30%]"
+              className="mt-8 w-full max-w-md mx-auto lg:max-w-none lg:mx-0 lg:mt-0 lg:absolute lg:right-0 lg:top-10 lg:w-[30%]"
             >
               <motion.div
                 animate={{ boxShadow: ['0 0 0 rgba(240,255,66,0)', '0 0 24px rgba(240,255,66,0.12)', '0 0 0 rgba(240,255,66,0)'] }}

@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { CountryCodeSelect } from './shared/CountryCodeSelect';
 import { courseInterestOptions } from '../data/homepageCatalog';
 import { PageHeroBackground } from './layout/PageHero';
+import { formInputClass, formSelectClass } from './forms/formStyles';
 
 const TRUST_CHIPS = [
   '95% Placement Rate',
@@ -542,10 +543,7 @@ export function Hero() {
                   required
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
-                  style={{
-                    borderColor: 'var(--border-default)'
-                  }} />
+                  className={formInputClass} />
 
               </div>
 
@@ -561,10 +559,7 @@ export function Hero() {
                   required
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
-                  style={{
-                    borderColor: 'var(--border-default)'
-                  }} />
+                  className={formInputClass} />
 
               </div>
 
@@ -572,12 +567,12 @@ export function Hero() {
                 <label htmlFor="hero-phone" className="sr-only">
                   Phone Number
                 </label>
-                <div className="flex gap-2 items-start w-full">
+                <div className="form-phone-row">
                   <CountryCodeSelect
                     value={formData.phoneCountryCode}
                     onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
                     id="hero-phoneCountryCode"
-                    className="flex-shrink-0"
+                    className="w-full min-[400px]:w-[100px] sm:w-[140px] flex-shrink-0"
                   />
                   <input
                     type="tel"
@@ -587,10 +582,7 @@ export function Hero() {
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
-                    style={{
-                      borderColor: 'var(--border-default)'
-                    }}
+                    className={`flex-1 min-w-0 ${formInputClass}`}
                   />
                 </div>
               </div>
@@ -599,12 +591,12 @@ export function Hero() {
                 <label htmlFor="hero-whatsapp" className="sr-only">
                   WhatsApp Number
                 </label>
-                <div className="flex gap-2 items-start w-full">
+                <div className="form-phone-row">
                   <CountryCodeSelect
                     value={formData.whatsappCountryCode}
                     onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
                     id="hero-whatsappCountryCode"
-                    className="flex-shrink-0"
+                    className="w-full min-[400px]:w-[100px] sm:w-[140px] flex-shrink-0"
                   />
                   <input
                     type="tel"
@@ -614,10 +606,7 @@ export function Hero() {
                     required
                     value={formData.whatsapp}
                     onChange={handleInputChange}
-                    className="flex-1 w-0 px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all min-h-[44px]"
-                    style={{
-                      borderColor: 'var(--border-default)'
-                    }}
+                    className={`flex-1 min-w-0 ${formInputClass}`}
                   />
                 </div>
               </div>
@@ -635,11 +624,11 @@ export function Hero() {
                   required
                   value={formData.courseInterest}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 sm:py-2.5 text-sm rounded-xl border focus:outline-none transition-all appearance-none min-h-[44px]"
+                  className={`${formSelectClass} appearance-none`}
                   style={{
-                    borderColor: 'var(--border-default)',
-                    color: formData.courseInterest ? 'var(--text-primary)' : 'var(--text-muted)'
-                  }}>
+                    color: formData.courseInterest ? 'var(--text-primary)' : 'var(--text-muted)',
+                  }}
+                >
 
                   <option value="" disabled>
                     Select Course Interest
@@ -718,7 +707,7 @@ export function Hero() {
                   </rect>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                 </svg>
-                We respect your <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>privacy</Link>. No spam.
+                We respect your <Link href="/privacy-policy" className="course-inline-link">privacy</Link>. No spam.
               </p>
             </form>
           </motion.div>

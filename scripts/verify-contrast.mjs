@@ -31,10 +31,13 @@ const pairs = [
   { label: 'text-primary on bg-base', fg: '#f5f5f7', bg: '#1c1c1e', min: 7, level: 'AAA' },
   { label: 'text-secondary on bg-base', fg: '#a1a1a6', bg: '#1c1c1e', min: 4.5, level: 'AA' },
   { label: 'text-muted on bg-base', fg: '#86868b', bg: '#1c1c1e', min: 4.5, level: 'AA' },
+  { label: 'text-muted-on-card on bg-card', fg: '#aeaeb2', bg: '#2c2c2e', min: 4.5, level: 'AA' },
   { label: 'text-on-accent on accent (buttons)', fg: '#0d0d0d', bg: '#F0FF42', min: 4.5, level: 'AA' },
   { label: 'accent on bg-base (links/large)', fg: '#F0FF42', bg: '#1c1c1e', min: 3, level: 'AA Large/UI' },
   { label: 'text-primary on bg-card', fg: '#f5f5f7', bg: '#2c2c2e', min: 4.5, level: 'AA' },
   { label: 'text-secondary on bg-footer', fg: '#a1a1a6', bg: '#141416', min: 4.5, level: 'AA' },
+  { label: 'warning text on warning bg', fg: '#f5c96a', bg: '#2f2815', min: 4.5, level: 'AA' },
+  { label: 'selected state border on base', fg: '#F0FF42', bg: '#1c1c1e', min: 3, level: 'AA UI' },
 ];
 
 let failed = 0;

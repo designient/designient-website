@@ -44,7 +44,7 @@ export function TrackComparisonTable({
           </h2>
 
           <div
-            className="overflow-x-auto rounded-xl"
+            className="table-scroll -mx-4 px-4 sm:mx-0 sm:px-0 rounded-xl"
             style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}
           >
             <table className="w-full min-w-[640px]" style={{ borderCollapse: 'separate', borderSpacing: 0 }}>

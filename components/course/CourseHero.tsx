@@ -136,15 +136,15 @@ export function CourseHero({
                   <div className="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-6 mb-3">
                     <div className="flex items-center gap-2 flex-shrink-0">
                       <Calendar className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
-                      <span className="font-body font-semibold text-sm md:text-base whitespace-nowrap" style={{ color: 'var(--text-primary)' }}>
+                      <span className="font-body font-semibold text-sm md:text-base" style={{ color: 'var(--text-primary)' }}>
                         Next batch starts on {upcomingBatch.startDate}
                       </span>
                     </div>
                     <div className="hidden md:block h-4 w-px flex-shrink-0" style={{ backgroundColor: 'var(--border-default)' }} />
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-2 md:gap-3 text-xs md:text-sm" style={{ color: 'var(--text-muted)' }}>
-                      <span className="whitespace-nowrap">Live mentor-led sessions</span>
+                      <span>Live mentor-led sessions</span>
                       <span className="hidden md:inline">•</span>
-                      <span className="whitespace-nowrap">Limited to ~15 students</span>
+                      <span>Limited to ~15 students</span>
                     </div>
                   </div>
                   <p

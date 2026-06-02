@@ -10,7 +10,7 @@ interface CityAITrackSectionProps {
 
 export function CityAITrackSection({ cityName }: CityAITrackSectionProps) {
   return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: '#FFF6E2' }}>
+    <section className="py-16 md:py-24 section-band-warm">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -19,9 +19,8 @@ export function CityAITrackSection({ cityName }: CityAITrackSectionProps) {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto">
           <h2
-            className="font-display font-bold mb-6"
+            className="font-display font-bold mb-6 section-heading"
             style={{
-              color: 'var(--color-primary)',
               fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
             }}>
             Also Available Online from {cityName}: Designient&apos;s AI Track
@@ -82,7 +81,7 @@ export function CityAITrackSection({ cityName }: CityAITrackSectionProps) {
 
           <p className="font-body text-center" style={{ color: 'var(--text-secondary)' }}>
             Not sure which track is right for you?{' '}
-            <Link href="/courses" className="font-semibold underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/courses" className="font-semibold course-inline-link">
               Compare all courses
             </Link>
           </p>

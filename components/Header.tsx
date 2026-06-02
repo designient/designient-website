@@ -1,15 +1,15 @@
 'use client'
 
 import React, { useEffect, useState, useRef } from 'react';
-import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight, ChevronDown } from 'react-feather';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { SiteLogo } from './shared/SiteLogo';
 import { useCurrency } from '../contexts/CurrencyContext';
 import { designTrackNavCourses, aiTrackNavCourses } from '../data/homepageCatalog';
 import { CurrencyToggle } from './CurrencyToggle';
+import { MobileNavDrawer } from './layout/MobileNavDrawer';
 
 const whyDesignientLinks = [
   {
@@ -84,6 +84,21 @@ export function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add('mobile-nav-open');
+      const onEscape = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setMobileMenuOpen(false);
+      };
+      document.addEventListener('keydown', onEscape);
+      return () => {
+        document.body.classList.remove('mobile-nav-open');
+        document.removeEventListener('keydown', onEscape);
+      };
+    }
+    document.body.classList.remove('mobile-nav-open');
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     {
       name: 'Courses',
@@ -137,7 +152,8 @@ export function Header() {
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 nav:h-24">
           <button
-            className="nav:hidden p-2 -ml-2 z-[70]"
+            type="button"
+            className="nav:hidden p-2 -ml-2 z-[70] min-h-[44px] min-w-[44px] flex items-center justify-center"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}>
@@ -155,15 +171,13 @@ export function Header() {
 
           <Link
             href="/"
-            className="absolute left-1/2 -translate-x-1/2 nav:relative nav:left-0 nav:translate-x-0 flex items-center z-[70]"
+            className="site-logo-link absolute left-1/2 -translate-x-1/2 nav:relative nav:left-0 nav:translate-x-0 z-[70] max-w-[calc(100%-5.5rem)] nav:max-w-none"
             aria-label="Designient School - Home">
-            <Image
-              src="/designient-logo.svg"
-              alt="Designient School of Masterminds UI UX design training logo"
-              width={180}
-              height={60}
+            <SiteLogo
               priority
-              className="h-auto w-auto"
+              width={160}
+              height={48}
+              className="h-8 sm:h-9 w-auto max-w-[140px] sm:max-w-[160px]"
             />
           </Link>
 
@@ -186,7 +200,7 @@ export function Header() {
                         color: activeDropdown === link.dropdownType ? 'var(--color-primary)' : 'var(--text-secondary)'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = 'var(--color-primary)';
+                        e.currentTarget.style.color = activeDropdown === link.dropdownType ? 'var(--color-primary)' : 'var(--text-primary)';
                       }}
                       onMouseLeave={(e) => {
                         if (activeDropdown !== link.dropdownType) {
@@ -219,7 +233,7 @@ export function Header() {
                           {link.dropdownType === 'courses' && (
                             <div className="p-8">
                               <div className="mb-8">
-                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--color-primary)' }}>
+                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                                   Design Track
                                 </h3>
                                 <div className="grid grid-cols-1 gap-4">
@@ -232,7 +246,7 @@ export function Header() {
                                       onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
                                     >
                                       <div className="flex items-start justify-between gap-3 mb-2">
-                                        <h4 className="font-display font-semibold text-base group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)' }}>
+                                        <h4 className="font-display font-semibold text-base transition-colors" style={{ color: 'var(--text-primary)' }}>
                                           {course.title}
                                         </h4>
                                         {course.badge && (
@@ -244,7 +258,7 @@ export function Header() {
                                       <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{course.description}</p>
                                       <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: 'var(--border-default)' }}>
                                         <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>{course.duration} · {course.level}</span>
-                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
+                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--text-secondary)' }}>
                                           {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
                                         </span>
                                       </div>
@@ -253,7 +267,7 @@ export function Header() {
                                 </div>
                               </div>
                               <div>
-                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--color-primary)' }}>
+                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
                                   AI Track
                                 </h3>
                                 <div className="grid grid-cols-1 gap-4">
@@ -266,7 +280,7 @@ export function Header() {
                                       onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
                                     >
                                       <div className="flex items-start justify-between gap-3 mb-2">
-                                        <h4 className="font-display font-semibold text-base group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)' }}>
+                                        <h4 className="font-display font-semibold text-base transition-colors" style={{ color: 'var(--text-primary)' }}>
                                           {course.title}
                                         </h4>
                                         {course.badge && (
@@ -278,7 +292,7 @@ export function Header() {
                                       <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{course.description}</p>
                                       <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: 'var(--border-default)' }}>
                                         <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>{course.duration} · {course.level}</span>
-                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--color-primary)' }}>
+                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--text-secondary)' }}>
                                           {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
                                         </span>
                                       </div>
@@ -309,7 +323,7 @@ export function Header() {
                                     onMouseLeave={(e) => {
                                       e.currentTarget.style.backgroundColor = 'transparent';
                                     }}>
-                                    <h4 className="font-display font-semibold text-base mb-2 group-hover:text-[var(--color-primary)] transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
+                                    <h4 className="font-display font-semibold text-base mb-2 transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
                                       {item.name}
                                     </h4>
                                     <p className="font-body text-sm" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
@@ -333,7 +347,7 @@ export function Header() {
                       color: pathname === link.path ? 'var(--color-primary)' : 'var(--text-secondary)'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = 'var(--color-primary)';
+                      e.currentTarget.style.color = pathname === link.path ? 'var(--color-primary)' : 'var(--text-primary)';
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.color = pathname === link.path ? 'var(--color-primary)' : 'var(--text-secondary)';
@@ -350,6 +364,8 @@ export function Header() {
               </div>
             ))}
           </nav>
+
+          <div className="nav:hidden w-10 flex-shrink-0" aria-hidden="true" />
 
           <div className="hidden nav:flex items-center gap-3">
             <CurrencyToggle size="sm" />
@@ -395,7 +411,7 @@ export function Header() {
                   fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--color-primary)';
+                  e.currentTarget.style.color = 'var(--text-primary)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = 'var(--text-secondary)';
@@ -410,160 +426,18 @@ export function Header() {
         </div>
       </div>
 
-      {mounted && createPortal(
-        <AnimatePresence>
-          {mobileMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              style={{
-                position: 'fixed',
-                top: '80px',
-                left: 0,
-                right: 0,
-                bottom: 0,
-                zIndex: 99999,
-                backgroundColor: 'var(--bg-warm)'
-              }}>
-              <nav
-                className="h-full overflow-y-auto max-w-container mx-auto px-6 md:px-8 py-8"
-                style={{ backgroundColor: 'var(--bg-warm)' }}
-                aria-label="Mobile navigation">
-
-                <div className="flex items-center justify-between gap-4 pb-6 mb-4 border-b" style={{ borderColor: 'var(--border-default)' }}>
-                  <span className="font-body text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>
-                    Currency
-                  </span>
-                  <CurrencyToggle size="md" />
-                </div>
-
-                {/* Main Navigation Links */}
-                <div className="space-y-1">
-                  {navLinks.map((link, index) => (
-                    link.hasDropdown ? (
-                      <div key={link.name}>
-                        <motion.button
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: index * 0.05 }}
-                          onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.dropdownType ? null : link.dropdownType!)}
-                          className="font-display w-full flex items-center justify-between py-4 text-lg font-bold tracking-wide"
-                          style={{ color: mobileDropdownOpen === link.dropdownType ? 'var(--color-primary)' : 'var(--text-primary)' }}>
-                          {link.name}
-                          <ChevronDown
-                            className={`w-5 h-5 transition-transform duration-200 ${mobileDropdownOpen === link.dropdownType ? 'rotate-180' : ''}`}
-                            style={{ color: mobileDropdownOpen === link.dropdownType ? 'var(--color-primary)' : 'var(--text-muted)' }}
-                          />
-                        </motion.button>
-
-                        <AnimatePresence>
-                          {mobileDropdownOpen === link.dropdownType && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              transition={{ duration: 0.2 }}
-                              className="overflow-hidden">
-                              <div className="py-2 space-y-1">
-                                {link.dropdownType === 'courses' && (
-                                  <>
-                                    <p className="font-body text-xs font-bold uppercase tracking-wider px-4 py-2" style={{ color: 'var(--color-primary)' }}>Design Track</p>
-                                    {designTrackNavCourses.map((course, i) => (
-                                      <Link
-                                        key={i}
-                                        href={course.path}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-3 px-4 rounded-xl transition-colors"
-                                        style={{ backgroundColor: 'var(--color-accent-muted)' }}>
-                                        <div className="font-body font-semibold text-base mb-0.5" style={{ color: 'var(--text-primary)' }}>
-                                          {course.title}
-                                        </div>
-                                        <div className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
-                                          {course.duration} · {course.level}{course.badge ? ` · ${course.badge}` : ''}
-                                        </div>
-                                      </Link>
-                                    ))}
-                                    <p className="font-body text-xs font-bold uppercase tracking-wider px-4 py-2 mt-4" style={{ color: 'var(--color-primary)' }}>AI Track</p>
-                                    {aiTrackNavCourses.map((course, i) => (
-                                      <Link
-                                        key={i}
-                                        href={course.path}
-                                        onClick={() => setMobileMenuOpen(false)}
-                                        className="block py-3 px-4 rounded-xl transition-colors"
-                                        style={{ backgroundColor: 'var(--color-accent-muted)' }}>
-                                        <div className="font-body font-semibold text-base mb-0.5" style={{ color: 'var(--text-primary)' }}>
-                                          {course.title}
-                                        </div>
-                                        <div className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
-                                          {course.duration} · {course.level}{course.badge ? ` · ${course.badge}` : ''}
-                                        </div>
-                                      </Link>
-                                    ))}
-                                  </>
-                                )}
-                                {link.dropdownType === 'why-designient' && whyDesignientLinks.map((item, i) => (
-                                  <Link
-                                    key={i}
-                                    href={item.path}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="block py-3 px-4 rounded-xl font-body font-medium text-base transition-colors"
-                                    style={{ backgroundColor: 'var(--color-accent-muted)', color: 'var(--text-primary)' }}>
-                                    {item.name}
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <motion.div
-                        key={link.name}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.05 }}>
-                        <Link
-                          href={link.path!}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="font-display block py-4 text-lg font-bold tracking-wide"
-                          style={{ color: pathname === link.path ? 'var(--color-primary)' : 'var(--text-primary)' }}>
-                          {link.name}
-                        </Link>
-                      </motion.div>
-                    )
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
-                  className="mt-8 pt-6 space-y-4"
-                  style={{ borderTop: '1px solid var(--border-default)' }}>
-                  <Link href="/apply-now" onClick={() => setMobileMenuOpen(false)} className="block">
-                    <button
-                      className="w-full font-body font-bold text-base py-4 rounded-full shadow-lg transition-transform active:scale-[0.98] surface-on-accent"
-                      style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)' }}>
-                      Apply Now
-                    </button>
-                  </Link>
-                  <Link href="https://app.designient.com/login" onClick={() => setMobileMenuOpen(false)} className="block">
-                    <button
-                      className="w-full font-body font-semibold text-base py-4 rounded-full flex items-center justify-center gap-2 transition-colors"
-                      style={{ color: 'var(--text-secondary)', backgroundColor: 'var(--bg-muted)' }}>
-                      Login
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </Link>
-                </motion.div>
-              </nav>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body
+      {mounted && (
+        <MobileNavDrawer
+          open={mobileMenuOpen}
+          pathname={pathname}
+          navLinks={navLinks}
+          designTrackCourses={designTrackNavCourses}
+          aiTrackCourses={aiTrackNavCourses}
+          whyDesignientLinks={whyDesignientLinks}
+          mobileDropdownOpen={mobileDropdownOpen}
+          onMobileDropdownToggle={setMobileDropdownOpen}
+          onClose={() => setMobileMenuOpen(false)}
+        />
       )}
     </motion.header>);
 }

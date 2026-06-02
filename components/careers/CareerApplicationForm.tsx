@@ -256,9 +256,8 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
             transition={{ duration: 0.6 }}
             className="mb-8">
             <h2
-              className="font-display font-bold mb-4"
+              className="font-display font-bold mb-4 section-heading"
               style={{
-                color: 'var(--color-primary)',
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
               Apply for This Position
@@ -341,7 +340,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 aria-required="true"
                 aria-invalid={errors.fullName ? 'true' : 'false'}
                 aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-                className={`w-full px-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.fullName ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                className={`form-input min-h-[44px] ${errors.fullName ? 'form-input--error' : 'border-gray-300'
                   }`}
                 style={{
                   backgroundColor: 'var(--bg-card)',
@@ -383,7 +382,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   aria-required="true"
                   aria-invalid={errors.email ? 'true' : 'false'}
                   aria-describedby={errors.email ? 'email-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.email ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.email ? 'form-input--error' : 'border-gray-300'
                     }`}
                   style={{
                     backgroundColor: 'var(--bg-card)',
@@ -414,7 +413,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 }}>
                 Phone Number <span style={{ color: 'var(--color-error)' }}>*</span>
               </label>
-              <div className="flex gap-2">
+              <div className="form-phone-row">
                 <CountryCodeSelect
                   value={formData.phoneCountryCode}
                   onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
@@ -432,7 +431,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                     aria-required="true"
                     aria-invalid={errors.phone ? 'true' : 'false'}
                     aria-describedby={errors.phone ? 'phone-error' : undefined}
-                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.phone ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.phone ? 'form-input--error' : 'border-gray-300'
                       }`}
                     style={{
                       backgroundColor: 'var(--bg-card)',
@@ -464,7 +463,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 }}>
                 WhatsApp Number <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
               </label>
-              <div className="flex gap-2">
+              <div className="form-phone-row">
                 <CountryCodeSelect
                   value={formData.whatsappCountryCode}
                   onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
@@ -480,7 +479,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                     onChange={handleInputChange}
                     aria-invalid={errors.whatsapp ? 'true' : 'false'}
                     aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
-                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.whatsapp ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                    className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.whatsapp ? 'form-input--error' : 'border-gray-300'
                       }`}
                     style={{
                       backgroundColor: 'var(--bg-card)',
@@ -528,10 +527,10 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 />
                 <div
                   className={`flex items-center gap-4 p-4 rounded-lg border-2 transition-colors cursor-pointer min-h-[44px] ${errors.resume
-                    ? 'border-red-500 bg-red-50'
+                    ? 'form-input--error'
                     : resumeFile
-                      ? 'border-[var(--color-primary)] bg-purple-50'
-                      : 'border-gray-300 bg-gray-50 hover:border-[var(--bg-purple-band)]'
+                      ? 'choice-card--selected'
+                      : 'border-gray-300 bg-gray-50 hover:border-[var(--border-strong)]'
                     }`}>
                   <Upload className="w-5 h-5 flex-shrink-0" style={{ color: errors.resume ? 'var(--color-error)' : 'var(--color-primary)' }} />
                   <div className="flex-1">
@@ -590,7 +589,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   placeholder="https://yourportfolio.com"
                   aria-invalid={errors.portfolioUrl ? 'true' : 'false'}
                   aria-describedby={errors.portfolioUrl ? 'portfolioUrl-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.portfolioUrl ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.portfolioUrl ? 'form-input--error' : 'border-gray-300'
                     }`}
                   style={{
                     backgroundColor: 'var(--bg-card)',
@@ -632,7 +631,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                   placeholder="https://linkedin.com/in/yourprofile"
                   aria-invalid={errors.linkedinUrl ? 'true' : 'false'}
                   aria-describedby={errors.linkedinUrl ? 'linkedinUrl-error' : undefined}
-                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.linkedinUrl ? 'border-red-500' : 'border-gray-300 focus:border-[var(--color-primary)]'
+                  className={`w-full pl-12 pr-4 py-3 rounded-lg font-body border-2 transition-colors min-h-[44px] ${errors.linkedinUrl ? 'form-input--error' : 'border-gray-300'
                     }`}
                   style={{
                     backgroundColor: 'var(--bg-card)',
@@ -670,7 +669,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
                 onChange={handleInputChange}
                 rows={6}
                 placeholder="Tell us why you're interested in this role and what makes you a great fit..."
-                className="w-full px-4 py-3 rounded-lg font-body border-2 border-gray-300 focus:border-[var(--color-primary)] transition-colors resize-y"
+                className="form-input form-textarea resize-y"
                 style={{
                   backgroundColor: 'var(--bg-card)',
                   fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',

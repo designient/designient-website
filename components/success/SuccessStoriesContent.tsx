@@ -813,7 +813,7 @@ export function SuccessStoriesContent() {
       </section>
 
       {/* AI Track Stories — Coming Soon */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: '#FFF6E2' }}>
+      <section className="py-16 md:py-24 section-band-warm">
         <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -827,9 +827,8 @@ export function SuccessStoriesContent() {
               AI Track — New
             </span>
             <h2
-              className="font-display font-bold mb-6"
+              className="font-display font-bold mb-6 section-heading"
               style={{
-                color: 'var(--color-primary)',
                 fontSize: 'clamp(1.75rem, 3vw, 2.5rem)',
               }}>
               AI Track Success Stories — Cohort 1 in Progress

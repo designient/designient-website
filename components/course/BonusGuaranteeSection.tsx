@@ -50,7 +50,7 @@ export function BonusGuaranteeSection({ bonuses }: BonusGuaranteeSectionProps) {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.08, duration: 0.4 }}
-                  className="flex items-start gap-4 p-5 rounded-xl bg-gradient-to-br from-white to-gray-50 shadow-sm border border-gray-100 hover:shadow-md hover:border-green-200 transition-all"
+                  className="flex items-start gap-4 p-5 rounded-xl bg-card shadow-sm border border-gray-100 hover:shadow-md hover:border-[var(--border-strong)] transition-all"
                 >
                   <CheckCircle className="w-6 h-6 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-success)' }} aria-hidden="true" />
                   <p className="font-body text-sm md:text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>

@@ -380,7 +380,7 @@ ${formData.requirementDescription}
             <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               Phone Number <span className="font-normal text-gray-500">(Optional)</span>
             </label>
-            <div className="flex gap-2">
+            <div className="form-phone-row">
               <CountryCodeSelect
                 value={formData.phoneCountryCode}
                 onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
@@ -409,7 +409,7 @@ ${formData.requirementDescription}
             <label htmlFor="whatsapp" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
               WhatsApp Number <span className="font-normal text-gray-500">(Optional)</span>
             </label>
-            <div className="flex gap-2">
+            <div className="form-phone-row">
               <CountryCodeSelect
                 value={formData.whatsappCountryCode}
                 onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
@@ -698,11 +698,11 @@ ${formData.requirementDescription}
         </button>
         <p className="font-body text-xs text-center" style={{ color: 'var(--text-muted)' }}>
           By submitting, you agree to our{' '}
-          <a href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+          <a href="/privacy-policy" className="course-inline-link">
             Privacy Policy
           </a>
           {' '}and{' '}
-          <a href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+          <a href="/terms-and-conditions" className="course-inline-link">
             Terms and Conditions
           </a>
           .

@@ -2,7 +2,9 @@
 
 import { useState, FormEvent } from 'react'
 import Link from 'next/link'
-import { CountryCodeSelect, validatePhoneNumber } from '../shared/CountryCodeSelect'
+import { validatePhoneNumber } from '../shared/CountryCodeSelect'
+import { PhoneField } from '../forms/PhoneField'
+import { formInputClass, formSelectClass, formTextareaClass, formInputErrorClass } from '../forms/formStyles'
 
 interface FormData {
   fullName: string
@@ -221,11 +223,7 @@ export function ContactForm() {
             aria-required="true"
             aria-invalid={errors.fullName ? 'true' : 'false'}
             aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-            className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
-            style={{
-              borderColor: errors.fullName ? 'var(--color-error)' : 'var(--border-default)',
-              backgroundColor: 'var(--bg-card)'
-            }}
+            className={`${formInputClass}${formInputErrorClass(!!errors.fullName)}`}
           />
           {errors.fullName && (
             <p
@@ -256,11 +254,7 @@ export function ContactForm() {
             aria-required="true"
             aria-invalid={errors.email ? 'true' : 'false'}
             aria-describedby={errors.email ? 'email-error' : undefined}
-            className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
-            style={{
-              borderColor: errors.email ? 'var(--color-error)' : 'var(--border-default)',
-              backgroundColor: 'var(--bg-card)'
-            }}
+            className={`${formInputClass}${formInputErrorClass(!!errors.email)}`}
           />
           {errors.email && (
             <p
@@ -273,90 +267,32 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Phone with Country Code */}
-        <div>
-          <label
-            htmlFor="phone"
-            className="block font-body font-semibold mb-2"
-            style={{ color: 'var(--text-primary)' }}>
-            Phone Number
-          </label>
-          <div className="flex gap-2">
-            <CountryCodeSelect
-              value={formData.phoneCountryCode}
-              onChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
-              id="phoneCountryCode"
-            />
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleInputChange}
-              aria-invalid={errors.phone ? 'true' : 'false'}
-              aria-describedby={errors.phone ? 'phone-error' : 'phone-hint'}
-              className="flex-1 px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
-              style={{
-                borderColor: errors.phone ? 'var(--color-error)' : 'var(--border-default)',
-                backgroundColor: 'var(--bg-card)'
-              }}
-              placeholder="Enter phone number"
-            />
-          </div>
-          <p id="phone-hint" className="mt-1 font-body text-xs" style={{ color: 'var(--text-muted)' }}>
-            7-15 digits without country code
-          </p>
-          {errors.phone && (
-            <p
-              id="phone-error"
-              className="mt-1 font-body text-sm"
-              style={{ color: 'var(--color-error)' }}
-              role="alert">
-              {errors.phone}
-            </p>
-          )}
-        </div>
+        <PhoneField
+          id="phone"
+          label="Phone Number"
+          countryCode={formData.phoneCountryCode}
+          onCountryCodeChange={(code) => setFormData({ ...formData, phoneCountryCode: code })}
+          countryCodeId="phoneCountryCode"
+          value={formData.phone}
+          onChange={handleInputChange}
+          placeholder="Enter phone number"
+          error={errors.phone}
+        />
+        <p className="-mt-4 font-body text-xs" style={{ color: 'var(--text-muted)' }}>
+          7-15 digits without country code
+        </p>
 
-        {/* WhatsApp with Country Code */}
-        <div>
-          <label
-            htmlFor="whatsapp"
-            className="block font-body font-semibold mb-2"
-            style={{ color: 'var(--text-primary)' }}>
-            WhatsApp Number <span className="font-normal text-sm" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
-          </label>
-          <div className="flex gap-2">
-            <CountryCodeSelect
-              value={formData.whatsappCountryCode}
-              onChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
-              id="whatsappCountryCode"
-            />
-            <input
-              type="tel"
-              id="whatsapp"
-              name="whatsapp"
-              value={formData.whatsapp}
-              onChange={handleInputChange}
-              aria-invalid={errors.whatsapp ? 'true' : 'false'}
-              aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
-              className="flex-1 px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
-              style={{
-                borderColor: errors.whatsapp ? 'var(--color-error)' : 'var(--border-default)',
-                backgroundColor: 'var(--bg-card)'
-              }}
-              placeholder="Enter WhatsApp number"
-            />
-          </div>
-          {errors.whatsapp && (
-            <p
-              id="whatsapp-error"
-              className="mt-1 font-body text-sm"
-              style={{ color: 'var(--color-error)' }}
-              role="alert">
-              {errors.whatsapp}
-            </p>
-          )}
-        </div>
+        <PhoneField
+          id="whatsapp"
+          label="WhatsApp Number (Optional)"
+          countryCode={formData.whatsappCountryCode}
+          onCountryCodeChange={(code) => setFormData({ ...formData, whatsappCountryCode: code })}
+          countryCodeId="whatsappCountryCode"
+          value={formData.whatsapp}
+          onChange={handleInputChange}
+          placeholder="Enter WhatsApp number"
+          error={errors.whatsapp}
+        />
 
         {/* Reason for Contact */}
         <div>
@@ -375,11 +311,8 @@ export function ContactForm() {
             aria-required="true"
             aria-invalid={errors.reason ? 'true' : 'false'}
             aria-describedby={errors.reason ? 'reason-error' : undefined}
-            className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
-            style={{
-              borderColor: errors.reason ? 'var(--color-error)' : 'var(--border-default)',
-              backgroundColor: 'var(--bg-card)'
-            }}>
+            className={`${formSelectClass}${formInputErrorClass(!!errors.reason)}`}
+          >
             <option value="">Select a reason...</option>
             <option value="course-enquiry">Course Enquiry</option>
             <option value="placement-support">Placement Support</option>
@@ -418,11 +351,7 @@ export function ContactForm() {
               aria-invalid={errors.message ? 'true' : 'false'}
               aria-describedby={errors.message ? 'message-error' : 'message-hint'}
               rows={6}
-              className="w-full px-4 py-3 rounded-lg border-2 font-body transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 resize-y"
-              style={{
-                borderColor: errors.message ? 'var(--color-error)' : 'var(--border-default)',
-                backgroundColor: 'var(--bg-card)'
-              }}
+              className={`${formTextareaClass}${formInputErrorClass(!!errors.message)}`}
             />
             <span
               className="absolute bottom-3 right-3 font-body text-xs"
@@ -461,15 +390,15 @@ export function ContactForm() {
           </button>
           <p className="mt-3 text-center font-body text-xs" style={{ color: 'var(--text-muted)' }}>
             By submitting this form, you agree to our{' '}
-            <Link href="/privacy-policy" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/privacy-policy" className="course-inline-link">
               Privacy Policy
             </Link>
             {' '}and{' '}
-            <Link href="/terms-and-conditions" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/terms-and-conditions" className="course-inline-link">
               Terms and Conditions
             </Link>
             . For complaints, see{' '}
-            <Link href="/grievance-redressal" className="underline hover:no-underline" style={{ color: 'var(--color-primary)' }}>
+            <Link href="/grievance-redressal" className="course-inline-link">
               Grievance Redressal
             </Link>
             .

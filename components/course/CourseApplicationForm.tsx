@@ -353,7 +353,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                    Full Name <span className="text-red-500">*</span>
+                    Full Name <span style={{ color: 'var(--color-error)' }}>*</span>
                   </label>
                   <input
                     type="text"
@@ -365,8 +365,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.fullName}
                     aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.fullName ? 'border-red-500' : formData.fullName ? 'border-green-500' : ''
-                      }`}
+                    className="form-input"
                     style={{
                       borderColor: errors.fullName ? 'var(--color-error)' : formData.fullName ? 'var(--color-success)' : 'var(--border-default)',
                       backgroundColor: 'var(--bg-card)',
@@ -374,13 +373,13 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     }}
                     onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                   />
-                  {errors.fullName && <p id="fullName-error" className="mt-1 text-xs text-red-500" role="alert">{errors.fullName}</p>}
-                  {formData.fullName && !errors.fullName && <p className="mt-1 text-xs text-green-600">✓</p>}
+                  {errors.fullName && <p id="fullName-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.fullName}</p>}
+                  {formData.fullName && !errors.fullName && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
                 </div>
 
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                    Email Address <span className="text-red-500">*</span>
+                    Email Address <span style={{ color: 'var(--color-error)' }}>*</span>
                   </label>
                   <input
                     type="email"
@@ -392,8 +391,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? 'email-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.email ? 'border-red-500' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 'border-green-500' : ''
-                      }`}
+                    className="form-input"
                     style={{
                       borderColor: errors.email ? 'var(--color-error)' : formData.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) ? 'var(--color-success)' : 'var(--border-default)',
                       backgroundColor: 'var(--bg-card)',
@@ -401,15 +399,15 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     }}
                     onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                   />
-                  {errors.email && <p id="email-error" className="mt-1 text-xs text-red-500" role="alert">{errors.email}</p>}
-                  {formData.email && !errors.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && <p className="mt-1 text-xs text-green-600">✓</p>}
+                  {errors.email && <p id="email-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.email}</p>}
+                  {formData.email && !errors.email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
                 </div>
 
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                    Phone Number <span className="text-red-500">*</span>
+                    Phone Number <span style={{ color: 'var(--color-error)' }}>*</span>
                   </label>
-                  <div className="flex gap-2">
+                  <div className="form-phone-row">
                     <CountryCodeSelect
                       value={formData.phoneCountryCode}
                       onChange={(code) => setFormData(prev => ({ ...prev, phoneCountryCode: code }))}
@@ -425,8 +423,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       aria-required="true"
                       aria-invalid={!!errors.phone}
                       aria-describedby={errors.phone ? 'phone-error' : undefined}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.phone ? 'border-red-500' : formData.phone ? 'border-green-500' : ''
-                        }`}
+                      className={`flex-1 min-w-0 form-input min-h-[48px] text-base sm:text-sm ${errors.phone ? 'form-input--error' : ''}`}
                       style={{
                         borderColor: errors.phone ? 'var(--color-error)' : formData.phone ? 'var(--color-success)' : 'var(--border-default)',
                         backgroundColor: 'var(--bg-card)',
@@ -435,15 +432,15 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                     />
                   </div>
-                  {errors.phone && <p id="phone-error" className="mt-1 text-xs text-red-500" role="alert">{errors.phone}</p>}
-                  {formData.phone && !errors.phone && <p className="mt-1 text-xs text-green-600">✓</p>}
+                  {errors.phone && <p id="phone-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.phone}</p>}
+                  {formData.phone && !errors.phone && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
                 </div>
 
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                    WhatsApp Number <span className="text-gray-400 font-normal">(Optional)</span>
+                    WhatsApp Number <span className="font-normal" style={{ color: 'var(--text-muted)' }}>(Optional)</span>
                   </label>
-                  <div className="flex gap-2">
+                  <div className="form-phone-row">
                     <CountryCodeSelect
                       value={formData.whatsappCountryCode}
                       onChange={(code) => setFormData(prev => ({ ...prev, whatsappCountryCode: code }))}
@@ -457,8 +454,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       onBlur={handleInputChange}
                       aria-invalid={!!errors.whatsapp}
                       aria-describedby={errors.whatsapp ? 'whatsapp-error' : undefined}
-                      className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.whatsapp ? 'border-red-500' : formData.whatsapp ? 'border-green-500' : ''
-                        }`}
+                      className={`flex-1 min-w-0 form-input min-h-[48px] text-base sm:text-sm ${errors.whatsapp ? 'form-input--error' : ''}`}
                       style={{
                         borderColor: errors.whatsapp ? 'var(--color-error)' : formData.whatsapp ? 'var(--color-success)' : 'var(--border-default)',
                         backgroundColor: 'var(--bg-card)',
@@ -467,15 +463,15 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                     />
                   </div>
-                  {errors.whatsapp && <p id="whatsapp-error" className="mt-1 text-xs text-red-500" role="alert">{errors.whatsapp}</p>}
-                  {formData.whatsapp && !errors.whatsapp && <p className="mt-1 text-xs text-green-600">✓</p>}
+                  {errors.whatsapp && <p id="whatsapp-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.whatsapp}</p>}
+                  {formData.whatsapp && !errors.whatsapp && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
                 </div>
               </div>
 
               {/* Current Background */}
               <div>
                 <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                  Current Background <span className="text-red-500">*</span>
+                  Current Background <span style={{ color: 'var(--color-error)' }}>*</span>
                 </label>
                 <textarea
                   name="currentBackground"
@@ -488,8 +484,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.currentBackground}
                   aria-describedby={errors.currentBackground ? 'currentBackground-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.currentBackground ? 'border-red-500' : formData.currentBackground ? 'border-green-500' : ''
-                    }`}
+                  className="form-input form-textarea resize-none"
                   style={{
                     borderColor: errors.currentBackground ? 'var(--color-error)' : formData.currentBackground ? 'var(--color-success)' : 'var(--border-default)',
                     backgroundColor: 'var(--bg-card)',
@@ -497,14 +492,14 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   }}
                   onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                 />
-                {errors.currentBackground && <p id="currentBackground-error" className="mt-1 text-xs text-red-500" role="alert">{errors.currentBackground}</p>}
-                {formData.currentBackground && !errors.currentBackground && <p className="mt-1 text-xs text-green-600">✓</p>}
+                {errors.currentBackground && <p id="currentBackground-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.currentBackground}</p>}
+                {formData.currentBackground && !errors.currentBackground && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
               </div>
 
               {/* Experience Level */}
               <div>
                 <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                  Experience Level <span className="text-red-500">*</span>
+                  Experience Level <span style={{ color: 'var(--color-error)' }}>*</span>
                 </label>
                 <select
                   name="experienceLevel"
@@ -515,8 +510,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.experienceLevel}
                   aria-describedby={errors.experienceLevel ? 'experienceLevel-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.experienceLevel ? 'border-red-500' : formData.experienceLevel ? 'border-green-500' : ''
-                    }`}
+                  className="form-select"
                   style={{
                     borderColor: errors.experienceLevel ? 'var(--color-error)' : formData.experienceLevel ? 'var(--color-success)' : 'var(--border-default)',
                     backgroundColor: 'var(--bg-card)',
@@ -529,14 +523,14 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     <option key={level} value={level}>{level}</option>
                   ))}
                 </select>
-                {errors.experienceLevel && <p id="experienceLevel-error" className="mt-1 text-xs text-red-500" role="alert">{errors.experienceLevel}</p>}
-                {formData.experienceLevel && !errors.experienceLevel && <p className="mt-1 text-xs text-green-600">✓</p>}
+                {errors.experienceLevel && <p id="experienceLevel-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.experienceLevel}</p>}
+                {formData.experienceLevel && !errors.experienceLevel && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
               </div>
 
               {/* Career Goal */}
               <div>
                 <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                  Career Goal <span className="text-red-500">*</span>
+                  Career Goal <span style={{ color: 'var(--color-error)' }}>*</span>
                 </label>
                 <textarea
                   name="careerGoal"
@@ -549,8 +543,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.careerGoal}
                   aria-describedby={errors.careerGoal ? 'careerGoal-error' : undefined}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.careerGoal ? 'border-red-500' : formData.careerGoal ? 'border-green-500' : ''
-                    }`}
+                  className="form-input form-textarea resize-none"
                   style={{
                     borderColor: errors.careerGoal ? 'var(--color-error)' : formData.careerGoal ? 'var(--color-success)' : 'var(--border-default)',
                     backgroundColor: 'var(--bg-card)',
@@ -558,15 +551,15 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   }}
                   onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
                 />
-                {errors.careerGoal && <p id="careerGoal-error" className="mt-1 text-xs text-red-500" role="alert">{errors.careerGoal}</p>}
-                {formData.careerGoal && !errors.careerGoal && <p className="mt-1 text-xs text-green-600">✓</p>}
+                {errors.careerGoal && <p id="careerGoal-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.careerGoal}</p>}
+                {formData.careerGoal && !errors.careerGoal && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
               </div>
 
               {/* Availability and City */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                    Availability <span className="text-red-500">*</span>
+                    Availability <span style={{ color: 'var(--color-error)' }}>*</span>
                   </label>
                   <select
                     name="availability"
@@ -577,8 +570,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.availability}
                     aria-describedby={errors.availability ? 'availability-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.availability ? 'border-red-500' : formData.availability ? 'border-green-500' : ''
-                      }`}
+                    className="form-select"
                     style={{
                       borderColor: errors.availability ? 'var(--color-error)' : formData.availability ? 'var(--color-success)' : 'var(--border-default)',
                       backgroundColor: 'var(--bg-card)',
@@ -591,13 +583,13 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       <option key={option} value={option}>{option}</option>
                     ))}
                   </select>
-                  {errors.availability && <p id="availability-error" className="mt-1 text-xs text-red-500" role="alert">{errors.availability}</p>}
-                  {formData.availability && !errors.availability && <p className="mt-1 text-xs text-green-600">✓</p>}
+                  {errors.availability && <p id="availability-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.availability}</p>}
+                  {formData.availability && !errors.availability && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
                 </div>
 
                 <div>
                   <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                    City <span className="text-red-500">*</span>
+                    City <span style={{ color: 'var(--color-error)' }}>*</span>
                   </label>
                   <select
                     name="city"
@@ -608,8 +600,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                     aria-required="true"
                     aria-invalid={!!errors.city}
                     aria-describedby={errors.city ? 'city-error' : undefined}
-                    className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 h-[44px] ${errors.city ? 'border-red-500' : formData.city ? 'border-green-500' : ''
-                      }`}
+                    className="form-select"
                     style={{
                       borderColor: errors.city ? 'var(--color-error)' : formData.city ? 'var(--color-success)' : 'var(--border-default)',
                       backgroundColor: 'var(--bg-card)',
@@ -622,15 +613,15 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                       <option key={city} value={city}>{city}</option>
                     ))}
                   </select>
-                  {errors.city && <p id="city-error" className="mt-1 text-xs text-red-500" role="alert">{errors.city}</p>}
-                  {formData.city && !errors.city && <p className="mt-1 text-xs text-green-600">✓</p>}
+                  {errors.city && <p id="city-error" className="mt-1 text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.city}</p>}
+                  {formData.city && !errors.city && <p className="mt-1 text-xs" style={{ color: 'var(--color-success)' }}>✓</p>}
                 </div>
               </div>
 
               {/* Motivation */}
               <div>
                 <label className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                  Why do you want to join Designient? <span className="text-red-500">*</span>
+                  Why do you want to join Designient? <span style={{ color: 'var(--color-error)' }}>*</span>
                 </label>
                 <textarea
                   name="motivation"
@@ -643,8 +634,7 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                   aria-required="true"
                   aria-invalid={!!errors.motivation}
                   aria-describedby={errors.motivation ? 'motivation-error' : 'motivation-help'}
-                  className={`w-full px-4 py-3 rounded-lg border-2 font-body text-sm transition-colors focus:outline-none focus:ring-2 resize-none ${errors.motivation ? 'border-red-500' : formData.motivation.length >= 50 ? 'border-green-500' : ''
-                    }`}
+                  className="form-input form-textarea resize-none"
                   style={{
                     borderColor: errors.motivation ? 'var(--color-error)' : formData.motivation.length >= 50 ? 'var(--color-success)' : 'var(--border-default)',
                     backgroundColor: 'var(--bg-card)',
@@ -654,13 +644,13 @@ export function CourseApplicationForm({ courseSlug, courseName }: CourseApplicat
                 />
                 <div className="flex justify-between items-start mt-1">
                   {errors.motivation ? (
-                    <p id="motivation-error" className="text-xs text-red-500" role="alert">{errors.motivation}</p>
+                    <p id="motivation-error" className="text-xs" style={{ color: 'var(--color-error)' }} role="alert">{errors.motivation}</p>
                   ) : (
                     <p id="motivation-help" className="text-xs" style={{ color: formData.motivation.length >= 50 ? 'var(--color-success)' : 'var(--text-muted)' }}>
                       {formData.motivation.length}/50 characters minimum {formData.motivation.length >= 50 && '✓'}
                     </p>
                   )}
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs" style={{ color: 'var(--text-muted)' }}>
                     {formData.motivation.length} / 2000
                   </span>
                 </div>
