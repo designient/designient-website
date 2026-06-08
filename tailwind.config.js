@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -10,12 +9,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'display': ['var(--font-display)', 'Bebas Neue', 'sans-serif'],
-        'body': ['var(--font-body)', 'Inter', 'sans-serif'],
-        'sans': ['var(--font-body)', 'Inter', 'sans-serif']
+        'display': ['var(--font-display)', 'Sora', 'sans-serif'],
+        'body': ['var(--font-body)', 'DM Sans', 'sans-serif'],
+        'sans': ['var(--font-body)', 'DM Sans', 'sans-serif']
       },
       letterSpacing: {
-        display: '1.6px',
+        display: '-0.02em',
       },
       maxWidth: {
         'container': '1600px'
@@ -33,10 +32,17 @@ module.exports = {
         highlight: 'var(--color-highlight)',
         cta: 'var(--color-cta)',
         'cta-hover': 'var(--color-cta-hover)',
-        'accent-cyan': 'var(--color-accent-cyan)',
+        forest: 'var(--color-forest)',
+        'forest-light': 'var(--color-forest-light)',
+        purple: 'var(--color-purple)',
+        'purple-hover': 'var(--color-purple-hover)',
         'bg-warm': 'var(--bg-warm)',
         'bg-peach': 'var(--bg-peach)',
         'section-alt': 'var(--bg-section-alt)',
+        'section-green': 'var(--bg-section-green)',
+        'section-blue': 'var(--bg-section-blue)',
+        'section-purple': 'var(--bg-section-purple)',
+        'section-neutral': 'var(--bg-section-neutral)',
         surface: 'var(--bg-surface)',
         card: 'var(--bg-card)',
         muted: 'var(--bg-muted)',
@@ -47,7 +53,6 @@ module.exports = {
         surface: 'var(--bg-surface)',
         card: 'var(--bg-card)',
         'section-alt': 'var(--bg-section-alt)',
-        glass: 'var(--glass-bg)',
       },
       textColor: {
         primary: 'var(--text-primary)',
@@ -59,11 +64,6 @@ module.exports = {
         DEFAULT: 'var(--border-default)',
         strong: 'var(--border-strong)',
         accent: 'var(--border-accent)',
-        glass: 'var(--glass-border)',
-      },
-      backdropBlur: {
-        glass: 'var(--glass-blur)',
-        'glass-heavy': 'var(--glass-blur-heavy)',
       },
     },
   },

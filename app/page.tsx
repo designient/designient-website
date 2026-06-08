@@ -147,33 +147,49 @@ export default function HomePage() {
         {/* SECTION 1: Hero */}
         <Hero />
         {/* SECTION 2: Quick Trust Strip */}
-        <StatsSection />
+        <div className="section-neutral">
+          <StatsSection />
+        </div>
         {/* SECTION 3: Why Choose Our UI/UX Design Course */}
         <WhySection />
         {/* SECTION C: Who This Is Not For */}
-        <NotForSection />
+        <div className="section-neutral">
+          <NotForSection />
+        </div>
         {/* SECTION 4: Our Courses */}
         <CoursesSection />
         {/* SECTION 5: AI Inside UI/UX */}
-        <AISection />
+        <div className="section-blue">
+          <AISection />
+        </div>
         {/* SECTION 7: How Learning Works */}
         <HowLearningWorksSection />
         {/* SECTION 8: Placement & Career Outcomes */}
-        <PlacementPartnersSection />
+        <div className="section-green">
+          <PlacementPartnersSection />
+        </div>
         {/* SECTION 9: Success Stories */}
         <TestimonialsSection />
         {/* SECTION 10: Why Designient */}
-        <ComparisonSection />
+        <div className="section-neutral">
+          <ComparisonSection />
+        </div>
         {/* SECTION 11: Visit Our Campuses */}
         <LocationsSection />
-        {/* SECTION 12: Latest Insights (Optional) */}
-        <BlogPreviewSection posts={latestBlogPosts} />
+        {/* SECTION 12: Latest Insights */}
+        <div className="section-neutral">
+          <BlogPreviewSection posts={latestBlogPosts} />
+        </div>
         {/* SECTION D: Homepage FAQ */}
         <HomepageFAQSection />
         {/* SECTION B: Brand & Entity Clarity */}
-        <BrandClaritySection />
+        <div className="section-pencil">
+          <BrandClaritySection />
+        </div>
         {/* SECTION 13: Final CTA */}
-        <InquiryForm />
+        <div className="section-green">
+          <InquiryForm />
+        </div>
       </main>
       <Footer />
     </div>

@@ -17,6 +17,7 @@ type NavLink = {
 type WhyLink = {
   name: string
   path: string
+  description?: string
 }
 
 type CourseNavItem = {
@@ -72,7 +73,7 @@ export function MobileNavDrawer({
             top: 'var(--header-height)',
             height: 'calc(100dvh - var(--header-height))',
             maxHeight: 'calc(100dvh - var(--header-height))',
-            backgroundColor: 'var(--bg-warm)',
+            backgroundColor: '#ffffff',
           }}
         >
           <nav
@@ -108,7 +109,7 @@ export function MobileNavDrawer({
                         style={{
                           color:
                             mobileDropdownOpen === link.dropdownType
-                              ? 'var(--color-primary)'
+                              ? 'var(--color-forest)'
                               : 'var(--text-primary)',
                         }}
                       >
@@ -118,7 +119,7 @@ export function MobileNavDrawer({
                           style={{
                             color:
                               mobileDropdownOpen === link.dropdownType
-                                ? 'var(--color-primary)'
+                                ? 'var(--color-forest)'
                                 : 'var(--text-muted)',
                           }}
                           aria-hidden="true"
@@ -149,7 +150,7 @@ export function MobileNavDrawer({
                                       href={course.path}
                                       onClick={onClose}
                                       className="block py-3 px-3 rounded-xl transition-colors min-h-[48px]"
-                                      style={{ backgroundColor: 'var(--color-accent-muted)' }}
+                                      style={{ backgroundColor: 'var(--bg-section-green)' }}
                                     >
                                       <div
                                         className="font-body font-semibold text-base mb-0.5"
@@ -191,21 +192,72 @@ export function MobileNavDrawer({
                                   ))}
                                 </>
                               )}
-                              {link.dropdownType === 'why-designient' &&
-                                whyDesignientLinks.map((item, i) => (
-                                  <Link
-                                    key={i}
-                                    href={item.path}
-                                    onClick={onClose}
-                                    className="block py-3 px-3 rounded-xl font-body font-medium text-base transition-colors min-h-[48px] flex items-center"
-                                    style={{
-                                      backgroundColor: 'var(--color-accent-muted)',
-                                      color: 'var(--text-primary)',
-                                    }}
-                                  >
-                                    {item.name}
-                                  </Link>
-                                ))}
+                              {link.dropdownType === 'why-designient' && (
+                                <div className="space-y-3">
+                                  <div>
+                                    <p
+                                      className="font-body text-xs font-bold uppercase tracking-wider px-3 py-2"
+                                      style={{ color: 'var(--text-secondary)' }}
+                                    >
+                                      School & Outcomes
+                                    </p>
+                                    <div className="space-y-1.5">
+                                      {whyDesignientLinks.slice(0, 3).map((item, i) => (
+                                        <Link
+                                          key={`school-${i}`}
+                                          href={item.path}
+                                          onClick={onClose}
+                                          className="block py-3 px-3 rounded-xl transition-colors min-h-[48px]"
+                                          style={{ backgroundColor: 'var(--bg-section-green)' }}
+                                        >
+                                          <div
+                                            className="font-body font-semibold text-base mb-0.5"
+                                            style={{ color: 'var(--text-primary)' }}
+                                          >
+                                            {item.name}
+                                          </div>
+                                          {item.description && (
+                                            <div className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
+                                              {item.description}
+                                            </div>
+                                          )}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <p
+                                      className="font-body text-xs font-bold uppercase tracking-wider px-3 py-2"
+                                      style={{ color: 'var(--text-secondary)' }}
+                                    >
+                                      Support & Careers
+                                    </p>
+                                    <div className="space-y-1.5">
+                                      {whyDesignientLinks.slice(3, 6).map((item, i) => (
+                                        <Link
+                                          key={`support-${i}`}
+                                          href={item.path}
+                                          onClick={onClose}
+                                          className="block py-3 px-3 rounded-xl transition-colors min-h-[48px]"
+                                          style={{ backgroundColor: 'var(--bg-section-green)' }}
+                                        >
+                                          <div
+                                            className="font-body font-semibold text-base mb-0.5"
+                                            style={{ color: 'var(--text-primary)' }}
+                                          >
+                                            {item.name}
+                                          </div>
+                                          {item.description && (
+                                            <div className="font-body text-xs" style={{ color: 'var(--text-muted)' }}>
+                                              {item.description}
+                                            </div>
+                                          )}
+                                        </Link>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
                             </div>
                           </motion.div>
                         )}
@@ -223,7 +275,7 @@ export function MobileNavDrawer({
                         onClick={onClose}
                         className="font-display block py-3.5 text-lg font-bold tracking-wide min-h-[48px] flex items-center"
                         style={{
-                          color: pathname === link.path ? 'var(--color-primary)' : 'var(--text-primary)',
+                          color: pathname === link.path ? 'var(--color-forest)' : 'var(--text-primary)',
                         }}
                       >
                         {link.name}
@@ -241,8 +293,8 @@ export function MobileNavDrawer({
               <Link href="/apply-now" onClick={onClose} className="block">
                 <button
                   type="button"
-                  className="w-full font-body font-bold text-base py-4 rounded-full shadow-lg transition-transform active:scale-[0.98] min-h-[48px] surface-on-accent"
-                  style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)' }}
+                  className="w-full font-body font-bold text-base py-4 rounded-lg shadow-sm transition-transform active:scale-[0.98] min-h-[48px]"
+                  style={{ backgroundColor: 'var(--color-purple)', color: '#ffffff' }}
                 >
                   Apply Now
                 </button>
@@ -250,8 +302,8 @@ export function MobileNavDrawer({
               <Link href="https://app.designient.com/login" onClick={onClose} className="block">
                 <button
                   type="button"
-                  className="w-full font-body font-semibold text-base py-4 rounded-full flex items-center justify-center gap-2 transition-colors min-h-[48px]"
-                  style={{ color: 'var(--text-secondary)', backgroundColor: 'var(--bg-muted)' }}
+                  className="w-full font-body font-semibold text-base py-4 rounded-lg flex items-center justify-center gap-2 transition-colors min-h-[48px]"
+                  style={{ color: 'var(--text-secondary)', backgroundColor: 'var(--bg-section-neutral)' }}
                 >
                   Login
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />

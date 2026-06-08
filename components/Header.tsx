@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowRight, ChevronDown } from 'react-feather';
+import { Menu, X, ArrowRight, ChevronDown, PenTool, Cpu, Award, HelpCircle } from 'react-feather';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { SiteLogo } from './shared/SiteLogo';
@@ -143,9 +143,7 @@ export function Header() {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-[60] transition-[background-color,box-shadow,border-color] duration-300 glass-nav ${isScrolled ? 'glass-nav--scrolled' : ''}`}
-      initial={{
-        y: 0
-      }}
+      initial={{ y: 0 }}
       animate={{ y: 0 }}
       role="banner">
 
@@ -175,9 +173,10 @@ export function Header() {
             aria-label="Designient School - Home">
             <SiteLogo
               priority
-              width={160}
-              height={48}
-              className="h-8 sm:h-9 w-auto max-w-[140px] sm:max-w-[160px]"
+              width={300}
+              height={84}
+              className="h-12 sm:h-[54px] nav:h-[66px] w-auto max-w-[210px] sm:max-w-[240px] nav:max-w-[300px]"
+              variant="header"
             />
           </Link>
 
@@ -197,22 +196,23 @@ export function Header() {
                     <button
                       className="font-body text-sm font-semibold transition-colors relative group flex items-center gap-1"
                       style={{
-                        color: activeDropdown === link.dropdownType ? 'var(--color-primary)' : 'var(--text-secondary)'
+                        color: activeDropdown === link.dropdownType ? 'var(--color-forest)' : 'var(--text-primary)'
                       }}
                       onMouseEnter={(e) => {
-                        e.currentTarget.style.color = activeDropdown === link.dropdownType ? 'var(--color-primary)' : 'var(--text-primary)';
+                        e.currentTarget.style.color = 'var(--color-forest)';
                       }}
                       onMouseLeave={(e) => {
                         if (activeDropdown !== link.dropdownType) {
-                          e.currentTarget.style.color = 'var(--text-secondary)';
+                          e.currentTarget.style.color = 'var(--text-primary)';
                         }
                       }}>
                       {link.name}
                       <ChevronDown className={`w-4 h-4 transition-transform ${activeDropdown === link.dropdownType ? 'rotate-180' : ''}`} />
                       <span
-                        className="absolute -bottom-1 left-0 h-0.5 bg-[var(--color-primary)] transition-all duration-300"
+                        className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300"
                         style={{
-                          width: activeDropdown === link.dropdownType ? '100%' : '0'
+                          width: activeDropdown === link.dropdownType ? '100%' : '0',
+                          backgroundColor: 'var(--color-forest)'
                         }}
                         aria-hidden="true" />
                     </button>
@@ -224,7 +224,7 @@ export function Header() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[700px] rounded-lg shadow-lg border overflow-hidden"
+                          className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[880px] rounded-lg shadow-lg border overflow-hidden"
                           style={{
                             backgroundColor: 'var(--bg-card)',
                             borderColor: 'var(--border-default)',
@@ -232,72 +232,88 @@ export function Header() {
                           }}>
                           {link.dropdownType === 'courses' && (
                             <div className="p-8">
-                              <div className="mb-8">
-                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
-                                  Design Track
-                                </h3>
-                                <div className="grid grid-cols-1 gap-4">
-                                  {designTrackNavCourses.map((course, index) => (
-                                    <Link
-                                      key={index}
-                                      href={course.path}
-                                      className="group block p-4 rounded-lg transition-all"
-                                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-subtle)'; }}
-                                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
-                                    >
-                                      <div className="flex items-start justify-between gap-3 mb-2">
-                                        <h4 className="font-display font-semibold text-base transition-colors" style={{ color: 'var(--text-primary)' }}>
-                                          {course.title}
-                                        </h4>
-                                        {course.badge && (
-                                          <span className="font-body text-xs font-bold px-2 py-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
-                                            {course.badge}
-                                          </span>
-                                        )}
-                                      </div>
-                                      <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{course.description}</p>
-                                      <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: 'var(--border-default)' }}>
-                                        <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>{course.duration} · {course.level}</span>
-                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--text-secondary)' }}>
-                                          {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
-                                        </span>
-                                      </div>
-                                    </Link>
-                                  ))}
+                              <div className="grid grid-cols-12 gap-8">
+                                {/* Column 1: Design Track (col-span-5) */}
+                                <div className="col-span-5">
+                                  <div className="flex items-center gap-2 mb-4">
+                                    <PenTool className="w-4 h-4 text-[#09281a]" strokeWidth={1.5} />
+                                    <h3 className="font-display text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-forest)', letterSpacing: '0.08em' }}>
+                                      Design Track
+                                    </h3>
+                                  </div>
+                                  <div className="grid grid-cols-1 gap-3">
+                                    {designTrackNavCourses.map((course, index) => (
+                                      <Link
+                                        key={index}
+                                        href={course.path}
+                                        className="group block p-3 rounded-lg transition-all hover:bg-[var(--bg-subtle)]"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                          <h4 className="font-display font-semibold text-sm text-primary transition-colors group-hover:text-[var(--color-forest)]">
+                                            {course.title}
+                                          </h4>
+                                          {course.badge && (
+                                            <span className="font-body text-[8px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#dcfbda] text-[#09281a]">
+                                              {course.badge}
+                                            </span>
+                                          )}
+                                        </div>
+                                        <p className="font-body text-xs text-secondary leading-normal">{course.description}</p>
+                                      </Link>
+                                    ))}
+                                  </div>
                                 </div>
-                              </div>
-                              <div>
-                                <h3 className="font-display text-sm font-bold mb-4 uppercase tracking-wider" style={{ color: 'var(--text-secondary)' }}>
-                                  AI Track
-                                </h3>
-                                <div className="grid grid-cols-1 gap-4">
-                                  {aiTrackNavCourses.map((course, index) => (
-                                    <Link
-                                      key={index}
-                                      href={course.path}
-                                      className="group block p-4 rounded-lg transition-all"
-                                      onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--bg-subtle)'; }}
-                                      onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
-                                    >
-                                      <div className="flex items-start justify-between gap-3 mb-2">
-                                        <h4 className="font-display font-semibold text-base transition-colors" style={{ color: 'var(--text-primary)' }}>
-                                          {course.title}
-                                        </h4>
-                                        {course.badge && (
-                                          <span className="font-body text-xs font-bold px-2 py-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--color-highlight)', color: 'var(--text-on-accent)' }}>
-                                            {course.badge}
-                                          </span>
-                                        )}
-                                      </div>
-                                      <p className="font-body text-sm mb-2" style={{ color: 'var(--text-secondary)' }}>{course.description}</p>
-                                      <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: 'var(--border-default)' }}>
-                                        <span className="font-body text-xs" style={{ color: 'var(--text-secondary)' }}>{course.duration} · {course.level}</span>
-                                        <span className="font-display font-semibold text-sm" style={{ color: 'var(--text-secondary)' }}>
-                                          {isLoading ? '...' : getCoursePrice(course.courseSlug).price}
-                                        </span>
-                                      </div>
-                                    </Link>
-                                  ))}
+
+                                {/* Column 2: AI Track (col-span-4) */}
+                                <div className="col-span-4">
+                                  <div className="flex items-center gap-2 mb-4">
+                                    <Cpu className="w-4 h-4 text-[#09281a]" strokeWidth={1.5} />
+                                    <h3 className="font-display text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-forest)', letterSpacing: '0.08em' }}>
+                                      AI Track
+                                    </h3>
+                                  </div>
+                                  <div className="grid grid-cols-1 gap-3">
+                                    {aiTrackNavCourses.map((course, index) => (
+                                      <Link
+                                        key={index}
+                                        href={course.path}
+                                        className="group block p-3 rounded-lg transition-all hover:bg-[var(--bg-subtle)]"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        <div className="flex items-center gap-2 mb-1 flex-wrap">
+                                          <h4 className="font-display font-semibold text-sm text-primary transition-colors group-hover:text-[var(--color-forest)]">
+                                            {course.title}
+                                          </h4>
+                                          {course.badge && (
+                                            <span className="font-body text-[8px] uppercase tracking-wider font-bold px-1.5 py-0.5 rounded bg-[#dcfbda] text-[#09281a]">
+                                              {course.badge}
+                                            </span>
+                                          )}
+                                        </div>
+                                        <p className="font-body text-xs text-secondary leading-normal">{course.description}</p>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Column 3: Still Unsure? (col-span-3) */}
+                                <div className="col-span-3 border-l pl-6" style={{ borderColor: 'var(--border-default)' }}>
+                                  <h3 className="font-display text-sm font-bold mb-3 text-primary">
+                                    Still Unsure?
+                                  </h3>
+                                  <p className="font-body text-xs text-secondary mb-4 leading-relaxed">
+                                    Book a call with our career advisors to find your perfect path.
+                                  </p>
+                                  <Link
+                                    href="/#start-your-journey"
+                                    className="font-body text-xs font-bold text-accent hover:underline flex items-center gap-1 group mt-2"
+                                    onClick={() => setActiveDropdown(null)}
+                                    style={{ color: 'var(--color-purple)' }}
+                                  >
+                                    Book a free consultation
+                                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                                  </Link>
                                 </div>
                               </div>
                             </div>
@@ -305,32 +321,75 @@ export function Header() {
 
                           {link.dropdownType === 'why-designient' && (
                             <div className="p-8">
-                              <h3 className="font-display text-xl font-bold mb-6" style={{ color: 'var(--text-primary)', letterSpacing: '-0.02em' }}>
-                                Why Designient
-                              </h3>
-                              <div className="grid grid-cols-2 gap-6">
-                                {whyDesignientLinks.map((item, index) => (
+                              <div className="grid grid-cols-12 gap-8">
+                                {/* Column 1: School & Outcomes (col-span-5) */}
+                                <div className="col-span-5">
+                                  <div className="flex items-center gap-2 mb-4">
+                                    <Award className="w-4 h-4 text-[#09281a]" strokeWidth={1.5} />
+                                    <h3 className="font-display text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-forest)', letterSpacing: '0.08em' }}>
+                                      School & Outcomes
+                                    </h3>
+                                  </div>
+                                  <div className="grid grid-cols-1 gap-3">
+                                    {whyDesignientLinks.slice(0, 3).map((item, index) => (
+                                      <Link
+                                        key={index}
+                                        href={item.path}
+                                        className="group block p-3 rounded-lg transition-all hover:bg-[var(--bg-subtle)]"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        <h4 className="font-display font-semibold text-sm text-primary mb-1 transition-colors group-hover:text-[var(--color-forest)]">
+                                          {item.name}
+                                        </h4>
+                                        <p className="font-body text-xs text-secondary leading-normal">{item.description}</p>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Column 2: Support & Careers (col-span-4) */}
+                                <div className="col-span-4">
+                                  <div className="flex items-center gap-2 mb-4">
+                                    <HelpCircle className="w-4 h-4 text-[#09281a]" strokeWidth={1.5} />
+                                    <h3 className="font-display text-xs font-bold uppercase tracking-wider" style={{ color: 'var(--color-forest)', letterSpacing: '0.08em' }}>
+                                      Support & Careers
+                                    </h3>
+                                  </div>
+                                  <div className="grid grid-cols-1 gap-3">
+                                    {whyDesignientLinks.slice(3, 6).map((item, index) => (
+                                      <Link
+                                        key={index}
+                                        href={item.path}
+                                        className="group block p-3 rounded-lg transition-all hover:bg-[var(--bg-subtle)]"
+                                        onClick={() => setActiveDropdown(null)}
+                                      >
+                                        <h4 className="font-display font-semibold text-sm text-primary mb-1 transition-colors group-hover:text-[var(--color-forest)]">
+                                          {item.name}
+                                        </h4>
+                                        <p className="font-body text-xs text-secondary leading-normal">{item.description}</p>
+                                      </Link>
+                                    ))}
+                                  </div>
+                                </div>
+
+                                {/* Column 3: Still Unsure? (col-span-3) */}
+                                <div className="col-span-3 border-l pl-6" style={{ borderColor: 'var(--border-default)' }}>
+                                  <h3 className="font-display text-sm font-bold mb-3 text-primary">
+                                    Still Unsure?
+                                  </h3>
+                                  <p className="font-body text-xs text-secondary mb-4 leading-relaxed">
+                                    Speak with our team to clear up any doubts about our programs.
+                                  </p>
                                   <Link
-                                    key={index}
-                                    href={item.path}
-                                    className="group block p-5 rounded-lg transition-all"
-                                    style={{
-                                      backgroundColor: 'transparent'
-                                    }}
-                                    onMouseEnter={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'var(--bg-subtle)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                      e.currentTarget.style.backgroundColor = 'transparent';
-                                    }}>
-                                    <h4 className="font-display font-semibold text-base mb-2 transition-colors" style={{ color: 'var(--text-primary)', lineHeight: '1.4' }}>
-                                      {item.name}
-                                    </h4>
-                                    <p className="font-body text-sm" style={{ color: 'var(--text-secondary)', lineHeight: '1.6' }}>
-                                      {item.description}
-                                    </p>
+                                    href="/#start-your-journey"
+                                    className="font-body text-xs font-bold text-accent hover:underline flex items-center gap-1 group mt-2"
+                                    onClick={() => setActiveDropdown(null)}
+                                    style={{ color: 'var(--color-purple)' }}
+                                  >
+                                    Book a free consultation
+                                    <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
                                   </Link>
-                                ))}
+                                </div>
                               </div>
                             </div>
                           )}
@@ -344,19 +403,20 @@ export function Header() {
                     href={link.path!}
                     className="font-body text-sm font-semibold transition-colors relative group"
                     style={{
-                      color: pathname === link.path ? 'var(--color-primary)' : 'var(--text-secondary)'
+                      color: pathname === link.path ? 'var(--color-forest)' : 'var(--text-primary)'
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.color = pathname === link.path ? 'var(--color-primary)' : 'var(--text-primary)';
+                      e.currentTarget.style.color = 'var(--color-forest)';
                     }}
                     onMouseLeave={(e) => {
-                      e.currentTarget.style.color = pathname === link.path ? 'var(--color-primary)' : 'var(--text-secondary)';
+                      e.currentTarget.style.color = pathname === link.path ? 'var(--color-forest)' : 'var(--text-primary)';
                     }}>
                     {link.name}
                     <span
-                      className="absolute -bottom-1 left-0 h-0.5 bg-[var(--color-primary)] transition-all duration-300"
+                      className="absolute -bottom-1 left-0 h-0.5 transition-all duration-300"
                       style={{
-                        width: pathname === link.path ? '100%' : '0'
+                        width: pathname === link.path ? '100%' : '0',
+                        backgroundColor: 'var(--color-forest)'
                       }}
                       aria-hidden="true" />
                   </Link>
@@ -371,18 +431,14 @@ export function Header() {
             <CurrencyToggle size="sm" />
             <Link href="/apply-now">
               <motion.button
-                whileHover={{
-                  scale: 1.05
-                }}
-                whileTap={{
-                  scale: 0.95
-                }}
-                className="font-body font-bold inline-block shadow-md min-h-[44px] min-w-[120px] flex items-center justify-center"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="font-body font-bold inline-block shadow-sm min-h-[44px] min-w-[120px] flex items-center justify-center"
                 style={{
-                  backgroundColor: 'var(--color-cta)',
-                  color: 'var(--text-on-accent)',
-                  padding: '10px 20px',
-                  borderRadius: '100px',
+                  backgroundColor: 'var(--color-purple)',
+                  color: '#ffffff',
+                  padding: '10px 24px',
+                  borderRadius: 'var(--radius-button)',
                   border: 'none',
                   cursor: 'pointer',
                   fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
@@ -411,7 +467,7 @@ export function Header() {
                   fontSize: 'clamp(0.8125rem, 1.5vw, 0.875rem)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--text-primary)';
+                  e.currentTarget.style.color = 'var(--color-forest)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.color = 'var(--text-secondary)';

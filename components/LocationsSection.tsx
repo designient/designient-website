@@ -105,10 +105,7 @@ export function LocationsSection() {
   return (
     <section
       id="locations"
-      className="py-24 md:py-32"
-      style={{
-        backgroundColor: 'var(--bg-peach)'
-      }}>
+      className="py-24 md:py-32">
       <StructuredData data={localBusinessSchemas} />
 
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -132,14 +129,14 @@ export function LocationsSection() {
           className="text-center mb-16 md:mb-24">
 
           <h2
-            className="font-display tracking-wide leading-tight mb-6 text-center"
+            className="font-display tracking-tight leading-tight mb-6 text-center"
             style={{
-              color: 'var(--color-primary)',
+              color: 'var(--color-forest)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
 
-            VISIT OUR CAMPUSES
+            Visit Our Campuses
           </h2>
           <p
             className="font-body text-base md:text-lg max-w-3xl mx-auto font-normal text-center"
@@ -174,7 +171,7 @@ export function LocationsSection() {
               duration: 0.6,
               ease: [0.4, 0, 0.2, 1]
             }}
-            className="rounded-2xl overflow-hidden shadow-lg"
+            className="rounded-2xl overflow-hidden border border-strong shadow-card transition-all duration-300 hover:shadow-card-hover"
             style={{
               backgroundColor: 'var(--bg-card)'
             }}
@@ -200,15 +197,15 @@ export function LocationsSection() {
               {/* Details */}
               <div className="p-6 sm:p-8">
                 <h3
-                className="font-display tracking-wide mb-4 sm:mb-6"
+                className="font-display tracking-tight mb-4 sm:mb-6"
                 style={{
-                  color: 'var(--text-primary)',
+                  color: 'var(--color-forest)',
                   fontWeight: 600,
                   fontSize: 'clamp(1.25rem, 3vw, 2.25rem)'
                 }}
                 itemProp="name">
 
-                  {location.city.toUpperCase()} CAMPUS
+                  {location.city} Campus
                 </h3>
 
                 <address

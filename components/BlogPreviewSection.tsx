@@ -30,7 +30,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
   const latestPosts = posts.slice(0, 3)
 
   return (
-    <section id="blog" className="py-20 sm:py-24 md:py-32 bg-card">
+    <section id="blog" className="py-20 sm:py-24 md:py-32">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -52,13 +52,13 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
           className="flex items-end justify-between mb-16 md:mb-24">
           <div>
             <h2
-              className="font-display tracking-wide leading-tight mb-6"
+              className="font-display tracking-tight leading-tight mb-6"
               style={{
-                color: 'var(--color-primary)',
+                color: 'var(--color-forest)',
                 fontWeight: 700,
                 fontSize: 'clamp(2rem, 4vw, 3.5rem)'
               }}>
-              LATEST INSIGHTS
+              Latest Insights
             </h2>
             <p
               className="font-body text-base md:text-lg max-w-2xl mx-auto font-normal text-center"
@@ -117,7 +117,7 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                   <span
                     className="absolute top-4 left-4 font-body text-xs font-semibold px-3 py-1 rounded-full accent-icon-box"
                     style={{
-                      backgroundColor: 'var(--color-cta)',
+                      backgroundColor: 'var(--color-forest)',
                       color: 'var(--text-on-accent)'
                     }}>
                     {post.category}
@@ -140,13 +140,13 @@ export function BlogPreviewSection({ posts }: BlogPreviewSectionProps) {
                 </div>
 
                 <h3
-                  className="font-display tracking-wide mb-3 group-hover:text-[var(--color-cta)] transition-colors"
+                  className="font-display tracking-tight mb-3 group-hover:text-[var(--color-cta)] transition-colors"
                   style={{
                     color: 'var(--text-primary)',
                     fontWeight: 600,
                     fontSize: 'clamp(1.25rem, 3vw, 2.25rem)'
                   }}>
-                  {post.title.toUpperCase()}
+                  {post.title}
                 </h3>
 
                 <p

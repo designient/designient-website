@@ -10,10 +10,8 @@ type PageHeroBackgroundProps = {
 export function PageHeroBackground({ showFormOrb = false }: PageHeroBackgroundProps) {
   return (
     <div className="page-hero__bg" aria-hidden="true">
+      {/* Clean gradient background — no grid lines or blur orbs */}
       <div className="page-hero__grid" />
-      <div className="page-hero__orb page-hero__orb--accent" />
-      <div className="page-hero__orb page-hero__orb--cool" />
-      {showFormOrb && <div className="home-hero__orb home-hero__orb--form" />}
     </div>
   )
 }
@@ -57,7 +55,6 @@ export function PageHero({
 
   const sectionClass = [
     'page-hero',
-    'hero-glow',
     'relative',
     'overflow-hidden',
     sizeClasses[size],

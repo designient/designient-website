@@ -409,12 +409,12 @@ export function Hero() {
   };
   return (
     <section
-      className="home-hero hero-glow relative flex flex-col pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 overflow-hidden"
+      className="home-hero relative flex flex-col pt-20 pb-10 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16 lg:pt-32 lg:pb-20 overflow-hidden"
       aria-labelledby="hero-heading"
       itemScope
       itemType="https://schema.org/EducationalOrganization">
 
-      <PageHeroBackground showFormOrb />
+      <PageHeroBackground />
 
       <div className="max-w-container mx-auto px-4 sm:px-5 md:px-6 lg:px-8 relative z-10 w-full flex-1">
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(300px,440px)] xl:grid-cols-[minmax(0,1fr)_480px] gap-8 sm:gap-10 lg:gap-12 xl:gap-14 items-start lg:items-center">
@@ -445,7 +445,7 @@ export function Hero() {
               className="font-body mb-5 sm:mb-6 max-w-2xl font-normal"
               style={{
                 color: 'var(--text-secondary)',
-                fontSize: 'clamp(0.9375rem, 2.2vw, 1.1875rem)',
+                fontSize: 'clamp(0.9375rem, 2.2vw, 1.125rem)',
                 lineHeight: 1.65,
               }}
               itemProp="description">
@@ -455,7 +455,7 @@ export function Hero() {
             <div className="flex flex-wrap gap-2 mb-5 sm:mb-6 md:mb-8 max-w-2xl">
               {TRUST_CHIPS.map((chip) => (
                 <span key={chip} className="home-hero__chip">
-                  <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--color-primary)' }} aria-hidden="true" />
+                  <CheckCircle className="w-3.5 h-3.5 flex-shrink-0" style={{ color: 'var(--color-accent)' }} aria-hidden="true" />
                   {chip}
                 </span>
               ))}
@@ -464,13 +464,13 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 mb-6 sm:mb-8">
               <Link
                 href="/courses"
-                className="home-hero__cta-primary flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[48px] w-full sm:w-auto text-sm md:text-base">
+                className="home-hero__cta-primary flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-body font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[48px] w-full sm:w-auto text-sm md:text-base">
                 <BookOpen className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 <span>Explore Courses</span>
               </Link>
               <Link
                 href="/corporates/hiring-consulting"
-                className="home-hero__cta-secondary flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-body font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[48px] w-full sm:w-auto text-sm md:text-base">
+                className="home-hero__cta-secondary flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-body font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[48px] w-full sm:w-auto text-sm md:text-base">
                 <ArrowRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                 <span>Hiring Support</span>
               </Link>
@@ -482,7 +482,7 @@ export function Hero() {
                   <div
                     key={i}
                     className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 overflow-hidden"
-                    style={{ borderColor: 'var(--bg-base)', backgroundColor: 'var(--bg-muted)' }}>
+                    style={{ borderColor: '#ffffff', backgroundColor: 'var(--bg-muted)' }}>
                     <img
                       src={`https://i.pravatar.cc/100?img=${i + 10}`}
                       alt=""
@@ -499,7 +499,7 @@ export function Hero() {
                     <Star
                       key={i}
                       className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current"
-                      style={{ color: 'var(--color-highlight)' }} />
+                      style={{ color: 'var(--color-accent)' }} />
                   ))}
                 </div>
                 <p
@@ -519,7 +519,7 @@ export function Hero() {
 
             <div className="text-center mb-3 md:mb-4">
               <h3
-                className="font-display text-lg md:text-xl mb-1"
+                className="font-display text-lg md:text-xl font-semibold mb-1"
                 style={{ color: 'var(--text-primary)' }}>
                 Get Course Details
               </h3>
@@ -644,9 +644,10 @@ export function Hero() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 sm:py-3.5 rounded-full font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-lg min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
+                className="w-full py-3 sm:py-3.5 rounded-lg font-body font-bold text-white transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-sm min-h-[48px] disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{
-                  backgroundColor: 'var(--color-cta)',
+                  backgroundColor: 'var(--color-purple)',
+                  color: '#ffffff',
                   fontSize: 'clamp(0.9375rem, 1.5vw, 1rem)'
                 }}>
 

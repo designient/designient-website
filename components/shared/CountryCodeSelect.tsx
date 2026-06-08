@@ -123,8 +123,12 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                                 placeholder="Search..."
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
-                                className="w-full pl-7 pr-3 py-1.5 text-sm border rounded bg-gray-50 focus:outline-none transition-colors"
-                                style={{ borderColor: 'var(--border-default)' }}
+                                className="w-full pl-7 pr-3 py-1.5 text-sm border rounded focus:outline-none transition-colors"
+                                style={{
+                                  borderColor: 'var(--border-default)',
+                                  backgroundColor: 'var(--bg-subtle)',
+                                  color: 'var(--text-primary)'
+                                }}
                                 autoFocus
                             />
                         </div>
@@ -139,7 +143,7 @@ export function CountryCodeSelect({ value, onChange, id, className = '' }: Count
                                     setIsOpen(false)
                                     setSearch('')
                                 }}
-                                className="w-full px-3 py-2 text-sm text-left hover:bg-gray-50 flex items-center gap-2 transition-colors border-b last:border-0 border-gray-50"
+                                className="w-full px-3 py-2 text-sm text-left hover:bg-[var(--bg-subtle)] flex items-center gap-2 transition-colors border-b last:border-0 border-[var(--border-strong)]"
                                 style={{ color: 'var(--text-primary)' }}
                             >
                                 <span className="text-lg">{country.flag}</span>

@@ -81,7 +81,7 @@ export function StatsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-12 md:py-16 section-band-accent">
+    <section ref={sectionRef} className="py-12 md:py-16">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
           {stats.map((stat, index) => (
@@ -94,16 +94,16 @@ export function StatsSection() {
               className="text-center flex flex-col justify-center min-h-[100px] sm:min-h-[120px] md:min-h-[140px]"
             >
               <motion.div
-                className="font-display tracking-wide mb-2 inline-block px-4 py-2 rounded-full"
+                className="font-display tracking-tight mb-2"
                 style={{
-                  color: 'var(--color-accent)',
-                  border: '1.5px solid var(--color-accent)',
+                  color: 'var(--color-forest)',
+                  fontWeight: 800,
                   fontSize: 'clamp(3rem, 7vw, 5.5rem)',
                 }}
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
+                initial={{ scale: 0.9, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.15 + 0.3, duration: 0.6, type: 'spring', stiffness: 200, damping: 15 }}
+                transition={{ delay: index * 0.15 + 0.1, duration: 0.6 }}
               >
                 <AnimatedNumber
                   value={stat.value}
@@ -113,15 +113,15 @@ export function StatsSection() {
                 />
               </motion.div>
               <motion.div
-                className="font-body uppercase tracking-wider font-bold"
+                className="font-body tracking-tight font-medium"
                 style={{
                   color: 'var(--text-secondary)',
-                  fontSize: 'clamp(0.6875rem, 1.8vw, 1rem)',
+                  fontSize: 'clamp(0.875rem, 1.8vw, 1.125rem)',
                 }}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.15 + 0.5, duration: 0.6 }}
+                transition={{ delay: index * 0.15 + 0.3, duration: 0.6 }}
               >
                 {stat.label}
               </motion.div>

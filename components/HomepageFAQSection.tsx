@@ -55,7 +55,7 @@ export function HomepageFAQSection() {
   };
 
   return (
-    <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
+    <section className="py-24 md:py-32">
       <StructuredData data={faqSchema} />
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
@@ -66,9 +66,9 @@ export function HomepageFAQSection() {
           className="mb-12 md:mb-16"
         >
           <h2
-            className="font-display tracking-wide leading-tight mb-6 text-center"
+            className="font-display tracking-tight leading-tight mb-6 text-center"
             style={{
-              color: 'var(--color-primary)',
+              color: 'var(--color-forest)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)',
             }}
@@ -87,8 +87,8 @@ export function HomepageFAQSection() {
               transition={{ delay: index * 0.1, duration: 0.4 }}
               className="border rounded-lg overflow-hidden"
               style={{
-                borderColor: 'var(--border-default)',
-                backgroundColor: openIndex === index ? 'var(--bg-warm)' : 'var(--bg-card)',
+                borderColor: 'var(--border-strong)',
+                backgroundColor: openIndex === index ? 'var(--bg-section-green)' : 'var(--bg-card)',
               }}
               itemScope
               itemType="https://schema.org/Question"
@@ -112,7 +112,7 @@ export function HomepageFAQSection() {
                 </h3>
                 <ChevronDown
                   className={`w-5 h-5 flex-shrink-0 transition-transform ${openIndex === index ? 'rotate-180' : ''}`}
-                  style={{ color: 'var(--color-primary)' }}
+                  style={{ color: 'var(--color-forest)' }}
                 />
               </button>
               <AnimatePresence>

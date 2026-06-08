@@ -1,21 +1,21 @@
 import type { Metadata, Viewport } from 'next'
 import React from 'react'
-import { Bebas_Neue, Inter } from 'next/font/google'
+import { Sora, DM_Sans } from 'next/font/google'
 import { CurrencyProvider } from '../contexts/CurrencyContext'
 import { WhatsAppButton } from '../components/WhatsAppButton'
 import { SkipLink } from '../components/SkipLink'
 import { Analytics } from '../components/Analytics'
 import './globals.css'
 
-const bebasNeue = Bebas_Neue({
-  weight: '400',
+const sora = Sora({
+  weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
 })
 
-const inter = Inter({
-  weight: ['300', '400', '500', '600', '700', '800'],
+const dmSans = DM_Sans({
+  weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-body',
   display: 'swap',
@@ -91,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode
 }): React.ReactElement {
   return (
-    <html lang="en" className={`${bebasNeue.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <head>
         {/* Analytics preconnects */}
         <link rel="preconnect" href="https://i.pravatar.cc" />

@@ -40,13 +40,10 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
-  return (
-    <section
-      className="py-24 md:py-32"
-      style={{
-        backgroundColor: 'var(--bg-peach)'
-      }}>
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
+  return (
+    <section className="py-24 md:py-32 overflow-hidden">
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{
@@ -68,14 +65,14 @@ export function TestimonialsSection() {
           className="mb-16 md:mb-24">
 
           <h2
-            className="font-display tracking-wide leading-tight mb-6 text-center"
+            className="font-display tracking-tight leading-tight mb-6 text-center"
             style={{
-              color: 'var(--color-primary)',
+              color: 'var(--color-forest)',
               fontWeight: 700,
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
 
-            SUCCESS STORIES
+            Success Stories
           </h2>
           <p
             className="font-body text-base md:text-lg max-w-2xl mx-auto font-normal text-center"
@@ -88,39 +85,36 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: index * 0.15, duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-              className="bg-card rounded-xl border-2 p-6 hover:shadow-lg transition-shadow flex flex-col h-full"
-              style={{ borderColor: 'var(--bg-peach)' }}>
-
-              <div className="mb-4">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  <h3 className="font-display font-semibold" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
-                    {testimonial.name}
-                  </h3>
-                  <span
-                    className="font-body text-xs font-medium px-2.5 py-1 rounded-full"
-                    style={{ backgroundColor: 'var(--bg-peach)', color: 'var(--color-primary)' }}>
-                    {testimonial.company}
-                  </span>
+        {/* Continuous Horizontal Scroll Marquee */}
+        <div className="marquee-fade-container overflow-hidden py-4 -mx-4 px-4 sm:-mx-8 sm:px-8">
+          <div className="flex gap-6 animate-scroll-ltr">
+            {duplicatedTestimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="w-[300px] sm:w-[380px] flex-shrink-0 bg-card rounded-xl border border-strong p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all flex flex-col h-[240px] justify-between border-l-4"
+                style={{ borderLeftColor: 'var(--color-forest)' }}
+              >
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                    <h3 className="font-display font-semibold text-sm sm:text-base" style={{ color: 'var(--text-primary)' }}>
+                      {testimonial.name}
+                    </h3>
+                    <span
+                      className="font-body text-[10px] font-medium px-2 py-0.5 rounded-full"
+                      style={{ backgroundColor: 'var(--bg-section-green)', color: 'var(--color-forest)' }}>
+                      {testimonial.company}
+                    </span>
+                  </div>
+                  <p className="font-body text-xs font-semibold mb-3" style={{ color: 'var(--color-purple)' }}>
+                    {testimonial.role}
+                  </p>
+                  <p className="font-body text-xs sm:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                    &ldquo;{testimonial.quote}&rdquo;
+                  </p>
                 </div>
-                <p className="font-body text-sm font-medium mb-3" style={{ color: 'var(--color-primary)' }}>
-                  {testimonial.role}
-                </p>
-                {/* Star rating removed to match More Student Experiences style, or can keep if preferred. Keeping concise for now. */}
               </div>
-
-              <p className="font-body text-sm leading-relaxed flex-grow" style={{ color: 'var(--text-secondary)' }}>
-                &ldquo;{testimonial.quote}&rdquo;
-              </p>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
 
         {/* CTA to Success Stories Page */}
@@ -132,11 +126,11 @@ export function TestimonialsSection() {
           className="text-center mt-12">
           <Link
             href="/success-stories"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-semibold transition-all hover:scale-105 border-2"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-body font-semibold transition-all hover:bg-[var(--color-purple-hover)] border"
             style={{
-              backgroundColor: 'var(--bg-card)',
-              color: 'var(--color-primary)',
-              borderColor: 'var(--color-primary)'
+              backgroundColor: 'var(--color-purple)',
+              color: '#ffffff',
+              borderColor: 'var(--color-purple)'
             }}>
             View All Success Stories
             <ArrowRight className="w-5 h-5" />
