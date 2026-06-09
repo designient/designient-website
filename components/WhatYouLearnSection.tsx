@@ -61,7 +61,7 @@ export function WhatYouLearnSection() {
             className="lg:col-span-7">
 
             <h2 className="font-bold leading-tight tracking-tighter mb-8 text-white" style={{ fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)' }}>
-              Comprehensive Curriculum
+              Full Curriculum
             </h2>
 
             <div className="space-y-6 mb-12">

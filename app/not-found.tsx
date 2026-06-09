@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   const helpfulLinks = [
-    { name: 'UI/UX Design Pro Course', path: '/ui-ux-design-pro', description: 'Our comprehensive 3-month design course' },
+    { name: 'UI/UX Design Pro Course', path: '/ui-ux-design-pro', description: 'Our 3-month design course from beginner to job-ready' },
     { name: 'All Courses', path: '/courses', description: 'Explore all our UI/UX design programs' },
     { name: 'About Us', path: '/about-us', description: 'Learn about Designient School' },
     { name: 'FAQs', path: '/faqs', description: 'Find answers to common questions' },

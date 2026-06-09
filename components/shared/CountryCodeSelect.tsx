@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { ChevronDown, Search } from 'react-feather'
 
-// Comprehensive list of country codes with flags (India first, then sorted alphabetically)
+// Full list of country codes with flags (India first, then sorted alphabetically)
 export const countryCodes = [
     { code: '+91', country: 'India', flag: '🇮🇳' },
     { code: '+1', country: 'United States', flag: '🇺🇸' },

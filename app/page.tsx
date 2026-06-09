@@ -27,21 +27,12 @@ export const metadata: Metadata = {
     title: 'UI UX Design & AI Courses | Designient School of Masterminds',
     description: 'UI/UX design and AI courses. Small batches, live mentorship, real projects. 95% placement. Bangalore, Hyderabad, Pune.',
     url: 'https://designient.com',
-    images: [
-      {
-        url: '/favicon-designient.png',
-        width: 192,
-        height: 192,
-        alt: 'Designient - UI/UX Design and AI Training',
-      },
-    ],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'UI UX Design & AI Courses | Designient School of Masterminds',
     description: 'UI/UX design and AI courses. Small batches, live mentorship, real projects. 95% placement. Bangalore, Hyderabad, Pune.',
-    images: ['/favicon-designient.png'],
   },
   alternates: {
     canonical: 'https://designient.com',

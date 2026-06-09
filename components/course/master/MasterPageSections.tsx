@@ -1,350 +1,334 @@
 'use client'
 
-import { PageHero } from '../../layout/PageHero'
+import {
+ CourseHeroWithSidebar,
+ CourseHeroContent,
+ CourseHeroBreadcrumbs,
+ CourseHeroBadge,
+ CourseHeroTitle,
+ CourseHeroSubtitle,
+ CourseHeroTrustChips,
+ CourseHeroLastUpdated,
+ CourseHeroStats,
+ CourseHeroSeatNote,
+ CourseHeroCtaRow,
+ CourseHeroFootnote,
+ EnrollmentActionButton,
+ CourseToolchainSection,
+ CourseEditorialSplit,
+ CourseBentoGrid,
+} from '../layout'
 import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, Award, CheckCircle, ChevronRight, Shield } from 'react-feather'
-import { CurrencyAwareBonusStack } from '../../pricing/CurrencyAwareBonusStack'
-import { CurrencyAwareValueStack } from '../../pricing/CurrencyAwareValueStack'
+import { LocalizedBookingTokenNote, LocalizedCourseSeatNote } from '../../pricing/LocalizedCourseHeroPricing'
 import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
 import {
-  AnimatedCard,
-  AnimatedReveal,
-  CourseAnimatedSection,
-  CourseCurriculumTimeline,
-  CourseTrackStep,
-  CourseTrackSteps,
-  StaggerItem,
+ CourseLearningPathInfographic,
+ CoursePatternInterruptInfographic,
+ CourseProofSectionInfographic,
+ CourseStackInfographic,
+ CourseWhatYouBuildInfographic,
+} from '../infographics'
+import { fadeUp } from '../animated/motion'
+import {
+ AnimatedCard,
+ AnimatedReveal,
+ CourseAnimatedSection,
+ CourseCurriculumTimeline,
+ CourseTrackStep,
+ CourseTrackSteps,
+ StaggerItem,
 } from '../animated'
 import {
-  masterAdvancedSection,
-  masterAiDistinction,
-  masterBonuses,
-  masterCurriculumModules,
-  masterEmiConfig,
-  masterHero,
-  masterPatternComparison,
-  masterPortfolioOutputs,
-  masterValueStack,
+ masterAdvancedSection,
+ masterAiDistinction,
+ masterBonuses,
+ masterCurriculumModules,
+ masterEmiConfig,
+ masterHero,
+ masterPatternComparison,
+ masterTools,
+ masterPortfolioOutputs,
+ masterValueStack,
+ masterPricingFeatures,
 } from '../../../data/masterPageData'
 
-function ComparisonTable({
-  leftHeader,
-  rightHeader,
-  rows,
-}: {
-  leftHeader: string
-  rightHeader: string
-  rows: { feature: string; master: string; others: string }[]
-}) {
-  return (
-    <div className="table-scroll -mx-4 px-4 sm:mx-0 sm:px-0 rounded-xl" style={{ boxShadow: '0 4px 16px rgba(0, 0, 0, 0.08)' }}>
-      <table className="w-full min-w-[560px]">
-        <thead>
-          <tr style={{ backgroundColor: 'var(--color-primary)' }}>
-            <th className="p-4 text-left font-bold sticky left-0 z-10" style={{ color: 'var(--text-on-accent)', backgroundColor: 'var(--color-primary)' }}>Feature</th>
-            <th className="p-4 text-center font-bold" style={{ color: 'var(--text-on-accent)' }}>{leftHeader}</th>
-            <th className="p-4 text-center font-bold" style={{ color: 'var(--text-on-accent)' }}>{rightHeader}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, index) => (
-            <tr key={row.feature} style={{ backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>
-              <td className="p-4 font-semibold sticky left-0 z-10 border-t" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)', backgroundColor: index % 2 === 0 ? 'var(--bg-card)' : 'var(--bg-subtle)' }}>{row.feature}</td>
-              <td className="p-4 text-center border-t font-medium" style={{ color: 'var(--color-primary)', borderColor: 'var(--border-default)' }}>{row.master}</td>
-              <td className="p-4 text-center border-t" style={{ color: 'var(--text-muted)', borderColor: 'var(--border-default)' }}>{row.others}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  )
-}
-
 export function MasterUrgencyStrip() {
-  return (
-    <CourseUrgencyStrip
-      slug={COURSE_SLUGS.master}
-      prefix="Design Track — Step 3 · Most Advanced · Cohort now open. 15 seats"
-      seatLabel="5 early bird seats at"
-      showRegister={false}
-      suffix="Applications reviewed within 48 hours"
-      claimHref="/apply-now"
-      claimLabel="Apply for the Course"
-    />
-  )
+ return (
+ <CourseUrgencyStrip
+ slug={COURSE_SLUGS.master}
+ prefix="Design Track · Step 3 · Most Advanced · Cohort now open. 15 seats"
+ seatLabel="5 early bird seats at"
+ showRegister={false}
+ suffix="Applications reviewed within 48 hours"
+ claimHref="/apply-now"
+ claimLabel="Apply for the Course"
+ />
+ )
 }
 
 export function MasterHero() {
-  const scrollToApply = () => {
-    const el = document.getElementById('course-application-form')
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    else window.location.href = '/apply-now'
-  }
+ return (
+ <CourseHeroWithSidebar
+ courseSlug="ui-ux-design-master"
+ courseName="UI UX Design Master"
+ duration="6 Months"
+ features={masterPricingFeatures}
+ emiConfig={masterEmiConfig}
+ align="left"
+ >
+ <CourseHeroContent>
+ <CourseHeroBreadcrumbs>
+ <Link href="/" className="hover:underline">Home</Link>
+ <ChevronRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+ <Link href="/courses" className="hover:underline">Courses</Link>
+ <ChevronRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+ <span>Design Track</span>
+ <ChevronRight className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+ <span style={{ color: 'var(--color-primary)' }}>UI UX Design Master</span>
+ </CourseHeroBreadcrumbs>
 
-  return (
-    <PageHero size="course" align="center">
-      <div className="max-w-4xl mx-auto text-center">
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-6 text-sm" style={{ color: 'var(--text-muted)' }}>
-            <Link href="/" className="hover:underline">Home</Link>
-            <ChevronRight className="w-4 h-4" />
-            <Link href="/courses" className="hover:underline">Courses</Link>
-            <ChevronRight className="w-4 h-4" />
-            <span>Design Track</span>
-            <ChevronRight className="w-4 h-4" />
-            <span style={{ color: 'var(--color-primary)' }}>UI UX Design Master</span>
-          </div>
-
-          <span className="font-body inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold mb-6" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--text-on-accent)' }}>
-            <Award className="w-3.5 h-3.5" aria-hidden="true" />
-            {masterHero.badge}
-          </span>
-
-          <h1 className="font-display mb-6 leading-[1.1]" style={{ color: 'var(--text-primary)', fontWeight: 700, fontSize: 'clamp(1.875rem, 4.5vw, 3.25rem)' }}>
-            {masterHero.title}
-          </h1>
-
-          <p className="font-body mb-8 leading-relaxed mx-auto" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(1.0625rem, 2vw, 1.25rem)', maxWidth: '820px' }}>
-            {masterHero.subtitle}
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 mb-8">
-            {masterHero.trustChips.map((chip) => (
-              <span key={chip} className="font-body text-sm font-medium flex items-center gap-1.5" style={{ color: 'var(--text-secondary)' }}>
-                <CheckCircle className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
-                {chip}
-              </span>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-3xl mx-auto">
-            {masterHero.stats.map((stat) => (
-              <div key={stat.label} className="rounded-xl p-4 bg-card shadow-sm">
-                <p className="font-display font-bold text-2xl md:text-3xl mb-1" style={{ color: 'var(--color-primary)' }}>{stat.value}</p>
-                <p className="font-body text-xs md:text-sm" style={{ color: 'var(--text-secondary)' }}>{stat.label}</p>
-              </div>
-            ))}
-          </div>
-
-          <p className="font-body font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>{masterHero.seatNote}</p>
-
-          <button type="button" onClick={scrollToApply} className="font-body font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform min-h-[44px] inline-flex items-center gap-2 mb-4" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--text-on-accent)' }}>
-            Apply for the Course
-            <ArrowRight className="w-5 h-5" />
-          </button>
-
-          <p className="font-body text-sm max-w-2xl mx-auto italic" style={{ color: 'var(--text-muted)' }}>{masterHero.bookingNote}</p>
-      </div>
-    </PageHero>
-  )
+ <CourseHeroBadge>
+ <Award className="w-3.5 h-3.5" aria-hidden="true" />
+ {masterHero.badge}
+ </CourseHeroBadge>
+ <CourseHeroTitle>{masterHero.title}</CourseHeroTitle>
+ <CourseHeroSubtitle>{masterHero.subtitle}</CourseHeroSubtitle>
+ <CourseHeroTrustChips chips={masterHero.trustChips} />
+ <CourseHeroLastUpdated date={masterHero.lastUpdated} />
+ <CourseHeroStats stats={masterHero.stats} />
+ <CourseHeroSeatNote>
+  <LocalizedCourseSeatNote slug={COURSE_SLUGS.master} earlyBirdSeats={5} reviewHours={48} />
+ </CourseHeroSeatNote>
+ <CourseHeroCtaRow>
+ <EnrollmentActionButton
+ courseSlug="ui-ux-design-master"
+ className="font-body font-bold px-8 py-4 rounded-full shadow-lg hover:scale-105 transition-transform min-h-[44px] inline-flex items-center gap-2"
+ style={{ backgroundColor: 'var(--color-accent)', color: 'var(--text-on-accent)' }}
+ />
+ </CourseHeroCtaRow>
+ <CourseHeroFootnote>
+  <LocalizedBookingTokenNote slug={COURSE_SLUGS.master} percentLabel="10% of early bird fee" />
+ </CourseHeroFootnote>
+ </CourseHeroContent>
+ </CourseHeroWithSidebar>
+ )
 }
 
 export function MasterAdvancedSection() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
-        <h2 className="font-display font-bold mb-8 text-center" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          {masterAdvancedSection.title}
-        </h2>
-        <div className="space-y-4">
-          {masterAdvancedSection.paragraphs.map((p) => (
-            <p key={p} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{p}</p>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
+ return (
+  <CourseProofSectionInfographic
+   sectionId="why-master"
+   badge="Most advanced course"
+   overlayLabel="Design Track · Step 3"
+   imageSrc="/images/class-photos/ui-ux-design-mentor-led-session-4.webp"
+   imageAlt="UI UX design students presenting portfolio projects to mentor"
+   section={{
+    title: masterAdvancedSection.title,
+    paragraphs: [
+     masterAdvancedSection.paragraphs[0],
+     masterAdvancedSection.paragraphs[1],
+     'Six months. 15 students per cohort. Diploma certified.',
+    ],
+   }}
+  />
+ )
 }
 
 export function MasterPatternInterrupt() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-6" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}>
-          {masterPatternComparison.title}
-        </h2>
-        <div className="space-y-4 mb-10">
-          {masterPatternComparison.intro.map((p) => (
-            <p key={p} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{p}</p>
-          ))}
-        </div>
-        <ComparisonTable leftHeader="UI UX Design Master" rightHeader="Generic Advanced Design Courses" rows={masterPatternComparison.rows} />
-      </div>
-    </section>
-  )
+ return (
+  <CoursePatternInterruptInfographic
+   config={{
+    title: masterPatternComparison.title,
+    intro: masterPatternComparison.intro,
+    rows: masterPatternComparison.rows.map((r) => ({ feature: r.feature, pro: r.master, others: r.others })),
+    leftHeader: 'UI UX Design Master',
+    rightHeader: 'Generic Advanced Design Courses',
+    highlights: ['Diploma certification', '15 students max per cohort', 'Six specialist modules'],
+    secondaryStat: { value: '6', label: 'Specialisation modules' },
+   }}
+  />
+ )
 }
 
 export function MasterWhatYouBuild() {
-  return (
-    <CourseAnimatedSection
-      title="What You Will Build and Deliver in 6 Months"
-      subtitle="Across 6 months and 6 modules, you build a portfolio that reflects senior-level thinking — not just execution. The artefacts are real deliverables on real briefs, reviewed by mentors and in some modules by client stakeholders."
-      backgroundColor="var(--bg-card)"
-    >
-      <StaggerItem>
-        <p className="font-body font-semibold mb-4" style={{ color: 'var(--text-primary)' }}>
-          By the end of month 6:
-        </p>
-        <ul className="space-y-3">
-          {masterPortfolioOutputs.map((item) => (
-            <li key={item} className="font-body flex items-start gap-3 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-              <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
-              {item}
-            </li>
-          ))}
-        </ul>
-      </StaggerItem>
-    </CourseAnimatedSection>
-  )
+ return (
+ <CourseAnimatedSection
+ id="what-you-build"
+ title="What You Will Build and Deliver in 6 Months"
+ subtitle="Across 6 months and 6 modules, you build a portfolio that reflects senior-level thinking - not just execution. The artefacts are real deliverables on real briefs, reviewed by mentors and in some modules by client stakeholders."
+ backgroundColor="var(--bg-card)"
+ >
+ <p className="font-body font-semibold mb-6" style={{ color: 'var(--text-primary)' }}>
+ By the end of month 6:
+ </p>
+ <CourseWhatYouBuildInfographic
+  modules={masterPortfolioOutputs.map((item, index) => ({
+   title: `Deliverable ${index + 1}`,
+   description: item,
+  }))}
+  progress={{
+   startLabel: 'Month 1',
+   endLabel: 'Month 6',
+   pathLabel: '6-month build path',
+   stats: [
+    { value: '6', label: 'Specialist modules' },
+    { value: '6', label: 'Months to ship' },
+    { value: '2', label: 'Client projects' },
+   ],
+   footerMessage: 'Every deliverable below is built during the course - not after it.',
+  }}
+ />
+ </CourseAnimatedSection>
+ )
 }
 
 export function MasterCurriculum() {
-  return (
-    <CourseAnimatedSection title="The 6-Month Curriculum" backgroundColor="var(--bg-warm)">
-      <AnimatedReveal>
-        <CourseCurriculumTimeline
-          items={masterCurriculumModules.map((mod) => ({
-            key: mod.title,
-            title: mod.title,
-            body: mod.body,
-            tools: mod.tools,
-            deliverable: mod.deliverable,
-          }))}
-        />
-      </AnimatedReveal>
-    </CourseAnimatedSection>
-  )
+ return (
+ <CourseAnimatedSection title="The 6-Month Curriculum" backgroundColor="var(--bg-warm)">
+ <AnimatedReveal>
+ <CourseCurriculumTimeline
+ items={masterCurriculumModules.map((mod) => ({
+ key: mod.title,
+ title: mod.title,
+ body: mod.body,
+ tools: mod.tools,
+ deliverable: mod.deliverable,
+ }))}
+ />
+ </AnimatedReveal>
+ </CourseAnimatedSection>
+ )
+}
+
+export function MasterToolchain() {
+ return (
+ <CourseToolchainSection
+ title="The Toolchain: Figma, Claude, Perplexity"
+ tools={masterTools}
+ track="design"
+ backgroundColor="var(--bg-card)"
+ />
+ )
 }
 
 export function MasterAiDistinction() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
-        <h2 className="font-display font-bold mb-6" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
-          {masterAiDistinction.title}
-        </h2>
-        <div className="space-y-4 mb-8">
-          <p className="font-body leading-relaxed font-semibold" style={{ color: 'var(--text-primary)' }}>
-            {masterAiDistinction.paragraphs[0]}
-          </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            {masterAiDistinction.paragraphs[1]}
-          </p>
-          <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-            The{' '}
-            <Link href="/ai-product-design-course" className="course-inline-link">
-              AI Product Design Course
-            </Link>{' '}
-            is a separate 6-week standalone course that goes significantly deeper on the execution layer — designing all 8 AI states in Figma, writing full AI behaviour specifications, building functional Bolt/v0 prototypes of AI features, and producing two portfolio case studies specifically in AI product design. That course is built for designers and PMs who want AI product design as their primary specialisation — not as one module within a broader curriculum.
-          </p>
-        </div>
-        <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
-          <p className="font-body font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Who should take which:</p>
-          <ul className="space-y-4">
-            {masterAiDistinction.whoShouldTake.map((item) => (
-              <li key={item.scenario} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                <strong style={{ color: 'var(--text-primary)' }}>{item.scenario}</strong> — {item.course}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  )
+ return (
+ <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+ <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-4xl">
+ <h2 className="font-display font-bold mb-6" style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.5rem, 3vw, 2.25rem)' }}>
+ {masterAiDistinction.title}
+ </h2>
+ <div className="space-y-4 mb-8">
+ <p className="font-body leading-relaxed font-semibold" style={{ color: 'var(--text-primary)' }}>
+ {masterAiDistinction.paragraphs[0]}
+ </p>
+ <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ {masterAiDistinction.paragraphs[1]}
+ </p>
+ <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ The{' '}
+ <Link href="/ai-product-design-course" className="course-inline-link">
+ AI Product Design Course
+ </Link>{' '}
+ is a separate 6-week standalone course that goes significantly deeper on the execution layer - designing all 8 AI states in Figma, writing full AI behaviour specifications, building functional Bolt/v0 prototypes of AI features, and producing two portfolio case studies specifically in AI product design. That course is built for designers and PMs who want AI product design as their primary specialisation - not as one module within a broader curriculum.
+ </p>
+ </div>
+ <div className="rounded-2xl p-6 md:p-8" style={{ backgroundColor: 'var(--bg-subtle)', border: '1px solid var(--border-default)' }}>
+ <p className="font-body font-bold mb-4" style={{ color: 'var(--text-primary)' }}>Who should take which:</p>
+ <ul className="space-y-4">
+ {masterAiDistinction.whoShouldTake.map((item) => (
+ <li key={item.scenario} className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ <strong style={{ color: 'var(--text-primary)' }}>{item.scenario}</strong> - {item.course}
+ </li>
+ ))}
+ </ul>
+ </div>
+ </div>
+ </section>
+ )
 }
 
 export function MasterLearningPath() {
-  return (
-    <CourseAnimatedSection title="Your Path Before and After This Course" backgroundColor="var(--bg-warm)">
-      <StaggerItem>
-        <AnimatedCard variant="primary">
-          <p className="font-body text-sm font-bold mb-2 tracking-wide" style={{ color: 'var(--color-primary)' }}>
-            DESIGN TRACK
-          </p>
-          <CourseTrackSteps>
-            <CourseTrackStep index={0}>
-              <Link href="/ui-ux-design-bootcamp" className="course-inline-link">
-                UI UX Design Bootcamp
-              </Link>{' '}
-              (3 days) — the entry point
-            </CourseTrackStep>
-            <CourseTrackStep index={1}>
-              <Link href="/ui-ux-design-pro" className="course-inline-link">
-                UI UX Design Pro
-              </Link>{' '}
-              (10 weeks) — the foundation
-            </CourseTrackStep>
-            <CourseTrackStep index={2} active>
-              <strong style={{ color: 'var(--text-primary)' }}>UI UX Design Master ← You are here</strong> — the advanced curriculum
-            </CourseTrackStep>
-          </CourseTrackSteps>
-          <p className="font-body font-semibold mb-2 mt-6 pt-4 border-t" style={{ color: 'var(--text-primary)', borderColor: 'var(--border-default)' }}>
-            Prerequisites for this course:
-          </p>
-          <ul className="font-body space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
-            <li>Option A: Completion of UI UX Design Pro</li>
-            <li>Option B: 1 or more years of professional design experience in any role</li>
-          </ul>
-        </AnimatedCard>
-      </StaggerItem>
-
-      <StaggerItem className="mt-8">
-        <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-          <strong style={{ color: 'var(--text-primary)' }}>After Master:</strong> The natural progression is the{' '}
-          <Link href="/ai-product-design-course" className="course-inline-link">
-            AI Product Design Course
-          </Link>{' '}
-          for designers moving into AI-native product roles. Master gives you the advanced design foundation. AI Product Design gives you the AI specialisation. Together they represent the most complete senior product designer curriculum Designient offers.
-        </p>
-      </StaggerItem>
-    </CourseAnimatedSection>
-  )
+ return (
+  <CourseLearningPathInfographic
+   subtitle="Design Track progression - where Master sits as the advanced endpoint."
+   steps={[
+    { label: 'Step 1', title: 'UI UX Design Bootcamp', href: '/ui-ux-design-bootcamp', priceSlug: COURSE_SLUGS.bootcamp, priceRange: true, durationPrefix: '', note: 'entry point' },
+    { label: 'Step 2', title: 'UI UX Design Pro', href: '/ui-ux-design-pro', priceSlug: COURSE_SLUGS.pro, durationPrefix: '10 weeks ·', note: 'foundation course' },
+    { label: 'Step 3', title: 'UI UX Design Master', note: 'You are here', active: true },
+   ]}
+  >
+   <motion.div variants={fadeUp} className="rounded-xl px-5 py-4 border mb-6" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--bg-card)' }}>
+    <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Prerequisites:</p>
+    <ul className="font-body space-y-1 text-sm" style={{ color: 'var(--text-secondary)' }}>
+     <li>Option A: Completion of UI UX Design Pro</li>
+     <li>Option B: 1+ years of professional design experience</li>
+    </ul>
+   </motion.div>
+   <motion.div variants={fadeUp} className="rounded-xl px-5 py-4 border" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--bg-card)' }}>
+    <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+     <strong style={{ color: 'var(--text-primary)' }}>After Master:</strong> The natural progression is the{' '}
+     <Link href="/ai-product-design-course" className="course-inline-link">AI Product Design Course</Link> for designers moving into AI-native product roles.
+    </p>
+   </motion.div>
+  </CourseLearningPathInfographic>
+ )
 }
 
 export function MasterBonusStack() {
-  return <CurrencyAwareBonusStack bonuses={masterBonuses} />
+ return null
 }
 
 export function MasterValueStack() {
-  return <CurrencyAwareValueStack rows={masterValueStack} emi={masterEmiConfig} internationalUsdNote="USD 1,399" />
+ return (
+  <CourseStackInfographic
+   bonuses={masterBonuses}
+   valueRows={masterValueStack}
+   emi={masterEmiConfig}
+   internationalUsdNote="USD 1,399"
+   savingsPercent={85}
+  />
+ )
 }
 
 export function MasterGuarantee() {
-  return (
-    <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
-        <div className="rounded-2xl p-8 md:p-10 border-2" style={{ borderColor: 'var(--color-primary)', backgroundColor: 'var(--bg-subtle)' }}>
-          <div className="flex items-start gap-4">
-            <Shield className="w-8 h-8 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
-            <div>
-              <h2 className="font-display font-bold mb-4" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>Guarantee</h2>
-              <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                If you complete all 6 months, submit every module deliverable on time, attend all live sessions, and do not have a diploma-standard portfolio at the end — you receive a 25% refund.
-              </p>
-              <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                Submit your claim in writing within 14 days of the final session. Students who miss sessions or skip deliverables are ineligible.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+ return (
+ <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+ <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl">
+ <div className="rounded-2xl p-8 md:p-10 border-2" style={{ borderColor: 'var(--color-primary)', backgroundColor: 'var(--bg-subtle)' }}>
+ <div className="flex items-start gap-4">
+ <Shield className="w-8 h-8 flex-shrink-0" style={{ color: 'var(--color-primary)' }} />
+ <div>
+ <h2 className="font-display font-bold mb-4" style={{ color: 'var(--text-primary)', fontSize: 'clamp(1.5rem, 3vw, 2rem)' }}>Guarantee</h2>
+ <p className="font-body mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ If you complete all 6 months, submit every module deliverable on time, attend all live sessions, and do not have a diploma-standard portfolio at the end - you receive a 25% refund.
+ </p>
+ <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ Submit your claim in writing within 14 days of the final session. Students who miss sessions or skip deliverables are ineligible.
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ )
 }
 
 export function MasterPlacementNote() {
-  return (
-    <section className="py-12 md:py-16" style={{ backgroundColor: 'var(--bg-warm)' }}>
-      <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl text-center">
-        <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
-          Placement support begins in month 6 and continues for 6 months after graduation — portfolio review, resume and LinkedIn work, mock interviews, and partner introductions where appropriate.
-        </p>
-        <Link href="/placements" className="font-body inline-flex items-center gap-2 font-bold" style={{ color: 'var(--color-primary)' }}>
-          View placement details
-          <ArrowRight className="w-5 h-5" />
-        </Link>
-      </div>
-    </section>
-  )
+ return (
+ <section className="py-12 md:py-16" style={{ backgroundColor: 'var(--bg-warm)' }}>
+ <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl text-center">
+ <p className="font-body leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+ Placement support begins in month 6 and continues for 6 months after graduation - portfolio review, resume and LinkedIn work, mock interviews, and partner introductions where appropriate.
+ </p>
+ <Link href="/placements" className="font-body inline-flex items-center gap-2 font-bold" style={{ color: 'var(--color-primary)' }}>
+ View placement details
+ <ArrowRight className="w-5 h-5" />
+ </Link>
+ </div>
+ </section>
+ )
 }

@@ -5,7 +5,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Phone, MessageCircle } from 'react-feather';
 import { usePathname } from 'next/navigation';
 import { getWhatsAppUrl } from '../../utils/whatsapp';
-import { useQuickApply } from './QuickApplyContext';
+import { getEnrollmentConfig } from '../../data/courseEnrollmentConfig';
+import { getPrimaryScrollTarget, scrollToElement } from '../../lib/enrollmentActions';
 
 interface CourseCTAProps {
   courseName: string;
@@ -20,9 +21,10 @@ export function CourseCTA({
   ctaText = 'Ready to Start Your Journey?',
   secondaryText,
   cityName,
+  courseSlug,
 }: CourseCTAProps) {
   const pathname = usePathname();
-  useQuickApply();
+  const config = courseSlug ? getEnrollmentConfig(courseSlug) : undefined;
 
   const whatsappUrl = getWhatsAppUrl({
     type: cityName ? 'city' : 'course',
@@ -31,9 +33,20 @@ export function CourseCTA({
     sourcePage: pathname
   });
 
-  const handleApplyClick = (e: React.MouseEvent) => {
+  const primaryLabel = config?.primaryCtaLabel ?? 'Apply Now';
+
+  const handlePrimaryClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    const element = document.getElementById('course-application-form');
+    if (cityName && courseSlug) {
+      const cityParam = cityName.toLowerCase().replace(/\s+/g, '-');
+      window.location.href = `/ui-ux-design-pro?city=${cityParam}#enrollment`;
+      return;
+    }
+    if (config) {
+      scrollToElement(getPrimaryScrollTarget(config));
+      return;
+    }
+    const element = document.getElementById('course-application-form') ?? document.getElementById('enrollment');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
@@ -81,14 +94,14 @@ export function CourseCTA({
             </a>
 
             <button
-              onClick={handleApplyClick}
+              onClick={handlePrimaryClick}
               className="inline-flex items-center gap-2 font-body font-semibold px-8 py-4 rounded-full border-2 transition-colors hover:bg-[var(--color-accent-muted)] min-h-[44px]"
               style={{
                 borderColor: 'var(--color-accent)',
                 color: 'var(--color-accent)',
                 fontSize: 'clamp(0.875rem, 1.5vw, 1rem)'
               }}>
-              Apply Now
+              {primaryLabel}
               <ArrowRight className="w-5 h-5" />
             </button>
 

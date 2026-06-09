@@ -103,6 +103,13 @@ const nextConfig = {
   // Optimize for SEO
   compress: true,
   poweredByHeader: false,
+  webpack: (config, { dev }) => {
+    if (dev) {
+      // Avoid PackFileCacheStrategy rename races on iCloud/synced folders (e.g. Downloads)
+      config.cache = false
+    }
+    return config
+  },
   // Enable static exports if needed
   // output: 'export',
 }

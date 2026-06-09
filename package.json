@@ -4,10 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:clean": "npm run clean && next dev",
+    "dev:turbo": "next dev --turbo",
+    "clean": "rm -rf .next node_modules/.cache",
     "build": "next build",
+    "build:clean": "npm run clean && next build",
     "pages:build": "npx @cloudflare/next-on-pages",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "content:lint": "node scripts/content-lint.mjs"
   },
   "dependencies": {
     "@hubspot/api-client": "^13.4.0",

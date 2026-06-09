@@ -42,7 +42,7 @@ export function Hero() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  // Comprehensive list of country codes with flags (India first, then sorted alphabetically)
+  // Full list of country codes with flags (India first, then sorted alphabetically)
   const countryCodes = [
     { code: '+91', country: 'India', flag: '🇮🇳' },
     { code: '+1', country: 'United States', flag: '🇺🇸' },
@@ -738,7 +738,7 @@ export function Hero() {
                 {company.logo}
               </div>
             )}
-            {/* Duplicate set for seamless loop */}
+            {/* Duplicate set for continuous loop */}
             {companies.map((company, index) =>
               <div
                 key={`${company.name}-duplicate-${index}`}
@@ -759,6 +759,7 @@ export function Hero() {
           __html: JSON.stringify(structuredData)
         }} />
 
-    </section>);
-
+    </section>
+  );
 }
+

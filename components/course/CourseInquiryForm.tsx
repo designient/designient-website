@@ -47,6 +47,8 @@ export function CourseInquiryForm({ courseSlug, courseName, compact = false }: C
     'ui-ux-design-bootcamp': 'bootcamp',
     'ui-ux-design-pro': 'pro',
     'ui-ux-design-master': 'master',
+    'ai-automation-accelerator': 'ai-automation-accelerator',
+    'ai-product-design-course': 'ai-product-design-course',
     'prompt-engineering-mastery': 'prompt'
   }
 

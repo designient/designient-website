@@ -33,7 +33,7 @@ export function HiringConsultingContent() {
   const consultingServices = [
     {
       title: 'UX Audits',
-      description: 'Comprehensive evaluation of your product\'s user experience and design quality',
+      description: 'Thorough evaluation of your product\'s user experience and design quality',
       icon: Search,
     },
     {

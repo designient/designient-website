@@ -93,18 +93,13 @@ function getInitialCurrency(): Currency {
 }
 
 export function CurrencyProvider({ children }: { children: React.ReactNode }) {
-  // Use lazy initializer to detect currency immediately on client-side
   const [currency, setCurrencyState] = useState<Currency>(() => {
-    // On server-side, return default. On client-side, detect immediately.
     if (typeof window === 'undefined') return DEFAULT_CURRENCY;
     return getInitialCurrency();
   });
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => typeof window === 'undefined');
 
-  // Initialize currency on mount (for any edge cases or re-hydration)
   useEffect(() => {
-    const initialCurrency = getInitialCurrency();
-    setCurrencyState(initialCurrency);
     setIsLoading(false);
   }, []);
 

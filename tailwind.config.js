@@ -10,8 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         'display': ['var(--font-display)', 'Sora', 'sans-serif'],
-        'body': ['var(--font-body)', 'DM Sans', 'sans-serif'],
-        'sans': ['var(--font-body)', 'DM Sans', 'sans-serif']
+        'body': ['var(--font-body)', 'Nunito', 'sans-serif'],
+        'sans': ['var(--font-body)', 'Nunito', 'sans-serif']
       },
       letterSpacing: {
         display: '-0.02em',

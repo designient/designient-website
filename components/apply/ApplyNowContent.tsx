@@ -8,711 +8,711 @@ import { ArrowRight, CheckCircle, Clock, MessageCircle, Calendar } from 'react-f
 import { useRouter } from 'next/navigation'
 
 interface FormData {
-  program: string
-  applicantType: string
-  fullName: string
-  email: string
-  phone: string
-  currentBackground: string
-  experienceLevel: string
-  careerGoal: string
-  availability: string
-  city: string
-  motivation: string
-  consent: boolean
+ program: string
+ applicantType: string
+ fullName: string
+ email: string
+ phone: string
+ currentBackground: string
+ experienceLevel: string
+ careerGoal: string
+ availability: string
+ city: string
+ motivation: string
+ consent: boolean
 }
 
 const programs: { label: string; applicationNote?: string }[] = [
-  { label: 'UI UX Design Bootcamp (3 Days) — Design Track' },
-  { label: 'UI UX Design Pro (10 Weeks) — Most Popular · Design Track' },
-  { label: 'UI UX Design Master (6 Months) — Design Track' },
-  { label: 'AI Automation Accelerator (8 Weeks) — Highest Demand 2026 · AI Track' },
-  {
-    label: 'AI Product Design Course (6 Weeks) — By Application Only · AI Track',
-    applicationNote: 'Applications reviewed within 48 hours.',
-  },
-  { label: 'Not sure yet — help me choose' },
+ { label: 'UI UX Design Bootcamp (3 Days) - Design Track' },
+ { label: 'UI UX Design Pro (10 Weeks) - Most Popular · Design Track' },
+ { label: 'UI UX Design Master (6 Months) - Design Track' },
+ { label: 'AI Automation Accelerator (8 Weeks) - Highest Demand 2026 · AI Track' },
+ {
+ label: 'AI Product Design Course (6 Weeks) - By Application Only · AI Track',
+ applicationNote: 'Applications reviewed within 48 hours.',
+ },
+ { label: 'Not sure yet - help me choose' },
 ]
 
 const applicantTypes = [
-  'Student',
-  'Working Professional',
-  'Career Switcher'
+ 'Student',
+ 'Working Professional',
+ 'Career Switcher'
 ]
 
 const experienceLevels = [
-  'Complete Beginner',
-  'Some Design Knowledge',
-  'Intermediate',
-  'Advanced'
+ 'Complete Beginner',
+ 'Some Design Knowledge',
+ 'Intermediate',
+ 'Advanced'
 ]
 
 const availabilityOptions = [
-  'Weekday Batches',
-  'Weekend Batches',
-  'Flexible'
+ 'Weekday Batches',
+ 'Weekend Batches',
+ 'Flexible'
 ]
 
 const cities = [
-  'Bangalore',
-  'Hyderabad',
-  'Pune',
-  'Online',
-  'Other'
+ 'Bangalore',
+ 'Hyderabad',
+ 'Pune',
+ 'Online',
+ 'Other'
 ]
 
 export function ApplyNowContent() {
-  const router = useRouter()
-  const [currentStep, setCurrentStep] = useState<'router' | 'form' | 'success'>('router')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({})
-  const [formData, setFormData] = useState<FormData>({
-    program: '',
-    applicantType: '',
-    fullName: '',
-    email: '',
-    phone: '',
-    currentBackground: '',
-    experienceLevel: '',
-    careerGoal: '',
-    availability: '',
-    city: '',
-    motivation: '',
-    consent: false
-  })
+ const router = useRouter()
+ const [currentStep, setCurrentStep] = useState<'router' | 'form' | 'success'>('router')
+ const [isSubmitting, setIsSubmitting] = useState(false)
+ const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({})
+ const [formData, setFormData] = useState<FormData>({
+ program: '',
+ applicantType: '',
+ fullName: '',
+ email: '',
+ phone: '',
+ currentBackground: '',
+ experienceLevel: '',
+ careerGoal: '',
+ availability: '',
+ city: '',
+ motivation: '',
+ consent: false
+ })
 
-  const validateRouter = (): boolean => {
-    const newErrors: Partial<Record<keyof FormData, string>> = {}
-    
-    if (!formData.program) {
-      newErrors.program = 'Please select a program'
-    }
-    
-    if (!formData.applicantType) {
-      newErrors.applicantType = 'Please select your applicant type'
-    }
-    
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+ const validateRouter = (): boolean => {
+ const newErrors: Partial<Record<keyof FormData, string>> = {}
+ 
+ if (!formData.program) {
+ newErrors.program = 'Please select a program'
+ }
+ 
+ if (!formData.applicantType) {
+ newErrors.applicantType = 'Please select your applicant type'
+ }
+ 
+ setErrors(newErrors)
+ return Object.keys(newErrors).length === 0
+ }
 
-  const validateForm = (): boolean => {
-    const newErrors: Partial<Record<keyof FormData, string>> = {}
+ const validateForm = (): boolean => {
+ const newErrors: Partial<Record<keyof FormData, string>> = {}
 
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Full name is required'
-    }
+ if (!formData.fullName.trim()) {
+ newErrors.fullName = 'Full name is required'
+ }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
+ if (!formData.email.trim()) {
+ newErrors.email = 'Email is required'
+ } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+ newErrors.email = 'Please enter a valid email address'
+ }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required'
-    } else if (!/^[\d\s\-\+\(\)]+$/.test(formData.phone) || formData.phone.replace(/\D/g, '').length < 10) {
-      newErrors.phone = 'Please enter a valid phone number'
-    }
+ if (!formData.phone.trim()) {
+ newErrors.phone = 'Phone number is required'
+ } else if (!/^[\d\s\-\+\(\)]+$/.test(formData.phone) || formData.phone.replace(/\D/g, '').length < 10) {
+ newErrors.phone = 'Please enter a valid phone number'
+ }
 
-    if (!formData.currentBackground.trim()) {
-      newErrors.currentBackground = 'Please describe your current background'
-    }
+ if (!formData.currentBackground.trim()) {
+ newErrors.currentBackground = 'Please describe your current background'
+ }
 
-    if (!formData.experienceLevel) {
-      newErrors.experienceLevel = 'Please select your experience level'
-    }
+ if (!formData.experienceLevel) {
+ newErrors.experienceLevel = 'Please select your experience level'
+ }
 
-    if (!formData.careerGoal.trim()) {
-      newErrors.careerGoal = 'Please describe your career goal'
-    }
+ if (!formData.careerGoal.trim()) {
+ newErrors.careerGoal = 'Please describe your career goal'
+ }
 
-    if (!formData.availability) {
-      newErrors.availability = 'Please select your availability'
-    }
+ if (!formData.availability) {
+ newErrors.availability = 'Please select your availability'
+ }
 
-    if (!formData.city) {
-      newErrors.city = 'Please select your city'
-    }
+ if (!formData.city) {
+ newErrors.city = 'Please select your city'
+ }
 
-    if (!formData.motivation.trim()) {
-      newErrors.motivation = 'Please share your motivation'
-    } else if (formData.motivation.trim().length < 50) {
-      newErrors.motivation = 'Please provide more details (at least 50 characters)'
-    }
+ if (!formData.motivation.trim()) {
+ newErrors.motivation = 'Please share your motivation'
+ } else if (formData.motivation.trim().length < 50) {
+ newErrors.motivation = 'Please provide more details (at least 50 characters)'
+ }
 
-    if (!formData.consent) {
-      newErrors.consent = 'Please accept the terms and conditions'
-    }
+ if (!formData.consent) {
+ newErrors.consent = 'Please accept the terms and conditions'
+ }
 
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
+ setErrors(newErrors)
+ return Object.keys(newErrors).length === 0
+ }
 
-  const handleRouterSubmit = (e: FormEvent) => {
-    e.preventDefault()
-    if (validateRouter()) {
-      setCurrentStep('form')
-      setErrors({})
-    }
-  }
+ const handleRouterSubmit = (e: FormEvent) => {
+ e.preventDefault()
+ if (validateRouter()) {
+ setCurrentStep('form')
+ setErrors({})
+ }
+ }
 
-  const handleFormSubmit = async (e: FormEvent) => {
-    e.preventDefault()
-    
-    if (!validateForm()) {
-      return
-    }
+ const handleFormSubmit = async (e: FormEvent) => {
+ e.preventDefault()
+ 
+ if (!validateForm()) {
+ return
+ }
 
-    setIsSubmitting(true)
+ setIsSubmitting(true)
 
-    try {
-      const response = await fetch('/api/apply', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          program: formData.program,
-          applicantType: formData.applicantType,
-          fullName: formData.fullName,
-          email: formData.email,
-          phone: formData.phone,
-          currentBackground: formData.currentBackground,
-          experienceLevel: formData.experienceLevel,
-          careerGoal: formData.careerGoal,
-          availability: formData.availability,
-          city: formData.city,
-          motivation: formData.motivation,
-          metadata: {
-            program: formData.program,
-            applicantType: formData.applicantType,
-            experienceLevel: formData.experienceLevel,
-            availability: formData.availability,
-            city: formData.city
-          }
-        }),
-      })
+ try {
+ const response = await fetch('/api/apply', {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ },
+ body: JSON.stringify({
+ program: formData.program,
+ applicantType: formData.applicantType,
+ fullName: formData.fullName,
+ email: formData.email,
+ phone: formData.phone,
+ currentBackground: formData.currentBackground,
+ experienceLevel: formData.experienceLevel,
+ careerGoal: formData.careerGoal,
+ availability: formData.availability,
+ city: formData.city,
+ motivation: formData.motivation,
+ metadata: {
+ program: formData.program,
+ applicantType: formData.applicantType,
+ experienceLevel: formData.experienceLevel,
+ availability: formData.availability,
+ city: formData.city
+ }
+ }),
+ })
 
-      if (response.ok) {
-        setCurrentStep('success')
-      } else {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Submission failed')
-      }
-    } catch (error) {
-      console.error('Error submitting application:', error)
-      setErrors({ motivation: 'Something went wrong. Please try again or contact us directly.' })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
+ if (response.ok) {
+ setCurrentStep('success')
+ } else {
+ const errorData = await response.json()
+ throw new Error(errorData.error || 'Submission failed')
+ }
+ } catch (error) {
+ console.error('Error submitting application:', error)
+ setErrors({ motivation: 'Something went wrong. Please try again or contact us directly.' })
+ } finally {
+ setIsSubmitting(false)
+ }
+ }
 
-  if (currentStep === 'success') {
-    return (
-      <PageHero size="default" align="center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto text-center">
-            <div className="bg-card rounded-xl p-8 md:p-12 shadow-lg border-2" style={{ borderColor: 'var(--color-success)' }}>
-              <CheckCircle className="w-16 h-16 mx-auto mb-6" style={{ color: 'var(--color-success)' }} />
-              <h2 className="font-display font-bold mb-4 text-2xl md:text-3xl" style={{ color: 'var(--text-primary)' }}>
-                Application Submitted Successfully!
-              </h2>
-              <p className="font-body text-lg mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                Thank you for your interest in Designient. We&apos;ve received your application and will review it within 24 hours.
-              </p>
-              <p className="font-body mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                You&apos;ll receive a confirmation email shortly with next steps, including how to book your counselling call.
-              </p>
-              
-              <div className="space-y-4">
-                <Link
-                  href="/contact-us?reason=counselling-call"
-                  className="inline-flex items-center justify-center w-full px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
-                  style={{ backgroundColor: 'var(--color-cta)' }}>
-                  <Calendar className="w-5 h-5 mr-2" />
-                  Book Counselling Call
-                </Link>
-                
-                <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
-                  Or connect with us on{' '}
-                  <a
-                    href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi Designient team, I just applied for ${formData.program}. I'd like to fast-track my application.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:no-underline font-semibold"
-                    style={{ color: 'var(--color-primary)' }}>
-                    WhatsApp
-                  </a>
-                  {' '}for faster response
-                </p>
-              </div>
-            </div>
-          </motion.div>
-      </PageHero>
-    )
-  }
+ if (currentStep === 'success') {
+ return (
+ <PageHero size="default" align="center">
+ <motion.div
+ initial={{ opacity: 0, scale: 0.95 }}
+ animate={{ opacity: 1, scale: 1 }}
+ transition={{ duration: 0.6 }}
+ className="max-w-2xl mx-auto text-center">
+ <div className="bg-card rounded-xl p-8 md:p-12 shadow-lg border-2" style={{ borderColor: 'var(--color-success)' }}>
+ <CheckCircle className="w-16 h-16 mx-auto mb-6" style={{ color: 'var(--color-success)' }} />
+ <h2 className="font-display font-bold mb-4 text-2xl md:text-3xl" style={{ color: 'var(--text-primary)' }}>
+ Application Submitted Successfully!
+ </h2>
+ <p className="font-body text-lg mb-6 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ Thank you for your interest in Designient. We&apos;ve received your application and will review it within 24 hours.
+ </p>
+ <p className="font-body mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ You&apos;ll receive a confirmation email shortly with next steps, including how to book your counselling call.
+ </p>
+ 
+ <div className="space-y-4">
+ <Link
+ href="/contact-us?reason=counselling-call"
+ className="inline-flex items-center justify-center w-full px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105"
+ style={{ backgroundColor: 'var(--color-cta)' }}>
+ <Calendar className="w-5 h-5 mr-2" />
+ Book Counselling Call
+ </Link>
+ 
+ <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
+ Or connect with us on{' '}
+ <a
+ href={`https://wa.me/919353000320?text=${encodeURIComponent(`Hi Designient team, I just applied for ${formData.program}. I'd like to fast-track my application.`)}`}
+ target="_blank"
+ rel="noopener noreferrer"
+ className="underline hover:no-underline font-semibold"
+ style={{ color: 'var(--color-primary)' }}>
+ WhatsApp
+ </a>
+ {' '}for faster response
+ </p>
+ </div>
+ </div>
+ </motion.div>
+ </PageHero>
+ )
+ }
 
-  return (
-    <>
-      {/* Hero Section */}
-      <PageHero size="default" align="center">
-          <div className="max-w-4xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="font-display font-bold mb-6"
-              style={{
-                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                color: 'var(--text-primary)',
-                lineHeight: '1.2'
-              }}>
-              Apply to Designient
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="font-body text-lg md:text-xl mb-8 leading-relaxed"
-              style={{
-                color: 'var(--text-secondary)',
-                fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
-                lineHeight: '1.8'
-              }}>
-              Limited seats. Mentor-led learning. Applications are reviewed before confirmation.
-            </motion.p>
-          </div>
-      </PageHero>
+ return (
+ <>
+ {/* Hero Section */}
+ <PageHero size="default" align="center">
+ <div className="max-w-4xl mx-auto">
+ <motion.h1
+ initial={{ opacity: 0, y: 20 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6 }}
+ className="font-display font-bold mb-6"
+ style={{
+ fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+ color: 'var(--text-primary)',
+ lineHeight: '1.2'
+ }}>
+ Apply to Designient
+ </motion.h1>
+ <motion.p
+ initial={{ opacity: 0, y: 20 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6, delay: 0.2 }}
+ className="font-body text-lg md:text-xl mb-8 leading-relaxed"
+ style={{
+ color: 'var(--text-secondary)',
+ fontSize: 'clamp(1.125rem, 2vw, 1.375rem)',
+ lineHeight: '1.8'
+ }}>
+ Limited seats. Mentor-led learning. Applications are reviewed before confirmation.
+ </motion.p>
+ </div>
+ </PageHero>
 
-      {/* How It Works */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-        <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-12">
-            <h2 className="font-display font-bold mb-6 section-heading" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
-              How It Works
-            </h2>
-          </motion.div>
-          <div className="max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-              {[
-                { step: '1', title: 'Apply Online', description: 'Complete the application form below' },
-                { step: '2', title: 'Speak with Our Team', description: 'We\'ll review your application and schedule a call' },
-                { step: '3', title: 'Confirm Your Seat', description: 'Secure your spot in the program' }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.4 }}
-                  className="bg-card border-2 rounded-xl p-6 text-center"
-                  style={{ borderColor: 'var(--border-default)' }}>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white mx-auto mb-4 accent-icon-box" style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)', fontSize: '1.25rem' }}>
-                    {item.step}
-                  </div>
-                  <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                    {item.description}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-            <div className="text-center">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50" style={{ backgroundColor: 'var(--color-info-bg)' }}>
-                <Clock className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
-                <p className="font-body text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
-                  We respond within 24 hours
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+ {/* How It Works */}
+ <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+ <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+ <motion.div
+ initial={{ opacity: 0, y: 30 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ viewport={{ once: true }}
+ transition={{ duration: 0.6 }}
+ className="text-center mb-12">
+ <h2 className="font-display font-bold mb-6 section-heading" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
+ How It Works
+ </h2>
+ </motion.div>
+ <div className="max-w-4xl mx-auto">
+ <div className="grid md:grid-cols-3 gap-6 mb-8">
+ {[
+ { step: '1', title: 'Apply Online', description: 'Complete the application form below' },
+ { step: '2', title: 'Speak with Our Team', description: 'We\'ll review your application and schedule a call' },
+ { step: '3', title: 'Confirm Your Seat', description: 'Secure your spot in the program' }
+ ].map((item, index) => (
+ <motion.div
+ key={index}
+ initial={{ opacity: 0, y: 20 }}
+ whileInView={{ opacity: 1, y: 0 }}
+ viewport={{ once: true }}
+ transition={{ delay: index * 0.1, duration: 0.4 }}
+ className="bg-card border-2 rounded-xl p-6 text-center"
+ style={{ borderColor: 'var(--border-default)' }}>
+ <div className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-white mx-auto mb-4 accent-icon-box" style={{ backgroundColor: 'var(--color-cta)', color: 'var(--text-on-accent)', fontSize: '1.25rem' }}>
+ {item.step}
+ </div>
+ <h3 className="font-display font-semibold mb-2" style={{ fontSize: '1.125rem', color: 'var(--text-primary)' }}>
+ {item.title}
+ </h3>
+ <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ {item.description}
+ </p>
+ </motion.div>
+ ))}
+ </div>
+ <div className="text-center">
+ <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-50" style={{ backgroundColor: 'var(--color-info-bg)' }}>
+ <Clock className="w-5 h-5" style={{ color: 'var(--color-primary)' }} />
+ <p className="font-body text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+ We respond within 24 hours
+ </p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-      {/* Smart Router */}
-      {currentStep === 'router' && (
-        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
-          <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto">
-              <div className="bg-card rounded-xl p-8 shadow-lg">
-                <h2 className="font-display font-bold mb-6 text-center" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
-                  Let&apos;s Get Started
-                </h2>
-                <form onSubmit={handleRouterSubmit} className="space-y-6">
-                  <div>
-                    <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      1. Which program are you applying for? <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <div className="space-y-2">
-                      {programs.map(program => (
-                        <label
-                          key={program.label}
-                          className={`flex flex-col p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                            formData.program === program.label
-                              ? 'choice-card--selected'
-                              : 'border-gray-300 hover:border-gray-400'
-                          }`}>
-                          <span className="flex items-center gap-3">
-                            <input
-                              type="radio"
-                              name="program"
-                              value={program.label}
-                              checked={formData.program === program.label}
-                              onChange={(e) => {
-                                setFormData(prev => ({ ...prev, program: e.target.value }))
-                                if (errors.program) setErrors(prev => ({ ...prev, program: undefined }))
-                              }}
-                              className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
-                            />
-                            <span className="font-body" style={{ color: 'var(--text-primary)' }}>{program.label}</span>
-                          </span>
-                          {program.applicationNote && (
-                            <span className="font-body text-xs mt-2 ml-7" style={{ color: 'var(--text-muted)' }}>
-                              {program.applicationNote}
-                            </span>
-                          )}
-                        </label>
-                      ))}
-                    </div>
-                    {errors.program && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.program}</p>}
-                  </div>
+ {/* Smart Router */}
+ {currentStep === 'router' && (
+ <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-subtle)' }}>
+ <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+ <motion.div
+ initial={{ opacity: 0, y: 30 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6 }}
+ className="max-w-2xl mx-auto">
+ <div className="bg-card rounded-xl p-8 shadow-lg">
+ <h2 className="font-display font-bold mb-6 text-center" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
+ Let&apos;s Get Started
+ </h2>
+ <form onSubmit={handleRouterSubmit} className="space-y-6">
+ <div>
+ <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
+ 1. Which program are you applying for? <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <div className="space-y-2">
+ {programs.map(program => (
+ <label
+ key={program.label}
+ className={`flex flex-col p-4 rounded-lg border-2 cursor-pointer transition-colors ${
+ formData.program === program.label
+ ? 'choice-card--selected'
+ : 'border-gray-300 hover:border-gray-400'
+ }`}>
+ <span className="flex items-center gap-3">
+ <input
+ type="radio"
+ name="program"
+ value={program.label}
+ checked={formData.program === program.label}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, program: e.target.value }))
+ if (errors.program) setErrors(prev => ({ ...prev, program: undefined }))
+ }}
+ className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
+ />
+ <span className="font-body" style={{ color: 'var(--text-primary)' }}>{program.label}</span>
+ </span>
+ {program.applicationNote && (
+ <span className="font-body text-xs mt-2 ml-7" style={{ color: 'var(--text-muted)' }}>
+ {program.applicationNote}
+ </span>
+ )}
+ </label>
+ ))}
+ </div>
+ {errors.program && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.program}</p>}
+ </div>
 
-                  <div>
-                    <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      2. What best describes you? <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <div className="space-y-2">
-                      {applicantTypes.map(type => (
-                        <label
-                          key={type}
-                          className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
-                            formData.applicantType === type
-                              ? 'choice-card--selected'
-                              : 'border-gray-300 hover:border-gray-400'
-                          }`}>
-                          <input
-                            type="radio"
-                            name="applicantType"
-                            value={type}
-                            checked={formData.applicantType === type}
-                            onChange={(e) => {
-                              setFormData(prev => ({ ...prev, applicantType: e.target.value }))
-                              if (errors.applicantType) setErrors(prev => ({ ...prev, applicantType: undefined }))
-                            }}
-                            className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
-                          />
-                          <span className="font-body" style={{ color: 'var(--text-primary)' }}>{type}</span>
-                        </label>
-                      ))}
-                    </div>
-                    {errors.applicantType && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.applicantType}</p>}
-                  </div>
+ <div>
+ <label className="block font-body font-semibold mb-3 text-sm" style={{ color: 'var(--text-primary)' }}>
+ 2. What best describes you? <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <div className="space-y-2">
+ {applicantTypes.map(type => (
+ <label
+ key={type}
+ className={`flex items-center gap-3 p-4 rounded-lg border-2 cursor-pointer transition-colors ${
+ formData.applicantType === type
+ ? 'choice-card--selected'
+ : 'border-gray-300 hover:border-gray-400'
+ }`}>
+ <input
+ type="radio"
+ name="applicantType"
+ value={type}
+ checked={formData.applicantType === type}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, applicantType: e.target.value }))
+ if (errors.applicantType) setErrors(prev => ({ ...prev, applicantType: undefined }))
+ }}
+ className="w-4 h-4 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
+ />
+ <span className="font-body" style={{ color: 'var(--text-primary)' }}>{type}</span>
+ </label>
+ ))}
+ </div>
+ {errors.applicantType && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.applicantType}</p>}
+ </div>
 
-                  <button
-                    type="submit"
-                    className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 surface-on-accent"
-                    style={{ backgroundColor: 'var(--color-cta)' }}>
-                    Continue to Application
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </button>
-                </form>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
+ <button
+ type="submit"
+ className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 surface-on-accent"
+ style={{ backgroundColor: 'var(--color-cta)' }}>
+ Continue to Application
+ <ArrowRight className="w-5 h-5 ml-2" />
+ </button>
+ </form>
+ </div>
+ </motion.div>
+ </div>
+ </section>
+ )}
 
-      {/* Application Form */}
-      {currentStep === 'form' && (
-        <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
-          <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-3xl mx-auto">
-              <div className="bg-card rounded-xl p-8 shadow-lg border-2" style={{ borderColor: 'var(--border-default)' }}>
-                <div className="mb-6">
-                  <button
-                    onClick={() => setCurrentStep('router')}
-                    className="inline-flex items-center text-sm font-body mb-4 hover:underline"
-                    style={{ color: 'var(--color-primary)' }}>
-                    ← Back
-                  </button>
-                  <h2 className="font-display font-bold mb-2" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
-                    Application Form
-                  </h2>
-                  <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
-                    Applying for: <strong>{formData.program}</strong> as a <strong>{formData.applicantType}</strong>
-                  </p>
-                </div>
+ {/* Application Form */}
+ {currentStep === 'form' && (
+ <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--bg-card)' }}>
+ <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
+ <motion.div
+ initial={{ opacity: 0, y: 30 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6 }}
+ className="max-w-3xl mx-auto">
+ <div className="bg-card rounded-xl p-8 shadow-lg border-2" style={{ borderColor: 'var(--border-default)' }}>
+ <div className="mb-6">
+ <button
+ onClick={() => setCurrentStep('router')}
+ className="inline-flex items-center text-sm font-body mb-4 hover:underline"
+ style={{ color: 'var(--color-primary)' }}>
+ ← Back
+ </button>
+ <h2 className="font-display font-bold mb-2" style={{ fontSize: '1.75rem', color: 'var(--text-primary)' }}>
+ Application Form
+ </h2>
+ <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
+ Applying for: <strong>{formData.program}</strong> as a <strong>{formData.applicantType}</strong>
+ </p>
+ </div>
 
-                <form onSubmit={handleFormSubmit} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        Full Name <span style={{ color: 'var(--color-error)' }}>*</span>
-                      </label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        value={formData.fullName}
-                        onChange={(e) => {
-                          setFormData(prev => ({ ...prev, fullName: e.target.value }))
-                          if (errors.fullName) setErrors(prev => ({ ...prev, fullName: undefined }))
-                        }}
-                        className={`form-input ${
-                          errors.fullName ? 'form-input--error' : ''
-                        }`}
-                        placeholder="John Doe"
-                      />
-                      {errors.fullName && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.fullName}</p>}
-                    </div>
+ <form onSubmit={handleFormSubmit} className="space-y-6">
+ <div className="grid md:grid-cols-2 gap-6">
+ <div>
+ <label htmlFor="fullName" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Full Name <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <input
+ type="text"
+ id="fullName"
+ value={formData.fullName}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, fullName: e.target.value }))
+ if (errors.fullName) setErrors(prev => ({ ...prev, fullName: undefined }))
+ }}
+ className={`form-input ${
+ errors.fullName ? 'form-input--error' : ''
+ }`}
+ placeholder="John Doe"
+ />
+ {errors.fullName && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.fullName}</p>}
+ </div>
 
-                    <div>
-                      <label htmlFor="email" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        Email <span style={{ color: 'var(--color-error)' }}>*</span>
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        value={formData.email}
-                        onChange={(e) => {
-                          setFormData(prev => ({ ...prev, email: e.target.value }))
-                          if (errors.email) setErrors(prev => ({ ...prev, email: undefined }))
-                        }}
-                        className={`form-input ${
-                          errors.email ? 'form-input--error' : ''
-                        }`}
-                        placeholder="john@example.com"
-                      />
-                      {errors.email && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.email}</p>}
-                    </div>
-                  </div>
+ <div>
+ <label htmlFor="email" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Email <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <input
+ type="email"
+ id="email"
+ value={formData.email}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, email: e.target.value }))
+ if (errors.email) setErrors(prev => ({ ...prev, email: undefined }))
+ }}
+ className={`form-input ${
+ errors.email ? 'form-input--error' : ''
+ }`}
+ placeholder="john@example.com"
+ />
+ {errors.email && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.email}</p>}
+ </div>
+ </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Phone Number <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      value={formData.phone}
-                      onChange={(e) => {
-                        setFormData(prev => ({ ...prev, phone: e.target.value }))
-                        if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }))
-                      }}
-                      className={`form-input ${
-                        errors.phone ? 'form-input--error' : ''
-                      }`}
-                      placeholder="+91 98765 43210"
-                    />
-                    {errors.phone && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.phone}</p>}
-                  </div>
+ <div>
+ <label htmlFor="phone" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Phone Number <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <input
+ type="tel"
+ id="phone"
+ value={formData.phone}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, phone: e.target.value }))
+ if (errors.phone) setErrors(prev => ({ ...prev, phone: undefined }))
+ }}
+ className={`form-input ${
+ errors.phone ? 'form-input--error' : ''
+ }`}
+ placeholder="+91 98765 43210"
+ />
+ {errors.phone && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.phone}</p>}
+ </div>
 
-                  <div>
-                    <label htmlFor="currentBackground" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Current Background <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <textarea
-                      id="currentBackground"
-                      value={formData.currentBackground}
-                      onChange={(e) => {
-                        setFormData(prev => ({ ...prev, currentBackground: e.target.value }))
-                        if (errors.currentBackground) setErrors(prev => ({ ...prev, currentBackground: undefined }))
-                      }}
-                      rows={3}
-                      className={`form-input form-textarea resize-none ${
-                        errors.currentBackground ? 'form-textarea--error' : ''
-                      }`}
-                      placeholder="Tell us about your current role, education, or background..."
-                    />
-                    {errors.currentBackground && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.currentBackground}</p>}
-                  </div>
+ <div>
+ <label htmlFor="currentBackground" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Current Background <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <textarea
+ id="currentBackground"
+ value={formData.currentBackground}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, currentBackground: e.target.value }))
+ if (errors.currentBackground) setErrors(prev => ({ ...prev, currentBackground: undefined }))
+ }}
+ rows={3}
+ className={`form-input form-textarea resize-none ${
+ errors.currentBackground ? 'form-textarea--error' : ''
+ }`}
+ placeholder="Tell us about your current role, education, or background..."
+ />
+ {errors.currentBackground && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.currentBackground}</p>}
+ </div>
 
-                  <div>
-                    <label htmlFor="experienceLevel" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Experience Level <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <select
-                      id="experienceLevel"
-                      value={formData.experienceLevel}
-                      onChange={(e) => {
-                        setFormData(prev => ({ ...prev, experienceLevel: e.target.value }))
-                        if (errors.experienceLevel) setErrors(prev => ({ ...prev, experienceLevel: undefined }))
-                      }}
-                      className={`form-select ${
-                        errors.experienceLevel ? 'form-select--error' : ''
-                      }`}>
-                      <option value="">Select your experience level</option>
-                      {experienceLevels.map(level => (
-                        <option key={level} value={level}>{level}</option>
-                      ))}
-                    </select>
-                    {errors.experienceLevel && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.experienceLevel}</p>}
-                  </div>
+ <div>
+ <label htmlFor="experienceLevel" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Experience Level <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <select
+ id="experienceLevel"
+ value={formData.experienceLevel}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, experienceLevel: e.target.value }))
+ if (errors.experienceLevel) setErrors(prev => ({ ...prev, experienceLevel: undefined }))
+ }}
+ className={`form-select ${
+ errors.experienceLevel ? 'form-select--error' : ''
+ }`}>
+ <option value="">Select your experience level</option>
+ {experienceLevels.map(level => (
+ <option key={level} value={level}>{level}</option>
+ ))}
+ </select>
+ {errors.experienceLevel && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.experienceLevel}</p>}
+ </div>
 
-                  <div>
-                    <label htmlFor="careerGoal" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Career Goal <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <textarea
-                      id="careerGoal"
-                      value={formData.careerGoal}
-                      onChange={(e) => {
-                        setFormData(prev => ({ ...prev, careerGoal: e.target.value }))
-                        if (errors.careerGoal) setErrors(prev => ({ ...prev, careerGoal: undefined }))
-                      }}
-                      rows={3}
-                      className={`form-input form-textarea resize-none ${
-                        errors.careerGoal ? 'form-textarea--error' : ''
-                      }`}
-                      placeholder="What do you hope to achieve with this course? What are your career aspirations?"
-                    />
-                    {errors.careerGoal && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.careerGoal}</p>}
-                  </div>
+ <div>
+ <label htmlFor="careerGoal" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Career Goal <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <textarea
+ id="careerGoal"
+ value={formData.careerGoal}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, careerGoal: e.target.value }))
+ if (errors.careerGoal) setErrors(prev => ({ ...prev, careerGoal: undefined }))
+ }}
+ rows={3}
+ className={`form-input form-textarea resize-none ${
+ errors.careerGoal ? 'form-textarea--error' : ''
+ }`}
+ placeholder="What do you hope to achieve with this course? What are your career aspirations?"
+ />
+ {errors.careerGoal && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.careerGoal}</p>}
+ </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label htmlFor="availability" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        Availability <span style={{ color: 'var(--color-error)' }}>*</span>
-                      </label>
-                      <select
-                        id="availability"
-                        value={formData.availability}
-                        onChange={(e) => {
-                          setFormData(prev => ({ ...prev, availability: e.target.value }))
-                          if (errors.availability) setErrors(prev => ({ ...prev, availability: undefined }))
-                        }}
-                        className={`form-select ${
-                          errors.availability ? 'form-select--error' : ''
-                        }`}>
-                        <option value="">Select availability</option>
-                        {availabilityOptions.map(option => (
-                          <option key={option} value={option}>{option}</option>
-                        ))}
-                      </select>
-                      {errors.availability && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.availability}</p>}
-                    </div>
+ <div className="grid md:grid-cols-2 gap-6">
+ <div>
+ <label htmlFor="availability" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Availability <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <select
+ id="availability"
+ value={formData.availability}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, availability: e.target.value }))
+ if (errors.availability) setErrors(prev => ({ ...prev, availability: undefined }))
+ }}
+ className={`form-select ${
+ errors.availability ? 'form-select--error' : ''
+ }`}>
+ <option value="">Select availability</option>
+ {availabilityOptions.map(option => (
+ <option key={option} value={option}>{option}</option>
+ ))}
+ </select>
+ {errors.availability && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.availability}</p>}
+ </div>
 
-                    <div>
-                      <label htmlFor="city" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                        City <span style={{ color: 'var(--color-error)' }}>*</span>
-                      </label>
-                      <select
-                        id="city"
-                        value={formData.city}
-                        onChange={(e) => {
-                          setFormData(prev => ({ ...prev, city: e.target.value }))
-                          if (errors.city) setErrors(prev => ({ ...prev, city: undefined }))
-                        }}
-                        className={`form-select ${
-                          errors.city ? 'form-select--error' : ''
-                        }`}>
-                        <option value="">Select your city</option>
-                        {cities.map(city => (
-                          <option key={city} value={city}>{city}</option>
-                        ))}
-                      </select>
-                      {errors.city && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.city}</p>}
-                    </div>
-                  </div>
+ <div>
+ <label htmlFor="city" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ City <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <select
+ id="city"
+ value={formData.city}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, city: e.target.value }))
+ if (errors.city) setErrors(prev => ({ ...prev, city: undefined }))
+ }}
+ className={`form-select ${
+ errors.city ? 'form-select--error' : ''
+ }`}>
+ <option value="">Select your city</option>
+ {cities.map(city => (
+ <option key={city} value={city}>{city}</option>
+ ))}
+ </select>
+ {errors.city && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.city}</p>}
+ </div>
+ </div>
 
-                  <div>
-                    <label htmlFor="motivation" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
-                      Why do you want to join Designient? <span style={{ color: 'var(--color-error)' }}>*</span>
-                    </label>
-                    <textarea
-                      id="motivation"
-                      value={formData.motivation}
-                      onChange={(e) => {
-                        setFormData(prev => ({ ...prev, motivation: e.target.value }))
-                        if (errors.motivation) setErrors(prev => ({ ...prev, motivation: undefined }))
-                      }}
-                      rows={5}
-                      className={`form-input form-textarea resize-none ${
-                        errors.motivation ? 'form-textarea--error' : ''
-                      }`}
-                      placeholder="Share your motivation, what excites you about design, and why you chose Designient..."
-                    />
-                    {errors.motivation && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.motivation}</p>}
-                    <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
-                      Minimum 50 characters. Please be specific and genuine.
-                    </p>
-                  </div>
+ <div>
+ <label htmlFor="motivation" className="block font-body font-semibold mb-2 text-sm" style={{ color: 'var(--text-primary)' }}>
+ Why do you want to join Designient? <span style={{ color: 'var(--color-error)' }}>*</span>
+ </label>
+ <textarea
+ id="motivation"
+ value={formData.motivation}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, motivation: e.target.value }))
+ if (errors.motivation) setErrors(prev => ({ ...prev, motivation: undefined }))
+ }}
+ rows={5}
+ className={`form-input form-textarea resize-none ${
+ errors.motivation ? 'form-textarea--error' : ''
+ }`}
+ placeholder="Share your motivation, what excites you about design, and why you chose Designient..."
+ />
+ {errors.motivation && <p className="mt-1 text-xs" style={{ color: 'var(--color-error)' }}>{errors.motivation}</p>}
+ <p className="mt-1 text-xs" style={{ color: 'var(--text-muted)' }}>
+ Minimum 50 characters. Please be specific and genuine.
+ </p>
+ </div>
 
-                  <div>
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={formData.consent}
-                        onChange={(e) => {
-                          setFormData(prev => ({ ...prev, consent: e.target.checked }))
-                          if (errors.consent) setErrors(prev => ({ ...prev, consent: undefined }))
-                        }}
-                        className="w-5 h-5 mt-0.5 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--bg-purple-band)]"
-                      />
-                      <span className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                        I agree to the{' '}
-                        <Link href="/terms-and-conditions" className="course-inline-link">
-                          Terms and Conditions
-                        </Link>
-                        {', '}
-                        <Link href="/privacy-policy" className="course-inline-link">
-                          Privacy Policy
-                        </Link>
-                        {', and '}
-                        <Link href="/cancellation-refund-policy" className="course-inline-link">
-                          Cancellation & Refund Policy
-                        </Link>
-                        {', '}
-                        <Link href="/pricing" className="course-inline-link">
-                          Pricing
-                        </Link>
-                        , and{' '}
-                        <Link href="/grievance-redressal" className="course-inline-link">
-                          Grievance Redressal
-                        </Link>
-                        . I consent to receive communications via email, phone, and WhatsApp regarding my application.
-                      </span>
-                    </label>
-                    {errors.consent && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.consent}</p>}
-                  </div>
+ <div>
+ <label className="flex items-start gap-3 cursor-pointer">
+ <input
+ type="checkbox"
+ checked={formData.consent}
+ onChange={(e) => {
+ setFormData(prev => ({ ...prev, consent: e.target.checked }))
+ if (errors.consent) setErrors(prev => ({ ...prev, consent: undefined }))
+ }}
+ className="w-5 h-5 mt-0.5 rounded border-gray-300 text-[var(--color-primary)] focus:ring-[var(--bg-purple-band)]"
+ />
+ <span className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+ I agree to the{' '}
+ <Link href="/terms-and-conditions" className="course-inline-link">
+ Terms and Conditions
+ </Link>
+ {', '}
+ <Link href="/privacy-policy" className="course-inline-link">
+ Privacy Policy
+ </Link>
+ {', and '}
+ <Link href="/cancellation-refund-policy" className="course-inline-link">
+ Cancellation & Refund Policy
+ </Link>
+ {', '}
+ <Link href="/pricing" className="course-inline-link">
+ Pricing
+ </Link>
+ , and{' '}
+ <Link href="/grievance-redressal" className="course-inline-link">
+ Grievance Redressal
+ </Link>
+ . I consent to receive communications via email, phone, and WhatsApp regarding my application.
+ </span>
+ </label>
+ {errors.consent && <p className="mt-2 text-xs" style={{ color: 'var(--color-error)' }}>{errors.consent}</p>}
+ </div>
 
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
-                      style={{ backgroundColor: 'var(--color-cta)' }}>
-                      {isSubmitting ? 'Submitting...' : 'Submit Application'}
-                      {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
-                    </button>
-                    <p className="mt-4 font-body text-xs text-center" style={{ color: 'var(--text-muted)' }}>
-                      By submitting, you acknowledge that applications are reviewed and seats are limited. No placement or outcome guarantees.
-                    </p>
-                  </div>
-                </form>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      )}
-    </>
-  )
+ <div className="pt-4">
+ <button
+ type="submit"
+ disabled={isSubmitting}
+ className="w-full inline-flex items-center justify-center px-8 py-4 rounded-lg font-body font-semibold text-white transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed surface-on-accent"
+ style={{ backgroundColor: 'var(--color-cta)' }}>
+ {isSubmitting ? 'Submitting...' : 'Submit Application'}
+ {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
+ </button>
+ <p className="mt-4 font-body text-xs text-center" style={{ color: 'var(--text-muted)' }}>
+ By submitting, you acknowledge that applications are reviewed and seats are limited. No placement or outcome guarantees.
+ </p>
+ </div>
+ </form>
+ </div>
+ </motion.div>
+ </div>
+ </section>
+ )}
+ </>
+ )
 }

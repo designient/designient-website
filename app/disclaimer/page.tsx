@@ -78,7 +78,7 @@ export default function DisclaimerPage() {
                 All courses, workshops, mentorship sessions, and learning materials provided by Designient are for <strong>educational purposes only</strong>. Our programs are designed to teach UI/UX design principles, methodologies, tools, and best practices.
               </p>
               <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                While we aim to provide comprehensive and practical education, completion of our courses does not constitute professional certification, licensing, or accreditation unless explicitly stated. Our educational content is intended to enhance your knowledge and skills in UI/UX design.
+                While we aim to provide thorough and practical education, completion of our courses does not constitute professional certification, licensing, or accreditation unless explicitly stated. Our educational content is intended to enhance your knowledge and skills in UI/UX design.
               </p>
             </div>
           </section>

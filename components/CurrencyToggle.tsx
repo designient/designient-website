@@ -31,6 +31,7 @@ export function CurrencyToggle({ className = '', size = 'md' }: CurrencyTogglePr
       role="group"
       aria-label="Currency selector">
       <button
+        type="button"
         onClick={() => handleToggle('INR')}
         className={`${sizeClasses[size]} font-body font-semibold rounded-full transition-all duration-200 min-w-[60px]`}
         style={{
@@ -43,6 +44,7 @@ export function CurrencyToggle({ className = '', size = 'md' }: CurrencyTogglePr
         INR
       </button>
       <button
+        type="button"
         onClick={() => handleToggle('USD')}
         className={`${sizeClasses[size]} font-body font-semibold rounded-full transition-all duration-200 min-w-[60px]`}
         style={{

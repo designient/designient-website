@@ -101,7 +101,7 @@ export function ProCourseFAQSchema() {
         name: 'Is placement guaranteed?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'While we don\'t guarantee placements, we provide comprehensive placement assistance including resume building, portfolio review, interview preparation, and job referrals. Our 95% placement rate reflects our commitment to your success.'
+          text: 'While we don\'t guarantee placements, we provide full placement assistance including resume building, portfolio review, interview preparation, and job referrals. Our 95% placement rate reflects our commitment to your success.'
         }
       },
       {

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Figma Make">
+  <rect width="48" height="48" rx="10" fill="#F0F0F0"/>
+  <path fill="#F24E1E" d="M16 32c0-2.2 1.8-4 4-4h4v4c0 2.2-1.8 4-4 4s-4-1.8-4-4z"/>
+  <path fill="#A259FF" d="M28 12h-4v8h4c2.2 0 4-1.8 4-4s-1.8-4-4-4z"/>
+  <path fill="#1ABCFE" d="M16 12v8h4c2.2 0 4-1.8 4-4s-1.8-4-4-4h-4z"/>
+  <path fill="#0ACF83" d="M16 24h4v8h-4c-2.2 0-4-1.8-4-4s1.8-4 4-4z"/>
+  <path fill="#FF7262" d="M24 24h4c2.2 0 4 1.8 4 4s-1.8 4-4 4h-4v-8z"/>
+  <text x="24" y="44" text-anchor="middle" font-family="system-ui,sans-serif" font-size="6" font-weight="700" fill="#555">Make</text>
+</svg>

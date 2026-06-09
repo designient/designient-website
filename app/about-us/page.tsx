@@ -13,7 +13,6 @@ export const metadata: Metadata = {
     title: 'About Us - Designient School of Masterminds | UI/UX Design Training',
     description: 'Redefining UI/UX education for creative minds ready to turn passion into profession. Hands-on training, industry mentors, and career support.',
     url: 'https://designient.com/about-us',
-    images: ['/favicon-designient.png'],
     type: 'website',
   },
   alternates: {
@@ -46,11 +45,11 @@ const aboutData = {
   },
   careerSupport: {
     title: 'Career Support & Job Placement',
-    content: 'We empower learners to land design jobs with confidence by providing job placement assistance, portfolio reviews, interview coaching and industry connections.'
+    content: 'We help learners land design jobs with confidence by providing job placement assistance, portfolio reviews, interview coaching and industry connections.'
   },
   mission: {
     title: 'Mission',
-    content: 'To provide the best UI/UX education at affordable prices for passionate students aiming to elevate their careers.'
+    content: 'To provide the best UI/UX education at affordable prices for passionate students aiming to grow their careers.'
   },
   visionValues: {
     title: 'Vision & Values',
@@ -121,6 +120,34 @@ export default function AboutUsPage() {
     ]
   }
 
+  const sameerPersonSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Sameer Ul Haque',
+    jobTitle: 'Lead Mentor & Manager - UI / UX Design',
+    description:
+      'Product and UX leader with 15+ years of industry experience. Mentors designers on hiring expectations, portfolio storytelling, and real product work.',
+    worksFor: {
+      '@type': 'EducationalOrganization',
+      name: 'Designient School of Masterminds',
+      url: 'https://designient.com',
+    },
+  }
+
+  const shabrinPersonSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Shabrin Sultana M F',
+    jobTitle: 'Co-Founder - Marketing & Branding',
+    description:
+      'Branding and marketing leader with 12+ years of experience, including time at Thoughtworks. Leads brand direction and growth strategy at Designient.',
+    worksFor: {
+      '@type': 'EducationalOrganization',
+      name: 'Designient School of Masterminds',
+      url: 'https://designient.com',
+    },
+  }
+
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -142,7 +169,7 @@ export default function AboutUsPage() {
 
   return (
     <div className="min-h-screen bg-base font-sans text-primary">
-      <StructuredData data={[organizationSchema, breadcrumbSchema]} />
+      <StructuredData data={[organizationSchema, sameerPersonSchema, shabrinPersonSchema, breadcrumbSchema]} />
       <Header />
       <main id="main-content" role="main">
         <AboutUsContent aboutData={aboutData} />

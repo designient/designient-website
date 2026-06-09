@@ -4,35 +4,28 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { MapPin, ArrowRight, Clock, Calendar } from 'react-feather'
 import Link from 'next/link'
-import { proCourseBatchSchedule } from '../../data/batchSchedule'
+import { isCityBatchFull, getCitySchedule, type CityKey } from '../../lib/batchScheduleUtils'
+
+const CITY_ENTRIES: { key: CityKey; path: string }[] = [
+  { key: 'bangalore', path: '/ui-ux-design-course-in-bangalore' },
+  { key: 'hyderabad', path: '/ui-ux-design-course-in-hyderabad' },
+  { key: 'pune', path: '/ui-ux-design-course-in-pune' },
+]
 
 export function CityLocationsSection() {
-  const cities = [
-    {
-      name: 'Bangalore',
-      path: '/ui-ux-design-course-in-bangalore',
-      description: 'Weekday & Weekend batches available',
-      batchInfo: 'Weekday & Weekend',
-      schedule: proCourseBatchSchedule.bangalore,
-      batchFull: false
-    },
-    {
-      name: 'Hyderabad',
-      path: '/ui-ux-design-course-in-hyderabad',
-      description: 'Current batch is full',
-      batchInfo: 'Batch Full',
-      schedule: proCourseBatchSchedule.hyderabad,
-      batchFull: true
-    },
-    {
-      name: 'Pune',
-      path: '/ui-ux-design-course-in-pune',
-      description: 'Current batch is full',
-      batchInfo: 'Batch Full',
-      schedule: proCourseBatchSchedule.pune,
-      batchFull: true
+  const cities = CITY_ENTRIES.map(({ key, path }) => {
+    const batchFull = isCityBatchFull(key)
+    const schedule = getCitySchedule(key)
+    const name = key.charAt(0).toUpperCase() + key.slice(1)
+    return {
+      name,
+      path,
+      schedule,
+      batchFull,
+      batchInfo: batchFull ? 'Batch Full' : 'Seats Available',
+      description: batchFull ? 'Current batch is full' : 'Batches enrolling now',
     }
-  ]
+  })
 
   return (
     <section className="py-24 md:py-32" style={{ backgroundColor: 'var(--bg-warm)' }}>
@@ -89,9 +82,8 @@ export function CityLocationsSection() {
                   }}>
                   {city.batchInfo}
                 </span>
-                
-                {/* Batch Dates and Timings or Batch Full */}
-                {city.batchFull ? (
+
+                {city.batchFull || !city.schedule ? (
                   <div className="p-3 rounded-lg mb-4" style={{ backgroundColor: 'var(--color-error-bg)' }}>
                     <p className="font-body font-semibold text-xs mb-1" style={{ color: 'var(--color-error)' }}>Current batch is full</p>
                     <p className="font-body text-xs" style={{ color: 'var(--color-error)' }}>
@@ -100,7 +92,6 @@ export function CityLocationsSection() {
                   </div>
                 ) : (
                   <div className="space-y-3 mb-4">
-                    {/* Weekday Morning Batch */}
                     {city.schedule.weekday?.morning?.available && (
                       <div className="p-3 rounded-lg border" style={{ backgroundColor: 'var(--bg-warm)', borderColor: 'var(--color-primary)' }}>
                         <p className="font-body font-semibold text-xs mb-2" style={{ color: 'var(--color-primary)' }}>Weekday - Morning</p>
@@ -116,7 +107,6 @@ export function CityLocationsSection() {
                         </div>
                       </div>
                     )}
-                    {/* Weekend Morning Batch */}
                     {city.schedule.weekend?.morning?.available && (
                       <div className="p-3 rounded-lg border" style={{ backgroundColor: 'var(--bg-warm)', borderColor: 'var(--color-primary)' }}>
                         <p className="font-body font-semibold text-xs mb-2" style={{ color: 'var(--color-primary)' }}>Weekend - Morning</p>

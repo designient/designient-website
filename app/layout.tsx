@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import React from 'react'
-import { Sora, DM_Sans } from 'next/font/google'
+import { Sora, Nunito } from 'next/font/google'
 import { CurrencyProvider } from '../contexts/CurrencyContext'
 import { WhatsAppButton } from '../components/WhatsAppButton'
 import { SkipLink } from '../components/SkipLink'
@@ -14,7 +14,7 @@ const sora = Sora({
   display: 'swap',
 })
 
-const dmSans = DM_Sans({
+const nunito = Nunito({
   weight: ['300', '400', '500', '600', '700'],
   subsets: ['latin'],
   variable: '--font-body',
@@ -48,20 +48,11 @@ export const metadata: Metadata = {
     siteName: 'Designient',
     title: 'Designient - UI/UX Design Training Institute',
     description: 'India\'s leading UI/UX design training institute with 95% placement rate. Adobe certified courses in Bangalore and Hyderabad.',
-    images: [
-      {
-        url: '/favicon-designient.png',
-        width: 192,
-        height: 192,
-        alt: 'Designient - UI/UX Design Training',
-      },
-    ],
   },
   twitter: {
     card: 'summary',
     title: 'Designient - UI/UX Design Training Institute',
     description: 'India\'s leading UI/UX design training institute with 95% placement rate.',
-    images: ['/favicon-designient.png'],
   },
   robots: {
     index: true,
@@ -78,11 +69,6 @@ export const metadata: Metadata = {
     // Add your verification codes here when available
     // google: 'your-google-verification-code',
   },
-  icons: {
-    icon: '/favicon-designient.png',
-    shortcut: '/favicon-designient.png',
-    apple: '/apple-touch-icon.png',
-  },
 }
 
 export default function RootLayout({
@@ -91,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode
 }): React.ReactElement {
   return (
-    <html lang="en" className={`${sora.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${sora.variable} ${nunito.variable}`} suppressHydrationWarning>
       <head>
         {/* Analytics preconnects */}
         <link rel="preconnect" href="https://i.pravatar.cc" />

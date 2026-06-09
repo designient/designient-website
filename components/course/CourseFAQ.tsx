@@ -34,7 +34,7 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
   } : null;
 
   return (
-    <section id="faqs" className="py-20 md:py-28" style={{ backgroundColor: 'var(--bg-card)' }}>
+    <section id="faqs" className="py-24 md:py-32">
       {faqSchema && <StructuredData data={faqSchema} />}
       <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
@@ -44,9 +44,9 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16">
           <h2
-            className="font-display font-bold mb-4"
+            className="font-display font-bold mb-4 tracking-tight"
             style={{
-              color: 'var(--color-primary)',
+              color: 'var(--color-forest)',
               fontSize: 'clamp(2rem, 4vw, 3.5rem)'
             }}>
             {title}
@@ -64,12 +64,19 @@ export function CourseFAQ({ faqs, title = 'Frequently Asked Questions', disableS
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="border rounded-lg overflow-hidden bg-card"
-              style={{ borderColor: 'var(--border-default)' }}>
+              className="border rounded-lg overflow-hidden"
+              style={{
+                borderColor: 'var(--border-default)',
+                backgroundColor: openIndex === index ? 'var(--bg-section-green)' : 'var(--bg-card)',
+              }}>
               
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 flex items-center justify-between text-left min-h-[44px] hover:bg-gray-50 transition-colors">
+                className="w-full px-6 py-4 flex items-center justify-between text-left min-h-[44px] transition-colors"
+                style={{
+                  backgroundColor: openIndex === index ? 'var(--bg-section-green)' : 'transparent',
+                }}
+              >
                 <h3
                   className="font-display font-semibold pr-8 flex-1"
                   style={{

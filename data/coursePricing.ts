@@ -55,7 +55,7 @@ export const coursePricing: CoursePricingData = {
     },
     usd: {
       price: '$699',
-      originalPrice: '$699'
+      originalPrice: '$829'
     }
   },
   'ui-ux-design-master': {
@@ -65,7 +65,7 @@ export const coursePricing: CoursePricingData = {
     },
     usd: {
       price: '$1,399',
-      originalPrice: '$1,399'
+      originalPrice: '$1,659'
     }
   },
   'ai-automation-accelerator': {
@@ -75,7 +75,7 @@ export const coursePricing: CoursePricingData = {
     },
     usd: {
       price: '$449',
-      originalPrice: '$449'
+      originalPrice: '$569'
     }
   },
   'ai-product-design-course': {

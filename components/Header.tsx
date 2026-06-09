@@ -169,13 +169,11 @@ export function Header() {
 
           <Link
             href="/"
-            className="site-logo-link absolute left-1/2 -translate-x-1/2 nav:relative nav:left-0 nav:translate-x-0 z-[70] max-w-[calc(100%-5.5rem)] nav:max-w-none"
+            className="site-logo-link absolute left-1/2 -translate-x-1/2 nav:relative nav:left-0 nav:translate-x-0 z-[70] max-w-[min(180px,calc(100%-5.5rem))] xs:max-w-[min(200px,calc(100%-5.5rem))] sm:max-w-[min(220px,calc(100%-5.5rem))] nav:max-w-none"
             aria-label="Designient School - Home">
             <SiteLogo
               priority
-              width={300}
-              height={84}
-              className="h-12 sm:h-[54px] nav:h-[66px] w-auto max-w-[210px] sm:max-w-[240px] nav:max-w-[300px]"
+              className="h-9 xs:h-10 sm:h-[54px] nav:h-[66px] w-auto max-w-full nav:max-w-[300px]"
               variant="header"
             />
           </Link>

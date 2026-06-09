@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     url: 'https://designient.com/contact-us',
     siteName: 'Designient',
     type: 'website',
-    images: [{ url: '/favicon-designient.png', width: 192, height: 192, alt: 'Designient - UI/UX Design Training' }],
     locale: 'en_IN',
   },
   twitter: {

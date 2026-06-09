@@ -23,7 +23,7 @@ export function CityPageSchemas({ cityName, cityUrl, isPune = false }: CityPageS
       logo: 'https://designient.com/designient-logo.svg'
     },
     educationalCredentialAwarded: 'UI/UX Design Pro Certificate',
-    timeRequired: 'P3M',
+    timeRequired: 'P10W',
     courseMode: ['Online', 'Offline', 'Hybrid'],
     occupationalCredentialAwarded: 'UI/UX Designer',
     audience: {

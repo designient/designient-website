@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { RelatedPosts } from '../../../components/blogs/RelatedPosts'
+import { BlogPostingStructuredData } from '../../../components/blogs/BlogPostingStructuredData'
 import blogsData from '../../../data/blogs.json'
 import { getPostBySlug, getRelatedPosts, type BlogPostItem } from '../../../utils/blogHelpers'
 import { ChevronRight, Calendar, Clock } from 'react-feather'
@@ -72,8 +73,12 @@ export default async function BlogPostPage({ params }: PageProps) {
     readingTime: p.readingTime,
   }))
 
+  const showUpdated =
+    post.updatedDate && post.updatedDate !== post.publishedDate
+
   return (
     <div className="min-h-screen bg-base font-sans text-primary">
+      <BlogPostingStructuredData post={post} />
       <Header />
       <main id="main-content" role="main" className="pb-16 md:pb-24">
         <article className="max-w-container mx-auto px-4 md:px-6 lg:px-8">
@@ -111,7 +116,10 @@ export default async function BlogPostPage({ params }: PageProps) {
               </span>
               <span className="inline-flex items-center gap-1.5 font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                 <Calendar className="w-4 h-4" />
-                {formatDate(post.publishedDate)}
+                Published {formatDate(post.publishedDate)}
+                {showUpdated && (
+                  <span> · Updated {formatDate(post.updatedDate!)}</span>
+                )}
               </span>
               <span className="inline-flex items-center gap-1.5 font-body text-sm" style={{ color: 'var(--text-muted)' }}>
                 <Clock className="w-4 h-4" />
@@ -149,6 +157,20 @@ export default async function BlogPostPage({ params }: PageProps) {
                 className="blog-post-content [&_a]:underline [&_a]:text-[var(--color-primary)] [&_a:hover]:opacity-80 [&_h2]:mt-10 [&_h2]:mb-4 [&_h2]:font-display [&_h2]:font-bold [&_h2]:text-xl [&_h3]:mt-6 [&_h3]:mb-3 [&_h3]:font-display [&_h3]:font-semibold [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_p]:mb-4"
               />
             </div>
+
+            {post.author && (
+              <div
+                className="mt-10 p-6 rounded-xl border"
+                style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--bg-card)' }}
+              >
+                <p className="font-display font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
+                  {post.author.name}
+                </p>
+                <p className="font-body text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                  {post.author.bio}
+                </p>
+              </div>
+            )}
 
             <div className="mt-12 pt-8 border-t" style={{ borderColor: 'var(--border-default)' }}>
               <Link

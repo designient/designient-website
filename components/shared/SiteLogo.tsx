@@ -18,8 +18,8 @@ type SiteLogoProps = {
  */
 export function SiteLogo({
   className = '',
-  width = 160,
-  height = 48,
+  width,
+  height,
   variant = 'header',
   hideTagline = false,
 }: SiteLogoProps) {
@@ -28,14 +28,14 @@ export function SiteLogo({
 
   return (
     <svg
-      width={width}
-      height={height}
       viewBox="0 0 202 46"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={`site-logo ${className}`.trim()}
       aria-label="Designient School of Masterminds UI UX design training logo"
       role="img"
+      {...(width !== undefined ? { width } : {})}
+      {...(height !== undefined ? { height } : {})}
     >
       {/* Wordmark (originally lime green #F0FF42) */}
       <path d="M159.23 24.2584V5.90577H165.039L171.496 14.59V7.99894L176.98 5.89331V24.2335H171.659L164.889 14.9014V24.2335H159.23V24.2584Z" fill={wordmarkColor} />

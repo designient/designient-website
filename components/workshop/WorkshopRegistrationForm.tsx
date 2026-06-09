@@ -4,6 +4,7 @@ import { useState, type FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Send, AlertCircle } from 'react-feather'
+import { CountryCodeSelect, validatePhoneNumber } from '../shared/CountryCodeSelect'
 
 export interface WorkshopRegistrationFormProps {
   source: string
@@ -23,7 +24,12 @@ export function WorkshopRegistrationForm({
   compact = false,
 }: WorkshopRegistrationFormProps) {
   const router = useRouter()
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '' })
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phoneCountryCode: '+91',
+    phone: '',
+  })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -42,8 +48,8 @@ export function WorkshopRegistrationForm({
       setErrorMessage('Please enter a valid email address')
       return false
     }
-    if (!formData.phone.trim()) {
-      setErrorMessage('Phone number is required')
+    if (!validatePhoneNumber(formData.phone, formData.phoneCountryCode)) {
+      setErrorMessage('Please enter a valid phone number')
       return false
     }
     return true
@@ -63,9 +69,9 @@ export function WorkshopRegistrationForm({
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
-          phoneCountryCode: '+91',
+          phoneCountryCode: formData.phoneCountryCode,
           phone: formData.phone,
-          whatsappCountryCode: '+91',
+          whatsappCountryCode: formData.phoneCountryCode,
           whatsapp: formData.phone,
           courseInterest,
           source,
@@ -95,7 +101,6 @@ export function WorkshopRegistrationForm({
 
   return (
     <div
-      id={formId}
       className={`bg-card rounded-xl shadow-lg border border-gray-100 ${compact ? 'p-4 md:p-5' : 'p-5 md:p-6'}`}
     >
       <form onSubmit={handleSubmit} className="space-y-3" aria-labelledby={`${formId}-title`}>
@@ -133,22 +138,28 @@ export function WorkshopRegistrationForm({
             style={inputStyle}
           />
         </div>
-        <div>
-          <label htmlFor={`${formId}-phone`} className="sr-only">
-            Phone Number
-          </label>
-          <input
-            id={`${formId}-phone`}
-            type="tel"
-            name="phone"
-            autoComplete="tel"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Phone Number"
-            required
-            className={inputClass}
-            style={inputStyle}
+        <div className="flex gap-2">
+          <CountryCodeSelect
+            value={formData.phoneCountryCode}
+            onChange={(code) => setFormData((prev) => ({ ...prev, phoneCountryCode: code }))}
           />
+          <div className="flex-1 min-w-0">
+            <label htmlFor={`${formId}-phone`} className="sr-only">
+              Phone Number
+            </label>
+            <input
+              id={`${formId}-phone`}
+              type="tel"
+              name="phone"
+              autoComplete="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number"
+              required
+              className={inputClass}
+              style={inputStyle}
+            />
+          </div>
         </div>
 
         {errorMessage && (

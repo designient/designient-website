@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Check } from 'react-feather';
 import { CountryCodeSelect, validatePhoneNumber } from './shared/CountryCodeSelect';
 import { courseInterestOptions } from '../data/homepageCatalog';
@@ -192,7 +191,7 @@ export function InquiryForm() {
 
         {/* Grid: Balanced layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
-          {/* Left Column: Certificate & Program highlights */}
+          {/* Left Column: Program highlights */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -200,18 +199,6 @@ export function InquiryForm() {
             transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
             className="lg:col-span-5 space-y-8 flex flex-col items-center lg:items-start"
           >
-            {/* Clean white card for Adobe Certificate */}
-            <div className="rounded-2xl overflow-hidden border bg-white border-[var(--border-default)] shadow-lg w-full max-w-md p-4">
-              <Image
-                src="/adobe-certified-certificate.webp"
-                alt="Adobe Certified Professional certificate badge - Designient UI/UX design course"
-                width={1720}
-                height={1228}
-                className="w-full h-auto object-contain rounded-lg"
-                sizes="(max-width: 1024px) 100vw, 400px"
-              />
-            </div>
-
             {/* Guarantees List */}
             <div className="w-full max-w-md space-y-4">
               {[

@@ -37,7 +37,7 @@ export function ExperienceAuthoritySection() {
                 This course is taught by practicing designers who work on real products every day. 
                 You'll learn real-world workflows and industry practices, not just theory. Our instructors 
                 bring current experience from leading companies, ensuring you learn the skills that matter 
-                in today's design industry. The curriculum is shaped by real design practice, giving you 
+                in the current design industry. The curriculum is shaped by real design practice, giving you 
                 insights that only come from first-hand experience.
               </p>
             </div>

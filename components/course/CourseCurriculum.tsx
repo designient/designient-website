@@ -77,7 +77,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
             </h2>
             {totalHours && (
               <p className="font-body text-lg mb-2" style={{ color: 'var(--text-muted)' }}>
-                {totalHours} of comprehensive learning.
+                {totalHours} of structured learning.
               </p>
             )}
             <p className="font-body text-sm" style={{ color: 'var(--text-muted)' }}>
@@ -305,7 +305,7 @@ export function CourseCurriculum({ modules, weekWiseCurriculum, totalHours }: Co
           </h2>
           {totalHours && (
             <p className="font-body text-lg" style={{ color: 'var(--text-muted)' }}>
-              {totalHours} of comprehensive learning
+              {totalHours} of structured learning
             </p>
           )}
         </motion.div>

@@ -42,13 +42,13 @@ export const proCourseBatchSchedule: CityBatchSchedule = {
         days: 'Monday - Thursday',
         time: '11:00 AM - 1:00 PM',
         startDate: 'Mar 9, 2026',
-        available: true
+        available: false
       },
       evening: {
         days: 'Monday - Thursday',
         time: '3:00 PM - 5:00 PM',
         startDate: 'Mar 9, 2026',
-        available: false // Currently not open
+        available: false
       }
     },
     weekend: {
@@ -56,7 +56,7 @@ export const proCourseBatchSchedule: CityBatchSchedule = {
         days: 'Saturday - Sunday',
         time: '10:00 AM - 2:00 PM',
         startDate: 'Mar 7, 2026',
-        available: true
+        available: false
       }
       // No evening batches in weekend
     }

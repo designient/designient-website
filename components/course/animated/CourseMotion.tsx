@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { fadeUp, motionEase, staggerContainer, viewportOnce } from './motion'
 
 type CourseAnimatedSectionProps = {
+  id?: string
   title: string
   subtitle?: string
   backgroundColor?: string
@@ -14,6 +15,7 @@ type CourseAnimatedSectionProps = {
 }
 
 export function CourseAnimatedSection({
+  id,
   title,
   subtitle,
   backgroundColor = 'var(--bg-warm)',
@@ -23,6 +25,7 @@ export function CourseAnimatedSection({
 }: CourseAnimatedSectionProps) {
   return (
     <section
+      id={id}
       className={`py-16 md:py-24 relative overflow-hidden ${className}`}
       style={{ backgroundColor }}
     >
