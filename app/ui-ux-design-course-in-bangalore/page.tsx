@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { QuickApplyProvider } from '../../components/course/QuickApplyContext'
 import { BangaloreCityPageContent } from '../../components/city/BangaloreCityPageContent'
 import { CityPageSchemas } from '../../components/city/CityPageSchemas'
+import { CoursePageShell, CourseMobilePricingBar } from '../../components/course/layout'
 
 export const metadata: Metadata = {
  title: 'UI/UX Design Course in Bangalore – Designient School of Masterminds',
- description: 'Master UI/UX design with hands-on training, mentor-led learning, and placement support in Bangalore. Weekday and weekend batches for working professionals and students.',
+ description: 'Master UI/UX design with hands-on training, mentor-led learning, and placement support in Bangalore. Apply for the 10-week UI/UX Design Pro programme.',
  keywords: [
  'UI/UX design course Bangalore',
  'UX course Bangalore',
@@ -19,7 +17,7 @@ export const metadata: Metadata = {
  ],
  openGraph: {
  title: 'UI/UX Design Course in Bangalore – Designient',
- description: 'Master UI/UX design with hands-on training and placement support in Bangalore. Weekday and weekend batches.',
+ description: 'Master UI/UX design with hands-on training and placement support in Bangalore. Apply for the 10-week UI/UX Design Pro programme.',
  url: 'https://designient.com/ui-ux-design-course-in-bangalore',
  type: 'website',
  },
@@ -34,18 +32,16 @@ export const metadata: Metadata = {
 
 export default function BangaloreCityPage() {
  return (
- <QuickApplyProvider>
- <div className="min-h-screen bg-base font-sans text-primary">
+ <CoursePageShell
+ structuredData={
  <CityPageSchemas
  cityName="Bangalore"
  cityUrl="https://designient.com/ui-ux-design-course-in-bangalore"
  />
- <Header />
- <main id="main-content" role="main">
+ }
+ >
+ <CourseMobilePricingBar courseSlug="ui-ux-design-pro" courseName="UI UX Design Pro" />
  <BangaloreCityPageContent />
- </main>
- <Footer />
- </div>
- </QuickApplyProvider>
+ </CoursePageShell>
  )
 }

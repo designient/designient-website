@@ -7,6 +7,15 @@ function jsonError(message: string, status: number) {
   return NextResponse.json({ success: false, error: message }, { status })
 }
 
+function arrayBufferToBase64(buffer: ArrayBuffer): string {
+  const bytes = new Uint8Array(buffer)
+  let binary = ''
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i])
+  }
+  return btoa(binary)
+}
+
 export async function POST(request: NextRequest) {
   try {
     const formData = await request.formData()
@@ -42,7 +51,7 @@ export async function POST(request: NextRequest) {
 
     if (resume?.size && resume.size > 0) {
       const arrayBuffer = await resume.arrayBuffer()
-      const base64Content = Buffer.from(arrayBuffer).toString('base64')
+      const base64Content = arrayBufferToBase64(arrayBuffer)
       emailPayload.attachments.push({
         filename: resume.name || 'resume.pdf',
         content: base64Content

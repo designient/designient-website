@@ -165,6 +165,7 @@ export default function UIUXDesignMasterPage() {
  emiConfig={masterEmiConfig}
  batchDates={null}
  bookingNote={masterHero.bookingNote}
+ seatNote={masterHero.seatNote}
  />
  <CourseSectionBand variant="green">
  <MasterGuarantee />

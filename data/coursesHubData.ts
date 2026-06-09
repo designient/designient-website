@@ -213,7 +213,7 @@ export const coursesHubFaqs = [
  {
  question: 'Are these courses online or in-person?',
  answer:
- 'The Design Track has in-person options in Bangalore, Hyderabad, and Pune alongside the online format. The AI Track is online-only - available to students anywhere in India and internationally.',
+ 'The Design Track includes online cohorts with in-person options in Bangalore, Hyderabad, and Pune when batches are open. City batches are currently full - apply to join the waitlist. The AI Track is online-only, available to students anywhere in India and internationally.',
  },
 ] as const
 

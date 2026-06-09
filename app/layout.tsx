@@ -41,6 +41,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [{ url: '/designient-logo.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/designient-logo.svg', type: 'image/svg+xml' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -48,11 +52,20 @@ export const metadata: Metadata = {
     siteName: 'Designient',
     title: 'Designient - UI/UX Design Training Institute',
     description: 'India\'s leading UI/UX design training institute with 95% placement rate. Adobe certified courses in Bangalore and Hyderabad.',
+    images: [
+      {
+        url: 'https://designient.com/designient-official.png',
+        width: 1200,
+        height: 630,
+        alt: 'Designient - UI/UX Design Training Institute',
+      },
+    ],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Designient - UI/UX Design Training Institute',
     description: 'India\'s leading UI/UX design training institute with 95% placement rate.',
+    images: ['https://designient.com/designient-official.png'],
   },
   robots: {
     index: true,

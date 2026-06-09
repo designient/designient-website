@@ -15,7 +15,7 @@ export function CityPageSchemas({ cityName, cityUrl, isPune = false }: CityPageS
     '@context': 'https://schema.org',
     '@type': 'Course',
     name: 'UI/UX Design Pro Course',
-    description: 'A 3-month intensive UI/UX design course focused on hands-on learning, real-world projects, portfolio building, and career readiness for beginners and professionals.',
+    description: 'A 10-week intensive UI/UX design course focused on hands-on learning, real-world projects, portfolio building, and career readiness for beginners and professionals.',
     provider: {
       '@type': 'Organization',
       name: 'Designient School of Masterminds',

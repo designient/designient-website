@@ -396,3 +396,17 @@ export function careersCustomerCopy(data: CareersApplyFormData) {
  )
  return { subject, text, html }
 }
+
+// ─── Newsletter subscription ────────────────────────────────────────────────
+
+export function newsletterLeadEmail(email: string) {
+ const subject = `Newsletter signup: ${email}`
+ const text = `New newsletter subscription request.\n\nEmail: ${email}\n\nSource: Footer newsletter form on ${SITE_URL}`
+ const html = wrapHtml(
+  subject,
+  `<h2 style="color: #F0FF42;">New newsletter subscription</h2>
+ <p><strong>Email:</strong> ${email}</p>
+ <p><strong>Source:</strong> Footer newsletter form</p>`
+ )
+ return { subject, text, html }
+}

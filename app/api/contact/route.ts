@@ -55,6 +55,7 @@ export async function POST(request: NextRequest) {
 
     if (!leadRes.ok) {
       console.error('Failed to send lead email', await leadRes.text())
+      return jsonError('Failed to send message. Please try again later.', 500)
     }
 
     // 2. Send Customer Copy

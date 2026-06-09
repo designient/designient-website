@@ -55,7 +55,7 @@ export const coursePricing: CoursePricingData = {
     },
     usd: {
       price: '$699',
-      originalPrice: '$829'
+      originalPrice: '$699'
     }
   },
   'ui-ux-design-master': {
@@ -75,7 +75,7 @@ export const coursePricing: CoursePricingData = {
     },
     usd: {
       price: '$449',
-      originalPrice: '$569'
+      originalPrice: '$449'
     }
   },
   'ai-product-design-course': {
@@ -85,7 +85,7 @@ export const coursePricing: CoursePricingData = {
     },
     usd: {
       price: '$899',
-      originalPrice: '$1,099'
+      originalPrice: '$899'
     }
   },
   'prompt-engineering-mastery': {

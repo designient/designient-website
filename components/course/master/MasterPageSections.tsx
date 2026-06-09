@@ -16,7 +16,6 @@ import {
  EnrollmentActionButton,
  CourseToolchainSection,
  CourseEditorialSplit,
- CourseBentoGrid,
 } from '../layout'
 import React from 'react'
 import { motion } from 'framer-motion'
@@ -33,13 +32,9 @@ import {
 } from '../infographics'
 import { fadeUp } from '../animated/motion'
 import {
- AnimatedCard,
  AnimatedReveal,
  CourseAnimatedSection,
  CourseCurriculumTimeline,
- CourseTrackStep,
- CourseTrackSteps,
- StaggerItem,
 } from '../animated'
 import {
  masterAdvancedSection,

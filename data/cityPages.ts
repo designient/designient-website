@@ -45,8 +45,8 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
       'Master UI/UX design with hands-on training, mentor-led learning, and placement support in Bangalore.',
     introHeading: 'Bengaluru',
     introParagraphs: [
-      'Learners from Bengaluru often reach out to us for weekday and weekend UI/UX batches.',
-      "If you're a working professional or student based in Bengaluru, our team can guide you on the right batch and learning path.",
+      'Learners from Bengaluru connect with Designient for counselling on the UI/UX Design Pro programme.',
+      "If you're a working professional or student based in Bengaluru, our team can guide you on the learning path and next cohort intake.",
     ],
     whyLearnTitle: 'Why Learn UI/UX Design in Bangalore',
     whyLearnParagraph:
@@ -55,7 +55,7 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
       beforeLink: 'This city page is powered by our flagship ',
       linkText: 'UI/UX Design Pro course',
       afterLink:
-        ' - a 3-month intensive program designed to take you from fundamentals to portfolio-ready. The course focuses on user research, wireframing, UI design, prototyping, and usability testing through real-world projects.',
+        ' - a 10-week intensive programme designed to take you from fundamentals to portfolio-ready. The course focuses on user research, wireframing, UI design, prototyping, and usability testing through real-world projects.',
     },
     whoForItems: [
       'Beginners starting a career in UI/UX design',
@@ -78,16 +78,16 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
         answer: 'Yes. Designient offers the UI/UX Design Pro course for learners in Bangalore.',
       },
       {
-        question: 'Are weekday and weekend batches available in Bangalore?',
-        answer: 'Yes. Bangalore offers both weekday and weekend batch options.',
+        question: 'Are in-person batches currently open in Bangalore?',
+        answer: 'The current Bangalore batch is full. Apply for the Pro course to join the waitlist for the next intake.',
       },
       {
         question: 'Is this course suitable for working professionals in Bangalore?',
-        answer: 'Yes. Weekend batches are designed specifically for working professionals.',
+        answer: 'Yes. The 10-week Pro programme is designed for working professionals and career switchers with live mentor-led sessions.',
       },
     ],
     ctaText: 'Ready to start your UI/UX career in Bangalore?',
-    ctaSecondary: 'Apply now or speak with our counsellors.',
+    ctaSecondary: 'Apply now for the next Pro cohort or speak with our counsellors.',
   },
   hyderabad: {
     name: 'Hyderabad',
@@ -100,7 +100,7 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
     introHeading: 'Hyderabad',
     introParagraphs: [
       "Hyderabad is home to Designient's core mentoring team.",
-      'Learners here can connect with us for detailed counselling, batch schedules, and career guidance.',
+      'Learners here can connect with us for detailed counselling, cohort intake, and career guidance.',
     ],
     whyLearnTitle: 'Why Learn UI/UX Design in Hyderabad',
     whyLearnParagraph:
@@ -109,7 +109,7 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
       beforeLink: "This course page is powered by Designient's ",
       linkText: 'UI/UX Design Pro program',
       afterLink:
-        ' - a 3-month hands-on course focused on practical skills, design thinking, and portfolio development.',
+        ' - a 10-week hands-on programme focused on practical skills, design thinking, and portfolio development.',
     },
     whoForItems: [
       'Beginners exploring UI/UX design',
@@ -131,8 +131,8 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
         answer: 'Yes. The UI/UX Design Pro course is available for learners in Hyderabad.',
       },
       {
-        question: 'Are weekend batches available in Hyderabad?',
-        answer: 'Yes. Both weekday and weekend batches are offered based on schedule.',
+        question: 'Are in-person batches currently open in Hyderabad?',
+        answer: 'The current Hyderabad batch is full. Apply for the Pro course to join the waitlist for the next intake.',
       },
       {
         question: 'Is placement support provided for Hyderabad students?',
@@ -147,12 +147,12 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
     path: '/ui-ux-design-course-in-pune',
     enrollHref: '/ui-ux-design-pro?city=pune#enrollment',
     breadcrumbLabel: 'UI/UX Design Course in Pune',
-    heroTitle: 'UI/UX Design Course in Pune – Weekend Batch | Designient',
+    heroTitle: 'UI/UX Design Course in Pune | Designient',
     heroSubtitle:
-      'A weekend-focused UI/UX design course in Pune, built for working professionals and career switchers.',
+      'A UI/UX design programme in Pune, built for working professionals and career switchers.',
     introHeading: 'Pune',
     introParagraphs: [
-      'We support learners from Pune primarily through weekend batches.',
+      'We support learners from Pune through the UI/UX Design Pro programme.',
       "If you're based in Pune and balancing work with learning, our team can help you plan accordingly.",
     ],
     whyLearnTitle: 'Why Learn UI/UX Design in Pune',
@@ -162,7 +162,7 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
       beforeLink: "This program is part of Designient's ",
       linkText: 'UI/UX Design Pro course',
       afterLink:
-        ' - a 3-month intensive curriculum covering UX research, UI design, prototyping, and usability testing through hands-on projects.',
+        ' - a 10-week intensive curriculum covering UX research, UI design, prototyping, and usability testing through hands-on projects.',
     },
     whoForItems: [
       'Working professionals in Pune',
@@ -171,7 +171,7 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
     ],
     whoForColumns: 3,
     whyDesignientItems: [
-      { icon: 'calendar', text: 'Weekend-friendly learning format' },
+      { icon: 'calendar', text: 'Structured 10-week learning format' },
       { icon: 'users', text: 'Mentor-led sessions with real feedback' },
       { icon: 'target', text: 'Portfolio-focused outcomes' },
       { icon: 'briefcase', text: 'Career and placement guidance included' },
@@ -181,19 +181,19 @@ export const cityPageConfig: Record<CityPageKey, CityPageContentConfig> = {
     faqs: [
       {
         question: 'Is the UI/UX Design course available in Pune?',
-        answer: 'Yes. The UI/UX Design Pro course is available in Pune.',
+        answer: 'Yes. The UI/UX Design Pro course is available for learners in Pune.',
       },
       {
-        question: 'Are weekend batches available in Pune?',
-        answer: 'Yes. Weekend batches are the primary option for Pune learners.',
+        question: 'Are in-person batches currently open in Pune?',
+        answer: 'The current Pune batch is full. Apply for the Pro course to join the waitlist for the next intake.',
       },
       {
         question: 'Is this suitable for working professionals in Pune?',
-        answer: 'Yes. Weekend schedules are designed for professionals balancing work and learning.',
+        answer: 'Yes. The 10-week Pro programme is designed for professionals balancing work and learning.',
       },
     ],
     ctaText: 'Ready to learn UI/UX design in Pune?',
-    ctaSecondary: 'Apply now to join the next weekend batch.',
+    ctaSecondary: 'Apply now for the next Pro cohort.',
   },
 }
 

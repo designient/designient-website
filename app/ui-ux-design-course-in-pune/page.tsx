@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { QuickApplyProvider } from '../../components/course/QuickApplyContext'
 import { PuneCityPageContent } from '../../components/city/PuneCityPageContent'
 import { CityPageSchemas } from '../../components/city/CityPageSchemas'
+import { CoursePageShell, CourseMobilePricingBar } from '../../components/course/layout'
 
 export const metadata: Metadata = {
- title: 'UI/UX Design Course in Pune – Weekend Batch | Designient',
- description: 'A weekend-focused UI/UX design course in Pune for working professionals and career switchers. Designient supports Pune learners through weekend batches.',
+ title: 'UI/UX Design Course in Pune | Designient',
+ description: 'UI/UX design programme in Pune for working professionals and career switchers. Apply for the 10-week UI/UX Design Pro programme.',
  keywords: [
  'UI/UX design course Pune',
  'UX course Pune',
@@ -18,8 +16,8 @@ export const metadata: Metadata = {
  'AI product design course Pune online',
  ],
  openGraph: {
- title: 'UI/UX Design Course in Pune – Weekend Batch | Designient',
- description: 'Weekend-focused UI/UX design course in Pune for working professionals and career switchers.',
+ title: 'UI/UX Design Course in Pune | Designient',
+ description: 'UI/UX design programme in Pune for working professionals and career switchers.',
  url: 'https://designient.com/ui-ux-design-course-in-pune',
  type: 'website',
  },
@@ -34,19 +32,17 @@ export const metadata: Metadata = {
 
 export default function PuneCityPage() {
  return (
- <QuickApplyProvider>
- <div className="min-h-screen bg-base font-sans text-primary">
+ <CoursePageShell
+ structuredData={
  <CityPageSchemas
  cityName="Pune"
  cityUrl="https://designient.com/ui-ux-design-course-in-pune"
  isPune
  />
- <Header />
- <main id="main-content" role="main">
+ }
+ >
+ <CourseMobilePricingBar courseSlug="ui-ux-design-pro" courseName="UI UX Design Pro" />
  <PuneCityPageContent />
- </main>
- <Footer />
- </div>
- </QuickApplyProvider>
+ </CoursePageShell>
  )
 }

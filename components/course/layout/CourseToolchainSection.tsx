@@ -22,26 +22,18 @@ type CourseToolchainSectionProps = {
 
 function ToolLogoMark({ name, size = 44 }: { name: string; size?: number }) {
  const logo = getToolLogo(name)
- const imgProps = (src: string, alt: string) => ({
- src,
- alt,
- width: size,
- height: size,
- className: 'object-contain',
- unoptimized: src.startsWith('http'),
- style: logo.darkFilter ? { filter: 'brightness(0)' as const } : undefined,
- })
+ const imageStyle = logo.darkFilter ? { filter: 'brightness(0)' as const } : undefined
 
  if (logo.secondarySrc) {
  return (
  <div className="flex items-center gap-2 flex-shrink-0">
- <Image {...imgProps(logo.src, `${name} logo`)} />
- <Image {...imgProps(logo.secondarySrc, logo.secondaryLabel ?? 'Secondary tool logo')} />
+ <Image src={logo.src} alt={`${name} logo`} width={size} height={size} className="object-contain" unoptimized={logo.src.startsWith('http')} style={imageStyle} />
+ <Image src={logo.secondarySrc} alt={logo.secondaryLabel ?? 'Secondary tool logo'} width={size} height={size} className="object-contain" unoptimized={logo.secondarySrc.startsWith('http')} style={imageStyle} />
  </div>
  )
  }
 
- return <Image {...imgProps(logo.src, `${name} logo`)} />
+ return <Image src={logo.src} alt={`${name} logo`} width={size} height={size} className="object-contain" unoptimized={logo.src.startsWith('http')} style={imageStyle} />
 }
 
 export function CourseToolchainSection({

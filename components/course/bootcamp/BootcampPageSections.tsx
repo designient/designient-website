@@ -29,11 +29,7 @@ import {
  CourseStackInfographic,
  CourseWhatYouBuildInfographic,
 } from '../infographics'
-import {
- AnimatedCard,
- CourseAnimatedSection,
- StaggerItem,
-} from '../animated'
+import { CourseAnimatedSection } from '../animated'
 import { fadeUp } from '../animated/motion'
 import {
  bootcampBonuses,

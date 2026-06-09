@@ -24,10 +24,12 @@ import {
  CourseStackInfographic,
  CourseWhatYouBuildInfographic,
 } from '../infographics'
-import { ProLearningPathInfographic } from './ProLearningPathInfographic'
 import React from 'react'
 import Link from 'next/link'
-import { ArrowRight, ChevronRight, Shield, Star } from 'react-feather'
+import { motion } from 'framer-motion'
+import { ArrowRight, ChevronRight, GitBranch, Shield, Star } from 'react-feather'
+import { CrossCoursePrice } from '../../pricing/CrossCoursePrice'
+import { fadeUp } from '../animated/motion'
 import { CourseUrgencyStrip, COURSE_SLUGS } from '../../pricing/CourseUrgencyStrip'
 import {
  LocalizedBookingTokenNote,
@@ -39,7 +41,6 @@ import {
  AnimatedReveal,
  CourseAnimatedSection,
  CourseCurriculumTimeline,
- StaggerItem,
 } from '../animated'
 import {
  proBonuses,
@@ -160,7 +161,41 @@ export function ProPatternInterrupt() {
 }
 
 export function ProLearningPath() {
- return <ProLearningPathInfographic />
+ return (
+  <CourseLearningPathInfographic
+   subtitle="Design Track progression - where Pro sits in the full journey."
+   steps={[
+    { label: 'Step 1', title: 'UI UX Design Bootcamp', href: '/ui-ux-design-bootcamp', priceSlug: COURSE_SLUGS.bootcamp, priceRange: true, note: 'recommended if you have never designed before' },
+    { label: 'Step 2', title: 'UI UX Design Pro', note: 'You are here', active: true },
+    { label: 'Step 3', title: 'UI UX Design Master', href: '/ui-ux-design-master', priceSlug: COURSE_SLUGS.master, note: 'for designers who want to reach lead and senior level' },
+   ]}
+  >
+   <motion.div variants={fadeUp} className="rounded-2xl border-2 border-dashed p-5 md:p-6 mb-6" style={{ borderColor: 'var(--color-highlight)', backgroundColor: 'var(--bg-warm)' }}>
+    <div className="flex items-start gap-3 mb-3">
+     <GitBranch className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--color-highlight)' }} />
+     <p className="font-body text-sm font-bold tracking-wide" style={{ color: 'var(--color-highlight)' }}>
+      CROSS-TRACK BRIDGE - RECOMMENDED FOR PRO GRADUATES
+     </p>
+    </div>
+    <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+     After completing this course, Pro graduates moving into AI-product-focused roles are recommended to take the{' '}
+     <Link href="/ai-product-design-course" className="course-inline-link">AI Product Design Course</Link>{' '}
+     next - 6 weeks on trust UI, error states, and confidence design.
+    </p>
+   </motion.div>
+   <motion.div variants={fadeUp} className="rounded-xl px-5 py-4 border" style={{ borderColor: 'var(--border-default)', backgroundColor: 'var(--bg-card)' }}>
+    <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+     <strong style={{ color: 'var(--text-primary)' }}>Not started yet?</strong> The{' '}
+     <Link href="/ui-ux-design-bootcamp" className="course-inline-link">UI UX Design Bootcamp</Link>{' '}
+     is a 3-day, <CrossCoursePrice slug={COURSE_SLUGS.bootcamp} /> entry point before committing to 10 weeks.
+    </p>
+    <Link href="/ui-ux-design-bootcamp" className="inline-flex items-center gap-2 font-body font-semibold text-sm mt-4" style={{ color: 'var(--color-primary)' }}>
+     Explore Bootcamp
+     <ArrowRight className="w-4 h-4" />
+    </Link>
+   </motion.div>
+  </CourseLearningPathInfographic>
+ )
 }
 
 export function ProWhatYouBuild() {

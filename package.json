@@ -15,7 +15,6 @@
     "content:lint": "node scripts/content-lint.mjs"
   },
   "dependencies": {
-    "@hubspot/api-client": "^13.4.0",
     "framer-motion": "^11.5.4",
     "next": "15.5.2",
     "react": "^19.2.3",

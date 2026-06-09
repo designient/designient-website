@@ -35,7 +35,7 @@ const allFAQs = [
  },
  {
  question: 'How long is the course?',
- answer: 'Our UI/UX design courses span from 3 months for the Pro Course to 9 months for the Master Course, with regular classes and hands-on sessions.'
+ answer: 'Our UI/UX design courses span from 10 weeks for the Pro Course to 6 months for the Master Course, with regular classes and hands-on sessions.'
  },
  {
  question: 'Are there any course prerequisites?',
@@ -323,7 +323,7 @@ export default function FAQsPage() {
  fontSize: 'clamp(1rem, 1.5vw, 1.125rem)',
  lineHeight: '1.7'
  }}>
- Our UI/UX design courses span from 3 months for the Pro Course to 9 months for the Master Course, with regular classes and hands-on sessions.
+ Our UI/UX design courses span from 10 weeks for the Pro Course to 6 months for the Master Course, with regular classes and hands-on sessions.
  </p>
  </div>
  <div className="bg-card rounded-xl p-6 shadow-sm border border-gray-100">

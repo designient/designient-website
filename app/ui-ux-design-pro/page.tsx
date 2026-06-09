@@ -1,4 +1,4 @@
-import { ProEnrollmentSection } from '../../components/course/pro/ProEnrollmentSection'
+import { CourseEnrollmentInfographicSection } from '../../components/course/CourseEnrollmentInfographicSection'
 import { CourseFAQ } from '../../components/course/CourseFAQ'
 import { proEmiConfig, proHero } from '../../data/proPageData'
 import { CourseStructuredData } from '../../components/course/CourseStructuredData'
@@ -164,7 +164,7 @@ export default function UIUXDesignProPage() {
  <ProValueStack />
  </CourseSectionBand>
 
- <ProEnrollmentSection
+ <CourseEnrollmentInfographicSection
  courseSlug="ui-ux-design-pro"
  courseName="UI UX Design Pro"
  features={proPricingFeatures}
@@ -172,6 +172,7 @@ export default function UIUXDesignProPage() {
  emiConfig={proEmiConfig}
  batchDates={null}
  bookingNote={proHero.bookingNote}
+ seatNote={proHero.seatNote}
  />
 
  <CourseSectionBand variant="green">

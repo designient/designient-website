@@ -173,6 +173,7 @@ export default function AIAutomationAcceleratorPage() {
  batchDates={null}
  bookingNote={aiAcceleratorHero.bookingNote}
  subtitle="Build 3 deployed automations in 8 weeks. Seat confirmed on payment."
+ seatNote={aiAcceleratorHero.seatNote}
  />
  <CourseSectionBand variant="green">
  <AIAcceleratorGuarantee />

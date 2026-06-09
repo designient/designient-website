@@ -196,7 +196,7 @@ export function Footer() {
                         opacity: isSubmitting ? 0.7 : 1,
                       }}
                     >
-                      {isSubmitting ? 'Submitting...' : 'Apply Now'}
+                      {isSubmitting ? 'Submitting...' : 'Subscribe'}
                     </motion.button>
                   </div>
                 </div>

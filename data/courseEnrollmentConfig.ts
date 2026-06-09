@@ -55,7 +55,7 @@ export const courseEnrollmentConfig: Record<string, CourseEnrollmentConfig> = {
     track: 'design',
     enrollmentType: 'apply_then_token',
     paymentModel: 'booking_token_plus_emi',
-    duration: '16 Weeks',
+    duration: '6 Months',
     bookingToken: { inr: 9999, usd: 140 },
     primaryCtaLabel: 'Apply Now',
     secondaryCtaLabel: 'Reserve Seat',

@@ -181,8 +181,7 @@ export function CareerApplicationForm({ roleName, roleId }: CareerApplicationFor
         formDataToSend.append('resume', resumeFile)
       }
 
-      // TODO: Replace with actual API endpoint or email service
-      // For now, using mailto as fallback
+      // Submits to /api/careers/apply (Resend email with optional resume attachment)
       const response = await fetch('/api/careers/apply', {
         method: 'POST',
         body: formDataToSend

@@ -173,7 +173,16 @@ export function AIProductPriceJustification() {
  <p className="font-body font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
  {i + 1}. {point.title}
  </p>
- <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{point.body}</p>
+ <p className="font-body leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+  {i === 3 ? (
+   <>
+    A handful of programs abroad cover this at comparable depth - at USD 1,500 to USD 2,000, self-paced, no live critique, no portfolio output. At{' '}
+    <LocalizedPriceText inr="Rs 64,999" usd="USD 899" /> with live mentorship and two deployable case studies, the price is structurally lower than every international equivalent.
+   </>
+  ) : (
+   point.body
+  )}
+ </p>
  </li>
  ))}
  </ol>

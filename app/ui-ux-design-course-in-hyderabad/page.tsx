@@ -1,13 +1,11 @@
 import type { Metadata } from 'next'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { QuickApplyProvider } from '../../components/course/QuickApplyContext'
 import { HyderabadCityPageContent } from '../../components/city/HyderabadCityPageContent'
 import { CityPageSchemas } from '../../components/city/CityPageSchemas'
+import { CoursePageShell, CourseMobilePricingBar } from '../../components/course/layout'
 
 export const metadata: Metadata = {
  title: 'UI/UX Design Course in Hyderabad – Designient School of Masterminds',
- description: 'Learn UI/UX design with industry-focused training, real projects, and career support in Hyderabad. Designient’s core mentoring team is based in Hyderabad.',
+ description: 'Learn UI/UX design with industry-focused training, real projects, and career support in Hyderabad. Apply for the 10-week UI/UX Design Pro programme.',
  keywords: [
  'UI/UX design course Hyderabad',
  'UX course Hyderabad',
@@ -34,18 +32,16 @@ export const metadata: Metadata = {
 
 export default function HyderabadCityPage() {
  return (
- <QuickApplyProvider>
- <div className="min-h-screen bg-base font-sans text-primary">
+ <CoursePageShell
+ structuredData={
  <CityPageSchemas
  cityName="Hyderabad"
  cityUrl="https://designient.com/ui-ux-design-course-in-hyderabad"
  />
- <Header />
- <main id="main-content" role="main">
+ }
+ >
+ <CourseMobilePricingBar courseSlug="ui-ux-design-pro" courseName="UI UX Design Pro" />
  <HyderabadCityPageContent />
- </main>
- <Footer />
- </div>
- </QuickApplyProvider>
+ </CoursePageShell>
  )
 }

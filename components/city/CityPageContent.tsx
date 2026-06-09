@@ -21,8 +21,8 @@ import { PageHero } from '../layout/PageHero'
 import { CourseFAQ } from '../course/CourseFAQ'
 import { CourseSectionBand, CourseBentoGrid } from '../course/layout'
 import { CityAITrackSection } from './CityAITrackSection'
-import { CourseCTA } from '../course/CourseCTA'
 import { CitySiblingLinks } from './CitySiblingLinks'
+import { getEnrollmentConfig } from '../../data/courseEnrollmentConfig'
 import { CityBatchAvailabilitySection } from './CityBatchAvailabilitySection'
 import { cityPageConfig, type CityPageKey, type CityWhyDesignientItem } from '../../data/cityPages'
 
@@ -42,6 +42,7 @@ type CityPageContentProps = {
 export function CityPageContent({ city }: CityPageContentProps) {
   const config = cityPageConfig[city]
   const gridCols = config.whoForColumns === 3 ? 'md:grid-cols-3' : 'md:grid-cols-2'
+  const proCtaLabel = getEnrollmentConfig('ui-ux-design-pro')?.primaryCtaLabel ?? 'Apply Now'
 
   return (
     <>
@@ -87,7 +88,7 @@ export function CityPageContent({ city }: CityPageContentProps) {
                   fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                 }}
               >
-                Enroll Now
+                {proCtaLabel}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
@@ -458,13 +459,27 @@ export function CityPageContent({ city }: CityPageContentProps) {
 
       <CourseSectionBand variant="green">
         <CitySiblingLinks currentCity={city} />
-        <CourseCTA
-          courseName="UI/UX Design Pro"
-          courseSlug="ui-ux-design-pro"
-          ctaText={config.ctaText}
-          secondaryText={config.ctaSecondary}
-          cityName={config.name}
-        />
+        <section className="py-16 md:py-20">
+          <div className="max-w-container mx-auto px-4 md:px-6 lg:px-8 max-w-3xl text-center">
+            <h2
+              className="font-display font-bold mb-4"
+              style={{ color: 'var(--color-primary)', fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)' }}
+            >
+              {config.ctaText}
+            </h2>
+            <p className="font-body text-lg mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              {config.ctaSecondary}
+            </p>
+            <Link
+              href={config.enrollHref}
+              className="inline-flex items-center gap-2 font-body font-bold px-8 py-4 rounded-full transition-transform hover:scale-105"
+              style={{ backgroundColor: 'var(--color-accent)', color: 'var(--text-on-accent)' }}
+            >
+              {proCtaLabel}
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </section>
       </CourseSectionBand>
     </>
   )

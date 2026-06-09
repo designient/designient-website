@@ -7,7 +7,7 @@ export const proHero = {
  'The most enrolled UI/UX design course at Designient. Ten weeks of live mentorship, real client projects, AI tool fluency, and structured placement support. You leave with a portfolio an employer can evaluate in the first 90 seconds.',
  trustChips: [
  '10 Weeks',
- '84 Live Hours',
+ '124 Total Hours',
  '25 Students Max',
  'Adobe Certified',
  'Placement Support Included',

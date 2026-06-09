@@ -16,7 +16,6 @@ import {
  CourseToolchainSection,
  EnrollmentActionButton,
  CourseEditorialSplit,
- CourseBentoGrid,
 } from '../layout'
 import Link from 'next/link'
 import { ArrowRight, ChevronRight, Shield, Zap } from 'react-feather'
@@ -33,11 +32,7 @@ import { fadeUp } from '../animated/motion'
 import { motion } from 'framer-motion'
 import {
  AnimatedCard,
- AnimatedGrid,
- AnimatedGridItem,
  CourseAnimatedSection,
- CourseTrackStep,
- CourseTrackSteps,
  StaggerItem,
 } from '../animated'
 import { motionEase, viewportOnce } from '../animated/motion'

@@ -177,6 +177,7 @@ export default function AIProductDesignCoursePage() {
  batchDates={null}
  bookingNote={aiProductHero.bookingNote}
  subtitle="Application-based. 12 seats. Two portfolio artefacts in 6 weeks."
+ seatNote={aiProductHero.seatNote}
  />
  <CourseSectionBand variant="green">
  <AIProductGuarantee />

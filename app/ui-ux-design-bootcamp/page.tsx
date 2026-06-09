@@ -19,7 +19,7 @@ import {
  BootcampValueStack,
  BootcampWhatYouBuild,
 } from '../../components/course/bootcamp/BootcampPageSections'
-import { bootcampFaqs, bootcampIdealFor, bootcampNotFor, bootcampPricingFeatures } from '../../data/bootcampPageData'
+import { bootcampFaqs, bootcampHero, bootcampIdealFor, bootcampNotFor, bootcampPricingFeatures } from '../../data/bootcampPageData'
 import { StructuredData } from '../../components/StructuredData'
 import type { Metadata } from 'next'
 
@@ -153,6 +153,7 @@ export default function UIUXDesignBootcampPage() {
  duration="3 Days"
  batchDates={null}
  subtitle="One weekend. Five portfolio artefacts. Seat confirmed on payment."
+ seatNote={bootcampHero.seatNote}
  />
  <CourseSectionBand variant="green">
  <BootcampGuarantee />
