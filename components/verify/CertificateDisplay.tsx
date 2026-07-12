@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { CheckCircle, XCircle, AlertCircle, Clock, ArrowLeft, ExternalLink, Download, Copy } from 'react-feather'
 import certificatesData from '../../data/certificates.json'
+import { SiteLogo } from '../shared/SiteLogo'
 
 // LinkedIn company numeric ID for https://www.linkedin.com/company/designient-school
 const LINKEDIN_ORG_ID = '13247291'
@@ -115,12 +116,12 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  if (cert) {
  setCertificate(cert as Certificate)
  } else {
- setError('Invalid certificate')
- }
- setIsLoading(false)
- }, [hash])
+    setError('Invalid certificate')
+    }
+    setIsLoading(false)
+  }, [hash])
 
- const handleCopyLink = async () => {
+  const handleCopyLink = async () => {
  const url = typeof window !== 'undefined' ? window.location.href : certificate?.credentialUrl ?? ''
  try {
  await navigator.clipboard.writeText(url)
@@ -216,28 +217,52 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  <>
  <style dangerouslySetInnerHTML={{
  __html: `
- @page { size: A4 landscape; margin: 12mm; }
- @media print {
- header, footer, [role="banner"], .skip-print, .no-print, nav { display: none !important; }
- html, body { margin: 0 !important; padding: 0 !important; background: #fff !important; height: 100% !important; }
- .certificate-print-section {
- padding: 0 !important; margin: 0 !important; background: #fff !important;
- min-height: 100vh !important; height: 100vh !important; max-height: 100vh !important;
- display: flex !important; align-items: center !important; justify-content: center !important;
- overflow: hidden !important;
- }
- .certificate-print-section > div,
- .certificate-print-section > div > div {
- max-width: none !important; width: 100% !important; margin: 0 !important;
- display: flex !important; align-items: center !important; justify-content: center !important;
- flex: 1 !important;
- }
- #certificate-to-print {
- box-shadow: none !important; border: 2px solid #1a1a1a !important;
- transform: scale(var(--cert-print-scale, 0.88)) !important;
- transform-origin: center center !important;
- }
- }
+@page { size: A4 landscape; margin: 0; }
+@media print {
+              header, footer, [role="banner"], .skip-print, .no-print, nav { display: none !important; }
+              html, body {
+                margin: 0 !important; padding: 0 !important; background: #fff !important;
+                width: 100% !important; height: 100% !important;
+                overflow: hidden !important;
+              }
+              /* The print section fills exactly one page (100vw x 100vh, which adapts to the
+                 browser/dialog's real printable area) and clips overflow, so a second page is
+                 impossible. The certificate keeps its natural 297/210 aspect ratio and is
+                 scaled to 94vh so the COMPLETE design fits, centered with margin around it. */
+              .certificate-print-section {
+                padding: 0 !important; margin: 0 !important; background: #fff !important;
+                width: 100vw !important; height: 100vh !important;
+                min-height: 0 !important; max-height: 100vh !important;
+                display: flex !important; align-items: center !important; justify-content: center !important;
+                overflow: hidden !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
+              }
+              .certificate-print-section > div,
+              .certificate-print-section > div > div {
+                max-width: none !important; width: auto !important; height: auto !important;
+                max-width: 100% !important; max-height: 100% !important;
+                margin: 0 !important; padding: 0 !important;
+                display: flex !important; align-items: center !important; justify-content: center !important;
+                flex: 0 1 auto !important; min-height: 0 !important;
+              }
+              #certificate-to-print {
+                box-shadow: none !important; border: 2px solid #1a1a1a !important;
+                width: auto !important; height: 99vh !important;
+                max-width: 99.5vw !important; max-height: 99vh !important;
+                min-height: 0 !important;
+                aspect-ratio: 297 / 210 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+              }
+              /* Trim the empty vertical padding inside the card in print so the content
+                 (logo -> footer) is vertically balanced and the top gap is removed. */
+              .cert-content {
+                padding-top: 3% !important;
+                padding-bottom: 3% !important;
+                justify-content: center !important;
+              }
+            }
  `}} />
  <section
  className="pt-8 md:pt-12 pb-8 certificate-print-section"
@@ -365,23 +390,20 @@ export function CertificateDisplay({ hash }: { hash: string }) {
 
  {/* Full-grid layout: header | body (flex) | footer | credential */}
  <div
- className="relative h-full min-h-0 flex flex-col p-6 sm:p-[5%]"
+ className="cert-content relative h-full min-h-0 flex flex-col p-6 sm:p-[5%]"
  style={{ backgroundColor: 'var(--bg-card)' }}
  >
  {/* Subtle watermark */}
- <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.04]" aria-hidden>
- <Image src="/designient-logo.svg" alt="" width={320} height={80} className="object-contain" />
- </div>
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.04]" aria-hidden>
+              <SiteLogo variant="header" className="w-[320px] h-auto object-contain" />
+            </div>
 
  {/* Row 1: Header - logo centered, year award top-right */}
  <div className="relative flex justify-center items-center flex-shrink-0 mb-6 md:mb-[2%] min-h-0 pt-4 md:pt-0">
- <Image
- src="/designient-logo.svg"
- alt="Designient"
- width={240}
- height={56}
- className="object-contain w-[160px] md:w-[28%] md:min-w-[180px] md:max-w-[280px] h-auto"
- />
+              <SiteLogo
+                variant="header"
+                className="object-contain w-[160px] md:w-[28%] md:min-w-[180px] md:max-w-[280px] h-auto"
+              />
  <div
  className="absolute top-0 right-0 font-display font-bold px-2 py-1 sm:px-3 sm:py-1.5 text-xs sm:text-sm rounded-lg border-2"
  style={{ borderColor: 'var(--color-primary)', color: 'var(--color-primary)' }}
@@ -423,7 +445,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  </div>
 
  {/* Row 3: Footer - 3 columns, equal spacing */}
- <div className="grid grid-cols-3 gap-2 sm:gap-4 flex-shrink-0 pt-6 md:pt-[2%] mt-2 md:mt-[1%] border-t-2 items-end" style={{ borderColor: 'var(--border-default)' }}>
+ <div className="certificate-footer-row grid grid-cols-3 gap-2 sm:gap-4 flex-shrink-0 pt-6 md:pt-[2%] mt-2 md:mt-[1%] border-t-2 items-end" style={{ borderColor: 'var(--border-default)' }}>
  <div className="text-center md:text-left">
  <p className="font-body uppercase tracking-wider mb-0.5" style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.5rem, 0.9vw, 0.65rem)' }}>
  Certified Partner
@@ -458,8 +480,8 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  </div>
  </div>
 
- {/* Row 4: Credential URL - compact */}
- <div className="flex-shrink-0 pt-4 md:pt-[1.5%] mt-2 md:mt-[1%] border-t text-center" style={{ borderColor: 'var(--bg-peach)' }}>
+              {/* Row 4: Credential URL - on-screen only; hidden in print via .credential-url-row / .no-print */}
+              <div className="credential-url-row no-print flex-shrink-0 pt-4 md:pt-[1.5%] mt-2 md:mt-[1%] border-t text-center" style={{ borderColor: 'var(--bg-peach)' }}>
  <p className="font-body uppercase tracking-wider mb-0.5" style={{ color: 'var(--text-muted)', fontSize: 'clamp(0.45rem, 0.8vw, 0.6rem)' }}>
  Credential URL
  </p>
