@@ -202,6 +202,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  const isExpired = statusLower === 'expired'
  const isReissued = statusLower === 'reissued'
  const canDownloadPdf = isActive || isExpired
+ const isMasterclass = certificate.courseName === 'UX/UI Design Masterclass'
  const verificationUrl = typeof window !== 'undefined' ? window.location.href : certificate.credentialUrl
  const linkedInCertName = `${certificate.courseName} Certificate`
  const issueMonth = new Date(certificate.issueDate).getMonth() + 1 // 1–12
@@ -334,10 +335,10 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  >
  {copyFeedback ? <>Copied!</> : <><Copy className="w-4 h-4" aria-hidden /> Copy Credential URL</>}
  </button>
- {canDownloadPdf && (
- <button
- type="button"
- onClick={handlePrint}
+          {false && canDownloadPdf && (
+            <button
+              type="button"
+              onClick={handlePrint}
  className="inline-flex items-center gap-2 font-body text-sm font-medium px-4 py-2 rounded-lg text-white transition-opacity hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-purple-600 surface-on-accent"
  style={{ backgroundColor: 'var(--color-cta)' }}
  aria-label={`Download PDF: Designient-Certificate-${certificate.certificateId}.pdf`}
@@ -431,13 +432,21 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  {certificate.studentName}
  </h3>
  <p className="font-body flex-shrink-0 px-4" style={{ color: 'var(--text-primary)', lineHeight: 1.5, fontSize: 'clamp(0.9rem, 2vw, 1.4rem)' }}>
- For successfully completing the <br className="block md:hidden" /><strong>{certificate.courseName}</strong>.
+ {isMasterclass ? (
+ <>As SDAIA member participating in and completing the <strong>UI/UX Design Masterclass</strong>, a 5-day intensive program conducted by Sameer Ul Haque.</>
+ ) : (
+ <>For successfully completing the <br className="block md:hidden" /><strong>{certificate.courseName}</strong>.</>
+ )}
  </p>
  <p
  className="font-body max-w-full md:max-w-[92%] mx-auto flex-shrink-0 px-4"
  style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.8rem, 1.5vw, 1.05rem)', lineHeight: 1.6 }}
  >
- We wish you joy, growth and fulfilment in your career ahead. May your work <br className="hidden md:block" />change lives for the better, now and forever!
+ {isMasterclass ? (
+ <>We wish you clarity, momentum and continued growth in your design practice. <br className="hidden md:block" />May this be the start of deeper mastery ahead!</>
+ ) : (
+ <>We wish you joy, growth and fulfilment in your career ahead. May your work <br className="hidden md:block" />change lives for the better, now and forever!</>
+ )}
  </p>
  <p className="font-body flex-shrink-0 mt-2" style={{ color: 'var(--text-secondary)', fontSize: 'clamp(0.875rem, 1.6vw, 1.1rem)' }}>
  Date: <span style={{ color: '#0d9488', fontWeight: 'bold' }}>{formatCertificateDate(certificate.issueDate)}</span>
