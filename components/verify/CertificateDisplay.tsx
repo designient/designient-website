@@ -202,6 +202,8 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  const isExpired = statusLower === 'expired'
  const isReissued = statusLower === 'reissued'
  const canDownloadPdf = isActive || isExpired
+ // Temporarily hidden; typed as boolean so the button block stays reachable for type-checking.
+ const showDownloadPdf: boolean = false
  const isMasterclass = certificate.courseName === 'UX/UI Design Masterclass'
  const verificationUrl = typeof window !== 'undefined' ? window.location.href : certificate.credentialUrl
  const linkedInCertName = `${certificate.courseName} Certificate`
@@ -335,7 +337,7 @@ export function CertificateDisplay({ hash }: { hash: string }) {
  >
  {copyFeedback ? <>Copied!</> : <><Copy className="w-4 h-4" aria-hidden /> Copy Credential URL</>}
  </button>
-          {false && canDownloadPdf && (
+          {showDownloadPdf && canDownloadPdf && (
             <button
               type="button"
               onClick={handlePrint}
